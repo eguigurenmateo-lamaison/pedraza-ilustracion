@@ -1,0 +1,1089 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Kit de arranque — Plan Pedraza Ilustración</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
+<style>
+/* ==========================================================================
+   Sistema de diseño — Plan Pedraza Ilustración
+   Bloque único y canónico. No editar por página: solo usar estas clases.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* --- tinta y superficies --- */
+  --ink: #1c2420;
+  --ink-soft: #4c5850;
+  --ink-faint: #7c887f;
+  --paper: #faf6ee;
+  --surface: #fffefb;
+  --line: #e6ded0;
+  --line-strong: #d6c9b0;
+
+  /* --- acento: rojo copihue --- */
+  --accent: #b0223f;
+  --accent-dark: #7c1830;
+  --accent-soft: #f8dfe4;
+
+  /* --- apoyo semántico --- */
+  --success: #2f6b4a;
+  --success-soft: #dcece1;
+  --warn: #a8720a;
+  --warn-soft: #f8ecd2;
+  --danger: #ae3d17;
+  --danger-soft: #f7ddd0;
+  --info: #35606c;
+  --info-soft: #dde7ea;
+
+  /* --- forma --- */
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-full: 999px;
+  --shadow-sm: 0 1px 3px rgba(28, 36, 32, .1);
+  --shadow: 0 6px 20px rgba(28, 36, 32, .12);
+
+  /* --- espaciado --- */
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  /* --- tipografía --- */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --fs-sm: clamp(.82rem, .78rem + .2vw, .9rem);
+  --fs-base: clamp(1rem, .95rem + .25vw, 1.0625rem);
+  --fs-lg: clamp(1.1rem, 1.02rem + .4vw, 1.25rem);
+  --fs-h3: clamp(1.15rem, 1.05rem + .5vw, 1.35rem);
+  --fs-h2: clamp(1.35rem, 1.15rem + 1vw, 1.75rem);
+  --fs-h1: clamp(1.75rem, 1.4rem + 2vw, 2.75rem);
+
+  /* --- área táctil mínima (regla mobile-first del proyecto) --- */
+  --tap: 44px;
+}
+
+/* ===== 1. Reset mínimo ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; }
+img, svg { max-width: 100%; display: block; }
+h1, h2, h3, h4, p, ul, ol, dl, figure { margin: 0 0 var(--space-4); }
+ul, ol { padding-left: 1.2em; }
+a { color: inherit; }
+button { font: inherit; }
+table { border-collapse: collapse; width: 100%; }
+
+/* ===== 2. Tipografía base ===== */
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: var(--font-serif); line-height: 1.2; color: var(--ink); }
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+p { max-width: 68ch; }
+strong { color: var(--ink); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* ===== 3. Layout ===== */
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 var(--space-4) var(--space-8); }
+
+/* ===== 4. Nav superior (.docnav) ===== */
+.docnav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--ink);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+.docnav__inner {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 var(--space-2);
+}
+.docnav__link {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  min-height: var(--tap);
+  padding: 0 var(--space-3);
+  color: #eae6dd;
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+}
+.docnav__link:hover { color: #fff; }
+.docnav__link.active {
+  color: #fff;
+  border-bottom-color: var(--accent);
+}
+
+/* ===== 5. Hero ===== */
+.hero {
+  padding: var(--space-7) var(--space-4);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+  color: #fff;
+}
+.hero__inner { max-width: 960px; margin: 0 auto; }
+.hero h1 { color: #fff; margin-bottom: var(--space-3); }
+.hero p { color: rgba(255, 255, 255, .92); font-size: var(--fs-lg); max-width: 60ch; margin: 0; }
+
+/* ===== 6. Secciones numeradas (.sec) ===== */
+main { counter-reset: sec; }
+.sec { counter-increment: sec; margin-top: var(--space-7); }
+.sec:first-of-type { margin-top: var(--space-6); }
+.sec > h2 {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding-bottom: var(--space-2);
+  border-bottom: 2px solid var(--line-strong);
+}
+.sec > h2::before {
+  content: counter(sec);
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9em;
+  height: 1.9em;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: .55em;
+  font-weight: 700;
+}
+
+/* ===== 7. Callouts ===== */
+.callout {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  margin: var(--space-4) 0;
+}
+.callout::before { flex: 0 0 auto; font-size: 1.3em; line-height: 1; }
+.callout p:last-child { margin-bottom: 0; }
+.callout--info { border-color: var(--info); background: var(--info-soft); }
+.callout--info::before { content: "💡"; }
+.callout--success { border-color: var(--success); background: var(--success-soft); }
+.callout--success::before { content: "✅"; }
+.callout--warn { border-color: var(--warn); background: var(--warn-soft); }
+.callout--warn::before { content: "🟡"; }
+.callout--danger { border-color: var(--danger); background: var(--danger-soft); }
+.callout--danger::before { content: "🔴"; }
+
+/* ===== 8. Bloque copiable (.copyblock) ===== */
+.copyblock {
+  position: relative;
+  margin: var(--space-4) 0;
+  padding: var(--space-8) var(--space-4) var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.copyblock__text {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--ink);
+}
+.copyblock__btn {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  min-height: var(--tap);
+  padding: 0 var(--space-4);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  cursor: pointer;
+}
+.copyblock__btn:hover { background: var(--accent-dark); }
+.copyblock__btn.is-copied { background: var(--success); }
+
+/* ===== 9. KPIs (.kpi) ===== */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  margin: var(--space-4) 0;
+}
+.kpi {
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.kpi__label { display: block; font-size: var(--fs-sm); color: var(--ink-soft); margin-bottom: var(--space-2); }
+.kpi__value { display: block; font-family: var(--font-serif); font-size: clamp(1.5rem, 1.3rem + 1vw, 2.1rem); font-weight: 700; color: var(--ink); }
+.kpi__delta { display: inline-block; margin-top: var(--space-2); font-size: var(--fs-sm); font-weight: 600; padding: 2px var(--space-2); border-radius: var(--radius-full); }
+.kpi__delta--up { color: var(--success); background: var(--success-soft); }
+.kpi__delta--down { color: var(--danger); background: var(--danger-soft); }
+
+/* ===== 10. Tarjeta genérica (.card) ===== */
+.card {
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  margin: var(--space-4) 0;
+}
+.card h3 { margin-top: 0; }
+
+/* ===== 11. Tablas responsive ===== */
+.table-wrap { overflow-x: auto; margin: var(--space-4) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); }
+.table-wrap table { min-width: 480px; }
+.table-wrap th, .table-wrap td { padding: var(--space-3); text-align: left; border-bottom: 1px solid var(--line); font-size: var(--fs-sm); }
+.table-wrap thead th { background: var(--ink); color: #fff; position: sticky; top: 0; }
+.table-wrap tbody tr:last-child td { border-bottom: none; }
+.table-wrap tbody tr:nth-child(even) { background: var(--paper); }
+
+/* ===== 12. Barra de progreso (.progress) ===== */
+.progress { margin: var(--space-4) 0; }
+.progress__track { height: 14px; background: var(--line); border-radius: var(--radius-full); overflow: hidden; }
+.progress__fill { height: 100%; background: var(--accent); border-radius: var(--radius-full); transition: width .3s ease; width: 0%; }
+.progress__label { display: block; margin-top: var(--space-2); font-size: var(--fs-sm); color: var(--ink-soft); }
+
+/* ===== 13. Checklist táctil (.checklist) ===== */
+.checklist { list-style: none; padding-left: 0; margin: var(--space-4) 0; }
+.checklist li { margin-bottom: var(--space-2); }
+.checklist label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  min-height: var(--tap);
+  padding: var(--space-2) var(--space-3);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+.checklist input[type="checkbox"] { width: 24px; height: 24px; flex: 0 0 auto; accent-color: var(--accent); margin-top: 2px; }
+.checklist input[type="checkbox"]:checked + span { text-decoration: line-through; color: var(--ink-soft); }
+
+/* ===== 14. Etiquetas (.pill) ===== */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+.pill--success { background: var(--success-soft); color: var(--success); }
+.pill--warn { background: var(--warn-soft); color: var(--warn); }
+.pill--danger { background: var(--danger-soft); color: var(--danger); }
+.pill--info { background: var(--info-soft); color: var(--info); }
+
+/* ===== 15. Grillas responsive ===== */
+.grid-2, .grid-3 { display: grid; gap: var(--space-4); margin: var(--space-4) 0; grid-template-columns: 1fr; }
+
+/* ===== 16. Gráficos SVG/CSS hechos a mano ===== */
+/* Barras horizontales */
+.chart-bar-row { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-2); }
+.chart-bar-row__label { flex: 0 0 9rem; font-size: var(--fs-sm); color: var(--ink-soft); }
+.chart-bar-row__track { flex: 1 1 auto; height: 20px; background: var(--line); border-radius: var(--radius-full); overflow: hidden; }
+.chart-bar-row__fill { height: 100%; background: var(--accent); border-radius: var(--radius-full); }
+.chart-bar-row__value { flex: 0 0 auto; font-size: var(--fs-sm); font-weight: 700; min-width: 3.5rem; text-align: right; }
+
+/* Embudo: cada .funnel-step define su ancho con --w inline, ej. style="--w:70%" */
+.funnel { display: flex; flex-direction: column; align-items: center; gap: 2px; margin: var(--space-4) 0; }
+.funnel-step {
+  width: var(--w, 100%);
+  max-width: 100%;
+  padding: var(--space-3);
+  text-align: center;
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  background: var(--accent);
+  border-radius: var(--radius-sm);
+}
+.funnel-step:nth-child(2) { opacity: .85; }
+.funnel-step:nth-child(3) { opacity: .7; }
+.funnel-step:nth-child(4) { opacity: .55; }
+.funnel-step:nth-child(5) { opacity: .4; }
+
+/* Línea de tiempo vertical */
+.timeline { position: relative; margin: var(--space-5) 0; padding-left: var(--space-6); border-left: 3px solid var(--line-strong); }
+.timeline-item { position: relative; margin-bottom: var(--space-5); }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--space-6) - 7px);
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--paper);
+}
+.timeline-item__date { font-size: var(--fs-sm); font-weight: 700; color: var(--accent-dark); }
+.timeline-item__title { font-family: var(--font-serif); font-size: var(--fs-lg); margin: var(--space-1) 0; }
+
+/* ===== 17. Botones ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-5);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-base);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover { background: var(--accent-dark); }
+.btn--ghost { background: transparent; border: 2px solid var(--line-strong); color: var(--ink); }
+.btn--ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ===== 18. Media queries (mobile-first: base = ~375px) ===== */
+@media (min-width: 640px) {
+  .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .hero { padding: var(--space-8) var(--space-6); }
+}
+@media (min-width: 960px) {
+  .kpi-grid { grid-template-columns: repeat(4, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ===== 19. Impresión ===== */
+@media print {
+  .docnav, .copyblock__btn, .btn { display: none !important; }
+  body { background: #fff; color: #000; }
+  .hero { background: #fff !important; color: #000 !important; }
+  .hero h1, .hero p { color: #000 !important; }
+  .card, .callout, .kpi, .copyblock { box-shadow: none; border: 1px solid #999; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: .8em; }
+}
+</style>
+</head>
+<body>
+
+<nav class="docnav" aria-label="Navegación del plan">
+  <div class="docnav__inner">
+    <a href="index.html" class="docnav__link">Plan</a>
+    <a href="kit-arranque.html" class="docnav__link active" aria-current="page">Kit de arranque</a>
+    <a href="guion-reels.html" class="docnav__link">Guiones de Reels</a>
+    <a href="sop-dm.html" class="docnav__link">Manual de DM</a>
+    <a href="recursos.html" class="docnav__link">Recursos</a>
+    <a href="tablero.html" class="docnav__link">Tablero</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero__inner">
+    <h1>Kit de arranque de Instagram</h1>
+    <p>Todo el texto listo para copiar y pegar en el perfil: bio, historias destacadas, los posts que conviene fijar arriba del feed y los primeros 10 posts para producir sin quedar en blanco.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section class="sec">
+<h2>Cómo usar este kit</h2>
+<p>Este kit reúne todo el texto que necesitas para dejar el perfil de Instagram listo: bio, historias destacadas, los posts que conviene fijar arriba del feed y los primeros 10 posts para producir. Cada bloque de texto tiene un botón "Copiar" para pegarlo directo en Instagram, sin errores de tipeo. No hace falta hacerlo todo el mismo día: sigue el orden sugerido abajo y avanza a tu ritmo.</p>
+
+<div class="timeline">
+  <div class="timeline-item">
+    <div class="timeline-item__date">Paso 1</div>
+    <h3 class="timeline-item__title">Actualiza la bio</h3>
+    <p>Elige 1 de las 4 variantes de la sección 2, pégala en tu perfil y revisa que el link de la tienda cargue bien. Toma unos 5 minutos.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">Paso 2</div>
+    <h3 class="timeline-item__title">Arma los 5 highlights</h3>
+    <p>Sube las historias destacadas de la sección 3 con sus portadas, para que el perfil se vea completo apenas alguien lo visite por primera vez.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">Paso 3</div>
+    <h3 class="timeline-item__title">Produce y publica los primeros 10 posts</h3>
+    <p>Usa la sección 5: 10 piezas listas, con guion de grabación y caption. No los publiques todos la misma semana — repártelos en 2 o 3 semanas.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">Paso 4</div>
+    <h3 class="timeline-item__title">Fija los 3 mejores y revisa los errores comunes</h3>
+    <p>Cuando ya tengas contenido publicado, fija los 3 posts de la sección 4 arriba del feed y repasa la sección 6 antes de seguir publicando.</p>
+  </div>
+</div>
+</section>
+
+<section class="sec">
+<h2>Bio optimizada — 4 variantes</h2>
+<p>La bio de Instagram se edita en dos campos separados dentro de "Editar perfil": el <strong>nombre visible</strong> (el texto grande arriba del @usuario, distinto de él) y el texto de la <strong>bio</strong>. El link de la tienda va en un tercer campo aparte, "Sitio web" — Instagram lo muestra como un link independiente debajo de la bio, así que no hace falta escribirlo dentro del texto.</p>
+
+<h3>Nombre visible del perfil</h3>
+<p>La palabra clave "Flora y Fauna" debe estar en el nombre visible (no solo en el @usuario, que ya incluye "ilustracion" y no suma búsqueda extra), para que la cuenta aparezca en más búsquedas dentro de Instagram.</p>
+<div class="copyblock">
+  <button type="button" class="copyblock__btn" data-copy-target="copy-nombre-perfil">Copiar</button>
+  <div class="copyblock__text" id="copy-nombre-perfil">Pedraza | Flora y Fauna Chile</div>
+</div>
+<div class="callout callout--info">
+<p>El campo "Nombre" de Instagram acepta alrededor de 30 caracteres. Pégalo y confirma que entre completo al editar el perfil — la propia app avisa si te pasaste del límite.</p>
+</div>
+<p>La versión larga "Pedraza Ilustración | Flora y Fauna de Chile" queda para donde no hay ese límite de caracteres, por ejemplo la bio de Facebook:</p>
+<div class="copyblock">
+  <button type="button" class="copyblock__btn" data-copy-target="copy-nombre-perfil-largo">Copiar</button>
+  <div class="copyblock__text" id="copy-nombre-perfil-largo">Pedraza Ilustración | Flora y Fauna de Chile</div>
+</div>
+
+<h3>Las 4 variantes de bio</h3>
+<div style="display:flex;flex-wrap:wrap;gap:var(--space-2);margin:var(--space-4) 0;">
+  <span class="pill">🎯 Promesa</span>
+  <span class="pill">🙋 Para quién</span>
+  <span class="pill">🔗 Un solo link</span>
+</div>
+<p>Las 4 variantes cumplen siempre estos 3 elementos en el texto de la bio (el 4° elemento, el nombre buscable, ya quedó resuelto arriba). Elige la que mejor calce con el momento del negocio — más abajo hay una guía rápida para elegir.</p>
+
+<h3>(a) Directa a venta</h3>
+<p>Va directo a la venta: útil en meses de alta demanda o cuando estás promocionando una fecha comercial puntual.</p>
+<div class="copyblock">
+  <button type="button" class="copyblock__btn" data-copy-target="copy-bio-a">Copiar</button>
+  <div class="copyblock__text" id="copy-bio-a">Arte original de flora y fauna de Chile 🦋
+Láminas, puzzles y regalos para decorar y regalar con sello chileno
+👇 compra aquí</div>
+</div>
+
+<h3>(b) Énfasis educativo y de conservación</h3>
+<p>Pone el foco en aprender sobre la naturaleza chilena: útil para atraer seguidores nuevos interesados en flora y fauna, no solo en comprar.</p>
+<div class="copyblock">
+  <button type="button" class="copyblock__btn" data-copy-target="copy-bio-b">Copiar</button>
+  <div class="copyblock__text" id="copy-bio-b">Ilustramos flora y fauna de Chile 🌿
+Cada pieza enseña una especie nativa — para amantes de la naturaleza
+👇 conoce la tienda</div>
+</div>
+
+<h3>(c) Énfasis "hermanos chilenos"</h3>
+<p>Pone al frente la historia real de María José y Felipe: útil para generar confianza rápido con quien todavía no conoce la marca.</p>
+<div class="copyblock">
+  <button type="button" class="copyblock__btn" data-copy-target="copy-bio-c">Copiar</button>
+  <div class="copyblock__text" id="copy-bio-c">Hecho por 2 hermanos chilenos 🦋
+Arte de flora y fauna de Chile para quienes regalan con una historia real
+👇 nuestra tienda</div>
+</div>
+
+<h3>(d) Corta y minimalista</h3>
+<p>La versión más corta: útil cuando necesitas dejar espacio libre en la bio, por ejemplo para un aviso temporal de oferta.</p>
+<div class="copyblock">
+  <button type="button" class="copyblock__btn" data-copy-target="copy-bio-d">Copiar</button>
+  <div class="copyblock__text" id="copy-bio-d">Flora y fauna de Chile en arte y regalos 🦋
+👇 tienda oficial</div>
+</div>
+
+<div class="callout callout--info">
+<p>Usa la variante (a) en meses de venta fuerte (antes de una fecha comercial como Fiestas Patrias o Navidad), y la (b) o la (c) cuando el objetivo sea sumar seguidores nuevos con el ángulo educativo o la historia de los hermanos. Cambia a la (d) minimalista solo si necesitas ese espacio extra para un aviso puntual de pocos días.</p>
+</div>
+
+<h3>Link con seguimiento (opcional)</h3>
+<p>Si quieres saber después, en las estadísticas de la tienda, cuánta gente entró desde Instagram, usa esta versión del link en el campo "Sitio web" en vez del link simple. Para quien hace clic se ve y funciona igual.</p>
+<div class="copyblock">
+  <button type="button" class="copyblock__btn" data-copy-target="copy-link-utm">Copiar</button>
+  <div class="copyblock__text" id="copy-link-utm">https://pedrazailustracion.com/?utm_source=instagram&utm_medium=bio</div>
+</div>
+</section>
+
+<section class="sec">
+<h2>Highlights (historias destacadas)</h2>
+<p>5 highlights para que el perfil se vea completo apenas alguien lo visite por primera vez, incluso antes de ver ningún post nuevo.</p>
+
+<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:var(--space-4);margin:var(--space-5) 0;">
+  <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-2);width:84px;text-align:center;">
+    <div style="width:64px;height:64px;border-radius:50%;background:var(--surface);border:3px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:1.7rem;">🛍️</div>
+    <span style="font-size:var(--fs-sm);color:var(--ink-soft);">Catálogo</span>
+  </div>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-2);width:84px;text-align:center;">
+    <div style="width:64px;height:64px;border-radius:50%;background:var(--surface);border:3px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:1.7rem;">📦</div>
+    <span style="font-size:var(--fs-sm);color:var(--ink-soft);">Envíos</span>
+  </div>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-2);width:84px;text-align:center;">
+    <div style="width:64px;height:64px;border-radius:50%;background:var(--surface);border:3px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:1.7rem;">💬</div>
+    <span style="font-size:var(--fs-sm);color:var(--ink-soft);">Reseñas</span>
+  </div>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-2);width:84px;text-align:center;">
+    <div style="width:64px;height:64px;border-radius:50%;background:var(--surface);border:3px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:1.7rem;">🎨</div>
+    <span style="font-size:var(--fs-sm);color:var(--ink-soft);">Proceso</span>
+  </div>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-2);width:84px;text-align:center;">
+    <div style="width:64px;height:64px;border-radius:50%;background:var(--surface);border:3px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:1.7rem;">🌿</div>
+    <span style="font-size:var(--fs-sm);color:var(--ink-soft);">Quiénes somos</span>
+  </div>
+</div>
+
+<div class="grid-2">
+  <div class="card">
+    <h3>🛍️ Catálogo</h3>
+    <p><strong>Portada sugerida:</strong> fondo color hueso (el mismo tono papel de la marca) con una ilustración de una lámina centrada, sin texto encima.</p>
+    <p><strong>Qué guardar dentro:</strong></p>
+    <ul>
+      <li>Los 5 grupos de la colección: aves, flores, hongos, mariposas y cetáceos.</li>
+      <li>Los puzzles de 1000 piezas, con la guía de especies que incluyen.</li>
+      <li>Las láminas Giclée en papel Hahnemühle, con sus formatos disponibles.</li>
+      <li>La loza de aves, mostrada puesta en una mesa.</li>
+      <li>Papelería y accesorios: libretas, calcetines, bolsos y botellas.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>📦 Envíos</h3>
+    <p><strong>Portada sugerida:</strong> ícono de una caja dibujado a mano estilo acuarela, sobre fondo rojo copihue suave.</p>
+    <p><strong>Qué guardar dentro:</strong></p>
+    <ul>
+      <li>Tiempo de despacho en Santiago (1 a 3 días hábiles).</li>
+      <li>Envío a regiones: se calcula en el checkout según la comuna.</li>
+      <li>🟡 Umbral de envío gratis — hay dos cifras distintas circulando ($30.000 y $50.000 CLP); confirma cuál es la vigente antes de publicar esta historia.</li>
+      <li>Cómo hacer seguimiento del pedido una vez despachado.</li>
+      <li>🟡 Política de cambios y devoluciones — no hay información confirmada; conviene definirla antes de prometer algo en Instagram.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>💬 Reseñas</h3>
+    <p><strong>Portada sugerida:</strong> un corazón o una estrella dibujados a mano en rojo copihue, sobre fondo papel.</p>
+    <p><strong>Qué guardar dentro:</strong></p>
+    <ul>
+      <li>Capturas de reseñas o mensajes de clientes contentos (con su permiso).</li>
+      <li>Fotos de clientes con su producto ya en casa.</li>
+      <li>Un video de unboxing hecho por un cliente.</li>
+      <li>Comparación boceto vs. producto terminado en la casa de alguien.</li>
+      <li>Un recordatorio pidiendo reseña después de cada compra.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>🎨 Proceso</h3>
+    <p><strong>Portada sugerida:</strong> un pincel con una gota de acuarela dibujado a mano, sobre fondo papel.</p>
+    <p><strong>Qué guardar dentro:</strong></p>
+    <ul>
+      <li>Boceto a lápiz de una especie nueva.</li>
+      <li>Time-lapse de la acuarela terminándose.</li>
+      <li>Detalle del papel Hahnemühle y la impresión Giclée.</li>
+      <li>Empaque de un pedido (ASMR: sonido de papel, cinta y sello).</li>
+      <li>Comparación boceto vs. lámina terminada.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>🌿 Quiénes somos</h3>
+    <p><strong>Portada sugerida:</strong> una hoja o rama dibujada a mano en verde bosque, sobre fondo papel.</p>
+    <p><strong>Qué guardar dentro:</strong></p>
+    <ul>
+      <li>Foto o video de María José y Felipe presentándose juntos.</li>
+      <li>Por qué nació Pedraza Ilustración.</li>
+      <li>El compromiso con la conservación: por qué cada pieza enseña una especie.</li>
+      <li>Un día en el estudio de María José.</li>
+      <li>🟡 Quién responde los mensajes — antes de prometer un tiempo de respuesta puntual, confirma quién atiende hoy los DM.</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<section class="sec">
+<h2>3 posts fijados</h2>
+<p>Los posts fijados son lo primero que ve alguien que llega al perfil por un Reel y quiere confirmar si vale la pena seguir mirando. Estos 3 cubren las 3 razones más fuertes para quedarse: confianza (la historia), calidad (el proceso) y variedad (el catálogo).</p>
+
+<div class="card">
+  <h3>🎬 1. Reel de la historia de los hermanos</h3>
+  <p>Fíjalo primero: cuando alguien llega al perfil recién descubriendo la marca, lo primero que debe ver arriba del feed es algo que genere confianza rápido. La historia real de dos hermanos chilenos hace eso mejor que cualquier foto de producto sola. Es el mismo caption del post 10 de la sección 5.</p>
+  <div class="copyblock">
+    <button type="button" class="copyblock__btn" data-copy-target="copy-fijado-hermanos">Copiar</button>
+    <div class="copyblock__text" id="copy-fijado-hermanos">Dos hermanos chilenos, una misión: dar a conocer la flora y fauna nativa de Chile 🦋🌿
+
+María José ilustra cada especie a mano, acuarela por acuarela. Felipe se encarga de que esas ilustraciones lleguen a tu casa en forma de lámina, puzzle, loza o accesorio.
+
+Todo nació de las ganas de que más personas conocieran —y cuidaran— lo que tenemos en Chile.
+
+¿Qué especie chilena te gustaría ver ilustrada? Cuéntanos en los comentarios 👇
+
+#PedrazaIlustracion #HechoEnChile #FloraYFaunaDeChile</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>🎨 2. El mejor Reel de proceso</h3>
+  <p>El proceso demuestra la calidad artesanal detrás de cada pieza —acuarela real, no diseño genérico— y responde la pregunta silenciosa de todo comprador nuevo: "¿esto vale lo que cuesta?". Es el mismo caption del post 7 de la sección 5.</p>
+  <div class="copyblock">
+    <button type="button" class="copyblock__btn" data-copy-target="copy-fijado-proceso">Copiar</button>
+    <div class="copyblock__text" id="copy-fijado-proceso">Así nace una ilustración de Pedraza Ilustración, del boceto a la acuarela 🎨
+
+Cada especie empieza como un boceto a lápiz. Después llega la acuarela, color por color, hasta que la ilustración queda lista para convertirse en lámina, puzzle o loza.
+
+¿Te gustaría ver más videos de proceso como este? Guárdalo para no perderlo 📌
+
+#ProcesoCreativo #Acuarela #PedrazaIlustracion</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>🛍️ 3. Post o carrusel de catálogo por colección</h3>
+  <p>Funciona como un mini catálogo fijo: alguien interesado en aves puede ver, en un solo carrusel, que también hay flores, hongos, mariposas y cetáceos, y elegir el producto que más le acomode sin salir del perfil. Es el mismo caption del post 3 de la sección 5.</p>
+  <div class="copyblock">
+    <button type="button" class="copyblock__btn" data-copy-target="copy-fijado-catalogo">Copiar</button>
+    <div class="copyblock__text" id="copy-fijado-catalogo">5 colecciones, 1 solo sello: flora y fauna de Chile 🛍️🌿
+
+Aves, flores, hongos, mariposas y cetáceos: cada colección de Pedraza Ilustración se repite en lámina, puzzle, loza y accesorios, para que elijas el formato que más te acomode.
+
+Desliza para conocerlas todas.
+
+¿Cuál es tu especie chilena favorita? Cuéntanos en los comentarios 👇
+
+#PedrazaIlustracion #FloraYFaunaDeChile #RegalosConSignificado</div>
+  </div>
+</div>
+</section>
+
+<section class="sec">
+<h2>Los primeros 10 posts listos para producir</h2>
+<p>10 piezas balanceadas por pilar y por formato, todas grabables con un celular. Cada una trae el guion de producción, el caption completo (con la palabra clave del rubro en la primera línea y máximo 3 a 5 hashtags — nada de bloques de 30) y un CTA (la invitación a hacer algo, como "compra aquí") sugerido.</p>
+
+<div class="grid-2">
+  <div class="card">
+    <h3>Por pilar</h3>
+    <div class="chart-bar-row">
+      <span class="chart-bar-row__label">Producto y Colecciones</span>
+      <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:30%"></div></div>
+      <span class="chart-bar-row__value">3</span>
+    </div>
+    <div class="chart-bar-row">
+      <span class="chart-bar-row__label">Flora y Fauna de Chile</span>
+      <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:30%;background:var(--success)"></div></div>
+      <span class="chart-bar-row__value">3</span>
+    </div>
+    <div class="chart-bar-row">
+      <span class="chart-bar-row__label">Proceso y Detrás de Escena</span>
+      <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:20%;background:var(--info)"></div></div>
+      <span class="chart-bar-row__value">2</span>
+    </div>
+    <div class="chart-bar-row">
+      <span class="chart-bar-row__label">Clientes y Reseñas</span>
+      <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:10%;background:var(--warn)"></div></div>
+      <span class="chart-bar-row__value">1</span>
+    </div>
+    <div class="chart-bar-row">
+      <span class="chart-bar-row__label">Los Hermanos y la Misión</span>
+      <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:10%;background:var(--danger)"></div></div>
+      <span class="chart-bar-row__value">1</span>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Por formato</h3>
+    <div class="chart-bar-row">
+      <span class="chart-bar-row__label">Reels</span>
+      <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:70%"></div></div>
+      <span class="chart-bar-row__value">7</span>
+    </div>
+    <div class="chart-bar-row">
+      <span class="chart-bar-row__label">Carruseles</span>
+      <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:30%"></div></div>
+      <span class="chart-bar-row__value">3</span>
+    </div>
+    <p style="margin-top:var(--space-4);margin-bottom:0;">Reels = más alcance con gente nueva. Carruseles = más guardados y profundidad. Agrégales audio para que también entren al feed de Reels.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div style="display:flex;align-items:center;gap:var(--space-3);flex-wrap:wrap;margin-bottom:var(--space-2);">
+    <span style="font-family:var(--font-serif);font-size:1.5em;font-weight:700;color:var(--accent);">01</span>
+    <span class="pill">Reel</span>
+    <span class="pill">Producto y Colecciones</span>
+  </div>
+  <h3>Armamos el puzzle de Aves y Flores de Chile</h3>
+  <p><strong>Qué se ve:</strong></p>
+  <ol>
+    <li>Plano desde arriba de la caja del puzzle cerrada, sobre la mesa.</li>
+    <li>Manos abriendo la caja y mostrando las piezas.</li>
+    <li>Time-lapse (video acelerado) armando el puzzle hasta completar el borde.</li>
+    <li>Corte a una foto fija de la imagen terminada, junto a la guía de especies.</li>
+    <li>Texto en pantalla: "1000 piezas · arma 50x70 cm".</li>
+  </ol>
+  <div class="copyblock">
+    <button type="button" class="copyblock__btn" data-copy-target="copy-post-1">Copiar</button>
+    <div class="copyblock__text" id="copy-post-1">Puzzle de Aves y Flores de Chile: 1000 piezas para armar mientras aprendes 🧩🦋
+
+Cada pieza arma una acuarela completa de especies nativas, y viene con una guía con el nombre común y científico de cada una para que aprendas mientras armas.
+
+Ármalo solo, en pareja o en familia: son 1000 piezas, así que toma su tiempo (¡y esa es parte de la gracia!).
+
+Comenta ARMAR y te mando el link para comprarlo 👇
+
+#PedrazaIlustracion #PuzzleChile #FloraYFaunaDeChile</div>
+  </div>
+  <p style="font-size:var(--fs-sm);color:var(--ink-soft);">🟡 Precio de referencia al momento de escribir este kit: $24.990 CLP. Confirma que siga vigente en la tienda antes de agregarlo al caption.</p>
+  <p><strong>CTA sugerido:</strong> comenta ARMAR y te mando el link.</p>
+</div>
+
+<div class="card">
+  <div style="display:flex;align-items:center;gap:var(--space-3);flex-wrap:wrap;margin-bottom:var(--space-2);">
+    <span style="font-family:var(--font-serif);font-size:1.5em;font-weight:700;color:var(--accent);">02</span>
+    <span class="pill">Reel</span>
+    <span class="pill">Producto y Colecciones</span>
+  </div>
+  <h3>La lámina de 35 aves de Chile, en detalle</h3>
+  <p><strong>Qué se ve:</strong></p>
+  <ol>
+    <li>Primer plano de la lámina extendida o enmarcada sobre una mesa de madera.</li>
+    <li>Acercamiento (macro) a la textura del papel y la tinta.</li>
+    <li>Una mano señalando 2 o 3 aves distintas dentro de la ilustración.</li>
+    <li>Texto en pantalla: "Impresión Giclée sobre papel Hahnemühle".</li>
+    <li>Cierre: la lámina ya enmarcada, colgada en un living o escritorio real.</li>
+  </ol>
+  <div class="copyblock">
+    <button type="button" class="copyblock__btn" data-copy-target="copy-post-2">Copiar</button>
+    <div class="copyblock__text" id="copy-post-2">Lámina de 35 aves de Chile, impresa con la misma calidad que usan las galerías de arte 🖼️🐦
+
+Es una impresión Giclée (una técnica de impresión de alta calidad, con tintas especiales) sobre papel Hahnemühle, una marca de papel premium reconocida en el mundo del arte. El resultado: colores fieles y una lámina que dura años sin decolorarse.
+
+Ideal para un living, una oficina o un regalo para alguien que ama las aves de Chile.
+
+Comenta AVES y te mando el link para comprarla 👇
+
+#PedrazaIlustracion #LaminasChile #ArteChileno</div>
+  </div>
+  <p><strong>CTA sugerido:</strong> comenta AVES y te mando el link.</p>
+</div>
+
+<div class="card">
+  <div style="display:flex;align-items:center;gap:var(--space-3);flex-wrap:wrap;margin-bottom:var(--space-2);">
+    <span style="font-family:var(--font-serif);font-size:1.5em;font-weight:700;color:var(--accent);">03</span>
+    <span class="pill">Carrusel</span>
+    <span class="pill">Producto y Colecciones</span>
+  </div>
+  <h3>Recorrido por las 5 colecciones</h3>
+  <p><strong>Qué se ve (una foto por slide):</strong></p>
+  <ol>
+    <li>Portada: texto "5 colecciones, 1 solo sello: flora y fauna de Chile" sobre una foto de fondo.</li>
+    <li>Slide de Aves — foto de la lámina o el puzzle de aves.</li>
+    <li>Slide de Flores — foto de un producto de flores (libreta o lámina).</li>
+    <li>Slide de Hongos — foto del puzzle de hongos.</li>
+    <li>Slide de Mariposas y escarabajos — foto del puzzle o la lámina.</li>
+    <li>Slide de Cetáceos — foto del puzzle de cetáceos.</li>
+    <li>Cierre: "¿Cuál es tu especie favorita? Cuéntanos en los comentarios".</li>
+  </ol>
+  <div class="copyblock">
+    <button type="button" class="copyblock__btn" data-copy-target="copy-post-3">Copiar</button>
+    <div class="copyblock__text" id="copy-post-3">5 colecciones, 1 solo sello: flora y fauna de Chile 🛍️🌿
+
+Aves, flores, hongos, mariposas y cetáceos: cada colección de Pedraza Ilustración se repite en lámina, puzzle, loza y accesorios, para que elijas el formato que más te acomode.
+
+Desliza para conocerlas todas.
+
+¿Cuál es tu especie chilena favorita? Cuéntanos en los comentarios 👇
+
+#PedrazaIlustracion #FloraYFaunaDeChile #RegalosConSignificado</div>
+  </div>
+  <p><strong>CTA sugerido:</strong> comenta tu especie favorita (link de todas las colecciones en la bio).</p>
+</div>
+
+<div class="card">
+  <div style="display:flex;align-items:center;gap:var(--space-3);flex-wrap:wrap;margin-bottom:var(--space-2);">
+    <span style="font-family:var(--font-serif);font-size:1.5em;font-weight:700;color:var(--accent);">04</span>
+    <span class="pill">Reel</span>
+    <span class="pill pill--success">Flora y Fauna de Chile</span>
+  </div>
+  <h3>¿Sabías que los hongos no son plantas ni animales?</h3>
+  <p><strong>Qué se ve:</strong></p>
+  <ol>
+    <li>Toma de la caja o el puzzle armado de Hongos de Chile.</li>
+    <li>Texto en pantalla con la pregunta gancho: "¿Los hongos son plantas?".</li>
+    <li>2 o 3 datos generales y simples sobre hongos, en texto en pantalla.</li>
+    <li>Cierre mostrando la guía de especies que trae el puzzle.</li>
+  </ol>
+  <div class="copyblock">
+    <button type="button" class="copyblock__btn" data-copy-target="copy-post-4">Copiar</button>
+    <div class="copyblock__text" id="copy-post-4">¿Sabías que los hongos no son plantas ni animales? 🍄
+
+Forman su propio reino de la naturaleza: no hacen fotosíntesis como las plantas. Muchas especies chilenas todavía se están estudiando y clasificando.
+
+Nuestro puzzle de Hongos de Chile ilustra varias de estas especies, con una guía que trae el nombre común y científico de cada una.
+
+Guarda este video si quieres aprender más sobre la naturaleza chilena 📌
+
+#FloraYFaunaDeChile #HongosDeChile #PedrazaIlustracion</div>
+  </div>
+  <p><strong>CTA sugerido:</strong> guarda este video para aprender más de flora y fauna chilena.</p>
+</div>
+
+<div class="card">
+  <div style="display:flex;align-items:center;gap:var(--space-3);flex-wrap:wrap;margin-bottom:var(--space-2);">
+    <span style="font-family:var(--font-serif);font-size:1.5em;font-weight:700;color:var(--accent);">05</span>
+    <span class="pill">Reel</span>
+    <span class="pill pill--success">Flora y Fauna de Chile</span>
+  </div>
+  <h3>De oruga a mariposa: así es la metamorfosis</h3>
+  <p><strong>Qué se ve:</strong></p>
+  <ol>
+    <li>Toma del puzzle o la lámina de Mariposas y Escarabajos de Chile.</li>
+    <li>Cámara recorriendo la ilustración, deteniéndose en 2 o 3 mariposas distintas.</li>
+    <li>Texto en pantalla con las 4 etapas: huevo, oruga, crisálida, mariposa.</li>
+    <li>Cierre: pregunta en pantalla "¿Cuál de estas mariposas has visto en tu jardín?".</li>
+  </ol>
+  <div class="copyblock">
+    <button type="button" class="copyblock__btn" data-copy-target="copy-post-5">Copiar</button>
+    <div class="copyblock__text" id="copy-post-5">De oruga a mariposa: la transformación más famosa de la naturaleza 🦋
+
+Huevo, oruga, crisálida y mariposa: cuatro etapas para convertirse en una de las especies que ilustramos en nuestra colección de Mariposas y Escarabajos de Chile.
+
+¿Cuál de estas mariposas has visto alguna vez? Cuéntanos en los comentarios 👇
+
+#FloraYFaunaDeChile #MariposasDeChile #PedrazaIlustracion</div>
+  </div>
+  <p><strong>CTA sugerido:</strong> cuéntanos en los comentarios qué mariposa has visto.</p>
+</div>
+
+<div class="card">
+  <div style="display:flex;align-items:center;gap:var(--space-3);flex-wrap:wrap;margin-bottom:var(--space-2);">
+    <span style="font-family:var(--font-serif);font-size:1.5em;font-weight:700;color:var(--accent);">06</span>
+    <span class="pill">Carrusel</span>
+    <span class="pill pill--success">Flora y Fauna de Chile</span>
+  </div>
+  <h3>Guía ilustrada: nombre común y científico de 5 aves de Chile</h3>
+  <p><strong>Qué se ve (una foto por slide):</strong></p>
+  <ol>
+    <li>Portada: "5 aves de Chile: nombre común y nombre científico", con la lámina de fondo.</li>
+    <li>4 slides siguientes: una ilustración de ave recortada de la lámina por slide, con su nombre común grande y el nombre científico más chico debajo (mismo formato que trae la guía del producto).</li>
+    <li>Cierre: la lámina completa, con el CTA en pantalla.</li>
+  </ol>
+  <div class="copyblock">
+    <button type="button" class="copyblock__btn" data-copy-target="copy-post-6">Copiar</button>
+    <div class="copyblock__text" id="copy-post-6">5 aves de Chile, con su nombre común y su nombre científico 🐦📖
+
+Nuestra lámina de 35 aves de Chile viene con esta misma guía impresa, para que aprendas a reconocer cada especie por su nombre.
+
+Desliza y cuéntanos: ¿cuántas conocías?
+
+#FloraYFaunaDeChile #AvesDeChile #PedrazaIlustracion</div>
+  </div>
+  <p><strong>CTA sugerido:</strong> cuéntanos cuántas aves conocías (link de la lámina en la bio).</p>
+</div>
+
+<div class="card">
+  <div style="display:flex;align-items:center;gap:var(--space-3);flex-wrap:wrap;margin-bottom:var(--space-2);">
+    <span style="font-family:var(--font-serif);font-size:1.5em;font-weight:700;color:var(--accent);">07</span>
+    <span class="pill">Reel</span>
+    <span class="pill pill--info">Proceso y Detrás de Escena</span>
+  </div>
+  <h3>Del boceto a la acuarela terminada</h3>
+  <p><strong>Qué se ve:</strong></p>
+  <ol>
+    <li>Hoja en blanco y un lápiz empezando el boceto.</li>
+    <li>Time-lapse (acelerado) del boceto tomando forma.</li>
+    <li>Corte a la acuarela: pinceles, mezcla de colores, aplicación sobre el boceto.</li>
+    <li>Comparación lado a lado: boceto vs. ilustración terminada.</li>
+    <li>Cierre: la ilustración ya convertida en el producto final (lámina o puzzle).</li>
+  </ol>
+  <div class="copyblock">
+    <button type="button" class="copyblock__btn" data-copy-target="copy-post-7">Copiar</button>
+    <div class="copyblock__text" id="copy-post-7">Así nace una ilustración de Pedraza Ilustración, del boceto a la acuarela 🎨
+
+Cada especie empieza como un boceto a lápiz. Después llega la acuarela, color por color, hasta que la ilustración queda lista para convertirse en lámina, puzzle o loza.
+
+¿Te gustaría ver más videos de proceso como este? Guárdalo para no perderlo 📌
+
+#ProcesoCreativo #Acuarela #PedrazaIlustracion</div>
+  </div>
+  <p><strong>CTA sugerido:</strong> guarda este video para no perderlo.</p>
+</div>
+
+<div class="card">
+  <div style="display:flex;align-items:center;gap:var(--space-3);flex-wrap:wrap;margin-bottom:var(--space-2);">
+    <span style="font-family:var(--font-serif);font-size:1.5em;font-weight:700;color:var(--accent);">08</span>
+    <span class="pill">Reel</span>
+    <span class="pill pill--info">Proceso y Detrás de Escena</span>
+  </div>
+  <h3>ASMR: así empacamos un pedido</h3>
+  <p><strong>Qué se ve:</strong></p>
+  <ol>
+    <li>Plano desde arriba de la mesa de empaque con los materiales ordenados (papel, cinta, sello).</li>
+    <li>Manos doblando el papel de embalaje alrededor del producto (graba con el sonido real, sin música o muy bajita, para que se escuche el ASMR).</li>
+    <li>Sellando el paquete con el sello de la marca.</li>
+    <li>Pegando la etiqueta con el destino.</li>
+    <li>Cierre: el paquete listo, con texto en pantalla "Directo a tu casa 📦".</li>
+  </ol>
+  <div class="copyblock">
+    <button type="button" class="copyblock__btn" data-copy-target="copy-post-8">Copiar</button>
+    <div class="copyblock__text" id="copy-post-8">Así armamos cada pedido de arte chileno, para que llegue perfecto a tu casa 📦🎧 (sube el volumen)
+
+Papel, cinta, sello: cada paquete sale con el mismo cuidado con el que ilustramos cada especie.
+
+¿Ya tienes algún producto nuestro en camino? Cuéntanos qué pediste 👇
+
+#PedrazaIlustracion #EmpaqueASMR #HechoEnChile</div>
+  </div>
+  <p><strong>CTA sugerido:</strong> cuéntanos qué pediste (o qué te gustaría pedir).</p>
+</div>
+
+<div class="card">
+  <div style="display:flex;align-items:center;gap:var(--space-3);flex-wrap:wrap;margin-bottom:var(--space-2);">
+    <span style="font-family:var(--font-serif);font-size:1.5em;font-weight:700;color:var(--accent);">09</span>
+    <span class="pill">Carrusel</span>
+    <span class="pill pill--warn">Clientes y Reseñas</span>
+  </div>
+  <h3>Así se ve el arte de Pedraza en una casa de verdad</h3>
+  <p><strong>Qué se ve (una foto por slide — todavía no hay fotos de clientes, así que se arman con producto real en un espacio real):</strong></p>
+  <ol>
+    <li>Portada: la loza puesta en una mesa servida.</li>
+    <li>Slide 2: una lámina enmarcada en una pared (living o escritorio).</li>
+    <li>Slide 3: calcetines de aves puestos, en un plano casual.</li>
+    <li>Slide 4: un puzzle armado sobre la mesa del comedor, como actividad familiar.</li>
+    <li>Cierre: texto "Etiquétanos con tu foto y aparece aquí".</li>
+  </ol>
+  <div class="copyblock">
+    <button type="button" class="copyblock__btn" data-copy-target="copy-post-9">Copiar</button>
+    <div class="copyblock__text" id="copy-post-9">Así se ve el arte de Pedraza Ilustración en una casa de verdad 🏡
+
+Loza en la mesa, láminas en la pared, puzzles en familia, calcetines para el día a día: cada producto está pensado para usarse, no solo para mirar.
+
+¿Ya tienes algo de Pedraza Ilustración en tu casa? Etiquétanos @pedraza_ilustracion en tu foto y la compartimos en nuestras historias 📸
+
+#PedrazaIlustracion #DecoraConChile #RegalosConSignificado</div>
+  </div>
+  <p><strong>CTA sugerido:</strong> etiquétanos @pedraza_ilustracion en tu foto.</p>
+</div>
+
+<div class="card">
+  <div style="display:flex;align-items:center;gap:var(--space-3);flex-wrap:wrap;margin-bottom:var(--space-2);">
+    <span style="font-family:var(--font-serif);font-size:1.5em;font-weight:700;color:var(--accent);">10</span>
+    <span class="pill">Reel</span>
+    <span class="pill pill--danger">Los Hermanos y la Misión</span>
+  </div>
+  <h3>Por qué nació Pedraza Ilustración</h3>
+  <p><strong>Qué se ve:</strong></p>
+  <ol>
+    <li>María José y Felipe juntos frente a la cámara, presentándose.</li>
+    <li>Cortes a María José ilustrando en su estudio.</li>
+    <li>Voz en off o texto en pantalla contando el propósito: dar a conocer y ayudar a cuidar la flora y fauna de Chile.</li>
+    <li>Cierre: los dos mirando a cámara con un producto en la mano (lámina o puzzle).</li>
+  </ol>
+  <div class="copyblock">
+    <button type="button" class="copyblock__btn" data-copy-target="copy-post-10">Copiar</button>
+    <div class="copyblock__text" id="copy-post-10">Dos hermanos chilenos, una misión: dar a conocer la flora y fauna nativa de Chile 🦋🌿
+
+María José ilustra cada especie a mano, acuarela por acuarela. Felipe se encarga de que esas ilustraciones lleguen a tu casa en forma de lámina, puzzle, loza o accesorio.
+
+Todo nació de las ganas de que más personas conocieran —y cuidaran— lo que tenemos en Chile.
+
+¿Qué especie chilena te gustaría ver ilustrada? Cuéntanos en los comentarios 👇
+
+#PedrazaIlustracion #HechoEnChile #FloraYFaunaDeChile</div>
+  </div>
+  <p><strong>CTA sugerido:</strong> comenta qué especie chilena te gustaría ver ilustrada.</p>
+</div>
+</section>
+
+<section class="sec">
+<h2>Errores comunes al arrancar</h2>
+
+<div class="callout callout--danger">
+<p><strong>Link de bio roto o desactualizado.</strong> El pago ya no se puede completar dentro de Instagram desde 2025 — toda venta pasa por el link en bio. Si no carga, apunta al producto equivocado o a una colección sin stock, se corta la cadena completa aunque el resto haya funcionado bien. Revísalo al menos una vez por semana.</p>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>Responder tarde los comentarios y mensajes directos.</strong> Instagram prueba primero cada Reel con un grupo chico de gente que no sigue la cuenta. Si nadie responde rápido, el contenido se empuja menos a más personas. Responde dentro de la primera hora, sobre todo el día que publicas.</p>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>Pedir "sígueme" en vez de pedir que compartan o guarden.</strong> Hoy Instagram le da más peso a que alguien mande tu contenido por mensaje a otra persona (un "compartido") que a que te sigan. Pide eso en el CTA, no seguidores.</p>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>Repartir el link en bio entre demasiados destinos.</strong> Un Linktree con diez opciones agrega fricción: cada destino extra es un paso más antes de llegar a comprar. Un solo link, directo a la tienda o al producto del momento.</p>
+</div>
+
+<div class="callout callout--info">
+<p><strong>Publicar solo fotos de catálogo, sin mostrar nunca a los hermanos ni el proceso.</strong> El contenido con cara humana y detrás de escena genera más confianza y mejor recordación que solo mostrar producto. Por eso los pilares "Proceso" y "Los Hermanos y la Misión" también tienen su espacio en los primeros 10 posts.</p>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>Poner un bloque de 20 a 30 hashtags genéricos.</strong> No ayuda al alcance como antes. Mejor usar 3 a 5 hashtags específicos del rubro (flora, fauna, Chile, regalos) que un bloque largo y genérico.</p>
+</div>
+</section>
+
+</main>
+
+<script>
+  // Copiar al portapapeles — delegación de eventos, un solo listener por página.
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-copy-target]');
+    if (!btn) return;
+    var el = document.getElementById(btn.getAttribute('data-copy-target'));
+    if (!el) return;
+    copiarTexto(el.innerText || el.textContent || '', btn);
+  });
+
+  function copiarTexto(texto, btn) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(texto).then(
+        function () { mostrarCopiado(btn); },
+        function () { copiarConFallback(texto, btn); }
+      );
+    } else {
+      copiarConFallback(texto, btn);
+    }
+  }
+
+  function copiarConFallback(texto, btn) {
+    var ta = document.createElement('textarea');
+    ta.value = texto;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.top = '-1000px';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (err) { /* sin soporte, se ignora */ }
+    document.body.removeChild(ta);
+    mostrarCopiado(btn);
+  }
+
+  function mostrarCopiado(btn) {
+    var original = btn.getAttribute('data-label') || btn.textContent;
+    btn.setAttribute('data-label', original);
+    btn.textContent = '✓ ¡Copiado!';
+    btn.classList.add('is-copied');
+    clearTimeout(btn._copyTimeout);
+    btn._copyTimeout = setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('is-copied');
+    }, 2000);
+  }
+</script>
+</body>
+</html>

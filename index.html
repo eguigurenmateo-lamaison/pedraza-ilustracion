@@ -1,0 +1,917 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Plan y estrategia — Plan Pedraza Ilustración</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
+<style>
+/* ==========================================================================
+   Sistema de diseño — Plan Pedraza Ilustración
+   Bloque único y canónico. No editar por página: solo usar estas clases.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* --- tinta y superficies --- */
+  --ink: #1c2420;
+  --ink-soft: #4c5850;
+  --ink-faint: #7c887f;
+  --paper: #faf6ee;
+  --surface: #fffefb;
+  --line: #e6ded0;
+  --line-strong: #d6c9b0;
+
+  /* --- acento: rojo copihue --- */
+  --accent: #b0223f;
+  --accent-dark: #7c1830;
+  --accent-soft: #f8dfe4;
+
+  /* --- apoyo semántico --- */
+  --success: #2f6b4a;
+  --success-soft: #dcece1;
+  --warn: #a8720a;
+  --warn-soft: #f8ecd2;
+  --danger: #ae3d17;
+  --danger-soft: #f7ddd0;
+  --info: #35606c;
+  --info-soft: #dde7ea;
+
+  /* --- forma --- */
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-full: 999px;
+  --shadow-sm: 0 1px 3px rgba(28, 36, 32, .1);
+  --shadow: 0 6px 20px rgba(28, 36, 32, .12);
+
+  /* --- espaciado --- */
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  /* --- tipografía --- */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --fs-sm: clamp(.82rem, .78rem + .2vw, .9rem);
+  --fs-base: clamp(1rem, .95rem + .25vw, 1.0625rem);
+  --fs-lg: clamp(1.1rem, 1.02rem + .4vw, 1.25rem);
+  --fs-h3: clamp(1.15rem, 1.05rem + .5vw, 1.35rem);
+  --fs-h2: clamp(1.35rem, 1.15rem + 1vw, 1.75rem);
+  --fs-h1: clamp(1.75rem, 1.4rem + 2vw, 2.75rem);
+
+  /* --- área táctil mínima (regla mobile-first del proyecto) --- */
+  --tap: 44px;
+}
+
+/* ===== 1. Reset mínimo ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; }
+img, svg { max-width: 100%; display: block; }
+h1, h2, h3, h4, p, ul, ol, dl, figure { margin: 0 0 var(--space-4); }
+ul, ol { padding-left: 1.2em; }
+a { color: inherit; }
+button { font: inherit; }
+table { border-collapse: collapse; width: 100%; }
+
+/* ===== 2. Tipografía base ===== */
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: var(--font-serif); line-height: 1.2; color: var(--ink); }
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+p { max-width: 68ch; }
+strong { color: var(--ink); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* ===== 3. Layout ===== */
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 var(--space-4) var(--space-8); }
+
+/* ===== 4. Nav superior (.docnav) ===== */
+.docnav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--ink);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+.docnav__inner {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 var(--space-2);
+}
+.docnav__link {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  min-height: var(--tap);
+  padding: 0 var(--space-3);
+  color: #eae6dd;
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+}
+.docnav__link:hover { color: #fff; }
+.docnav__link.active {
+  color: #fff;
+  border-bottom-color: var(--accent);
+}
+
+/* ===== 5. Hero ===== */
+.hero {
+  padding: var(--space-7) var(--space-4);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+  color: #fff;
+}
+.hero__inner { max-width: 960px; margin: 0 auto; }
+.hero h1 { color: #fff; margin-bottom: var(--space-3); }
+.hero p { color: rgba(255, 255, 255, .92); font-size: var(--fs-lg); max-width: 60ch; margin: 0; }
+
+/* ===== 6. Secciones numeradas (.sec) ===== */
+main { counter-reset: sec; }
+.sec { counter-increment: sec; margin-top: var(--space-7); }
+.sec:first-of-type { margin-top: var(--space-6); }
+.sec > h2 {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding-bottom: var(--space-2);
+  border-bottom: 2px solid var(--line-strong);
+}
+.sec > h2::before {
+  content: counter(sec);
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9em;
+  height: 1.9em;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: .55em;
+  font-weight: 700;
+}
+
+/* ===== 7. Callouts ===== */
+.callout {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  margin: var(--space-4) 0;
+}
+.callout::before { flex: 0 0 auto; font-size: 1.3em; line-height: 1; }
+.callout p:last-child { margin-bottom: 0; }
+.callout--info { border-color: var(--info); background: var(--info-soft); }
+.callout--info::before { content: "💡"; }
+.callout--success { border-color: var(--success); background: var(--success-soft); }
+.callout--success::before { content: "✅"; }
+.callout--warn { border-color: var(--warn); background: var(--warn-soft); }
+.callout--warn::before { content: "🟡"; }
+.callout--danger { border-color: var(--danger); background: var(--danger-soft); }
+.callout--danger::before { content: "🔴"; }
+
+/* ===== 8. Bloque copiable (.copyblock) ===== */
+.copyblock {
+  position: relative;
+  margin: var(--space-4) 0;
+  padding: var(--space-8) var(--space-4) var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.copyblock__text {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--ink);
+}
+.copyblock__btn {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  min-height: var(--tap);
+  padding: 0 var(--space-4);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  cursor: pointer;
+}
+.copyblock__btn:hover { background: var(--accent-dark); }
+.copyblock__btn.is-copied { background: var(--success); }
+
+/* ===== 9. KPIs (.kpi) ===== */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  margin: var(--space-4) 0;
+}
+.kpi {
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.kpi__label { display: block; font-size: var(--fs-sm); color: var(--ink-soft); margin-bottom: var(--space-2); }
+.kpi__value { display: block; font-family: var(--font-serif); font-size: clamp(1.5rem, 1.3rem + 1vw, 2.1rem); font-weight: 700; color: var(--ink); }
+.kpi__delta { display: inline-block; margin-top: var(--space-2); font-size: var(--fs-sm); font-weight: 600; padding: 2px var(--space-2); border-radius: var(--radius-full); }
+.kpi__delta--up { color: var(--success); background: var(--success-soft); }
+.kpi__delta--down { color: var(--danger); background: var(--danger-soft); }
+
+/* ===== 10. Tarjeta genérica (.card) ===== */
+.card {
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  margin: var(--space-4) 0;
+}
+.card h3 { margin-top: 0; }
+
+/* ===== 11. Tablas responsive ===== */
+.table-wrap { overflow-x: auto; margin: var(--space-4) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); }
+.table-wrap table { min-width: 480px; }
+.table-wrap th, .table-wrap td { padding: var(--space-3); text-align: left; border-bottom: 1px solid var(--line); font-size: var(--fs-sm); }
+.table-wrap thead th { background: var(--ink); color: #fff; position: sticky; top: 0; }
+.table-wrap tbody tr:last-child td { border-bottom: none; }
+.table-wrap tbody tr:nth-child(even) { background: var(--paper); }
+
+/* ===== 12. Barra de progreso (.progress) ===== */
+.progress { margin: var(--space-4) 0; }
+.progress__track { height: 14px; background: var(--line); border-radius: var(--radius-full); overflow: hidden; }
+.progress__fill { height: 100%; background: var(--accent); border-radius: var(--radius-full); transition: width .3s ease; width: 0%; }
+.progress__label { display: block; margin-top: var(--space-2); font-size: var(--fs-sm); color: var(--ink-soft); }
+
+/* ===== 13. Checklist táctil (.checklist) ===== */
+.checklist { list-style: none; padding-left: 0; margin: var(--space-4) 0; }
+.checklist li { margin-bottom: var(--space-2); }
+.checklist label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  min-height: var(--tap);
+  padding: var(--space-2) var(--space-3);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+.checklist input[type="checkbox"] { width: 24px; height: 24px; flex: 0 0 auto; accent-color: var(--accent); margin-top: 2px; }
+.checklist input[type="checkbox"]:checked + span { text-decoration: line-through; color: var(--ink-soft); }
+
+/* ===== 14. Etiquetas (.pill) ===== */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+.pill--success { background: var(--success-soft); color: var(--success); }
+.pill--warn { background: var(--warn-soft); color: var(--warn); }
+.pill--danger { background: var(--danger-soft); color: var(--danger); }
+.pill--info { background: var(--info-soft); color: var(--info); }
+
+/* ===== 15. Grillas responsive ===== */
+.grid-2, .grid-3 { display: grid; gap: var(--space-4); margin: var(--space-4) 0; grid-template-columns: 1fr; }
+
+/* ===== 16. Gráficos SVG/CSS hechos a mano ===== */
+/* Barras horizontales */
+.chart-bar-row { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-2); }
+.chart-bar-row__label { flex: 0 0 9rem; font-size: var(--fs-sm); color: var(--ink-soft); }
+.chart-bar-row__track { flex: 1 1 auto; height: 20px; background: var(--line); border-radius: var(--radius-full); overflow: hidden; }
+.chart-bar-row__fill { height: 100%; background: var(--accent); border-radius: var(--radius-full); }
+.chart-bar-row__value { flex: 0 0 auto; font-size: var(--fs-sm); font-weight: 700; min-width: 3.5rem; text-align: right; }
+
+/* Embudo: cada .funnel-step define su ancho con --w inline, ej. style="--w:70%" */
+.funnel { display: flex; flex-direction: column; align-items: center; gap: 2px; margin: var(--space-4) 0; }
+.funnel-step {
+  width: var(--w, 100%);
+  max-width: 100%;
+  padding: var(--space-3);
+  text-align: center;
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  background: var(--accent);
+  border-radius: var(--radius-sm);
+}
+.funnel-step:nth-child(2) { opacity: .85; }
+.funnel-step:nth-child(3) { opacity: .7; }
+.funnel-step:nth-child(4) { opacity: .55; }
+.funnel-step:nth-child(5) { opacity: .4; }
+
+/* Línea de tiempo vertical */
+.timeline { position: relative; margin: var(--space-5) 0; padding-left: var(--space-6); border-left: 3px solid var(--line-strong); }
+.timeline-item { position: relative; margin-bottom: var(--space-5); }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--space-6) - 7px);
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--paper);
+}
+.timeline-item__date { font-size: var(--fs-sm); font-weight: 700; color: var(--accent-dark); }
+.timeline-item__title { font-family: var(--font-serif); font-size: var(--fs-lg); margin: var(--space-1) 0; }
+
+/* ===== 17. Botones ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-5);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-base);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover { background: var(--accent-dark); }
+.btn--ghost { background: transparent; border: 2px solid var(--line-strong); color: var(--ink); }
+.btn--ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ===== 18. Media queries (mobile-first: base = ~375px) ===== */
+@media (min-width: 640px) {
+  .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .hero { padding: var(--space-8) var(--space-6); }
+}
+@media (min-width: 960px) {
+  .kpi-grid { grid-template-columns: repeat(4, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ===== 19. Impresión ===== */
+@media print {
+  .docnav, .copyblock__btn, .btn { display: none !important; }
+  body { background: #fff; color: #000; }
+  .hero { background: #fff !important; color: #000 !important; }
+  .hero h1, .hero p { color: #000 !important; }
+  .card, .callout, .kpi, .copyblock { box-shadow: none; border: 1px solid #999; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: .8em; }
+}
+</style>
+</head>
+<body>
+
+<nav class="docnav" aria-label="Navegación del plan">
+  <div class="docnav__inner">
+    <a href="index.html" class="docnav__link active" aria-current="page">Plan</a>
+    <a href="kit-arranque.html" class="docnav__link">Kit de arranque</a>
+    <a href="guion-reels.html" class="docnav__link">Guiones de Reels</a>
+    <a href="sop-dm.html" class="docnav__link">Manual de DM</a>
+    <a href="recursos.html" class="docnav__link">Recursos</a>
+    <a href="tablero.html" class="docnav__link">Tablero</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero__inner">
+    <h1>Plan y estrategia</h1>
+    <p>El mapa completo para llevar a Pedraza Ilustración de USD 5.000 a USD 10.000 al mes, usando Instagram para descubrir y la tienda propia para vender.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section class="sec">
+<h2>Resumen del plan en 30 segundos</h2>
+<p>Esta página es el mapa completo del plan de crecimiento de Pedraza Ilustración en Instagram: por qué se hace cada cosa, qué se publica, cuándo, y cómo se sabe si está funcionando. El resto de las páginas del sitio (arriba, en el menú) son las herramientas para ejecutarlo día a día.</p>
+
+<div class="kpi-grid">
+  <div class="kpi">
+    <span class="kpi__label">Facturación de la tienda hoy</span>
+    <span class="kpi__value">USD 5.000/mes</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Meta del plan</span>
+    <span class="kpi__value">USD 10.000/mes</span>
+    <span class="kpi__delta kpi__delta--up">+100%</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Camino principal</span>
+    <span class="kpi__value" style="font-size:var(--fs-lg)">Instagram → Tienda propia</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Etapa actual</span>
+    <span class="kpi__value" style="font-size:var(--fs-lg)">Fase 1: Chile</span>
+  </div>
+</div>
+
+<p>La venta se cierra siempre en la tienda propia (Shopify), nunca dentro de Instagram — esa opción ya no existe en la plataforma. Instagram es la puerta de entrada: ahí se descubre la marca y se genera el interés, y desde ahí se dirige a la tienda para comprar.</p>
+
+<h3>Cómo usar este sitio</h3>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Página</th><th>Para qué sirve</th></tr></thead>
+<tbody>
+<tr><td><strong>Plan</strong> (esta página)</td><td>La estrategia completa, el calendario y la checklist semana a semana.</td></tr>
+<tr><td>Kit de arranque</td><td>Variantes de bio, guiones cortos y plantillas listas para copiar y pegar.</td></tr>
+<tr><td>Guiones de Reels</td><td>Guiones detallados, paso a paso, para grabar cada Reel.</td></tr>
+<tr><td>Manual de DM</td><td>Cómo responder los mensajes directos, con ejemplos de respuesta.</td></tr>
+<tr><td>Recursos</td><td>Plantillas y material de apoyo adicional.</td></tr>
+<tr><td>Tablero</td><td>Los 12 números clave del plan, en gráficos, alimentados desde un Google Sheet.</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="sec">
+<h2>Diagnóstico</h2>
+<p>Antes de decidir qué publicar, esto es lo que ya juega a favor de la marca y lo que todavía falta por confirmar.</p>
+
+<h3>Lo que ya juega a favor</h3>
+<div class="grid-3">
+  <div class="card"><h3>Historia real</h3><p>La llevan dos hermanos chilenos, María José Pedraza (ilustradora y fotógrafa) y Felipe Robinson (ingeniero comercial). El propósito de dar a conocer y proteger la flora y fauna de Chile ya está en el sitio, no es un mensaje inventado para este plan.</p></div>
+  <div class="card"><h3>La educación viene en el producto</h3><p>Los puzzles y varias láminas ya traen el nombre común y científico de cada especie. La marca no tiene que inventar el ángulo educativo: ya está en lo que vende.</p></div>
+  <div class="card"><h3>Catálogo organizado en series</h3><p>Aves, flores, mariposas, hongos y cetáceos se repiten entre lámina, puzzle, plato y calcetín. Es una base natural para hacer contenido y venta cruzada.</p></div>
+  <div class="card"><h3>Calidad real, no solo de marketing</h3><p>Impresión Giclée (una técnica de alta calidad, con tintas especiales) en papel Hahnemühle, un papel premium reconocido en el mundo del arte. Loza apta para microondas y lavavajillas.</p></div>
+  <div class="card"><h3>La demanda ya existe fuera de Instagram</h3><p>La marca vende en su sitio propio y también en Mercado Libre, Creado en Chile, Decatálogo y Bazared.</p></div>
+  <div class="card"><h3>El nicho ya funciona</h3><p>El Ministerio del Medio Ambiente y CONAF usan la ilustración como herramienta en sus campañas de conservación. Un competidor directo con un ángulo muy similar, Bendito, tendría cerca de <span class="pill pill--warn">🟡 45.000 seguidores (sin verificar)</span> — señal de que el nicho escala en Instagram.</p></div>
+</div>
+
+<p>Además, María José ya es la cara visible de la marca (el contenido con una persona real detrás suele funcionar mejor que el contenido "de catálogo"), y el feed ya tiene una base de contenido: historia de origen, revelación de producto y campañas estacionales como Cyber y Navidad. No se parte de cero.</p>
+
+<h3>Lo que falta por confirmar</h3>
+<div class="callout callout--warn"><p><strong>No hay conteo confirmado de seguidores, texto de bio ni cadencia real de publicación en Instagram.</strong> No aparecieron en ninguna fuente pública consultada — hay que sacarlos directo de la cuenta.</p></div>
+<div class="callout callout--warn"><p><strong>El ticket promedio (lo que gasta una persona por compra) hoy es una referencia del operador</strong>, de memoria y sin confirmar: alrededor de CLP $60.000 ("tal vez sea menos ahora", según sus propias palabras). Falta confirmarlo con el reporte real de Shopify.</p></div>
+<div class="callout callout--warn"><p><strong>El umbral de envío gratis no está claro:</strong> la página principal de la tienda dice compras sobre $50.000 CLP, pero una ficha de producto dice $30.000 CLP.</p></div>
+<div class="callout callout--warn"><p><strong>No está confirmado quién responde hoy los mensajes y correos.</strong> El contacto público es cote@pedrazailustracion.com, sin confirmar si "Cote" es María José, Felipe u otra persona.</p></div>
+<div class="callout callout--warn"><p><strong>Los roles de María José y Felipe en el día a día</strong> (quién crea, quién opera la cuenta, quién responde DM) son un supuesto de trabajo, todavía sin confirmar.</p></div>
+<div class="callout callout--info"><p><strong>El pago ya no se completa dentro de Instagram.</strong> Meta eliminó esa función en 2025. No es una debilidad de la marca, es un cambio de la plataforma — el plan está diseñado asumiendo que toda compra pasa por la tienda propia.</p></div>
+<div class="callout callout--info"><p><strong>No se encontró presencia de la marca en TikTok, Pinterest ni YouTube.</strong> Puede que no existan, o que simplemente no estén indexadas en buscadores — vale la pena confirmarlo.</p></div>
+</section>
+
+<section class="sec">
+<h2>Cliente ideal</h2>
+<p>El plan no le habla a "cualquiera a quien le guste el arte": le habla a quien regala o decora con intención, en un momento concreto. Son 3 perfiles, uno principal y dos secundarios.</p>
+
+<div class="grid-3">
+  <div class="card">
+    <span class="pill">Principal</span>
+    <h3>Javiera, 34 años</h3>
+    <p><strong>"Regala con sentido"</strong></p>
+    <p><strong>Quién es:</strong> vive en una ciudad chilena, trabaja, y tiene un círculo cercano (familia, amigas, colegas) para quien busca regalos en fechas puntuales.</p>
+    <p><strong>Qué la gatilla:</strong> se acerca una fecha comercial (Día de la Madre, un cumpleaños, Navidad) y no quiere repetir lo obvio — busca algo con más significado que perfumería o chocolates.</p>
+    <p><strong>Qué compra:</strong> láminas, libretas y calcetines: diseño reconocible y una historia breve para contar al regalar.</p>
+  </div>
+  <div class="card">
+    <span class="pill pill--info">Secundario</span>
+    <h3>Constanza, 29 años</h3>
+    <p><strong>"Decora su depto con identidad chilena"</strong></p>
+    <p><strong>Quién es:</strong> recién independizada o remodelando su espacio, busca decoración con estilo pero no genérica.</p>
+    <p><strong>Qué la gatilla:</strong> se muda, redecora, o simplemente ve un plato o lámina que le encanta en su feed.</p>
+    <p><strong>Qué compra:</strong> loza (el set más caro del catálogo), láminas grandes y botellas — el ticket más alto de los tres perfiles.</p>
+  </div>
+  <div class="card">
+    <span class="pill pill--info">Secundario</span>
+    <h3>Fernanda, 38 años</h3>
+    <p><strong>"Educa jugando"</strong></p>
+    <p><strong>Quién es:</strong> madre, tía o abuela de niños entre 5 y 12 años.</p>
+    <p><strong>Qué la gatilla:</strong> el Día del Niño (9 de agosto), un cumpleaños, o un regalo "que enseñe algo" y no solo entretenga.</p>
+    <p><strong>Qué compra:</strong> puzzles con guía de especies (nombre común y científico incluido) — la función educativa es el argumento de venta.</p>
+  </div>
+</div>
+</section>
+
+<section class="sec">
+<h2>Promesa y bio</h2>
+<div class="callout callout--success">
+<p><strong>Pedraza Ilustración transforma la flora y fauna de Chile en objetos para regalar y decorar. Cada pieza, hecha por dos hermanos chilenos, enseña algo nuevo sobre la naturaleza que retrata.</strong></p>
+</div>
+<p>Esta promesa combina tres cosas que ya diferencian a la marca: arte propio (no contenido de terceros), educación sobre flora y fauna chilena, y una historia real de dos hermanos chilenos — no un discurso corporativo.</p>
+
+<h3>Versión de referencia de la bio</h3>
+<p>Este es un punto de partida. Las variantes finales para probar están en <a href="kit-arranque.html">Kit de arranque</a>.</p>
+<div class="copyblock">
+  <button type="button" class="copyblock__btn" data-copy-target="copy-bio-referencia">Copiar</button>
+  <div class="copyblock__text" id="copy-bio-referencia">Pedraza Ilustración 🦋🌿
+Arte original de flora y fauna de Chile — hecho por 2 hermanos chilenos
+Para regalar y decorar con identidad
+👇 compra aquí
+pedrazailustracion.com</div>
+</div>
+<p>La bio debe tener, en este orden: la promesa concreta, para quién es, un solo link a la tienda, y el nombre del perfil con la palabra clave que falta (por ejemplo, "Pedraza Ilustración | Flora y Fauna de Chile") para que la cuenta aparezca en búsquedas dentro de Instagram.</p>
+</section>
+
+<section class="sec">
+<h2>El embudo Instagram → tienda</h2>
+<p>Un embudo es el camino que recorre una persona desde que ve el contenido hasta que compra — y lo que pasa después de esa compra. Estos son los 5 pasos, siempre en el mismo orden y con los mismos nombres en todo el sitio.</p>
+
+<div class="funnel">
+  <div class="funnel-step" style="--w:100%; background:var(--accent)">1. Descubrimiento</div>
+  <div class="funnel-step" style="--w:82%; background:var(--accent)">2. Interés</div>
+  <div class="funnel-step" style="--w:64%; background:var(--accent)">3. DM</div>
+  <div class="funnel-step" style="--w:46%; background:var(--success)">4. Compra</div>
+  <div class="funnel-step" style="--w:30%; background:var(--success)">5. Post-venta</div>
+</div>
+
+<h3>Qué pasa en cada paso</h3>
+<div class="grid-2">
+<div class="card"><h3>1. Descubrimiento</h3><p>Un Reel o carrusel con un gancho: los primeros segundos que hacen que alguien se detenga a mirar, aunque todavía no siga la cuenta.</p></div>
+<div class="card"><h3>2. Interés</h3><p>Un CTA (la invitación a hacer algo, como "compra aquí") hacia el link en bio, o "comenta [PALABRA]" directamente en la publicación.</p></div>
+<div class="card"><h3>3. DM</h3><p>Se entrega el link directo al producto y se responden dudas. Parte con respuestas guardadas de Instagram (mensajes ya escritos, gratis), y solo se suma una herramienta como ManyChat si el volumen de mensajes lo justifica.</p></div>
+<div class="card"><h3>4. Compra</h3><p>El pago se completa en la tienda (Shopify). Nunca dentro de Instagram — esa opción ya no existe.</p></div>
+<div class="card"><h3>5. Post-venta</h3><p>Se pide una reseña o una foto del producto. Esa persona se convierte en embajadora: su contenido alimenta el pilar "Clientes y Reseñas" y vuelve a alimentar el descubrimiento.</p></div>
+</div>
+
+<div class="callout callout--info"><p><strong>Las Stories son un carril paralelo.</strong> Mientras corre este embudo, cada día se publican historias pensadas para la gente que ya sigue la cuenta, con venta más directa — a quien ya sigue no hay que "descubrirlo", solo recordarle.</p></div>
+
+<h3>El punto único de fallo: el link en bio</h3>
+<div class="callout callout--danger">
+<p><strong>El link en bio es el único lugar clickeable fijo del perfil.</strong> Si está roto, desactualizado, o lleva a una colección sin stock, se corta toda la cadena entre "vio el Reel" y "compró" — sin importar cuán bien haya funcionado todo lo anterior.</p>
+</div>
+<ul>
+<li>Revisar que el link cargue y lleve a donde dice el CTA del post, al menos una vez por semana.</li>
+<li>Si un Reel habla de un producto puntual, considerar que el link en bio apunte a ese producto mientras el Reel esté activo.</li>
+<li>Usar parámetros UTM (una forma de "etiquetar" el link para poder ver después, en las estadísticas de la tienda, cuánta gente llegó desde Instagram).</li>
+<li>No repartir el link en bio entre varios destinos (por ejemplo, un Linktree con diez opciones) — cada destino extra es un paso más de fricción antes de la compra.</li>
+</ul>
+</section>
+
+<section class="sec">
+<h2>Los 5 pilares de contenido</h2>
+<p>Todo lo que se publica cae dentro de uno de estos 5 pilares. Son los mismos nombres que se usan en el calendario editorial y en el resto del sitio.</p>
+
+<div class="grid-3">
+<div class="card"><h3>Producto y Colecciones</h3><p><strong>Qué es:</strong> mostrar el producto — revelaciones, detalles, cómo se ve en uso.</p><p><strong>Ejemplos:</strong> revelación de una lámina nueva, video de un puzzle armándose, la loza puesta en una mesa.</p></div>
+<div class="card"><h3>Flora y Fauna de Chile</h3><p><strong>Qué es:</strong> contenido educativo puro sobre las especies que ilustra la marca — nombre común y científico, datos curiosos, estado de conservación.</p><p><strong>Ejemplos:</strong> "3 datos que no sabías sobre el chucao", ficha ilustrada de una especie, mención del proceso de clasificación de especies del Ministerio del Medio Ambiente.</p></div>
+<div class="card"><h3>Proceso y Detrás de Escena</h3><p><strong>Qué es:</strong> cómo se hace cada pieza — boceto, ilustración, producción, empaque.</p><p><strong>Ejemplos:</strong> time-lapse de una ilustración terminándose, ASMR empacando un pedido, boceto comparado con la lámina terminada.</p></div>
+<div class="card"><h3>Clientes y Reseñas</h3><p><strong>Qué es:</strong> fotos y videos de clientes reales usando o recibiendo el producto, reseñas, testimonios.</p><p><strong>Ejemplos:</strong> repost de una foto de cliente (con su permiso), captura de una reseña destacada, video de unboxing hecho por un cliente.</p></div>
+<div class="card"><h3>Los Hermanos y la Misión</h3><p><strong>Qué es:</strong> contenido con María José y Felipe — la historia de por qué existe la marca y su compromiso con la conservación.</p><p><strong>Ejemplos:</strong> reel de "por qué nació Pedraza Ilustración", un día en el estudio de María José, por qué Felipe se sumó al proyecto.</p></div>
+</div>
+
+<h3>Cuánto se publica de cada uno</h3>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Producto y Colecciones</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:30%"></div></div><span class="chart-bar-row__value">30%</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Flora y Fauna de Chile</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:25%"></div></div><span class="chart-bar-row__value">25%</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Proceso y Detrás de Escena</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:20%"></div></div><span class="chart-bar-row__value">20%</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Clientes y Reseñas</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:15%"></div></div><span class="chart-bar-row__value">15%</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Los Hermanos y la Misión</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:10%"></div></div><span class="chart-bar-row__value">10%</span></div>
+</section>
+
+<section class="sec">
+<h2>Formatos y calendario semanal</h2>
+<h3>Jerarquía de formatos</h3>
+<div class="grid-2">
+<div class="card"><h3>Reels = descubrimiento</h3><p>El formato con más alcance orgánico hoy. Duran entre 15 y 45 segundos — los Reels cortos llegan mejor a gente que todavía no sigue la cuenta.</p></div>
+<div class="card"><h3>Carruseles = profundidad y guardados</h3><p>Segundo formato en importancia. Agregarles audio los hace elegibles para aparecer también en el feed de Reels, lo que amplía su alcance.</p></div>
+<div class="card"><h3>Stories = uso diario</h3><p>De 3 a 7 historias por día, con venta directa a quien ya sigue la cuenta.</p></div>
+<div class="card"><h3>Trial Reels = laboratorio sin riesgo</h3><p>Reels que Instagram muestra primero solo a gente que no sigue la cuenta. Si funcionan bien, recién ahí se comparten con los seguidores actuales. Sirven para probar un gancho nuevo sin arriesgar la grilla del perfil.</p></div>
+</div>
+
+<h3>Calendario semanal (desde la semana 3)</h3>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Día</th><th>Formato</th><th>Pilar</th></tr></thead>
+<tbody>
+<tr><td>Lunes</td><td>Reel</td><td>Producto y Colecciones</td></tr>
+<tr><td>Martes</td><td>Carrusel (con audio)</td><td>Flora y Fauna de Chile</td></tr>
+<tr><td>Miércoles</td><td>Reel</td><td>Proceso y Detrás de Escena</td></tr>
+<tr><td>Jueves</td><td>Reel</td><td>Flora y Fauna de Chile</td></tr>
+<tr><td>Viernes</td><td>Carrusel (con audio)</td><td>Clientes y Reseñas</td></tr>
+<tr><td>Sábado</td><td>Reel o Trial Reel</td><td>Producto y Colecciones</td></tr>
+<tr><td>Domingo</td><td>Reel</td><td>Los Hermanos y la Misión</td></tr>
+</tbody>
+</table>
+</div>
+<p>Todos los días se suman entre 3 y 7 Stories. El número total de Reels de la semana (entre 4 y 7) se ajusta según la capacidad real de grabación del equipo.</p>
+
+<h3>La rampa de cadencia</h3>
+<div class="grid-2">
+<div class="card"><h3>Semanas 1 y 2 — instalar el hábito</h3><p>2-3 Reels/semana + 1 carrusel/semana + Stories 3-4 veces por semana. El objetivo es empezar sin quemar al equipo.</p></div>
+<div class="card"><h3>Desde la semana 3 — ritmo completo</h3><p>4-7 Reels/semana + 2-3 carruseles/semana + Stories todos los días (3-7 historias).</p></div>
+</div>
+
+<div class="callout callout--info"><p><strong>La primera hora importa.</strong> Cuando se publica un Reel, Instagram lo prueba primero con un grupo chico de gente que no sigue la cuenta. Si responde bien (comenta, comparte, lo ve completo), el contenido se empuja a audiencias más grandes. Por eso conviene responder comentarios y mensajes apenas se publica, dentro de la primera hora.</p></div>
+</section>
+
+<section class="sec">
+<h2>Calendario comercial</h2>
+<p>Cada fecha comercial es una oportunidad de venta. El contenido y las promociones se planifican alrededor de estas fechas, no al revés.</p>
+
+<div class="timeline">
+<div class="timeline-item"><span class="timeline-item__date">9 de agosto de 2026</span><h3 class="timeline-item__title">Día del Niño <span class="pill pill--success">🟢 confirmada</span></h3></div>
+<div class="timeline-item"><span class="timeline-item__date">18-19 de septiembre de 2026</span><h3 class="timeline-item__title">Fiestas Patrias <span class="pill pill--success">🟢 confirmada</span></h3></div>
+<div class="timeline-item"><span class="timeline-item__date">inicios de octubre de 2026 (estimado)</span><h3 class="timeline-item__title">CyberMonday Chile <span class="pill pill--warn">🟡 fecha exacta sin anunciar</span></h3></div>
+<div class="timeline-item"><span class="timeline-item__date">27 al 30 de noviembre de 2026</span><h3 class="timeline-item__title">Black Friday <span class="pill pill--warn">🟡 día exacto de inicio por confirmar</span></h3></div>
+<div class="timeline-item"><span class="timeline-item__date">25 de diciembre de 2026</span><h3 class="timeline-item__title">Navidad <span class="pill pill--success">🟢 fecha fija</span></h3></div>
+<div class="timeline-item"><span class="timeline-item__date">14 de febrero de 2027</span><h3 class="timeline-item__title">San Valentín <span class="pill pill--success">🟢 fecha fija</span></h3></div>
+<div class="timeline-item"><span class="timeline-item__date">inicios de marzo de 2027 (estimado)</span><h3 class="timeline-item__title">Vuelta a clases <span class="pill pill--warn">🟡 fecha exacta 2027 sin publicar</span></h3></div>
+</div>
+
+<h3>La mini-campaña estándar</h3>
+<p>La misma estructura de 4 fases se repite para cada fecha de la lista de arriba.</p>
+<div class="grid-2">
+<div class="card"><span class="pill">Fase 1 · Calentamiento</span><h3>7-10 días antes</h3><p>Contenido de los pilares "Flora y Fauna de Chile" o "Proceso y Detrás de Escena" — construye interés, todavía sin vender.</p></div>
+<div class="card"><span class="pill">Fase 2 · Oferta</span><h3>3-5 días antes</h3><p>Se anuncia la promoción concreta (pilar "Producto y Colecciones").</p></div>
+<div class="card"><span class="pill">Fase 3 · Urgencia</span><h3>Últimos días</h3><p>Recordatorios en Stories: quedan pocos días o poco stock.</p></div>
+<div class="card"><span class="pill">Fase 4 · Cierre</span><h3>Último día</h3><p>Último llamado a comprar, con horario límite si aplica.</p></div>
+</div>
+</section>
+
+<section class="sec">
+<h2>Cómo se mide el avance</h2>
+<p>Estos son los 12 números que va a graficar el <a href="tablero.html">tablero</a> cada semana. Todavía no llevan cifras: primero hay que capturar una foto de partida (ver el callout más abajo).</p>
+
+<div class="kpi-grid">
+<div class="kpi"><span class="kpi__label">KPI 1</span><span class="kpi__value" style="font-size:var(--fs-lg)">Alcance</span><p style="margin:var(--space-2) 0 0;font-size:var(--fs-sm);color:var(--ink-soft)">Cuánta gente vio la publicación.</p></div>
+<div class="kpi"><span class="kpi__label">KPI 2</span><span class="kpi__value" style="font-size:var(--fs-lg)">Alcance no-seguidores</span><p style="margin:var(--space-2) 0 0;font-size:var(--fs-sm);color:var(--ink-soft)">Cuánta gente nueva, que todavía no sigue la cuenta, vio el contenido.</p></div>
+<div class="kpi"><span class="kpi__label">KPI 3</span><span class="kpi__value" style="font-size:var(--fs-lg)">Reproducciones de Reels</span><p style="margin:var(--space-2) 0 0;font-size:var(--fs-sm);color:var(--ink-soft)">Cuántas veces se reprodujeron los Reels.</p></div>
+<div class="kpi"><span class="kpi__label">KPI 4</span><span class="kpi__value" style="font-size:var(--fs-lg)">Guardados</span><p style="margin:var(--space-2) 0 0;font-size:var(--fs-sm);color:var(--ink-soft)">Cuando alguien guarda el post para volver a verlo después.</p></div>
+<div class="kpi"><span class="kpi__label">KPI 5</span><span class="kpi__value" style="font-size:var(--fs-lg)">Compartidos</span><p style="margin:var(--space-2) 0 0;font-size:var(--fs-sm);color:var(--ink-soft)">Cuando alguien manda el contenido por DM a otra persona.</p></div>
+<div class="kpi"><span class="kpi__label">KPI 6</span><span class="kpi__value" style="font-size:var(--fs-lg)">Comentarios</span><p style="margin:var(--space-2) 0 0;font-size:var(--fs-sm);color:var(--ink-soft)">Conversación real bajo la publicación.</p></div>
+<div class="kpi"><span class="kpi__label">KPI 7</span><span class="kpi__value" style="font-size:var(--fs-lg)">Seguidores nuevos</span><p style="margin:var(--space-2) 0 0;font-size:var(--fs-sm);color:var(--ink-soft)">Cuánta gente empezó a seguir la cuenta.</p></div>
+<div class="kpi"><span class="kpi__label">KPI 8</span><span class="kpi__value" style="font-size:var(--fs-lg)">DMs iniciados</span><p style="margin:var(--space-2) 0 0;font-size:var(--fs-sm);color:var(--ink-soft)">Mensajes directos que llegan pidiendo información o el link.</p></div>
+<div class="kpi"><span class="kpi__label">KPI 9</span><span class="kpi__value" style="font-size:var(--fs-lg)">Clics al link de bio</span><p style="margin:var(--space-2) 0 0;font-size:var(--fs-sm);color:var(--ink-soft)">Cuánta gente toca el link hacia la tienda.</p></div>
+<div class="kpi"><span class="kpi__label">KPI 10</span><span class="kpi__value" style="font-size:var(--fs-lg)">Sesiones de la tienda desde IG</span><p style="margin:var(--space-2) 0 0;font-size:var(--fs-sm);color:var(--ink-soft)">Visitas a la tienda que llegan desde Instagram.</p></div>
+<div class="kpi"><span class="kpi__label">KPI 11</span><span class="kpi__value" style="font-size:var(--fs-lg)">Pedidos</span><p style="margin:var(--space-2) 0 0;font-size:var(--fs-sm);color:var(--ink-soft)">Compras completadas en la tienda.</p></div>
+<div class="kpi"><span class="kpi__label">KPI 12</span><span class="kpi__value" style="font-size:var(--fs-lg)">Ingresos</span><p style="margin:var(--space-2) 0 0;font-size:var(--fs-sm);color:var(--ink-soft)">La plata que entra por esas compras — la métrica norte del plan.</p></div>
+</div>
+
+<h3>4 métricas que se calculan solas</h3>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Métrica derivada</th><th>Cómo se calcula</th><th>Qué dice</th></tr></thead>
+<tbody>
+<tr><td>Tasa de guardado</td><td>Guardados ÷ Alcance</td><td>Qué tan "guardable" es lo que se publica.</td></tr>
+<tr><td>Tasa de descubrimiento</td><td>Alcance no-seguidores ÷ Alcance total</td><td>Cuánta gente nueva está llegando, no solo quienes ya siguen.</td></tr>
+<tr><td>Clic → pedido</td><td>Pedidos ÷ Clics al link de bio</td><td>De la gente que llega a la tienda desde Instagram, cuántos terminan comprando.</td></tr>
+<tr><td>AOV (ticket promedio)</td><td>Ingresos ÷ Pedidos</td><td>Cuánto gasta en promedio cada persona por compra.</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>Primero hay que capturar la línea base.</strong> Casi ninguno de estos 12 números tiene hoy un valor confirmado — no hay seguidores, alcance ni sesiones desde Instagram verificados. Antes de poder medir avance, el primer paso es sacar una foto de partida de cada uno y cargarla en el <a href="tablero.html">tablero</a>. El detalle de qué capturar y dónde está en <a href="#datos-que-faltan">Datos que faltan</a>, más abajo.</p>
+</div>
+</section>
+
+<section class="sec">
+<h2>Quién hace qué</h2>
+<div class="callout callout--warn"><p><strong>Supuesto por confirmar.</strong> No hay confirmación directa de cómo se reparten hoy estas tareas entre María José y Felipe.</p></div>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Quién</th><th>Qué hace cada semana</th></tr></thead>
+<tbody>
+<tr><td><strong>María José</strong></td><td>Crea el contenido: graba y fotografía en un lote de grabación semanal (un bloque de tiempo fijo para grabar varias piezas de una sola vez). Aparece en cámara, especialmente para el pilar "Los Hermanos y la Misión".</td></tr>
+<tr><td><strong>Felipe</strong></td><td>Opera la cuenta: programa las publicaciones, revisa las métricas cada semana contra la meta de ventas, y responde comentarios y DM, idealmente dentro de la primera hora de publicado.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout callout--warn"><p>El contacto público de atención al cliente hoy es cote@pedrazailustracion.com, y no está confirmado si "Cote" corresponde a Felipe, a María José o a una tercera persona. Vale la pena aclarar esto antes de asumir que Felipe es quien responde los DM en la práctica.</p></div>
+</section>
+
+<section class="sec">
+<h2>Anexo: Rampa EEUU</h2>
+<div class="callout callout--info"><p><strong>Esto es fase posterior.</strong> Todo lo siguiente viene después de llegar a la meta de USD 10.000/mes en la tienda chilena. Se deja documentado como hoja de ruta, no como tarea inmediata.</p></div>
+
+<div class="grid-2">
+<div class="card"><span class="pill">1</span> <span class="pill pill--warn">🟡 PRIORIDAD</span><h3>Registro de marca "Pedraza Ilustración"</h3><p>Iniciar el trámite ya si no está iniciado: puede demorar meses y es el requisito base para todo lo demás en Amazon (sin marca registrada o en trámite, no hay Brand Registry).</p></div>
+<div class="card"><span class="pill">2</span><h3>Seller Central plan Professional + Brand Registry</h3><p>No Amazon Handmade: la producción se terceriza con un proveedor, y Handmade exige fabricación manual propia del vendedor.</p></div>
+<div class="card"><span class="pill">3</span><h3>A+ Content y Amazon Store</h3><p>Contenido de marca gratuito dentro de Amazon, disponible una vez que se tiene Brand Registry. Amazon Posts ya no existe: el programa se discontinuó por completo en julio de 2025.</p></div>
+<div class="card"><span class="pill">4</span><h3>Amazon Attribution + Brand Referral Bonus</h3><p>Para medir y aprovechar el tráfico que llegue desde Instagram hacia el listing de Amazon, con devolución de hasta ~10% en comisiones sobre esa venta (crédito, no efectivo directo).</p></div>
+<div class="card"><span class="pill">5</span><h3>Ventana BFCM</h3><p>Black Friday-Cyber Monday de EEUU (27 al 30 de noviembre de 2026), con inventario ingresado en octubre-noviembre — la fecha de mayor impacto comercial en EEUU más próxima desde hoy.</p></div>
+<div class="card"><span class="pill">6</span><h3>Contenido bilingüe selectivo</h3><p>Adaptar al inglés el mismo storytelling que ya funciona en Instagram (flora y fauna chilena, historia de los hermanos) para usar en la Amazon Store.</p></div>
+</div>
+</section>
+
+<section class="sec">
+<h2>Checklist del plan, semana a semana</h2>
+<p>Marca cada tarea a medida que se completa. El progreso queda guardado en este navegador — no se comparte automáticamente entre el celular de una persona y el computador de la otra.</p>
+
+<div class="progress">
+  <div class="progress__track">
+    <div class="progress__fill" data-progress-fill></div>
+  </div>
+  <span class="progress__label" data-progress-label>0 de 0 tareas (0%)</span>
+</div>
+
+<h3>Semana 1 — Preparar el terreno</h3>
+<h4 style="font-family:var(--font-sans);font-size:var(--fs-sm);text-transform:uppercase;letter-spacing:.05em;color:var(--accent-dark);margin:var(--space-4) 0 var(--space-2);font-weight:700;">Felipe</h4>
+<ul class="checklist">
+  <li><label><input type="checkbox" data-task="confirmar-datos-pendientes-prioridad"><span>Revisar junto con María José los 5 datos [PRIORIDAD] de la lista de pendientes (marca, seguidores, AOV, Insights, registro de marca)</span></label></li>
+  <li><label><input type="checkbox" data-task="capturar-linea-base-instagram"><span>Capturar el conteo actual de seguidores y exportar los Instagram Insights de los últimos 90 días</span></label></li>
+  <li><label><input type="checkbox" data-task="capturar-linea-base-ventas"><span>Sacar de Shopify el AOV, los pedidos del mes y las sesiones que llegan desde Instagram</span></label></li>
+  <li><label><input type="checkbox" data-task="crear-sheet-tablero"><span>Crear el Google Sheet con las 13 columnas del tablero y compartirlo como "Cualquiera con el enlace: Lector"</span></label></li>
+  <li><label><input type="checkbox" data-task="revisar-link-en-bio"><span>Revisar que el link en bio cargue bien y lleve a la tienda</span></label></li>
+  <li><label><input type="checkbox" data-task="publicar-bio-nueva"><span>Publicar la bio nueva en Instagram con los 4 elementos: promesa, para quién, link y nombre buscable</span></label></li>
+  <li><label><input type="checkbox" data-task="actualizar-nombre-perfil"><span>Agregar "Flora y Fauna de Chile" al nombre visible del perfil de Instagram</span></label></li>
+</ul>
+<h4 style="font-family:var(--font-sans);font-size:var(--fs-sm);text-transform:uppercase;letter-spacing:.05em;color:var(--accent-dark);margin:var(--space-4) 0 var(--space-2);font-weight:700;">María José</h4>
+<ul class="checklist">
+  <li><label><input type="checkbox" data-task="revisar-variantes-bio-kit"><span>Revisar las variantes de bio y guiones del Kit de arranque antes de publicar</span></label></li>
+  <li><label><input type="checkbox" data-task="planificar-lote-grabacion"><span>Agendar el primer bloque fijo de grabación semanal</span></label></li>
+</ul>
+
+<h3>Semana 2 — Primer lote de contenido</h3>
+<h4 style="font-family:var(--font-sans);font-size:var(--fs-sm);text-transform:uppercase;letter-spacing:.05em;color:var(--accent-dark);margin:var(--space-4) 0 var(--space-2);font-weight:700;">María José</h4>
+<ul class="checklist">
+  <li><label><input type="checkbox" data-task="grabar-primer-lote"><span>Grabar el primer lote semanal: boceto, proceso, producto y una aparición en cámara</span></label></li>
+  <li><label><input type="checkbox" data-task="producir-3-reels"><span>Producir los primeros 3 Reels de la semana</span></label></li>
+  <li><label><input type="checkbox" data-task="producir-primer-carrusel"><span>Armar el primer carrusel con audio sobre una especie del catálogo</span></label></li>
+  <li><label><input type="checkbox" data-task="grabar-asmr-empaque"><span>Grabar un video ASMR empacando un pedido</span></label></li>
+</ul>
+<h4 style="font-family:var(--font-sans);font-size:var(--fs-sm);text-transform:uppercase;letter-spacing:.05em;color:var(--accent-dark);margin:var(--space-4) 0 var(--space-2);font-weight:700;">Felipe</h4>
+<ul class="checklist">
+  <li><label><input type="checkbox" data-task="programar-calendario-semana-2"><span>Programar las publicaciones de la semana según el calendario semanal</span></label></li>
+  <li><label><input type="checkbox" data-task="configurar-respuestas-guardadas"><span>Configurar respuestas guardadas nativas de Instagram para las preguntas más frecuentes por DM</span></label></li>
+  <li><label><input type="checkbox" data-task="registrar-kpis-semana-2"><span>Registrar los 12 KPIs de la semana en el Sheet del tablero</span></label></li>
+</ul>
+
+<h3>Semana 3 — Sube la cadencia</h3>
+<h4 style="font-family:var(--font-sans);font-size:var(--fs-sm);text-transform:uppercase;letter-spacing:.05em;color:var(--accent-dark);margin:var(--space-4) 0 var(--space-2);font-weight:700;">María José</h4>
+<ul class="checklist">
+  <li><label><input type="checkbox" data-task="aumentar-produccion-reels"><span>Subir a entre 4 y 7 Reels grabados en la semana</span></label></li>
+  <li><label><input type="checkbox" data-task="producir-carruseles-semana-3"><span>Producir 2-3 carruseles con audio en la semana</span></label></li>
+  <li><label><input type="checkbox" data-task="probar-trial-reel"><span>Grabar un Trial Reel para probar un gancho nuevo sin arriesgar la grilla del perfil</span></label></li>
+</ul>
+<h4 style="font-family:var(--font-sans);font-size:var(--fs-sm);text-transform:uppercase;letter-spacing:.05em;color:var(--accent-dark);margin:var(--space-4) 0 var(--space-2);font-weight:700;">Felipe</h4>
+<ul class="checklist">
+  <li><label><input type="checkbox" data-task="agregar-utm-links"><span>Agregar parámetros UTM a los links que se comparten, para medir el tráfico desde Instagram</span></label></li>
+  <li><label><input type="checkbox" data-task="revisar-metricas-semana-3"><span>Revisar las métricas de la semana contra la meta de ventas</span></label></li>
+  <li><label><input type="checkbox" data-task="registrar-kpis-semana-3"><span>Registrar los 12 KPIs de la semana en el Sheet del tablero</span></label></li>
+</ul>
+
+<h3>Semana 4 — Primera fecha comercial: Día del Niño</h3>
+<h4 style="font-family:var(--font-sans);font-size:var(--fs-sm);text-transform:uppercase;letter-spacing:.05em;color:var(--accent-dark);margin:var(--space-4) 0 var(--space-2);font-weight:700;">María José</h4>
+<ul class="checklist">
+  <li><label><input type="checkbox" data-task="grabar-contenido-dia-del-nino"><span>Grabar el contenido de calentamiento y oferta para el Día del Niño (9 de agosto)</span></label></li>
+  <li><label><input type="checkbox" data-task="producir-contenido-puzzles"><span>Producir contenido del pilar Flora y Fauna enfocado en los puzzles con guía de especies</span></label></li>
+</ul>
+<h4 style="font-family:var(--font-sans);font-size:var(--fs-sm);text-transform:uppercase;letter-spacing:.05em;color:var(--accent-dark);margin:var(--space-4) 0 var(--space-2);font-weight:700;">Felipe</h4>
+<ul class="checklist">
+  <li><label><input type="checkbox" data-task="programar-mini-campana-dia-nino"><span>Programar las 4 fases de la mini-campaña del Día del Niño: calentamiento, oferta, urgencia, cierre</span></label></li>
+  <li><label><input type="checkbox" data-task="revisar-stock-dia-nino"><span>Confirmar el stock de los productos que se van a promocionar antes de anunciar la oferta</span></label></li>
+  <li><label><input type="checkbox" data-task="registrar-kpis-semana-4"><span>Registrar los 12 KPIs de la semana en el Sheet del tablero</span></label></li>
+  <li><label><input type="checkbox" data-task="revisar-avance-mes-1"><span>Revisar el avance del primer mes contra la línea base capturada en la semana 1</span></label></li>
+</ul>
+
+<h3>Cada semana desde la 5 — rutina sostenida</h3>
+<h4 style="font-family:var(--font-sans);font-size:var(--fs-sm);text-transform:uppercase;letter-spacing:.05em;color:var(--accent-dark);margin:var(--space-4) 0 var(--space-2);font-weight:700;">María José</h4>
+<ul class="checklist">
+  <li><label><input type="checkbox" data-task="lote-grabacion-semanal"><span>Hacer el lote de grabación semanal fijo: entre 4 y 7 Reels, 2-3 carruseles y material para Stories</span></label></li>
+  <li><label><input type="checkbox" data-task="rotar-pilares-contenido"><span>Rotar los 5 pilares de contenido según la distribución sugerida (30/25/20/15/10)</span></label></li>
+</ul>
+<h4 style="font-family:var(--font-sans);font-size:var(--fs-sm);text-transform:uppercase;letter-spacing:.05em;color:var(--accent-dark);margin:var(--space-4) 0 var(--space-2);font-weight:700;">Felipe</h4>
+<ul class="checklist">
+  <li><label><input type="checkbox" data-task="programar-publicaciones-semana"><span>Programar las publicaciones de la semana completa</span></label></li>
+  <li><label><input type="checkbox" data-task="publicar-stories-todos-los-dias"><span>Publicar Stories todos los días (entre 3 y 7 historias)</span></label></li>
+  <li><label><input type="checkbox" data-task="responder-dm-comentarios-diario"><span>Responder comentarios y DM dentro de la primera hora de publicado, todos los días</span></label></li>
+  <li><label><input type="checkbox" data-task="registrar-kpis-semanal"><span>Registrar los 12 KPIs de la semana en el tablero</span></label></li>
+  <li><label><input type="checkbox" data-task="revisar-calendario-comercial"><span>Revisar si se acerca una fecha comercial y activar la mini-campaña correspondiente</span></label></li>
+</ul>
+</section>
+
+<section class="sec" id="datos-que-faltan">
+<h2>Datos que faltan</h2>
+<p>Este plan se construyó con research público, sin acceso directo a Shopify ni a Instagram — el operador es quien puede confirmar estos datos. Los 5 más urgentes, porque bloquean decisiones de calendario o son la base numérica del resto del plan:</p>
+<ul>
+<li><span class="pill pill--warn">🟡 PRIORIDAD</span> Export de productos de Shopify (precio, stock, categoría) — reemplaza los precios de caché de buscador por el catálogo real.</li>
+<li><span class="pill pill--warn">🟡 PRIORIDAD</span> AOV real, número de pedidos al mes y mix de productos vendidos (Shopify Analytics).</li>
+<li><span class="pill pill--warn">🟡 PRIORIDAD</span> Instagram Insights de los últimos 90 días: alcance, visitas al perfil, clics al link en bio.</li>
+<li><span class="pill pill--warn">🟡 PRIORIDAD</span> Conteo actual de seguidores de Instagram y su evolución histórica.</li>
+<li><span class="pill pill--warn">🟡 PRIORIDAD</span> Estado del registro de marca "Pedraza Ilustración" (Chile y/o EEUU) — bloquea todo el anexo Rampa EEUU.</li>
+</ul>
+<p>El detalle completo de estos y otros datos pendientes (envío gratis, marketplaces, roles del equipo, y las re-verificaciones que solo requieren abrir una página sin bloqueo de red) está documentado en el repositorio del proyecto, en <code>docs/research/pendientes-operador.md</code>.</p>
+</section>
+
+</main>
+
+<script>
+  // Acceso seguro a localStorage (no revienta en navegación privada u otros bloqueos).
+  // Prerrequisito de: JS del checklist (index.html) y JS del tablero (tablero.html).
+  function pgGet(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+  function pgSet(key, valor) { try { localStorage.setItem(key, valor); } catch (e) { /* sin soporte, se ignora */ } }
+  function pgRemove(key) { try { localStorage.removeItem(key); } catch (e) { /* sin soporte, se ignora */ } }
+</script>
+
+<script>
+  // Copiar al portapapeles — delegación de eventos, un solo listener por página.
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-copy-target]');
+    if (!btn) return;
+    var el = document.getElementById(btn.getAttribute('data-copy-target'));
+    if (!el) return;
+    copiarTexto(el.innerText || el.textContent || '', btn);
+  });
+
+  function copiarTexto(texto, btn) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(texto).then(
+        function () { mostrarCopiado(btn); },
+        function () { copiarConFallback(texto, btn); }
+      );
+    } else {
+      copiarConFallback(texto, btn);
+    }
+  }
+
+  function copiarConFallback(texto, btn) {
+    var ta = document.createElement('textarea');
+    ta.value = texto;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.top = '-1000px';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (err) { /* sin soporte, se ignora */ }
+    document.body.removeChild(ta);
+    mostrarCopiado(btn);
+  }
+
+  function mostrarCopiado(btn) {
+    var original = btn.getAttribute('data-label') || btn.textContent;
+    btn.setAttribute('data-label', original);
+    btn.textContent = '✓ ¡Copiado!';
+    btn.classList.add('is-copied');
+    clearTimeout(btn._copyTimeout);
+    btn._copyTimeout = setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('is-copied');
+    }, 2000);
+  }
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Carga el estado guardado de cada checkbox de la checklist.
+    document.querySelectorAll('[data-task]').forEach(function (cb) {
+      cb.checked = pgGet('pedraza-plan:task:' + cb.getAttribute('data-task')) === '1';
+    });
+    actualizarProgreso();
+  });
+
+  // Delegación: un solo listener de cambio para toda la checklist.
+  document.addEventListener('change', function (e) {
+    var cb = e.target.closest('[data-task]');
+    if (!cb) return;
+    var key = 'pedraza-plan:task:' + cb.getAttribute('data-task');
+    if (cb.checked) { pgSet(key, '1'); } else { pgRemove(key); }
+    actualizarProgreso();
+  });
+
+  function actualizarProgreso() {
+    var cajas = document.querySelectorAll('[data-task]');
+    var total = cajas.length;
+    var done = 0;
+    cajas.forEach(function (cb) { if (cb.checked) done++; });
+    var pct = total ? Math.round((done / total) * 100) : 0;
+
+    pgSet('pedraza-plan:__progress', JSON.stringify({ done: done, total: total, pct: pct }));
+
+    document.querySelectorAll('[data-progress-fill]').forEach(function (fill) {
+      fill.style.width = pct + '%';
+    });
+    document.querySelectorAll('[data-progress-label]').forEach(function (label) {
+      label.textContent = done + ' de ' + total + ' tareas (' + pct + '%)';
+    });
+  }
+</script>
+</body>
+</html>
