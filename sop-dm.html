@@ -1,0 +1,802 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Manual de DM — Plan Pedraza Ilustración</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
+<style>
+/* ==========================================================================
+   Sistema de diseño — Plan Pedraza Ilustración
+   Bloque único y canónico. No editar por página: solo usar estas clases.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* --- tinta y superficies --- */
+  --ink: #1c2420;
+  --ink-soft: #4c5850;
+  --ink-faint: #7c887f;
+  --paper: #faf6ee;
+  --surface: #fffefb;
+  --line: #e6ded0;
+  --line-strong: #d6c9b0;
+
+  /* --- acento: rojo copihue --- */
+  --accent: #b0223f;
+  --accent-dark: #7c1830;
+  --accent-soft: #f8dfe4;
+
+  /* --- apoyo semántico --- */
+  --success: #2f6b4a;
+  --success-soft: #dcece1;
+  --warn: #a8720a;
+  --warn-soft: #f8ecd2;
+  --danger: #ae3d17;
+  --danger-soft: #f7ddd0;
+  --info: #35606c;
+  --info-soft: #dde7ea;
+
+  /* --- forma --- */
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-full: 999px;
+  --shadow-sm: 0 1px 3px rgba(28, 36, 32, .1);
+  --shadow: 0 6px 20px rgba(28, 36, 32, .12);
+
+  /* --- espaciado --- */
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  /* --- tipografía --- */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --fs-sm: clamp(.82rem, .78rem + .2vw, .9rem);
+  --fs-base: clamp(1rem, .95rem + .25vw, 1.0625rem);
+  --fs-lg: clamp(1.1rem, 1.02rem + .4vw, 1.25rem);
+  --fs-h3: clamp(1.15rem, 1.05rem + .5vw, 1.35rem);
+  --fs-h2: clamp(1.35rem, 1.15rem + 1vw, 1.75rem);
+  --fs-h1: clamp(1.75rem, 1.4rem + 2vw, 2.75rem);
+
+  /* --- área táctil mínima (regla mobile-first del proyecto) --- */
+  --tap: 44px;
+}
+
+/* ===== 1. Reset mínimo ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; }
+img, svg { max-width: 100%; display: block; }
+h1, h2, h3, h4, p, ul, ol, dl, figure { margin: 0 0 var(--space-4); }
+ul, ol { padding-left: 1.2em; }
+a { color: inherit; }
+button { font: inherit; }
+table { border-collapse: collapse; width: 100%; }
+
+/* ===== 2. Tipografía base ===== */
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: var(--font-serif); line-height: 1.2; color: var(--ink); }
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+p { max-width: 68ch; }
+strong { color: var(--ink); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* ===== 3. Layout ===== */
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 var(--space-4) var(--space-8); }
+
+/* ===== 4. Nav superior (.docnav) ===== */
+.docnav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--ink);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+.docnav__inner {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 var(--space-2);
+}
+.docnav__link {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  min-height: var(--tap);
+  padding: 0 var(--space-3);
+  color: #eae6dd;
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+}
+.docnav__link:hover { color: #fff; }
+.docnav__link.active {
+  color: #fff;
+  border-bottom-color: var(--accent);
+}
+
+/* ===== 5. Hero ===== */
+.hero {
+  padding: var(--space-7) var(--space-4);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+  color: #fff;
+}
+.hero__inner { max-width: 960px; margin: 0 auto; }
+.hero h1 { color: #fff; margin-bottom: var(--space-3); }
+.hero p { color: rgba(255, 255, 255, .92); font-size: var(--fs-lg); max-width: 60ch; margin: 0; }
+
+/* ===== 6. Secciones numeradas (.sec) ===== */
+main { counter-reset: sec; }
+.sec { counter-increment: sec; margin-top: var(--space-7); }
+.sec:first-of-type { margin-top: var(--space-6); }
+.sec > h2 {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding-bottom: var(--space-2);
+  border-bottom: 2px solid var(--line-strong);
+}
+.sec > h2::before {
+  content: counter(sec);
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9em;
+  height: 1.9em;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: .55em;
+  font-weight: 700;
+}
+
+/* ===== 7. Callouts ===== */
+.callout {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  margin: var(--space-4) 0;
+}
+.callout::before { flex: 0 0 auto; font-size: 1.3em; line-height: 1; }
+.callout p:last-child { margin-bottom: 0; }
+.callout--info { border-color: var(--info); background: var(--info-soft); }
+.callout--info::before { content: "💡"; }
+.callout--success { border-color: var(--success); background: var(--success-soft); }
+.callout--success::before { content: "✅"; }
+.callout--warn { border-color: var(--warn); background: var(--warn-soft); }
+.callout--warn::before { content: "🟡"; }
+.callout--danger { border-color: var(--danger); background: var(--danger-soft); }
+.callout--danger::before { content: "🔴"; }
+
+/* ===== 8. Bloque copiable (.copyblock) ===== */
+.copyblock {
+  position: relative;
+  margin: var(--space-4) 0;
+  padding: var(--space-8) var(--space-4) var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.copyblock__text {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--ink);
+}
+.copyblock__btn {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  min-height: var(--tap);
+  padding: 0 var(--space-4);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  cursor: pointer;
+}
+.copyblock__btn:hover { background: var(--accent-dark); }
+.copyblock__btn.is-copied { background: var(--success); }
+
+/* ===== 9. KPIs (.kpi) ===== */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  margin: var(--space-4) 0;
+}
+.kpi {
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.kpi__label { display: block; font-size: var(--fs-sm); color: var(--ink-soft); margin-bottom: var(--space-2); }
+.kpi__value { display: block; font-family: var(--font-serif); font-size: clamp(1.5rem, 1.3rem + 1vw, 2.1rem); font-weight: 700; color: var(--ink); }
+.kpi__delta { display: inline-block; margin-top: var(--space-2); font-size: var(--fs-sm); font-weight: 600; padding: 2px var(--space-2); border-radius: var(--radius-full); }
+.kpi__delta--up { color: var(--success); background: var(--success-soft); }
+.kpi__delta--down { color: var(--danger); background: var(--danger-soft); }
+
+/* ===== 10. Tarjeta genérica (.card) ===== */
+.card {
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  margin: var(--space-4) 0;
+}
+.card h3 { margin-top: 0; }
+
+/* ===== 11. Tablas responsive ===== */
+.table-wrap { overflow-x: auto; margin: var(--space-4) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); }
+.table-wrap table { min-width: 480px; }
+.table-wrap th, .table-wrap td { padding: var(--space-3); text-align: left; border-bottom: 1px solid var(--line); font-size: var(--fs-sm); }
+.table-wrap thead th { background: var(--ink); color: #fff; position: sticky; top: 0; }
+.table-wrap tbody tr:last-child td { border-bottom: none; }
+.table-wrap tbody tr:nth-child(even) { background: var(--paper); }
+
+/* ===== 12. Barra de progreso (.progress) ===== */
+.progress { margin: var(--space-4) 0; }
+.progress__track { height: 14px; background: var(--line); border-radius: var(--radius-full); overflow: hidden; }
+.progress__fill { height: 100%; background: var(--accent); border-radius: var(--radius-full); transition: width .3s ease; width: 0%; }
+.progress__label { display: block; margin-top: var(--space-2); font-size: var(--fs-sm); color: var(--ink-soft); }
+
+/* ===== 13. Checklist táctil (.checklist) ===== */
+.checklist { list-style: none; padding-left: 0; margin: var(--space-4) 0; }
+.checklist li { margin-bottom: var(--space-2); }
+.checklist label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  min-height: var(--tap);
+  padding: var(--space-2) var(--space-3);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+.checklist input[type="checkbox"] { width: 24px; height: 24px; flex: 0 0 auto; accent-color: var(--accent); margin-top: 2px; }
+.checklist input[type="checkbox"]:checked + span { text-decoration: line-through; color: var(--ink-soft); }
+
+/* ===== 14. Etiquetas (.pill) ===== */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+.pill--success { background: var(--success-soft); color: var(--success); }
+.pill--warn { background: var(--warn-soft); color: var(--warn); }
+.pill--danger { background: var(--danger-soft); color: var(--danger); }
+.pill--info { background: var(--info-soft); color: var(--info); }
+
+/* ===== 15. Grillas responsive ===== */
+.grid-2, .grid-3 { display: grid; gap: var(--space-4); margin: var(--space-4) 0; grid-template-columns: 1fr; }
+
+/* ===== 16. Gráficos SVG/CSS hechos a mano ===== */
+/* Barras horizontales */
+.chart-bar-row { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-2); }
+.chart-bar-row__label { flex: 0 0 9rem; font-size: var(--fs-sm); color: var(--ink-soft); }
+.chart-bar-row__track { flex: 1 1 auto; height: 20px; background: var(--line); border-radius: var(--radius-full); overflow: hidden; }
+.chart-bar-row__fill { height: 100%; background: var(--accent); border-radius: var(--radius-full); }
+.chart-bar-row__value { flex: 0 0 auto; font-size: var(--fs-sm); font-weight: 700; min-width: 3.5rem; text-align: right; }
+
+/* Embudo: cada .funnel-step define su ancho con --w inline, ej. style="--w:70%" */
+.funnel { display: flex; flex-direction: column; align-items: center; gap: 2px; margin: var(--space-4) 0; }
+.funnel-step {
+  width: var(--w, 100%);
+  max-width: 100%;
+  padding: var(--space-3);
+  text-align: center;
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  background: var(--accent);
+  border-radius: var(--radius-sm);
+}
+.funnel-step:nth-child(2) { opacity: .85; }
+.funnel-step:nth-child(3) { opacity: .7; }
+.funnel-step:nth-child(4) { opacity: .55; }
+.funnel-step:nth-child(5) { opacity: .4; }
+
+/* Línea de tiempo vertical */
+.timeline { position: relative; margin: var(--space-5) 0; padding-left: var(--space-6); border-left: 3px solid var(--line-strong); }
+.timeline-item { position: relative; margin-bottom: var(--space-5); }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--space-6) - 7px);
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--paper);
+}
+.timeline-item__date { font-size: var(--fs-sm); font-weight: 700; color: var(--accent-dark); }
+.timeline-item__title { font-family: var(--font-serif); font-size: var(--fs-lg); margin: var(--space-1) 0; }
+
+/* ===== 17. Botones ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-5);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-base);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover { background: var(--accent-dark); }
+.btn--ghost { background: transparent; border: 2px solid var(--line-strong); color: var(--ink); }
+.btn--ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ===== 18. Media queries (mobile-first: base = ~375px) ===== */
+@media (min-width: 640px) {
+  .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .hero { padding: var(--space-8) var(--space-6); }
+}
+@media (min-width: 960px) {
+  .kpi-grid { grid-template-columns: repeat(4, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ===== 19. Impresión ===== */
+@media print {
+  .docnav, .copyblock__btn, .btn { display: none !important; }
+  body { background: #fff; color: #000; }
+  .hero { background: #fff !important; color: #000 !important; }
+  .hero h1, .hero p { color: #000 !important; }
+  .card, .callout, .kpi, .copyblock { box-shadow: none; border: 1px solid #999; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: .8em; }
+}
+</style>
+</head>
+<body>
+
+<nav class="docnav" aria-label="Navegación del plan">
+  <div class="docnav__inner">
+    <a href="index.html" class="docnav__link">Plan</a>
+    <a href="kit-arranque.html" class="docnav__link">Kit de arranque</a>
+    <a href="guion-reels.html" class="docnav__link">Guiones de Reels</a>
+    <a href="sop-dm.html" class="docnav__link active" aria-current="page">Manual de DM</a>
+    <a href="recursos.html" class="docnav__link">Recursos</a>
+    <a href="tablero.html" class="docnav__link">Tablero</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero__inner">
+    <h1>Manual de DM</h1>
+    <p>Qué escribir en cada mensaje directo de Instagram para responder rápido, resolver dudas y convertir la conversación en una venta.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="sec">
+    <h2>Para qué sirve el DM en este plan</h2>
+    <p>El mensaje directo (DM) es el paso 3 del embudo completo del plan: primero alguien descubre el contenido, después se interesa y llega hasta acá, al DM, donde se le entrega el link del producto y se resuelven sus dudas. Después de eso viene la compra en la tienda y, más adelante, el post-venta.</p>
+
+    <div style="display:flex;gap:.4rem;justify-content:space-between;margin:1.5rem 0;">
+      <div style="flex:1 1 0;text-align:center;min-width:0;">
+        <div style="width:2.2em;height:2.2em;line-height:2.2em;border-radius:50%;background:var(--line);color:var(--ink-soft);font-weight:700;margin:0 auto .35rem;">1</div>
+        <div style="font-size:var(--fs-sm);color:var(--ink-soft);">Descubrimiento</div>
+      </div>
+      <div style="flex:1 1 0;text-align:center;min-width:0;">
+        <div style="width:2.2em;height:2.2em;line-height:2.2em;border-radius:50%;background:var(--line);color:var(--ink-soft);font-weight:700;margin:0 auto .35rem;">2</div>
+        <div style="font-size:var(--fs-sm);color:var(--ink-soft);">Interés</div>
+      </div>
+      <div style="flex:1 1 0;text-align:center;min-width:0;">
+        <div style="width:2.2em;height:2.2em;line-height:2.2em;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;margin:0 auto .35rem;box-shadow:var(--shadow-sm);">3</div>
+        <div style="font-size:var(--fs-sm);color:var(--ink);font-weight:700;">DM</div>
+      </div>
+      <div style="flex:1 1 0;text-align:center;min-width:0;">
+        <div style="width:2.2em;height:2.2em;line-height:2.2em;border-radius:50%;background:var(--line);color:var(--ink-soft);font-weight:700;margin:0 auto .35rem;">4</div>
+        <div style="font-size:var(--fs-sm);color:var(--ink-soft);">Compra</div>
+      </div>
+      <div style="flex:1 1 0;text-align:center;min-width:0;">
+        <div style="width:2.2em;height:2.2em;line-height:2.2em;border-radius:50%;background:var(--line);color:var(--ink-soft);font-weight:700;margin:0 auto .35rem;">5</div>
+        <div style="font-size:var(--fs-sm);color:var(--ink-soft);">Post-venta</div>
+      </div>
+    </div>
+
+    <p>Dentro del DM mismo hay otro embudo, más chico, que es justamente lo que enseña este manual a manejar bien:</p>
+
+    <div class="funnel">
+      <div class="funnel-step" style="--w:100%;">Comentario con la palabra clave</div>
+      <div class="funnel-step" style="--w:80%;">DM con el link directo al producto</div>
+      <div class="funnel-step" style="--w:60%;">Compra en la tienda</div>
+    </div>
+
+    <div class="callout callout--success">
+      <p><strong>Regla de oro:</strong> cada DM que se manda termina con un link o con una pregunta. Nunca se cierra un mensaje sin dejarle a la otra persona algo concreto que hacer a continuación.</p>
+    </div>
+
+    <div class="callout callout--warn">
+      <p><strong>Todavía no está confirmado quién responde los DM en la práctica.</strong> El contacto público de la tienda es cote@pedrazailustracion.com, sin confirmar si "Cote" es María José, Felipe u otra persona. Este manual queda listo para quien termine a cargo de esta tarea — hoy el supuesto de trabajo es que sería Felipe.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>El flujo "comenta la palabra clave"</h2>
+    <p>Es la forma más simple de convertir un comentario en una venta: se elige una palabra por campaña, se anuncia en el Reel, la persona la comenta y recibe el link directo por DM.</p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-item__date">Paso 1</div>
+        <h3 class="timeline-item__title">Se elige una palabra por campaña</h3>
+        <p>Una palabra corta y fácil de escribir, ligada a un Reel o a un producto puntual — por ejemplo AVES, PUZZLE o REGALO. Se usa una sola palabra por campaña para no confundir a quien comenta.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-item__date">Paso 2</div>
+        <h3 class="timeline-item__title">Se anuncia en el Reel o en el caption</h3>
+        <p>Se dice o se escribe la instrucción explícita: "comenta AVES y te mando el link". Sin esa invitación clara, casi nadie comenta solo por iniciativa propia.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-item__date">Paso 3</div>
+        <h3 class="timeline-item__title">La persona comenta la palabra</h3>
+        <p>Bajo el post, cualquiera que vea el Reel puede sumarse escribiendo esa palabra en los comentarios — no necesita seguir la cuenta ni hacer nada más.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-item__date">Paso 4</div>
+        <h3 class="timeline-item__title">Se responde por DM con el link directo</h3>
+        <p>Con una respuesta guardada (ver más abajo cómo configurarla), se manda un DM con el link del producto exacto que mostraba el Reel. Ahí arranca la conversación de venta.</p>
+      </div>
+    </div>
+
+    <h3>Cómo empezar hoy sin pagar nada: respuestas guardadas nativas</h3>
+    <p>Las respuestas guardadas (también llamadas Quick Replies) son una función gratuita, ya incluida en las cuentas Business o Creator de Instagram. Es un mensaje que se deja escrito una vez y se inserta completo con un atajo corto al momento de responder un DM.</p>
+
+    <ol>
+      <li>Entra a tu perfil de Instagram y abre el menú de <strong>Ajustes y actividad</strong>.</li>
+      <li>Busca la sección de <strong>Negocio</strong> o <strong>Creador</strong> (según cómo tengas configurada la cuenta).</li>
+      <li>Entra a <strong>Respuestas guardadas</strong> y agrega una nueva.</li>
+      <li>Escribe el mensaje completo (el mismo texto de las plantillas de la sección siguiente) y asígnale un atajo corto, por ejemplo <strong>/aves</strong>.</li>
+      <li>Guarda. Desde ahora, cuando estés escribiendo un DM, basta con teclear ese atajo para que Instagram inserte el mensaje completo, listo para revisar y enviar.</li>
+    </ol>
+
+    <div class="callout callout--info">
+      <p>Los nombres exactos de los menús pueden variar un poco según la versión de la app. La ruta general es siempre <strong>Ajustes → Negocio o Creador → Respuestas guardadas</strong>.</p>
+    </div>
+
+    <h3>Cuándo subir de nivel</h3>
+    <p>Esto alcanza mientras el volumen de mensajes sea manejable a mano. Cuando deje de alcanzar, existe una escalera clara de siguientes pasos — se sube un peldaño a la vez, nunca se salta directo al último:</p>
+
+    <div style="display:flex;align-items:flex-end;gap:.6rem;justify-content:center;margin:1.5rem 0 .5rem;flex-wrap:nowrap;overflow-x:auto;padding-bottom:.25rem;">
+      <div style="flex:1 1 0;min-width:90px;height:56px;background:var(--success-soft);border:2px solid var(--success);border-radius:var(--radius-sm) var(--radius-sm) 0 0;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--success);font-family:var(--font-serif);font-size:1.2rem;">1</div>
+      <div style="flex:1 1 0;min-width:90px;height:84px;background:var(--info-soft);border:2px solid var(--info);border-radius:var(--radius-sm) var(--radius-sm) 0 0;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--info);font-family:var(--font-serif);font-size:1.2rem;">2</div>
+      <div style="flex:1 1 0;min-width:90px;height:112px;background:var(--warn-soft);border:2px solid var(--warn);border-radius:var(--radius-sm) var(--radius-sm) 0 0;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--warn);font-family:var(--font-serif);font-size:1.2rem;">3</div>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <span class="pill pill--success">Gratis</span>
+        <h3>1. Respuestas guardadas nativas</h3>
+        <p>Lo que ya se explicó arriba. Es manual: la persona que administra la cuenta tiene que tocar el atajo para insertar el mensaje, no se dispara sola.</p>
+      </div>
+      <div class="card">
+        <span class="pill pill--info">Gratis</span>
+        <h3>2. Meta Business Suite</h3>
+        <p>Mismo costo cero, pero con reglas automáticas: hasta 5 palabras clave o frases por automatización, que responden solas según lo que escribe la persona — ya no depende de que alguien esté mirando el DM en ese momento.</p>
+      </div>
+      <div class="card">
+        <span class="pill pill--warn">Pagado</span>
+        <h3>3. ManyChat u otra herramienta de terceros</h3>
+        <p>El paso más avanzado: automatiza el "comenta la palabra y te llega el DM" de punta a punta, incluso desde el comentario mismo. Requiere como mínimo un plan pagado (ManyChat, desde US$14 al mes). Conviene evaluarlo recién a partir de unos 20 DM diarios en adelante — por debajo de eso, las respuestas guardadas nativas alcanzan sin costo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Plantillas de DM listas para usar</h2>
+    <p>Doce plantillas listas para copiar y pegar, agrupadas por tipo de conversación. Todas parten con un saludo genérico a propósito.</p>
+
+    <div class="callout callout--info">
+      <p>Al copiar una plantilla, agrega el nombre de la persona en el saludo (revisa su perfil si no te lo escribió) y cambia el link del producto por el que corresponda a esa conversación. Son los dos únicos ajustes que necesita cada plantilla.</p>
+    </div>
+
+    <h3>Cuando alguien comenta la palabra clave</h3>
+
+    <div class="copyblock">
+      <button type="button" class="copyblock__btn" data-copy-target="copy-palabra-clave">Copiar</button>
+      <div class="copyblock__text" id="copy-palabra-clave">¡Hola! 👋 Viste el Reel y comentaste AVES — encantados de que te haya gustado. Aquí tienes el link directo al Puzzle Aves y Flores de Chile: https://pedrazailustracion.com/products/puzzle-1000-piezas-aves-flores-chilenas
+Cualquier duda que tengas sobre el producto o el envío, la resolvemos por acá mismo 🙂</div>
+    </div>
+
+    <h3>Dudas de compra</h3>
+
+    <div class="copyblock">
+      <button type="button" class="copyblock__btn" data-copy-target="copy-duda-laminas">Copiar</button>
+      <div class="copyblock__text" id="copy-duda-laminas">¡Hola! Nuestras láminas vienen en dos formatos: 33x50 cm y 42x60 cm. Se imprimen con técnica Giclée (impresión de alta calidad con tintas especiales) sobre papel Hahnemühle, un papel de arte premium libre de ácido — pensado para que la ilustración se vea nítida y dure en el tiempo. Aquí tienes un ejemplo para que la veas de cerca: https://pedrazailustracion.com/products/lamina-mariposas-de-chile</div>
+    </div>
+
+    <div class="copyblock">
+      <button type="button" class="copyblock__btn" data-copy-target="copy-duda-puzzle">Copiar</button>
+      <div class="copyblock__text" id="copy-duda-puzzle">¡Hola! Este puzzle tiene 1.000 piezas y, armado, mide 50x70 cm. Viene con una guía de las especies ilustradas, con nombre común y científico de cada una — se arma y se aprende al mismo tiempo 🧩 Aquí el link directo: https://pedrazailustracion.com/products/puzzle-1000-piezas-cetaceos-chilenos</div>
+    </div>
+
+    <div class="copyblock">
+      <button type="button" class="copyblock__btn" data-copy-target="copy-duda-loza">Copiar</button>
+      <div class="copyblock__text" id="copy-duda-loza">¡Hola! Sí, toda nuestra loza es apta para microondas y lavavajillas, así que la puedes usar en el día a día sin cuidados especiales. Son piezas ilustradas con aves de Chile. Te dejo el link para que la veas: https://pedrazailustracion.com/products/platos</div>
+    </div>
+
+    <h3>Envíos</h3>
+
+    <div class="copyblock">
+      <button type="button" class="copyblock__btn" data-copy-target="copy-envio-demora">Copiar</button>
+      <div class="copyblock__text" id="copy-envio-demora">¡Hola! A Santiago, los pedidos llegan en 1 a 3 días hábiles. Si es a regiones, el tiempo estimado te aparece automático en el checkout apenas ingresas tu comuna. Cualquier duda mientras esperas tu pedido, escríbenos por acá 🙂</div>
+    </div>
+
+    <div class="copyblock">
+      <button type="button" class="copyblock__btn" data-copy-target="copy-envio-costo">Copiar</button>
+      <div class="copyblock__text" id="copy-envio-costo">¡Hola! El costo de envío se calcula solo en el checkout según tu comuna. Hacemos despacho a todo Chile. Tenemos envío gratis en la Región Metropolitana para compras sobre $[COMPLETAR: umbral de envío gratis] 🟡. Si quieres, te paso el link directo al producto que te interesa.</div>
+    </div>
+
+    <div class="callout callout--warn">
+      <p><strong>Por qué este campo queda sin completar:</strong> el umbral de envío gratis aparece distinto en dos partes del sitio — $50.000 CLP en el home y $30.000 CLP en una ficha de producto. Hasta que el equipo confirme cuál es el correcto, la plantilla deja el dato marcado como [COMPLETAR]. No reemplazar por un número inventado ni "al ojo".</p>
+    </div>
+
+    <h3>Pedidos personalizados y compras al por mayor</h3>
+
+    <div class="copyblock">
+      <button type="button" class="copyblock__btn" data-copy-target="copy-personalizado">Copiar</button>
+      <div class="copyblock__text" id="copy-personalizado">¡Hola! Gracias por tu interés 💛 Hoy no tenemos piezas personalizadas como parte del catálogo online. Para consultas especiales, el mejor camino es escribir directo a cote@pedrazailustracion.com — ahí te confirman si es posible y en qué condiciones.</div>
+    </div>
+
+    <div class="copyblock">
+      <button type="button" class="copyblock__btn" data-copy-target="copy-mayorista">Copiar</button>
+      <div class="copyblock__text" id="copy-mayorista">¡Hola! Qué bueno que te interese comprar al por mayor o para un regalo corporativo 🙌 Para eso, escríbenos a cote@pedrazailustracion.com contándonos qué necesitas (productos, cantidad y para qué es) — desde ahí te confirman condiciones y precios.</div>
+    </div>
+
+    <h3>Después de la compra</h3>
+
+    <div class="copyblock">
+      <button type="button" class="copyblock__btn" data-copy-target="copy-postventa-resena">Copiar</button>
+      <div class="copyblock__text" id="copy-postventa-resena">¡Hola! Esperamos que tu pedido haya llegado en perfectas condiciones 📦💛 Si tienes un minuto, nos ayudaría muchísimo que nos dejaras una reseña o nos mandaras una foto de tu compra. Somos una marca chica de hermanos chilenos, así que cada reseña hace una diferencia real para nosotros.</div>
+    </div>
+
+    <div class="copyblock">
+      <button type="button" class="copyblock__btn" data-copy-target="copy-postventa-embajador">Copiar</button>
+      <div class="copyblock__text" id="copy-postventa-embajador">¡Hola! Si te tinca compartir una historia mostrando tu compra y nos etiquetas en @pedraza_ilustracion, con gusto la compartimos en nuestro perfil 🦋 Nos ayuda un montón a que más gente conozca la marca — gracias por ser parte de esto.</div>
+    </div>
+
+    <h3>Recuperar conversaciones</h3>
+
+    <div class="copyblock">
+      <button type="button" class="copyblock__btn" data-copy-target="copy-recupero-tarde">Copiar</button>
+      <div class="copyblock__text" id="copy-recupero-tarde">¡Hola! Vimos que nos escribiste hace un tiempo y no alcanzamos a responder a tiempo — perdón por la demora 🙏 ¿Todavía tienes alguna duda o te ayudamos a encontrar lo que buscabas? Quedamos atentos por acá.</div>
+    </div>
+
+    <div class="copyblock">
+      <button type="button" class="copyblock__btn" data-copy-target="copy-recupero-carrito">Copiar</button>
+      <div class="copyblock__text" id="copy-recupero-carrito">¡Hola! Notamos que estuviste viendo uno de nuestros productos hace unos días, pero no alcanzaste a completar la compra. Te dejamos de nuevo el link de la tienda por si te sirve: https://pedrazailustracion.com/collections/all
+¿Te quedó alguna duda que te podamos resolver?</div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>La hora dorada: por qué importa la primera hora</h2>
+    <p>Cuando publicas un Reel, Instagram lo prueba primero con un grupo chico de gente que todavía no te sigue. Si esas personas reaccionan bien — lo ven completo, comentan, lo comparten — la plataforma empuja el contenido a audiencias cada vez más grandes. Si reaccionan poco, la distribución se frena ahí mismo, antes incluso de llegar a tus propios seguidores.</p>
+
+    <div class="callout callout--warn">
+      <p>No existe una cifra oficial de Instagram que diga "la ventana son los primeros 30 a 60 minutos". Es una práctica recomendada que se desprende de cómo funciona este sistema de prueba, no un número confirmado por la plataforma.</p>
+    </div>
+
+    <div style="display:flex;gap:2px;border-radius:var(--radius-full);overflow:hidden;height:28px;margin:1.5rem 0 .5rem;">
+      <div style="flex:0 0 18%;background:var(--accent);"></div>
+      <div style="flex:1 1 auto;background:var(--line);"></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;gap:var(--space-3);font-size:var(--fs-sm);color:var(--ink-soft);margin-bottom:var(--space-4);">
+      <span><strong style="color:var(--accent-dark);">⚡ Primeros 30-60 min</strong><br>máxima prioridad</span>
+      <span style="text-align:right;">Resto del día<br>se sigue respondiendo, sin la misma urgencia</span>
+    </div>
+
+    <h3>Mini-rutina al publicar</h3>
+    <p>Apenas subas un Reel o carrusel, quédate 30 a 60 minutos respondiendo todo lo que llegue: comentarios y DM por igual. Esa primera hora concentra el esfuerzo de responder al tiro — el resto del día se sigue atendiendo, pero ya sin la misma urgencia.</p>
+  </section>
+
+  <section class="sec">
+    <h2>Objeciones frecuentes</h2>
+    <p>Respuestas cortas y listas para copiar, pensadas para defender el valor de la marca sin regalar descuentos por reflejo.</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>"Está caro"</h3>
+        <div class="copyblock">
+          <button type="button" class="copyblock__btn" data-copy-target="copy-objecion-caro">Copiar</button>
+          <div class="copyblock__text" id="copy-objecion-caro">Entendemos que puede parecer una inversión mayor a lo esperado 🙂 Nuestras piezas son arte original — impresión Giclée sobre papel Hahnemühle, un papel de arte premium — hecho por dos hermanos chilenos que retratan la flora y fauna nativa de Chile. No es un póster genérico: cada compra también apoya un proyecto que educa sobre conservación. Si quieres, te muestro alternativas en otro rango de precio.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>"¿Cuánto demora el envío?"</h3>
+        <div class="copyblock">
+          <button type="button" class="copyblock__btn" data-copy-target="copy-objecion-demora">Copiar</button>
+          <div class="copyblock__text" id="copy-objecion-demora">A Santiago llega en 1 a 3 días hábiles. A regiones, el tiempo aparece automático en el checkout apenas ingresas tu comuna.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>"¿Hacen envíos a…?" <span class="pill pill--warn">Internacional sin confirmar</span></h3>
+        <div class="copyblock">
+          <button type="button" class="copyblock__btn" data-copy-target="copy-objecion-envios">Copiar</button>
+          <div class="copyblock__text" id="copy-objecion-envios">Hacemos despacho a todo Chile — el costo y el tiempo te aparecen en el checkout según tu comuna. Para envíos fuera de Chile, mejor escríbenos directo a cote@pedrazailustracion.com y ahí te confirmamos las opciones 🌎</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>"¿Tienen descuento?"</h3>
+        <div class="copyblock">
+          <button type="button" class="copyblock__btn" data-copy-target="copy-objecion-descuento">Copiar</button>
+          <div class="copyblock__text" id="copy-objecion-descuento">Por ahora no tenemos un código de descuento activo para compartir 🙏 Lo que sí te podemos asegurar es que este es el precio directo de la marca, sin intermediarios, y que cada pieza es ilustración original, no una reproducción genérica. Te avisamos apenas tengamos una promoción especial.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Qué hacer y qué no + higiene de la cuenta</h2>
+
+    <div class="grid-2">
+      <div class="card">
+        <span class="pill pill--success">✅ Qué hacer</span>
+        <h3>Buenas prácticas</h3>
+        <ul>
+          <li>Responder lo antes posible — ojalá al tiro.</li>
+          <li>Usar el nombre de la persona cuando lo sepas (revisa su perfil si no te lo dijo).</li>
+          <li>Terminar cada mensaje con un link directo o una pregunta — nunca dejar la conversación sin salida.</li>
+          <li>Si no puedes responder de inmediato, marcar el mensaje como no leído para no olvidarlo.</li>
+          <li>Revisar las solicitudes de mensaje todos los días.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <span class="pill pill--danger">🚫 Qué NO hacer</span>
+        <h3>A evitar</h3>
+        <ul>
+          <li>Mandar el mismo link a varias personas como si fuera spam masivo.</li>
+          <li>Discutir precios o reclamos en los comentarios públicos — llevar la conversación al DM.</li>
+          <li>Prometer stock, precio o descuento sin tenerlo confirmado.</li>
+          <li>Usar apps de terceros no autorizadas por el equipo para responder mensajes.</li>
+          <li>Dejar una conversación abierta sin cerrarla con una acción clara.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout callout--info">
+      <p><strong>Higiene de cuenta:</strong> revisa las solicitudes de mensaje todos los días — ahí caen los DM de gente que no te sigue, y se pierden fácil si no se revisan a propósito. Usa solo las herramientas que el equipo decida (respuestas guardadas nativas, Meta Business Suite o la herramienta paga que se elija más adelante) y evita conectar apps de terceros no autorizadas a la cuenta.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Rutina diaria de DM en 15 minutos</h2>
+    <p>Esto es aparte del bloque de la hora dorada de la sección anterior: son los minutos mínimos de mantención diaria, se publique o no ese día.</p>
+
+    <div class="grid-3">
+      <div class="card">
+        <span class="pill pill--info">~5 min</span>
+        <h3>Mañana</h3>
+        <ul>
+          <li>Revisa y responde los DM y comentarios que llegaron durante la noche.</li>
+          <li>Marca como leído lo que ya quedó resuelto.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <span class="pill pill--warn">30-60 min</span>
+        <h3>Después de publicar</h3>
+        <ul>
+          <li>Es la hora dorada: apenas subas el contenido del día, quédate respondiendo todo lo que llegue.</li>
+          <li>Prioriza comentarios y DM nuevos por sobre cualquier otra tarea.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <span class="pill pill--info">~5-10 min</span>
+        <h3>Tarde</h3>
+        <ul>
+          <li>Revisa las solicitudes de mensaje (gente que no te sigue).</li>
+          <li>Responde los comentarios que quedaron pendientes del día.</li>
+          <li>Marca como no leído lo que dejarás para mañana.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  // Copiar al portapapeles — delegación de eventos, un solo listener por página.
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-copy-target]');
+    if (!btn) return;
+    var el = document.getElementById(btn.getAttribute('data-copy-target'));
+    if (!el) return;
+    copiarTexto(el.innerText || el.textContent || '', btn);
+  });
+
+  function copiarTexto(texto, btn) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(texto).then(
+        function () { mostrarCopiado(btn); },
+        function () { copiarConFallback(texto, btn); }
+      );
+    } else {
+      copiarConFallback(texto, btn);
+    }
+  }
+
+  function copiarConFallback(texto, btn) {
+    var ta = document.createElement('textarea');
+    ta.value = texto;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.top = '-1000px';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (err) { /* sin soporte, se ignora */ }
+    document.body.removeChild(ta);
+    mostrarCopiado(btn);
+  }
+
+  function mostrarCopiado(btn) {
+    var original = btn.getAttribute('data-label') || btn.textContent;
+    btn.setAttribute('data-label', original);
+    btn.textContent = '✓ ¡Copiado!';
+    btn.classList.add('is-copied');
+    clearTimeout(btn._copyTimeout);
+    btn._copyTimeout = setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('is-copied');
+    }, 2000);
+  }
+</script>
+</body>
+</html>

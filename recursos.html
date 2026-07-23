@@ -1,0 +1,797 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Recursos — Plan Pedraza Ilustración</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
+<style>
+/* ==========================================================================
+   Sistema de diseño — Plan Pedraza Ilustración
+   Bloque único y canónico. No editar por página: solo usar estas clases.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* --- tinta y superficies --- */
+  --ink: #1c2420;
+  --ink-soft: #4c5850;
+  --ink-faint: #7c887f;
+  --paper: #faf6ee;
+  --surface: #fffefb;
+  --line: #e6ded0;
+  --line-strong: #d6c9b0;
+
+  /* --- acento: rojo copihue --- */
+  --accent: #b0223f;
+  --accent-dark: #7c1830;
+  --accent-soft: #f8dfe4;
+
+  /* --- apoyo semántico --- */
+  --success: #2f6b4a;
+  --success-soft: #dcece1;
+  --warn: #a8720a;
+  --warn-soft: #f8ecd2;
+  --danger: #ae3d17;
+  --danger-soft: #f7ddd0;
+  --info: #35606c;
+  --info-soft: #dde7ea;
+
+  /* --- forma --- */
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-full: 999px;
+  --shadow-sm: 0 1px 3px rgba(28, 36, 32, .1);
+  --shadow: 0 6px 20px rgba(28, 36, 32, .12);
+
+  /* --- espaciado --- */
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  /* --- tipografía --- */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --fs-sm: clamp(.82rem, .78rem + .2vw, .9rem);
+  --fs-base: clamp(1rem, .95rem + .25vw, 1.0625rem);
+  --fs-lg: clamp(1.1rem, 1.02rem + .4vw, 1.25rem);
+  --fs-h3: clamp(1.15rem, 1.05rem + .5vw, 1.35rem);
+  --fs-h2: clamp(1.35rem, 1.15rem + 1vw, 1.75rem);
+  --fs-h1: clamp(1.75rem, 1.4rem + 2vw, 2.75rem);
+
+  /* --- área táctil mínima (regla mobile-first del proyecto) --- */
+  --tap: 44px;
+}
+
+/* ===== 1. Reset mínimo ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; }
+img, svg { max-width: 100%; display: block; }
+h1, h2, h3, h4, p, ul, ol, dl, figure { margin: 0 0 var(--space-4); }
+ul, ol { padding-left: 1.2em; }
+a { color: inherit; }
+button { font: inherit; }
+table { border-collapse: collapse; width: 100%; }
+
+/* ===== 2. Tipografía base ===== */
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: var(--font-serif); line-height: 1.2; color: var(--ink); }
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+p { max-width: 68ch; }
+strong { color: var(--ink); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* ===== 3. Layout ===== */
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 var(--space-4) var(--space-8); }
+
+/* ===== 4. Nav superior (.docnav) ===== */
+.docnav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--ink);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+.docnav__inner {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 var(--space-2);
+}
+.docnav__link {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  min-height: var(--tap);
+  padding: 0 var(--space-3);
+  color: #eae6dd;
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+}
+.docnav__link:hover { color: #fff; }
+.docnav__link.active {
+  color: #fff;
+  border-bottom-color: var(--accent);
+}
+
+/* ===== 5. Hero ===== */
+.hero {
+  padding: var(--space-7) var(--space-4);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+  color: #fff;
+}
+.hero__inner { max-width: 960px; margin: 0 auto; }
+.hero h1 { color: #fff; margin-bottom: var(--space-3); }
+.hero p { color: rgba(255, 255, 255, .92); font-size: var(--fs-lg); max-width: 60ch; margin: 0; }
+
+/* ===== 6. Secciones numeradas (.sec) ===== */
+main { counter-reset: sec; }
+.sec { counter-increment: sec; margin-top: var(--space-7); }
+.sec:first-of-type { margin-top: var(--space-6); }
+.sec > h2 {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding-bottom: var(--space-2);
+  border-bottom: 2px solid var(--line-strong);
+}
+.sec > h2::before {
+  content: counter(sec);
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9em;
+  height: 1.9em;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: .55em;
+  font-weight: 700;
+}
+
+/* ===== 7. Callouts ===== */
+.callout {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  margin: var(--space-4) 0;
+}
+.callout::before { flex: 0 0 auto; font-size: 1.3em; line-height: 1; }
+.callout p:last-child { margin-bottom: 0; }
+.callout--info { border-color: var(--info); background: var(--info-soft); }
+.callout--info::before { content: "💡"; }
+.callout--success { border-color: var(--success); background: var(--success-soft); }
+.callout--success::before { content: "✅"; }
+.callout--warn { border-color: var(--warn); background: var(--warn-soft); }
+.callout--warn::before { content: "🟡"; }
+.callout--danger { border-color: var(--danger); background: var(--danger-soft); }
+.callout--danger::before { content: "🔴"; }
+
+/* ===== 8. Bloque copiable (.copyblock) ===== */
+.copyblock {
+  position: relative;
+  margin: var(--space-4) 0;
+  padding: var(--space-8) var(--space-4) var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.copyblock__text {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--ink);
+}
+.copyblock__btn {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  min-height: var(--tap);
+  padding: 0 var(--space-4);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  cursor: pointer;
+}
+.copyblock__btn:hover { background: var(--accent-dark); }
+.copyblock__btn.is-copied { background: var(--success); }
+
+/* ===== 9. KPIs (.kpi) ===== */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  margin: var(--space-4) 0;
+}
+.kpi {
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.kpi__label { display: block; font-size: var(--fs-sm); color: var(--ink-soft); margin-bottom: var(--space-2); }
+.kpi__value { display: block; font-family: var(--font-serif); font-size: clamp(1.5rem, 1.3rem + 1vw, 2.1rem); font-weight: 700; color: var(--ink); }
+.kpi__delta { display: inline-block; margin-top: var(--space-2); font-size: var(--fs-sm); font-weight: 600; padding: 2px var(--space-2); border-radius: var(--radius-full); }
+.kpi__delta--up { color: var(--success); background: var(--success-soft); }
+.kpi__delta--down { color: var(--danger); background: var(--danger-soft); }
+
+/* ===== 10. Tarjeta genérica (.card) ===== */
+.card {
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  margin: var(--space-4) 0;
+}
+.card h3 { margin-top: 0; }
+
+/* ===== 11. Tablas responsive ===== */
+.table-wrap { overflow-x: auto; margin: var(--space-4) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); }
+.table-wrap table { min-width: 480px; }
+.table-wrap th, .table-wrap td { padding: var(--space-3); text-align: left; border-bottom: 1px solid var(--line); font-size: var(--fs-sm); }
+.table-wrap thead th { background: var(--ink); color: #fff; position: sticky; top: 0; }
+.table-wrap tbody tr:last-child td { border-bottom: none; }
+.table-wrap tbody tr:nth-child(even) { background: var(--paper); }
+
+/* ===== 12. Barra de progreso (.progress) ===== */
+.progress { margin: var(--space-4) 0; }
+.progress__track { height: 14px; background: var(--line); border-radius: var(--radius-full); overflow: hidden; }
+.progress__fill { height: 100%; background: var(--accent); border-radius: var(--radius-full); transition: width .3s ease; width: 0%; }
+.progress__label { display: block; margin-top: var(--space-2); font-size: var(--fs-sm); color: var(--ink-soft); }
+
+/* ===== 13. Checklist táctil (.checklist) ===== */
+.checklist { list-style: none; padding-left: 0; margin: var(--space-4) 0; }
+.checklist li { margin-bottom: var(--space-2); }
+.checklist label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  min-height: var(--tap);
+  padding: var(--space-2) var(--space-3);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+.checklist input[type="checkbox"] { width: 24px; height: 24px; flex: 0 0 auto; accent-color: var(--accent); margin-top: 2px; }
+.checklist input[type="checkbox"]:checked + span { text-decoration: line-through; color: var(--ink-soft); }
+
+/* ===== 14. Etiquetas (.pill) ===== */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+.pill--success { background: var(--success-soft); color: var(--success); }
+.pill--warn { background: var(--warn-soft); color: var(--warn); }
+.pill--danger { background: var(--danger-soft); color: var(--danger); }
+.pill--info { background: var(--info-soft); color: var(--info); }
+
+/* ===== 15. Grillas responsive ===== */
+.grid-2, .grid-3 { display: grid; gap: var(--space-4); margin: var(--space-4) 0; grid-template-columns: 1fr; }
+
+/* ===== 16. Gráficos SVG/CSS hechos a mano ===== */
+/* Barras horizontales */
+.chart-bar-row { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-2); }
+.chart-bar-row__label { flex: 0 0 9rem; font-size: var(--fs-sm); color: var(--ink-soft); }
+.chart-bar-row__track { flex: 1 1 auto; height: 20px; background: var(--line); border-radius: var(--radius-full); overflow: hidden; }
+.chart-bar-row__fill { height: 100%; background: var(--accent); border-radius: var(--radius-full); }
+.chart-bar-row__value { flex: 0 0 auto; font-size: var(--fs-sm); font-weight: 700; min-width: 3.5rem; text-align: right; }
+
+/* Embudo: cada .funnel-step define su ancho con --w inline, ej. style="--w:70%" */
+.funnel { display: flex; flex-direction: column; align-items: center; gap: 2px; margin: var(--space-4) 0; }
+.funnel-step {
+  width: var(--w, 100%);
+  max-width: 100%;
+  padding: var(--space-3);
+  text-align: center;
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  background: var(--accent);
+  border-radius: var(--radius-sm);
+}
+.funnel-step:nth-child(2) { opacity: .85; }
+.funnel-step:nth-child(3) { opacity: .7; }
+.funnel-step:nth-child(4) { opacity: .55; }
+.funnel-step:nth-child(5) { opacity: .4; }
+
+/* Línea de tiempo vertical */
+.timeline { position: relative; margin: var(--space-5) 0; padding-left: var(--space-6); border-left: 3px solid var(--line-strong); }
+.timeline-item { position: relative; margin-bottom: var(--space-5); }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--space-6) - 7px);
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--paper);
+}
+.timeline-item__date { font-size: var(--fs-sm); font-weight: 700; color: var(--accent-dark); }
+.timeline-item__title { font-family: var(--font-serif); font-size: var(--fs-lg); margin: var(--space-1) 0; }
+
+/* ===== 17. Botones ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-5);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-base);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover { background: var(--accent-dark); }
+.btn--ghost { background: transparent; border: 2px solid var(--line-strong); color: var(--ink); }
+.btn--ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ===== 18. Media queries (mobile-first: base = ~375px) ===== */
+@media (min-width: 640px) {
+  .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .hero { padding: var(--space-8) var(--space-6); }
+}
+@media (min-width: 960px) {
+  .kpi-grid { grid-template-columns: repeat(4, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ===== 19. Impresión ===== */
+@media print {
+  .docnav, .copyblock__btn, .btn { display: none !important; }
+  body { background: #fff; color: #000; }
+  .hero { background: #fff !important; color: #000 !important; }
+  .hero h1, .hero p { color: #000 !important; }
+  .card, .callout, .kpi, .copyblock { box-shadow: none; border: 1px solid #999; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: .8em; }
+}
+</style>
+</head>
+<body>
+
+<nav class="docnav" aria-label="Navegación del plan">
+  <div class="docnav__inner">
+    <a href="index.html" class="docnav__link">Plan</a>
+    <a href="kit-arranque.html" class="docnav__link">Kit de arranque</a>
+    <a href="guion-reels.html" class="docnav__link">Guiones de Reels</a>
+    <a href="sop-dm.html" class="docnav__link">Manual de DM</a>
+    <a href="recursos.html" class="docnav__link active" aria-current="page">Recursos</a>
+    <a href="tablero.html" class="docnav__link">Tablero</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero__inner">
+    <h1>Recursos</h1>
+    <p>El repositorio de la marca: qué funciona y por qué, plantillas listas para copiar, briefs de diseño y el calendario comercial completo del año — todo en un solo lugar para no partir de cero cada semana.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="sec">
+    <h2>Repositorio de ganadores</h2>
+    <p>Una <strong>pieza ganadora</strong> es cualquier publicación (Reel, carrusel o foto) que funcionó mucho mejor que el resto. No hace falta un número mágico: basta con que cumpla claramente uno de estos 4 criterios.</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>🔁 Muchos compartidos</h3>
+        <p>La gente lo manda por DM a alguien más. Es la señal a la que Instagram le da más peso hoy para mostrar contenido a gente nueva que todavía no sigue la cuenta.</p>
+      </div>
+      <div class="card">
+        <h3>💾 Muchos guardados</h3>
+        <p>La gente lo guarda para volver a verlo después — señal de que la pieza vale la pena.</p>
+      </div>
+      <div class="card">
+        <h3>💬 Muchos comentarios</h3>
+        <p>Genera conversación real bajo el post, no solo vistas pasivas.</p>
+      </div>
+      <div class="card">
+        <h3>🛒 Ventas directas atribuibles</h3>
+        <p>Se puede seguir el camino hasta un pedido concreto: un clic al link de bio, un DM que terminó en compra.</p>
+      </div>
+    </div>
+
+    <div class="callout callout--success">
+      <p><strong>Regla simple:</strong> un ganador no se publica una vez y se olvida — se convierte en formato repetible. Si algo funcionó, se vuelve a hacer con una vuelta de tuerca distinta, no se copia igual.</p>
+    </div>
+
+    <h3>La rutina mensual</h3>
+    <div class="funnel">
+      <div class="funnel-step" style="--w:100%">1. Revisar las métricas del mes (guardados, compartidos, comentarios, pedidos)</div>
+      <div class="funnel-step" style="--w:100%">2. Anotar en la tabla cada pieza que cumplió alguno de los 4 criterios</div>
+      <div class="funnel-step" style="--w:100%">3. Crear 2-3 variantes de cada ganador para el mes siguiente</div>
+    </div>
+
+    <h3>Bitácora de ganadores</h3>
+    <p>Tabla lista para usar — se llena a medida que van apareciendo ganadores, mes a mes.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Pieza</th>
+            <th>Pilar</th>
+            <th>Formato</th>
+            <th>Por qué funcionó</th>
+            <th>Variante a probar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="copyblock">
+      <button type="button" class="copyblock__btn" data-copy-target="copy-bitacora-ganadores">Copiar</button>
+      <div class="copyblock__text" id="copy-bitacora-ganadores">Fecha, Pieza, Pilar, Formato, Por qué funcionó, Variante a probar
+
+Plantilla para pegar en una nota:
+Fecha:
+Pieza (qué se publicó):
+Pilar:
+Formato:
+Por qué funcionó:
+Variante a probar:</div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Programa "Cliente embajador"</h2>
+    <p>Convertir a quien ya compró en la mejor fuente de contenido nuevo. Una vez en marcha, el ciclo se alimenta casi solo.</p>
+
+    <div class="funnel">
+      <div class="funnel-step" style="--w:100%">1. Compra</div>
+      <div class="funnel-step" style="--w:100%">2. Foto o reseña del cliente</div>
+      <div class="funnel-step" style="--w:100%">3. Repost con permiso</div>
+      <div class="funnel-step" style="--w:100%">4. Más confianza en quien todavía no compra</div>
+      <div class="funnel-step" style="--w:100%">5. Más ventas</div>
+    </div>
+    <p style="text-align:center; color:var(--ink-soft); font-size:var(--fs-sm);">↻ y vuelve a empezar: cada venta nueva puede sumar una foto nueva al ciclo.</p>
+
+    <h3>Plantillas listas para usar</h3>
+
+    <p><strong>a) Después de la compra, pidiendo foto o etiqueta en historias</strong></p>
+    <div class="copyblock">
+      <button type="button" class="copyblock__btn" data-copy-target="copy-post-compra">Copiar</button>
+      <div class="copyblock__text" id="copy-post-compra">¡Hola! Muchas gracias por tu compra en Pedraza Ilustración 🦋
+Tu pedido ya va en camino. Cuando lo recibas, nos encantaría verlo en su nuevo hogar — si nos etiquetas en una historia (@pedraza_ilustracion), lo compartimos con mucho gusto en nuestro perfil.
+Cualquier duda con tu pedido, escríbenos por acá no más.</div>
+    </div>
+
+    <p><strong>b) Pidiendo permiso para repostear</strong></p>
+    <div class="copyblock">
+      <button type="button" class="copyblock__btn" data-copy-target="copy-permiso-repost">Copiar</button>
+      <div class="copyblock__text" id="copy-permiso-repost">¡Qué linda se ve tu foto! 😍 Nos encantaría compartirla en nuestro feed o historias, dando todo el crédito a tu cuenta.
+¿Nos das el visto bueno para repostearla? Si prefieres que no la publiquemos, avísanos y lo respetamos sin problema.</div>
+    </div>
+
+    <p><strong>c) Tarjeta física para incluir en el paquete</strong></p>
+    <div class="copyblock">
+      <button type="button" class="copyblock__btn" data-copy-target="copy-tarjeta-empaque">Copiar</button>
+      <div class="copyblock__text" id="copy-tarjeta-empaque">Gracias por llevarte una pieza de Pedraza Ilustración 🦋
+Cada ilustración nace de la flora y fauna de Chile, hecha por dos hermanos chilenos.
+Si te gustó, cuéntanos: etiquétanos en tus historias — @pedraza_ilustracion — nos encanta ver dónde termina cada pieza.</div>
+    </div>
+
+    <p><strong>d) Historia de agradecimiento al repostear</strong></p>
+    <div class="copyblock">
+      <button type="button" class="copyblock__btn" data-copy-target="copy-story-agradecimiento">Copiar</button>
+      <div class="copyblock__text" id="copy-story-agradecimiento">🦋 Así luce en su nuevo hogar
+Gracias por compartir tu foto — para una marca chica como la nuestra, significa mucho.</div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Briefs de diseño</h2>
+    <p>Tres formatos listos para producir. Cualquier diseñador —o María José misma— puede tomar cada brief y producir la pieza sin pedir más contexto.</p>
+
+    <div class="grid-3">
+      <div class="card">
+        <h3>Portadas de Reels</h3>
+        <p><strong>Qué debe tener:</strong></p>
+        <ul>
+          <li>Título del Reel, legible incluso en tamaño chico (como se ve en la grilla del perfil)</li>
+          <li>La ilustración como protagonista de la imagen, no de fondo</li>
+          <li>El mismo estilo visual en todas las portadas — misma tipografía, mismo tratamiento de color — para que se reconozcan como una serie</li>
+        </ul>
+        <p><strong>Medidas:</strong> 1080 × 1920 px (formato vertical 9:16).</p>
+        <p><strong>Zona segura:</strong> dejar los bordes superior e inferior libres de texto importante — ahí Instagram pone sus propios controles (usuario, íconos). El título y la ilustración van concentrados en el tercio central.</p>
+        <p><strong>Qué entregar:</strong></p>
+        <ul>
+          <li>Archivo PNG o JPG a 1080 × 1920 px</li>
+          <li>Título corto ya definido (máximo 5-6 palabras)</li>
+          <li>Pilar de contenido al que pertenece el Reel</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Plantilla de carrusel</h3>
+        <p><strong>Estructura de 6 a 8 láminas:</strong></p>
+        <ul>
+          <li>Lámina 1 — portada gancho: la pregunta o dato que detiene el scroll</li>
+          <li>Láminas 2 a 6/7 — contenido: una idea por lámina, en orden</li>
+          <li>Última lámina — cierre con CTA (la invitación a hacer algo, como "guarda este post")</li>
+        </ul>
+        <p><strong>Medidas:</strong> 1080 × 1350 px (formato 4:5).</p>
+        <p><strong>Qué entregar:</strong></p>
+        <ul>
+          <li>Un archivo por lámina, mismo tamaño y mismo estilo visual entre todas</li>
+          <li>Guion corto con el texto de cada lámina, definido antes de diseñar</li>
+          <li>CTA exacto de la última lámina (ej. "Guarda este carrusel para no perderlo")</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Ficha de especie</h3>
+        <p>El formato repetible del pilar <strong>Flora y Fauna de Chile</strong>. Siempre trae los mismos 5 elementos:</p>
+        <ul>
+          <li>La ilustración de la especie, protagonista</li>
+          <li>Nombre común, en letra grande</li>
+          <li>Nombre científico, en cursiva debajo del nombre común</li>
+          <li>1 dato sorprendente sobre la especie, en 1-2 líneas</li>
+          <li>Dónde vive en Chile (zona o región)</li>
+        </ul>
+        <p><strong>Qué entregar:</strong></p>
+        <ul>
+          <li>Ilustración de la especie ya terminada</li>
+          <li>Nombre común y nombre científico confirmados, sin errores de tipeo</li>
+          <li>El dato sorprendente redactado en lenguaje simple, sin tecnicismos</li>
+          <li>La zona de Chile donde vive esa especie</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Calendario comercial anual: Chile + EE.UU.</h2>
+    <p>La pieza de referencia de todo el plan: un año completo de fechas comerciales, de agosto de 2026 a julio de 2027, combinando Chile (la venta de hoy) y Estados Unidos (la Rampa EEUU, la fase futura en Amazon).</p>
+
+    <div class="callout callout--info">
+      <p><strong>Cómo leer esta línea de tiempo:</strong> <span class="pill pill--success">🟢 Confirmada</span> = fecha fija o ya anunciada oficialmente. <span class="pill pill--warn">🟡 Estimada</span> = la ventana es conocida pero la fecha exacta todavía no se anuncia, o hay una pequeña diferencia entre fuentes — no se trata como fecha fija hasta que se confirme. <span class="pill">CL</span> = aplica a la tienda chilena. <span class="pill pill--info">EEUU (Rampa)</span> = aplica al anexo Rampa EEUU (Amazon), una fase futura, no venta inmediata.</p>
+    </div>
+
+    <div class="callout callout--success">
+      <p><strong>Regla simple para todas las fechas:</strong> la campaña de contenido arranca 7 a 10 días antes del día central, con una fase de "calentamiento" (pilares "Flora y Fauna de Chile" o "Proceso y Detrás de Escena", sin vender todavía).</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-item__date">Domingo 9 de agosto de 2026</div>
+        <h3 class="timeline-item__title">Día del Niño</h3>
+        <p><span class="pill pill--success">🟢 Confirmada</span> <span class="pill">CL</span></p>
+        <p>Para clientas y clientes que compran para hijos, sobrinos o ahijados — conecta directo con el pilar educativo (puzzles con guía de especies). Empezar a preparar: 30-31 de julio.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-item__date">18-19 de septiembre de 2026</div>
+        <h3 class="timeline-item__title">Fiestas Patrias</h3>
+        <p><span class="pill pill--success">🟢 Confirmada (feriados fijos)</span> <span class="pill">CL</span></p>
+        <p>El gasto de estas fechas se concentra en comida y decoración de fiesta, no en regalos de diseño — funciona mejor como contenido de identidad chilena que como campaña de venta fuerte. Empezar a preparar: 8-9 de septiembre.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-item__date">Ventana esperada: inicios de octubre de 2026</div>
+        <h3 class="timeline-item__title">CyberMonday Chile</h3>
+        <p><span class="pill pill--warn">🟡 Fecha por anunciar</span> <span class="pill">CL</span></p>
+        <p>Uno de los eventos de descuento más grandes del año en Chile. La fecha exacta se suele anunciar unas semanas antes. Empezar a preparar: 7-10 días después del anuncio oficial, no antes.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-item__date">27 al 30 de noviembre de 2026</div>
+        <h3 class="timeline-item__title">Black Friday Chile</h3>
+        <p><span class="pill pill--warn">🟡 Día de inicio por confirmar</span> <span class="pill">CL</span></p>
+        <p>El rango de fechas está confirmado; hay una pequeña diferencia entre fuentes sobre si arranca el 27 o el 28. Empezar a preparar: 17-20 de noviembre, dejando margen para ambos escenarios.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-item__date">27 al 30 de noviembre de 2026</div>
+        <h3 class="timeline-item__title">BFCM — Black Friday y Cyber Monday EE.UU.</h3>
+        <p><span class="pill pill--warn">🟡 Cyber Monday con fecha en discusión entre fuentes</span> <span class="pill pill--info">EEUU (Rampa)</span></p>
+        <p>BFCM (el fin de semana de descuentos más grande de Estados Unidos) es la ventana de mayor impacto comercial más próxima para un eventual lanzamiento en Amazon. La regla de 7-10 días aplica al contenido, pero la logística de Amazon (inventario en los centros de despacho, marca registrada) necesita prepararse con meses de anticipación, no con una semana.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-item__date">25 de diciembre de 2026</div>
+        <h3 class="timeline-item__title">Navidad</h3>
+        <p><span class="pill pill--success">🟢 Fecha fija</span> <span class="pill">CL</span></p>
+        <p>La fecha más importante del año en volumen de venta. Empezar a preparar: 15 de diciembre.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-item__date">14 de febrero de 2027</div>
+        <h3 class="timeline-item__title">San Valentín</h3>
+        <p><span class="pill pill--success">🟢 Fecha fija</span> <span class="pill">CL</span></p>
+        <p>La demanda se concentra casi toda en un solo día, a diferencia de los Cyber que duran varios. Empezar a preparar: 4-7 de febrero.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-item__date">Inicios de marzo de 2027 (referencia 2026: 2-4 de marzo)</div>
+        <h3 class="timeline-item__title">Vuelta a clases</h3>
+        <p><span class="pill pill--warn">🟡 Fecha exacta 2027 por publicar</span> <span class="pill">CL</span></p>
+        <p>Conecta con libretas y regalos escolares con identidad chilena. Empezar a preparar: usar la referencia de 2026 y ajustar apenas el Ministerio de Educación publique el calendario oficial 2027.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-item__date">Segundo domingo de mayo de 2027 (9 de mayo)</div>
+        <h3 class="timeline-item__title">Día de la Madre (Chile)</h3>
+        <p><span class="pill pill--success">🟢 Confirmada</span> <span class="pill">CL</span></p>
+        <p>El evento comercial más grande del primer semestre en Chile — conecta directo con el avatar principal de la marca, quien "regala con sentido". Empezar a preparar: 29 de abril al 2 de mayo.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-item__date">9 de mayo de 2027 (fecha de referencia)</div>
+        <h3 class="timeline-item__title">Mother's Day EE.UU.</h3>
+        <p><span class="pill pill--warn">🟡 Fecha de referencia por confirmar</span> <span class="pill pill--info">EEUU (Rampa)</span></p>
+        <p>Aplica al anexo Rampa EEUU, no a la tienda chilena. No es prioridad mientras esa fase siga en preparación — se deja documentada para cuando corresponda planificarla.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-item__date">Ventana esperada: junio de 2027</div>
+        <h3 class="timeline-item__title">CyberDay Chile</h3>
+        <p><span class="pill pill--warn">🟡 Fecha 2027 por anunciar</span> <span class="pill">CL</span></p>
+        <p>Siguiendo el patrón de ediciones anteriores, la fecha suele anunciarse pocas semanas antes del evento. Empezar a preparar: 7-10 días después del anuncio oficial.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-item__date">Ventana estimada: junio-julio de 2027 (en 2026 fue 23-26 de junio)</div>
+        <h3 class="timeline-item__title">Prime Day EE.UU.</h3>
+        <p><span class="pill pill--warn">🟡 Fecha 2027 por anunciar</span> <span class="pill pill--info">EEUU (Rampa)</span></p>
+        <p>Relevante solo si el catálogo ya está activo en Amazon para esa fecha. Misma lógica que BFCM: la logística necesita más que 7-10 días de anticipación.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Ideas de contenido de reserva</h2>
+    <p>Para las semanas sin campaña activa — contenido evergreen (que sirve en cualquier momento, no depende de una fecha) agrupado por pilar.</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Producto y Colecciones</h3>
+        <ul>
+          <li>Mini-tour de una misma especie en 3 productos (lámina, puzzle, calcetín) en 15 segundos</li>
+          <li>"¿Cuál te gusta más?" — carrusel con 4 láminas distintas y encuesta en la historia siguiente</li>
+          <li>Zoom a la textura del papel Hahnemühle o al brillo de la impresión Giclée en una lámina</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Proceso y Detrás de Escena</h3>
+        <ul>
+          <li>ASMR de empaque de un pedido real: sonido del papel, la cinta, el sello</li>
+          <li>Time-lapse de una ilustración terminándose, de hoja en blanco a pieza final</li>
+          <li>Boceto vs. lámina terminada, comparación lado a lado</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Flora y Fauna de Chile</h3>
+        <ul>
+          <li>"3 datos que no sabías" sobre una especie del catálogo, en carrusel</li>
+          <li>Ficha de especie nueva, con el formato repetible del brief de diseño</li>
+          <li>En qué categoría de conservación está una especie que ilustran (vulnerable, en peligro, etc.)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Clientes y Reseñas</h3>
+        <ul>
+          <li>Repost de una foto de cliente con su producto (programa Cliente embajador)</li>
+          <li>Captura de una reseña destacada, con diseño simple</li>
+          <li>Video de unboxing hecho por una clienta, si lo comparte</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Los Hermanos y la Misión</h3>
+        <ul>
+          <li>Un día en el estudio de María José</li>
+          <li>Por qué Felipe se sumó al proyecto y cómo se dividen el trabajo</li>
+          <li>La historia de origen de la marca, contada en 30 segundos</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  // Copiar al portapapeles — delegación de eventos, un solo listener por página.
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-copy-target]');
+    if (!btn) return;
+    var el = document.getElementById(btn.getAttribute('data-copy-target'));
+    if (!el) return;
+    copiarTexto(el.innerText || el.textContent || '', btn);
+  });
+
+  function copiarTexto(texto, btn) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(texto).then(
+        function () { mostrarCopiado(btn); },
+        function () { copiarConFallback(texto, btn); }
+      );
+    } else {
+      copiarConFallback(texto, btn);
+    }
+  }
+
+  function copiarConFallback(texto, btn) {
+    var ta = document.createElement('textarea');
+    ta.value = texto;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.top = '-1000px';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (err) { /* sin soporte, se ignora */ }
+    document.body.removeChild(ta);
+    mostrarCopiado(btn);
+  }
+
+  function mostrarCopiado(btn) {
+    var original = btn.getAttribute('data-label') || btn.textContent;
+    btn.setAttribute('data-label', original);
+    btn.textContent = '✓ ¡Copiado!';
+    btn.classList.add('is-copied');
+    clearTimeout(btn._copyTimeout);
+    btn._copyTimeout = setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('is-copied');
+    }, 2000);
+  }
+</script>
+</body>
+</html>

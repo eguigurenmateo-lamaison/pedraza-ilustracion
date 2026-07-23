@@ -1,0 +1,1038 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Tablero de KPIs — Plan Pedraza Ilustración</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
+<style>
+/* ==========================================================================
+   Sistema de diseño — Plan Pedraza Ilustración
+   Bloque único y canónico. No editar por página: solo usar estas clases.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* --- tinta y superficies --- */
+  --ink: #1c2420;
+  --ink-soft: #4c5850;
+  --ink-faint: #7c887f;
+  --paper: #faf6ee;
+  --surface: #fffefb;
+  --line: #e6ded0;
+  --line-strong: #d6c9b0;
+
+  /* --- acento: rojo copihue --- */
+  --accent: #b0223f;
+  --accent-dark: #7c1830;
+  --accent-soft: #f8dfe4;
+
+  /* --- apoyo semántico --- */
+  --success: #2f6b4a;
+  --success-soft: #dcece1;
+  --warn: #a8720a;
+  --warn-soft: #f8ecd2;
+  --danger: #ae3d17;
+  --danger-soft: #f7ddd0;
+  --info: #35606c;
+  --info-soft: #dde7ea;
+
+  /* --- forma --- */
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-full: 999px;
+  --shadow-sm: 0 1px 3px rgba(28, 36, 32, .1);
+  --shadow: 0 6px 20px rgba(28, 36, 32, .12);
+
+  /* --- espaciado --- */
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  /* --- tipografía --- */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --fs-sm: clamp(.82rem, .78rem + .2vw, .9rem);
+  --fs-base: clamp(1rem, .95rem + .25vw, 1.0625rem);
+  --fs-lg: clamp(1.1rem, 1.02rem + .4vw, 1.25rem);
+  --fs-h3: clamp(1.15rem, 1.05rem + .5vw, 1.35rem);
+  --fs-h2: clamp(1.35rem, 1.15rem + 1vw, 1.75rem);
+  --fs-h1: clamp(1.75rem, 1.4rem + 2vw, 2.75rem);
+
+  /* --- área táctil mínima (regla mobile-first del proyecto) --- */
+  --tap: 44px;
+}
+
+/* ===== 1. Reset mínimo ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; }
+img, svg { max-width: 100%; display: block; }
+h1, h2, h3, h4, p, ul, ol, dl, figure { margin: 0 0 var(--space-4); }
+ul, ol { padding-left: 1.2em; }
+a { color: inherit; }
+button { font: inherit; }
+table { border-collapse: collapse; width: 100%; }
+
+/* ===== 2. Tipografía base ===== */
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: var(--font-serif); line-height: 1.2; color: var(--ink); }
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+p { max-width: 68ch; }
+strong { color: var(--ink); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* ===== 3. Layout ===== */
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 var(--space-4) var(--space-8); }
+
+/* ===== 4. Nav superior (.docnav) ===== */
+.docnav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--ink);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+.docnav__inner {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 var(--space-2);
+}
+.docnav__link {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  min-height: var(--tap);
+  padding: 0 var(--space-3);
+  color: #eae6dd;
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+}
+.docnav__link:hover { color: #fff; }
+.docnav__link.active {
+  color: #fff;
+  border-bottom-color: var(--accent);
+}
+
+/* ===== 5. Hero ===== */
+.hero {
+  padding: var(--space-7) var(--space-4);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+  color: #fff;
+}
+.hero__inner { max-width: 960px; margin: 0 auto; }
+.hero h1 { color: #fff; margin-bottom: var(--space-3); }
+.hero p { color: rgba(255, 255, 255, .92); font-size: var(--fs-lg); max-width: 60ch; margin: 0; }
+
+/* ===== 6. Secciones numeradas (.sec) ===== */
+main { counter-reset: sec; }
+.sec { counter-increment: sec; margin-top: var(--space-7); }
+.sec:first-of-type { margin-top: var(--space-6); }
+.sec > h2 {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding-bottom: var(--space-2);
+  border-bottom: 2px solid var(--line-strong);
+}
+.sec > h2::before {
+  content: counter(sec);
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9em;
+  height: 1.9em;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: .55em;
+  font-weight: 700;
+}
+
+/* ===== 7. Callouts ===== */
+.callout {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  margin: var(--space-4) 0;
+}
+.callout::before { flex: 0 0 auto; font-size: 1.3em; line-height: 1; }
+.callout p:last-child { margin-bottom: 0; }
+.callout--info { border-color: var(--info); background: var(--info-soft); }
+.callout--info::before { content: "💡"; }
+.callout--success { border-color: var(--success); background: var(--success-soft); }
+.callout--success::before { content: "✅"; }
+.callout--warn { border-color: var(--warn); background: var(--warn-soft); }
+.callout--warn::before { content: "🟡"; }
+.callout--danger { border-color: var(--danger); background: var(--danger-soft); }
+.callout--danger::before { content: "🔴"; }
+
+/* ===== 8. Bloque copiable (.copyblock) ===== */
+.copyblock {
+  position: relative;
+  margin: var(--space-4) 0;
+  padding: var(--space-8) var(--space-4) var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.copyblock__text {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--ink);
+}
+.copyblock__btn {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  min-height: var(--tap);
+  padding: 0 var(--space-4);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  cursor: pointer;
+}
+.copyblock__btn:hover { background: var(--accent-dark); }
+.copyblock__btn.is-copied { background: var(--success); }
+
+/* ===== 9. KPIs (.kpi) ===== */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  margin: var(--space-4) 0;
+}
+.kpi {
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.kpi__label { display: block; font-size: var(--fs-sm); color: var(--ink-soft); margin-bottom: var(--space-2); }
+.kpi__value { display: block; font-family: var(--font-serif); font-size: clamp(1.5rem, 1.3rem + 1vw, 2.1rem); font-weight: 700; color: var(--ink); }
+.kpi__delta { display: inline-block; margin-top: var(--space-2); font-size: var(--fs-sm); font-weight: 600; padding: 2px var(--space-2); border-radius: var(--radius-full); }
+.kpi__delta--up { color: var(--success); background: var(--success-soft); }
+.kpi__delta--down { color: var(--danger); background: var(--danger-soft); }
+
+/* ===== 10. Tarjeta genérica (.card) ===== */
+.card {
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  margin: var(--space-4) 0;
+}
+.card h3 { margin-top: 0; }
+
+/* ===== 11. Tablas responsive ===== */
+.table-wrap { overflow-x: auto; margin: var(--space-4) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); }
+.table-wrap table { min-width: 480px; }
+.table-wrap th, .table-wrap td { padding: var(--space-3); text-align: left; border-bottom: 1px solid var(--line); font-size: var(--fs-sm); }
+.table-wrap thead th { background: var(--ink); color: #fff; position: sticky; top: 0; }
+.table-wrap tbody tr:last-child td { border-bottom: none; }
+.table-wrap tbody tr:nth-child(even) { background: var(--paper); }
+
+/* ===== 12. Barra de progreso (.progress) ===== */
+.progress { margin: var(--space-4) 0; }
+.progress__track { height: 14px; background: var(--line); border-radius: var(--radius-full); overflow: hidden; }
+.progress__fill { height: 100%; background: var(--accent); border-radius: var(--radius-full); transition: width .3s ease; width: 0%; }
+.progress__label { display: block; margin-top: var(--space-2); font-size: var(--fs-sm); color: var(--ink-soft); }
+
+/* ===== 13. Checklist táctil (.checklist) ===== */
+.checklist { list-style: none; padding-left: 0; margin: var(--space-4) 0; }
+.checklist li { margin-bottom: var(--space-2); }
+.checklist label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  min-height: var(--tap);
+  padding: var(--space-2) var(--space-3);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+.checklist input[type="checkbox"] { width: 24px; height: 24px; flex: 0 0 auto; accent-color: var(--accent); margin-top: 2px; }
+.checklist input[type="checkbox"]:checked + span { text-decoration: line-through; color: var(--ink-soft); }
+
+/* ===== 14. Etiquetas (.pill) ===== */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+.pill--success { background: var(--success-soft); color: var(--success); }
+.pill--warn { background: var(--warn-soft); color: var(--warn); }
+.pill--danger { background: var(--danger-soft); color: var(--danger); }
+.pill--info { background: var(--info-soft); color: var(--info); }
+
+/* ===== 15. Grillas responsive ===== */
+.grid-2, .grid-3 { display: grid; gap: var(--space-4); margin: var(--space-4) 0; grid-template-columns: 1fr; }
+
+/* ===== 16. Gráficos SVG/CSS hechos a mano ===== */
+/* Barras horizontales */
+.chart-bar-row { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-2); }
+.chart-bar-row__label { flex: 0 0 9rem; font-size: var(--fs-sm); color: var(--ink-soft); }
+.chart-bar-row__track { flex: 1 1 auto; height: 20px; background: var(--line); border-radius: var(--radius-full); overflow: hidden; }
+.chart-bar-row__fill { height: 100%; background: var(--accent); border-radius: var(--radius-full); }
+.chart-bar-row__value { flex: 0 0 auto; font-size: var(--fs-sm); font-weight: 700; min-width: 3.5rem; text-align: right; }
+
+/* Embudo: cada .funnel-step define su ancho con --w inline, ej. style="--w:70%" */
+.funnel { display: flex; flex-direction: column; align-items: center; gap: 2px; margin: var(--space-4) 0; }
+.funnel-step {
+  width: var(--w, 100%);
+  max-width: 100%;
+  padding: var(--space-3);
+  text-align: center;
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  background: var(--accent);
+  border-radius: var(--radius-sm);
+}
+.funnel-step:nth-child(2) { opacity: .85; }
+.funnel-step:nth-child(3) { opacity: .7; }
+.funnel-step:nth-child(4) { opacity: .55; }
+.funnel-step:nth-child(5) { opacity: .4; }
+
+/* Línea de tiempo vertical */
+.timeline { position: relative; margin: var(--space-5) 0; padding-left: var(--space-6); border-left: 3px solid var(--line-strong); }
+.timeline-item { position: relative; margin-bottom: var(--space-5); }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--space-6) - 7px);
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--paper);
+}
+.timeline-item__date { font-size: var(--fs-sm); font-weight: 700; color: var(--accent-dark); }
+.timeline-item__title { font-family: var(--font-serif); font-size: var(--fs-lg); margin: var(--space-1) 0; }
+
+/* ===== 17. Botones ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-5);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-base);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover { background: var(--accent-dark); }
+.btn--ghost { background: transparent; border: 2px solid var(--line-strong); color: var(--ink); }
+.btn--ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ===== 18. Media queries (mobile-first: base = ~375px) ===== */
+@media (min-width: 640px) {
+  .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .hero { padding: var(--space-8) var(--space-6); }
+}
+@media (min-width: 960px) {
+  .kpi-grid { grid-template-columns: repeat(4, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ===== 19. Impresión ===== */
+@media print {
+  .docnav, .copyblock__btn, .btn { display: none !important; }
+  body { background: #fff; color: #000; }
+  .hero { background: #fff !important; color: #000 !important; }
+  .hero h1, .hero p { color: #000 !important; }
+  .card, .callout, .kpi, .copyblock { box-shadow: none; border: 1px solid #999; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: .8em; }
+}
+
+/* ===== 20. Específico de tablero.html (puntual, no forma parte del sistema base) ===== */
+.sheet-url-input {
+  width: 100%;
+  min-height: var(--tap);
+  padding: 0 var(--space-3);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-base);
+  font-family: var(--font-mono);
+  margin-bottom: var(--space-3);
+  background: var(--paper);
+  color: var(--ink);
+}
+.url-ejemplo {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: var(--space-3);
+  background: var(--paper);
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius-sm);
+  margin: var(--space-3) 0;
+}
+.url-ejemplo mark { background: var(--accent-soft); color: var(--accent-dark); padding: 1px 4px; border-radius: 4px; font-weight: 700; }
+.url-ejemplo mark.info-mark { background: var(--info-soft); color: var(--info); }
+.pasos-config { list-style: none; padding-left: 0; counter-reset: paso; }
+.pasos-config > li { counter-increment: paso; margin-bottom: var(--space-6); padding-left: var(--space-6); position: relative; }
+.pasos-config > li::before {
+  content: counter(paso);
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 1.7em;
+  height: 1.7em;
+  border-radius: var(--radius-full);
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+</style>
+</head>
+<body>
+
+<nav class="docnav" aria-label="Navegación del plan">
+  <div class="docnav__inner">
+    <a href="index.html" class="docnav__link">Plan</a>
+    <a href="kit-arranque.html" class="docnav__link">Kit de arranque</a>
+    <a href="guion-reels.html" class="docnav__link">Guiones de Reels</a>
+    <a href="sop-dm.html" class="docnav__link">Manual de DM</a>
+    <a href="recursos.html" class="docnav__link">Recursos</a>
+    <a href="tablero.html" class="docnav__link active" aria-current="page">Tablero</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero__inner">
+    <h1>Tablero de KPIs</h1>
+    <p>Los números de Instagram y de la tienda, semana a semana, en un solo lugar. Tú controlas los datos: viven en tu propio Google Sheet, no en ningún servidor.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="sec">
+    <h2>Configurar el tablero (se hace una sola vez)</h2>
+    <p>Esta configuración toma unos 10 minutos y solo se hace una vez. Después de esto, cada semana solo hay que agregar una fila nueva al Sheet y el tablero se actualiza solo.</p>
+
+    <ol class="pasos-config">
+      <li>
+        <h3>Crea el Google Sheet</h3>
+        <p>Ve a <strong>sheets.google.com</strong> y crea una hoja de cálculo nueva y vacía. Ponle un nombre fácil de reconocer, por ejemplo "Tablero Pedraza Ilustración".</p>
+      </li>
+
+      <li>
+        <h3>Pega la fila de encabezados</h3>
+        <p>Haz clic en la primera celda (arriba a la izquierda, la celda <strong>A1</strong>) y pega este texto tal cual, sin modificarlo:</p>
+        <div class="copyblock">
+          <button type="button" class="copyblock__btn" data-copy-target="copy-encabezados">Copiar</button>
+          <div class="copyblock__text" id="copy-encabezados">Semana,Alcance,Alcance no-seguidores,Reproducciones de Reels,Guardados,Compartidos,Comentarios,Seguidores nuevos,DMs iniciados,Clics al link de bio,Sesiones de la tienda desde IG,Pedidos,Ingresos</div>
+        </div>
+        <p>Puede pasar una de estas dos cosas al pegar, y las dos están bien:</p>
+        <ul>
+          <li><strong>El texto se separa solo en columnas.</strong> Google Sheets suele reconocer las comas automáticamente y cada palabra cae en su propia celda (A1, B1, C1…). Si ves 13 encabezados distintos, uno por celda, ya quedó listo.</li>
+          <li><strong>El texto queda todo junto en la celda A1.</strong> En ese caso: con la celda A1 seleccionada, ve al menú <strong>Datos → Dividir texto en columnas</strong>. Google Sheets debería detectar la coma sola; si te pregunta el separador, elige <strong>"Coma"</strong>. Al confirmar, el texto se reparte en las 13 columnas.</li>
+        </ul>
+      </li>
+
+      <li>
+        <h3>Llena una fila por semana</h3>
+        <p>Cada semana agrega una fila nueva debajo de la anterior (fila 2, luego fila 3, y así). En "Semana" escribe una fecha o nombre que la identifique, por ejemplo <strong>"20 jul"</strong> o <strong>"Semana 1"</strong>. Los otros 12 datos salen de dos lugares:</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Columna</th><th>Fuente</th><th>Dónde encontrarla</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Alcance</td><td><span class="pill pill--info">Instagram</span></td><td>Insights → Resumen → cuentas alcanzadas.</td></tr>
+              <tr><td>Alcance no-seguidores</td><td><span class="pill pill--info">Instagram</span></td><td>Insights → mismo reporte de alcance, filtro "No seguidores".</td></tr>
+              <tr><td>Reproducciones de Reels</td><td><span class="pill pill--info">Instagram</span></td><td>Insights → Contenido → Reels → reproducciones.</td></tr>
+              <tr><td>Guardados</td><td><span class="pill pill--info">Instagram</span></td><td>Insights → Contenido → interacciones → guardados.</td></tr>
+              <tr><td>Compartidos</td><td><span class="pill pill--info">Instagram</span></td><td>Insights → Contenido → interacciones → enviados (compartidos por DM).</td></tr>
+              <tr><td>Comentarios</td><td><span class="pill pill--info">Instagram</span></td><td>Insights → Contenido → interacciones → comentarios.</td></tr>
+              <tr><td>Seguidores nuevos</td><td><span class="pill pill--info">Instagram</span></td><td>Insights → Total de seguidores → nuevos seguidores de la semana.</td></tr>
+              <tr><td>DMs iniciados</td><td><span class="pill pill--info">Instagram</span></td><td>Cuenta manual: mensajes directos nuevos pidiendo info o el link.</td></tr>
+              <tr><td>Clics al link de bio</td><td><span class="pill pill--info">Instagram</span></td><td>Insights → Actividad → toques en el enlace del perfil.</td></tr>
+              <tr><td>Sesiones de la tienda desde IG</td><td><span class="pill pill--success">Shopify</span></td><td>Analytics → Reportes → sesiones por referente, filtra "Instagram".</td></tr>
+              <tr><td>Pedidos</td><td><span class="pill pill--success">Shopify</span></td><td>Analytics → Reporte de ventas → pedidos de la semana.</td></tr>
+              <tr><td>Ingresos</td><td><span class="pill pill--success">Shopify</span></td><td>Analytics → Reporte de ventas → total vendido en la semana (en USD).</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout callout--info">
+          <p>Si un dato no lo tienes esa semana, deja la celda vacía. El tablero muestra "—" en vez de inventar un cero.</p>
+        </div>
+      </li>
+
+      <li>
+        <h3>Comparte el Sheet</h3>
+        <p>Arriba a la derecha del Sheet, toca <strong>Compartir</strong>. Cambia el acceso a <strong>"Cualquiera con el enlace"</strong> y el rol a <strong>"Lector"</strong>. Así el tablero puede leer los datos sin pedirte iniciar sesión cada vez.</p>
+      </li>
+
+      <li>
+        <h3>Arma la URL para conectar el Sheet</h3>
+        <p>El tablero no lee el link normal del Sheet: necesita una versión especial (se llama "gviz") que entrega los datos en un formato que el navegador puede leer. La plantilla es esta:</p>
+        <div class="copyblock">
+          <button type="button" class="copyblock__btn" data-copy-target="copy-gviz">Copiar</button>
+          <div class="copyblock__text" id="copy-gviz">https://docs.google.com/spreadsheets/d/ID_DE_LA_HOJA/gviz/tq?tqx=out:csv&sheet=NOMBRE_DE_LA_PESTAÑA</div>
+        </div>
+        <p>Hay que reemplazar dos partes. Por ejemplo, si al abrir tu Sheet la URL en el navegador se ve así:</p>
+        <div class="url-ejemplo">https://docs.google.com/spreadsheets/d/<mark>1a2B3c4D5e6F7g8H9i0J</mark>/edit#gid=<mark class="info-mark">0</mark></div>
+        <p>
+          <span class="pill">ID_DE_LA_HOJA</span> es el tramo largo entre <strong>/d/</strong> y la siguiente <strong>/</strong> — en el ejemplo, <code>1a2B3c4D5e6F7g8H9i0J</code>.<br>
+          <span class="pill pill--info">Pestaña</span> se puede indicar de dos formas: con el <strong>nombre exacto</strong> de la pestaña (la solapa de abajo, ej. "Semanas") usando <code>&sheet=Semanas</code>, o con el <strong>número que aparece después de <code>#gid=</code></strong> en la URL (en el ejemplo, <code>0</code>) usando <code>&gid=0</code> — esta segunda forma suele ser más simple porque no hay que preocuparse de tildes ni espacios.
+        </p>
+        <p>La URL final para este ejemplo quedaría así (usando el nombre de pestaña):</p>
+        <div class="url-ejemplo">https://docs.google.com/spreadsheets/d/<mark>1a2B3c4D5e6F7g8H9i0J</mark>/gviz/tq?tqx=out:csv&sheet=<mark class="info-mark">Semanas</mark></div>
+      </li>
+
+      <li>
+        <h3>Pega la URL abajo y guarda</h3>
+        <p>Pega la URL que armaste en el campo de abajo y toca "Guardar y cargar". El tablero se conecta a tu Sheet automáticamente cada vez que abras esta página.</p>
+      </li>
+    </ol>
+
+    <div class="card">
+      <h3>Campo de configuración</h3>
+      <label for="sheet-url-input" style="display:block;font-size:var(--fs-sm);color:var(--ink-soft);margin-bottom:var(--space-2)">URL del Sheet (formato gviz):</label>
+      <input type="url" id="sheet-url-input" class="sheet-url-input" placeholder="https://docs.google.com/spreadsheets/d/.../gviz/tq?tqx=out:csv&sheet=...">
+      <div style="display:flex;flex-wrap:wrap;gap:var(--space-3)">
+        <button type="button" class="btn" id="btn-guardar-url">Guardar y cargar</button>
+        <button type="button" class="btn btn--ghost" id="btn-borrar-url">Borrar configuración</button>
+      </div>
+      <p id="sheet-url-actual" style="display:none;font-size:var(--fs-sm);color:var(--ink-soft);margin:var(--space-3) 0 0;word-break:break-all"></p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Tu tablero</h2>
+
+    <div id="tablero-estado"></div>
+
+    <div id="tablero-datos" style="display:none">
+      <h3>KPIs de la última semana</h3>
+      <p>El valor de cada número en la semana más reciente con datos, comparado con la semana anterior.</p>
+      <div class="kpi-grid" id="kpi-grid"></div>
+
+      <h3>Métricas derivadas</h3>
+      <p>Estas 4 combinan dos KPIs entre sí para contar una historia más completa, calculadas con los datos de la última semana.</p>
+      <div class="grid-2" id="kpi-derivadas"></div>
+
+      <h3>Evolución semanal</h3>
+      <p>Cómo se han movido semana a semana los 4 números que más importan para llegar a la meta.</p>
+      <div id="kpi-evolucion"></div>
+
+      <h3>Historial completo</h3>
+      <p>Todas las semanas cargadas, con las 13 columnas del Sheet. Se puede desplazar hacia los lados en el celular.</p>
+      <div class="table-wrap"><table id="kpi-tabla"></table></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Progreso y meta</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Avance del plan</h3>
+        <div id="avance-plan-contenido"><p>Cargando…</p></div>
+      </div>
+      <div class="card">
+        <h3>Meta: de USD 5.000 a USD 10.000 al mes</h3>
+        <p>Hoy la tienda factura cerca de <strong>USD 5.000 al mes</strong>. La meta de este plan es llegar a <strong>USD 10.000 al mes</strong>.</p>
+        <div class="progress">
+          <div class="progress__track"><div class="progress__fill" id="meta-fill" style="width:50%"></div></div>
+          <span class="progress__label" id="meta-label">Hoy: USD 5.000 de 10.000 al mes (referencia)</span>
+        </div>
+        <p id="meta-nota" style="font-size:var(--fs-sm);color:var(--ink-soft);margin-top:var(--space-2)">Este número se actualiza solo cuando cargues Ingresos en el Sheet.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  // Acceso seguro a localStorage (no revienta en navegación privada u otros bloqueos).
+  // Prerrequisito de: JS del checklist (index.html) y JS del tablero (tablero.html).
+  function pgGet(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+  function pgSet(key, valor) { try { localStorage.setItem(key, valor); } catch (e) { /* sin soporte, se ignora */ } }
+  function pgRemove(key) { try { localStorage.removeItem(key); } catch (e) { /* sin soporte, se ignora */ } }
+</script>
+
+<script>
+  // Parser CSV mínimo: maneja comillas, comas dentro de comillas y saltos de línea dentro de comillas.
+  function parseCSV(texto) {
+    var filas = [];
+    var fila = [];
+    var campo = '';
+    var entreComillas = false;
+
+    for (var i = 0; i < texto.length; i++) {
+      var c = texto[i];
+      if (entreComillas) {
+        if (c === '"') {
+          if (texto[i + 1] === '"') { campo += '"'; i++; } // comilla escapada ""
+          else { entreComillas = false; }
+        } else {
+          campo += c;
+        }
+      } else if (c === '"') {
+        entreComillas = true;
+      } else if (c === ',') {
+        fila.push(campo); campo = '';
+      } else if (c === '\r') {
+        // se ignora, el salto de fila real lo maneja \n
+      } else if (c === '\n') {
+        fila.push(campo); campo = '';
+        filas.push(fila); fila = [];
+      } else {
+        campo += c;
+      }
+    }
+    if (campo.length > 0 || fila.length > 0) { fila.push(campo); filas.push(fila); }
+
+    // descarta filas totalmente vacías (líneas en blanco al final del archivo)
+    return filas.filter(function (f) { return f.length > 1 || f[0] !== ''; });
+  }
+
+  // Convierte filas crudas en objetos { NombreColumna: valor } usando la primera fila como encabezado.
+  function csvAFilasKpi(filas) {
+    if (!filas.length) return { headers: [], semanas: [] };
+    var headers = filas[0].map(function (h) { return h.trim(); });
+    var semanas = filas.slice(1)
+      .filter(function (f) { return f.some(function (v) { return v.trim() !== ''; }); })
+      .map(function (f) {
+        var obj = {};
+        headers.forEach(function (h, i) { obj[h] = (f[i] || '').trim(); });
+        return obj;
+      });
+    return { headers: headers, semanas: semanas };
+  }
+</script>
+
+<script>
+  function guardarSheetUrl(url) {
+    pgSet('pedraza-plan:sheet-url', url.trim());
+    cargarTablero();
+  }
+</script>
+
+<script>
+  var KPI_HEADERS = [
+    'Semana', 'Alcance', 'Alcance no-seguidores', 'Reproducciones de Reels',
+    'Guardados', 'Compartidos', 'Comentarios', 'Seguidores nuevos',
+    'DMs iniciados', 'Clics al link de bio', 'Sesiones de la tienda desde IG',
+    'Pedidos', 'Ingresos'
+  ];
+
+  async function cargarTablero() {
+    var estado = document.getElementById('tablero-estado');
+    var url = pgGet('pedraza-plan:sheet-url');
+
+    if (!url) {
+      estado.innerHTML =
+        '<div class="callout callout--warn"><p><strong>Falta configurar el Google Sheet.</strong> ' +
+        'Pega el link de exportación CSV en el campo de configuración de esta página para ver el tablero. ' +
+        'Recuerda compartir el Sheet como "Cualquiera con el enlace: Lector".</p></div>';
+      document.getElementById('tablero-datos').style.display = 'none';
+      renderMeta(null);
+      return;
+    }
+
+    estado.innerHTML = '<div class="callout callout--info"><p>Cargando datos del Sheet…</p></div>';
+
+    var texto;
+    try {
+      var res = await fetch(url, { cache: 'no-store' });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      texto = await res.text();
+    } catch (err) {
+      estado.innerHTML =
+        '<div class="callout callout--danger"><p><strong>No se pudo cargar el Sheet.</strong> ' +
+        'Revisa tu conexión y que el link esté compartido como "Cualquiera con el enlace: Lector". ' +
+        '<button type="button" class="btn" onclick="cargarTablero()">Reintentar</button></p></div>';
+      document.getElementById('tablero-datos').style.display = 'none';
+      return;
+    }
+
+    var filas = parseCSV(texto);
+    if (filas.length < 2) {
+      estado.innerHTML =
+        '<div class="callout callout--danger"><p><strong>El Sheet está vacío o no se pudo leer.</strong> ' +
+        'Verifica que la primera fila tenga los encabezados y que haya al menos una semana de datos cargada.</p></div>';
+      document.getElementById('tablero-datos').style.display = 'none';
+      return;
+    }
+
+    var datos = csvAFilasKpi(filas);
+    var faltantes = KPI_HEADERS.filter(function (h) { return datos.headers.indexOf(h) === -1; });
+
+    if (faltantes.length) {
+      estado.innerHTML =
+        '<div class="callout callout--warn"><p><strong>Faltan columnas en el Sheet:</strong> ' +
+        faltantes.join(', ') + '. Se muestra lo que sí está disponible.</p></div>';
+    } else {
+      estado.innerHTML = '';
+    }
+
+    renderTablero(datos.semanas); // función propia de tablero.html
+  }
+</script>
+
+<script>
+  // ---------- renderTablero() y funciones propias de tablero.html ----------
+
+  var KPI_DEFS = [
+    { key: 'Alcance', formato: 'entero' },
+    { key: 'Alcance no-seguidores', formato: 'entero' },
+    { key: 'Reproducciones de Reels', formato: 'entero' },
+    { key: 'Guardados', formato: 'entero' },
+    { key: 'Compartidos', formato: 'entero' },
+    { key: 'Comentarios', formato: 'entero' },
+    { key: 'Seguidores nuevos', formato: 'entero' },
+    { key: 'DMs iniciados', formato: 'entero' },
+    { key: 'Clics al link de bio', formato: 'entero' },
+    { key: 'Sesiones de la tienda desde IG', formato: 'entero' },
+    { key: 'Pedidos', formato: 'entero' },
+    { key: 'Ingresos', formato: 'money' }
+  ];
+
+  var EVOLUCION_KPIS = ['Ingresos', 'Pedidos', 'Alcance no-seguidores', 'Clics al link de bio'];
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  // Celda vacía = dato faltante (null), nunca cero.
+  function parseNum(v) {
+    if (v === undefined || v === null) return null;
+    var s = String(v).trim();
+    if (s === '') return null;
+    var n = parseFloat(s.replace(/,/g, ''));
+    return isNaN(n) ? null : n;
+  }
+
+  function formatEntero(n) {
+    if (n === null || n === undefined || isNaN(n)) return '—';
+    return Math.round(n).toLocaleString('es-CL');
+  }
+
+  function formatMoney(n) {
+    if (n === null || n === undefined || isNaN(n)) return '—';
+    return 'US$ ' + Math.round(n).toLocaleString('es-CL');
+  }
+
+  function formatPct(n) {
+    if (n === null || n === undefined || isNaN(n)) return '—';
+    return n.toFixed(1).replace('.', ',') + '%';
+  }
+
+  function calcularDelta(actual, anterior) {
+    if (actual === null || anterior === null) return null;
+    var diff = actual - anterior;
+    var up = diff >= 0;
+    var arrow = up ? '▲' : '▼';
+    if (anterior === 0) {
+      return { html: arrow + ' ' + (up ? '+' : '') + formatEntero(diff), up: up };
+    }
+    var pct = (diff / Math.abs(anterior)) * 100;
+    return { html: arrow + ' ' + Math.abs(pct).toFixed(0) + '%', up: up };
+  }
+
+  function renderKpiGrid(semanas) {
+    var actual = semanas[semanas.length - 1];
+    var anterior = semanas.length > 1 ? semanas[semanas.length - 2] : null;
+    var html = '';
+    KPI_DEFS.forEach(function (def) {
+      var valActual = parseNum(actual[def.key]);
+      var valAnterior = anterior ? parseNum(anterior[def.key]) : null;
+      var valorTexto = valActual === null ? '—' : (def.formato === 'money' ? formatMoney(valActual) : formatEntero(valActual));
+
+      var deltaHtml = '';
+      if (valActual !== null && valAnterior !== null) {
+        var d = calcularDelta(valActual, valAnterior);
+        if (d) {
+          deltaHtml = '<span class="kpi__delta kpi__delta--' + (d.up ? 'up' : 'down') + '">' + d.html + '</span>';
+        }
+      }
+
+      html += '<div class="kpi"><span class="kpi__label">' + escapeHtml(def.key) + '</span>' +
+        '<span class="kpi__value">' + valorTexto + '</span>' + deltaHtml + '</div>';
+    });
+    document.getElementById('kpi-grid').innerHTML = html;
+    return { actual: actual, anterior: anterior };
+  }
+
+  function renderDerivadas(actual) {
+    var alcance = parseNum(actual['Alcance']);
+    var alcanceNoSeg = parseNum(actual['Alcance no-seguidores']);
+    var guardados = parseNum(actual['Guardados']);
+    var clics = parseNum(actual['Clics al link de bio']);
+    var pedidos = parseNum(actual['Pedidos']);
+    var ingresos = parseNum(actual['Ingresos']);
+
+    var tasaGuardado = (guardados !== null && alcance) ? (guardados / alcance * 100) : null;
+    var tasaDescubrimiento = (alcanceNoSeg !== null && alcance) ? (alcanceNoSeg / alcance * 100) : null;
+    var clicPedido = (pedidos !== null && clics) ? (pedidos / clics * 100) : null;
+    var aov = (ingresos !== null && pedidos) ? (ingresos / pedidos) : null;
+
+    var items = [
+      { label: 'Tasa de guardado', explicacion: 'Guardados ÷ Alcance', valor: tasaGuardado, formato: 'pct' },
+      { label: 'Tasa de descubrimiento', explicacion: 'Alcance no-seguidores ÷ Alcance', valor: tasaDescubrimiento, formato: 'pct' },
+      { label: 'Clic → pedido', explicacion: 'Pedidos ÷ Clics al link de bio', valor: clicPedido, formato: 'pct' },
+      { label: 'AOV (ticket promedio)', explicacion: 'Ingresos ÷ Pedidos', valor: aov, formato: 'money' }
+    ];
+
+    var html = items.map(function (it) {
+      var texto = it.valor === null ? '—' : (it.formato === 'pct' ? formatPct(it.valor) : formatMoney(it.valor));
+      return '<div class="card"><h3>' + it.label + '</h3>' +
+        '<span class="kpi__value">' + texto + '</span>' +
+        '<p style="font-size:var(--fs-sm);color:var(--ink-soft);margin:var(--space-2) 0 0">' + it.explicacion + '</p></div>';
+    }).join('');
+    document.getElementById('kpi-derivadas').innerHTML = html;
+  }
+
+  function renderEvolucion(semanas) {
+    var html = '';
+    EVOLUCION_KPIS.forEach(function (kpi) {
+      var valores = semanas.map(function (s, i) {
+        var etiqueta = (s['Semana'] && s['Semana'].trim() !== '') ? s['Semana'].trim() : ('Semana ' + (i + 1));
+        return { label: etiqueta, valor: parseNum(s[kpi]) };
+      });
+      var max = 0;
+      valores.forEach(function (v) { if (v.valor !== null && v.valor > max) max = v.valor; });
+
+      var filas = valores.map(function (v) {
+        var pct = (max > 0 && v.valor !== null) ? Math.round((v.valor / max) * 100) : 0;
+        var valorTexto = v.valor === null ? '—' : (kpi === 'Ingresos' ? formatMoney(v.valor) : formatEntero(v.valor));
+        return '<div class="chart-bar-row">' +
+          '<span class="chart-bar-row__label">' + escapeHtml(v.label) + '</span>' +
+          '<div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:' + pct + '%"></div></div>' +
+          '<span class="chart-bar-row__value">' + valorTexto + '</span>' +
+          '</div>';
+      }).join('');
+
+      html += '<div class="card"><h3>' + escapeHtml(kpi) + '</h3>' + filas + '</div>';
+    });
+    document.getElementById('kpi-evolucion').innerHTML = html;
+  }
+
+  function renderTabla(semanas) {
+    var thead = '<thead><tr>' + KPI_HEADERS.map(function (h) { return '<th>' + escapeHtml(h) + '</th>'; }).join('') + '</tr></thead>';
+    var tbody = '<tbody>' + semanas.map(function (s) {
+      return '<tr>' + KPI_HEADERS.map(function (h) {
+        if (h === 'Semana') {
+          var v = s[h];
+          return '<td>' + ((v && v.trim() !== '') ? escapeHtml(v.trim()) : '—') + '</td>';
+        }
+        var n = parseNum(s[h]);
+        var texto = n === null ? '—' : (h === 'Ingresos' ? formatMoney(n) : formatEntero(n));
+        return '<td>' + texto + '</td>';
+      }).join('') + '</tr>';
+    }).join('') + '</tbody>';
+    document.getElementById('kpi-tabla').innerHTML = thead + tbody;
+  }
+
+  function renderMeta(actual) {
+    var fill = document.getElementById('meta-fill');
+    var label = document.getElementById('meta-label');
+    var nota = document.getElementById('meta-nota');
+    var ingresos = actual ? parseNum(actual['Ingresos']) : null;
+
+    if (ingresos === null) {
+      fill.style.width = '50%';
+      label.textContent = 'Hoy: USD 5.000 de 10.000 al mes (referencia)';
+      nota.textContent = 'Este número se actualiza solo cuando cargues Ingresos en el Sheet.';
+      return;
+    }
+
+    var estimadoMes = ingresos * 4;
+    var pct = Math.max(0, Math.min(100, Math.round((estimadoMes / 10000) * 100)));
+    fill.style.width = pct + '%';
+    label.textContent = 'Estimado: ' + formatMoney(estimadoMes) + ' de US$ 10.000 al mes (' + pct + '%)';
+    nota.textContent = 'Estimación simple: ingresos de la última semana cargada × 4, para aproximar el mes. No reemplaza el número real de Shopify.';
+  }
+
+  function renderAvancePlan() {
+    var el = document.getElementById('avance-plan-contenido');
+    var raw = pgGet('pedraza-plan:__progress');
+    var data = null;
+    if (raw) {
+      try { data = JSON.parse(raw); } catch (e) { data = null; }
+    }
+
+    if (!data || typeof data.total !== 'number' || typeof data.done !== 'number' || data.total <= 0) {
+      el.innerHTML = '<p>Abre la página <a href="index.html">Plan</a> y marca tu primera tarea para ver el avance aquí.</p>';
+      return;
+    }
+
+    var pct = typeof data.pct === 'number' ? data.pct : Math.round((data.done / data.total) * 100);
+    el.innerHTML =
+      '<div class="progress">' +
+      '<div class="progress__track"><div class="progress__fill" style="width:' + pct + '%"></div></div>' +
+      '<span class="progress__label">' + data.done + ' de ' + data.total + ' tareas (' + pct + '%)</span>' +
+      '</div>';
+  }
+
+  function renderTablero(semanas) {
+    var estado = document.getElementById('tablero-estado');
+    var contenedor = document.getElementById('tablero-datos');
+
+    if (!semanas || semanas.length === 0) {
+      contenedor.style.display = 'none';
+      estado.innerHTML += '<div class="callout callout--danger"><p><strong>No hay semanas con datos todavía.</strong> ' +
+        'Agrega al menos una fila con información en el Sheet, aparte de la fila de encabezados.</p></div>';
+      renderMeta(null);
+      return;
+    }
+
+    contenedor.style.display = '';
+    var res = renderKpiGrid(semanas);
+    renderDerivadas(res.actual);
+    renderEvolucion(semanas);
+    renderTabla(semanas);
+    renderMeta(res.actual);
+  }
+</script>
+
+<script>
+  // Copiar al portapapeles — delegación de eventos, un solo listener por página.
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-copy-target]');
+    if (!btn) return;
+    var el = document.getElementById(btn.getAttribute('data-copy-target'));
+    if (!el) return;
+    copiarTexto(el.innerText || el.textContent || '', btn);
+  });
+
+  function copiarTexto(texto, btn) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(texto).then(
+        function () { mostrarCopiado(btn); },
+        function () { copiarConFallback(texto, btn); }
+      );
+    } else {
+      copiarConFallback(texto, btn);
+    }
+  }
+
+  function copiarConFallback(texto, btn) {
+    var ta = document.createElement('textarea');
+    ta.value = texto;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.top = '-1000px';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (err) { /* sin soporte, se ignora */ }
+    document.body.removeChild(ta);
+    mostrarCopiado(btn);
+  }
+
+  function mostrarCopiado(btn) {
+    var original = btn.getAttribute('data-label') || btn.textContent;
+    btn.setAttribute('data-label', original);
+    btn.textContent = '✓ ¡Copiado!';
+    btn.classList.add('is-copied');
+    clearTimeout(btn._copyTimeout);
+    btn._copyTimeout = setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('is-copied');
+    }, 2000);
+  }
+</script>
+
+<script>
+  function actualizarUrlActualUI(url) {
+    var p = document.getElementById('sheet-url-actual');
+    if (url) {
+      p.style.display = '';
+      p.textContent = 'URL guardada actualmente: ' + url;
+    } else {
+      p.style.display = 'none';
+      p.textContent = '';
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var input = document.getElementById('sheet-url-input');
+    var urlGuardada = pgGet('pedraza-plan:sheet-url') || '';
+    input.value = urlGuardada;
+    actualizarUrlActualUI(urlGuardada);
+
+    document.getElementById('btn-guardar-url').addEventListener('click', function () {
+      var val = input.value.trim();
+      if (!val) { input.focus(); return; }
+      guardarSheetUrl(val);
+      actualizarUrlActualUI(val);
+    });
+
+    document.getElementById('btn-borrar-url').addEventListener('click', function () {
+      pgRemove('pedraza-plan:sheet-url');
+      input.value = '';
+      actualizarUrlActualUI('');
+      cargarTablero();
+    });
+
+    renderMeta(null);
+    renderAvancePlan();
+    cargarTablero();
+  });
+</script>
+
+</body>
+</html>
