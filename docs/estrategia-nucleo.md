@@ -21,14 +21,14 @@ Fase 1 del plan de crecimiento en Instagram para escalar la tienda de Pedraza Il
 - **Existe un competidor directo que probó que el nicho escala en Instagram.** Bendito (bendito.cl), con un ángulo muy similar ("la tienda de los pajaritos"), tendría cerca de 45.000 seguidores 🟡 (dato de fuente indexada, sin verificación directa). *(research/mercado-tendencias.md, sección A.2)*
 - **María José ya es cara visible de la marca**, lo que coincide con la tendencia de que el contenido con cara humana de quien crea rinde mejor que el contenido "de catálogo" puro. *(research/mercado-tendencias.md, sección C.2.5)*
 - **El feed ya tiene una base de contenido**: storytelling de origen, revelación de producto y campañas estacionales (Cyber, Navidad) — no se parte de cero. *(research/instagram.md, sección 1)*
-- 🟢 **La cuenta ya tiene una audiencia grande: 62.500 seguidores confirmados.** Dato confirmado por el operador (jul-2026). Lectura estratégica: el desafío no es partir de cero, es activar y convertir a quienes ya siguen — con una base así, las Stories diarias y la venta directa a quien ya sigue pesan más de lo que pesarían en una cuenta chica.
+- 🟢 **La cuenta ya tiene una audiencia grande: 62.500 seguidores confirmados.** Dato confirmado por el operador (jul-2026). Lectura estratégica: el plan corre con **dos motores a la vez**, no uno en lugar del otro (de acuerdo con Felipe, cliente, jul-2026). Motor 1 — **activar la base que ya existe**: Stories diarias y venta directa a quien ya sigue, porque con 62.500 personas activarlas pesa más que en una cuenta chica. Motor 2 — **salir a buscar audiencia nueva**: Reels, la sub-línea "conciencia 1" (ver sección 5) y todo lo que genera compartidos, para que gente que todavía no sigue la cuenta descubra la marca. No son excluyentes: el mismo calendario semanal (sección 6) alimenta a los dos motores al mismo tiempo — más abajo se explica cuál contenido empuja cuál motor.
 - 🟢 **Ya se sabe quién responde los mensajes: Cote es María José.** Confirmado por el operador (jul-2026) — es ella quien contesta hoy los mensajes directos y correos detrás de cote@pedrazailustracion.com. Ver sección 9 para la implicancia práctica en los roles del equipo.
+- 🟢 **Envío gratis: umbral confirmado en $50.000 CLP.** Confirmado por Felipe (cliente, jul-2026) — el $30.000 CLP que aparecía en una ficha de producto era una versión cacheada (una copia vieja guardada por el navegador) del sitio, no el dato real. Deja de ser una brecha: se puede comunicar el umbral con confianza en cualquier pieza de contenido.
 
 ### Lo que falta (brechas a resolver)
 
 - 🟡 Todavía falta confirmar el texto completo de la bio y la cadencia real de publicación en Instagram (los seguidores ya están confirmados: 62.500, ver arriba) — no aparecieron en ninguna fuente pública consultada. *(research/instagram.md, secciones 1 y 7)*
 - 🟡 El ticket promedio (AOV — lo que gasta una persona en una compra) hoy se trabaja con la referencia del operador, de memoria, ~$60.000 CLP (por confirmar con Shopify) — no un dato real de Shopify. *(research/tienda.md, sección 6)*
-- 🟡 No está confirmado el umbral real de envío gratis: el home dice compras sobre $50.000 CLP, una ficha de producto dice $30.000 CLP. *(research/tienda.md, sección 5)*
 - No se encontró presencia de marca en TikTok, Pinterest ni YouTube — puede que no existan o simplemente no estén indexadas. *(research/instagram.md, sección 3)*
 - 🟡 Los roles de María José y Felipe en el día a día siguen siendo un supuesto de trabajo en su mayor parte — ya se sabe que María José (Cote) responde los mensajes (confirmado), pero falta confirmar el detalle de qué hace Felipe.
 
@@ -161,11 +161,14 @@ Cómo cuidarlo:
 
 Cinco pilares, con nombres canónicos que se van a reutilizar en el calendario editorial y en el resto de los documentos del plan.
 
+**Cómo se reparten entre los dos motores de audiencia (ver sección 1):** no son pilares distintos para cada motor, son los mismos cinco leídos con dos lentes. **Flora y Fauna de Chile** (con su sub-línea "conciencia 1") y **Proceso y Detrás de Escena** empujan sobre todo el Motor 2 — audiencia nueva, porque son los formatos con más alcance a gente que todavía no sigue la cuenta. **Clientes y Reseñas** y las Stories diarias que acompañan a **Producto y Colecciones** empujan sobre todo el Motor 1 — activar y convertir a quien ya sigue. **Los Hermanos y la Misión** aporta a los dos a la vez: genera descubrimiento y fidelización al mismo tiempo.
+
 ### Producto y Colecciones
 
 **Qué es:** contenido centrado en mostrar el producto — revelaciones, detalles, cómo se ve en uso.
 **Por qué existe:** el reveal de producto ya es parte de lo que la cuenta publica hoy. *(research/instagram.md, sección 1)*
-**Ejemplos:** revelación de una lámina nueva, video de un puzzle armándose, la loza puesta en una mesa.
+🟢 **Los lanzamientos de producto son parte de este pilar.** Antes no eran posibles por los tiempos de Cote (María José); ahora, trabajando junto a Felipe, sí lo son — confirmado por Felipe (cliente, jul-2026). El detalle de cómo se planifica un lanzamiento está en la sección 7.
+**Ejemplos:** revelación de una lámina nueva, video de un puzzle armándose, la loza puesta en una mesa, el lanzamiento de un producto nuevo.
 **Apunta a:** Descubrimiento e Interés (pasos 1-2 del embudo).
 
 ### Proceso y Detrás de Escena
@@ -265,6 +268,8 @@ Cuando se publica un Reel, Instagram lo prueba primero con un grupo chico de gen
 
 **Todos los días:** 3-7 Stories. Ajustar el número total de Reels de la semana (entre 4 y 7) según la capacidad real de grabación del equipo.
 
+**Este mismo calendario alimenta los dos motores de audiencia (ver sección 1) a la vez, sin duplicar trabajo:** los Reels de martes, jueves y sábado (Flora y Fauna, Proceso) empujan el Motor 2 — audiencia nueva; las Stories diarias y los recordatorios de venta directa empujan el Motor 1 — activar la base de 62.500 seguidores. No hace falta separar la planificación en dos calendarios: es un solo plan leído con dos lentes.
+
 ---
 
 ## 7. Calendario comercial como columna vertebral
@@ -325,6 +330,18 @@ flowchart LR
 | Oferta | Se anuncia la promoción concreta (pilar "Producto y Colecciones"). |
 | Urgencia | Recordatorios en Stories: quedan pocos días o poco stock. |
 | Cierre | Último llamado a comprar, con horario límite si aplica. |
+
+### Lanzamientos: la fecha comercial que la marca crea
+
+Todas las fechas de la línea de tiempo de arriba las pone un calendario externo (Día del Niño, Fiestas Patrias, Cyber, Navidad, etc.). Hay una fecha más que la marca puede crear ella misma: el día en que lanza —o relanza— un producto.
+
+🟢 Antes esto no era posible por los tiempos de Cote (María José); ahora, trabajando junto a Felipe, sí lo es, y la idea es aprovecharlo para ampliar el portafolio con productos ganadores. *(Felipe, cliente, jul-2026)*
+
+Un lanzamiento usa la MISMA mini-campaña de 4 fases de arriba — calentamiento → oferta → urgencia → cierre. Lo único que cambia es quién pone la fecha: no el comercio, la marca.
+
+**Recomendación:** 1 lanzamiento (o relanzamiento/restock de un producto agotado) por trimestre, ubicado entre las fechas comerciales grandes de la línea de tiempo — así la marca no depende solo del calendario externo para tener motivos de venta.
+
+**Qué lanzar:** lo guía el repositorio de piezas ganadoras (`recursos.html`, sección "Repositorio de ganadores") — los productos que ya demostraron tracción en contenido o en venta son la primera fuente de ideas para el próximo lanzamiento o relanzamiento.
 
 ---
 
@@ -411,13 +428,15 @@ flowchart LR
 
 **Recomendación práctica:** ya que María José es quien responde los mensajes hoy, tiene sentido que el Golden hour tras publicar (responder rápido apenas sale el contenido, ver sección 6) quede en sus manos — ella ya está ahí, respondiendo. Felipe puede tomar la revisión semanal de números contra la meta de ventas. Esto es un punto de partida razonable, ajustable en cuanto María José y Felipe confirmen la división definitiva de tareas.
 
+> 🟢 **Cierre definitivo: lunes 27 de julio de 2026, 10:00 (hora de Chile).** La tabla de arriba es la propuesta de trabajo, todavía no la versión final. La definición cerrada de roles —qué hace cada uno, qué se va a hacer y cómo se va a medir— queda para esa reunión, junto con la entrega de accesos a Shopify y Meta. *(Felipe, cliente, jul-2026)*
+
 ---
 
 ## 10. Anexo: Rampa EEUU (resumen ejecutivo)
 
 Todo lo siguiente es **fase posterior** al objetivo #1 (llegar a USD 10.000/mes en la tienda chilena). Se deja documentado como hoja de ruta para cuando ese objetivo esté encaminado, no como tarea inmediata.
 
-1. **Registro de marca "Pedraza Ilustración"** — 🟡 [PRIORIDAD]. Iniciar el trámite ya si no está iniciado: puede demorar meses y es el requisito base para todo lo demás en Amazon (sin marca registrada o en trámite, no hay Brand Registry). *(research/pendientes-operador.md, ítem 3.1; research/mercado-tendencias.md, sección D.2.6)*
+1. **Registro de marca "Pedraza Ilustración"** — 🟢 Chile (INAPI) ya registrada; 🟡 [PRIORIDAD] falta EEUU (USPTO). Confirmado por Felipe (cliente, jul-2026): la marca ya está registrada en Chile ante INAPI, y la decisión ya está tomada de iniciar el registro en Estados Unidos ante la USPTO (la oficina de marcas de EEUU). Sigue siendo la acción prioritaria de este anexo: el trámite puede demorar meses y es el requisito base para todo lo demás en Amazon (sin marca registrada o en trámite en EEUU, no hay Brand Registry). 🟡 Verificar si la marca ya registrada en Chile sirve de puente (por ejemplo, para pedir prioridad o acelerar el trámite en EEUU) mientras avanza el registro en la USPTO. *(research/pendientes-operador.md, ítem 3.1; research/mercado-tendencias.md, sección D.2.6)*
 2. **Seller Central plan Professional + Brand Registry** — no Amazon Handmade, porque la producción se terceriza con un proveedor y Handmade exige fabricación manual propia del vendedor. *(research/mercado-tendencias.md, secciones D.2.1 y D.2.5)*
 3. **A+ Content y Amazon Store** — contenido de marca gratuito dentro de Amazon una vez con Brand Registry. Amazon Posts ya no existe: el programa se discontinuó por completo en julio de 2025. *(research/mercado-tendencias.md, sección D.3)*
 4. **Amazon Attribution + Brand Referral Bonus** — para medir y aprovechar el tráfico que llegue desde Instagram hacia el listing de Amazon, con devolución de hasta ~10% en comisiones sobre esa venta (crédito, no efectivo directo). *(research/mercado-tendencias.md, secciones D.4.1 y D.4.2)*
@@ -433,5 +452,22 @@ Lista corta de los 🟡 más críticos heredados del research, porque afectan di
 - 🟡 **[PRIORIDAD]** AOV real, número de pedidos al mes y mix de productos vendidos — hoy se trabaja con la referencia del operador (~$60.000 CLP, dato de memoria, "tal vez sea menos ahora"), que implica ~75-80 pedidos/mes; falta confirmar con Shopify. *(research/tienda.md, sección 6; research/pendientes-operador.md, ítem 1.2)*
 - 🟢 Seguidores actuales: 62.500 (confirmado por el operador, jul-2026) — este punto ya está resuelto. 🟡 **[PRIORIDAD]** Todavía falta confirmar el texto completo de la bio y la cadencia real de publicación en Instagram. *(research/instagram.md, secciones 1 y 7; research/pendientes-operador.md, ítems 2.1-2.4 y 2.6)*
 - 🟢 Quién es "Cote" ya está resuelto: es María José, y es quien responde los mensajes directos y comentarios hoy (confirmado por el operador, jul-2026). 🟡 Todavía falta confirmar el detalle de qué hace Felipe día a día (opera, programa y mide es, por ahora, un supuesto de trabajo).
-- 🟡 **[PRIORIDAD]** Estado actual del registro de marca "Pedraza Ilustración" (Chile y/o EEUU). *(research/pendientes-operador.md, ítem 3.1)*
-- 🟡 Umbral real de envío gratis: $50.000 CLP (home) vs. $30.000 CLP (una ficha de producto). *(research/tienda.md, sección 5; research/pendientes-operador.md, ítem 1.3)*
+- 🟢 Chile (INAPI) ya registrada. 🟡 **[PRIORIDAD]** EEUU (USPTO) pendiente — registro de marca "Pedraza Ilustración". Confirmado por Felipe (cliente, jul-2026); falta iniciar y avanzar el trámite en EEUU (ver sección 10 para el detalle). *(research/pendientes-operador.md, ítem 3.1)*
+- 🟢 Umbral de envío gratis resuelto: $50.000 CLP. Confirmado por Felipe (cliente, jul-2026) — el $30.000 CLP de una ficha de producto era una versión cacheada del sitio, no el dato real. *(research/tienda.md, sección 5; research/pendientes-operador.md, ítem 1.3)*
+
+---
+
+## 12. Frentes fuera de este plan (fase siguiente)
+
+Felipe preguntó por precios, stock, CRO (la optimización de la tasa de conversión: lograr que más personas de las que visitan la tienda terminen comprando) y anuncios pagados (publicidad que se paga para aparecer) en Meta (Instagram/Facebook) y en Google. Quedan fuera de este documento a propósito, no por descuido.
+
+Este plan cubre, a propósito, la fase 1: crecimiento orgánico de Instagram (contenido, sin pagar por publicidad). Los frentes de abajo son la fase siguiente, y se van a definir DESPUÉS de la reunión del lunes 27 de julio de 2026 (10:00 Chile) y de la entrega de accesos (Shopify, Meta), con su propio checklist del operador — igual que este plan lo tiene en `research/pendientes-operador.md`. La razón es simple: sin los datos reales de la tienda ni esos accesos, cualquier plan de precios o de anuncios pagados sería un plan inventado, no uno basado en la realidad del negocio.
+
+| Frente | Qué es, en simple | Cuándo se define |
+|---|---|---|
+| Precios y surtido | Qué precio tiene cada producto y qué tan amplio es el catálogo (stock, qué se agrega y qué se saca). | Fase siguiente, con datos reales de Shopify. |
+| CRO | Cambios en la tienda para que más visitantes terminen comprando (por ejemplo, en la ficha de producto o en el checkout). | Fase siguiente, con datos reales de Shopify. |
+| Meta Ads | Anuncios pagados en Instagram y Facebook. | Fase siguiente, con accesos a Meta entregados. |
+| Google Ads | Anuncios pagados en buscador y red de Google. | Fase siguiente, con accesos entregados. |
+
+*(Felipe, cliente, jul-2026)*
