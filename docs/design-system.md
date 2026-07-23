@@ -29,9 +29,11 @@ Justificación (2 líneas): el copihue es la flor nacional de Chile y ya es rojo
 
 El verde bosque no se descarta: se usa como color de apoyo semántico para "éxito", donde además refuerza el eje de conservación de la marca.
 
+**Nota (jul-2026):** el operador confirmó que el sitio web de la marca ya usa un verde naturaleza propio, `#3B5751`. Se incorpora al sistema como `--brand-green`, para que el sitio del plan comparta ese verde reconocible con el sitio de la marca: viste el fondo de la navegación superior y los encabezados de tabla, y reemplaza al teal genérico que antes tenía la familia `--info` (callouts y pills informativos). No compite con el acento: el rojo copihue sigue siendo el color principal — CTA, hero, link activo del nav, embudo.
+
 | Token | Valor | Uso |
 |---|---|---|
-| `--ink` | `#1c2420` | Texto principal, fondo del nav |
+| `--ink` | `#1c2420` | Texto principal |
 | `--ink-soft` | `#4c5850` | Texto secundario, etiquetas |
 | `--ink-faint` | `#7c887f` | Texto terciario, marcas de tiempo |
 | `--paper` | `#faf6ee` | Fondo de página (papel cálido, no blanco puro) |
@@ -47,10 +49,12 @@ El verde bosque no se descarta: se usa como color de apoyo semántico para "éxi
 | `--warn-soft` | `#f8ecd2` | Fondo tenue de alerta |
 | `--danger` | `#ae3d17` | Peligro / error — terracota, deliberadamente distinto del rojo copihue para no confundirse con el acento |
 | `--danger-soft` | `#f7ddd0` | Fondo tenue de peligro |
-| `--info` | `#35606c` | Información neutra |
-| `--info-soft` | `#dde7ea` | Fondo tenue de información |
+| `--brand-green` | `#3b5751` | Verde naturaleza del sitio web de la marca — fondo del nav, encabezados de tabla; alias base de `--info` |
+| `--brand-green-soft` | `#e3eae8` | Fondo tenue del verde de marca; alias base de `--info-soft` |
+| `--info` | `#3b5751` (= `--brand-green`) | Información neutra — callouts y pills informativos |
+| `--info-soft` | `#e3eae8` (= `--brand-green-soft`) | Fondo tenue de información |
 
-Solo 5 familias de color en total (tinta, papel, acento, y 4 tonos semánticos de bajo protagonismo que casi nunca cubren superficies grandes, solo bordes/iconos/pills). Mantiene el sitio con aspecto de sistema diseñado, no de paleta improvisada por 6 personas distintas.
+Solo 5 familias de color en total (tinta, papel, acento, y 4 tonos semánticos de bajo protagonismo) — con una excepción deliberada: el verde de marca (`--brand-green`, alias de `--info`) sí cubre dos superficies grandes de identidad (nav, encabezados de tabla), no solo bordes/iconos/pills como el resto de la familia semántica. Mantiene el sitio con aspecto de sistema diseñado, no de paleta improvisada por 6 personas distintas.
 
 ### Tipografía
 
@@ -97,6 +101,10 @@ Este bloque completo va dentro de un único `<style>...</style>` en el `<head>` 
   --accent-dark: #7c1830;
   --accent-soft: #f8dfe4;
 
+  /* --- verde naturaleza del sitio web de la marca (dato del operador, jul-2026) --- */
+  --brand-green: #3b5751;
+  --brand-green-soft: #e3eae8;
+
   /* --- apoyo semántico --- */
   --success: #2f6b4a;
   --success-soft: #dcece1;
@@ -104,8 +112,8 @@ Este bloque completo va dentro de un único `<style>...</style>` en el `<head>` 
   --warn-soft: #f8ecd2;
   --danger: #ae3d17;
   --danger-soft: #f7ddd0;
-  --info: #35606c;
-  --info-soft: #dde7ea;
+  --info: var(--brand-green);
+  --info-soft: var(--brand-green-soft);
 
   /* --- forma --- */
   --radius: 16px;
@@ -175,7 +183,7 @@ strong { color: var(--ink); }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: var(--ink);
+  background: var(--brand-green);
   border-bottom: 1px solid rgba(255, 255, 255, .08);
 }
 .docnav__inner {
@@ -333,7 +341,7 @@ main { counter-reset: sec; }
 .table-wrap { overflow-x: auto; margin: var(--space-4) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); }
 .table-wrap table { min-width: 480px; }
 .table-wrap th, .table-wrap td { padding: var(--space-3); text-align: left; border-bottom: 1px solid var(--line); font-size: var(--fs-sm); }
-.table-wrap thead th { background: var(--ink); color: #fff; position: sticky; top: 0; }
+.table-wrap thead th { background: var(--brand-green); color: #fff; position: sticky; top: 0; }
 .table-wrap tbody tr:last-child td { border-bottom: none; }
 .table-wrap tbody tr:nth-child(even) { background: var(--paper); }
 
