@@ -469,6 +469,17 @@ Este plan cubre, a propósito, la fase 1: crecimiento orgánico de Instagram (co
 | CRO | Cambios en la tienda para que más visitantes terminen comprando (por ejemplo, en la ficha de producto o en el checkout). | Fase siguiente, con datos reales de Shopify. |
 | Meta Ads | Anuncios pagados en Instagram y Facebook. | Fase siguiente, con accesos a Meta entregados. |
 | Google Ads | Anuncios pagados en buscador y red de Google. | Fase siguiente, con accesos entregados. |
-| Email marketing | Correos a quienes ya compraron o dejaron su correo: novedades, lanzamientos, carritos abandonados (cuando alguien deja productos sin pagar). | Fase siguiente, tras la reunión del 27-jul y los accesos. Shopify ya trae los correos de los clientes; la herramienta concreta se decide entonces. |
+| Email marketing | Correos a quienes ya compraron o dejaron su correo: novedades, lanzamientos, carritos abandonados (cuando alguien deja productos sin pagar). | El enfoque de las campañas ya está definido (ver nota abajo). La herramienta de envío, las listas y el calendario exacto: fase siguiente, tras la reunión del 27-jul y los accesos. |
 
 *(Precios, stock, CRO, Meta Ads y Google Ads: Felipe, cliente, jul-2026. Email marketing: sumado por el operador, jul-2026.)*
+
+> 🟢 **Enfoque de las campañas de email ya definido (operador, jul-2026).** Van a ser **3 campañas por semana**. Todas siguen la misma estructura: primero una historia breve, después esa historia se conecta con un producto.
+>
+> | Historia (el gancho) | Se conecta con |
+> |---|---|
+> | La historia detrás de la lámina del chucao: qué pájaro es y por qué se eligió para ilustrarlo | el pack de láminas con el chucao |
+> | Cómo se empaca un pedido a mano: el papel, la cinta, el sello | la colección completa de la tienda |
+>
+> El link exacto de cada producto se toma directo de la tienda al armar cada campaña.
+>
+> La herramienta de envío, las listas de correos y el calendario exacto de cada campaña se definen en la fase siguiente (ver tabla arriba). La cadencia de 3 por semana no queda fija para siempre: se revisa con los datos reales de las primeras semanas — cuántas personas abren los correos y cuántas piden dejar de recibirlos (las "bajas" de la lista) — y se ajusta según lo que digan esos números.
