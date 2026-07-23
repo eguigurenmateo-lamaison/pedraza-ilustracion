@@ -573,7 +573,7 @@ Todas las claves usan el prefijo `pedraza-plan:`. Este contrato lo respetan `ind
 |---|---|---|
 | `pedraza-plan:task:<id>` | `"1"` si está marcada (se borra la clave si se desmarca) | `index.html` (checklist maestra) |
 | `pedraza-plan:__progress` | JSON `{"done":N,"total":N,"pct":N}` | Escrita por `index.html`, leída por `tablero.html` |
-| `pedraza-plan:sheet-url` | string (URL de exportación CSV del Google Sheet) | `tablero.html` |
+| `pedraza-plan:sheet-url` | string (URL CSV del Google Sheet, formato gviz — ver sección 6) | `tablero.html` |
 
 **Solo `index.html` tiene checkboxes con `data-task`** (es la checklist maestra del plan). `tablero.html` no declara checkboxes propios: solo lee `pedraza-plan:__progress` para mostrarlo como una tarjeta KPI adicional ("Avance del plan"), y debe manejar con gracia el caso en que la clave todavía no exista (nadie ha abierto `index.html` todavía en ese navegador).
 
@@ -581,15 +581,24 @@ Todas las claves usan el prefijo `pedraza-plan:`. Este contrato lo respetan `ind
 
 Nota importante para quien construya `index.html` y `tablero.html`: `localStorage` es por navegador y dispositivo, no se sincroniza entre el celular de un hermano y el computador del otro. Es una limitación conocida y aceptada para este entregable (no hay backend), no un bug — no hace falta resolverla, pero conviene no prometer en el copy de la página que el progreso "se comparte entre ambos".
 
-### JS canónico del checklist (para `index.html`)
+### JS canónico de acceso a localStorage (prerrequisito de `index.html` y `tablero.html`)
+
+Toda página que lea o escriba `localStorage` incluye primero este bloque — es un prerrequisito tanto del JS del checklist (más abajo, usado por `index.html`) como del JS del tablero (sección 6, usado por `tablero.html`, incluyendo el guardado de `pedraza-plan:sheet-url`). Se copia una sola vez por página, antes de cualquier otro script que llame a `pgGet`/`pgSet`/`pgRemove`.
 
 ```html
 <script>
   // Acceso seguro a localStorage (no revienta en navegación privada u otros bloqueos).
+  // Prerrequisito de: JS del checklist (index.html) y JS del tablero (tablero.html).
   function pgGet(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
   function pgSet(key, valor) { try { localStorage.setItem(key, valor); } catch (e) { /* sin soporte, se ignora */ } }
   function pgRemove(key) { try { localStorage.removeItem(key); } catch (e) { /* sin soporte, se ignora */ } }
+</script>
+```
 
+### JS canónico del checklist (para `index.html`, requiere el bloque anterior)
+
+```html
+<script>
   document.addEventListener('DOMContentLoaded', function () {
     // Carga el estado guardado de cada checkbox de la checklist.
     document.querySelectorAll('[data-task]').forEach(function (cb) {
@@ -665,13 +674,20 @@ Nota importante para quien construya `index.html` y `tablero.html`: `localStorag
 
 ### Cómo compartir el Sheet
 
-En Google Sheets: **Compartir → Cambiar a "Cualquiera con el enlace" → rol "Lector"**. Luego usar como `pedraza-plan:sheet-url` el link de exportación CSV de la hoja específica (no el link de "compartir" normal):
+En Google Sheets: **Compartir → Cambiar a "Cualquiera con el enlace" → rol "Lector"**. Luego usar como `pedraza-plan:sheet-url` el link del endpoint **gviz** de esa hoja, no el de exportación directa:
 
 ```
-https://docs.google.com/spreadsheets/d/ID_DE_LA_HOJA/export?format=csv&gid=ID_DE_LA_PESTAÑA
+https://docs.google.com/spreadsheets/d/ID_DE_LA_HOJA/gviz/tq?tqx=out:csv&sheet=NOMBRE_DE_LA_PESTAÑA
 ```
 
-`ID_DE_LA_HOJA` y `gid` se sacan de la URL cuando la hoja está abierta en el navegador (el `gid` identifica la pestaña/tab exacta si el Sheet tiene varias).
+También acepta `&gid=ID_DE_LA_PESTAÑA` en vez de `&sheet=NOMBRE_DE_LA_PESTAÑA` si es más fácil de obtener.
+
+- `ID_DE_LA_HOJA` se saca de la URL cuando el Sheet está abierto en el navegador (el tramo largo entre `/d/` y el siguiente `/`).
+- `NOMBRE_DE_LA_PESTAÑA` es el nombre literal de la pestaña (tal como aparece en la solapa inferior del Sheet, ej. `Semanas`); si tiene espacios o tildes, van codificados en la URL (ej. `Semana%201`). Alternativa más simple: usar `gid`, el número que aparece al final de la URL después de `#gid=` cuando esa pestaña está abierta.
+
+**Por qué gviz y no `/export?format=csv`:** el endpoint de exportación directa (`/export?format=csv&gid=...`) no manda cabeceras CORS, así que el navegador bloquea la respuesta cuando `tablero.html` la pide con `fetch()` desde fuera de `docs.google.com` — el request falla aunque el Sheet esté bien compartido. El endpoint `gviz/tq?tqx=out:csv` sí manda esas cabeceras y es el que debe quedar guardado en `pedraza-plan:sheet-url`. Si un usuario pega igual un link `/export?format=csv...`, `tablero.html` puede intentarlo (el `fetch` fallará limpio y caerá en el callout de "error de red" de más abajo), pero el formato recomendado y documentado para que funcione es siempre gviz.
+
+Nota sobre el contenido que entrega gviz: `tqx=out:csv` devuelve **todas las celdas entre comillas dobles**, incluidas las numéricas (ej. `"1234"` en vez de `1234`). El parser canónico de abajo ya maneja comillas en cualquier celda, así que no requiere ningún ajuste — pero al mostrar los valores no hay que asumir que llegan "limpios" de comillas antes de pasar por `parseCSV`.
 
 ### Código canónico del parser
 
@@ -730,7 +746,18 @@ https://docs.google.com/spreadsheets/d/ID_DE_LA_HOJA/export?format=csv&gid=ID_DE
 
 ### Carga con manejo de errores (patrón canónico de `cargarTablero()`)
 
-Requiere un contenedor `<div id="tablero-estado"></div>` en el HTML donde se inyectan los estados. `renderTablero(semanas)` es la función propia de `tablero.html` que dibuja KPIs/tabla/gráficos ya con los datos parseados — eso sí es específico de esa página, no del sistema de diseño.
+Requiere el bloque de acceso a `localStorage` de la sección 5 (`pgGet`/`pgSet`/`pgRemove`) ya cargado antes de este script, más un contenedor `<div id="tablero-estado"></div>` en el HTML donde se inyectan los estados. `renderTablero(semanas)` es la función propia de `tablero.html` que dibuja KPIs/tabla/gráficos ya con los datos parseados — eso sí es específico de esa página, no del sistema de diseño.
+
+`tablero.html` también necesita `pgSet` para guardar la URL que el usuario configure (no solo `pgGet` para leerla), por ejemplo desde un campo de configuración:
+
+```html
+<script>
+  function guardarSheetUrl(url) {
+    pgSet('pedraza-plan:sheet-url', url.trim());
+    cargarTablero();
+  }
+</script>
+```
 
 ```html
 <script>
