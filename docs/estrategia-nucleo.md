@@ -459,7 +459,7 @@ Lista corta de los 🟡 más críticos heredados del research, porque afectan di
 
 ## 12. Frentes fuera de este plan (fase siguiente)
 
-Felipe preguntó por precios, stock, CRO (la optimización de la tasa de conversión: lograr que más personas de las que visitan la tienda terminen comprando) y anuncios pagados (publicidad que se paga para aparecer) en Meta (Instagram/Facebook) y en Google. Quedan fuera de este documento a propósito, no por descuido.
+Felipe preguntó por precios, stock, CRO (la optimización de la tasa de conversión: lograr que más personas de las que visitan la tienda terminen comprando) y anuncios pagados (publicidad que se paga para aparecer) en Meta (Instagram/Facebook) y en Google. El operador sumó un frente más a esta lista: email marketing (correos a quienes ya compraron o dejaron su correo). Quedan fuera de este documento a propósito, no por descuido.
 
 Este plan cubre, a propósito, la fase 1: crecimiento orgánico de Instagram (contenido, sin pagar por publicidad). Los frentes de abajo son la fase siguiente, y se van a definir DESPUÉS de la reunión del lunes 27 de julio de 2026 (10:00 Chile) y de la entrega de accesos (Shopify, Meta), con su propio checklist del operador — igual que este plan lo tiene en `research/pendientes-operador.md`. La razón es simple: sin los datos reales de la tienda ni esos accesos, cualquier plan de precios o de anuncios pagados sería un plan inventado, no uno basado en la realidad del negocio.
 
@@ -469,5 +469,6 @@ Este plan cubre, a propósito, la fase 1: crecimiento orgánico de Instagram (co
 | CRO | Cambios en la tienda para que más visitantes terminen comprando (por ejemplo, en la ficha de producto o en el checkout). | Fase siguiente, con datos reales de Shopify. |
 | Meta Ads | Anuncios pagados en Instagram y Facebook. | Fase siguiente, con accesos a Meta entregados. |
 | Google Ads | Anuncios pagados en buscador y red de Google. | Fase siguiente, con accesos entregados. |
+| Email marketing | Correos a quienes ya compraron o dejaron su correo: novedades, lanzamientos, carritos abandonados (cuando alguien deja productos sin pagar). | Fase siguiente, tras la reunión del 27-jul y los accesos. Shopify ya trae los correos de los clientes; la herramienta concreta se decide entonces. |
 
-*(Felipe, cliente, jul-2026)*
+*(Precios, stock, CRO, Meta Ads y Google Ads: Felipe, cliente, jul-2026. Email marketing: sumado por el operador, jul-2026.)*
