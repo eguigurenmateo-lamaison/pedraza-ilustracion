@@ -31,7 +31,11 @@ Reglas permanentes para TODOS los entregables de este repo (documentos, páginas
 - Ticket promedio (AOV): referencia del operador **~$60.000 CLP** (dato de memoria, puede ser menor hoy; 🟡 confirmar en Shopify).
 - Seguidores de @pedraza_ilustracion: **62.500** (confirmado por el operador, jul-2026).
 - **"Cote" = María José Pedraza.** Ella es quien responde los mensajes/DMs hoy (confirmado por el operador).
+- **Envío gratis: sobre $50.000 CLP** (confirmado por Felipe, jul-2026; el umbral de $30.000 que apareció en el research era una versión cacheada del sitio).
+- **Marca "Pedraza Ilustración" registrada en Chile (INAPI)** ✅. Pendiente: registro en EEUU (USPTO) para la Rampa Amazon (confirmado por Felipe, jul-2026).
 - Objetivo #1: escalar ventas de la tienda online (Shopify). Mercado: Chile ahora, Amazon EEUU pronto (anexo "Rampa EEUU").
+- **Doble motor de audiencia** (feedback de Felipe, jul-2026): activar la base de 62.500 seguidores Y salir a buscar audiencia nueva; los **lanzamientos de producto** ahora son posibles (antes limitados por los tiempos de Cote) y son palanca comercial junto al calendario de fechas.
+- **Frentes fuera del plan orgánico actual** (los levantó Felipe): precios, stock, CRO, Meta Ads, Google Ads — se definen tras la reunión del lunes 27-jul-2026 (10:00 Chile) y la entrega de accesos, con checklist propio del operador. No inventar esa estrategia antes de tener datos y accesos.
 - El detalle del acuerdo comercial operador-cliente (fijo + variable) NO se incluye en ningún entregable.
 
 ## Reglas de contenido del operador (aplicar en toda la estrategia)
