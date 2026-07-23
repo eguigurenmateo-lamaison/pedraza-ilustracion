@@ -16,7 +16,7 @@ Todo lo que se ve en el sitio (`.html`) sale del trabajo de research y estrategi
 | `kit-arranque.html` | Todo lo que hay que dejar listo antes de publicar: bio, destacados, plantillas base. | Una sola vez, al arrancar el plan (y cada vez que algo de la base cambie). |
 | `guion-reels.html` | Guiones listos para grabar Reels, con copy real para copiar y pegar. | Cada semana, al planificar y grabar contenido. |
 | `sop-dm.html` (Manual de DM) | Cómo responder mensajes directos: qué decir, en qué orden, plantillas por situación. | Cada vez que llega un DM, como manual de consulta rápida. |
-| `recursos.html` | Enlaces, referencias y material de apoyo del plan. | Cuando se necesita revisar una fuente o un dato de respaldo. |
+| `recursos.html` | El repositorio creativo y comercial del plan: piezas ganadoras (qué contenido funcionó y sus variantes), el programa "cliente embajador" con sus plantillas, los briefs de diseño (portadas de Reels, plantilla de carrusel, ficha de especie) y el calendario comercial anual Chile + EEUU. | Al planificar el mes, y cada vez que una pieza funciona bien y hay que anotarla o crear variantes. |
 | `tablero.html` | Los números de la semana: alcance, guardados, seguidores nuevos, pedidos, ingresos. | Cada semana, para ver si el plan está funcionando. |
 
 Flujo típico de uso, semana a semana:
@@ -81,7 +81,7 @@ pedraza-ilustracion/
 ├── kit-arranque.html                      # Kit de arranque: bio, destacados, plantillas base
 ├── guion-reels.html                       # Guiones de Reels listos para grabar
 ├── sop-dm.html                            # Manual de DM: cómo responder mensajes directos
-├── recursos.html                          # Enlaces y material de apoyo
+├── recursos.html                          # Piezas ganadoras, cliente embajador, briefs de diseño, calendario comercial CL+EEUU
 ├── tablero.html                           # Tablero de KPIs, conectado al Google Sheet del equipo
 └── docs/
     ├── estrategia-nucleo.md               # avatar, promesa, embudo, pilares de contenido, KPIs
@@ -90,7 +90,7 @@ pedraza-ilustracion/
     └── research/
         ├── tienda.md                      # research de la tienda online (catálogo, precios, envíos)
         ├── instagram.md                   # research de la cuenta de Instagram
-        ├── mercado-tendencias.md          # research de mercado y tendencias de e-commerce en Chile
+        ├── mercado-tendencias.md          # research de mercado CL, calendario comercial, algoritmo de Instagram y Amazon EEUU
         └── pendientes-operador.md         # lista priorizada de datos que solo el operador puede conseguir
 ```
 
