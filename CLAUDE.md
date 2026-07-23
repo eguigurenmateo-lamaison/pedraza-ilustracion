@@ -21,6 +21,10 @@ Reglas permanentes para TODOS los entregables de este repo (documentos, páginas
    - PROHIBIDO el voseo rioplatense: nada de "tenés/querés/tocá/comentá/mandale". Usar tuteo estándar: "tienes/quieres/toca aquí/comenta".
    - Expresiones chilenas con moderación y solo donde sumen cercanía (ej. "al tiro", "filete"). Marca familiar, educativa y de conservación; cercana, sin solemnidad.
 
+5. **Entregables en HTML compartibles por link.** Todo entregable destinado al cliente se produce como página HTML autocontenida (servible por GitHub Pages), para poder compartirlo con un link y que lo revisen desde cualquier dispositivo. Los archivos Markdown (docs/) son material de trabajo interno; su contenido final vive en las páginas HTML.
+
+6. **Todo lo copiable, con copia en un clic.** Cualquier texto pensado para copiar y pegar (bios, guiones, plantillas de DM, captions, mensajes) va SIEMPRE dentro de un bloque `.copyblock` con botón "Copiar": usa `navigator.clipboard` con fallback a `document.execCommand('copy')`, feedback visual "✓ ¡Copiado!" al hacer clic, y delegación de eventos (un solo listener por página). En móvil el botón debe ser cómodo para el dedo.
+
 ## Contexto comercial clave (confirmado por el operador, jul-2026)
 
 - Facturación actual de la tienda: **~USD 5.000/mes**. Meta: **USD 10.000/mes**. Esta es la métrica norte del plan.
