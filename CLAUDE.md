@@ -36,6 +36,7 @@ Reglas permanentes para TODOS los entregables de este repo (documentos, páginas
 - Objetivo #1: escalar ventas de la tienda online (Shopify). Mercado: Chile ahora, Amazon EEUU pronto (anexo "Rampa EEUU").
 - **Doble motor de audiencia** (feedback de Felipe, jul-2026): activar la base de 62.500 seguidores Y salir a buscar audiencia nueva; los **lanzamientos de producto** ahora son posibles (antes limitados por los tiempos de Cote) y son palanca comercial junto al calendario de fechas.
 - **Frentes fuera del plan orgánico actual**: precios, stock, CRO, Meta Ads, Google Ads (los levantó Felipe) y email marketing (lo sumó el operador) — se definen tras la reunión del lunes 27-jul-2026 (10:00 Chile) y la entrega de accesos, con checklist propio del operador. No inventar esa estrategia antes de tener datos y accesos.
+- **Email marketing — enfoque ya definido por el operador (jul-2026):** 3 campañas por semana, todas con la misma estructura: storytelling al inicio → conectar con un producto. La ejecución (herramienta, listas, calendario) se define igual tras la reunión y los accesos.
 - El detalle del acuerdo comercial operador-cliente (fijo + variable) NO se incluye en ningún entregable.
 
 ## Reglas de contenido del operador (aplicar en toda la estrategia)
