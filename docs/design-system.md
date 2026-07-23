@@ -29,7 +29,7 @@ Justificación (2 líneas): el copihue es la flor nacional de Chile y ya es rojo
 
 El verde bosque no se descarta: se usa como color de apoyo semántico para "éxito", donde además refuerza el eje de conservación de la marca.
 
-**Nota (jul-2026):** el operador confirmó que el sitio web de la marca ya usa un verde naturaleza propio, `#3B5751`. Se incorpora al sistema como `--brand-green`, para que el sitio del plan comparta ese verde reconocible con el sitio de la marca: viste el fondo de la navegación superior y los encabezados de tabla, y reemplaza al teal genérico que antes tenía la familia `--info` (callouts y pills informativos). No compite con el acento: el rojo copihue sigue siendo el color principal — CTA, hero, link activo del nav, embudo.
+**Nota (jul-2026):** el operador confirmó que el sitio web de la marca ya usa un verde naturaleza propio, `#3B5751`. Se incorpora al sistema como `--brand-green`, y reemplaza al teal genérico que antes tenía la familia `--info` (callouts y pills informativos). Con el ajuste de identidad del mismo mes, el reparto final entre los dos colores queda así: **el verde de marca cubre identidad y estructura** — fondo del nav, gradiente del hero, encabezados de tabla, el círculo numerado de cada sección (`.sec > h2::before`), el relleno de la barra de progreso, el color de los checkboxes de la checklist y los puntos de la línea de tiempo — y **el rojo copihue queda reservado para la acción** — botones (`.btn`), botón Copiar (`.copyblock__btn`), subrayado del link activo del nav, pills por defecto y el embudo (`.funnel-step`).
 
 | Token | Valor | Uso |
 |---|---|---|
@@ -40,7 +40,7 @@ El verde bosque no se descarta: se usa como color de apoyo semántico para "éxi
 | `--surface` | `#fffefb` | Fondo de tarjetas y bloques |
 | `--line` | `#e6ded0` | Bordes suaves |
 | `--line-strong` | `#d6c9b0` | Bordes de énfasis, separadores de sección |
-| `--accent` | `#b0223f` | Rojo copihue — acento principal, CTA, links activos |
+| `--accent` | `#b0223f` | Rojo copihue — color de acción: botones, botón Copiar, link activo del nav, pills, embudo |
 | `--accent-dark` | `#7c1830` | Hover/gradiente del acento |
 | `--accent-soft` | `#f8dfe4` | Fondos tenues de acento (pills, badges) |
 | `--success` | `#2f6b4a` | Verde bosque — éxito, cifras positivas |
@@ -49,12 +49,13 @@ El verde bosque no se descarta: se usa como color de apoyo semántico para "éxi
 | `--warn-soft` | `#f8ecd2` | Fondo tenue de alerta |
 | `--danger` | `#ae3d17` | Peligro / error — terracota, deliberadamente distinto del rojo copihue para no confundirse con el acento |
 | `--danger-soft` | `#f7ddd0` | Fondo tenue de peligro |
-| `--brand-green` | `#3b5751` | Verde naturaleza del sitio web de la marca — fondo del nav, encabezados de tabla; alias base de `--info` |
+| `--brand-green` | `#3b5751` | Verde naturaleza del sitio web de la marca — color de identidad y estructura: fondo del nav, gradiente del hero, encabezados de tabla, números de sección, barra de progreso, checkboxes, línea de tiempo; alias base de `--info` |
+| `--brand-green-dark` | `#2a403c` | Tono oscuro del verde de marca, para el gradiente del hero |
 | `--brand-green-soft` | `#e3eae8` | Fondo tenue del verde de marca; alias base de `--info-soft` |
 | `--info` | `#3b5751` (= `--brand-green`) | Información neutra — callouts y pills informativos |
 | `--info-soft` | `#e3eae8` (= `--brand-green-soft`) | Fondo tenue de información |
 
-Solo 5 familias de color en total (tinta, papel, acento, y 4 tonos semánticos de bajo protagonismo) — con una excepción deliberada: el verde de marca (`--brand-green`, alias de `--info`) sí cubre dos superficies grandes de identidad (nav, encabezados de tabla), no solo bordes/iconos/pills como el resto de la familia semántica. Mantiene el sitio con aspecto de sistema diseñado, no de paleta improvisada por 6 personas distintas.
+Solo 5 familias de color en total (tinta, papel, acento, y 4 tonos semánticos de bajo protagonismo) — con una excepción deliberada: el verde de marca (`--brand-green`, alias de `--info`) sí cubre varias superficies grandes de identidad y estructura (nav, hero, encabezados de tabla, números de sección, progreso, checkboxes, línea de tiempo), no solo bordes/iconos/pills como el resto de la familia semántica. El rojo copihue queda reservado para la acción (botones, subrayado activo, pills, embudo). Mantiene el sitio con aspecto de sistema diseñado, no de paleta improvisada por 6 personas distintas.
 
 ### Tipografía
 
@@ -104,6 +105,7 @@ Este bloque completo va dentro de un único `<style>...</style>` en el `<head>` 
   /* --- verde naturaleza del sitio web de la marca (dato del operador, jul-2026) --- */
   --brand-green: #3b5751;
   --brand-green-soft: #e3eae8;
+  --brand-green-dark: #2a403c;
 
   /* --- apoyo semántico --- */
   --success: #2f6b4a;
@@ -217,7 +219,7 @@ strong { color: var(--ink); }
 /* ===== 5. Hero ===== */
 .hero {
   padding: var(--space-7) var(--space-4);
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+  background: linear-gradient(135deg, var(--brand-green) 0%, var(--brand-green-dark) 100%);
   color: #fff;
 }
 .hero__inner { max-width: 960px; margin: 0 auto; }
@@ -244,7 +246,7 @@ main { counter-reset: sec; }
   width: 1.9em;
   height: 1.9em;
   border-radius: var(--radius-full);
-  background: var(--accent);
+  background: var(--brand-green);
   color: #fff;
   font-family: var(--font-sans);
   font-size: .55em;
@@ -348,7 +350,7 @@ main { counter-reset: sec; }
 /* ===== 12. Barra de progreso (.progress) ===== */
 .progress { margin: var(--space-4) 0; }
 .progress__track { height: 14px; background: var(--line); border-radius: var(--radius-full); overflow: hidden; }
-.progress__fill { height: 100%; background: var(--accent); border-radius: var(--radius-full); transition: width .3s ease; width: 0%; }
+.progress__fill { height: 100%; background: var(--brand-green); border-radius: var(--radius-full); transition: width .3s ease; width: 0%; }
 .progress__label { display: block; margin-top: var(--space-2); font-size: var(--fs-sm); color: var(--ink-soft); }
 
 /* ===== 13. Checklist táctil (.checklist) ===== */
@@ -365,7 +367,7 @@ main { counter-reset: sec; }
   border-radius: var(--radius-sm);
   cursor: pointer;
 }
-.checklist input[type="checkbox"] { width: 24px; height: 24px; flex: 0 0 auto; accent-color: var(--accent); margin-top: 2px; }
+.checklist input[type="checkbox"] { width: 24px; height: 24px; flex: 0 0 auto; accent-color: var(--brand-green); margin-top: 2px; }
 .checklist input[type="checkbox"]:checked + span { text-decoration: line-through; color: var(--ink-soft); }
 
 /* ===== 14. Etiquetas (.pill) ===== */
@@ -424,7 +426,7 @@ main { counter-reset: sec; }
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: var(--accent);
+  background: var(--brand-green);
   border: 3px solid var(--paper);
 }
 .timeline-item__date { font-size: var(--fs-sm); font-weight: 700; color: var(--accent-dark); }
@@ -477,7 +479,7 @@ main { counter-reset: sec; }
 ### Notas de uso de componentes
 
 - **`.sec` numeradas automáticamente**: envolver cada sección principal en `<section class="sec"><h2>Título</h2>...</section>`. El número circular aparece solo, vía contador CSS — nunca escribir el número a mano en el `<h2>`.
-- **Gráficos (`.chart-bar-row`, `.funnel-step`, `.timeline-item`)**: por defecto pintan con `--accent`. Si un gráfico puntual necesita codificar semántica propia (por ejemplo, el embudo Instagram → Tienda de `estrategia-nucleo.md`, que ya usa rosado para Instagram y verde para Tienda), es válido sobrescribir el color con `style="background:var(--info)"` o similar en ese elemento puntual — la clase base define la forma, no una semántica de color obligatoria.
+- **Gráficos (`.chart-bar-row`, `.funnel-step`)**: por defecto pintan con `--accent` (rojo copihue). `.timeline-item::before` (los puntos de la línea de tiempo) es la excepción: pinta con `--brand-green` (verde de marca), como parte del reparto de identidad/estructura. Si un gráfico puntual necesita codificar semántica propia (por ejemplo, el embudo Instagram → Tienda de `estrategia-nucleo.md`, que ya usa rosado para Instagram y verde para Tienda), es válido sobrescribir el color con `style="background:var(--info)"` o similar en ese elemento puntual — la clase base define la forma, no una semántica de color obligatoria.
 - **`.grid-2` / `.grid-3`**: 1 columna en móvil siempre; 2 columnas desde 640px; 3 columnas (solo `.grid-3`) desde 960px.
 
 ---

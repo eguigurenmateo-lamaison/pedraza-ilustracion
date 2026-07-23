@@ -32,6 +32,7 @@
   /* --- verde naturaleza del sitio web de la marca (dato del operador, jul-2026) --- */
   --brand-green: #3b5751;
   --brand-green-soft: #e3eae8;
+  --brand-green-dark: #2a403c;
 
   /* --- apoyo semántico --- */
   --success: #2f6b4a;
@@ -145,7 +146,7 @@ strong { color: var(--ink); }
 /* ===== 5. Hero ===== */
 .hero {
   padding: var(--space-7) var(--space-4);
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+  background: linear-gradient(135deg, var(--brand-green) 0%, var(--brand-green-dark) 100%);
   color: #fff;
 }
 .hero__inner { max-width: 960px; margin: 0 auto; }
@@ -172,7 +173,7 @@ main { counter-reset: sec; }
   width: 1.9em;
   height: 1.9em;
   border-radius: var(--radius-full);
-  background: var(--accent);
+  background: var(--brand-green);
   color: #fff;
   font-family: var(--font-sans);
   font-size: .55em;
@@ -276,7 +277,7 @@ main { counter-reset: sec; }
 /* ===== 12. Barra de progreso (.progress) ===== */
 .progress { margin: var(--space-4) 0; }
 .progress__track { height: 14px; background: var(--line); border-radius: var(--radius-full); overflow: hidden; }
-.progress__fill { height: 100%; background: var(--accent); border-radius: var(--radius-full); transition: width .3s ease; width: 0%; }
+.progress__fill { height: 100%; background: var(--brand-green); border-radius: var(--radius-full); transition: width .3s ease; width: 0%; }
 .progress__label { display: block; margin-top: var(--space-2); font-size: var(--fs-sm); color: var(--ink-soft); }
 
 /* ===== 13. Checklist táctil (.checklist) ===== */
@@ -293,7 +294,7 @@ main { counter-reset: sec; }
   border-radius: var(--radius-sm);
   cursor: pointer;
 }
-.checklist input[type="checkbox"] { width: 24px; height: 24px; flex: 0 0 auto; accent-color: var(--accent); margin-top: 2px; }
+.checklist input[type="checkbox"] { width: 24px; height: 24px; flex: 0 0 auto; accent-color: var(--brand-green); margin-top: 2px; }
 .checklist input[type="checkbox"]:checked + span { text-decoration: line-through; color: var(--ink-soft); }
 
 /* ===== 14. Etiquetas (.pill) ===== */
@@ -352,7 +353,7 @@ main { counter-reset: sec; }
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: var(--accent);
+  background: var(--brand-green);
   border: 3px solid var(--paper);
 }
 .timeline-item__date { font-size: var(--fs-sm); font-weight: 700; color: var(--accent-dark); }
