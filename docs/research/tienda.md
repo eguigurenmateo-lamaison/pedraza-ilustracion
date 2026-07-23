@@ -110,17 +110,34 @@ No se logró capturar el precio de venta de ninguna lámina individual pese a va
 - **Envíos internacionales:** no se encontró ninguna mención de envío fuera de Chile en ningún snippet indexado (búsquedas específicas por "envíos internacionales" y "Latinoamérica" no devolvieron resultados relevantes del dominio). Esto **no es evidencia concluyente de que no exista** envío internacional, solo de que no está indexado o no se promociona activamente. 🟡 VERIFICAR directamente con el operador si atienden pedidos fuera de Chile (relevante si la estrategia de Instagram busca audiencia internacional).
 - **Regalos corporativos / mayorista:** el brief original y un snippet de búsqueda anterior mencionaron opciones para clientes corporativos y partnerships mayoristas, pero una búsqueda dirigida no devolvió resultados propios del dominio que lo confirmen con detalle — 🟡 VERIFICAR alcance real de esta línea B2B (¿existe una página dedicada, mínimos de compra, contacto distinto?).
 
-## 6. AOV estimado — 🟡 SUPUESTO
+## 6. AOV — referencia del operador 🟡 y estimación de contraste
 
-**No existe forma de medir el AOV real desde fuentes públicas** (no hay acceso a datos de Shopify del cliente). Lo que sigue es una **estimación derivada**, explícitamente marcada como supuesto, construida así:
+### Dato nuevo: referencia del operador (23 de julio de 2026) — 🟡 dato de memoria, por confirmar
+
+El operador aportó una referencia del ticket promedio (AOV — lo que gasta una persona en una compra) de memoria, de cuando trabajó directamente con el cliente: estaría "más o menos en los $60.000 CLP", con la advertencia textual del propio operador de que "tal vez sea menos ahora".
+
+Este dato **no viene de un reporte de Shopify Analytics**, sino del recuerdo del operador. Se registra como **referencia del operador 🟡 (por confirmar con Shopify)**, no como un dato duro. Pasa a ser la referencia principal de trabajo del plan, en reemplazo de la estimación por precios públicos que se explica más abajo, pero sigue pendiente confirmarla con el reporte real de Shopify (ver sección 8 y `pendientes-operador.md`, ítem 1.2).
+
+### Implicancia: pedidos al mes
+
+Con la facturación reportada por el operador (~USD 5.000/mes ≈ **CLP 4.625.000/mes**, usando el tipo de cambio de referencia de $925 CLP/USD ya explicado más abajo) y el AOV de referencia de ~$60.000 CLP, el volumen de pedidos mensual implícito sería de aproximadamente **75 a 80 pedidos al mes (~2 a 3 pedidos por día)**.
+
+Esta cifra **reemplaza** a la estimación anterior de 130 a 230 pedidos/mes (que se apoyaba en el AOV estimado por precios públicos, más abajo). Sigue siendo una doble inferencia (AOV de referencia × facturación reportada) y **no debe tratarse como dato duro** — solo como orden de magnitud para dimensionar campañas. 🟡
+
+### Estimación anterior por precios públicos — se conserva como contraste, 🟡 SUPUESTO
+
+Antes de tener la referencia del operador, y **sin acceso a datos reales de Shopify**, se había construido una estimación derivada a partir de los precios públicos del catálogo. Se conserva acá como contraste, porque la brecha entre ambas estimaciones es en sí misma una pista útil (ver más abajo):
 
 1. **Dato confirmado por el operador (no derivado):** la tienda factura en promedio ~USD 5.000/mes (fuente: operador, julio 2026).
 2. **Tipo de cambio de referencia:** USD/CLP se movió aproximadamente entre $919 y $932 CLP durante julio de 2026 (fuente: agregación de Wise y Bloomberg Línea vía búsqueda, https://wise.com/us/currency-converter/usd-to-clp-rate/history). Para este cálculo se usa **$925 CLP/USD** como punto medio redondeado — 🟡 SUPUESTO de tipo de cambio, no un dato puntual verificado para un día específico.
    → USD 5.000/mes ≈ **CLP 4.625.000/mes** de facturación promedio.
 3. **Rango de precios observado en el catálogo (todos los precios con fuente en la sección 2):** desde $8.790 CLP (llavero) hasta $83.990 CLP (set de loza de 12 piezas), con la mayoría de los productos individuales confirmados concentrados entre **$9.000 y $29.000 CLP** (calcetines, llaveros, libretas, bolsos, botellas, puzzles).
 4. **Supuesto de composición de carrito:** no hay evidencia pública de qué combinación de productos compra un cliente promedio. Asumiendo (🟡 sin evidencia directa, solo lógica de categoría) que el pedido típico de un e-commerce de regalos/decoración de este tipo incluye 1 a 1.3 unidades por compra (sin bundles obligatorios grandes, salvo los "packs" de 2 láminas que ya existen como producto único):
-   - **AOV estimado: rango CLP $20.000–$35.000 por pedido** (aprox. **USD 22–38** al tipo de cambio de referencia de julio 2026).
-5. **Implicancia derivada (dato aún más indirecto, tratar con cautela):** con ese rango de AOV y la facturación mensual reportada por el operador, el volumen de pedidos mensual implícito sería de aproximadamente **130 a 230 pedidos/mes (~4 a 8 pedidos/día)**. Esta cifra es una doble inferencia (AOV supuesto × revenue reportado) y **no debe usarse como dato duro** en el plan — solo como orden de magnitud para dimensionar campañas.
+   - **AOV estimado por este método: rango CLP $20.000–$35.000 por pedido** (aprox. **USD 22–38** al tipo de cambio de referencia de julio 2026). Esta cifra ya **no se usa como referencia principal** del plan — queda documentada como el punto de partida antes del dato del operador.
+
+### La brecha entre ambas estimaciones: hipótesis de carrito multi-producto — 🟡
+
+La referencia del operador (~$60.000) queda muy por sobre la estimación por precios públicos ($20.000–$35.000). Una explicación posible — 🟡 **hipótesis de trabajo, sin evidencia directa todavía, no un hecho confirmado** — es que el carrito típico de un pedido en Pedraza Ilustración lleva más de un producto: por ejemplo, una lámina más una libreta de la misma serie. El catálogo facilita justamente esa combinación, porque las series por especie (aves, flores, mariposas, etc.) se repiten entre lámina, libreta, puzzle y plato. Esta hipótesis se retoma en `estrategia-nucleo.md` para el argumento del avatar (posicionamiento premium + empujar packs y carritos de varios productos).
 
 **Qué NO se pudo estimar de forma responsable:** AOV real, tasa de conversión, tráfico del sitio, mix real de productos vendidos, LTV de cliente. Ninguna de estas métricas se intentó inferir por no contar con una base pública confiable — quedan en `pendientes-operador.md`.
 
@@ -151,7 +168,7 @@ No se logró capturar el precio de venta de ninguna lámina individual pese a va
 - Confirmación de la política de envío vigente y el umbral de envío gratis real (se detectó una inconsistencia entre $50.000 y $30.000 CLP como umbral — sección 5).
 - Confirmación de si hacen envíos internacionales / fuera de Chile.
 - Aclaración sobre la relación comercial vigente con los marketplaces detectados (Creado en Chile, Decatálogo, Bazared, Mercado Libre): ¿activa?, ¿catálogo sincronizado?, ¿quién fija el precio de reventa?
-- Datos reales de AOV, número de pedidos/mes y mix de productos vendidos (Shopify Analytics) — para reemplazar la estimación 🟡 SUPUESTO de la sección 6 por un número real.
+- Datos reales de AOV, número de pedidos/mes y mix de productos vendidos (Shopify Analytics) — para confirmar (o corregir) la referencia del operador de ~$60.000 CLP, dato de memoria 🟡 (sección 6), y reemplazarla por un número real.
 - Confirmación de quién es "Cote" (cote@pedrazailustracion.com) y si es el canal de atención al cliente actual.
 - Aclaración sobre la línea de regalos corporativos/mayorista: si existe hoy, con qué condiciones y a través de qué canal se gestiona.
 - Confirmación/actualización del catálogo: si el "Libro Aves de Chile" (visto en Decatálogo) sigue vigente y por qué no aparece en las colecciones detectadas del sitio propio.

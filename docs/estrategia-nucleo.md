@@ -25,7 +25,7 @@ Fase 1 del plan de crecimiento en Instagram para escalar la tienda de Pedraza Il
 ### Lo que falta (brechas a resolver)
 
 - 🟡 No hay conteo confirmado de seguidores, texto de bio ni cadencia real de publicación en Instagram — no aparecieron en ninguna fuente pública consultada. *(research/instagram.md, secciones 1 y 7)*
-- 🟡 El ticket promedio (AOV — lo que gasta una persona en una compra) es solo una estimación (CLP $20.000–$35.000, ~USD 22–38), no un dato real de Shopify. *(research/tienda.md, sección 6)*
+- 🟡 El ticket promedio (AOV — lo que gasta una persona en una compra) hoy se trabaja con la referencia del operador, de memoria, ~$60.000 CLP (por confirmar con Shopify) — no un dato real de Shopify. *(research/tienda.md, sección 6)*
 - 🟡 No está confirmado el umbral real de envío gratis: el home dice compras sobre $50.000 CLP, una ficha de producto dice $30.000 CLP. *(research/tienda.md, sección 5)*
 - 🟡 No está confirmado quién responde hoy los mensajes directos y correos: el contacto público es cote@pedrazailustracion.com, sin confirmar si "Cote" es María José, Felipe u otra persona. *(research/tienda.md, sección 4)*
 - **El pago ya no puede completarse dentro de Instagram.** Meta eliminó el checkout nativo de Instagram/Facebook Shops durante 2025. Esto no es una debilidad de Pedraza, es un cambio de la plataforma que hay que diseñar bien: toda compra pasa obligatoriamente por el sitio propio. *(research/mercado-tendencias.md, sección C.3.1)*
@@ -55,7 +55,7 @@ Este plan se enfoca en el camino **Instagram → Tienda propia** (la línea roja
 Se define el cliente ideal por **cuándo y por qué gasta dinero**, no por gusto estético general, porque hay evidencia concreta de que ese es el patrón de compra más rentable para este catálogo:
 
 - La categoría **"Juguetes, juegos y regalos" es la 3ª en facturación** del e-commerce chileno (CLP $722.293.168 en 2025), impulsada justamente por picos en fechas comerciales puntuales, no por compra constante. *(research/mercado-tendencias.md, sección A.1)*
-- En Día de la Madre 2026, el **gasto promedio en regalos fue de $25.329 CLP** a nivel país (segmento ABC1: $43.447; segmento DE: $18.793) — un rango que calza casi exacto con el AOV estimado de la tienda (CLP $20.000–$35.000, ~USD 22–38 🟡). *(research/mercado-tendencias.md, sección B.2; research/tienda.md, sección 6)*
+- En Día de la Madre 2026, el **gasto promedio en regalos fue de $25.329 CLP** a nivel país (segmento ABC1: $43.447; segmento DE: $18.793). La referencia del operador para el ticket de la tienda (~$60.000 CLP 🟡, dato de memoria por confirmar) queda muy por sobre ese promedio nacional, e incluso por sobre el segmento de mayor gasto (ABC1). Lectura simple: el comprador actual de Pedraza gasta como el segmento de mayor gasto, y/o el carrito lleva más de un producto por compra — las series por especie facilitan llevar, por ejemplo, una lámina más una libreta de la misma serie. Esto no cambia la conclusión sobre quién es el avatar (quien regala o decora con intención), pero refuerza dos cosas: posicionar como regalo premium con significado, sin competir por precio, y empujar carritos de varios productos (packs y series). *(research/mercado-tendencias.md, sección B.2; research/tienda.md, sección 6)*
 - La tendencia de diseño de interiores 2026 hacia motivos botánicos y "biophilic design" (decoración inspirada en la naturaleza) confirma que también hay una segunda motivación de compra fuera de las fechas de regalo: decorar el propio hogar. *(research/mercado-tendencias.md, sección D.1.1)*
 
 Conclusión: el cliente que más vale la pena perseguir es **quien regala o decora con intención**, valorando lo chileno, la naturaleza y el diseño de autor (no cualquiera "a quien le guste el arte" en general).
@@ -68,7 +68,7 @@ Conclusión: el cliente que más vale la pena perseguir es **quien regala o deco
 | **Quién es** | Vive en una ciudad chilena, trabaja, tiene un círculo cercano (familia, amigas, colegas) para quienes busca regalos en fechas puntuales. |
 | **Qué la gatilla** | Se acerca una fecha comercial (Día de la Madre, un cumpleaños, Navidad, Día del Niño si tiene sobrinos o hijos) y no quiere repetir lo obvio — perfumería y chocolates son las categorías top en regalos de Día de la Madre, y ella busca algo distinto, con más significado. |
 | **Qué compra** | Láminas, libretas, calcetines: productos con diseño reconocible y una historia breve para contar al regalar ("es de una marca de hermanos chilenos que dibuja aves nativas"). |
-| **Cuánto gasta** | En línea con el AOV estimado de la tienda: CLP $20.000–$35.000 🟡. |
+| **Cuánto gasta** | ~$60.000 CLP según referencia del operador 🟡 (posiblemente en un carrito con más de un producto). |
 | **Dónde se le encuentra** | Instagram, buscando ideas de regalo o descubriendo la marca por un Reel que "le hace sentido" mandarle a alguien. |
 
 ### Avatares secundarios (máximo 2)
@@ -395,7 +395,7 @@ Todo lo siguiente es **fase posterior** al objetivo #1 (llegar a USD 10.000/mes 
 
 Lista corta de los 🟡 más críticos heredados del research, porque afectan directamente esta estrategia:
 
-- 🟡 **[PRIORIDAD]** AOV real, número de pedidos al mes y mix de productos vendidos — hoy es una estimación (CLP $20.000–$35.000). *(research/tienda.md, sección 6; research/pendientes-operador.md, ítem 1.2)*
+- 🟡 **[PRIORIDAD]** AOV real, número de pedidos al mes y mix de productos vendidos — hoy se trabaja con la referencia del operador (~$60.000 CLP, dato de memoria, "tal vez sea menos ahora"), que implica ~75-80 pedidos/mes; falta confirmar con Shopify. *(research/tienda.md, sección 6; research/pendientes-operador.md, ítem 1.2)*
 - 🟡 **[PRIORIDAD]** Seguidores actuales, bio completa y cadencia real de publicación en Instagram. *(research/instagram.md, secciones 1 y 7; research/pendientes-operador.md, ítems 2.1-2.4 y 2.6)*
 - 🟡 Roles reales de María José y Felipe en el día a día (quién crea, quién opera, quién responde DM) — incluida la duda sobre quién es "Cote".
 - 🟡 **[PRIORIDAD]** Estado actual del registro de marca "Pedraza Ilustración" (Chile y/o EEUU). *(research/pendientes-operador.md, ítem 3.1)*
