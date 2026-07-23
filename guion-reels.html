@@ -29,6 +29,10 @@
   --accent-dark: #7c1830;
   --accent-soft: #f8dfe4;
 
+  /* --- verde naturaleza del sitio web de la marca (dato del operador, jul-2026) --- */
+  --brand-green: #3b5751;
+  --brand-green-soft: #e3eae8;
+
   /* --- apoyo semántico --- */
   --success: #2f6b4a;
   --success-soft: #dcece1;
@@ -36,8 +40,8 @@
   --warn-soft: #f8ecd2;
   --danger: #ae3d17;
   --danger-soft: #f7ddd0;
-  --info: #35606c;
-  --info-soft: #dde7ea;
+  --info: var(--brand-green);
+  --info-soft: var(--brand-green-soft);
 
   /* --- forma --- */
   --radius: 16px;
@@ -107,7 +111,7 @@ strong { color: var(--ink); }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: var(--ink);
+  background: var(--brand-green);
   border-bottom: 1px solid rgba(255, 255, 255, .08);
 }
 .docnav__inner {
@@ -265,7 +269,7 @@ main { counter-reset: sec; }
 .table-wrap { overflow-x: auto; margin: var(--space-4) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); }
 .table-wrap table { min-width: 480px; }
 .table-wrap th, .table-wrap td { padding: var(--space-3); text-align: left; border-bottom: 1px solid var(--line); font-size: var(--fs-sm); }
-.table-wrap thead th { background: var(--ink); color: #fff; position: sticky; top: 0; }
+.table-wrap thead th { background: var(--brand-green); color: #fff; position: sticky; top: 0; }
 .table-wrap tbody tr:last-child td { border-bottom: none; }
 .table-wrap tbody tr:nth-child(even) { background: var(--paper); }
 
@@ -434,6 +438,10 @@ main { counter-reset: sec; }
     <h2>Anatomía de un Reel que vende</h2>
     <p>Todo Reel que funciona tiene la misma estructura de 3 partes, sin importar el tema. Pensarlo así, antes de grabar, evita perder tiempo filmando algo que nadie va a terminar de ver.</p>
 
+    <div class="callout callout--info">
+      <p><strong>Filtro 5-50: la prueba antes de grabar.</strong> Antes de grabar cualquiera de estos guiones, hay que pasarlo por dos pruebas simples. 👶 <strong>Prueba de 5 años:</strong> un niño de 5 años debería poder decir de qué trata el Reel. 👥 <strong>Prueba de 50-50:</strong> si se les muestra a 100 personas al azar, al menos 50 deberían entender el 50% inicial (los primeros segundos). Si hay que pensar para entender, no se comparte.</p>
+    </div>
+
     <div class="reelbar" aria-hidden="true">
       <div class="reelbar__seg" style="flex:12; background:var(--accent);">Gancho</div>
       <div class="reelbar__seg" style="flex:73; background:var(--info);">Retención</div>
@@ -465,6 +473,10 @@ main { counter-reset: sec; }
     </div>
 
     <p><strong>Duración objetivo: 15 a 45 segundos.</strong> Los Reels cortos son los que mejor llegan a gente que todavía no sigue la cuenta — pasado ese rango, el contenido tiende a quedarse dentro del círculo de quienes ya siguen. Los 7 guiones de este pack están pensados para moverse dentro de ese rango.</p>
+
+    <div class="callout callout--success">
+      <p><strong>La métrica que manda: compartidos.</strong> Para un Reel, el número que más importa es cuántas veces alguien lo comparte — que se lo mande por DM a otra persona. El gancho y todo el contenido de estos guiones están pensados para eso: para que alguien quiera mandárselo a alguien más.</p>
+    </div>
   </section>
 
   <section class="sec">
@@ -894,8 +906,11 @@ Conócenos en el link de la bio.
 
   <section class="sec">
     <h2>Checklist antes de publicar cada Reel</h2>
-    <p>Revisión rápida de consulta, no una lista para marcar: repasar estos 5 puntos antes de tocar "Publicar".</p>
+    <p>Revisión rápida de consulta, no una lista para marcar: repasar estos 6 puntos antes de tocar "Publicar".</p>
 
+    <div class="callout callout--success">
+      <p><strong>¿Pasa el filtro 5-50?</strong> Un niño de 5 años podría decir de qué trata, y al menos 50 de 100 personas al azar entenderían el gancho sin tener que pensarlo dos veces. Si no pasa esta prueba, se reedita el gancho antes de publicar.</p>
+    </div>
     <div class="callout callout--success">
       <p><strong>Gancho en el primer segundo.</strong> Lo primero que se ve o se dice debe detener el scroll — nada de logos, intros ni cuentas regresivas antes del gancho.</p>
     </div>

@@ -29,6 +29,10 @@
   --accent-dark: #7c1830;
   --accent-soft: #f8dfe4;
 
+  /* --- verde naturaleza del sitio web de la marca (dato del operador, jul-2026) --- */
+  --brand-green: #3b5751;
+  --brand-green-soft: #e3eae8;
+
   /* --- apoyo semántico --- */
   --success: #2f6b4a;
   --success-soft: #dcece1;
@@ -36,8 +40,8 @@
   --warn-soft: #f8ecd2;
   --danger: #ae3d17;
   --danger-soft: #f7ddd0;
-  --info: #35606c;
-  --info-soft: #dde7ea;
+  --info: var(--brand-green);
+  --info-soft: var(--brand-green-soft);
 
   /* --- forma --- */
   --radius: 16px;
@@ -107,7 +111,7 @@ strong { color: var(--ink); }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: var(--ink);
+  background: var(--brand-green);
   border-bottom: 1px solid rgba(255, 255, 255, .08);
 }
 .docnav__inner {
@@ -265,7 +269,7 @@ main { counter-reset: sec; }
 .table-wrap { overflow-x: auto; margin: var(--space-4) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); }
 .table-wrap table { min-width: 480px; }
 .table-wrap th, .table-wrap td { padding: var(--space-3); text-align: left; border-bottom: 1px solid var(--line); font-size: var(--fs-sm); }
-.table-wrap thead th { background: var(--ink); color: #fff; position: sticky; top: 0; }
+.table-wrap thead th { background: var(--brand-green); color: #fff; position: sticky; top: 0; }
 .table-wrap tbody tr:last-child td { border-bottom: none; }
 .table-wrap tbody tr:nth-child(even) { background: var(--paper); }
 
@@ -547,6 +551,19 @@ main { counter-reset: sec; }
     </ol>
 
     <div class="card">
+      <h3>¿Prefieres que el Sheet se llene solo?</h3>
+      <p>Todo lo de arriba es manual: cada semana entras a Instagram y a Shopify, copias los números y los pegas en el Sheet. Existen herramientas que pueden hacer esa copia por ti. Estas son las dos que se están evaluando:</p>
+      <ul>
+        <li><strong>SyncWith</strong> — un complemento (una extensión que se instala dentro de Google Sheets) que trae métricas de Instagram y de otras fuentes directo a la hoja, sin copiar y pegar nada a mano.</li>
+        <li><strong>Apify</strong> — una plataforma que recolecta datos públicos de Instagram de forma programada, por ejemplo una vez por semana, sin que nadie tenga que entrar a mirar manualmente.</li>
+      </ul>
+      <div class="callout callout--warn">
+        <p>Las dos tienen costo o planes pagados que todavía hay que revisar 🟡 VERIFICAR. Por ahora no hay precios confirmados ni una elegida.</p>
+      </div>
+      <p>El camino manual de esta página sigue siendo la base: funciona hoy mismo y no depende de nadie más. La automatización es un paso opcional para más adelante, no algo que haya que resolver ahora.</p>
+    </div>
+
+    <div class="card">
       <h3>Campo de configuración</h3>
       <label for="sheet-url-input" style="display:block;font-size:var(--fs-sm);color:var(--ink-soft);margin-bottom:var(--space-2)">URL del Sheet (formato gviz):</label>
       <input type="url" id="sheet-url-input" class="sheet-url-input" placeholder="https://docs.google.com/spreadsheets/d/.../gviz/tq?tqx=out:csv&sheet=...">
@@ -566,6 +583,9 @@ main { counter-reset: sec; }
     <div id="tablero-datos" style="display:none">
       <h3>KPIs de la última semana</h3>
       <p>El valor de cada número en la semana más reciente con datos, comparado con la semana anterior.</p>
+      <div class="callout callout--info">
+        <p><strong>Cómo leer estos números:</strong> para el contenido del feed (Reels, carruseles y publicaciones) la métrica que manda es <strong>Compartidos</strong> — es la que Instagram más toma en cuenta hoy para decidir a cuánta gente mostrarlo. Las historias se evalúan aparte, con <strong>interacciones ÷ visualizaciones</strong> (respuestas y toques en stickers, divididos por cuánta gente vio la historia). Ese dato no está entre las 12 columnas de abajo: se revisa directo en Instagram, en Insights de Historias.</p>
+      </div>
       <div class="kpi-grid" id="kpi-grid"></div>
 
       <h3>Métricas derivadas</h3>

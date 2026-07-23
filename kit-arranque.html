@@ -29,6 +29,10 @@
   --accent-dark: #7c1830;
   --accent-soft: #f8dfe4;
 
+  /* --- verde naturaleza del sitio web de la marca (dato del operador, jul-2026) --- */
+  --brand-green: #3b5751;
+  --brand-green-soft: #e3eae8;
+
   /* --- apoyo semántico --- */
   --success: #2f6b4a;
   --success-soft: #dcece1;
@@ -36,8 +40,8 @@
   --warn-soft: #f8ecd2;
   --danger: #ae3d17;
   --danger-soft: #f7ddd0;
-  --info: #35606c;
-  --info-soft: #dde7ea;
+  --info: var(--brand-green);
+  --info-soft: var(--brand-green-soft);
 
   /* --- forma --- */
   --radius: 16px;
@@ -107,7 +111,7 @@ strong { color: var(--ink); }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: var(--ink);
+  background: var(--brand-green);
   border-bottom: 1px solid rgba(255, 255, 255, .08);
 }
 .docnav__inner {
@@ -265,7 +269,7 @@ main { counter-reset: sec; }
 .table-wrap { overflow-x: auto; margin: var(--space-4) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); }
 .table-wrap table { min-width: 480px; }
 .table-wrap th, .table-wrap td { padding: var(--space-3); text-align: left; border-bottom: 1px solid var(--line); font-size: var(--fs-sm); }
-.table-wrap thead th { background: var(--ink); color: #fff; position: sticky; top: 0; }
+.table-wrap thead th { background: var(--brand-green); color: #fff; position: sticky; top: 0; }
 .table-wrap tbody tr:last-child td { border-bottom: none; }
 .table-wrap tbody tr:nth-child(even) { background: var(--paper); }
 
@@ -526,7 +530,15 @@ Arte de flora y fauna de Chile para quienes regalan con una historia real
 <h2>Highlights (historias destacadas)</h2>
 <p>5 highlights para que el perfil se vea completo apenas alguien lo visite por primera vez, incluso antes de ver ningún post nuevo.</p>
 
+<div class="callout callout--info">
+<p><strong>Reseñas va primero.</strong> Quien visita el perfil por primera vez todavía no conoce la marca: necesita ver confianza (que otras personas ya compraron y quedaron contentas) antes de mirar el catálogo. Por eso el orden de los highlights ya no sigue la ruta de compra, sino la ruta de confianza.</p>
+</div>
+
 <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:var(--space-4);margin:var(--space-5) 0;">
+  <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-2);width:84px;text-align:center;">
+    <div style="width:64px;height:64px;border-radius:50%;background:var(--surface);border:3px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:1.7rem;">💬</div>
+    <span style="font-size:var(--fs-sm);color:var(--ink-soft);">Reseñas</span>
+  </div>
   <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-2);width:84px;text-align:center;">
     <div style="width:64px;height:64px;border-radius:50%;background:var(--surface);border:3px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:1.7rem;">🛍️</div>
     <span style="font-size:var(--fs-sm);color:var(--ink-soft);">Catálogo</span>
@@ -534,10 +546,6 @@ Arte de flora y fauna de Chile para quienes regalan con una historia real
   <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-2);width:84px;text-align:center;">
     <div style="width:64px;height:64px;border-radius:50%;background:var(--surface);border:3px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:1.7rem;">📦</div>
     <span style="font-size:var(--fs-sm);color:var(--ink-soft);">Envíos</span>
-  </div>
-  <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-2);width:84px;text-align:center;">
-    <div style="width:64px;height:64px;border-radius:50%;background:var(--surface);border:3px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:1.7rem;">💬</div>
-    <span style="font-size:var(--fs-sm);color:var(--ink-soft);">Reseñas</span>
   </div>
   <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-2);width:84px;text-align:center;">
     <div style="width:64px;height:64px;border-radius:50%;background:var(--surface);border:3px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:1.7rem;">🎨</div>
@@ -550,6 +558,19 @@ Arte de flora y fauna de Chile para quienes regalan con una historia real
 </div>
 
 <div class="grid-2">
+  <div class="card">
+    <h3>💬 Reseñas</h3>
+    <p><strong>Portada sugerida:</strong> un corazón o una estrella dibujados a mano en rojo copihue, sobre fondo papel.</p>
+    <p><strong>Qué guardar dentro:</strong></p>
+    <ul>
+      <li>Capturas de reseñas o mensajes de clientes contentos (con su permiso).</li>
+      <li>Fotos de clientes con su producto ya en casa.</li>
+      <li>Un video de unboxing hecho por un cliente.</li>
+      <li>Comparación boceto vs. producto terminado en la casa de alguien.</li>
+      <li>Un recordatorio pidiendo reseña después de cada compra.</li>
+    </ul>
+  </div>
+
   <div class="card">
     <h3>🛍️ Catálogo</h3>
     <p><strong>Portada sugerida:</strong> fondo color hueso (el mismo tono papel de la marca) con una ilustración de una lámina centrada, sin texto encima.</p>
@@ -577,19 +598,6 @@ Arte de flora y fauna de Chile para quienes regalan con una historia real
   </div>
 
   <div class="card">
-    <h3>💬 Reseñas</h3>
-    <p><strong>Portada sugerida:</strong> un corazón o una estrella dibujados a mano en rojo copihue, sobre fondo papel.</p>
-    <p><strong>Qué guardar dentro:</strong></p>
-    <ul>
-      <li>Capturas de reseñas o mensajes de clientes contentos (con su permiso).</li>
-      <li>Fotos de clientes con su producto ya en casa.</li>
-      <li>Un video de unboxing hecho por un cliente.</li>
-      <li>Comparación boceto vs. producto terminado en la casa de alguien.</li>
-      <li>Un recordatorio pidiendo reseña después de cada compra.</li>
-    </ul>
-  </div>
-
-  <div class="card">
     <h3>🎨 Proceso</h3>
     <p><strong>Portada sugerida:</strong> un pincel con una gota de acuarela dibujado a mano, sobre fondo papel.</p>
     <p><strong>Qué guardar dentro:</strong></p>
@@ -611,7 +619,7 @@ Arte de flora y fauna de Chile para quienes regalan con una historia real
       <li>Por qué nació Pedraza Ilustración.</li>
       <li>El compromiso con la conservación: por qué cada pieza enseña una especie.</li>
       <li>Un día en el estudio de María José.</li>
-      <li>🟡 Quién responde los mensajes — antes de prometer un tiempo de respuesta puntual, confirma quién atiende hoy los DM.</li>
+      <li>🟢 Quién responde los mensajes: hoy es Cote (María José Pedraza) quien contesta los DM. Puedes mostrarla en esta historia para que se vea la cara detrás de las respuestas.</li>
     </ul>
   </div>
 </div>

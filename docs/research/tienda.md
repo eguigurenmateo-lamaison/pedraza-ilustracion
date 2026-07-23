@@ -99,7 +99,7 @@ No se logró capturar el precio de venta de ninguna lámina individual pese a va
 - **Página "Quiénes somos"** (https://pedrazailustracion.com/pages/sobre-mi): María José Pedraza —descrita como ilustradora y fotógrafa— y Felipe Robinson —ingeniero comercial— son hermanos que fundaron el proyecto juntos. El propósito declarado es mostrar la biodiversidad chilena, con el objetivo de **educar y generar conciencia sobre la importancia de proteger el entorno natural**. Cada ilustración se describe como hecha a mano, inspirada en la naturaleza. Esto confirma textualmente el ángulo de educación/conservación mencionado en el brief, tal como lo comunica hoy el propio sitio.
 - **Ángulo educativo aplicado a producto:** varias fichas (puzzles, láminas) incluyen explícitamente nombre común + nombre científico de cada especie, y en el caso de los puzzles una guía de referencia — el contenido educativo está integrado al producto físico, no es solo un mensaje de marketing.
 - **Materiales/calidad como argumento de valor:** impresión FineArt/Giclée con papel Hahnemühle (premium) para las láminas; loza apta microondas/lavavajillas. Fuentes citadas arriba en catálogo.
-- **Contacto:** cote@pedrazailustracion.com, según https://pedrazailustracion.com/pages/contact. 🟡 VERIFICAR quién es "Cote" (¿María José, Felipe, o un tercer miembro del equipo de atención al cliente?) — relevante para saber quién responde DMs/mails hoy.
+- **Contacto:** cote@pedrazailustracion.com, según https://pedrazailustracion.com/pages/contact. **🟢 Confirmado por el operador (jul-2026): "Cote" es María José Pedraza**, y es ella quien responde hoy los mensajes (DMs) y los correos de este canal de contacto.
 
 ## 5. Envíos y mercados atendidos
 
@@ -169,6 +169,6 @@ La referencia del operador (~$60.000) queda muy por sobre la estimación por pre
 - Confirmación de si hacen envíos internacionales / fuera de Chile.
 - Aclaración sobre la relación comercial vigente con los marketplaces detectados (Creado en Chile, Decatálogo, Bazared, Mercado Libre): ¿activa?, ¿catálogo sincronizado?, ¿quién fija el precio de reventa?
 - Datos reales de AOV, número de pedidos/mes y mix de productos vendidos (Shopify Analytics) — para confirmar (o corregir) la referencia del operador de ~$60.000 CLP, dato de memoria 🟡 (sección 6), y reemplazarla por un número real.
-- Confirmación de quién es "Cote" (cote@pedrazailustracion.com) y si es el canal de atención al cliente actual.
+- ✅ RESUELTO — Confirmación de quién es "Cote" (cote@pedrazailustracion.com): **es María José Pedraza, y es quien responde mensajes y correos hoy (confirmado por el operador, jul-2026)** — ver sección 4.
 - Aclaración sobre la línea de regalos corporativos/mayorista: si existe hoy, con qué condiciones y a través de qué canal se gestiona.
 - Confirmación/actualización del catálogo: si el "Libro Aves de Chile" (visto en Decatálogo) sigue vigente y por qué no aparece en las colecciones detectadas del sitio propio.

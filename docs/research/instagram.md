@@ -12,7 +12,7 @@ Investigación realizada el 23 de julio de 2026 para el plan de crecimiento Inst
 URL: https://www.instagram.com/pedraza_ilustracion/?hl=es
 
 - **Bio actual:** 🟡 VERIFICAR — no se pudo extraer el texto completo de la bio porque el fetch directo al perfil devolvió 403 y ningún resultado de búsqueda reprodujo la bio textual. El operador debería pegar el texto de la bio y el link en biografía (si usan Linktree/Linkin.bio no se encontró ninguno indexado a nombre de la marca).
-- **Seguidores:** 🟡 VERIFICAR — no apareció en ningún resultado de búsqueda indexado un conteo de seguidores para `@pedraza_ilustracion`. No se encontró tampoco el perfil en agregadores públicos tipo Social Blade / HypeAuditor.
+- **Seguidores:** **62.500 — 🟢 confirmado por el operador (jul-2026).** Nota metodológica (se conserva como registro): en la búsqueda original no apareció en ningún resultado indexado un conteo de seguidores para `@pedraza_ilustracion`, ni se encontró el perfil en agregadores públicos tipo Social Blade / HypeAuditor; el dato final no viene de una fuente pública indexada, sino directamente del operador.
   - Nota aparte (no confundir con la cuenta de la marca): existe una cuenta personal `@mjpedraza` de María José Pedraza (fotografía) en https://www.instagram.com/mjpedraza/, distinta de la cuenta de la marca. Una síntesis de WebSearch mencionó "5,382 followers" para esa cuenta personal, pero no se pudo verificar leyendo la página (fetch bloqueado) — marcarlo `🟡 VERIFICAR` y, en cualquier caso, no es el dato de la cuenta de marca que interesa para este plan.
 - **Publicaciones/posts totales:** 🟡 VERIFICAR — no disponible.
 
@@ -110,7 +110,7 @@ Dado que ninguna herramienta de fetch pudo leer las páginas directamente, prác
 
 1. **Instagram Insights (últimos 90 días)** — alcance, impresiones, visitas al perfil, clics al link en bio, desglose por tipo de contenido (Reels vs. carrusel vs. foto única).
 2. **Top posts por alcance y por guardados** (últimos 90 días como mínimo, idealmente 12 meses para ver estacionalidad Cyber/Navidad/Día de la Madre, etc.) — screenshot o export CSV si el operador tiene Meta Business Suite.
-3. **Conteo actual de seguidores** de `@pedraza_ilustracion` (captura de pantalla del perfil) y evolución si la tienen (Meta Business Suite muestra crecimiento neto por período).
+3. ✅ RESUELTO — **Conteo actual de seguidores** de `@pedraza_ilustracion`: **62.500, confirmado por el operador (jul-2026)** — ver sección 1. Sigue pendiente la evolución histórica, si la tienen (Meta Business Suite muestra crecimiento neto por período).
 4. **Texto completo de la bio actual** y el/los link(s) en bio.
 5. **Confirmación de cuál es la página de Facebook activa** (aclarar si `110551071531777` y `100077451231202` son la misma página o hay una duplicada/abandonada) y su conteo real de seguidores/me gusta.
 6. **Frecuencia real de publicación** — capturas del feed ordenado por fecha o un export, para poder calcular cadencia real (posts/semana) en vez de inferirla de un puñado de posts indexados por Google.

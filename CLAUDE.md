@@ -28,8 +28,19 @@ Reglas permanentes para TODOS los entregables de este repo (documentos, páginas
 ## Contexto comercial clave (confirmado por el operador, jul-2026)
 
 - Facturación actual de la tienda: **~USD 5.000/mes**. Meta: **USD 10.000/mes**. Esta es la métrica norte del plan.
+- Ticket promedio (AOV): referencia del operador **~$60.000 CLP** (dato de memoria, puede ser menor hoy; 🟡 confirmar en Shopify).
+- Seguidores de @pedraza_ilustracion: **62.500** (confirmado por el operador, jul-2026).
+- **"Cote" = María José Pedraza.** Ella es quien responde los mensajes/DMs hoy (confirmado por el operador).
 - Objetivo #1: escalar ventas de la tienda online (Shopify). Mercado: Chile ahora, Amazon EEUU pronto (anexo "Rampa EEUU").
 - El detalle del acuerdo comercial operador-cliente (fijo + variable) NO se incluye en ningún entregable.
+
+## Reglas de contenido del operador (aplicar en toda la estrategia)
+
+- **Verde de marca:** el sitio web del cliente usa el verde naturaleza `#3B5751` — debe estar presente en el sistema de diseño del sitio del plan.
+- **Métrica reina por formato:** para Reels/carruseles/posts del feed = **compartidos**; para historias = **interacciones ÷ visualizaciones**.
+- **Filtro 5-50:** un niño de 5 años debería entender de qué trata la pieza, y 50 de 100 personas aleatorias deberían entender al menos el 50% inicial.
+- **Contenido "conciencia 1" para alcance:** piezas sobre temas universales y cotidianos (dormir, tomar agua, mentalidad) para gente que aún no piensa en comprar y solo admira la naturaleza. Referencia del operador: @mattelsa (carruseles de 30-58 mil me gusta, capturas jul-2026).
+- El checkout nativo de Instagram nunca estuvo disponible fuera de EEUU: en Chile la compra SIEMPRE se cerró fuera de la app. No presentar su eliminación como un cambio que afecta a la marca.
 
 ## Reglas duras del entregable
 
