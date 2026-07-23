@@ -1,0 +1,402 @@
+# Estrategia núcleo — Pedraza Ilustración
+
+Fase 1 del plan de crecimiento en Instagram para escalar la tienda de Pedraza Ilustración. Este documento es la base de todo lo que viene después: define a quién le hablamos, qué prometemos, cómo se conecta Instagram con la venta, qué se publica y cómo se mide el avance.
+
+**Fecha de referencia:** 23 de julio de 2026.
+
+**Cómo leer los marcadores de este documento:** 🟢 dato confirmado con fuente citada · 🟡 dato pendiente de verificar o supuesto de trabajo (heredado del research, no se convierte en hecho por aparecer aquí).
+
+---
+
+## 1. Diagnóstico en una página
+
+### A favor (lo que la marca ya tiene)
+
+- **Historia y propósito genuinos.** Pedraza Ilustración la llevan dos hermanos chilenos: María José Pedraza (ilustradora y fotógrafa) y Felipe Robinson (ingeniero comercial). El propósito declarado en el propio sitio es dar a conocer la flora y fauna de Chile y "educar y concientizar sobre la importancia de proteger el entorno natural" — no es un mensaje de marketing inventado para este plan, ya está en la página "Quiénes somos" de la tienda. *(research/tienda.md, sección 4)*
+- **La educación ya viene incluida en el producto, no solo en el discurso.** Los puzzles traen una guía con el nombre común y científico de cada especie, y varias láminas hacen lo mismo. *(research/tienda.md, secciones 2 y 4)*
+- **Catálogo organizado en series repetibles** por especie o grupo — aves, flores, mariposas y escarabajos, hongos, cetáceos — que se repiten entre lámina, puzzle, plato y calcetín. Es una base natural para hacer contenido y venta cruzada. *(research/tienda.md, sección 1)*
+- **Argumento de calidad real, no solo de marketing.** Impresión Giclée (una técnica de impresión de alta calidad, con tintas especiales) sobre papel Hahnemühle (marca de papel premium reconocida en arte) para las láminas, loza apta para microondas y lavavajillas. *(research/tienda.md, sección 2)*
+- **Demanda ya validada fuera de Instagram.** La marca vende en su sitio propio y también en Mercado Libre, Creado en Chile, Decatálogo y Bazared. *(research/tienda.md, sección 3)*
+- **El ángulo "flora y fauna + educación" ya está validado por otros.** El Ministerio del Medio Ambiente y CONAF usan la ilustración como herramienta central en sus propias campañas de conservación — esto no es competencia, es una señal de que el terreno de contenido funciona. *(research/mercado-tendencias.md, sección A.3)*
+- **Existe un competidor directo que probó que el nicho escala en Instagram.** Bendito (bendito.cl), con un ángulo muy similar ("la tienda de los pajaritos"), tendría cerca de 45.000 seguidores 🟡 (dato de fuente indexada, sin verificación directa). *(research/mercado-tendencias.md, sección A.2)*
+- **María José ya es cara visible de la marca**, lo que coincide con la tendencia de que el contenido con cara humana de quien crea rinde mejor que el contenido "de catálogo" puro. *(research/mercado-tendencias.md, sección C.2.5)*
+- **El feed ya tiene una base de contenido**: storytelling de origen, revelación de producto y campañas estacionales (Cyber, Navidad) — no se parte de cero. *(research/instagram.md, sección 1)*
+
+### Lo que falta (brechas a resolver)
+
+- 🟡 No hay conteo confirmado de seguidores, texto de bio ni cadencia real de publicación en Instagram — no aparecieron en ninguna fuente pública consultada. *(research/instagram.md, secciones 1 y 7)*
+- 🟡 El ticket promedio (AOV — lo que gasta una persona en una compra) es solo una estimación (CLP $20.000–$35.000, ~USD 22–38), no un dato real de Shopify. *(research/tienda.md, sección 6)*
+- 🟡 No está confirmado el umbral real de envío gratis: el home dice compras sobre $50.000 CLP, una ficha de producto dice $30.000 CLP. *(research/tienda.md, sección 5)*
+- 🟡 No está confirmado quién responde hoy los mensajes directos y correos: el contacto público es cote@pedrazailustracion.com, sin confirmar si "Cote" es María José, Felipe u otra persona. *(research/tienda.md, sección 4)*
+- **El pago ya no puede completarse dentro de Instagram.** Meta eliminó el checkout nativo de Instagram/Facebook Shops durante 2025. Esto no es una debilidad de Pedraza, es un cambio de la plataforma que hay que diseñar bien: toda compra pasa obligatoriamente por el sitio propio. *(research/mercado-tendencias.md, sección C.3.1)*
+- No se encontró presencia de marca en TikTok, Pinterest ni YouTube — puede que no existan o simplemente no estén indexadas. *(research/instagram.md, sección 3)*
+- 🟡 Los roles de María José y Felipe en el día a día (quién crea, quién opera, quién responde DM) son un supuesto de trabajo, todavía no confirmado.
+
+### Mapa del estado actual
+
+```mermaid
+flowchart LR
+    IG["Instagram<br/>@pedraza_ilustracion<br/>(descubrimiento)"] -->|"único link en bio<br/>(no se puede pagar<br/>dentro de Instagram)"| TIENDA["Tienda propia<br/>pedrazailustracion.com<br/>(aquí se cierra la venta)"]
+    FB["Facebook<br/>(página de marca)"] -.->|"contenido similar,<br/>vínculo con la tienda<br/>sin confirmar"| TIENDA
+    MP["Otros marketplaces:<br/>Mercado Libre, Creado en Chile,<br/>Decatálogo, Bazared"] -->|"venta y pago dentro<br/>de cada canal, no<br/>pasa por Instagram"| MP2["venta cerrada<br/>en el propio marketplace"]
+
+    style TIENDA fill:#2e7d32,color:#fff
+    style IG fill:#c2185b,color:#fff
+```
+
+Este plan se enfoca en el camino **Instagram → Tienda propia** (la línea roja-verde de arriba). Los otros marketplaces siguen su propio canal de venta y quedan fuera del alcance de este plan.
+
+---
+
+## 2. Avatar (cliente ideal)
+
+### Por qué este recorte, y no "gente que ama el arte"
+
+Se define el cliente ideal por **cuándo y por qué gasta dinero**, no por gusto estético general, porque hay evidencia concreta de que ese es el patrón de compra más rentable para este catálogo:
+
+- La categoría **"Juguetes, juegos y regalos" es la 3ª en facturación** del e-commerce chileno (CLP $722.293.168 en 2025), impulsada justamente por picos en fechas comerciales puntuales, no por compra constante. *(research/mercado-tendencias.md, sección A.1)*
+- En Día de la Madre 2026, el **gasto promedio en regalos fue de $25.329 CLP** a nivel país (segmento ABC1: $43.447; segmento DE: $18.793) — un rango que calza casi exacto con el AOV estimado de la tienda (CLP $20.000–$35.000, ~USD 22–38 🟡). *(research/mercado-tendencias.md, sección B.2; research/tienda.md, sección 6)*
+- La tendencia de diseño de interiores 2026 hacia motivos botánicos y "biophilic design" (decoración inspirada en la naturaleza) confirma que también hay una segunda motivación de compra fuera de las fechas de regalo: decorar el propio hogar. *(research/mercado-tendencias.md, sección D.1.1)*
+
+Conclusión: el cliente que más vale la pena perseguir es **quien regala o decora con intención**, valorando lo chileno, la naturaleza y el diseño de autor (no cualquiera "a quien le guste el arte" en general).
+
+### Avatar principal
+
+| | |
+|---|---|
+| **Nombre** | Javiera, 34 años — "Regala con sentido" |
+| **Quién es** | Vive en una ciudad chilena, trabaja, tiene un círculo cercano (familia, amigas, colegas) para quienes busca regalos en fechas puntuales. |
+| **Qué la gatilla** | Se acerca una fecha comercial (Día de la Madre, un cumpleaños, Navidad, Día del Niño si tiene sobrinos o hijos) y no quiere repetir lo obvio — perfumería y chocolates son las categorías top en regalos de Día de la Madre, y ella busca algo distinto, con más significado. |
+| **Qué compra** | Láminas, libretas, calcetines: productos con diseño reconocible y una historia breve para contar al regalar ("es de una marca de hermanos chilenos que dibuja aves nativas"). |
+| **Cuánto gasta** | En línea con el AOV estimado de la tienda: CLP $20.000–$35.000 🟡. |
+| **Dónde se le encuentra** | Instagram, buscando ideas de regalo o descubriendo la marca por un Reel que "le hace sentido" mandarle a alguien. |
+
+### Avatares secundarios (máximo 2)
+
+| | Secundario 1 | Secundario 2 |
+|---|---|---|
+| **Nombre** | Constanza, 29 años — "Decora su depto con identidad chilena" | Fernanda, 38 años — "Educa jugando" |
+| **Quién es** | Recién independizada o remodelando su espacio, busca decoración con estilo pero no genérica. | Madre, tía o abuela de niños entre 5 y 12 años. |
+| **Qué la gatilla** | Se muda, redecora, o simplemente ve un plato o lámina que le encanta en su feed. | Día del Niño (9 de agosto), un cumpleaños, o busca un regalo "que enseñe algo" y no solo entretenga. |
+| **Qué compra** | Loza (el set más caro del catálogo, $69.990 CLP), láminas grandes, botellas — ticket más alto que el avatar principal. | Puzzles con guía de especies (nombre común y científico incluido) — la función educativa es el argumento de venta. |
+| **Por qué importa** | El diseño de interiores 2026 apunta a motivos botánicos y naturaleza — ella ya está buscando ese estilo. *(mercado-tendencias.md, D.1.1)* | Conecta directo con el ángulo educativo de la marca y con una fecha comercial cercana y concreta (9 de agosto 2026). *(tienda.md, sección 2; mercado-tendencias.md, sección B.1)* |
+
+---
+
+## 3. Posicionamiento y promesa de marca
+
+### La promesa de marca
+
+> Pedraza Ilustración transforma la flora y fauna de Chile en objetos para regalar y decorar. Cada pieza, hecha por dos hermanos chilenos, enseña algo nuevo sobre la naturaleza que retrata.
+
+Esta promesa combina los tres elementos que ya diferencian a la marca según el research: **arte propio** (ilustración original, no contenido de terceros — algo que además Instagram ahora premia, ya que penaliza a las cuentas que viven de repostear trabajo ajeno, *mercado-tendencias.md sección C.1.3*), **educación sobre flora y fauna chilena** (nombre común y científico integrado al producto, *tienda.md sección 2 y 4*), y **hecho por hermanos chilenos** (historia real y verificable, no un discurso corporativo, *tienda.md sección 4*).
+
+### Dirección de bio para Instagram
+
+La bio de Instagram debe tener exactamente estos 4 elementos, en este orden:
+
+1. **Promesa concreta** — qué hace la marca, en pocas palabras (arte original de flora y fauna de Chile).
+2. **Para quién** — quien busca regalar o decorar con identidad chilena.
+3. **Un solo link** — a la tienda. El link en bio es el único lugar donde Instagram permite un link clickeable fijo (fuera de las historias), así que no conviene repartirlo entre varios destinos a la vez (por ejemplo, un Linktree con diez opciones): cada destino extra es un paso más de fricción antes de llegar a la compra.
+4. **Nombre de perfil buscable** — la palabra clave debe estar en el nombre visible del perfil, no solo en el @usuario. Hoy el @usuario ya incluye "ilustracion"; conviene que el nombre visible sume la palabra que falta, por ejemplo **"Pedraza Ilustración | Flora y Fauna de Chile"**. Esto ayuda a que la cuenta aparezca en búsquedas dentro de Instagram. *(research/mercado-tendencias.md, sección C.1.7)*
+
+### Versión de referencia de bio
+
+Esta es una versión lista para usar como punto de partida — las 3 a 5 variantes finales para probar se van a definir en la Fase 2, en `kit-arranque.html`:
+
+```
+Pedraza Ilustración 🦋🌿
+Arte original de flora y fauna de Chile — hecho por 2 hermanos chilenos
+Para regalar y decorar con identidad
+👇 compra aquí
+[link a la tienda]
+```
+
+---
+
+## 4. Embudo Instagram → tienda
+
+Un embudo es el camino que recorre una persona desde que ve el contenido hasta que compra, y lo que pasa después de esa compra. Este es el embudo canónico del plan: los mismos 5 pasos y las mismas etiquetas se van a repetir tal cual en el resto de los documentos y en el sitio del plan.
+
+### Los 5 pasos
+
+1. **Descubrimiento** — Reel o carrusel con un gancho (los primeros segundos que hacen que alguien se detenga a mirar).
+2. **Interés** — CTA (la invitación a hacer algo, como "compra aquí") hacia el link en bio, o "comenta [PALABRA]" directamente en el post.
+3. **DM** — se entrega el link directo al producto y se responden dudas. Parte con **respuestas guardadas nativas de Instagram** (mensajes ya escritos que se insertan con un atajo, gratis e incluidas en cuentas Business/Creator), y solo se sube a una herramienta como ManyChat si el volumen de mensajes lo justifica (la referencia de práctica es más de ~20 DM diarios). *(research/mercado-tendencias.md, sección C.3.4)*
+4. **Compra** — el pago se completa en la tienda Shopify. Nunca dentro de Instagram, porque esa opción ya no existe desde 2025. *(research/mercado-tendencias.md, sección C.3.1)*
+5. **Post-venta** — se pide una reseña o una foto del producto, y esa persona se convierte en embajadora: su contenido alimenta el pilar "Clientes y Reseñas".
+
+**Stories diarias como carril paralelo**: mientras corre este embudo, cada día se publican historias pensadas para la gente que ya sigue la cuenta, con venta más directa — a quien ya sigue no hay que "descubrirlo", solo recordarle.
+
+```mermaid
+flowchart TD
+    A["1. Descubrimiento<br/>Reel o carrusel con gancho"] --> B["2. Interés<br/>CTA: link en bio o<br/>'comenta PALABRA'"]
+    B --> C["3. DM<br/>link directo al producto<br/>+ responde dudas"]
+    C --> D["4. Compra<br/>checkout en la tienda Shopify"]
+    D --> E["5. Post-venta<br/>pide reseña/foto,<br/>convierte en embajador"]
+    E -.->|"su reseña alimenta<br/>el pilar Clientes y Reseñas"| A
+
+    S["Stories diarias<br/>(carril paralelo para<br/>quienes ya siguen)"] --> D
+
+    style A fill:#c2185b,color:#fff
+    style D fill:#2e7d32,color:#fff
+```
+
+### El punto único de fallo: el link en bio
+
+El link en bio es el único lugar clickeable fijo del perfil. Si está roto, desactualizado, o apunta a una colección sin stock, se corta toda la cadena entre "vio el Reel" y "compró" — sin importar cuán bien haya funcionado todo lo anterior en el embudo.
+
+Cómo cuidarlo:
+
+- Revisar que el link cargue y lleve a donde dice el CTA del post, al menos una vez por semana.
+- Si un Reel habla de un producto puntual, considerar que el link en bio apunte a ESE producto mientras el Reel esté activo, no siempre al home general.
+- Usar parámetros UTM (una forma de "etiquetar" el link para poder ver después, en las estadísticas de la tienda, cuánta gente llegó desde Instagram). *(research/mercado-tendencias.md, sección C.3.3)*
+- No repartir el link en bio entre múltiples destinos — cada opción extra es fricción antes de la compra.
+
+---
+
+## 5. Pilares de contenido
+
+Cinco pilares, con nombres canónicos que se van a reutilizar en el calendario editorial y en el resto de los documentos del plan.
+
+### Producto y Colecciones
+
+**Qué es:** contenido centrado en mostrar el producto — revelaciones, detalles, cómo se ve en uso.
+**Por qué existe:** el reveal de producto ya es parte de lo que la cuenta publica hoy. *(research/instagram.md, sección 1)*
+**Ejemplos:** revelación de una lámina nueva, video de un puzzle armándose, la loza puesta en una mesa.
+**Apunta a:** Descubrimiento e Interés (pasos 1-2 del embudo).
+
+### Proceso y Detrás de Escena
+
+**Qué es:** cómo se hace cada pieza — boceto, ilustración, producción, empaque.
+**Por qué existe:** los videos de proceso y el ASMR de empaque (grabar el sonido de armar un pedido: papel, cinta, sello) están entre los formatos más citados como efectivos y baratos de producir para negocios chicos. *(research/mercado-tendencias.md, secciones C.2.1 y C.2.2)*
+**Ejemplos:** time-lapse de una ilustración terminándose, ASMR empacando un pedido, boceto comparado con la lámina terminada.
+**Apunta a:** Descubrimiento (genera guardados y compartidos que amplían el alcance).
+
+### Flora y Fauna de Chile — el diferencial
+
+**Qué es:** contenido educativo puro sobre las especies que ilustra la marca: nombre común y científico, datos curiosos, estado de conservación.
+**Por qué existe:** es el ángulo que ya está impreso en el producto (guías de especies en puzzles y láminas) y que instituciones como el Ministerio del Medio Ambiente y CONAF validan como terreno de comunicación eficaz. *(research/tienda.md, secciones 2 y 4; research/mercado-tendencias.md, sección A.3)* Es también la mejor fuente para generar **compartidos** (que alguien mande el post por DM a otra persona), la señal que Instagram más pesa hoy en su algoritmo. *(research/mercado-tendencias.md, sección C.1.1)*
+**Ejemplos:** "3 datos que no sabías sobre el chucao", ficha ilustrada de una especie en categoría de conservación, mención del proceso de clasificación de especies del MMA abierto a la ciudadanía.
+**Apunta a:** Descubrimiento (alcance a gente que todavía no sigue la cuenta).
+
+### Clientes y Reseñas
+
+**Qué es:** fotos y videos de clientes reales usando o recibiendo el producto, reseñas, testimonios.
+**Por qué existe:** es el paso 5 del embudo (post-venta) devuelto al inicio — cierra el ciclo y da la confianza que necesita alguien que todavía no compró.
+**Ejemplos:** repost de una foto de cliente (con su permiso), captura de una reseña destacada, video de unboxing hecho por un cliente.
+**Apunta a:** Interés y DM (baja la fricción para decidir comprar).
+
+### Los Hermanos y la Misión
+
+**Qué es:** contenido con María José y Felipe: la historia de por qué existe la marca, su compromiso con la conservación.
+**Por qué existe:** el contenido con cara humana de quien crea genera mejor recordación que el contenido "sin cara" *(research/mercado-tendencias.md, sección C.2.5)*, y el propósito declarado de la marca — educar y proteger el entorno — es parte central de su identidad. *(research/tienda.md, sección 4)*
+**Ejemplos:** reel de "por qué nació Pedraza Ilustración", un día en el estudio de María José, por qué Felipe se sumó al proyecto.
+**Apunta a:** Descubrimiento y fidelización de quienes ya siguen.
+
+### Distribución sugerida de publicaciones
+
+```mermaid
+pie title Distribución sugerida por pilar (% de publicaciones)
+    "Producto y Colecciones" : 30
+    "Flora y Fauna de Chile" : 25
+    "Proceso y Detrás de Escena" : 20
+    "Clientes y Reseñas" : 15
+    "Los Hermanos y la Misión" : 10
+```
+
+---
+
+## 6. Formatos y cadencia
+
+### Jerarquía de formatos
+
+1. **Reels = descubrimiento.** El formato con más alcance orgánico hoy. Rango recomendado: **15-45 segundos** — los Reels de menos de 3 minutos llegan mejor a gente que todavía no sigue la cuenta; los más largos casi no salen del círculo de seguidores actuales. *(research/mercado-tendencias.md, sección C.1.5)*
+2. **Carruseles = profundidad y guardados.** Segundo formato en importancia. Agregarles audio (música o sonido) los hace elegibles para aparecer también en el feed de Reels, lo que amplía su alcance más allá del feed clásico. *(research/mercado-tendencias.md, sección C.1.6)*
+3. **Stories = uso diario.** 3 a 7 historias por día, con venta directa a quienes ya siguen la cuenta.
+4. **Trial Reels = laboratorio sin riesgo.** Son Reels que Instagram muestra primero solo a gente que no sigue la cuenta; si funcionan bien, recién ahí se comparten con los seguidores actuales y quedan en la grilla del perfil. Sirven para probar un gancho nuevo sin "gastar" ese formato experimental frente a los seguidores actuales. *(research/mercado-tendencias.md, sección C.1.4)*
+
+### Cadencia con rampa
+
+- **Semanas 1-2 (sostenible):** 2-3 Reels/semana + 1 carrusel/semana + Stories 3-4 veces por semana. El objetivo de esta etapa es instalar el hábito de grabar y publicar sin quemar al equipo.
+- **Desde la semana 3:** 4-7 Reels/semana + 2-3 carruseles/semana + Stories todos los días (3-7 historias).
+
+### Golden hour: por qué importa la primera hora
+
+Cuando se publica un Reel, Instagram lo prueba primero con un grupo chico de gente que no sigue la cuenta. Si ese grupo responde bien (comenta, comparte, lo ve completo), el contenido se empuja a audiencias cada vez más grandes; si responde mal, la distribución se frena antes incluso de llegar a los propios seguidores. *(research/mercado-tendencias.md, sección C.1.2, descrito como "sistema de prueba")*
+
+🟡 No existe una cifra oficial de Instagram que diga exactamente "los primeros 30-60 minutos", pero de esa lógica se desprende la práctica recomendada: **responder comentarios y mensajes directos apenas se publica**, dentro de la primera media hora a hora, para que las señales iniciales se vean fuertes antes de que el algoritmo decida cuánto empujar el contenido.
+
+### Calendario semanal (desde semana 3)
+
+| Día | Formato | Pilar sugerido |
+|---|---|---|
+| Lunes | Reel | Producto y Colecciones |
+| Martes | Carrusel (con audio) | Flora y Fauna de Chile |
+| Miércoles | Reel | Proceso y Detrás de Escena |
+| Jueves | Reel | Flora y Fauna de Chile |
+| Viernes | Carrusel (con audio) | Clientes y Reseñas |
+| Sábado | Reel o Trial Reel | Producto y Colecciones |
+| Domingo | Reel | Los Hermanos y la Misión |
+
+**Todos los días:** 3-7 Stories. Ajustar el número total de Reels de la semana (entre 4 y 7) según la capacidad real de grabación del equipo.
+
+---
+
+## 7. Calendario comercial como columna vertebral
+
+Cada fecha comercial es una oportunidad de venta con fecha fija (o casi fija). El contenido y las promociones se planifican alrededor de estas fechas, no al revés.
+
+### Línea de tiempo (agosto 2026 – marzo 2027)
+
+```mermaid
+gantt
+    title Calendario comercial: agosto 2026 - marzo 2027
+    dateFormat YYYY-MM-DD
+    axisFormat %b %Y
+    section Segundo semestre 2026
+    Día del Niño (9 ago)                 :2026-08-02, 8d
+    Fiestas Patrias (18-19 sep)          :2026-09-11, 9d
+    CyberMonday CL (fecha estimada)      :2026-10-05, 8d
+    Black Friday (27-30 nov)             :2026-11-20, 11d
+    Navidad (25 dic)                     :2026-12-08, 18d
+    section Primer trimestre 2027
+    San Valentín (14 feb)                :2027-02-07, 8d
+    Vuelta a clases (fecha estimada)     :2027-02-20, 13d
+```
+
+### Estado de cada fecha
+
+| Fecha comercial | Cuándo | Estado |
+|---|---|---|
+| Día del Niño | domingo 9 de agosto de 2026 | 🟢 confirmada |
+| Fiestas Patrias | 18-19 de septiembre de 2026 | 🟢 confirmada (feriados fijos) |
+| CyberMonday Chile | ventana esperada inicios de octubre 2026 | 🟡 fecha exacta no anunciada aún (se espera el anuncio a fines de septiembre) |
+| Black Friday | 27 al 30 de noviembre de 2026 | 🟡 rango confirmado; pequeña discrepancia entre fuentes sobre el día exacto de inicio (27 vs. 28 de noviembre) |
+| Navidad | 25 de diciembre | 🟢 fecha fija |
+| San Valentín | 14 de febrero de 2027 | 🟢 fecha fija |
+| Vuelta a clases | inicios de marzo de 2027 (referencia: en 2026 fue el 2-4 de marzo) | 🟡 fecha exacta 2027 aún no publicada por el Ministerio de Educación |
+
+*(research/mercado-tendencias.md, sección B.1)*
+
+### Mini-campaña estándar por fecha
+
+La misma estructura de 4 fases se repite para cada fecha comercial de la lista de arriba:
+
+```mermaid
+flowchart LR
+    A["Calentamiento<br/>7-10 días antes"] --> B["Oferta<br/>3-5 días antes"]
+    B --> C["Urgencia<br/>últimos días"]
+    C --> D["Cierre<br/>último día"]
+
+    style A fill:#1565c0,color:#fff
+    style B fill:#f9a825,color:#000
+    style C fill:#ef6c00,color:#fff
+    style D fill:#c62828,color:#fff
+```
+
+| Fase | Qué se publica |
+|---|---|
+| Calentamiento | Contenido de los pilares "Flora y Fauna de Chile" o "Proceso y Detrás de Escena" — construye interés, todavía sin vender. |
+| Oferta | Se anuncia la promoción concreta (pilar "Producto y Colecciones"). |
+| Urgencia | Recordatorios en Stories: quedan pocos días o poco stock. |
+| Cierre | Último llamado a comprar, con horario límite si aplica. |
+
+---
+
+## 8. KPIs y metas
+
+### Métrica norte
+
+La métrica norte es la que resume si el plan está funcionando de verdad: **ventas e ingresos de la tienda**, hoy en ~USD 5.000/mes con meta de **USD 10.000/mes**, más las **sesiones desde Instagram** (cuánta gente entra a la tienda viniendo de Instagram).
+
+### Métricas líder
+
+Son las métricas que se mueven antes que la venta — sirven de alerta temprana de que algo está funcionando (o no):
+
+- **Guardados** — cuando alguien guarda el post para volver a verlo después; señal de que el contenido vale la pena.
+- **Compartidos** — cuando alguien manda el contenido por DM a otra persona; es la señal a la que Instagram le da más peso hoy en su algoritmo. *(research/mercado-tendencias.md, sección C.1.1)*
+- **Comentarios** — conversación real bajo el post.
+- **DMs iniciados** — mensajes directos que llegan pidiendo información o el link.
+- **Clics al link de bio** — cuánta gente toca el link hacia la tienda.
+- **Alcance de no-seguidores** — cuánta gente nueva, que todavía no sigue la cuenta, vio el contenido.
+
+### Los 12 KPIs exactos del tablero
+
+Esta es la lista que va a usar el tablero de seguimiento (`tablero.html`, Fase 2) — no debe cambiar de nombre ni de orden en los siguientes documentos:
+
+1. Alcance
+2. Alcance no-seguidores
+3. Reproducciones de Reels
+4. Guardados
+5. Compartidos
+6. Comentarios
+7. Seguidores nuevos
+8. DMs iniciados
+9. Clics al link de bio
+10. Sesiones de la tienda desde IG
+11. Pedidos
+12. Ingresos
+
+### Las 4 métricas derivadas
+
+| Métrica derivada | Cómo se calcula | Qué dice |
+|---|---|---|
+| Tasa de guardado | Guardados ÷ Alcance | Qué tan "guardable" es lo que se publica. |
+| Tasa de descubrimiento | Alcance no-seguidores ÷ Alcance total | Cuánta gente nueva está llegando, no solo los que ya siguen. |
+| Clic → pedido | Pedidos ÷ Clics al link de bio | De la gente que llega a la tienda desde Instagram, cuántos terminan comprando. |
+| AOV (ticket promedio) | Ingresos ÷ Pedidos | Cuánto gasta en promedio cada persona por compra. |
+
+### Camino: de la métrica líder a la métrica norte
+
+```mermaid
+flowchart LR
+    A["Alcance no-seguidores<br/>(gente nueva que ve<br/>el contenido)"] --> B["Guardados / Compartidos /<br/>Comentarios<br/>(el contenido engancha)"]
+    B --> C["DMs iniciados /<br/>Clics al link de bio"]
+    C --> D["Sesiones de la tienda<br/>desde Instagram"]
+    D --> E["Pedidos"]
+    E --> F["Ingresos<br/>(meta: USD 10.000/mes)"]
+
+    style A fill:#c2185b,color:#fff
+    style F fill:#2e7d32,color:#fff
+```
+
+🟡 **Importante:** casi ninguno de estos 12 KPIs tiene hoy una línea base confirmada (no hay seguidores, alcance ni sesiones desde IG verificados). Antes de poder medir avance, el primer paso es capturar una foto de partida de cada uno. *(research/instagram.md, sección 7; research/pendientes-operador.md, ítems 2.1-2.3 y 1.9)*
+
+---
+
+## 9. Roles
+
+🟡 **Supuesto por confirmar** — no hay confirmación directa de cómo se reparten hoy estas tareas entre María José y Felipe.
+
+| Quién | Qué hace cada semana |
+|---|---|
+| **María José** | Crea el contenido: graba y fotografía en un lote de grabación semanal (un bloque de tiempo fijo donde se graba varias piezas de una sola vez, para no depender de grabar todos los días). Aparece en cámara, especialmente para el pilar "Los Hermanos y la Misión". |
+| **Felipe** | Opera la cuenta: programa las publicaciones, revisa las métricas cada semana contra la meta de ventas, y responde comentarios y DM (idealmente dentro de la primera hora de publicado, ver sección 6). |
+
+🟡 Nota aparte: el contacto público de atención al cliente hoy es cote@pedrazailustracion.com, y no está confirmado si "Cote" corresponde a Felipe, a María José o a una tercera persona — vale la pena aclarar esto antes de asumir que Felipe es quien responde los DM en la práctica. *(research/tienda.md, sección 4)*
+
+---
+
+## 10. Anexo: Rampa EEUU (resumen ejecutivo)
+
+Todo lo siguiente es **fase posterior** al objetivo #1 (llegar a USD 10.000/mes en la tienda chilena). Se deja documentado como hoja de ruta para cuando ese objetivo esté encaminado, no como tarea inmediata.
+
+1. **Registro de marca "Pedraza Ilustración"** — 🟡 [PRIORIDAD]. Iniciar el trámite ya si no está iniciado: puede demorar meses y es el requisito base para todo lo demás en Amazon (sin marca registrada o en trámite, no hay Brand Registry). *(research/pendientes-operador.md, ítem 3.1; research/mercado-tendencias.md, sección D.2.6)*
+2. **Seller Central plan Professional + Brand Registry** — no Amazon Handmade, porque la producción se terceriza con un proveedor y Handmade exige fabricación manual propia del vendedor. *(research/mercado-tendencias.md, secciones D.2.1 y D.2.5)*
+3. **A+ Content y Amazon Store** — contenido de marca gratuito dentro de Amazon una vez con Brand Registry. Amazon Posts ya no existe: el programa se discontinuó por completo en julio de 2025. *(research/mercado-tendencias.md, sección D.3)*
+4. **Amazon Attribution + Brand Referral Bonus** — para medir y aprovechar el tráfico que llegue desde Instagram hacia el listing de Amazon, con devolución de hasta ~10% en comisiones sobre esa venta (crédito, no efectivo directo). *(research/mercado-tendencias.md, secciones D.4.1 y D.4.2)*
+5. **Ventana BFCM** (Black Friday-Cyber Monday EEUU, 27 al 30 de noviembre de 2026) con inventario ingresado en octubre-noviembre — la fecha de mayor impacto comercial en EEUU más próxima desde hoy. *(research/mercado-tendencias.md, sección D.5)*
+6. **Contenido bilingüe selectivo** — adaptar al inglés el mismo storytelling que ya funciona en Instagram (flora y fauna chilena, historia de los hermanos) para usar en la Amazon Store. *(research/mercado-tendencias.md, sección D.3.2)*
+
+---
+
+## 11. Supuestos a confirmar
+
+Lista corta de los 🟡 más críticos heredados del research, porque afectan directamente esta estrategia:
+
+- 🟡 **[PRIORIDAD]** AOV real, número de pedidos al mes y mix de productos vendidos — hoy es una estimación (CLP $20.000–$35.000). *(research/tienda.md, sección 6; research/pendientes-operador.md, ítem 1.2)*
+- 🟡 **[PRIORIDAD]** Seguidores actuales, bio completa y cadencia real de publicación en Instagram. *(research/instagram.md, secciones 1 y 7; research/pendientes-operador.md, ítems 2.1-2.4 y 2.6)*
+- 🟡 Roles reales de María José y Felipe en el día a día (quién crea, quién opera, quién responde DM) — incluida la duda sobre quién es "Cote".
+- 🟡 **[PRIORIDAD]** Estado actual del registro de marca "Pedraza Ilustración" (Chile y/o EEUU). *(research/pendientes-operador.md, ítem 3.1)*
+- 🟡 Umbral real de envío gratis: $50.000 CLP (home) vs. $30.000 CLP (una ficha de producto). *(research/tienda.md, sección 5; research/pendientes-operador.md, ítem 1.3)*
