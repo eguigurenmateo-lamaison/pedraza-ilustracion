@@ -551,6 +551,19 @@ main { counter-reset: sec; }
     </ol>
 
     <div class="card">
+      <h3>¿Prefieres que el Sheet se llene solo?</h3>
+      <p>Todo lo de arriba es manual: cada semana entras a Instagram y a Shopify, copias los números y los pegas en el Sheet. Existen herramientas que pueden hacer esa copia por ti. Estas son las dos que se están evaluando:</p>
+      <ul>
+        <li><strong>SyncWith</strong> — un complemento (una extensión que se instala dentro de Google Sheets) que trae métricas de Instagram y de otras fuentes directo a la hoja, sin copiar y pegar nada a mano.</li>
+        <li><strong>Apify</strong> — una plataforma que recolecta datos públicos de Instagram de forma programada, por ejemplo una vez por semana, sin que nadie tenga que entrar a mirar manualmente.</li>
+      </ul>
+      <div class="callout callout--warn">
+        <p>Las dos tienen costo o planes pagados que todavía hay que revisar 🟡 VERIFICAR. Por ahora no hay precios confirmados ni una elegida.</p>
+      </div>
+      <p>El camino manual de esta página sigue siendo la base: funciona hoy mismo y no depende de nadie más. La automatización es un paso opcional para más adelante, no algo que haya que resolver ahora.</p>
+    </div>
+
+    <div class="card">
       <h3>Campo de configuración</h3>
       <label for="sheet-url-input" style="display:block;font-size:var(--fs-sm);color:var(--ink-soft);margin-bottom:var(--space-2)">URL del Sheet (formato gviz):</label>
       <input type="url" id="sheet-url-input" class="sheet-url-input" placeholder="https://docs.google.com/spreadsheets/d/.../gviz/tq?tqx=out:csv&sheet=...">
@@ -570,6 +583,9 @@ main { counter-reset: sec; }
     <div id="tablero-datos" style="display:none">
       <h3>KPIs de la última semana</h3>
       <p>El valor de cada número en la semana más reciente con datos, comparado con la semana anterior.</p>
+      <div class="callout callout--info">
+        <p><strong>Cómo leer estos números:</strong> para el contenido del feed (Reels, carruseles y publicaciones) la métrica que manda es <strong>Compartidos</strong> — es la que Instagram más toma en cuenta hoy para decidir a cuánta gente mostrarlo. Las historias se evalúan aparte, con <strong>interacciones ÷ visualizaciones</strong> (respuestas y toques en stickers, divididos por cuánta gente vio la historia). Ese dato no está entre las 12 columnas de abajo: se revisa directo en Instagram, en Insights de Historias.</p>
+      </div>
       <div class="kpi-grid" id="kpi-grid"></div>
 
       <h3>Métricas derivadas</h3>
