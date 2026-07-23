@@ -98,7 +98,7 @@ La bio de Instagram debe tener exactamente estos 4 elementos, en este orden:
 1. **Promesa concreta** — qué hace la marca, en pocas palabras (arte original de flora y fauna de Chile).
 2. **Para quién** — quien busca regalar o decorar con identidad chilena.
 3. **Un solo link** — a la tienda. El link en bio es el único lugar donde Instagram permite un link clickeable fijo (fuera de las historias), así que no conviene repartirlo entre varios destinos a la vez (por ejemplo, un Linktree con diez opciones): cada destino extra es un paso más de fricción antes de llegar a la compra.
-4. **Nombre de perfil buscable** — la palabra clave debe estar en el nombre visible del perfil, no solo en el @usuario. Hoy el @usuario ya incluye "ilustracion"; conviene que el nombre visible sume la palabra que falta, por ejemplo **"Pedraza Ilustración | Flora y Fauna de Chile"**. Esto ayuda a que la cuenta aparezca en búsquedas dentro de Instagram. *(research/mercado-tendencias.md, sección C.1.7)*
+4. **Nombre de perfil buscable** — la palabra clave debe estar en el nombre visible del perfil, no solo en el @usuario. Hoy el @usuario ya incluye "ilustracion"; conviene que el nombre visible sume la palabra que falta, por ejemplo **"Pedraza | Flora y Fauna Chile"**. El campo Nombre de Instagram acepta alrededor de 30 caracteres (conviene confirmarlo al editar el perfil, la propia app lo indica ahí); esta versión corta cabe justo y conserva la palabra clave "flora y fauna". La versión larga con el nombre completo de la marca sirve para canales sin ese límite, como Facebook. Esto ayuda a que la cuenta aparezca en búsquedas dentro de Instagram. *(research/mercado-tendencias.md, sección C.1.7)*
 
 ### Versión de referencia de bio
 
