@@ -21,16 +21,16 @@ Fase 1 del plan de crecimiento en Instagram para escalar la tienda de Pedraza Il
 - **Existe un competidor directo que probó que el nicho escala en Instagram.** Bendito (bendito.cl), con un ángulo muy similar ("la tienda de los pajaritos"), tendría cerca de 45.000 seguidores 🟡 (dato de fuente indexada, sin verificación directa). *(research/mercado-tendencias.md, sección A.2)*
 - **María José ya es cara visible de la marca**, lo que coincide con la tendencia de que el contenido con cara humana de quien crea rinde mejor que el contenido "de catálogo" puro. *(research/mercado-tendencias.md, sección C.2.5)*
 - **El feed ya tiene una base de contenido**: storytelling de origen, revelación de producto y campañas estacionales (Cyber, Navidad) — no se parte de cero. *(research/instagram.md, sección 1)*
+- 🟢 **La cuenta ya tiene una audiencia grande: 62.500 seguidores confirmados.** Dato confirmado por el operador (jul-2026). Lectura estratégica: el desafío no es partir de cero, es activar y convertir a quienes ya siguen — con una base así, las Stories diarias y la venta directa a quien ya sigue pesan más de lo que pesarían en una cuenta chica.
+- 🟢 **Ya se sabe quién responde los mensajes: Cote es María José.** Confirmado por el operador (jul-2026) — es ella quien contesta hoy los mensajes directos y correos detrás de cote@pedrazailustracion.com. Ver sección 9 para la implicancia práctica en los roles del equipo.
 
 ### Lo que falta (brechas a resolver)
 
-- 🟡 No hay conteo confirmado de seguidores, texto de bio ni cadencia real de publicación en Instagram — no aparecieron en ninguna fuente pública consultada. *(research/instagram.md, secciones 1 y 7)*
+- 🟡 Todavía falta confirmar el texto completo de la bio y la cadencia real de publicación en Instagram (los seguidores ya están confirmados: 62.500, ver arriba) — no aparecieron en ninguna fuente pública consultada. *(research/instagram.md, secciones 1 y 7)*
 - 🟡 El ticket promedio (AOV — lo que gasta una persona en una compra) hoy se trabaja con la referencia del operador, de memoria, ~$60.000 CLP (por confirmar con Shopify) — no un dato real de Shopify. *(research/tienda.md, sección 6)*
 - 🟡 No está confirmado el umbral real de envío gratis: el home dice compras sobre $50.000 CLP, una ficha de producto dice $30.000 CLP. *(research/tienda.md, sección 5)*
-- 🟡 No está confirmado quién responde hoy los mensajes directos y correos: el contacto público es cote@pedrazailustracion.com, sin confirmar si "Cote" es María José, Felipe u otra persona. *(research/tienda.md, sección 4)*
-- **El pago ya no puede completarse dentro de Instagram.** Meta eliminó el checkout nativo de Instagram/Facebook Shops durante 2025. Esto no es una debilidad de Pedraza, es un cambio de la plataforma que hay que diseñar bien: toda compra pasa obligatoriamente por el sitio propio. *(research/mercado-tendencias.md, sección C.3.1)*
 - No se encontró presencia de marca en TikTok, Pinterest ni YouTube — puede que no existan o simplemente no estén indexadas. *(research/instagram.md, sección 3)*
-- 🟡 Los roles de María José y Felipe en el día a día (quién crea, quién opera, quién responde DM) son un supuesto de trabajo, todavía no confirmado.
+- 🟡 Los roles de María José y Felipe en el día a día siguen siendo un supuesto de trabajo en su mayor parte — ya se sabe que María José (Cote) responde los mensajes (confirmado), pero falta confirmar el detalle de qué hace Felipe.
 
 ### Mapa del estado actual
 
@@ -43,6 +43,8 @@ flowchart LR
     style TIENDA fill:#2e7d32,color:#fff
     style IG fill:#c2185b,color:#fff
 ```
+
+La compra se cierra siempre en la tienda propia: así funciona Instagram para tiendas chilenas. El checkout dentro de la app (pagar sin salir de Instagram) nunca estuvo disponible fuera de Estados Unidos, así que para Chile esto no es una pérdida ni un cambio reciente — siempre funcionó así. El punto que sí hay que cuidar: como no existe pago dentro de Instagram, hay que diseñar bien todo el camino desde el contenido hasta la tienda (link en bio, DM con el link directo al producto, etc.). *(research/mercado-tendencias.md, sección C.3.1)*
 
 Este plan se enfoca en el camino **Instagram → Tienda propia** (la línea roja-verde de arriba). Los otros marketplaces siguen su propio canal de venta y quedan fuera del alcance de este plan.
 
@@ -123,7 +125,7 @@ Un embudo es el camino que recorre una persona desde que ve el contenido hasta q
 1. **Descubrimiento** — Reel o carrusel con un gancho (los primeros segundos que hacen que alguien se detenga a mirar).
 2. **Interés** — CTA (la invitación a hacer algo, como "compra aquí") hacia el link en bio, o "comenta [PALABRA]" directamente en el post.
 3. **DM** — se entrega el link directo al producto y se responden dudas. Parte con **respuestas guardadas nativas de Instagram** (mensajes ya escritos que se insertan con un atajo, gratis e incluidas en cuentas Business/Creator), y solo se sube a una herramienta como ManyChat si el volumen de mensajes lo justifica (la referencia de práctica es más de ~20 DM diarios). *(research/mercado-tendencias.md, sección C.3.4)*
-4. **Compra** — el pago se completa en la tienda Shopify. Nunca dentro de Instagram, porque esa opción ya no existe desde 2025. *(research/mercado-tendencias.md, sección C.3.1)*
+4. **Compra** — el pago se completa en la tienda Shopify. Así funciona Instagram para tiendas chilenas: no existe botón de pago dentro de la app (nunca estuvo disponible fuera de Estados Unidos), por eso hay que diseñar bien el camino del contenido a la tienda. *(research/mercado-tendencias.md, sección C.3.1)*
 5. **Post-venta** — se pide una reseña o una foto del producto, y esa persona se convierte en embajadora: su contenido alimenta el pilar "Clientes y Reseñas".
 
 **Stories diarias como carril paralelo**: mientras corre este embudo, cada día se publican historias pensadas para la gente que ya sigue la cuenta, con venta más directa — a quien ya sigue no hay que "descubrirlo", solo recordarle.
@@ -180,6 +182,19 @@ Cinco pilares, con nombres canónicos que se van a reutilizar en el calendario e
 **Ejemplos:** "3 datos que no sabías sobre el chucao", ficha ilustrada de una especie en categoría de conservación, mención del proceso de clasificación de especies del MMA abierto a la ciudadanía.
 **Apunta a:** Descubrimiento (alcance a gente que todavía no sigue la cuenta).
 
+#### Sub-línea dentro de este pilar: Naturaleza y vida cotidiana (conciencia 1)
+
+No es un sexto pilar — vive dentro de "Flora y Fauna de Chile" y no cambia la distribución de publicaciones de más abajo. "Conciencia 1" quiere decir: la persona que todavía no piensa en comprar nada, solo le gusta la naturaleza o quiere vivir mejor. Es el primer escalón, antes de que le interese la marca o el producto.
+
+**Qué es:** temas universales del día a día — dormir bien, tomar agua, salir a caminar, calma, mentalidad — conectados con la naturaleza chilena e ilustrados con el estilo de la marca. No habla de producto ni de la marca: habla de la vida de cualquiera.
+**Por qué existe:** es el contenido con mayor potencial de alcance y compartidos, porque cualquiera lo entiende y cualquiera se lo puede mandar a alguien, sin necesitar conocer la marca ni estar pensando en comprar. 🟡 Referencia observada por el operador (capturas de pantalla, jul-2026, no verificada por esta investigación): la cuenta @mattelsa publica carruseles de este tipo — frases sobre hábitos y mentalidad, ilustración simple, un tema por lámina — con entre 30 y 58 mil "me gusta" por pieza.
+**Ejemplos adaptados a Pedraza:**
+- Carrusel "Dormir mejor, según la naturaleza chilena" — con datos de cómo duermen distintos animales nativos.
+- "Toma agua" — una acuarela de un ave bebiendo, como recordatorio simple del hábito.
+- "5 sonidos del sur de Chile que calman" — láminas o clips cortos de sonidos de la naturaleza chilena.
+- "Un minuto afuera" — invitación a salir a caminar un rato, con una especie chilena como protagonista.
+**Apunta a:** puro Descubrimiento. Esta sub-línea no vende — atrae. De ahí, el resto de los pilares se encarga de convertir a esa persona en interesada y después en compradora.
+
 ### Clientes y Reseñas
 
 **Qué es:** fotos y videos de clientes reales usando o recibiendo el producto, reseñas, testimonios.
@@ -208,6 +223,15 @@ pie title Distribución sugerida por pilar (% de publicaciones)
 ---
 
 ## 6. Formatos y cadencia
+
+### El filtro 5-50: la prueba obligatoria antes de producir
+
+Regla del plan: antes de grabar o diseñar cualquier pieza (Reel, carrusel, story, lo que sea), pasarla por esta prueba de dos partes:
+
+- 👶 **Prueba de 5 años:** un niño de 5 años debería poder decir de qué trata la pieza.
+- 👥 **Prueba de 50-50:** si se les muestra a 100 personas al azar, al menos 50 deberían entender el 50% inicial de la pieza (los primeros segundos de un Reel, o la primera lámina de un carrusel).
+
+Por qué importa, en una frase: si hay que pensar para entender, no se comparte — y compartir es la métrica que más pesa (ver sección 8).
 
 ### Jerarquía de formatos
 
@@ -321,6 +345,17 @@ Son las métricas que se mueven antes que la venta — sirven de alerta temprana
 - **Clics al link de bio** — cuánta gente toca el link hacia la tienda.
 - **Alcance de no-seguidores** — cuánta gente nueva, que todavía no sigue la cuenta, vio el contenido.
 
+### Métrica reina por formato
+
+Regla del plan: para leer resultados día a día, cada formato tiene UNA métrica que manda por sobre las demás. Los 12 KPIs del tablero (más abajo) no cambian — esto es solo el criterio para leerlos rápido, sin abrir toda la planilla.
+
+| Formato | Métrica reina | Por qué |
+|---|---|---|
+| 🎬 Reels | **Compartidos** | Es la señal a la que Instagram le da más peso en su algoritmo hoy (ver arriba). |
+| 🖼️ Carruseles | **Compartidos** | Misma lógica: si alguien lo manda a otra persona, Instagram entiende que vale la pena mostrarlo más. |
+| 📄 Posts del feed | **Compartidos** | Igual razón que Reels y carruseles. |
+| ⭕ Historias | **Interacciones ÷ Visualizaciones** | Respuestas, toques en stickers y reacciones, divididas por cuánta gente vio la historia — mide qué tan bien conecta el contenido con quienes ya siguen. |
+
 ### Los 12 KPIs exactos del tablero
 
 Esta es la lista que va a usar el tablero de seguimiento (`tablero.html`, Fase 2) — no debe cambiar de nombre ni de orden en los siguientes documentos:
@@ -361,20 +396,20 @@ flowchart LR
     style F fill:#2e7d32,color:#fff
 ```
 
-🟡 **Importante:** casi ninguno de estos 12 KPIs tiene hoy una línea base confirmada (no hay seguidores, alcance ni sesiones desde IG verificados). Antes de poder medir avance, el primer paso es capturar una foto de partida de cada uno. *(research/instagram.md, sección 7; research/pendientes-operador.md, ítems 2.1-2.3 y 1.9)*
+🟡 **Importante:** casi ninguno de estos 12 KPIs tiene hoy una línea base confirmada (no hay alcance ni sesiones desde IG verificados; los seguidores totales sí — 62.500, ver sección 1 — pero falta una foto de partida del resto). Antes de poder medir avance, el primer paso es capturar una foto de partida de cada uno. *(research/instagram.md, sección 7; research/pendientes-operador.md, ítems 2.1-2.3 y 1.9)*
 
 ---
 
 ## 9. Roles
 
-🟡 **Supuesto por confirmar** — no hay confirmación directa de cómo se reparten hoy estas tareas entre María José y Felipe.
+🟢 **Confirmado por el operador (jul-2026):** Cote es María José — la duda de quién responde los mensajes queda resuelta. 🟡 El resto de la división de tareas (el detalle de qué hace Felipe día a día) sigue siendo un supuesto de trabajo, todavía no confirmado.
 
 | Quién | Qué hace cada semana |
 |---|---|
-| **María José** | Crea el contenido: graba y fotografía en un lote de grabación semanal (un bloque de tiempo fijo donde se graba varias piezas de una sola vez, para no depender de grabar todos los días). Aparece en cámara, especialmente para el pilar "Los Hermanos y la Misión". |
-| **Felipe** | Opera la cuenta: programa las publicaciones, revisa las métricas cada semana contra la meta de ventas, y responde comentarios y DM (idealmente dentro de la primera hora de publicado, ver sección 6). |
+| **María José (Cote)** | Crea el contenido: graba y fotografía en un lote de grabación semanal (un bloque de tiempo fijo donde se graba varias piezas de una sola vez, para no depender de grabar todos los días). Aparece en cámara, especialmente para el pilar "Los Hermanos y la Misión". 🟢 Responde hoy los mensajes directos y comentarios — es ella quien está detrás de cote@pedrazailustracion.com (confirmado por el operador, jul-2026). |
+| **Felipe** 🟡 | Opera la cuenta: programa las publicaciones y revisa las métricas cada semana contra la meta de ventas. Supuesto de trabajo, todavía sin confirmar en detalle. |
 
-🟡 Nota aparte: el contacto público de atención al cliente hoy es cote@pedrazailustracion.com, y no está confirmado si "Cote" corresponde a Felipe, a María José o a una tercera persona — vale la pena aclarar esto antes de asumir que Felipe es quien responde los DM en la práctica. *(research/tienda.md, sección 4)*
+**Recomendación práctica:** ya que María José es quien responde los mensajes hoy, tiene sentido que el Golden hour tras publicar (responder rápido apenas sale el contenido, ver sección 6) quede en sus manos — ella ya está ahí, respondiendo. Felipe puede tomar la revisión semanal de números contra la meta de ventas. Esto es un punto de partida razonable, ajustable en cuanto María José y Felipe confirmen la división definitiva de tareas.
 
 ---
 
@@ -396,7 +431,7 @@ Todo lo siguiente es **fase posterior** al objetivo #1 (llegar a USD 10.000/mes 
 Lista corta de los 🟡 más críticos heredados del research, porque afectan directamente esta estrategia:
 
 - 🟡 **[PRIORIDAD]** AOV real, número de pedidos al mes y mix de productos vendidos — hoy se trabaja con la referencia del operador (~$60.000 CLP, dato de memoria, "tal vez sea menos ahora"), que implica ~75-80 pedidos/mes; falta confirmar con Shopify. *(research/tienda.md, sección 6; research/pendientes-operador.md, ítem 1.2)*
-- 🟡 **[PRIORIDAD]** Seguidores actuales, bio completa y cadencia real de publicación en Instagram. *(research/instagram.md, secciones 1 y 7; research/pendientes-operador.md, ítems 2.1-2.4 y 2.6)*
-- 🟡 Roles reales de María José y Felipe en el día a día (quién crea, quién opera, quién responde DM) — incluida la duda sobre quién es "Cote".
+- 🟢 Seguidores actuales: 62.500 (confirmado por el operador, jul-2026) — este punto ya está resuelto. 🟡 **[PRIORIDAD]** Todavía falta confirmar el texto completo de la bio y la cadencia real de publicación en Instagram. *(research/instagram.md, secciones 1 y 7; research/pendientes-operador.md, ítems 2.1-2.4 y 2.6)*
+- 🟢 Quién es "Cote" ya está resuelto: es María José, y es quien responde los mensajes directos y comentarios hoy (confirmado por el operador, jul-2026). 🟡 Todavía falta confirmar el detalle de qué hace Felipe día a día (opera, programa y mide es, por ahora, un supuesto de trabajo).
 - 🟡 **[PRIORIDAD]** Estado actual del registro de marca "Pedraza Ilustración" (Chile y/o EEUU). *(research/pendientes-operador.md, ítem 3.1)*
 - 🟡 Umbral real de envío gratis: $50.000 CLP (home) vs. $30.000 CLP (una ficha de producto). *(research/tienda.md, sección 5; research/pendientes-operador.md, ítem 1.3)*
