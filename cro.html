@@ -1,0 +1,936 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Pre-diagnóstico de conversión — Plan Pedraza Ilustración</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
+<style>
+/* ==========================================================================
+   Sistema de diseño — Plan Pedraza Ilustración
+   Bloque único y canónico. No editar por página: solo usar estas clases.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* --- tinta y superficies --- */
+  --ink: #1c2420;
+  --ink-soft: #4c5850;
+  --ink-faint: #7c887f;
+  --paper: #faf6ee;
+  --surface: #fffefb;
+  --line: #e6ded0;
+  --line-strong: #d6c9b0;
+
+  /* --- acento: rojo copihue --- */
+  --accent: #b0223f;
+  --accent-dark: #7c1830;
+  --accent-soft: #f8dfe4;
+
+  /* --- verde naturaleza del sitio web de la marca (dato del operador, jul-2026) --- */
+  --brand-green: #3b5751;
+  --brand-green-soft: #e3eae8;
+  --brand-green-dark: #2a403c;
+
+  /* --- apoyo semántico --- */
+  --success: #2f6b4a;
+  --success-soft: #dcece1;
+  --warn: #a8720a;
+  --warn-soft: #f8ecd2;
+  --danger: #ae3d17;
+  --danger-soft: #f7ddd0;
+  --info: var(--brand-green);
+  --info-soft: var(--brand-green-soft);
+
+  /* --- forma --- */
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-full: 999px;
+  --shadow-sm: 0 1px 3px rgba(28, 36, 32, .1);
+  --shadow: 0 6px 20px rgba(28, 36, 32, .12);
+
+  /* --- espaciado --- */
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  /* --- tipografía --- */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --fs-sm: clamp(.82rem, .78rem + .2vw, .9rem);
+  --fs-base: clamp(1rem, .95rem + .25vw, 1.0625rem);
+  --fs-lg: clamp(1.1rem, 1.02rem + .4vw, 1.25rem);
+  --fs-h3: clamp(1.15rem, 1.05rem + .5vw, 1.35rem);
+  --fs-h2: clamp(1.35rem, 1.15rem + 1vw, 1.75rem);
+  --fs-h1: clamp(1.75rem, 1.4rem + 2vw, 2.75rem);
+
+  /* --- área táctil mínima (regla mobile-first del proyecto) --- */
+  --tap: 44px;
+}
+
+/* ===== 1. Reset mínimo ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; }
+img, svg { max-width: 100%; display: block; }
+h1, h2, h3, h4, p, ul, ol, dl, figure { margin: 0 0 var(--space-4); }
+ul, ol { padding-left: 1.2em; }
+a { color: inherit; }
+button { font: inherit; }
+table { border-collapse: collapse; width: 100%; }
+
+/* ===== 2. Tipografía base ===== */
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: var(--font-serif); line-height: 1.2; color: var(--ink); }
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+p { max-width: 68ch; }
+strong { color: var(--ink); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* ===== 3. Layout ===== */
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 var(--space-4) var(--space-8); }
+
+/* ===== 4. Nav superior (.docnav) ===== */
+.docnav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--brand-green);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+.docnav__inner {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 var(--space-2);
+}
+.docnav__link {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  min-height: var(--tap);
+  padding: 0 var(--space-3);
+  color: #eae6dd;
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+}
+.docnav__link:hover { color: #fff; }
+.docnav__link.active {
+  color: #fff;
+  border-bottom-color: var(--accent);
+}
+
+/* ===== 5. Hero ===== */
+.hero {
+  padding: var(--space-7) var(--space-4);
+  background: linear-gradient(135deg, var(--brand-green) 0%, var(--brand-green-dark) 100%);
+  color: #fff;
+}
+.hero__inner { max-width: 960px; margin: 0 auto; }
+.hero h1 { color: #fff; margin-bottom: var(--space-3); }
+.hero p { color: rgba(255, 255, 255, .92); font-size: var(--fs-lg); max-width: 60ch; margin: 0; }
+
+/* ===== 6. Secciones numeradas (.sec) ===== */
+main { counter-reset: sec; }
+.sec { counter-increment: sec; margin-top: var(--space-7); }
+.sec:first-of-type { margin-top: var(--space-6); }
+.sec > h2 {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding-bottom: var(--space-2);
+  border-bottom: 2px solid var(--line-strong);
+}
+.sec > h2::before {
+  content: counter(sec);
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9em;
+  height: 1.9em;
+  border-radius: var(--radius-full);
+  background: var(--brand-green);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: .55em;
+  font-weight: 700;
+}
+
+/* ===== 7. Callouts ===== */
+.callout {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  margin: var(--space-4) 0;
+}
+.callout::before { flex: 0 0 auto; font-size: 1.3em; line-height: 1; }
+.callout p:last-child { margin-bottom: 0; }
+.callout--info { border-color: var(--info); background: var(--info-soft); }
+.callout--info::before { content: "💡"; }
+.callout--success { border-color: var(--success); background: var(--success-soft); }
+.callout--success::before { content: "✅"; }
+.callout--warn { border-color: var(--warn); background: var(--warn-soft); }
+.callout--warn::before { content: "🟡"; }
+.callout--danger { border-color: var(--danger); background: var(--danger-soft); }
+.callout--danger::before { content: "🔴"; }
+
+/* ===== 8. Bloque copiable (.copyblock) ===== */
+.copyblock {
+  position: relative;
+  margin: var(--space-4) 0;
+  padding: var(--space-8) var(--space-4) var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.copyblock__text {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--ink);
+}
+.copyblock__btn {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  min-height: var(--tap);
+  padding: 0 var(--space-4);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  cursor: pointer;
+}
+.copyblock__btn:hover { background: var(--accent-dark); }
+.copyblock__btn.is-copied { background: var(--success); }
+
+/* ===== 9. KPIs (.kpi) ===== */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  margin: var(--space-4) 0;
+}
+.kpi {
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.kpi__label { display: block; font-size: var(--fs-sm); color: var(--ink-soft); margin-bottom: var(--space-2); }
+.kpi__value { display: block; font-family: var(--font-serif); font-size: clamp(1.5rem, 1.3rem + 1vw, 2.1rem); font-weight: 700; color: var(--ink); }
+.kpi__delta { display: inline-block; margin-top: var(--space-2); font-size: var(--fs-sm); font-weight: 600; padding: 2px var(--space-2); border-radius: var(--radius-full); }
+.kpi__delta--up { color: var(--success); background: var(--success-soft); }
+.kpi__delta--down { color: var(--danger); background: var(--danger-soft); }
+
+/* ===== 10. Tarjeta genérica (.card) ===== */
+.card {
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  margin: var(--space-4) 0;
+}
+.card h3 { margin-top: 0; }
+
+/* ===== 11. Tablas responsive ===== */
+.table-wrap { overflow-x: auto; margin: var(--space-4) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); }
+.table-wrap table { min-width: 480px; }
+.table-wrap th, .table-wrap td { padding: var(--space-3); text-align: left; border-bottom: 1px solid var(--line); font-size: var(--fs-sm); }
+.table-wrap thead th { background: var(--brand-green); color: #fff; position: sticky; top: 0; }
+.table-wrap tbody tr:last-child td { border-bottom: none; }
+.table-wrap tbody tr:nth-child(even) { background: var(--paper); }
+
+/* ===== 12. Barra de progreso (.progress) ===== */
+.progress { margin: var(--space-4) 0; }
+.progress__track { height: 14px; background: var(--line); border-radius: var(--radius-full); overflow: hidden; }
+.progress__fill { height: 100%; background: var(--brand-green); border-radius: var(--radius-full); transition: width .3s ease; width: 0%; }
+.progress__label { display: block; margin-top: var(--space-2); font-size: var(--fs-sm); color: var(--ink-soft); }
+
+/* ===== 13. Checklist táctil (.checklist) ===== */
+.checklist { list-style: none; padding-left: 0; margin: var(--space-4) 0; }
+.checklist li { margin-bottom: var(--space-2); }
+.checklist label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  min-height: var(--tap);
+  padding: var(--space-2) var(--space-3);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+.checklist input[type="checkbox"] { width: 24px; height: 24px; flex: 0 0 auto; accent-color: var(--brand-green); margin-top: 2px; }
+.checklist input[type="checkbox"]:checked + span { text-decoration: line-through; color: var(--ink-soft); }
+
+/* ===== 14. Etiquetas (.pill) ===== */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+.pill--success { background: var(--success-soft); color: var(--success); }
+.pill--warn { background: var(--warn-soft); color: var(--warn); }
+.pill--danger { background: var(--danger-soft); color: var(--danger); }
+.pill--info { background: var(--info-soft); color: var(--info); }
+
+/* ===== 15. Grillas responsive ===== */
+.grid-2, .grid-3 { display: grid; gap: var(--space-4); margin: var(--space-4) 0; grid-template-columns: 1fr; }
+
+/* ===== 16. Gráficos SVG/CSS hechos a mano ===== */
+/* Barras horizontales */
+.chart-bar-row { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-2); }
+.chart-bar-row__label { flex: 0 0 9rem; font-size: var(--fs-sm); color: var(--ink-soft); }
+.chart-bar-row__track { flex: 1 1 auto; height: 20px; background: var(--line); border-radius: var(--radius-full); overflow: hidden; }
+.chart-bar-row__fill { height: 100%; background: var(--accent); border-radius: var(--radius-full); }
+.chart-bar-row__value { flex: 0 0 auto; font-size: var(--fs-sm); font-weight: 700; min-width: 3.5rem; text-align: right; }
+
+/* Embudo: cada .funnel-step define su ancho con --w inline, ej. style="--w:70%" */
+.funnel { display: flex; flex-direction: column; align-items: center; gap: 2px; margin: var(--space-4) 0; }
+.funnel-step {
+  width: var(--w, 100%);
+  max-width: 100%;
+  padding: var(--space-3);
+  text-align: center;
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  background: var(--accent);
+  border-radius: var(--radius-sm);
+}
+.funnel-step:nth-child(2) { opacity: .85; }
+.funnel-step:nth-child(3) { opacity: .7; }
+.funnel-step:nth-child(4) { opacity: .55; }
+.funnel-step:nth-child(5) { opacity: .4; }
+
+/* Línea de tiempo vertical */
+.timeline { position: relative; margin: var(--space-5) 0; padding-left: var(--space-6); border-left: 3px solid var(--line-strong); }
+.timeline-item { position: relative; margin-bottom: var(--space-5); }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--space-6) - 7px);
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--brand-green);
+  border: 3px solid var(--paper);
+}
+.timeline-item__date { font-size: var(--fs-sm); font-weight: 700; color: var(--accent-dark); }
+.timeline-item__title { font-family: var(--font-serif); font-size: var(--fs-lg); margin: var(--space-1) 0; }
+
+/* ===== 17. Botones ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-5);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-base);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover { background: var(--accent-dark); }
+.btn--ghost { background: transparent; border: 2px solid var(--line-strong); color: var(--ink); }
+.btn--ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ===== 18. Media queries (mobile-first: base = ~375px) ===== */
+@media (min-width: 640px) {
+  .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .hero { padding: var(--space-8) var(--space-6); }
+}
+@media (min-width: 960px) {
+  .kpi-grid { grid-template-columns: repeat(4, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ===== 19. Impresión ===== */
+@media print {
+  .docnav, .copyblock__btn, .btn { display: none !important; }
+  body { background: #fff; color: #000; }
+  .hero { background: #fff !important; color: #000 !important; }
+  .hero h1, .hero p { color: #000 !important; }
+  .card, .callout, .kpi, .copyblock { box-shadow: none; border: 1px solid #999; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: .8em; }
+}
+
+/* ==========================================================================
+   Extensiones propias de esta página (cro.html)
+   cro.html no es una de las 6 páginas del sitio (docs/design-system.md,
+   sección 1) y no está en el menú principal — se llega por link desde el
+   plan. El bloque de arriba es el canónico intacto; lo de abajo son
+   componentes propios de esta página (calculadora, checklist con "por qué",
+   puntaje de auditoría), agregados en la misma hoja de estilos única para
+   no crear un segundo archivo CSS.
+   ========================================================================== */
+
+.hero__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-2) 0 0;
+  margin-bottom: var(--space-3);
+  color: rgba(255, 255, 255, .85);
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+.hero__back:hover { color: #fff; }
+
+.field { display: flex; flex-direction: column; gap: var(--space-2); }
+.field label { font-size: var(--fs-sm); font-weight: 600; color: var(--ink-soft); }
+.field input {
+  min-height: var(--tap);
+  padding: 0 var(--space-3);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  font-size: var(--fs-base);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  width: 100%;
+}
+.field input:focus-visible { outline: 3px solid var(--accent); outline-offset: 1px; }
+
+.calc-line { margin: 0 0 var(--space-1); font-size: var(--fs-base); }
+.calc-line strong { font-family: var(--font-serif); font-size: var(--fs-lg); }
+.calc-line--sub { color: var(--ink-faint); font-size: var(--fs-sm); margin: 0 0 var(--space-3); }
+.calc-card__tag { margin-bottom: var(--space-2); }
+
+.cro-score-row { display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap; margin-bottom: var(--space-2); }
+.cro-score-number { font-family: var(--font-serif); font-size: clamp(2.5rem, 2rem + 3vw, 4rem); font-weight: 700; line-height: 1; }
+
+.cro-stage__sub { color: var(--ink-soft); font-size: var(--fs-sm); margin-top: calc(-1 * var(--space-2)); }
+.cro-stage .checklist li { margin-bottom: var(--space-4); }
+.cro-item-why { margin: var(--space-1) 0 0; padding-left: var(--space-3); font-size: var(--fs-sm); color: var(--ink-faint); max-width: 62ch; }
+
+.cro-fix-list { padding-left: 1.3em; margin: var(--space-4) 0 0; }
+.cro-fix-list li { margin-bottom: var(--space-3); font-size: var(--fs-base); }
+.cro-fix-list li .pill { margin-left: var(--space-2); }
+
+.cro-footer { margin-top: var(--space-8); padding-top: var(--space-4); border-top: 1px solid var(--line); color: var(--ink-faint); font-size: var(--fs-sm); }
+</style>
+</head>
+<body>
+
+<nav class="docnav" aria-label="Navegación del plan">
+  <div class="docnav__inner">
+    <a href="index.html" class="docnav__link">Plan</a>
+    <a href="kit-arranque.html" class="docnav__link">Kit de arranque</a>
+    <a href="guion-reels.html" class="docnav__link">Guiones de Reels</a>
+    <a href="sop-dm.html" class="docnav__link">Manual de DM</a>
+    <a href="recursos.html" class="docnav__link">Recursos</a>
+    <a href="tablero.html" class="docnav__link">Tablero</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero__inner">
+    <a href="index.html#datos-que-faltan" class="hero__back">← Volver al plan</a>
+    <h1>Pre-diagnóstico de conversión</h1>
+    <p>Una revisión visual de las 6 etapas del camino de compra en pedrazailustracion.com, para ver dónde se están perdiendo ventas antes de tocar nada de la tienda. Esta página no está en el menú principal — se comparte por link directo desde el plan.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section class="sec">
+<h2>Dónde está Pedraza hoy</h2>
+<p>La <strong>conversión</strong> es el porcentaje de personas que visitan la tienda y terminan comprando. Es el número central de esta página: subirla, aunque sea un poco, significa más ventas con la misma cantidad de visitas — sin gastar un peso más en atraer gente nueva.</p>
+
+<div class="kpi-grid">
+  <div class="kpi">
+    <span class="kpi__label">Conversión de la tienda 🟢</span>
+    <span class="kpi__value">0,98%</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Ticket promedio 🟢</span>
+    <span class="kpi__value">$37.900</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Visitas a la tienda al día 🟢</span>
+    <span class="kpi__value">~450</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Pedidos al mes (proyectado) 🟢</span>
+    <span class="kpi__value">~140</span>
+  </div>
+</div>
+
+<p><span class="pill pill--success">🟢 dato real</span> Fuente: captura de Shopify Analytics aportada por Felipe (1-24 de julio de 2026, todos los canales) — el mismo dato que ya usa el plan en "Dónde está Pedraza hoy" y "El camino aritmético a la meta".</p>
+
+<div class="callout callout--info">
+<p><strong>Lectura honesta, sin drama.</strong> 0,98% queda por debajo del rango que el marco de esta auditoría considera sano para una tienda de venta directa: entre 1,5% y 3% <span class="pill pill--warn">🟡 benchmark, verificar fuente</span> (según el research de Baymard Institute y Shopify que cita el marco de 1337 Corp). La buena noticia: tampoco está en zona crítica (menos de 0,8%, mismo benchmark). Hay espacio grande para mejorar, sin ninguna urgencia. Subir la conversión con el mismo tráfico que ya llega es una de las palancas más grandes que tiene la tienda para acercarse a la meta de USD 10.000 al mes — el resto de esta página ayuda a encontrar por dónde empezar.</p>
+</div>
+</section>
+
+<section class="sec">
+<h2>La calculadora de impacto</h2>
+<p>Cambia cualquiera de estos 3 números y las 3 tarjetas de abajo se actualizan solas. Vienen precargadas con los datos reales de la tienda, pero puedes probar otros escenarios.</p>
+
+<div class="grid-3">
+  <div class="field">
+    <label for="calc-visitas">Visitas a la tienda al mes</label>
+    <input type="number" id="calc-visitas" inputmode="numeric" min="0" step="1" value="14000">
+  </div>
+  <div class="field">
+    <label for="calc-conversion">Conversión actual (%)</label>
+    <input type="number" id="calc-conversion" inputmode="decimal" min="0" step="0.01" value="0.98">
+  </div>
+  <div class="field">
+    <label for="calc-ticket">Ticket promedio (CLP)</label>
+    <input type="number" id="calc-ticket" inputmode="numeric" min="0" step="100" value="37900">
+  </div>
+</div>
+
+<div class="grid-3">
+  <div class="card">
+    <span class="pill calc-card__tag">HOY</span>
+    <h3>Con tu conversión actual</h3>
+    <p class="calc-line">Pedidos al mes: <strong data-calc="hoy-pedidos">137</strong></p>
+    <p class="calc-line">Ventas al mes: <strong data-calc="hoy-ventas-clp">$5.192.300 CLP</strong></p>
+    <p class="calc-line--sub" data-calc="hoy-ventas-usd">≈ US$ 5.613</p>
+    <p class="calc-line--sub">Este es el punto de partida.</p>
+  </div>
+  <div class="card">
+    <span class="pill pill--warn calc-card__tag">CONSERVADOR · 1,5%</span>
+    <h3>Si la conversión sube a 1,5%</h3>
+    <p class="calc-line">Pedidos al mes: <strong data-calc="conservador-pedidos">210</strong></p>
+    <p class="calc-line">Ventas al mes: <strong data-calc="conservador-ventas-clp">$7.959.000 CLP</strong></p>
+    <p class="calc-line--sub" data-calc="conservador-ventas-usd">≈ US$ 8.604</p>
+    <p class="calc-line">Mejora vs. hoy: <strong data-calc="conservador-mejora">+53%</strong></p>
+  </div>
+  <div class="card" style="border-color: var(--success);">
+    <span class="pill pill--success calc-card__tag">ÓPTIMO · 2,0%</span>
+    <h3>Si la conversión sube a 2,0%</h3>
+    <p class="calc-line">Pedidos al mes: <strong data-calc="optimo-pedidos">280</strong></p>
+    <p class="calc-line">Ventas al mes: <strong data-calc="optimo-ventas-clp">$10.612.000 CLP</strong></p>
+    <p class="calc-line--sub" data-calc="optimo-ventas-usd">≈ US$ 11.472</p>
+    <p class="calc-line">Mejora vs. hoy: <strong data-calc="optimo-mejora">+104%</strong></p>
+  </div>
+</div>
+
+<div class="callout callout--success">
+<p><strong>Con las cifras de referencia de arriba:</strong> pasar la conversión de 0,98% a 1,5% (escenario conservador) ya significa cerca de +53% más ventas, sin necesitar ni una visita adicional. Subir a ~1,7% acerca la venta mensual a la meta de USD 10.000 al mes — el escenario óptimo (2,0%) la deja por sobre esa meta.</p>
+</div>
+</section>
+
+<section class="sec">
+<h2>La auditoría de las 6 etapas</h2>
+<p>Seis etapas del camino de compra, cada una con su propio checklist. Cada punto tiene una prioridad: <span class="pill pill--danger">alta</span> vale 3 puntos, <span class="pill pill--warn">media</span> vale 2 y <span class="pill pill--info">baja</span> vale 1. Marca lo que ya cumple la tienda — el puntaje de arriba y el de cada etapa se actualizan solos, y quedan guardados en este navegador para la próxima visita.</p>
+
+<div class="card">
+<div class="cro-score-row">
+  <span class="cro-score-number" id="cro-score-number">0</span>
+  <span class="pill pill--danger" id="cro-score-level">Base — mucho por ganar</span>
+</div>
+<div class="progress">
+  <div class="progress__track"><div class="progress__fill" id="cro-score-fill"></div></div>
+  <span class="progress__label" id="cro-score-label">0 de 137 puntos marcados (0%)</span>
+</div>
+</div>
+
+<div class="card">
+<h3>Corrige esto primero</h3>
+<p>Los puntos sin marcar que más pesan en el puntaje total, ordenados de mayor a menor peso. Esta lista se actualiza sola a medida que marcas la auditoría.</p>
+<ol class="cro-fix-list" id="cro-fix-first-list"></ol>
+<p id="cro-fix-first-vacio" style="display:none;">🎉 No queda nada de alta prioridad sin marcar. Sigue revisando el resto de la auditoría para seguir subiendo el puntaje.</p>
+</div>
+
+<div class="card cro-stage" id="etapa-inicio">
+<h3>🏠 Página de inicio</h3>
+<p class="cro-stage__sub">La primera impresión: aquí se decide si alguien se queda a mirar o se va.</p>
+<div class="progress">
+  <div class="progress__track"><div class="progress__fill" data-stage-fill="inicio"></div></div>
+  <span class="progress__label" data-stage-label="inicio">0 de 28 puntos (0%)</span>
+</div>
+<ul class="checklist">
+<li><label><input type="checkbox" data-cro="inicio-propuesta-valor" data-weight="3" data-stage="inicio" data-texto="Propuesta de valor visible sin bajar"><span>Propuesta de valor visible sin bajar <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: si en los primeros segundos no se entiende qué vende la tienda, la persona se va antes de mirar el resto.</p></li>
+<li><label><input type="checkbox" data-cro="inicio-foto-boton-unico" data-weight="3" data-stage="inicio" data-texto="Foto o video principal con un solo botón claro"><span>Foto o video principal con un solo botón claro <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: mientras más botones compiten arriba, menos clics recibe cada uno.</p></li>
+<li><label><input type="checkbox" data-cro="inicio-menu-simple" data-weight="3" data-stage="inicio" data-texto="Menú simple, de 4 a 8 opciones"><span>Menú simple, de 4 a 8 opciones <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: un menú con demasiadas opciones hace dudar en vez de guiar.</p></li>
+<li><label><input type="checkbox" data-cro="inicio-buscador-visible" data-weight="3" data-stage="inicio" data-texto="Buscador visible"><span>Buscador visible <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: quien ya sabe lo que busca no debería tener que navegar para encontrarlo.</p></li>
+<li><label><input type="checkbox" data-cro="inicio-resenas-vista" data-weight="3" data-stage="inicio" data-texto="Reseñas o testimonios a la vista"><span>Reseñas o testimonios a la vista <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: ver que otras personas ya compraron y quedaron contentas baja la desconfianza inicial.</p></li>
+<li><label><input type="checkbox" data-cro="inicio-carga-rapida" data-weight="3" data-stage="inicio" data-texto="Carga rápida en el celular"><span>Carga rápida en el celular <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: la mayoría entra desde el celular; una página lenta pierde visitas antes de mostrar nada.</p></li>
+<li><label><input type="checkbox" data-cro="inicio-colecciones-destacadas" data-weight="2" data-stage="inicio" data-texto="Colecciones destacadas"><span>Colecciones destacadas <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: ayuda a decidir por dónde partir sin tener que explorar todo el catálogo.</p></li>
+<li><label><input type="checkbox" data-cro="inicio-mas-vendidos" data-weight="2" data-stage="inicio" data-texto="Más vendidos destacados"><span>Más vendidos destacados <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: mostrar lo que otras personas ya eligieron ayuda a decidir más rápido.</p></li>
+<li><label><input type="checkbox" data-cro="inicio-senales-confianza" data-weight="2" data-stage="inicio" data-texto="Señales de confianza: envío gratis sobre $50.000, pago seguro, cambios"><span>Señales de confianza: envío gratis sobre $50.000, pago seguro, cambios <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: son los datos que reducen la duda de comprar en un sitio que recién se conoce.</p></li>
+<li><label><input type="checkbox" data-cro="inicio-captura-correo" data-weight="2" data-stage="inicio" data-texto="Captura de correo"><span>Captura de correo <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: quien no compra hoy puede volver mañana si dejó su correo.</p></li>
+<li><label><input type="checkbox" data-cro="inicio-mobile-first" data-weight="2" data-stage="inicio" data-texto="Diseño pensado primero para el celular"><span>Diseño pensado primero para el celular <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: un sitio diseñado primero para el computador se siente incómodo en el celular, aunque "funcione".</p></li>
+</ul>
+</div>
+
+<div class="card cro-stage" id="etapa-coleccion">
+<h3>🗂️ Página de colección</h3>
+<p class="cro-stage__sub">La vitrina: aquí decide si sigue explorando o abre un producto.</p>
+<div class="progress">
+  <div class="progress__track"><div class="progress__fill" data-stage-fill="coleccion"></div></div>
+  <span class="progress__label" data-stage-label="coleccion">0 de 25 puntos (0%)</span>
+</div>
+<ul class="checklist">
+<li><label><input type="checkbox" data-cro="coleccion-titulo-productos-visibles" data-weight="3" data-stage="coleccion" data-texto="Título de la colección y productos visibles al llegar"><span>Título de la colección y productos visibles al llegar <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: confirma que la persona llegó al lugar correcto, sin tener que adivinar.</p></li>
+<li><label><input type="checkbox" data-cro="coleccion-filtros-utiles" data-weight="3" data-stage="coleccion" data-texto="Filtros útiles"><span>Filtros útiles <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: sin filtros, encontrar un producto puntual entre muchos se vuelve una tarea larga.</p></li>
+<li><label><input type="checkbox" data-cro="coleccion-tarjetas-completas" data-weight="3" data-stage="coleccion" data-texto="Tarjetas de producto con foto, nombre y precio"><span>Tarjetas de producto con foto, nombre y precio <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: son los tres datos mínimos para decidir si vale la pena entrar a mirar más.</p></li>
+<li><label><input type="checkbox" data-cro="coleccion-opciones-ordenar" data-weight="2" data-stage="coleccion" data-texto="Opciones para ordenar los productos"><span>Opciones para ordenar los productos <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: ordenar por precio o novedad ayuda a encontrar algo más rápido que revisar todo uno por uno.</p></li>
+<li><label><input type="checkbox" data-cro="coleccion-orden-mas-vendidos-defecto" data-weight="2" data-stage="coleccion" data-texto="Orden por más vendidos, por defecto"><span>Orden por más vendidos, por defecto <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: mostrar primero lo que ya funciona ayuda a decidir con menos esfuerzo.</p></li>
+<li><label><input type="checkbox" data-cro="coleccion-quitar-filtros-facil" data-weight="2" data-stage="coleccion" data-texto="Filtros aplicados, fáciles de quitar"><span>Filtros aplicados, fáciles de quitar <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: si es difícil sacar un filtro, la persona se queda atascada en una vista muy acotada.</p></li>
+<li><label><input type="checkbox" data-cro="coleccion-descripcion" data-weight="2" data-stage="coleccion" data-texto="Descripción de la colección"><span>Descripción de la colección <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: da contexto de qué reúne esa colección y por qué puede interesarle.</p></li>
+<li><label><input type="checkbox" data-cro="coleccion-etiquetas-estado" data-weight="2" data-stage="coleccion" data-texto="Etiquetas de oferta, nuevo o agotado"><span>Etiquetas de oferta, nuevo o agotado <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: evita la frustración de elegir algo que después resulta no estar disponible.</p></li>
+<li><label><input type="checkbox" data-cro="coleccion-anadir-desde-lista" data-weight="2" data-stage="coleccion" data-texto="Añadir al carrito directo desde la lista"><span>Añadir al carrito directo desde la lista <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: ahorra el paso de entrar a cada ficha para productos que ya se conocen.</p></li>
+<li><label><input type="checkbox" data-cro="coleccion-carga-rapida-grid" data-weight="2" data-stage="coleccion" data-texto="Carga rápida de la lista de productos en el celular"><span>Carga rápida de la lista de productos en el celular <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: una lista lenta en el celular hace que la persona cierre antes de ver todo.</p></li>
+<li><label><input type="checkbox" data-cro="coleccion-fotos-consistentes" data-weight="1" data-stage="coleccion" data-texto="Fotos de producto consistentes entre sí"><span>Fotos de producto consistentes entre sí <span class="pill pill--info">baja</span></span></label><p class="cro-item-why">Por qué: fotos parejas dan una sensación de catálogo prolijo y confiable.</p></li>
+<li><label><input type="checkbox" data-cro="coleccion-productos-por-pagina" data-weight="1" data-stage="coleccion" data-texto="Entre 24 y 48 productos por página"><span>Entre 24 y 48 productos por página <span class="pill pill--info">baja</span></span></label><p class="cro-item-why">Por qué: ni tan pocos que obligan a cambiar de página todo el rato, ni tantos que la página carga lento.</p></li>
+</ul>
+</div>
+
+<div class="card cro-stage" id="etapa-ficha">
+<h3>📦 Ficha de producto</h3>
+<p class="cro-stage__sub">El momento de la decisión: aquí se juega si agrega al carrito o no.</p>
+<div class="progress">
+  <div class="progress__track"><div class="progress__fill" data-stage-fill="ficha"></div></div>
+  <span class="progress__label" data-stage-label="ficha">0 de 24 puntos (0%)</span>
+</div>
+<ul class="checklist">
+<li><label><input type="checkbox" data-cro="ficha-boton-dominante" data-weight="3" data-stage="ficha" data-texto="Botón &quot;Añadir al carrito&quot; dominante"><span>Botón "Añadir al carrito" dominante <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: es la acción más importante de toda la página; tiene que ser imposible no verla.</p></li>
+<li><label><input type="checkbox" data-cro="ficha-galeria-zoom" data-weight="3" data-stage="ficha" data-texto="Galería con 6 o más fotos, con zoom"><span>Galería con 6 o más fotos, con zoom <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: sin poder tocar el producto, las fotos son la única forma de generar confianza.</p></li>
+<li><label><input type="checkbox" data-cro="ficha-resenas-visibles" data-weight="3" data-stage="ficha" data-texto="Reseñas con estrellas arriba, no escondidas en pestañas"><span>Reseñas con estrellas arriba, no escondidas en pestañas <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: si hay que buscarlas, la mayoría nunca las ve.</p></li>
+<li><label><input type="checkbox" data-cro="ficha-mobile-sin-bajar" data-weight="3" data-stage="ficha" data-texto="En celular: foto, nombre, precio y botón, sin tener que bajar"><span>En celular: foto, nombre, precio y botón, sin tener que bajar <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: son los datos que definen si la persona sigue mirando o cierra la página.</p></li>
+<li><label><input type="checkbox" data-cro="ficha-descripcion-beneficios" data-weight="2" data-stage="ficha" data-texto="Descripción de beneficios, no solo características"><span>Descripción de beneficios, no solo características <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: "hecho a mano" convence más que "papel Hahnemühle" si no se explica por qué importa.</p></li>
+<li><label><input type="checkbox" data-cro="ficha-variantes-claras" data-weight="2" data-stage="ficha" data-texto="Variantes claras que cambian la foto"><span>Variantes claras que cambian la foto <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: evita comprar el color o modelo equivocado por no verlo bien.</p></li>
+<li><label><input type="checkbox" data-cro="ficha-info-cerca-precio" data-weight="2" data-stage="ficha" data-texto="Envío, cambios y garantía cerca del precio"><span>Envío, cambios y garantía cerca del precio <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: son las dudas típicas justo antes de decidir comprar.</p></li>
+<li><label><input type="checkbox" data-cro="ficha-sellos-confianza" data-weight="2" data-stage="ficha" data-texto="Sellos de confianza junto al botón"><span>Sellos de confianza junto al botón <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: refuerzan la decisión justo en el momento en que se toma.</p></li>
+<li><label><input type="checkbox" data-cro="ficha-urgencia-honesta" data-weight="2" data-stage="ficha" data-texto="Urgencia honesta si queda poco stock"><span>Urgencia honesta si queda poco stock <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: avisar que queda poco ayuda a decidir ahora, siempre que sea verdad.</p></li>
+<li><label><input type="checkbox" data-cro="ficha-precio-descuento-claro" data-weight="2" data-stage="ficha" data-texto="Precio y descuento claros"><span>Precio y descuento claros <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: un precio confuso genera duda justo antes de comprar.</p></li>
+</ul>
+<div class="callout callout--info">
+<p><strong>Activo único de Pedraza.</strong> La ficha de producto ya trae algo que casi ninguna tienda de decoración tiene: el nombre común y el nombre científico de cada especie. Al revisar esta etapa, no evalúes solo el checklist general — fíjate en que ese dato se vea bien (no quede escondido) y que tampoco estorbe para leer rápido el producto.</p>
+</div>
+</div>
+
+<div class="card cro-stage" id="etapa-carrito">
+<h3>🛒 Carrito</h3>
+<p class="cro-stage__sub">El último empujón antes de pagar.</p>
+<div class="progress">
+  <div class="progress__track"><div class="progress__fill" data-stage-fill="carrito"></div></div>
+  <span class="progress__label" data-stage-label="carrito">0 de 21 puntos (0%)</span>
+</div>
+<ul class="checklist">
+<li><label><input type="checkbox" data-cro="carrito-lateral-sin-recargar" data-weight="3" data-stage="carrito" data-texto="Carrito lateral, sin recargar la página"><span>Carrito lateral, sin recargar la página <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: recargar la página es un paso extra que puede hacer perder a quien ya decidió comprar.</p></li>
+<li><label><input type="checkbox" data-cro="carrito-barra-envio-gratis" data-weight="3" data-stage="carrito" data-texto="Barra de avance hacia el envío gratis de $50.000"><span>Barra de avance hacia el envío gratis de $50.000 <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: para Pedraza este umbral ya existe; mostrarlo empuja a agregar un producto más para alcanzarlo.</p></li>
+<li><label><input type="checkbox" data-cro="carrito-sugeridos-1-2" data-weight="3" data-stage="carrito" data-texto="1 o 2 productos sugeridos, no más"><span>1 o 2 productos sugeridos, no más <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: demasiadas sugerencias distraen justo antes de pagar.</p></li>
+<li><label><input type="checkbox" data-cro="carrito-boton-finalizar-visible" data-weight="3" data-stage="carrito" data-texto="Botón &quot;Finalizar compra&quot; siempre visible"><span>Botón "Finalizar compra" siempre visible <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: si hay que buscarlo, se pierde el impulso de compra.</p></li>
+<li><label><input type="checkbox" data-cro="carrito-editar-cantidades" data-weight="2" data-stage="carrito" data-texto="Editar cantidades sin salir del carrito"><span>Editar cantidades sin salir del carrito <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: tener que salir del carrito para cambiar una cantidad es fricción innecesaria.</p></li>
+<li><label><input type="checkbox" data-cro="carrito-sugerencias-relevantes" data-weight="2" data-stage="carrito" data-texto="Sugerencias relevantes a lo que ya está en el carrito"><span>Sugerencias relevantes a lo que ya está en el carrito <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: una sugerencia que no tiene sentido con lo que ya hay en el carrito no suma venta, solo ruido.</p></li>
+<li><label><input type="checkbox" data-cro="carrito-costos-claros" data-weight="2" data-stage="carrito" data-texto="Costos claros antes de pasar al checkout"><span>Costos claros antes de pasar al checkout <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: una sorpresa de costo al final es la razón número uno para abandonar el carrito.</p></li>
+<li><label><input type="checkbox" data-cro="carrito-sellos-pago" data-weight="1" data-stage="carrito" data-texto="Sellos de pago visibles"><span>Sellos de pago visibles <span class="pill pill--info">baja</span></span></label><p class="cro-item-why">Por qué: suman una señal más de confianza, sin ser decisivos por sí solos.</p></li>
+<li><label><input type="checkbox" data-cro="carrito-regalo-por-monto" data-weight="1" data-stage="carrito" data-texto="Regalo por monto de compra"><span>Regalo por monto de compra <span class="pill pill--info">baja</span></span></label><p class="cro-item-why">Por qué: puede empujar el ticket promedio hacia arriba con poco esfuerzo.</p></li>
+<li><label><input type="checkbox" data-cro="carrito-nota-envolver" data-weight="1" data-stage="carrito" data-texto="Nota de pedido o envolver para regalo"><span>Nota de pedido o envolver para regalo <span class="pill pill--info">baja</span></span></label><p class="cro-item-why">Por qué: calza directo con una marca que se compra para regalar.</p></li>
+</ul>
+</div>
+
+<div class="card cro-stage" id="etapa-checkout">
+<h3>💳 Checkout</h3>
+<p class="cro-stage__sub">El proceso de pago, los últimos pasos antes de pagar — el paso más frágil: cualquier fricción de más puede perder la venta.</p>
+<div class="progress">
+  <div class="progress__track"><div class="progress__fill" data-stage-fill="checkout"></div></div>
+  <span class="progress__label" data-stage-label="checkout">0 de 23 puntos (0%)</span>
+</div>
+<ul class="checklist">
+<li><label><input type="checkbox" data-cro="checkout-sin-cuenta" data-weight="3" data-stage="checkout" data-texto="Comprar sin crear una cuenta"><span>Comprar sin crear una cuenta <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: pedir una cuenta antes de pagar es una de las razones más comunes para abandonar la compra.</p></li>
+<li><label><input type="checkbox" data-cro="checkout-pagos-expres" data-weight="3" data-stage="checkout" data-texto="Pagos exprés tipo Shop Pay o billeteras digitales"><span>Pagos exprés tipo Shop Pay o billeteras digitales <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: pagar en un clic, sin escribir la tarjeta de nuevo, reduce el abandono en el paso final.</p></li>
+<li><label><input type="checkbox" data-cro="checkout-envio-visible-temprano" data-weight="3" data-stage="checkout" data-texto="Costo de envío visible desde temprano"><span>Costo de envío visible desde temprano <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: si el envío aparece recién al final, se siente como una sorpresa desagradable.</p></li>
+<li><label><input type="checkbox" data-cro="checkout-formulario-corto" data-weight="3" data-stage="checkout" data-texto="Formulario corto, de 7 a 8 campos"><span>Formulario corto, de 7 a 8 campos <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: cada campo de más es una oportunidad para que la persona se rinda antes de terminar.</p></li>
+<li><label><input type="checkbox" data-cro="checkout-impecable-celular" data-weight="3" data-stage="checkout" data-texto="Impecable en el celular"><span>Impecable en el celular <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: si el pago es el paso final, no puede ser el momento donde el sitio falla.</p></li>
+<li><label><input type="checkbox" data-cro="checkout-barra-pasos" data-weight="2" data-stage="checkout" data-texto="Barra que muestra los pasos del checkout"><span>Barra que muestra los pasos del checkout <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: saber cuánto falta para terminar reduce la ansiedad de completar un formulario largo.</p></li>
+<li><label><input type="checkbox" data-cro="checkout-senales-seguridad" data-weight="2" data-stage="checkout" data-texto="Señales de seguridad visibles"><span>Señales de seguridad visibles <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: es el momento donde se pide más información sensible; conviene reforzar la confianza ahí.</p></li>
+<li><label><input type="checkbox" data-cro="checkout-autocompletar-direccion" data-weight="2" data-stage="checkout" data-texto="Autocompletar la dirección"><span>Autocompletar la dirección <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: escribir la dirección a mano en el celular es lento y con errores.</p></li>
+<li><label><input type="checkbox" data-cro="checkout-metodos-pago-chile" data-weight="2" data-stage="checkout" data-texto="Métodos de pago que usa la gente en Chile"><span>Métodos de pago que usa la gente en Chile <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: si falta el medio de pago habitual de alguien, esa venta se pierde en el último paso.</p></li>
+</ul>
+</div>
+
+<div class="card cro-stage" id="etapa-gracias">
+<h3>🎉 Página de gracias</h3>
+<p class="cro-stage__sub">La compra ya está hecha — aquí empieza la próxima.</p>
+<div class="progress">
+  <div class="progress__track"><div class="progress__fill" data-stage-fill="gracias"></div></div>
+  <span class="progress__label" data-stage-label="gracias">0 de 16 puntos (0%)</span>
+</div>
+<ul class="checklist">
+<li><label><input type="checkbox" data-cro="gracias-confirmacion-clara" data-weight="3" data-stage="gracias" data-texto="Confirmación clara del pedido"><span>Confirmación clara del pedido <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: confirma que la compra sí se hizo, y evita mensajes de duda o reclamos innecesarios.</p></li>
+<li><label><input type="checkbox" data-cro="gracias-oferta-post-compra" data-weight="3" data-stage="gracias" data-texto="Oferta post-compra en 1 clic"><span>Oferta post-compra en 1 clic (un upsell: una oferta extra que aparece justo después de pagar) <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: es el momento de mayor confianza con la marca; sumar un producto más ahí es fácil y barato.</p></li>
+<li><label><input type="checkbox" data-cro="gracias-seguimiento-pedido" data-weight="2" data-stage="gracias" data-texto="Seguimiento del pedido"><span>Seguimiento del pedido <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: saber cuándo llega el pedido reduce la ansiedad después de pagar.</p></li>
+<li><label><input type="checkbox" data-cro="gracias-descuento-segunda-compra" data-weight="2" data-stage="gracias" data-texto="Descuento para la segunda compra"><span>Descuento para la segunda compra <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: siembra la próxima venta mientras la marca todavía está fresca en la memoria.</p></li>
+<li><label><input type="checkbox" data-cro="gracias-invitacion-comunidad" data-weight="2" data-stage="gracias" data-texto="Invitación al correo o a seguir en Instagram"><span>Invitación al correo o a seguir en Instagram <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: es la forma de seguir en contacto con alguien que ya demostró que confía en la marca.</p></li>
+<li><label><input type="checkbox" data-cro="gracias-productos-relacionados" data-weight="2" data-stage="gracias" data-texto="Productos relacionados"><span>Productos relacionados <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: alguien que compró para regalar puede necesitar otro regalo pronto.</p></li>
+<li><label><input type="checkbox" data-cro="gracias-saludo-nombre" data-weight="1" data-stage="gracias" data-texto="Saludo con el nombre de la persona"><span>Saludo con el nombre de la persona <span class="pill pill--info">baja</span></span></label><p class="cro-item-why">Por qué: un detalle pequeño que hace sentir la compra más personal.</p></li>
+<li><label><input type="checkbox" data-cro="gracias-contacto-a-mano" data-weight="1" data-stage="gracias" data-texto="Contacto a mano por si algo sale mal"><span>Contacto a mano por si algo sale mal <span class="pill pill--info">baja</span></span></label><p class="cro-item-why">Por qué: si algo sale mal con el pedido, encontrar cómo escribir tiene que ser fácil.</p></li>
+</ul>
+</div>
+</section>
+
+<section class="sec">
+<h2>Cómo usar esta auditoría (y cuándo)</h2>
+<p>No todas las etapas se pueden revisar hoy. Las primeras 3 se marcan navegando la tienda como cualquier persona; las últimas 3 necesitan simular una compra real, y eso recién es posible después de la reunión del lunes 27 y la entrega de accesos.</p>
+
+<div class="timeline">
+  <div class="timeline-item">
+    <div class="timeline-item__date">Desde ahora — sábado 25 de julio de 2026</div>
+    <div class="timeline-item__title">Hoy, sin necesitar accesos</div>
+    <p>Entra a pedrazailustracion.com desde el celular, como si fueras a comprar un regalo. Con eso ya se puede marcar completo: <a href="#etapa-inicio">🏠 Página de inicio</a>, <a href="#etapa-coleccion">🗂️ Página de colección</a> y <a href="#etapa-ficha">📦 Ficha de producto</a>.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">Desde el lunes 27 de julio de 2026, 10:00 (hora de Chile)</div>
+    <div class="timeline-item__title">Después de la reunión, con accesos</div>
+    <p>Con los accesos entregados en esa reunión, se simula una compra de prueba real (agregar productos, avanzar hasta el pago) para marcar <a href="#etapa-carrito">🛒 Carrito</a>, <a href="#etapa-checkout">💳 Checkout</a> y <a href="#etapa-gracias">🎉 Página de gracias</a>. Con acceso al panel de administración de Shopify, ese es también el momento de revisar velocidad de carga y configuración general de la tienda.</p>
+  </div>
+</div>
+
+<footer class="cro-footer">
+  <p>Marco de auditoría adaptado del proceso de 1337 Corp, basado en research de Baymard Institute y Shopify.</p>
+</footer>
+</section>
+
+</main>
+
+<script>
+  // Acceso seguro a localStorage (no revienta en navegación privada u otros bloqueos).
+  function pgGet(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+  function pgSet(key, valor) { try { localStorage.setItem(key, valor); } catch (e) { /* sin soporte, se ignora */ } }
+  function pgRemove(key) { try { localStorage.removeItem(key); } catch (e) { /* sin soporte, se ignora */ } }
+</script>
+
+<script>
+  // ===== Auditoría de las 6 etapas: checklist con puntaje ponderado =====
+
+  var CRO_LEVELS = [
+    { min: 85, label: 'Excelente — lista para escalar', cls: 'pill--success' },
+    { min: 65, label: 'Buena — pulir detalles', cls: 'pill--info' },
+    { min: 40, label: 'En camino — hay oportunidad', cls: 'pill--warn' },
+    { min: 0,  label: 'Base — mucho por ganar', cls: 'pill--danger' }
+  ];
+
+  var ETAPA_NOMBRES = {
+    inicio: 'Inicio',
+    coleccion: 'Colección',
+    ficha: 'Ficha de producto',
+    carrito: 'Carrito',
+    checkout: 'Checkout',
+    gracias: 'Gracias'
+  };
+
+  var PESO_A_TEXTO = { 3: 'alta', 2: 'media', 1: 'baja' };
+  var PESO_A_PILL = { 3: 'pill--danger', 2: 'pill--warn', 1: 'pill--info' };
+
+  function nivelPorScore(pct) {
+    for (var i = 0; i < CRO_LEVELS.length; i++) {
+      if (pct >= CRO_LEVELS[i].min) return CRO_LEVELS[i];
+    }
+    return CRO_LEVELS[CRO_LEVELS.length - 1];
+  }
+
+  function escapeHtml(str) {
+    var div = document.createElement('div');
+    div.textContent = str || '';
+    return div.innerHTML;
+  }
+
+  function cargarChecklistCro() {
+    document.querySelectorAll('[data-cro]').forEach(function (cb) {
+      cb.checked = pgGet('pedraza-plan:cro:' + cb.getAttribute('data-cro')) === '1';
+    });
+    actualizarAuditoria();
+  }
+
+  // Delegación: un solo listener de cambio para toda la auditoría.
+  document.addEventListener('change', function (e) {
+    var cb = e.target.closest('[data-cro]');
+    if (!cb) return;
+    var key = 'pedraza-plan:cro:' + cb.getAttribute('data-cro');
+    if (cb.checked) { pgSet(key, '1'); } else { pgRemove(key); }
+    actualizarAuditoria();
+  });
+
+  function actualizarAuditoria() {
+    var items = Array.prototype.slice.call(document.querySelectorAll('[data-cro]'));
+
+    // Puntaje total 0-100
+    var totalPeso = 0, hechoPeso = 0;
+    items.forEach(function (cb) {
+      var w = parseInt(cb.getAttribute('data-weight'), 10) || 0;
+      totalPeso += w;
+      if (cb.checked) hechoPeso += w;
+    });
+    var pct = totalPeso ? Math.round((hechoPeso / totalPeso) * 100) : 0;
+    var nivel = nivelPorScore(pct);
+
+    var scoreNumberEl = document.getElementById('cro-score-number');
+    var scoreLevelEl = document.getElementById('cro-score-level');
+    var scoreFillEl = document.getElementById('cro-score-fill');
+    var scoreLabelEl = document.getElementById('cro-score-label');
+    if (scoreNumberEl) scoreNumberEl.textContent = pct;
+    if (scoreLevelEl) { scoreLevelEl.textContent = nivel.label; scoreLevelEl.className = 'pill ' + nivel.cls; }
+    if (scoreFillEl) scoreFillEl.style.width = pct + '%';
+    if (scoreLabelEl) scoreLabelEl.textContent = hechoPeso + ' de ' + totalPeso + ' puntos marcados (' + pct + '%)';
+
+    // Puntaje por etapa
+    var etapas = {};
+    items.forEach(function (cb) {
+      var etapa = cb.getAttribute('data-stage');
+      var w = parseInt(cb.getAttribute('data-weight'), 10) || 0;
+      if (!etapas[etapa]) etapas[etapa] = { total: 0, hecho: 0 };
+      etapas[etapa].total += w;
+      if (cb.checked) etapas[etapa].hecho += w;
+    });
+    Object.keys(etapas).forEach(function (etapa) {
+      var e = etapas[etapa];
+      var p = e.total ? Math.round((e.hecho / e.total) * 100) : 0;
+      var fill = document.querySelector('[data-stage-fill="' + etapa + '"]');
+      var label = document.querySelector('[data-stage-label="' + etapa + '"]');
+      if (fill) fill.style.width = p + '%';
+      if (label) label.textContent = e.hecho + ' de ' + e.total + ' puntos (' + p + '%)';
+    });
+
+    // Corrige esto primero: los 6 ítems sin marcar de mayor peso
+    var pendientes = items.filter(function (cb) { return !cb.checked; });
+    pendientes.sort(function (a, b) {
+      return (parseInt(b.getAttribute('data-weight'), 10) || 0) - (parseInt(a.getAttribute('data-weight'), 10) || 0);
+    });
+    var top6 = pendientes.slice(0, 6);
+    var listaEl = document.getElementById('cro-fix-first-list');
+    var vacioEl = document.getElementById('cro-fix-first-vacio');
+    if (listaEl) {
+      listaEl.innerHTML = '';
+      top6.forEach(function (cb) {
+        var w = parseInt(cb.getAttribute('data-weight'), 10) || 0;
+        var etapaNombre = ETAPA_NOMBRES[cb.getAttribute('data-stage')] || cb.getAttribute('data-stage');
+        var li = document.createElement('li');
+        li.innerHTML = '<strong>' + escapeHtml(cb.getAttribute('data-texto')) + '</strong> ' +
+          '<span class="pill ' + PESO_A_PILL[w] + '">' + PESO_A_TEXTO[w] + '</span> ' +
+          '<span class="pill">' + escapeHtml(etapaNombre) + '</span>';
+        listaEl.appendChild(li);
+      });
+      listaEl.style.display = top6.length ? '' : 'none';
+    }
+    if (vacioEl) vacioEl.style.display = top6.length ? 'none' : '';
+  }
+
+  // ===== Calculadora de impacto =====
+
+  function formatMiles(n) {
+    try { return Math.round(n).toLocaleString('es-CL'); } catch (e) { return String(Math.round(n)); }
+  }
+
+  function pintarCampo(id, valor) {
+    var el = document.querySelector('[data-calc="' + id + '"]');
+    if (el) el.textContent = valor;
+  }
+
+  function calcularEscenarios() {
+    var visitasEl = document.getElementById('calc-visitas');
+    var conversionEl = document.getElementById('calc-conversion');
+    var ticketEl = document.getElementById('calc-ticket');
+    if (!visitasEl || !conversionEl || !ticketEl) return;
+
+    var visitas = parseFloat(visitasEl.value);
+    var conversionHoy = parseFloat(conversionEl.value);
+    var ticket = parseFloat(ticketEl.value);
+
+    var valido = !isNaN(visitas) && !isNaN(conversionHoy) && !isNaN(ticket) &&
+      visitas >= 0 && conversionHoy >= 0 && ticket >= 0;
+
+    var escenarios = [
+      { id: 'hoy', conv: conversionHoy },
+      { id: 'conservador', conv: 1.5 },
+      { id: 'optimo', conv: 2.0 }
+    ];
+
+    if (!valido) {
+      escenarios.forEach(function (esc) {
+        pintarCampo(esc.id + '-pedidos', '—');
+        pintarCampo(esc.id + '-ventas-clp', '—');
+        pintarCampo(esc.id + '-ventas-usd', '—');
+        pintarCampo(esc.id + '-mejora', '—');
+      });
+      return;
+    }
+
+    var pedidosHoy = Math.round(visitas * (conversionHoy / 100));
+    var ventasHoy = pedidosHoy * ticket;
+
+    escenarios.forEach(function (esc) {
+      var pedidos = Math.round(visitas * (esc.conv / 100));
+      var ventas = pedidos * ticket;
+      var ventasUsd = Math.round(ventas / 925);
+
+      pintarCampo(esc.id + '-pedidos', formatMiles(pedidos));
+      pintarCampo(esc.id + '-ventas-clp', '$' + formatMiles(ventas) + ' CLP');
+      pintarCampo(esc.id + '-ventas-usd', '≈ US$ ' + formatMiles(ventasUsd));
+
+      if (esc.id !== 'hoy') {
+        var mejora = (ventasHoy > 0) ? Math.round(((ventas - ventasHoy) / ventasHoy) * 100) : null;
+        pintarCampo(esc.id + '-mejora', (mejora === null) ? '—' : (mejora >= 0 ? '+' : '') + mejora + '%');
+      }
+    });
+  }
+
+  document.addEventListener('input', function (e) {
+    if (e.target && (e.target.id === 'calc-visitas' || e.target.id === 'calc-conversion' || e.target.id === 'calc-ticket')) {
+      calcularEscenarios();
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    cargarChecklistCro();
+    calcularEscenarios();
+  });
+</script>
+</body>
+</html>
