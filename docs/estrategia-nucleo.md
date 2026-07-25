@@ -24,11 +24,13 @@ Fase 1 del plan de crecimiento en Instagram para escalar la tienda de Pedraza Il
 - 🟢 **La cuenta ya tiene una audiencia grande: 62.500 seguidores confirmados.** Dato confirmado por el operador (jul-2026). Lectura estratégica: el plan corre con **dos motores a la vez**, no uno en lugar del otro (de acuerdo con Felipe, cliente, jul-2026). Motor 1 — **activar la base que ya existe**: Stories diarias y venta directa a quien ya sigue, porque con 62.500 personas activarlas pesa más que en una cuenta chica. Motor 2 — **salir a buscar audiencia nueva**: Reels, la sub-línea "conciencia 1" (ver sección 5) y todo lo que genera compartidos, para que gente que todavía no sigue la cuenta descubra la marca. No son excluyentes: el mismo calendario semanal (sección 6) alimenta a los dos motores al mismo tiempo — más abajo se explica cuál contenido empuja cuál motor.
 - 🟢 **Ya se sabe quién responde los mensajes: Cote es María José.** Confirmado por el operador (jul-2026) — es ella quien contesta hoy los mensajes directos y correos detrás de cote@pedrazailustracion.com. Ver sección 9 para la implicancia práctica en los roles del equipo.
 - 🟢 **Envío gratis: umbral confirmado en $50.000 CLP.** Confirmado por Felipe (cliente, jul-2026) — el $30.000 CLP que aparecía en una ficha de producto era una versión cacheada (una copia vieja guardada por el navegador) del sitio, no el dato real. Deja de ser una brecha: se puede comunicar el umbral con confianza en cualquier pieza de contenido.
+- 🟢 **La tienda ya crece sola.** En el período 1-24 de julio de 2026, ventas y pedidos subieron frente al período anterior: ventas +32% y pedidos +34% (captura de Shopify, Felipe, jul-2026). Este plan no parte de un negocio estancado — parte de uno que ya está tomando vuelo, y el trabajo en Instagram se suma a ese impulso, no lo reemplaza.
+- 🟢 **El ticket promedio ya es un dato real, no una referencia de memoria: AOV ≈ $37.900 CLP.** Confirmado con la captura de Shopify (Felipe, 1-24 jul-2026, todos los canales). Reemplaza la referencia de memoria del operador (~$60.000 CLP) que se usaba antes. Ver sección 2 para el detalle en el avatar.
+- 🟢 **La conversión también es un dato conocido: 0,98% de las visitas a la tienda termina en compra** (captura de Shopify, Felipe, jul-2026). 🟡 Es un punto de partida razonable para recién estar mirando el dato con detalle — sin comparar contra ninguna cifra externa. Es, además, la palanca central del frente de CRO (mejorar cuántas visitas terminan en compra) que se define en la fase siguiente (ver sección 12).
 
 ### Lo que falta (brechas a resolver)
 
 - 🟡 Todavía falta confirmar el texto completo de la bio y la cadencia real de publicación en Instagram (los seguidores ya están confirmados: 62.500, ver arriba) — no aparecieron en ninguna fuente pública consultada. *(research/instagram.md, secciones 1 y 7)*
-- 🟡 El ticket promedio (AOV — lo que gasta una persona en una compra) hoy se trabaja con la referencia del operador, de memoria, ~$60.000 CLP (por confirmar con Shopify) — no un dato real de Shopify. *(research/tienda.md, sección 6)*
 - No se encontró presencia de marca en TikTok, Pinterest ni YouTube — puede que no existan o simplemente no estén indexadas. *(research/instagram.md, sección 3)*
 - 🟡 Los roles de María José y Felipe en el día a día siguen siendo un supuesto de trabajo en su mayor parte — ya se sabe que María José (Cote) responde los mensajes (confirmado), pero falta confirmar el detalle de qué hace Felipe.
 
@@ -57,7 +59,7 @@ Este plan se enfoca en el camino **Instagram → Tienda propia** (la línea roja
 Se define el cliente ideal por **cuándo y por qué gasta dinero**, no por gusto estético general, porque hay evidencia concreta de que ese es el patrón de compra más rentable para este catálogo:
 
 - La categoría **"Juguetes, juegos y regalos" es la 3ª en facturación** del e-commerce chileno (CLP $722.293.168 en 2025), impulsada justamente por picos en fechas comerciales puntuales, no por compra constante. *(research/mercado-tendencias.md, sección A.1)*
-- En Día de la Madre 2026, el **gasto promedio en regalos fue de $25.329 CLP** a nivel país (segmento ABC1: $43.447; segmento DE: $18.793). La referencia del operador para el ticket de la tienda (~$60.000 CLP 🟡, dato de memoria por confirmar) queda muy por sobre ese promedio nacional, e incluso por sobre el segmento de mayor gasto (ABC1). Lectura simple: el comprador actual de Pedraza gasta como el segmento de mayor gasto, y/o el carrito lleva más de un producto por compra — las series por especie facilitan llevar, por ejemplo, una lámina más una libreta de la misma serie. Esto no cambia la conclusión sobre quién es el avatar (quien regala o decora con intención), pero refuerza dos cosas: posicionar como regalo premium con significado, sin competir por precio, y empujar carritos de varios productos (packs y series). *(research/mercado-tendencias.md, sección B.2; research/tienda.md, sección 6)*
+- En Día de la Madre 2026, el **gasto promedio en regalos fue de $25.329 CLP** a nivel país (segmento ABC1: $43.447; segmento DE: $18.793). El ticket real de la tienda (AOV ≈ $37.900 CLP 🟢, captura de Shopify, Felipe, jul-2026) queda por sobre ese promedio nacional, aunque por debajo del segmento de mayor gasto (ABC1: $43.447). Lectura simple: Pedraza vende un regalo o pieza de decoración de gama media-alta — no compite por precio bajo, pero tampoco vive en el tramo más alto del gasto en regalos. La hipótesis de un carrito con más de un producto se modera con el dato real: el valor terminó cerca de lo que ya sugerían los precios públicos del catálogo, sin necesitar varios productos por compra para explicarlo. Esto no cambia la conclusión sobre quién es el avatar (quien regala o decora con intención), pero sí baja medio tono el matiz: de "regalo premium" a **regalo con valor, sin competir por precio**. *(research/mercado-tendencias.md, sección B.2; captura de Shopify, Felipe, jul-2026)*
 - La tendencia de diseño de interiores 2026 hacia motivos botánicos y "biophilic design" (decoración inspirada en la naturaleza) confirma que también hay una segunda motivación de compra fuera de las fechas de regalo: decorar el propio hogar. *(research/mercado-tendencias.md, sección D.1.1)*
 
 Conclusión: el cliente que más vale la pena perseguir es **quien regala o decora con intención**, valorando lo chileno, la naturaleza y el diseño de autor (no cualquiera "a quien le guste el arte" en general).
@@ -70,7 +72,7 @@ Conclusión: el cliente que más vale la pena perseguir es **quien regala o deco
 | **Quién es** | Vive en una ciudad chilena, trabaja, tiene un círculo cercano (familia, amigas, colegas) para quienes busca regalos en fechas puntuales. |
 | **Qué la gatilla** | Se acerca una fecha comercial (Día de la Madre, un cumpleaños, Navidad, Día del Niño si tiene sobrinos o hijos) y no quiere repetir lo obvio — perfumería y chocolates son las categorías top en regalos de Día de la Madre, y ella busca algo distinto, con más significado. |
 | **Qué compra** | Láminas, libretas, calcetines: productos con diseño reconocible y una historia breve para contar al regalar ("es de una marca de hermanos chilenos que dibuja aves nativas"). |
-| **Cuánto gasta** | ~$60.000 CLP según referencia del operador 🟡 (posiblemente en un carrito con más de un producto). |
+| **Cuánto gasta** | ~$37.900 CLP 🟢 (dato real de Shopify, captura de Felipe, jul-2026). |
 | **Dónde se le encuentra** | Instagram, buscando ideas de regalo o descubriendo la marca por un Reel que "le hace sentido" mandarle a alguien. |
 
 ### Avatares secundarios (máximo 2)
@@ -413,7 +415,21 @@ flowchart LR
     style F fill:#2e7d32,color:#fff
 ```
 
-🟡 **Importante:** casi ninguno de estos 12 KPIs tiene hoy una línea base confirmada (no hay alcance ni sesiones desde IG verificados; los seguidores totales sí — 62.500, ver sección 1 — pero falta una foto de partida del resto). Antes de poder medir avance, el primer paso es capturar una foto de partida de cada uno. *(research/instagram.md, sección 7; research/pendientes-operador.md, ítems 2.1-2.3 y 1.9)*
+🟢 **Ya hay línea base real de la tienda:** sesiones ~10,8 mil en 24 días, 110 pedidos, ingresos $4,17M CLP, conversión 0,98%, AOV $37.900 CLP (captura de Shopify, Felipe, 1-24 jul-2026). 🟡 Lo que sigue faltando es la línea base de Instagram (alcance, guardados, compartidos, clics al link de bio — los seguidores totales sí están confirmados: 62.500, ver sección 1) y el desglose de esas sesiones por canal (cuánto de las 10,8 mil viene específicamente de Instagram y cuánto de otros orígenes). Antes de poder medir el avance de los KPIs de Instagram, el primer paso sigue siendo capturar esa foto de partida. *(research/instagram.md, sección 7; research/pendientes-operador.md, ítems 2.1-2.3 y 1.9)*
+
+### El camino aritmético a la meta
+
+🟡 Esta es una ilustración hecha con los números de hoy, no una promesa de resultado — sirve para dimensionar el salto y ver qué palancas lo mueven.
+
+Para llegar a **USD 10.000/mes (~$9,3M CLP)** con el AOV actual (~$37.900 CLP), la tienda necesita vender **~245 pedidos al mes** ($9.300.000 ÷ $37.900). Hoy el ritmo real es de **~140 pedidos al mes** (110 pedidos en 24 días, captura de Shopify, Felipe, jul-2026, proyectado a un mes). El salto de ~140 a ~245 pedidos no lo carga una sola palanca — se reparte entre tres:
+
+| Palanca | Qué mueve | De dónde sale |
+|---|---|---|
+| Más tráfico desde Instagram | Más sesiones a la tienda, con la misma conversión de hoy | Este plan (contenido orgánico, secciones 4 a 7) |
+| Mejor conversión de la tienda | De ~1% hacia ~1,5-2% de las visitas que terminan comprando, con el mismo tráfico | Frente CRO (fase siguiente, ver sección 12) |
+| Recompra por correo | Que quien ya compró, vuelva a comprar | Frente de email marketing (fase siguiente, ver sección 12) |
+
+Ninguna cifra de esta tabla es una meta oficial por palanca — es solo el cálculo que muestra que las tres suman entre sí, no que una sola tiene que cargar con todo el salto.
 
 ---
 
@@ -449,7 +465,7 @@ Todo lo siguiente es **fase posterior** al objetivo #1 (llegar a USD 10.000/mes 
 
 Lista corta de los 🟡 más críticos heredados del research, porque afectan directamente esta estrategia:
 
-- 🟡 **[PRIORIDAD]** AOV real, número de pedidos al mes y mix de productos vendidos — hoy se trabaja con la referencia del operador (~$60.000 CLP, dato de memoria, "tal vez sea menos ahora"), que implica ~75-80 pedidos/mes; falta confirmar con Shopify. *(research/tienda.md, sección 6; research/pendientes-operador.md, ítem 1.2)*
+- 🟢 AOV real ya resuelto: ≈ $37.900 CLP, con un ritmo actual de ~140 pedidos/mes (captura de Shopify, Felipe, 1-24 jul-2026) — reemplaza la referencia de memoria del operador (~$60.000 CLP). 🟡 **[PRIORIDAD]** Lo que sigue pendiente de la tienda: el mix de productos vendidos (qué productos arman esos pedidos) y el desglose de las sesiones por canal (cuánto de las ~10,8 mil sesiones del período viene específicamente de Instagram). *(research/tienda.md, sección 6; research/pendientes-operador.md, ítem 1.2)*
 - 🟢 Seguidores actuales: 62.500 (confirmado por el operador, jul-2026) — este punto ya está resuelto. 🟡 **[PRIORIDAD]** Todavía falta confirmar el texto completo de la bio y la cadencia real de publicación en Instagram. *(research/instagram.md, secciones 1 y 7; research/pendientes-operador.md, ítems 2.1-2.4 y 2.6)*
 - 🟢 Quién es "Cote" ya está resuelto: es María José, y es quien responde los mensajes directos y comentarios hoy (confirmado por el operador, jul-2026). 🟡 Todavía falta confirmar el detalle de qué hace Felipe día a día (opera, programa y mide es, por ahora, un supuesto de trabajo).
 - 🟢 Chile (INAPI) ya registrada. 🟡 **[PRIORIDAD]** EEUU (USPTO) pendiente — registro de marca "Pedraza Ilustración". Confirmado por Felipe (cliente, jul-2026); falta iniciar y avanzar el trámite en EEUU (ver sección 10 para el detalle). *(research/pendientes-operador.md, ítem 3.1)*
@@ -466,7 +482,7 @@ Este plan cubre, a propósito, la fase 1: crecimiento orgánico de Instagram (co
 | Frente | Qué es, en simple | Cuándo se define |
 |---|---|---|
 | Precios y surtido | Qué precio tiene cada producto y qué tan amplio es el catálogo (stock, qué se agrega y qué se saca). | Fase siguiente, con datos reales de Shopify. |
-| CRO | Cambios en la tienda para que más visitantes terminen comprando (por ejemplo, en la ficha de producto o en el checkout). | Fase siguiente, con datos reales de Shopify. |
+| CRO | Cambios en la tienda para que más visitantes terminen comprando (por ejemplo, en la ficha de producto o en el checkout). Dato real: la conversión actual es 0,98% (captura de Shopify, Felipe, jul-2026) — subirla, con el mismo tráfico que ya llega, es una de las palancas más grandes disponibles. | Fase siguiente, con datos reales de Shopify. |
 | Meta Ads | Anuncios pagados en Instagram y Facebook. | Fase siguiente, con accesos a Meta entregados. |
 | Google Ads | Anuncios pagados en buscador y red de Google. | Fase siguiente, con accesos entregados. |
 | Email marketing | Correos a quienes ya compraron o dejaron su correo: novedades, lanzamientos, carritos abandonados (cuando alguien deja productos sin pagar). | El enfoque de las campañas ya está definido (ver nota abajo). La herramienta de envío, las listas y el calendario exacto: fase siguiente, tras la reunión del 27-jul y los accesos. |

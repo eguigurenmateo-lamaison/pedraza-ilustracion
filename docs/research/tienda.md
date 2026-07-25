@@ -110,36 +110,62 @@ No se logró capturar el precio de venta de ninguna lámina individual pese a va
 - **Envíos internacionales:** no se encontró ninguna mención de envío fuera de Chile en ningún snippet indexado (búsquedas específicas por "envíos internacionales" y "Latinoamérica" no devolvieron resultados relevantes del dominio). Esto **no es evidencia concluyente de que no exista** envío internacional, solo de que no está indexado o no se promociona activamente. 🟡 VERIFICAR directamente con el operador si atienden pedidos fuera de Chile (relevante si la estrategia de Instagram busca audiencia internacional).
 - **Regalos corporativos / mayorista:** el brief original y un snippet de búsqueda anterior mencionaron opciones para clientes corporativos y partnerships mayoristas, pero una búsqueda dirigida no devolvió resultados propios del dominio que lo confirmen con detalle — 🟡 VERIFICAR alcance real de esta línea B2B (¿existe una página dedicada, mínimos de compra, contacto distinto?).
 
-## 6. AOV — referencia del operador 🟡 y estimación de contraste
+## 6. AOV — dato real de Shopify 🟢 (reemplaza las estimaciones anteriores)
 
-### Dato nuevo: referencia del operador (23 de julio de 2026) — 🟡 dato de memoria, por confirmar
+### Dato real: captura de Shopify Analytics aportada por Felipe (1-24 de julio de 2026, todos los canales)
 
-El operador aportó una referencia del ticket promedio (AOV — lo que gasta una persona en una compra) de memoria, de cuando trabajó directamente con el cliente: estaría "más o menos en los $60.000 CLP", con la advertencia textual del propio operador de que "tal vez sea menos ahora".
+Felipe compartió una captura de Shopify Analytics con los primeros datos reales de la tienda: período 1-24 de julio de 2026 (24 días), todos los canales de tráfico juntos. Los porcentajes son la variación contra el período anterior equivalente.
 
-Este dato **no viene de un reporte de Shopify Analytics**, sino del recuerdo del operador. Se registra como **referencia del operador 🟡 (por confirmar con Shopify)**, no como un dato duro. Pasa a ser la referencia principal de trabajo del plan, en reemplazo de la estimación por precios públicos que se explica más abajo, pero sigue pendiente confirmarla con el reporte real de Shopify (ver sección 8 y `pendientes-operador.md`, ítem 1.2).
+| Métrica | Dato real (1-24 jul-2026) | Variación vs. período anterior |
+|---|---|---|
+| Sesiones | 10,8 mil | +9% |
+| Ventas totales | $4.170.000 CLP | +32% |
+| Pedidos | 110 | +34% |
+| Tasa de conversión (de cada 100 visitas, cuántas terminan en compra) | 0,98% | +21% |
 
-### Implicancia: pedidos al mes
+🟢 Fuente: captura de Shopify Analytics aportada por Felipe (1-24 jul-2026, todos los canales).
 
-Con la facturación reportada por el operador (~USD 5.000/mes ≈ **CLP 4.625.000/mes**, usando el tipo de cambio de referencia de $925 CLP/USD ya explicado más abajo) y el AOV de referencia de ~$60.000 CLP, el volumen de pedidos mensual implícito sería de aproximadamente **75 a 80 pedidos al mes (~2 a 3 pedidos por día)**.
+**Derivados — cálculo aritmético sobre el dato real de arriba, no un dato nuevo:**
 
-Esta cifra **reemplaza** a la estimación anterior de 130 a 230 pedidos/mes (que se apoyaba en el AOV estimado por precios públicos, más abajo). Sigue siendo una doble inferencia (AOV de referencia × facturación reportada) y **no debe tratarse como dato duro** — solo como orden de magnitud para dimensionar campañas. 🟡
+- **AOV real = ventas ÷ pedidos = $4.170.000 ÷ 110 = $37.909 CLP por pedido.** Es el ticket promedio (AOV — lo que gasta una persona en una compra) real de la tienda y reemplaza a las dos estimaciones anteriores (ver historial más abajo).
+- **Pedidos por día = 110 ÷ 24 días ≈ 4,6 pedidos/día.** Proyectando el mismo ritmo a un mes completo de 31 días: **≈140 pedidos/mes**.
+- **Sesiones por día = 10.800 ÷ 24 días ≈ 450 sesiones/día.** Proyectando el mismo ritmo a un mes completo: **≈14 mil sesiones/mes**.
+- **Ventas proyectadas de julio completo = ($4.170.000 ÷ 24 días) × 31 días ≈ $5,4 millones CLP** (≈ **USD ~5.800**, al tipo de cambio de referencia de $925 CLP/USD que ya usa este documento más abajo). Es una proyección lineal simple — mismo ritmo diario de los primeros 24 días, extendido al mes completo — no una garantía; sirve como orden de magnitud, no como cifra cerrada.
 
-### Estimación anterior por precios públicos — se conserva como contraste, 🟡 SUPUESTO
+**Lectura de conversión (dato clave para la fase de CRO):** de cada 100 personas que visitan el sitio, menos de 1 termina comprando (0,98%). Es la base numérica del frente de CRO (optimización de conversión — trabajar el sitio para que más visitas terminen en compra), que se define recién tras la reunión del 27-jul-2026 y la entrega de accesos (ver `CLAUDE.md`, contexto comercial). Con el mismo tráfico de hoy, subir la conversión de ~1% a ~1,7% casi duplicaría la venta, sin necesitar tráfico nuevo.
 
-Antes de tener la referencia del operador, y **sin acceso a datos reales de Shopify**, se había construido una estimación derivada a partir de los precios públicos del catálogo. Se conserva acá como contraste, porque la brecha entre ambas estimaciones es en sí misma una pista útil (ver más abajo):
+**Qué sigue pendiente:** el mix de productos vendidos (qué colecciones/productos específicos componen esas 110 ventas) y las sesiones que llegan específicamente desde Instagram — la captura es de "todos los canales", no desglosada por fuente de tráfico. Ver `pendientes-operador.md`, ítems 1.2 y 1.9.
+
+### Cierre del historial de estimaciones
+
+Con el dato real, las dos estimaciones anteriores de AOV quedan **superadas** y pasan a ser historial metodológico — se conservan íntegras más abajo, no se borran. La referencia de memoria del operador (~$60.000 CLP) quedó por sobre el dato real: el propio operador había advertido, al aportarla, que "tal vez sea menos ahora", y acertó. La estimación por precios públicos del catálogo ($20.000–$35.000 CLP) quedó cerca del valor real, por debajo.
+
+### Historial 1 — referencia de memoria del operador (23 de julio de 2026) — 🟡 superada por el dato real
+
+El operador aportó una referencia del ticket promedio (AOV) de memoria, de cuando trabajó directamente con el cliente: estaría "más o menos en los $60.000 CLP", con la advertencia textual del propio operador de que "tal vez sea menos ahora".
+
+Este dato **no venía de un reporte de Shopify Analytics**, sino del recuerdo del operador. Fue por un tiempo la referencia principal de trabajo del plan, en reemplazo de la estimación por precios públicos (historial 2, más abajo). **Con la captura real aportada por Felipe queda superada: el AOV real es $37.909 CLP, no ~$60.000.**
+
+**Implicancia que se había calculado con esta referencia (también superada):** con la facturación reportada por el operador (~USD 5.000/mes ≈ CLP 4.625.000/mes, tipo de cambio $925 CLP/USD) y el AOV de referencia de ~$60.000 CLP, el volumen de pedidos mensual implícito era de ~75 a 80 pedidos al mes (~2 a 3 pedidos por día). El dato real (110 pedidos en 24 días, ≈140/mes proyectado) queda por sobre esa estimación — la tienda mueve más pedidos de lo que sugería el cálculo anterior.
+
+### Historial 2 — estimación por precios públicos — 🟡 SUPUESTO, superada por el dato real
+
+Antes de tener cualquier referencia del operador, y sin acceso a datos reales de Shopify, se había construido una estimación derivada a partir de los precios públicos del catálogo:
 
 1. **Dato confirmado por el operador (no derivado):** la tienda factura en promedio ~USD 5.000/mes (fuente: operador, julio 2026).
-2. **Tipo de cambio de referencia:** USD/CLP se movió aproximadamente entre $919 y $932 CLP durante julio de 2026 (fuente: agregación de Wise y Bloomberg Línea vía búsqueda, https://wise.com/us/currency-converter/usd-to-clp-rate/history). Para este cálculo se usa **$925 CLP/USD** como punto medio redondeado — 🟡 SUPUESTO de tipo de cambio, no un dato puntual verificado para un día específico.
+2. **Tipo de cambio de referencia:** USD/CLP se movió aproximadamente entre $919 y $932 CLP durante julio de 2026 (fuente: agregación de Wise y Bloomberg Línea vía búsqueda, https://wise.com/us/currency-converter/usd-to-clp-rate/history). Para este cálculo se usó **$925 CLP/USD** como punto medio redondeado — 🟡 SUPUESTO de tipo de cambio, no un dato puntual verificado para un día específico.
    → USD 5.000/mes ≈ **CLP 4.625.000/mes** de facturación promedio.
 3. **Rango de precios observado en el catálogo (todos los precios con fuente en la sección 2):** desde $8.790 CLP (llavero) hasta $83.990 CLP (set de loza de 12 piezas), con la mayoría de los productos individuales confirmados concentrados entre **$9.000 y $29.000 CLP** (calcetines, llaveros, libretas, bolsos, botellas, puzzles).
-4. **Supuesto de composición de carrito:** no hay evidencia pública de qué combinación de productos compra un cliente promedio. Asumiendo (🟡 sin evidencia directa, solo lógica de categoría) que el pedido típico de un e-commerce de regalos/decoración de este tipo incluye 1 a 1.3 unidades por compra (sin bundles obligatorios grandes, salvo los "packs" de 2 láminas que ya existen como producto único):
-   - **AOV estimado por este método: rango CLP $20.000–$35.000 por pedido** (aprox. **USD 22–38** al tipo de cambio de referencia de julio 2026). Esta cifra ya **no se usa como referencia principal** del plan — queda documentada como el punto de partida antes del dato del operador.
+4. **Supuesto de composición de carrito:** sin evidencia pública de qué combinación de productos compra un cliente promedio, se asumió (🟡 sin evidencia directa, solo lógica de categoría) que el pedido típico incluye 1 a 1.3 unidades por compra.
+   - **AOV estimado por este método: rango CLP $20.000–$35.000 por pedido** (aprox. USD 22–38 al tipo de cambio de referencia de julio 2026).
 
-### La brecha entre ambas estimaciones: hipótesis de carrito multi-producto — 🟡
+**Con el dato real ($37.909 CLP), esta fue la estimación más precisa de las dos:** quedó apenas por debajo del techo del rango ($35.000), muy cerca del valor real.
 
-La referencia del operador (~$60.000) queda muy por sobre la estimación por precios públicos ($20.000–$35.000). Una explicación posible — 🟡 **hipótesis de trabajo, sin evidencia directa todavía, no un hecho confirmado** — es que el carrito típico de un pedido en Pedraza Ilustración lleva más de un producto: por ejemplo, una lámina más una libreta de la misma serie. El catálogo facilita justamente esa combinación, porque las series por especie (aves, flores, mariposas, etc.) se repiten entre lámina, libreta, puzzle y plato. Esta hipótesis se retoma en `estrategia-nucleo.md` para el argumento del avatar (posicionamiento premium + empujar packs y carritos de varios productos).
+### Sobre la hipótesis de carrito multi-producto — 🟡 aún sin confirmar
 
-**Qué NO se pudo estimar de forma responsable:** AOV real, tasa de conversión, tráfico del sitio, mix real de productos vendidos, LTV de cliente. Ninguna de estas métricas se intentó inferir por no contar con una base pública confiable — quedan en `pendientes-operador.md`.
+En su momento, la brecha entre la referencia del operador (~$60.000) y la estimación por precios públicos ($20.000–$35.000) se explicó con una hipótesis: que el carrito típico de un pedido en Pedraza Ilustración lleva más de un producto (por ejemplo, una lámina más una libreta de la misma serie), algo que el catálogo facilita porque las series por especie (aves, flores, mariposas, etc.) se repiten entre lámina, libreta, puzzle y plato. Con el dato real, la brecha real era más chica de lo que parecía: el AOV real está apenas por sobre el techo de la estimación por precios públicos, no en un punto intermedio arbitrario entre ambas estimaciones. La hipótesis de carrito multi-producto sigue siendo plausible y relevante para la estrategia de packs y cross-sell (se retoma en `estrategia-nucleo.md` para el argumento del avatar), pero **no queda confirmada ni descartada por el AOV**: hace falta el dato de mix de productos vendidos (pendiente, ver arriba) para resolverla.
+
+**Qué sigue sin poder estimarse de forma responsable:** LTV de cliente (cuánto gasta una persona a lo largo del tiempo, no solo en una compra). El mix real de productos vendidos y las sesiones desde Instagram ya están identificados como pendientes puntuales (ver arriba y `pendientes-operador.md`, ítems 1.2 y 1.9).
 
 ## 7. Registro del playbook: qué funcionó y qué no
 
@@ -168,7 +194,7 @@ La referencia del operador (~$60.000) queda muy por sobre la estimación por pre
 - ✅ RESUELTO — Confirmación de la política de envío vigente y el umbral de envío gratis real: **el umbral vigente es $50.000 CLP; el $30.000 que aparecía en una ficha de producto era caché desactualizada del buscador** (Felipe, cliente, jul-2026) — ver sección 5.
 - Confirmación de si hacen envíos internacionales / fuera de Chile.
 - Aclaración sobre la relación comercial vigente con los marketplaces detectados (Creado en Chile, Decatálogo, Bazared, Mercado Libre): ¿activa?, ¿catálogo sincronizado?, ¿quién fija el precio de reventa?
-- Datos reales de AOV, número de pedidos/mes y mix de productos vendidos (Shopify Analytics) — para confirmar (o corregir) la referencia del operador de ~$60.000 CLP, dato de memoria 🟡 (sección 6), y reemplazarla por un número real.
+- ✅ MAYORMENTE RESUELTO — Datos reales de AOV y número de pedidos (Shopify Analytics): **AOV real $37.909 CLP y 110 pedidos confirmados** con la captura de Shopify aportada por Felipe (1-24 jul-2026), que reemplaza la referencia de memoria de ~$60.000 CLP — ver sección 6. **Sigue pendiente:** el mix de productos vendidos.
 - ✅ RESUELTO — Confirmación de quién es "Cote" (cote@pedrazailustracion.com): **es María José Pedraza, y es quien responde mensajes y correos hoy (confirmado por el operador, jul-2026)** — ver sección 4.
 - Aclaración sobre la línea de regalos corporativos/mayorista: si existe hoy, con qué condiciones y a través de qué canal se gestiona.
 - Confirmación/actualización del catálogo: si el "Libro Aves de Chile" (visto en Decatálogo) sigue vigente y por qué no aparece en las colecciones detectadas del sitio propio.

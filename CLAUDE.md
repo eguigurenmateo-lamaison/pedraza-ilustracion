@@ -28,7 +28,7 @@ Reglas permanentes para TODOS los entregables de este repo (documentos, páginas
 ## Contexto comercial clave (confirmado por el operador, jul-2026)
 
 - Facturación actual de la tienda: **~USD 5.000/mes**. Meta: **USD 10.000/mes**. Esta es la métrica norte del plan.
-- Ticket promedio (AOV): referencia del operador **~$60.000 CLP** (dato de memoria, puede ser menor hoy; 🟡 confirmar en Shopify).
+- **Datos reales de Shopify (captura de Felipe, 1-24 jul-2026, todos los canales):** ventas $4,17M CLP (+32%), 110 pedidos (+34%), 10,8 mil sesiones (+9%), conversión 0,98% (+21%). Derivados: **AOV real ≈ $37.900 CLP** (reemplaza la referencia de memoria de ~$60.000), ~4,6 pedidos/día (~140/mes proyectado), ~450 sesiones/día. La palanca CRO queda cuantificada: con el mismo tráfico, subir conversión de ~1% a ~1,7% casi duplica la venta.
 - Seguidores de @pedraza_ilustracion: **62.500** (confirmado por el operador, jul-2026).
 - **"Cote" = María José Pedraza.** Ella es quien responde los mensajes/DMs hoy (confirmado por el operador).
 - **Envío gratis: sobre $50.000 CLP** (confirmado por Felipe, jul-2026; el umbral de $30.000 que apareció en el research era una versión cacheada del sitio).
