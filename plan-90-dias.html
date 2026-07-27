@@ -1,0 +1,865 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Plan de 90 días — Plan Pedraza Ilustración</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
+<style>
+/* ==========================================================================
+   Sistema de diseño — Plan Pedraza Ilustración
+   Bloque único y canónico. No editar por página: solo usar estas clases.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* --- tinta y superficies --- */
+  --ink: #1c2420;
+  --ink-soft: #4c5850;
+  --ink-faint: #7c887f;
+  --paper: #faf6ee;
+  --surface: #fffefb;
+  --line: #e6ded0;
+  --line-strong: #d6c9b0;
+
+  /* --- acento: rojo copihue --- */
+  --accent: #b0223f;
+  --accent-dark: #7c1830;
+  --accent-soft: #f8dfe4;
+
+  /* --- verde naturaleza del sitio web de la marca (dato del operador, jul-2026) --- */
+  --brand-green: #3b5751;
+  --brand-green-soft: #e3eae8;
+  --brand-green-dark: #2a403c;
+
+  /* --- apoyo semántico --- */
+  --success: #2f6b4a;
+  --success-soft: #dcece1;
+  --warn: #a8720a;
+  --warn-soft: #f8ecd2;
+  --danger: #ae3d17;
+  --danger-soft: #f7ddd0;
+  --info: var(--brand-green);
+  --info-soft: var(--brand-green-soft);
+
+  /* --- forma --- */
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-full: 999px;
+  --shadow-sm: 0 1px 3px rgba(28, 36, 32, .1);
+  --shadow: 0 6px 20px rgba(28, 36, 32, .12);
+
+  /* --- espaciado --- */
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  /* --- tipografía --- */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --fs-sm: clamp(.82rem, .78rem + .2vw, .9rem);
+  --fs-base: clamp(1rem, .95rem + .25vw, 1.0625rem);
+  --fs-lg: clamp(1.1rem, 1.02rem + .4vw, 1.25rem);
+  --fs-h3: clamp(1.15rem, 1.05rem + .5vw, 1.35rem);
+  --fs-h2: clamp(1.35rem, 1.15rem + 1vw, 1.75rem);
+  --fs-h1: clamp(1.75rem, 1.4rem + 2vw, 2.75rem);
+
+  /* --- área táctil mínima (regla mobile-first del proyecto) --- */
+  --tap: 44px;
+}
+
+/* ===== 1. Reset mínimo ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; }
+img, svg { max-width: 100%; display: block; }
+h1, h2, h3, h4, p, ul, ol, dl, figure { margin: 0 0 var(--space-4); }
+ul, ol { padding-left: 1.2em; }
+a { color: inherit; }
+button { font: inherit; }
+table { border-collapse: collapse; width: 100%; }
+
+/* ===== 2. Tipografía base ===== */
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: var(--font-serif); line-height: 1.2; color: var(--ink); }
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+p { max-width: 68ch; }
+strong { color: var(--ink); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* ===== 3. Layout ===== */
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 var(--space-4) var(--space-8); }
+
+/* ===== 4. Nav superior (.docnav) ===== */
+.docnav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--brand-green);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+.docnav__inner {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 var(--space-2);
+}
+.docnav__link {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  min-height: var(--tap);
+  padding: 0 var(--space-3);
+  color: #eae6dd;
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+}
+.docnav__link:hover { color: #fff; }
+.docnav__link.active {
+  color: #fff;
+  border-bottom-color: var(--accent);
+}
+
+/* ===== 5. Hero ===== */
+.hero {
+  padding: var(--space-7) var(--space-4);
+  background: linear-gradient(135deg, var(--brand-green) 0%, var(--brand-green-dark) 100%);
+  color: #fff;
+}
+.hero__inner { max-width: 960px; margin: 0 auto; }
+.hero h1 { color: #fff; margin-bottom: var(--space-3); }
+.hero p { color: rgba(255, 255, 255, .92); font-size: var(--fs-lg); max-width: 60ch; margin: 0; }
+
+/* ===== 6. Secciones numeradas (.sec) ===== */
+main { counter-reset: sec; }
+.sec { counter-increment: sec; margin-top: var(--space-7); }
+.sec:first-of-type { margin-top: var(--space-6); }
+.sec > h2 {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding-bottom: var(--space-2);
+  border-bottom: 2px solid var(--line-strong);
+}
+.sec > h2::before {
+  content: counter(sec);
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9em;
+  height: 1.9em;
+  border-radius: var(--radius-full);
+  background: var(--brand-green);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: .55em;
+  font-weight: 700;
+}
+
+/* ===== 7. Callouts ===== */
+.callout {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  margin: var(--space-4) 0;
+}
+.callout::before { flex: 0 0 auto; font-size: 1.3em; line-height: 1; }
+.callout p:last-child { margin-bottom: 0; }
+.callout--info { border-color: var(--info); background: var(--info-soft); }
+.callout--info::before { content: "💡"; }
+.callout--success { border-color: var(--success); background: var(--success-soft); }
+.callout--success::before { content: "✅"; }
+.callout--warn { border-color: var(--warn); background: var(--warn-soft); }
+.callout--warn::before { content: "🟡"; }
+.callout--danger { border-color: var(--danger); background: var(--danger-soft); }
+.callout--danger::before { content: "🔴"; }
+
+/* ===== 8. Bloque copiable (.copyblock) ===== */
+.copyblock {
+  position: relative;
+  margin: var(--space-4) 0;
+  padding: var(--space-8) var(--space-4) var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.copyblock__text {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--ink);
+}
+.copyblock__btn {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  min-height: var(--tap);
+  padding: 0 var(--space-4);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  cursor: pointer;
+}
+.copyblock__btn:hover { background: var(--accent-dark); }
+.copyblock__btn.is-copied { background: var(--success); }
+
+/* ===== 9. KPIs (.kpi) ===== */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  margin: var(--space-4) 0;
+}
+.kpi {
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.kpi__label { display: block; font-size: var(--fs-sm); color: var(--ink-soft); margin-bottom: var(--space-2); }
+.kpi__value { display: block; font-family: var(--font-serif); font-size: clamp(1.5rem, 1.3rem + 1vw, 2.1rem); font-weight: 700; color: var(--ink); }
+.kpi__delta { display: inline-block; margin-top: var(--space-2); font-size: var(--fs-sm); font-weight: 600; padding: 2px var(--space-2); border-radius: var(--radius-full); }
+.kpi__delta--up { color: var(--success); background: var(--success-soft); }
+.kpi__delta--down { color: var(--danger); background: var(--danger-soft); }
+
+/* ===== 10. Tarjeta genérica (.card) ===== */
+.card {
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  margin: var(--space-4) 0;
+}
+.card h3 { margin-top: 0; }
+
+/* ===== 11. Tablas responsive ===== */
+.table-wrap { overflow-x: auto; margin: var(--space-4) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); }
+.table-wrap table { min-width: 480px; }
+.table-wrap th, .table-wrap td { padding: var(--space-3); text-align: left; border-bottom: 1px solid var(--line); font-size: var(--fs-sm); }
+.table-wrap thead th { background: var(--brand-green); color: #fff; position: sticky; top: 0; }
+.table-wrap tbody tr:last-child td { border-bottom: none; }
+.table-wrap tbody tr:nth-child(even) { background: var(--paper); }
+
+/* ===== 12. Barra de progreso (.progress) ===== */
+.progress { margin: var(--space-4) 0; }
+.progress__track { height: 14px; background: var(--line); border-radius: var(--radius-full); overflow: hidden; }
+.progress__fill { height: 100%; background: var(--brand-green); border-radius: var(--radius-full); transition: width .3s ease; width: 0%; }
+.progress__label { display: block; margin-top: var(--space-2); font-size: var(--fs-sm); color: var(--ink-soft); }
+
+/* ===== 13. Checklist táctil (.checklist) ===== */
+.checklist { list-style: none; padding-left: 0; margin: var(--space-4) 0; }
+.checklist li { margin-bottom: var(--space-2); }
+.checklist label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  min-height: var(--tap);
+  padding: var(--space-2) var(--space-3);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+.checklist input[type="checkbox"] { width: 24px; height: 24px; flex: 0 0 auto; accent-color: var(--brand-green); margin-top: 2px; }
+.checklist input[type="checkbox"]:checked + span { text-decoration: line-through; color: var(--ink-soft); }
+
+/* ===== 14. Etiquetas (.pill) ===== */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+.pill--success { background: var(--success-soft); color: var(--success); }
+.pill--warn { background: var(--warn-soft); color: var(--warn); }
+.pill--danger { background: var(--danger-soft); color: var(--danger); }
+.pill--info { background: var(--info-soft); color: var(--info); }
+
+/* ===== 15. Grillas responsive ===== */
+.grid-2, .grid-3 { display: grid; gap: var(--space-4); margin: var(--space-4) 0; grid-template-columns: 1fr; }
+
+/* ===== 16. Gráficos SVG/CSS hechos a mano ===== */
+/* Barras horizontales */
+.chart-bar-row { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-2); }
+.chart-bar-row__label { flex: 0 0 9rem; font-size: var(--fs-sm); color: var(--ink-soft); }
+.chart-bar-row__track { flex: 1 1 auto; height: 20px; background: var(--line); border-radius: var(--radius-full); overflow: hidden; }
+.chart-bar-row__fill { height: 100%; background: var(--accent); border-radius: var(--radius-full); }
+.chart-bar-row__value { flex: 0 0 auto; font-size: var(--fs-sm); font-weight: 700; min-width: 3.5rem; text-align: right; }
+
+/* Embudo: cada .funnel-step define su ancho con --w inline, ej. style="--w:70%" */
+.funnel { display: flex; flex-direction: column; align-items: center; gap: 2px; margin: var(--space-4) 0; }
+.funnel-step {
+  width: var(--w, 100%);
+  max-width: 100%;
+  padding: var(--space-3);
+  text-align: center;
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  background: var(--accent);
+  border-radius: var(--radius-sm);
+}
+.funnel-step:nth-child(2) { opacity: .85; }
+.funnel-step:nth-child(3) { opacity: .7; }
+.funnel-step:nth-child(4) { opacity: .55; }
+.funnel-step:nth-child(5) { opacity: .4; }
+
+/* Línea de tiempo vertical */
+.timeline { position: relative; margin: var(--space-5) 0; padding-left: var(--space-6); border-left: 3px solid var(--line-strong); }
+.timeline-item { position: relative; margin-bottom: var(--space-5); }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--space-6) - 7px);
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--brand-green);
+  border: 3px solid var(--paper);
+}
+.timeline-item__date { font-size: var(--fs-sm); font-weight: 700; color: var(--accent-dark); }
+.timeline-item__title { font-family: var(--font-serif); font-size: var(--fs-lg); margin: var(--space-1) 0; }
+
+/* ===== 17. Botones ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-5);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-base);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover { background: var(--accent-dark); }
+.btn--ghost { background: transparent; border: 2px solid var(--line-strong); color: var(--ink); }
+.btn--ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ===== 18. Media queries (mobile-first: base = ~375px) ===== */
+@media (min-width: 640px) {
+  .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .hero { padding: var(--space-8) var(--space-6); }
+}
+@media (min-width: 960px) {
+  .kpi-grid { grid-template-columns: repeat(4, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ===== 19. Impresión ===== */
+@media print {
+  .docnav, .copyblock__btn, .btn { display: none !important; }
+  body { background: #fff; color: #000; }
+  .hero { background: #fff !important; color: #000 !important; }
+  .hero h1, .hero p { color: #000 !important; }
+  .card, .callout, .kpi, .copyblock { box-shadow: none; border: 1px solid #999; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: .8em; }
+}
+
+/* ==========================================================================
+   Extensiones propias de esta página (plan-90-dias.html)
+   plan-90-dias.html no es una de las 6 páginas del sitio (docs/design-system.md,
+   sección 1) y no está en el menú principal — se llega por link desde el plan.
+   El bloque de arriba es el canónico intacto; lo de abajo son componentes
+   propios de esta página, agregados en la misma hoja de estilos única para no
+   crear un segundo archivo CSS.
+   ========================================================================== */
+
+.hero__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-2) 0 0;
+  margin-bottom: var(--space-3);
+  color: rgba(255, 255, 255, .85);
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+.hero__back:hover { color: #fff; }
+
+.owner-label {
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--accent-dark);
+  margin: var(--space-5) 0 var(--space-2);
+  font-weight: 700;
+}
+
+.week-block { margin-bottom: var(--space-6); }
+.week-block:last-child { margin-bottom: 0; }
+
+.day-strip { display: flex; flex-wrap: wrap; gap: var(--space-2); margin: var(--space-4) 0; }
+.day-chip {
+  min-height: var(--tap);
+  display: inline-flex;
+  align-items: center;
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+.day-chip--active { background: var(--brand-green); color: #fff; border-color: var(--brand-green); }
+
+.page-footer { margin-top: var(--space-8); padding-top: var(--space-4); border-top: 1px solid var(--line); color: var(--ink-faint); font-size: var(--fs-sm); }
+.page-footer a { color: var(--accent-dark); font-weight: 700; text-decoration: none; }
+.page-footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<nav class="docnav" aria-label="Navegación del plan">
+  <div class="docnav__inner">
+    <a href="index.html" class="docnav__link">Plan</a>
+    <a href="kit-arranque.html" class="docnav__link">Kit de arranque</a>
+    <a href="guion-reels.html" class="docnav__link">Guiones de Reels</a>
+    <a href="sop-dm.html" class="docnav__link">Manual de DM</a>
+    <a href="recursos.html" class="docnav__link">Recursos</a>
+    <a href="tablero.html" class="docnav__link">Tablero</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero__inner">
+    <a href="index.html" class="hero__back">← Volver al plan</a>
+    <h1>Plan de 90 días</h1>
+    <p>Agosto, septiembre y octubre de 2026: los tres meses de prueba para Pedraza Ilustración. Qué se hace, para qué, cómo se logra y cómo se mide — semana a semana. Esta página no está en el menú principal, se comparte por link directo.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section class="sec">
+<h2>El acuerdo en una página</h2>
+<p>La "Semana Pedraza" (la semana de promoción) recién terminó. Estos 90 días parten sin una campaña grande en curso — es el momento de instalar una rutina de trabajo que se sostenga sola. Agosto, septiembre y octubre de 2026 son los <strong>tres meses de prueba</strong> acordados en la reunión del 27 de julio de 2026. El objetivo es simple: subir la venta de la tienda propia (Shopify) y dejar la casa ordenada antes de que llegue diciembre, el mes más importante del año para la marca.</p>
+
+<div class="kpi-grid">
+  <div class="kpi">
+    <span class="kpi__label">Meta de venta a 90 días <span class="pill pill--success">🟢</span></span>
+    <span class="kpi__value" style="font-size:var(--fs-lg)">$10.000.000 CLP/mes</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Ticket promedio de partida <span class="pill pill--success">🟢</span></span>
+    <span class="kpi__value">$33.000</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Aporte del correo al ingreso <span class="pill pill--success">🟢</span></span>
+    <span class="kpi__value">~9%</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">ROAS de Google <span class="pill pill--success">🟢</span></span>
+    <span class="kpi__value">2,85</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Crecimiento de Shopify <span class="pill pill--success">🟢</span></span>
+    <span class="kpi__value">+27%</span>
+    <span class="kpi__delta kpi__delta--up">todos los canales: +68%</span>
+  </div>
+</div>
+<p style="font-size:var(--fs-sm);color:var(--ink-soft)">Datos de la pantalla de Shopify, Klaviyo y Google Ads mostrados en la reunión del 27 de julio de 2026 (Felipe, cliente).</p>
+
+<div class="callout callout--info">
+<p><strong>Así se va a trabajar estos 90 días</strong> (pedido explícito de Felipe, reunión del 27 de julio de 2026): cada tarea con su objetivo claro, cómo se logra y cómo se mide. Revisión constante de los números, con decisiones a mitad de mes si algo no está funcionando. Más que excusas, planes de acción. Probar, medir e iterar — probar algo, ver el resultado en los números y ajustar según lo que muestren.</p>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>Tres meses de prueba.</strong> Este plan cubre solo agosto, septiembre y octubre. En <strong>diciembre se juega la temporada alta</strong> — la época de mayor venta del año para la marca. Lo que se ordene y se aprenda en estos 90 días es lo que define cómo llega la marca a esa fecha, no al revés.</p>
+</div>
+</section>
+
+<section class="sec">
+<h2>Quién hace qué</h2>
+<p>Tres personas, tres zonas de trabajo, sin superposición. Cada fila trae también una columna de "qué NO hace" — para que nadie termine ocupado en algo que no le corresponde.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Quién</th><th>Qué hace</th><th>Qué NO hace</th></tr></thead>
+<tbody>
+<tr>
+<td><strong>Cote (María José)</strong></td>
+<td>Diseño y creación de producto — su zona de mayor valor. Historias y anécdotas para las campañas de correo. Ventas por WhatsApp: las cierra prácticamente todas, mejor que nadie — no se instala un bot ahí, la atención personal es parte del valor de la marca. Decisiones de línea de producto. La propuesta para el hotel (venta B2B: a otros negocios, no directo a la persona final).</td>
+<td>No hace publicidad paga (ni Google Ads ni Meta Ads) ni atención masiva de clientes por otros canales. Evitar que vuelva a caer en eso es, en sí mismo, uno de los objetivos de estos 90 días.</td>
+</tr>
+<tr>
+<td><strong>Felipe</strong></td>
+<td>Dirección comercial, B2B, compras y stock, números y márgenes, relación con proveedores y el banco, precios.</td>
+<td>No ejecuta las campañas de correo ni la pauta publicitaria día a día — eso es de Mateo. No diseña producto.</td>
+</tr>
+<tr>
+<td><strong>Mateo</strong></td>
+<td>Google Ads, Meta Ads, Klaviyo (la plataforma de correo), conversión de la tienda — que más visitas terminen en compra (hay un diagnóstico detallado etapa por etapa en <a href="cro.html">la página de conversión</a>) —, ofertas y pop-ups, medición y reportes.</td>
+<td>No decide precios ni compras de stock — eso es de Felipe. No diseña producto ni escribe las historias de marca: esas las aporta Cote, Mateo las convierte en campañas.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="callout callout--success"><p><span class="pill pill--success">🟢 ya resuelto</span> El fulfillment (armar y despachar cada pedido) ya está delegado en Partner, y una diseñadora apoya piezas gráficas para Instagram, correos y packaging. Ninguno de los tres necesita ocuparse de eso.</p></div>
+
+<div class="callout callout--info"><p><strong>Ejemplo de decisión de línea de producto:</strong> los naipes (producto nuevo, $22.990 CLP) se venden bien, pero le quitan venta a los puzzles — los canibalizan. Decidir cuánto se sigue empujando cada uno es una decisión de línea de producto, y le toca a Cote.</p></div>
+</section>
+
+<section class="sec">
+<h2>Los 4 objetivos de los 90 días, con su métrica</h2>
+<p>Cuatro números para mover en 90 días. Cada tarjeta trae el punto de partida real <span class="pill pill--success">🟢 dato real</span>, la meta propuesta <span class="pill pill--warn">🟡 meta propuesta</span> — no es una promesa, es lo que se busca —, cómo se logra y cómo se mide.</p>
+
+<div class="grid-2">
+
+<div class="card">
+<span class="pill">Objetivo 1</span>
+<h3>Subir el ticket promedio</h3>
+<p>El <strong>ticket promedio</strong> es cuánto gasta en promedio cada persona por compra. Hoy está en <strong>~$33.000 CLP</strong> <span class="pill pill--success">🟢</span> — bajó frente a lo que era antes. La meta propuesta es llevarlo hacia <strong>~$45.000 CLP</strong> <span class="pill pill--warn">🟡</span>.</p>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Hoy</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:73%"></div></div><span class="chart-bar-row__value">$33.000</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Meta 90 días</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div><span class="chart-bar-row__value">$45.000</span></div>
+<p><strong>Cómo se logra:</strong> packs de productos, anclaje de precio en los pop-ups (mostrar primero la opción más cara para que el resto del catálogo se vea más accesible), la barra de envío gratis a $50.000, y productos digitales como complemento (sin costo de envío, casi sin límite de margen).</p>
+<p><strong>Cómo se mide:</strong> ticket promedio en Shopify, revisado cada semana.</p>
+</div>
+
+<div class="card">
+<span class="pill">Objetivo 2</span>
+<h3>Llevar el correo del 9% al 20-25%</h3>
+<p>Hoy el correo (Klaviyo) aporta <strong>~9%</strong> del ingreso en los últimos 30 días — 13,8% en los últimos 7 <span class="pill pill--success">🟢</span>. La meta propuesta es <strong>20-25%</strong> del ingreso <span class="pill pill--warn">🟡</span>.</p>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Hoy</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:40%"></div></div><span class="chart-bar-row__value">~9%</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Meta 90 días</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div><span class="chart-bar-row__value">20-25%</span></div>
+<p><strong>Cómo se logra:</strong> 3 campañas de correo por semana, segmentadas por <strong>recencia</strong> de compra — hace cuánto tiempo compró por última vez: 0-30, 30-60 o 60 días o más —, más una revisión de los flujos automáticos que ya funcionan hoy.</p>
+<p><strong>Cómo se mide:</strong> porcentaje del ingreso que Klaviyo atribuye a sus correos, revisado cada mes.</p>
+</div>
+
+<div class="card">
+<span class="pill">Objetivo 3</span>
+<h3>Subir la conversión</h3>
+<p>La <strong>conversión</strong> es, de cada 100 personas que visitan la tienda, cuántas terminan comprando. Hoy está en <strong>~1%</strong> <span class="pill pill--success">🟢</span>. La meta propuesta es <strong>1,5%</strong> <span class="pill pill--warn">🟡</span>.</p>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Hoy</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:67%"></div></div><span class="chart-bar-row__value">~1%</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Meta 90 días</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div><span class="chart-bar-row__value">1,5%</span></div>
+<p><strong>Cómo se logra:</strong> arreglar las 75 reseñas que hoy están invisibles (el widget de Judge.me, la app de reseñas de la tienda, no las muestra en la ficha de producto), revisar el recorrido completo de la tienda, armar la colección de packs, y quitar fricción en el pago.</p>
+<p><strong>Cómo se mide:</strong> tasa de conversión de Shopify, revisada cada semana.</p>
+</div>
+
+<div class="card">
+<span class="pill">Objetivo 4</span>
+<h3>Que la publicidad rinda más, sin gastar más</h3>
+<p>El <strong>ROAS</strong> (cuánto se vende por cada peso que se invierte en publicidad) de Google Ads hoy es <strong>2,85</strong> <span class="pill pill--success">🟢</span> — del 1 al 27 de julio: ~$150.000 CLP invertidos, ~$425.000 CLP en ventas, 15 conversiones. La meta propuesta es <strong>4 o más</strong> <span class="pill pill--warn">🟡</span>.</p>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Hoy</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:71%"></div></div><span class="chart-bar-row__value">2,85</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Meta 90 días</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div><span class="chart-bar-row__value">4+</span></div>
+<p><strong>Cómo se logra:</strong> auditoría completa de la cuenta de Google Ads, y ordenar la estructura de Meta Ads antes de activarla con fuerza. El objetivo de carrito abandonado (cuando alguien deja productos sin pagar) ya está bien configurado como objetivo secundario en Google Ads — no hay que tocarlo.</p>
+<p><strong>Cómo se mide:</strong> ROAS por canal — Google y Meta, por separado —, revisado cada semana.</p>
+</div>
+
+</div>
+
+<div class="callout callout--info">
+<p><strong>La métrica que resume todo: pesos por visita.</strong> Se calcula así: ingreso de la tienda ÷ sesiones (visitas) que recibe. Si sube el ticket promedio, este número sube. Si sube la conversión, también sube. Por eso se revisa junto a las otras cuatro métricas, cada semana — es la forma más simple de ver si la tienda, en conjunto, está mejorando.</p>
+</div>
+</section>
+
+<section class="sec">
+<h2>Calendario de los 3 meses</h2>
+<p>El hito que más pesa de los tres meses: <strong>el pedido a China que se hace en agosto es el que define la Navidad.</strong> El ciclo de compra dura entre 2 y 3 meses, y ya ha tenido atrasos antes. Los 1.000 puzzles ya pedidos no alcanzan para diciembre — por eso el pedido nuevo no puede esperar.</p>
+
+<div class="timeline">
+<div class="timeline-item">
+<div class="timeline-item__date">Semana 1-2 de agosto</div>
+<div class="timeline-item__title">Cierre del acuerdo y primeras piezas</div>
+<p>Se entregan los accesos, se arma la hoja de stock unificada y arrancan las primeras piezas: pop-ups segmentados, colección de packs y las primeras campañas de correo.</p>
+</div>
+<div class="timeline-item">
+<div class="timeline-item__date">15 de agosto</div>
+<div class="timeline-item__title">Llega el contenedor de puzzles</div>
+<p>El producto estrella, hoy con quiebre de stock, llega a Chile. En paralelo se cierran las condiciones del pedido nuevo a China — el que va a estar disponible para Navidad.</p>
+</div>
+<div class="timeline-item">
+<div class="timeline-item__date">Última semana de agosto</div>
+<div class="timeline-item__title">Puzzles de vuelta en la tienda</div>
+<p>Después de pasar por Partner (la empresa que arma y despacha los pedidos), los puzzles quedan disponibles de nuevo en Shopify.</p>
+</div>
+<div class="timeline-item">
+<div class="timeline-item__date">18-19 de septiembre</div>
+<div class="timeline-item__title">Fiestas Patrias</div>
+<p>Fecha comercial. Septiembre es también el primer mes completo con los 4 objetivos midiéndose de principio a fin, con su propia revisión de mitad de mes y los primeros ajustes según lo que hayan mostrado los números de agosto.</p>
+</div>
+<div class="timeline-item">
+<div class="timeline-item__date">Octubre</div>
+<div class="timeline-item__title">Preparar Black Friday y Navidad, cerrar la prueba</div>
+<p>Se prepara el stock, el contenido y las ofertas para Black Friday y Navidad. Al cierre del mes termina el periodo de prueba de 3 meses: se revisan los 5 números de "Cómo sabemos si funcionó" y se decide cómo seguir. <span class="pill pill--warn">🟡 aspiración, no meta formal</span> Felipe planteó en la reunión un desafío del orden de US$30.000 en Navidad — todavía no es una meta cerrada.</p>
+</div>
+</div>
+</section>
+
+<section class="sec">
+<h2>Ritmo de trabajo y medición</h2>
+<p>Probar, medir e iterar no funciona sin un ritmo fijo. Así se opera semana a semana:</p>
+
+<div class="day-strip">
+<span class="day-chip">Lun</span><span class="day-chip">Mar</span><span class="day-chip day-chip--active">Mié · revisión semanal</span><span class="day-chip">Jue</span><span class="day-chip">Vie</span><span class="day-chip">Sáb</span><span class="day-chip">Dom</span>
+</div>
+<p style="font-size:var(--fs-sm);color:var(--ink-soft)"><span class="pill pill--warn">🟡 propuesta</span> El día exacto está propuesto para el miércoles — el mismo día en que ya se viene reuniendo el equipo (la próxima reunión es el miércoles 29 de julio). Se confirma con Felipe y Cote.</p>
+
+<div class="grid-2">
+<div class="card"><h3>Revisión semanal</h3><p>Cada semana, el día fijo acordado, se revisan ticket promedio, conversión, pesos por visita y ROAS de los 7 días anteriores.</p></div>
+<div class="card"><h3>Decisión de mitad de mes</h3><p>El día 15 de cada mes se compara lo real contra lo proyectado. Si vamos bajo, se activa un plan de acción — no una excusa.</p></div>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>Ejemplo concreto:</strong> si el día 15 llevamos vendida la mitad de lo proyectado para el mes, esto es lo que se cambia esa misma semana: se suma una campaña de correo extra dirigida a quienes ya compraron, se prueba un pop-up con más urgencia, y se mueve el presupuesto de Google Ads hacia lo que mejor esté rindiendo esa semana.</p>
+</div>
+
+<p>Al cierre de cada mes se arma un <strong>reporte mensual</strong>: comparación completa contra el mes anterior y contra la meta.</p>
+
+<h3>Qué se revisa cada semana</h3>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Métrica</th><th>Qué muestra</th><th>Dónde se mira</th></tr></thead>
+<tbody>
+<tr><td>Ticket promedio</td><td>Cuánto gasta en promedio cada persona por compra</td><td>Shopify</td></tr>
+<tr><td>Tasa de conversión</td><td>De cada 100 visitas, cuántas terminan en compra</td><td>Shopify</td></tr>
+<tr><td>Pesos por visita</td><td>Ingreso ÷ sesiones — resume ticket y conversión en un número</td><td>Shopify</td></tr>
+<tr><td>% del ingreso desde el correo</td><td>Cuánta venta viene de las campañas de Klaviyo</td><td>Klaviyo</td></tr>
+<tr><td>ROAS de Google</td><td>Cuánto se vende por cada peso invertido en Google Ads</td><td>Google Ads</td></tr>
+<tr><td>ROAS de Meta</td><td>Cuánto se vende por cada peso invertido en Meta Ads, una vez activa</td><td>Meta Ads</td></tr>
+<tr><td>Stock de puzzles</td><td>Si el contenedor y el pedido nuevo van a tiempo, sin riesgo de perder venta</td><td>Hoja de stock unificada</td></tr>
+<tr><td>Reseñas visibles</td><td>Si el widget ya muestra las 75 reseñas en la ficha de producto</td><td>Judge.me / tienda</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="sec">
+<h2>Checklist semana a semana</h2>
+<p>Marca cada tarea a medida que se completa. El progreso queda guardado en este navegador — no se comparte automáticamente entre el celular de una persona y el computador de otra.</p>
+
+<div class="progress">
+  <div class="progress__track">
+    <div class="progress__fill" data-progress-fill-p90></div>
+  </div>
+  <span class="progress__label" data-progress-label-p90>0 de 0 tareas (0%)</span>
+</div>
+
+<div class="week-block">
+<h3>Semana 1 de agosto (3-9 ago) — Cerrar el acuerdo y arrancar</h3>
+<h4 class="owner-label">Cote</h4>
+<ul class="checklist">
+<li><label><input type="checkbox" data-plan90="banco-historias-correo"><span>Empezar el banco de historias y anécdotas para las campañas de correo (por ejemplo, la historia detrás de una lámina o de una especie del catálogo)</span></label></li>
+<li><label><input type="checkbox" data-plan90="preparar-propuesta-hotel"><span>Preparar la propuesta B2B para el hotel</span></label></li>
+<li><label><input type="checkbox" data-plan90="priorizar-linea-producto-agosto"><span>Decidir qué línea de producto se refuerza en agosto — por ejemplo, si conviene seguir empujando los naipes con la misma fuerza, ya que hoy le quitan venta a los puzzles</span></label></li>
+</ul>
+<h4 class="owner-label">Felipe</h4>
+<ul class="checklist">
+<li><label><input type="checkbox" data-plan90="cerrar-acuerdo-salida-persona-actual"><span>Cerrar el acuerdo de salida con la persona que llevaba antes las cuentas de marketing</span></label></li>
+<li><label><input type="checkbox" data-plan90="entregar-accesos-shopify-meta-google-klaviyo"><span>Entregar los accesos completos a Shopify, Meta, Google Ads y Klaviyo</span></label></li>
+<li><label><input type="checkbox" data-plan90="armar-hoja-stock-unificada"><span>Armar una hoja de stock unificada que junte los 4 lugares donde hoy vive el inventario: Partner, bodega propia, consignación B2B y Mercado Libre</span></label></li>
+<li><label><input type="checkbox" data-plan90="iniciar-pedido-nuevo-china"><span>Iniciar la conversación para el pedido nuevo de puzzles a China — el ciclo dura 2 a 3 meses y este pedido es el que llega a tiempo para Navidad</span></label></li>
+<li><label><input type="checkbox" data-plan90="compartir-margenes-costos"><span>Compartir con el equipo los costos y márgenes reales del negocio</span></label></li>
+<li><label><input type="checkbox" data-plan90="definir-dia-fijo-revision-semanal"><span>Confirmar el día fijo de la semana para la revisión de números en conjunto</span></label></li>
+</ul>
+<h4 class="owner-label">Mateo</h4>
+<ul class="checklist">
+<li><label><input type="checkbox" data-plan90="auditar-cuenta-google-ads"><span>Auditar completa la cuenta de Google Ads (Performance Max) — el objetivo de carrito abandonado ya está bien configurado como secundario, no hay que tocarlo</span></label></li>
+<li><label><input type="checkbox" data-plan90="diagnosticar-judgeme"><span>Diagnosticar por qué el widget de Judge.me no muestra las 75 reseñas que ya existen en la ficha de producto</span></label></li>
+<li><label><input type="checkbox" data-plan90="definir-segmentos-recencia"><span>Definir los 3 segmentos de recencia de compra para las campañas de correo: 0-30, 30-60 y 60 días o más desde la última compra</span></label></li>
+<li><label><input type="checkbox" data-plan90="mapear-flujos-klaviyo"><span>Revisar los flujos automáticos de Klaviyo que ya funcionan, antes de tocar las campañas</span></label></li>
+<li><label><input type="checkbox" data-plan90="armar-primer-popup-segmentado"><span>Diseñar el primer pop-up segmentado (uno para quien visita por primera vez, otro para quien ya compró) con anclaje de precio: mostrar primero la opción más cara para que el resto del catálogo se vea más accesible</span></label></li>
+</ul>
+</div>
+
+<div class="week-block">
+<h3>Semana 2 de agosto (10-16 ago) — Llega el contenedor y la primera revisión de mitad de mes</h3>
+<h4 class="owner-label">Cote</h4>
+<ul class="checklist">
+<li><label><input type="checkbox" data-plan90="grabar-historias-para-correo"><span>Grabar o escribir 2 a 3 historias nuevas para sumar al banco de correos</span></label></li>
+<li><label><input type="checkbox" data-plan90="revisar-preventa-con-regalo"><span>Explorar la preventa con regalo, en vez de descuento, para el próximo lanzamiento</span></label></li>
+</ul>
+<h4 class="owner-label">Felipe</h4>
+<ul class="checklist">
+<li><label><input type="checkbox" data-plan90="confirmar-llegada-contenedor"><span>Confirmar la llegada del contenedor de puzzles a Chile (15 de agosto)</span></label></li>
+<li><label><input type="checkbox" data-plan90="coordinar-partner-recepcion"><span>Coordinar con Partner la recepción y el ingreso a bodega del contenedor</span></label></li>
+<li><label><input type="checkbox" data-plan90="revisar-avance-vs-proyectado-15"><span>Si el 15 de agosto se lleva menos de la mitad de lo proyectado, activar el plan de acción: una campaña de correo extra, más urgencia en el pop-up y mover presupuesto de Google Ads hacia lo que mejor esté rindiendo</span></label></li>
+</ul>
+<h4 class="owner-label">Mateo</h4>
+<ul class="checklist">
+<li><label><input type="checkbox" data-plan90="instalar-popup-segmentado"><span>Instalar el pop-up segmentado con anclaje de precio (queda listo en unas 48 horas)</span></label></li>
+<li><label><input type="checkbox" data-plan90="arreglar-widget-resenas"><span>Arreglar el widget de reseñas para que las 75 reseñas se vean en la ficha de producto</span></label></li>
+<li><label><input type="checkbox" data-plan90="armar-coleccion-packs"><span>Armar la colección de packs / más vendidos como primera opción visible en la tienda (hoy no existe)</span></label></li>
+<li><label><input type="checkbox" data-plan90="lanzar-primera-campana-correo"><span>Lanzar la primera campaña de correo segmentada por recencia: una historia primero, después conectada con un producto</span></label></li>
+<li><label><input type="checkbox" data-plan90="hacer-revision-mitad-mes-agosto"><span>Hacer la primera revisión de mitad de mes: comparar el resultado real del 1 al 15 de agosto contra lo proyectado para el mes</span></label></li>
+</ul>
+</div>
+
+<div class="week-block">
+<h3>Semana 3 de agosto (17-23 ago) — Ajustar y seguir con el pedido a China</h3>
+<h4 class="owner-label">Cote</h4>
+<ul class="checklist">
+<li><label><input type="checkbox" data-plan90="avanzar-libro-acuarela"><span>Avanzar el producto digital: el libro para pintar en acuarela con clase grabada</span></label></li>
+<li><label><input type="checkbox" data-plan90="revisar-linea-laminas"><span>Revisar la recuperación de las láminas, ahora que la impresora que las frenaba ya está reparada</span></label></li>
+</ul>
+<h4 class="owner-label">Felipe</h4>
+<ul class="checklist">
+<li><label><input type="checkbox" data-plan90="revisar-condiciones-proveedor-china"><span>Cerrar con el proveedor de China las condiciones del pedido nuevo: precio, plazos y forma de pago</span></label></li>
+<li><label><input type="checkbox" data-plan90="revisar-negociacion-banco-proveedores"><span>Avanzar la conversación con proveedores y el banco para pasar de pagar 100% por adelantado a esquemas 50/50 o 70/30</span></label></li>
+</ul>
+<h4 class="owner-label">Mateo</h4>
+<ul class="checklist">
+<li><label><input type="checkbox" data-plan90="probar-ab-diseno-correo"><span>Probar A/B (comparar dos versiones para ver cuál funciona mejor) una campaña de correo con diseño elaborado contra una en texto plano, tipo carta personal</span></label></li>
+<li><label><input type="checkbox" data-plan90="revisar-friccion-pago"><span>Revisar el paso de pago (checkout) buscando fricción — cualquier paso de más que pueda frenar la compra</span></label></li>
+<li><label><input type="checkbox" data-plan90="medir-linea-base-pesos-por-visita"><span>Calcular la primera línea base de pesos por visita (ingreso ÷ sesiones), para tener con qué comparar en septiembre</span></label></li>
+<li><label><input type="checkbox" data-plan90="ajustar-segun-revision-mitad-mes"><span>Ajustar el plan de la semana según lo que mostró la revisión de mitad de mes</span></label></li>
+</ul>
+</div>
+
+<div class="week-block">
+<h3>Semana 4 de agosto (24-31 ago) — Puzzles de vuelta en la tienda y cierre de mes</h3>
+<h4 class="owner-label">Cote</h4>
+<ul class="checklist">
+<li><label><input type="checkbox" data-plan90="cerrar-propuesta-hotel"><span>Cerrar la propuesta B2B para el hotel</span></label></li>
+</ul>
+<h4 class="owner-label">Felipe</h4>
+<ul class="checklist">
+<li><label><input type="checkbox" data-plan90="revisar-margenes-mes-1"><span>Revisar los márgenes del primer mes frente al costo del pedido nuevo a China</span></label></li>
+<li><label><input type="checkbox" data-plan90="validar-reporte-mensual-agosto"><span>Revisar y validar el reporte mensual de agosto antes de compartirlo</span></label></li>
+</ul>
+<h4 class="owner-label">Mateo</h4>
+<ul class="checklist">
+<li><label><input type="checkbox" data-plan90="publicar-puzzles-en-tienda"><span>Publicar los puzzles de nuevo en la tienda (última semana de agosto)</span></label></li>
+<li><label><input type="checkbox" data-plan90="registrar-kpis-cierre-agosto"><span>Registrar los números de cierre de agosto: ticket promedio, conversión, correo y ROAS</span></label></li>
+<li><label><input type="checkbox" data-plan90="armar-reporte-mensual-agosto"><span>Armar el reporte mensual de agosto</span></label></li>
+</ul>
+</div>
+
+<div class="week-block">
+<h3>Cada semana desde septiembre — rutina sostenida</h3>
+<h4 class="owner-label">Cote</h4>
+<ul class="checklist">
+<li><label><input type="checkbox" data-plan90="sumar-historia-banco"><span>Sumar una historia nueva al banco de correos cada semana</span></label></li>
+<li><label><input type="checkbox" data-plan90="seguir-cerrando-ventas-whatsapp"><span>Seguir cerrando por WhatsApp las ventas que lleguen ahí</span></label></li>
+</ul>
+<h4 class="owner-label">Felipe</h4>
+<ul class="checklist">
+<li><label><input type="checkbox" data-plan90="revisar-stock-cuatro-lugares"><span>Revisar el stock en los 4 lugares: Partner, bodega propia, consignación B2B y Mercado Libre</span></label></li>
+<li><label><input type="checkbox" data-plan90="seguimiento-pedido-china-transito"><span>Hacer seguimiento al pedido a China en camino, para que llegue a tiempo para Navidad</span></label></li>
+</ul>
+<h4 class="owner-label">Mateo</h4>
+<ul class="checklist">
+<li><label><input type="checkbox" data-plan90="revision-semanal-numeros"><span>Revisar ticket promedio, conversión, pesos por visita y ROAS de la semana, el día fijo acordado</span></label></li>
+<li><label><input type="checkbox" data-plan90="tres-campanas-correo-semana"><span>Enviar las 3 campañas de correo de la semana: historia primero, después el producto</span></label></li>
+<li><label><input type="checkbox" data-plan90="reportar-rendimiento-ads"><span>Reportar el rendimiento de Google Ads y Meta Ads de la semana</span></label></li>
+</ul>
+</div>
+</section>
+
+<section class="sec">
+<h2>Cómo sabemos si funcionó</h2>
+<p>Al cierre de octubre, estos son los 5 números que dicen si seguir por este camino. Los puntos de partida son los datos de julio de 2026 reunidos en esta página <span class="pill pill--success">🟢 dato real</span>. Cuando exista el dato, se comparan también contra el mismo mes del año anterior <span class="pill pill--warn">🟡 verificar</span> — agosto, septiembre y octubre de 2025 —, pendiente de confirmar con Felipe.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Número</th><th>Partida (jul-2026)</th><th>Meta propuesta a 90 días</th></tr></thead>
+<tbody>
+<tr><td>Ticket promedio</td><td>~$33.000 CLP</td><td>~$45.000 CLP</td></tr>
+<tr><td>% del ingreso desde el correo</td><td>~9%</td><td>20-25%</td></tr>
+<tr><td>Conversión</td><td>~1%</td><td>1,5%</td></tr>
+<tr><td>ROAS de Google</td><td>2,85</td><td>4 o más</td></tr>
+<tr><td>Venta total de Shopify</td><td>crecimiento +27%</td><td>$10.000.000 CLP/mes</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="callout callout--success"><p>Si estos 5 números avanzan, el camino sigue igual en noviembre y diciembre, con la temporada alta ya en marcha. Si alguno se queda atrás, ya hay 3 revisiones de mitad de mes (agosto, septiembre, octubre) que muestran en qué momento se atrasó y qué se probó para corregirlo — no hace falta esperar a octubre para saberlo.</p></div>
+
+<footer class="page-footer"><p>Fuente principal: acta de la reunión del 27 de julio de 2026 con Felipe Robinson y María José Pedraza (Cote). <a href="index.html">← Volver al plan</a></p></footer>
+</section>
+
+</main>
+
+<script>
+  // Acceso seguro a localStorage (no revienta en navegación privada u otros bloqueos).
+  function pgGet(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+  function pgSet(key, valor) { try { localStorage.setItem(key, valor); } catch (e) { /* sin soporte, se ignora */ } }
+  function pgRemove(key) { try { localStorage.removeItem(key); } catch (e) { /* sin soporte, se ignora */ } }
+</script>
+
+<script>
+  // Checklist del plan de 90 días — usa data-plan90 (data-task y data-cro ya están
+  // tomados por index.html y cro.html) y localStorage con prefijo pedraza-plan:p90:<id>.
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-plan90]').forEach(function (cb) {
+      cb.checked = pgGet('pedraza-plan:p90:' + cb.getAttribute('data-plan90')) === '1';
+    });
+    actualizarProgresoP90();
+  });
+
+  document.addEventListener('change', function (e) {
+    var cb = e.target.closest('[data-plan90]');
+    if (!cb) return;
+    var key = 'pedraza-plan:p90:' + cb.getAttribute('data-plan90');
+    if (cb.checked) { pgSet(key, '1'); } else { pgRemove(key); }
+    actualizarProgresoP90();
+  });
+
+  function actualizarProgresoP90() {
+    var cajas = document.querySelectorAll('[data-plan90]');
+    var total = cajas.length;
+    var done = 0;
+    cajas.forEach(function (cb) { if (cb.checked) done++; });
+    var pct = total ? Math.round((done / total) * 100) : 0;
+
+    document.querySelectorAll('[data-progress-fill-p90]').forEach(function (fill) {
+      fill.style.width = pct + '%';
+    });
+    document.querySelectorAll('[data-progress-label-p90]').forEach(function (label) {
+      label.textContent = done + ' de ' + total + ' tareas (' + pct + '%)';
+    });
+  }
+</script>
+</body>
+</html>
