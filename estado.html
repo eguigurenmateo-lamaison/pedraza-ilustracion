@@ -617,6 +617,104 @@ main { counter-reset: sec; }
   .callout { border-left: 4px solid #999; }
   a[href]::after { content: " (" attr(href) ")"; font-size: .8em; }
 }
+
+/* ===== 21. Indicador de sincronización (.sync-status) — píldora fija, discreta =====
+   Parte del bloque canónico del motor de sincronización (docs/design-system.md,
+   sección 9). Se agrega igual en las 5 páginas con checklist — no es propia de
+   bitacora.html. Solo aparece cuando hay una URL de sincronización configurada. */
+.sync-status {
+  position: fixed;
+  right: max(var(--space-4), env(safe-area-inset-right, 0px));
+  bottom: max(var(--space-4), env(safe-area-inset-bottom, 0px));
+  z-index: 60;
+  max-width: calc(100vw - var(--space-4) * 2);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  background: rgba(28, 36, 32, .92);
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  line-height: 1.3;
+  box-shadow: var(--shadow);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.sync-status.is-visible { opacity: 1; transform: translateY(0); }
+.sync-status--saving { background: rgba(28, 36, 32, .92); }
+.sync-status--ok { background: var(--success); }
+.sync-status--offline { background: var(--warn); color: #2a1d02; }
+
+/* ==========================================================================
+   Extensiones propias de esta página (bitacora.html)
+   bitacora.html no es una de las 6 páginas del sitio (docs/design-system.md,
+   sección 1) y no está en el menú principal — se llega por link desde el plan.
+   El bloque de arriba es el canónico intacto; lo de abajo son componentes
+   propios de esta página, agregados en la misma hoja de estilos única para no
+   crear un segundo archivo CSS.
+   ========================================================================== */
+
+.hero__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-2) 0 0;
+  margin-bottom: var(--space-3);
+  color: rgba(255, 255, 255, .85);
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+.hero__back:hover { color: #fff; }
+
+.owner-label {
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--accent-dark);
+  margin: var(--space-5) 0 var(--space-2);
+  font-weight: 700;
+}
+
+/* Ficha de reunión: pares etiqueta/valor, en una columna en el celular */
+.ficha-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-4); margin: 0; }
+.ficha-grid > div { display: flex; flex-direction: column; gap: 2px; }
+.ficha-grid dt { margin: 0; font-size: var(--fs-sm); font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-soft); }
+.ficha-grid dd { margin: 0; font-size: var(--fs-base); }
+@media (min-width: 640px) { .ficha-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* Lista de decisiones tomadas: una tarjeta angosta por decisión, con marca de confirmado */
+.decision-list { list-style: none; padding: 0; margin: var(--space-4) 0; display: grid; gap: var(--space-3); }
+.decision-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-xs);
+  font-size: var(--fs-sm);
+}
+.decision-list li::before {
+  content: "✅";
+  flex: 0 0 auto;
+  font-size: 1.05em;
+  line-height: 1.5;
+}
+
+.deliverable-card p { font-size: var(--fs-sm); }
+.deliverable-card .btn { margin-top: var(--space-2); }
+
+.page-footer { margin-top: var(--space-8); padding-top: var(--space-4); border-top: 1px solid var(--line); color: var(--ink-faint); font-size: var(--fs-sm); }
+.page-footer a { color: var(--accent-dark); font-weight: 700; text-decoration: none; }
+.page-footer a:hover { text-decoration: underline; }
 </style>
 </head>
 <body data-nav-actual="estado">
@@ -653,6 +751,13 @@ main { counter-reset: sec; }
           <span class="navpanel__link-text">
             <span class="navpanel__link-name">Bitácora</span>
             <span class="navpanel__link-desc">Reuniones, pendientes y entregables</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="sincronizar.html" class="navpanel__link" data-nav-key="sincronizar">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Conectar con la hoja</span>
+            <span class="navpanel__link-desc">Compartir el avance con el equipo</span>
           </span>
           <span class="navpanel__check" aria-hidden="true">✓</span>
         </a>
@@ -1107,6 +1212,7 @@ main { counter-reset: sec; }
   var NAV_PAGES = [
     { grupo: 'Seguimiento', id: 'estado', nombre: 'Estado del plan' },
     { grupo: 'Seguimiento', id: 'bitacora', nombre: 'Bitácora' },
+    { grupo: 'Seguimiento', id: 'sincronizar', nombre: 'Conectar con la hoja' },
     { grupo: 'La estrategia', id: 'index', nombre: 'Plan y estrategia' },
     { grupo: 'Plan de acción', id: 'plan-90-dias', nombre: 'Plan de 90 días' },
     { grupo: 'Plan de acción', id: 'stock-navidad', nombre: 'Stock para Navidad' },
@@ -1195,6 +1301,201 @@ main { counter-reset: sec; }
   }
 
   document.addEventListener('DOMContentLoaded', navInit);
+</script>
+
+<script>
+  // Motor de sincronización — checklist compartida por todo el equipo vía Google Sheets.
+  // Prefijo "pgSync" en todo para no chocar con el resto del JS de la página.
+  // Ver docs/design-system.md sección 9 para la documentación completa (incluye el
+  // código de Google Apps Script del backend) y la tabla de valores por página.
+  // Requiere que ya estén cargados: el bloque pgGet/pgSet/pgRemove y el script propio
+  // de la página que lee/escribe localStorage para cada checkbox (los dos, arriba).
+
+  // ÚNICOS DOS VALORES QUE CAMBIAN POR PÁGINA — todo lo demás se copia tal cual:
+  var SYNC_ATTR = 'data-estado';   // atributo de los checkboxes de esta página
+  var SYNC_PREFIX = 'est:';          // prefijo de esta página dentro de la hoja compartida
+
+  // Configuración de la URL remota: vacía por defecto (sin backend configurado, la
+  // página funciona exactamente igual que hoy, solo con localStorage). Si queda vacía,
+  // se busca en localStorage — así se puede configurar desde una futura página de
+  // ajustes sin tocar código.
+  var SYNC_URL = '';
+  if (!SYNC_URL) {
+    try { SYNC_URL = localStorage.getItem('pedraza-plan:sync-url') || ''; }
+    catch (e) { SYNC_URL = ''; }
+  }
+
+  var pgSyncProcesando = false;
+  var pgSyncPillEl = null;
+  var pgSyncPillTimeout = null;
+
+  // ----- Arranque: solo si hay URL configurada. Sin ella, cero cambios de comportamiento. -----
+  document.addEventListener('DOMContentLoaded', function () {
+    if (!SYNC_URL) return;
+    pgSyncInicio();
+  });
+
+  window.addEventListener('online', function () {
+    if (!SYNC_URL) return;
+    pgSyncProcesarCola();
+  });
+
+  async function pgSyncInicio() {
+    await pgSyncCargarRemoto();
+    await pgSyncProcesarCola();
+  }
+
+  // ----- Paso 2 de la carga en dos tiempos: trae el remoto y reconcilia (gana el remoto). -----
+  // El paso 1 (aplicar localStorage de inmediato) ya lo hizo el script propio de la
+  // página, arriba, antes de que este fetch en segundo plano siquiera empiece.
+  async function pgSyncCargarRemoto() {
+    try {
+      var res = await fetch(SYNC_URL, { cache: 'no-store' });
+      if (!res.ok) { pgSyncMostrarEstado('offline'); return; }
+      var data = await res.json();
+      if (!data || data.ok !== true || !data.items || typeof data.items !== 'object') {
+        pgSyncMostrarEstado('offline');
+        return;
+      }
+      pgSyncReconciliar(data.items);
+      var cola = pgSyncLeerCola();
+      if (!Object.keys(cola).length) pgSyncMostrarEstado('ok');
+    } catch (e) {
+      // Red caída, URL inválida, JSON roto, servidor que no existe: la página sigue
+      // funcionando solo con localStorage, sin romperse y sin error visible.
+      pgSyncMostrarEstado('offline');
+    }
+  }
+
+  function pgSyncReconciliar(items) {
+    var checkboxes = document.querySelectorAll('[' + SYNC_ATTR + ']');
+    Object.keys(items).forEach(function (clave) {
+      if (clave.indexOf(SYNC_PREFIX) !== 0) return; // es de otra página, se ignora
+      var id = clave.slice(SYNC_PREFIX.length);
+      var cb = null;
+      for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].getAttribute(SYNC_ATTR) === id) { cb = checkboxes[i]; break; }
+      }
+      if (!cb) return; // esta página no tiene ese casillero
+
+      var remoto = items[clave] === '1';
+      if (cb.checked === remoto) return; // ya coincide, nada que reconciliar
+
+      cb.checked = remoto;
+      // Evento sintético (isTrusted=false): dispara el listener propio de la página,
+      // que ya sabe guardar en localStorage y refrescar KPIs/barra de progreso — así
+      // no hace falta duplicar esa lógica acá. Como no es un clic real, el listener
+      // de este motor (más abajo) lo ignora y no lo reenvía de vuelta al remoto.
+      cb.dispatchEvent(new Event('change', { bubbles: true }));
+    });
+  }
+
+  // ----- Al marcar: el script propio de la página ya guardó local al instante. -----
+  // Este listener solo encola el envío al remoto en segundo plano, y solo reacciona
+  // a clics reales (e.isTrusted) — nunca a los eventos sintéticos de la reconciliación.
+  document.addEventListener('change', function (e) {
+    var cb = e.target.closest('[' + SYNC_ATTR + ']');
+    if (!cb || !e.isTrusted || !SYNC_URL) return;
+    var claveCompleta = SYNC_PREFIX + cb.getAttribute(SYNC_ATTR);
+    var estado = cb.checked ? '1' : '0';
+    var quien = pgSyncObtenerQuien();
+    var cola = pgSyncLeerCola();
+    cola[claveCompleta] = { estado: estado, quien: quien };
+    pgSyncGuardarCola(cola);
+    pgSyncProcesarCola();
+  });
+
+  // ----- Cola de reintentos: nada se pierde por estar sin señal. -----
+  function pgSyncLeerCola() {
+    var texto = pgGet('pedraza-plan:sync-cola');
+    if (!texto) return {};
+    try { return JSON.parse(texto) || {}; } catch (e) { return {}; }
+  }
+
+  function pgSyncGuardarCola(cola) {
+    pgSet('pedraza-plan:sync-cola', JSON.stringify(cola));
+  }
+
+  async function pgSyncProcesarCola() {
+    if (!SYNC_URL || pgSyncProcesando) return;
+    pgSyncProcesando = true;
+    try {
+      var cola = pgSyncLeerCola();
+      var claves = Object.keys(cola);
+      if (!claves.length) return;
+      pgSyncMostrarEstado('guardando');
+      for (var i = 0; i < claves.length; i++) {
+        var clave = claves[i];
+        var item = cola[clave];
+        var ok = await pgSyncEnviarUno(clave, item.estado, item.quien);
+        if (!ok) { pgSyncMostrarEstado('offline'); return; } // se reintenta en 'online' o en la próxima carga
+        delete cola[clave];
+        pgSyncGuardarCola(cola);
+      }
+      pgSyncMostrarEstado('ok');
+    } catch (e) {
+      pgSyncMostrarEstado('offline');
+    } finally {
+      pgSyncProcesando = false;
+    }
+  }
+
+  function pgSyncEnviarUno(clave, estado, quien) {
+    return fetch(SYNC_URL, {
+      method: 'POST',
+      // text/plain evita el preflight de CORS, que Apps Script no maneja bien.
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({ clave: clave, estado: estado, quien: quien })
+    }).then(function (res) {
+      if (!res.ok) return false;
+      return res.json().then(function (data) { return !!(data && data.ok); }).catch(function () { return false; });
+    }).catch(function () { return false; }); // red caída, CORS, lo que sea: se degrada en silencio
+  }
+
+  // ----- Quién marcó: se pregunta una sola vez; si cancela, no vuelve a insistir en la sesión. -----
+  function pgSyncObtenerQuien() {
+    var guardado = pgGet('pedraza-plan:quien');
+    if (guardado) return guardado;
+    try {
+      if (sessionStorage.getItem('pedraza-plan:quien-omitido') === '1') return 'alguien del equipo';
+    } catch (e) { /* sin soporte, se ignora */ }
+    var nombre = null;
+    try { nombre = window.prompt('¿Cómo te llamas? Así el equipo sabe quién marcó cada cosa'); }
+    catch (e) { nombre = null; }
+    nombre = (nombre || '').trim();
+    if (nombre) { pgSet('pedraza-plan:quien', nombre); return nombre; }
+    try { sessionStorage.setItem('pedraza-plan:quien-omitido', '1'); } catch (e) { /* sin soporte, se ignora */ }
+    return 'alguien del equipo';
+  }
+
+  // ----- Píldora de estado: discreta, abajo a la derecha, no tapa nav ni contenido. -----
+  function pgSyncPill() {
+    if (pgSyncPillEl) return pgSyncPillEl;
+    pgSyncPillEl = document.createElement('div');
+    pgSyncPillEl.className = 'sync-status';
+    pgSyncPillEl.setAttribute('role', 'status');
+    pgSyncPillEl.setAttribute('aria-live', 'polite');
+    document.body.appendChild(pgSyncPillEl);
+    return pgSyncPillEl;
+  }
+
+  function pgSyncMostrarEstado(estado) {
+    var el = pgSyncPill();
+    clearTimeout(pgSyncPillTimeout);
+    el.classList.remove('sync-status--ok', 'sync-status--saving', 'sync-status--offline');
+    if (estado === 'guardando') {
+      el.textContent = 'Guardando…';
+      el.classList.add('sync-status--saving', 'is-visible');
+    } else if (estado === 'offline') {
+      el.textContent = 'Sin conexión — guardado solo aquí';
+      el.classList.add('sync-status--offline', 'is-visible');
+      // se queda visible a propósito: hay algo que avisar
+    } else {
+      el.textContent = 'Sincronizado con el equipo ✓';
+      el.classList.add('sync-status--ok', 'is-visible');
+      pgSyncPillTimeout = setTimeout(function () { el.classList.remove('is-visible'); }, 3000);
+    }
+  }
 </script>
 
 </body>

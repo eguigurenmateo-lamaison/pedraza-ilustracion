@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Ofertas y pop-ups — Plan Pedraza Ilustración</title>
+<title>Conectar con la hoja — Plan Pedraza Ilustración</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
 <style>
 /* ==========================================================================
@@ -617,14 +617,44 @@ main { counter-reset: sec; }
   .callout { border-left: 4px solid #999; }
   a[href]::after { content: " (" attr(href) ")"; font-size: .8em; }
 }
+
+/* ===== 21. Indicador de sincronización (.sync-status) — píldora fija, discreta =====
+   Parte del bloque canónico del motor de sincronización (docs/design-system.md,
+   sección 9). Se agrega igual en las 5 páginas con checklist — no es propia de
+   bitacora.html. Solo aparece cuando hay una URL de sincronización configurada. */
+.sync-status {
+  position: fixed;
+  right: max(var(--space-4), env(safe-area-inset-right, 0px));
+  bottom: max(var(--space-4), env(safe-area-inset-bottom, 0px));
+  z-index: 60;
+  max-width: calc(100vw - var(--space-4) * 2);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  background: rgba(28, 36, 32, .92);
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  line-height: 1.3;
+  box-shadow: var(--shadow);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.sync-status.is-visible { opacity: 1; transform: translateY(0); }
+.sync-status--saving { background: rgba(28, 36, 32, .92); }
+.sync-status--ok { background: var(--success); }
+.sync-status--offline { background: var(--warn); color: #2a1d02; }
+
 /* ==========================================================================
-   Extensiones propias de esta página (ofertas.html)
-   ofertas.html no es una de las 6 páginas del sitio (docs/design-system.md,
-   sección 1) y no está en el menú principal — se llega por link desde el
-   plan. El bloque de arriba es el canónico intacto; lo de abajo son
-   componentes propios de esta página (maqueta visual de pop-up, líneas de
-   cálculo de precio de packs), agregados en la misma hoja de estilos única
-   para no crear un segundo archivo CSS.
+   Extensiones propias de esta página (sincronizar.html)
+   sincronizar.html no es una de las 15 páginas del menú principal (todavía) —
+   se llega por link directo. El bloque de arriba es el canónico intacto; lo
+   de abajo son componentes propios de esta página, agregados en la misma
+   hoja de estilos única para no crear un segundo archivo CSS.
    ========================================================================== */
 
 .hero__back {
@@ -637,75 +667,104 @@ main { counter-reset: sec; }
   color: rgba(255, 255, 255, .85);
   text-decoration: none;
   font-size: var(--fs-sm);
-  font-weight: 700;
+  font-weight: 600;
 }
 .hero__back:hover { color: #fff; }
 
-/* Maqueta visual de un pop-up, solo para mostrar cómo se ve — no es funcional */
-.popup-mock {
-  position: relative;
-  max-width: 380px;
-  margin: var(--space-5) auto;
-  padding: var(--space-6) var(--space-5) var(--space-5);
-  background: var(--surface);
-  border: 1px solid var(--line-strong);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  text-align: center;
-}
-.popup-mock__close {
-  position: absolute;
-  top: var(--space-3);
-  right: var(--space-3);
-  width: 28px;
-  height: 28px;
+.card--step > h3 { display: flex; align-items: center; gap: var(--space-3); margin-top: 0; }
+
+.step-badge {
+  flex: 0 0 auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: 1.9em;
+  height: 1.9em;
   border-radius: 50%;
-  background: var(--paper);
-  color: var(--ink-faint);
-  font-size: .85rem;
-  line-height: 1;
-}
-.popup-mock__eyebrow { font-size: var(--fs-sm); font-weight: 700; color: var(--brand-green); letter-spacing: .04em; margin: 0 0 var(--space-2); }
-.popup-mock__title { font-family: var(--font-serif); font-size: var(--fs-h3); margin: 0 0 var(--space-2); }
-.popup-mock__sub { font-size: var(--fs-sm); color: var(--ink-soft); margin: 0 0 var(--space-4); }
-.popup-mock__field {
-  display: block;
-  width: 100%;
-  min-height: var(--tap);
-  margin: 0 0 var(--space-3);
-  padding: 0 var(--space-3);
-  line-height: var(--tap);
-  border: 1px solid var(--line-strong);
-  border-radius: var(--radius-sm);
-  background: var(--paper);
-  color: var(--ink-faint);
-  font-size: var(--fs-sm);
-  text-align: left;
-}
-.popup-mock__btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: var(--tap);
-  width: 100%;
-  padding: 0 var(--space-5);
-  border-radius: var(--radius-sm);
-  background: var(--accent);
+  background: var(--brand-green);
   color: #fff;
+  font-family: var(--font-sans);
   font-weight: 700;
-  font-size: var(--fs-sm);
+  font-size: .85em;
 }
 
-/* Líneas de cálculo de precio (packs, ancla) */
-.calc-line { margin: 0 0 var(--space-1); font-size: var(--fs-base); }
-.calc-line strong { font-family: var(--font-serif); font-size: var(--fs-lg); }
-.calc-line--sub { color: var(--ink-faint); font-size: var(--fs-sm); margin: 0 0 var(--space-3); }
+.paso-vista {
+  margin: var(--space-3) 0 0;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-sm);
+  background: var(--brand-green-soft);
+  color: var(--brand-green-dark);
+  font-size: var(--fs-sm);
+}
+.paso-vista strong { color: var(--brand-green-dark); }
+
+.syncmap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-4);
+  margin: var(--space-6) 0;
+}
+.syncmap__person, .syncmap__sheet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--ink-soft);
+  min-width: 4.5rem;
+}
+.syncmap__sheet { color: var(--ink); font-weight: 700; }
+.syncmap__avatar {
+  flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--brand-green-soft);
+  color: var(--brand-green-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  box-shadow: var(--shadow-xs);
+}
+.syncmap__sheet .syncmap__avatar { background: var(--accent-soft); color: var(--accent-dark); }
+.syncmap__arrow { flex: 0 0 auto; font-size: 1.4rem; color: var(--ink-faint); }
+
+.pill-demo { display: inline-block; position: static !important; transform: none !important; }
+
+.conectar-estado-box {
+  padding: var(--space-4) var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  margin: var(--space-4) 0 var(--space-5);
+}
+.conectar-form { display: flex; flex-direction: column; gap: var(--space-3); margin: var(--space-4) 0; }
+.conectar-form label { font-weight: 700; font-size: var(--fs-sm); color: var(--ink-soft); }
+.conectar-form input[type="text"] {
+  min-height: var(--tap);
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: var(--fs-sm);
+  font-family: var(--font-mono);
+}
+.conectar-form input[type="text"]:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.conectar-acciones { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+#conectar-resultado { margin-top: var(--space-4); }
+
+.page-footer { margin-top: var(--space-8); padding-top: var(--space-4); border-top: 1px solid var(--line); color: var(--ink-faint); font-size: var(--fs-sm); }
+.page-footer a { color: var(--accent-dark); font-weight: 700; text-decoration: none; }
+.page-footer a:hover { text-decoration: underline; }
 </style>
 </head>
-<body data-nav-actual="ofertas">
+<body data-nav-actual="sincronizar">
 <nav class="navbar" aria-label="Barra de navegación">
   <div class="navbar__inner">
     <a href="estado.html" class="navbar__home" aria-label="Ir al inicio: Estado del plan">🦋</a>
@@ -860,390 +919,296 @@ main { counter-reset: sec; }
 
 <header class="hero">
   <div class="hero__inner">
-    <a href="index.html#datos-que-faltan" class="hero__back">← Volver al plan</a>
-    <h1>Ofertas y pop-ups</h1>
-    <p>El sistema completo para subir el ticket promedio (lo que gasta una persona en cada compra): pop-ups que muestran la oferta correcta a la persona correcta, packs armados para que sí den ganas de comprar, y la barra de envío gratis que empuja el carrito hacia arriba. Todo listo para instalar en 48 horas apenas lleguen los accesos. Esta página no está en el menú principal — se comparte por link directo desde el plan.</p>
+    <a href="bitacora.html" class="hero__back">← Volver a la bitácora</a>
+    <h1>Conectar con la hoja</h1>
+    <p>Guía para que Felipe, Cote y Mateo compartan un solo avance del plan, en vez de que cada uno vea el suyo. Se hace una sola vez por persona, con una hoja de cálculo de Google (una tabla como las de Excel, pero que vive en internet). Esta página no está en el menú principal — se comparte por link directo.</p>
   </div>
 </header>
 
 <main class="wrap">
 
-<section class="sec" id="diagnostico">
-<h2>Por qué bajó el ticket promedio y cómo se sube</h2>
+<section class="sec">
+<h2>Qué resuelve esto</h2>
+<p>Hoy, cuando alguien marca una tarea en cualquiera de las páginas del plan, esa marca se guarda solo en su propio teléfono o computador. Es como si cada persona tuviera su propio cuaderno: Felipe anota en el suyo, Cote en el de ella, Mateo en el de él. Nadie ve lo que marcaron los demás, salvo que pregunten.</p>
+<p>Conectar una hoja de cálculo de Google como almacén compartido soluciona eso: los tres cuadernos pasan a ser uno solo. Cuando Felipe marca "entregué los accesos", Cote y Mateo lo ven al tiro en su propio celular. Y queda registrado quién marcó cada tarea y cuándo.</p>
 
-<div class="kpi-grid">
-  <div class="kpi">
-    <span class="kpi__label">Ticket promedio hoy 🟢</span>
-    <span class="kpi__value">$33.000</span>
+<div class="grid-2">
+  <div class="card">
+    <h3>📱 Hoy</h3>
+    <span class="pill pill--warn" style="margin-bottom:var(--space-3)">Cada uno ve lo suyo</span>
+    <p>Felipe marca una tarea en su celular. Cote y Mateo no se enteran hasta que alguien pregunta "¿ya hiciste eso?". El avance real del equipo nadie lo ve completo.</p>
   </div>
-  <div class="kpi">
-    <span class="kpi__label">Meta propuesta</span>
-    <span class="kpi__value">$45.000</span>
-    <span class="pill pill--warn">🟡 propuesta</span>
-  </div>
-  <div class="kpi">
-    <span class="kpi__label">Envío gratis desde 🟢</span>
-    <span class="kpi__value">$50.000</span>
-  </div>
-  <div class="kpi">
-    <span class="kpi__label">Naipes (canibalizan) 🟢</span>
-    <span class="kpi__value">$22.990</span>
+  <div class="card">
+    <h3>🔗 Con la hoja conectada</h3>
+    <span class="pill pill--success" style="margin-bottom:var(--space-3)">Todos ven lo mismo</span>
+    <p>Felipe marca una tarea. Cote y Mateo la ven marcada, con su nombre y la hora, en su propio celular o computador. Un solo avance, compartido por el equipo completo.</p>
   </div>
 </div>
 
-<p>El <strong>ticket promedio</strong> (lo que gasta una persona en cada compra) hoy está en <strong>$33.000 CLP</strong> <span class="pill pill--success">🟢 dato del acta, pantalla de Shopify mostrada en la reunión del 27 de julio de 2026</span>. Bajó: antes era más alto. Este número es más reciente que el AOV de $37.900 que usa el resto del plan (una captura de Shopify del 1 al 24 de julio) — se usa acá como referencia principal por venir directo de la pantalla que Felipe mostró en la misma reunión donde se acordó este sistema.</p>
-
-<p>La causa que se conversó en la reunión: cuando entra al catálogo un producto más barato sin que haya una estrategia detrás, la gente compra ese producto y nada más. Es justo lo que está pasando con los <strong>naipes ilustrados</strong> ($22.990 🟢, producto nuevo): se venden harto, pero están <strong>canibalizando</strong> a los puzzles — le están quitando venta al producto estrella en vez de sumar. Antes, alguien entraba pensando en un puzzle de $24.990 a $27.290; hoy se va con un naipe de $22.990. Un ticket más bajo, sin que la tienda gane nada extra por eso.</p>
-
-<div class="callout callout--info">
-<p><strong>La solución no es sacar los naipes del catálogo.</strong> Se venden bien y hay que aprovecharlos. La solución es construir un camino hacia arriba: que después de ver el naipe, a la persona también le aparezca un motivo real para agregar algo más, o para llevarse un pack en vez de una sola pieza suelta. Tres palancas hacen ese trabajo — son las tres piezas de este documento:</p>
-</div>
-
-<ul>
-<li><strong>Anclaje de precio</strong> (mostrar primero el pack más caro del catálogo, para que el resto se vea barato en comparación) — sección "El sistema de pop-ups segmentados".</li>
-<li><strong>Packs visibles</strong>, armados por ocasión y no por categoría — sección "Los packs".</li>
-<li><strong>El umbral de envío gratis</strong> ($50.000 🟢) como empujón directo en el carrito — sección "La barra de envío gratis".</li>
-</ul>
-
-<h3>De $33.000 a una meta de $45.000</h3>
-<p><span class="pill pill--warn">🟡 propuesta</span> $45.000 no es una meta oficial del cliente — es una meta de trabajo para dimensionar el impacto de las tres palancas. Compararla con el ticket actual ayuda a ver de dónde puede salir la subida.</p>
-
-<div class="chart-bar-row"><span class="chart-bar-row__label">Ticket actual</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:73%"></div></div><span class="chart-bar-row__value">$33.000</span></div>
-<div class="chart-bar-row"><span class="chart-bar-row__label">Meta propuesta</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div><span class="chart-bar-row__value">$45.000</span></div>
-
-<p>¿Qué aporta cada palanca a esos $12.000 de diferencia? Un reparto ilustrativo, no una promesa cerrada:</p>
-
-<div class="grid-3">
-<div class="card">
-<span class="pill pill--warn">🟡 estimado</span>
-<h3>+$4.000 — Packs visibles</h3>
-<p>Con una colección de packs por ocasión, visible desde el menú y el home, parte de quienes hoy compran una sola pieza empieza a llevarse un pack.</p>
-</div>
-<div class="card">
-<span class="pill pill--warn">🟡 estimado</span>
-<h3>+$4.000 — Envío gratis</h3>
-<p>La barra que muestra cuánto falta para los $50.000 empuja a agregar un producto más, justo en el carrito, el momento de mayor intención de compra.</p>
-</div>
-<div class="card">
-<span class="pill pill--warn">🟡 estimado</span>
-<h3>+$4.000 — Anclaje de precio</h3>
-<p>Mostrar primero el pack más caro del catálogo cambia la referencia mental: después de ver un precio alto, un puzzle de $24.990 se siente barato.</p>
-</div>
-</div>
-
-<div class="callout callout--warn">
-<p>Estos tres números son una hipótesis de trabajo, no una promesa. Muestran de dónde puede salir la subida, pero el impacto real recién se conoce midiendo la primera semana después de instalar el sistema (ver la última sección de esta página). Lo que sí es un hecho hoy: ninguna de las tres palancas está activa todavía en la tienda.</p>
-</div>
-</section>
-
-<section class="sec" id="sistema-popups">
-<h2>El sistema de pop-ups segmentados</h2>
-
-<p>Hoy la tienda muestra <strong>un solo pop-up</strong> — una ventana que aparece sobre la página mientras la persona navega, con una oferta o un mensaje —: 10% de descuento, igual para cualquiera que entra, sin importar si nunca ha comprado o si ya es clienta hace un año.</p>
-
-<p>La propuesta cambia esto por <strong>3 reglas que no se pisan entre sí</strong>. Cada persona ve como máximo un pop-up: el que le corresponde según quién es y qué está haciendo en el sitio en ese momento.</p>
-
-<div class="table-wrap">
-<table>
-<thead><tr><th>Pop-up</th><th>A quién</th><th>Cuándo aparece</th><th>Qué ofrece</th><th>Por qué</th></tr></thead>
-<tbody>
-<tr><td><strong>1. Visitante nuevo</strong></td><td>Nunca ha comprado, primera visita</td><td>~15 segundos, o al intentar salir del sitio</td><td>El pack más grande del catálogo, como "la colección completa"</td><td>Ancla el precio: todo lo demás se ve más barato después</td></tr>
-<tr><td><strong>2. Interesado sin decidir</strong></td><td>Más de 2 minutos en el sitio, nada en el carrito</td><td>A los 2 minutos de navegación</td><td>10% de descuento a cambio del correo</td><td>Está interesado pero no decidido — es la oferta que ya se sabe que funciona</td></tr>
-<tr><td><strong>3. Cliente que ya compró</strong></td><td>Reconocido por correo o cookie</td><td>Misma lógica, contenido distinto</td><td>Novedades o el pack complementario a lo que ya compró</td><td>Ya usó el 10% de bienvenida — ofrecérselo de nuevo devalúa a quien ya confía en la marca</td></tr>
-</tbody>
-</table>
-</div>
-
-<h3>Pop-up 1 — Visitante nuevo: el anclaje de precio</h3>
-<p>El <strong>anclaje de precio</strong> es un efecto simple: el primer precio que alguien ve se convierte en su punto de comparación para todo lo que ve después. Es el mismo truco que usan los supermercados grandes cuando ponen un televisor carísimo justo a la entrada. Casi nadie lo compra ahí mismo, pero después de verlo, el resto de la tienda —desde el detergente hasta el chocolate— se siente más barato en comparación. El precio caro de entrada no está ahí para venderse: está ahí para cambiar la referencia de todo lo demás.</p>
-
-<p>Este pop-up hace lo mismo: a los ~15 segundos, o si la persona mueve el mouse hacia arriba como para cerrar la pestaña (la señal de que se está por ir), aparece <strong>la Colección Completa</strong> — 3 puzzles + naipes ilustrados, presentada como "todo Pedraza en una caja". Después de ver ese precio, un puzzle solo a $24.990 se percibe barato, aunque casi nadie compre la colección completa.</p>
-
-<div class="card">
-<h3>🎁 La Colección Completa (el pack ancla)</h3>
-<ul>
-<li>Puzzle Aves y Flores de Chile — $24.990 🟢</li>
-<li>Puzzle Mariposas y Escarabajos de Chile — $27.290 🟢</li>
-<li>Puzzle Cetáceos de Chile — $24.990 🟢</li>
-<li>Naipes ilustrados — $22.990 🟢</li>
-</ul>
-<p class="calc-line">Precio normal: <strong>$100.260</strong> <span class="pill pill--success">🟢 suma real de catálogo</span></p>
-<p class="calc-line">Precio en el pop-up (15% dcto <span class="pill pill--warn">🟡 propuesta</span>): <strong>$85.200</strong> — ahorras $15.060</p>
-<p class="calc-line--sub">$85.200 es $100.260 con 15% de descuento, redondeado para que el precio se vea limpio en la vitrina. El 15% es una propuesta de partida — hay que validarlo con el margen real de cada producto antes de publicar.</p>
-</div>
-
-<div class="callout callout--warn">
-<p><strong>Dos cosas por confirmar antes de instalar este pop-up.</strong> Primero: en la reunión se mencionó un pack ancla "del orden de $180.000". Sumando los precios reales publicados hoy en el catálogo, 3 puzzles + naipes da $100.260 — la diferencia puede ser porque se pensaba en una colección más amplia (agregando loza o láminas) o en un número de memoria. Validar con Felipe y Cote qué composición exacta quieren mostrar como "la colección completa" antes de publicarla. Segundo, y más urgente: <strong>los puzzles están sin stock hasta la última semana de agosto</strong> (llega el contenedor el 15 de agosto, pero debe pasar por Partner antes de estar disponible en Shopify). No instalar este pop-up con puzzles mientras no haya stock — mientras tanto, reemplazar el ancla por otra combinación de precio alto que sí tenga inventario (por ejemplo, loza + botella + lámina, ver la sección de packs), y volver a los puzzles apenas vuelva el stock.</p>
-</div>
-
-<div class="popup-mock">
-  <span class="popup-mock__close" aria-hidden="true">✕</span>
-  <p class="popup-mock__eyebrow">🦋 PEDRAZA ILUSTRACIÓN</p>
-  <p class="popup-mock__title">Llévate la naturaleza de Chile completa</p>
-  <p class="popup-mock__sub">3 puzzles + naipes ilustrados, con 15% de descuento. La Colección Completa: de $100.260 a $85.200.</p>
-  <span class="popup-mock__btn">Quiero la Colección Completa</span>
-</div>
-
-<div class="copyblock">
-<button type="button" class="copyblock__btn" data-copy-target="copy-popup1">Copiar</button>
-<div class="copyblock__text" id="copy-popup1">Título: Llévate la naturaleza de Chile completa
-Subtítulo: 3 puzzles + naipes ilustrados, con 15% de descuento. La Colección Completa: de $100.260 a $85.200.
-Botón: Quiero la Colección Completa</div>
-</div>
-
-<h3>Pop-up 2 — Interesado sin decidir: el 10% que ya funciona</h3>
-<p>Alguien que lleva más de 2 minutos mirando el sitio y no ha agregado nada al carrito está interesado, pero no decidido — necesita un empujón, no un catálogo nuevo. Para esta persona se mantiene <strong>la oferta que ya se sabe que funciona</strong>: 10% de descuento a cambio del correo. No hay que inventar nada nuevo acá; lo único que cambia es que este pop-up deja de mostrarse a todo el mundo por igual, y se reserva para quien de verdad lo necesita.</p>
-
-<div class="popup-mock">
-  <span class="popup-mock__close" aria-hidden="true">✕</span>
-  <p class="popup-mock__eyebrow">🦋 PEDRAZA ILUSTRACIÓN</p>
-  <p class="popup-mock__title">¿Necesitas un empujón?</p>
-  <p class="popup-mock__sub">Déjanos tu correo y llévate 10% de descuento en tu primera compra.</p>
-  <span class="popup-mock__field">Tu correo electrónico</span>
-  <span class="popup-mock__btn">Quiero mi 10%</span>
-</div>
-
-<div class="copyblock">
-<button type="button" class="copyblock__btn" data-copy-target="copy-popup2">Copiar</button>
-<div class="copyblock__text" id="copy-popup2">Título: ¿Necesitas un empujón?
-Subtítulo: Déjanos tu correo y llévate 10% de descuento en tu primera compra.
-Campo: Tu correo electrónico
-Botón: Quiero mi 10%</div>
-</div>
-
-<h3>Pop-up 3 — Cliente que ya compró: nada de bienvenida</h3>
-<p>Ofrecerle el 10% de "bienvenida" a alguien que ya compró es un error doble: primero, porque probablemente ya lo usó; segundo, porque le dice a una clienta fiel que vale lo mismo que alguien que recién llega. A quien la tienda reconoce por correo o por cookie (una marca que el navegador guarda para recordar que esa persona ya visitó o compró antes) se le muestra algo distinto: novedades, o el pack que complementa lo que ya tiene en casa.</p>
-
-<p><span class="pill pill--warn">🟡 nota</span> La versión de "pack complementario" (por ejemplo, a quien ya compró un puzzle mostrarle los naipes o la loza de la misma serie) requiere saber qué compró cada persona — ese cruce todavía no existe (el mix de productos vendidos sigue pendiente, ver <code>docs/research/tienda.md</code>). Mientras tanto, se instala la versión de "novedades", que no depende de ese dato y es igual de válida.</p>
-
-<div class="popup-mock">
-  <span class="popup-mock__close" aria-hidden="true">✕</span>
-  <p class="popup-mock__eyebrow">🦋 PEDRAZA ILUSTRACIÓN</p>
-  <p class="popup-mock__title">Qué bueno tenerte de vuelta</p>
-  <p class="popup-mock__sub">Estas son las novedades de Pedraza desde tu última compra.</p>
-  <span class="popup-mock__btn">Ver novedades</span>
-</div>
-
-<div class="copyblock">
-<button type="button" class="copyblock__btn" data-copy-target="copy-popup3">Copiar</button>
-<div class="copyblock__text" id="copy-popup3">Título: Qué bueno tenerte de vuelta
-Subtítulo: Estas son las novedades de Pedraza desde tu última compra.
-Botón: Ver novedades</div>
+<div class="syncmap" aria-hidden="true">
+  <div class="syncmap__person"><span class="syncmap__avatar">👨</span>Felipe</div>
+  <div class="syncmap__person"><span class="syncmap__avatar">👩</span>Cote</div>
+  <div class="syncmap__person"><span class="syncmap__avatar">🧑</span>Mateo</div>
+  <span class="syncmap__arrow">→</span>
+  <div class="syncmap__sheet"><span class="syncmap__avatar">📊</span>Una sola hoja</div>
 </div>
 
 <div class="callout callout--success">
-<p><strong>Regla de operación acordada.</strong> En las semanas donde ya hay una oferta activa (Semana Pedraza, Navidad, una fecha comercial), estos pop-ups usan la oferta que ya se sabe que funciona — ir a la segura, sin arriesgar una venta de temporada alta probando algo nuevo. En las semanas sin oferta especial, es el momento de probar variantes: otro copy, otro pack ancla, otro gatillo de tiempo. Probar, medir y quedarse con lo que funciona mejor.</p>
+<p><strong>Nada se pierde si se corta internet.</strong> Esto no reemplaza el guardado de cada dispositivo, lo complementa. Cada teléfono o computador sigue guardando su propia copia al marcar una tarea. Si no hay conexión, el cambio se guarda igual ahí y se envía a la hoja compartida apenas vuelva la señal.</p>
 </div>
 </section>
 
-<section class="sec" id="packs">
-<h2>Los packs: cómo armarlos para que sí enganchen</h2>
+<section class="sec">
+<h2>Los 5 pasos para conectar la hoja</h2>
+<p>Se hacen una sola vez. Los pasos 1 a 3 los hace una sola persona del equipo (da lo mismo quién). Los pasos 4 y 5 son para avisarle a Mateo la dirección web (el link) que resulta, así él la deja fija en las páginas y nadie más tiene que repetir esto.</p>
 
-<p>Antes, los packs de 2, 3 o 4 puzzles funcionaban bien. Hoy no enganchan. No hay un dato cerrado de por qué <span class="pill pill--warn">🟡 hipótesis, a validar con Cote y Felipe</span>, pero hay tres razones que probablemente se están sumando:</p>
-
-<ul>
-<li>Se armaron <strong>por producto</strong> (varios puzzles juntos) y no <strong>por ocasión</strong> (un regalo, un domingo en familia). Sin una ocasión clara, cuesta imaginarse comprándolo.</li>
-<li>El precio no comunica el ahorro: si el pack cuesta casi lo mismo que las piezas por separado, no hay ningún motivo para llevarse el pack en vez de un solo producto.</li>
-<li>No están visibles: hoy no existe una colección de packs (ver la próxima sección), así que solo los encuentra quien ya sabía que existían.</li>
-</ul>
-
-<p>La propuesta: 4 packs armados por ocasión, cada uno con productos reales del catálogo. <strong>Los precios de pack de esta sección son una propuesta 🟡 a validar con los márgenes reales</strong> antes de publicarlos — acá se muestra la lógica y el orden de magnitud, no un precio final cerrado.</p>
-
-<div class="callout callout--info">
-<p><strong>La regla del envío gratis en los packs.</strong> Cuando tiene sentido, el pack se arma para quedar justo sobre $50.000 CLP (el umbral de envío gratis 🟢), o claramente por sobre ese monto. Es el gatillo más barato que existe para subir el ticket: no cuesta nada regalarlo, porque de todas formas la tienda va a asumir el envío de un pedido grande — la diferencia es que ahora ese envío gratis empuja a comprar más, en vez de ser solo una condición escondida en la política de despacho.</p>
+<div class="card card--step">
+<h3><span class="step-badge">1</span> Crea la hoja de cálculo</h3>
+<p>Abre <strong>sheets.new</strong> en el navegador del celular o el computador (o entra a Google Sheets y crea una hoja nueva). Ponle un nombre fácil de reconocer, por ejemplo <strong>"Pedraza — Avance del plan"</strong>.</p>
+<div class="paso-vista">✅ Qué deberías ver: una hoja de cálculo vacía, con el nombre que le pusiste arriba a la izquierda.</div>
 </div>
 
-<div class="grid-2">
+<div class="card card--step">
+<h3><span class="step-badge">2</span> Abre el editor de código y pega el motor</h3>
+<p>En el menú de arriba, ve a <strong>Extensiones → Apps Script</strong>. Se abre una pestaña nueva con un editor de código, con algo ya escrito de ejemplo. Borra todo lo que aparezca ahí y pega completo el código de abajo, tal cual, sin cambiar nada.</p>
 
-<div class="card">
-<h3>🎨 Regalo con Historia</h3>
-<p>Lámina + libreta de la misma serie. Para alguien a quien hay que regalarle algo con significado, no solo un objeto.</p>
-<ul>
-<li>1 lámina ilustrada (serie a elección: aves, flores o mariposas) — <span class="pill pill--warn">🟡 sin precio confirmado</span></li>
-<li>1 libreta de la misma serie — $13.590 🟢</li>
-</ul>
-<p class="calc-line">Precio de referencia: <strong>cerca de $50.000</strong> <span class="pill pill--warn">🟡 SUPUESTO</span></p>
-<p class="calc-line--sub">La lámina no tiene precio confirmado en el research (<code>docs/research/tienda.md</code>, sección 2). Para que el pack quede justo sobre el umbral de envío gratis, debería aportar cerca de $36.000-37.000. Confirmar el precio real de la lámina antes de fijar el precio final del pack.</p>
 <div class="copyblock">
-<button type="button" class="copyblock__btn" data-copy-target="copy-pack1">Copiar</button>
-<div class="copyblock__text" id="copy-pack1">Nombre: Pack Regalo con Historia — Lámina + Libreta
-Descripción: Un regalo que cuenta una historia: una lámina ilustrada a mano y una libreta para anotar las propias. Ideal para cumpleaños, agradecimientos o para alguien que ama la naturaleza de Chile.</div>
-</div>
+<button type="button" class="copyblock__btn" data-copy-target="copy-apps-script">Copiar</button>
+<div class="copyblock__text" id="copy-apps-script">/**
+ * Motor de sincronización — Plan Pedraza Ilustración
+ * Pega este código en el editor de Apps Script de la hoja de cálculo
+ * (Extensiones → Apps Script) y publícalo como app web:
+ *   Implementar → Nueva implementación → Tipo: Aplicación web
+ *   Ejecutar como: Yo · Quién tiene acceso: Cualquier usuario
+ * La URL que entrega esa implementación es el valor que va en
+ * localStorage["pedraza-plan:sync-url"] (o en la constante SYNC_URL del cliente).
+ *
+ * La hoja usa 4 columnas: clave | estado | quien | actualizado
+ * Si la hoja está vacía, el script crea esa fila de encabezados solo.
+ */
+
+var NOMBRE_HOJA = 'Checklist'; // cambia esto si tu pestaña se llama distinto
+var COLUMNAS = ['clave', 'estado', 'quien', 'actualizado'];
+
+// Devuelve la hoja de trabajo, creando el encabezado si hace falta.
+function obtenerHoja_() {
+  var libro = SpreadsheetApp.getActiveSpreadsheet();
+  var hoja = libro.getSheetByName(NOMBRE_HOJA) || libro.getSheets()[0];
+  if (hoja.getLastRow() === 0) {
+    hoja.appendRow(COLUMNAS);
+  }
+  return hoja;
+}
+
+// GET: entrega todos los estados guardados como { ok:true, items:{ "bit:xxx":"1", ... } }.
+function doGet(e) {
+  var hoja = obtenerHoja_();
+  var datos = hoja.getDataRange().getValues(); // incluye la fila de encabezado
+  var items = {};
+  for (var i = 1; i &lt; datos.length; i++) {
+    var clave = datos[i][0];
+    if (!clave) continue; // fila vacía, se ignora
+    items[String(clave)] = String(datos[i][1]);
+  }
+  return respuestaJson_({ ok: true, items: items });
+}
+
+// POST: recibe { clave, estado, quien } como JSON en texto plano (para no gatillar
+// el preflight de CORS) y hace upsert: si la clave ya existe la actualiza, si no
+// agrega una fila nueva. Usa LockService para que dos personas escribiendo al
+// mismo tiempo no se pisen.
+function doPost(e) {
+  var candado = LockService.getScriptLock();
+  try {
+    candado.waitLock(10000); // hasta 10 segundos esperando el turno para escribir
+
+    var cuerpo = JSON.parse(e.postData.contents);
+    var clave = String(cuerpo.clave || '').trim();
+    if (!clave) return respuestaJson_({ ok: false, error: 'falta la clave' });
+    var estado = cuerpo.estado === '1' ? '1' : '0';
+    var quien = String(cuerpo.quien || 'alguien del equipo');
+    var ahora = new Date();
+
+    var hoja = obtenerHoja_();
+    var datos = hoja.getDataRange().getValues();
+    var filaEncontrada = -1;
+    for (var i = 1; i &lt; datos.length; i++) {
+      if (String(datos[i][0]) === clave) { filaEncontrada = i + 1; break; } // +1: getRange es base 1
+    }
+
+    if (filaEncontrada === -1) {
+      hoja.appendRow([clave, estado, quien, ahora]);
+    } else {
+      hoja.getRange(filaEncontrada, 1, 1, 4).setValues([[clave, estado, quien, ahora]]);
+    }
+    return respuestaJson_({ ok: true });
+  } catch (err) {
+    return respuestaJson_({ ok: false, error: String(err) });
+  } finally {
+    candado.releaseLock();
+  }
+}
+
+// Arma la respuesta JSON con el tipo de contenido correcto.
+function respuestaJson_(objeto) {
+  return ContentService
+    .createTextOutput(JSON.stringify(objeto))
+    .setMimeType(ContentService.MimeType.JSON);
+}</div>
 </div>
 
-<div class="card">
-<h3>🧩 Domingo en Familia</h3>
-<p>Un puzzle y un mazo de naipes para armar en la mesa. Resuelve el problema de los naipes solos: en vez de competir con el puzzle, lo acompañan.</p>
-<ul>
-<li>1 puzzle Mariposas y Escarabajos de Chile — $27.290 🟢</li>
-<li>Naipes ilustrados — $22.990 🟢</li>
-</ul>
-<p class="calc-line">Precio pack: <strong>$50.280</strong> <span class="pill pill--success">🟢 suma real, sin descuento adicional</span></p>
-<p class="calc-line--sub">Este pack ya cruza el umbral de envío gratis por sí solo. El "ahorro" que comunica no es de precio: es el despacho gratis, que normalmente se cobra aparte.</p>
-<div class="copyblock">
-<button type="button" class="copyblock__btn" data-copy-target="copy-pack2">Copiar</button>
-<div class="copyblock__text" id="copy-pack2">Nombre: Pack Domingo en Familia — Puzzle + Naipes
-Descripción: Para armar en la mesa un domingo completo: un puzzle de 1000 piezas y un mazo de naipes ilustrados. Con envío gratis incluido.</div>
-</div>
+<div class="paso-vista">✅ Qué deberías ver: el editor con el código pegado, empezando con <code>/**</code> y terminando con la función <code>respuestaJson_</code>.</div>
 </div>
 
-<div class="card">
-<h3>🏡 La Casa Completa</h3>
-<p>Loza, lámina y botella con la misma ilustración, para decorar y usar todos los días.</p>
-<ul>
-<li>Juego de Loza Aves Azul, 12 piezas — $69.990 🟢 (precio de preventa, incluye calcetín de regalo, según research)</li>
-<li>Botella térmica Aves de Chile — $28.990 🟢</li>
-<li>1 lámina ilustrada — <span class="pill pill--warn">🟡 sin precio confirmado</span></li>
-</ul>
-<p class="calc-line">Loza + botella (real): <strong>$98.980</strong>. Con 12% de descuento de pack <span class="pill pill--warn">🟡 propuesta</span>: <strong>$87.100</strong> — ahorras $11.880.</p>
-<p class="calc-line--sub">La lámina se suma al pack cuando se confirme su precio. Mientras tanto, el pack puede publicarse solo con loza + botella, ya muy por sobre el umbral de envío gratis.</p>
-<div class="copyblock">
-<button type="button" class="copyblock__btn" data-copy-target="copy-pack3">Copiar</button>
-<div class="copyblock__text" id="copy-pack3">Nombre: Pack La Casa Completa — Loza + Lámina + Botella
-Descripción: Para decorar y usar todos los días: un juego de loza, una lámina para colgar y una botella térmica, todo con la misma ilustración de flora y fauna chilena.</div>
-</div>
-</div>
-
-<div class="card">
-<h3>🧩🧩🧩 La Colección</h3>
-<p>Los 3 puzzles insignia, juntos. Es el mismo rol que cumple el pack ancla del pop-up 1, pero visible todo el tiempo dentro de la tienda, no solo en la primera visita.</p>
-<ul>
-<li>Puzzle Aves y Flores de Chile — $24.990 🟢</li>
-<li>Puzzle Hongos de Chile — $24.990 🟢</li>
-<li>Puzzle Mariposas y Escarabajos de Chile — $27.290 🟢</li>
-</ul>
-<p class="calc-line">Precio normal: <strong>$77.270</strong> 🟢. Con 12% de descuento de pack <span class="pill pill--warn">🟡 propuesta</span>: <strong>$68.000</strong> — ahorras $9.270.</p>
-<p class="calc-line--sub">Depende de la misma condición de stock del pop-up 1: no publicar mientras los puzzles no tengan inventario (vuelven la última semana de agosto).</p>
-<div class="copyblock">
-<button type="button" class="copyblock__btn" data-copy-target="copy-pack4">Copiar</button>
-<div class="copyblock__text" id="copy-pack4">Nombre: Pack La Colección — 3 Puzzles Ilustrados
-Descripción: Los 3 puzzles más queridos de Pedraza Ilustración, juntos en un solo pack. 3.000 piezas de naturaleza chilena para armar una y otra vez.</div>
-</div>
-</div>
-
-</div>
-</section>
-
-<section class="sec" id="coleccion-packs">
-<h2>La colección que falta en la tienda</h2>
-
-<p>Hoy pedrazailustracion.com no tiene ninguna colección dedicada a packs, ni una de más vendidos. Felipe la pidió como la primera opción visible de la tienda: el lugar donde cualquiera que entra sabe de inmediato qué comprar, sin tener que explorar todo el catálogo.</p>
-
-<div class="card">
-<h3>Nombre sugerido: "Packs y Más Vendidos"</h3>
-<p><span class="pill pill--warn">🟡 propuesta</span> Un nombre simple y funcional, fácil de entender en el menú sin tener que explicarlo.</p>
-</div>
-
-<h3>Qué productos van, en qué orden</h3>
-<ol>
-<li>Los 4 packs de la sección anterior, <strong>fijados arriba</strong> (orden manual, siempre visibles primero — son lo que más necesita exposición).</li>
-<li>El resto de la colección ordenado por "más vendidos" (el orden automático de Shopify, según ventas reales). Los puzzles son "el producto estrella" de la tienda <span class="pill pill--success">🟢 dicho por Cote en la reunión</span>, así que probablemente encabecen esta parte una vez ordenados así.</li>
-</ol>
+<div class="card card--step">
+<h3><span class="step-badge">3</span> Publica la hoja para que la página pueda leerla</h3>
+<p>Arriba a la derecha del editor, aprieta el botón <strong>Implementar → Nueva implementación</strong>. En el tipo, elige <strong>Aplicación web</strong>. En "Ejecutar como" deja <strong>Yo</strong>. En "Quién tiene acceso" elige <strong>Cualquier usuario</strong>. Aprieta <strong>Implementar</strong>.</p>
 
 <div class="callout callout--warn">
-<p>Mientras los puzzles estén sin stock (hasta la última semana de agosto), no deberían aparecer arriba de esta lista aunque el orden por "más vendidos" los ponga ahí — un producto agotado como primera opción visible genera frustración, no venta. Revisar el orden a mano mientras dure el quiebre de stock.</p>
+<p><strong>La primera vez, Google va a pedir autorización.</strong> Aparece una pantalla que dice algo como "esta app no está verificada" — es normal, es tu propio código, nadie más lo ve. Aprieta "Configuración avanzada" y luego "Ir a (nombre del proyecto), sin seguridad" para aceptar. Es seguro: la hoja solo guarda qué tarea se marcó, quién y cuándo — ningún dato sensible ni contraseña.</p>
 </div>
 
-<h3>Dónde se enlaza</h3>
-<ul>
-<li><strong>Menú principal:</strong> como una de las primeras opciones, junto a (o antes de) "Puzzles".</li>
-<li><strong>Home:</strong> como la primera franja de productos que se ve al entrar, justo después del banner principal — antes de cualquier otra colección.</li>
-</ul>
+<div class="paso-vista">✅ Qué deberías ver: una ventana con una dirección web larga, que empieza con <code>https://script.google.com/...</code></div>
+</div>
 
-<h3>Cómo se mide si funcionó</h3>
+<div class="card card--step">
+<h3><span class="step-badge">4</span> Copia esa dirección web</h3>
+<p>Selecciona y copia la dirección web completa que te muestra Google al terminar el paso anterior. Baja hasta la sección "Conectar ahora" más abajo en esta misma página y pégala en el campo de texto.</p>
+<div class="paso-vista">✅ Qué deberías ver: la dirección pegada en el campo de la sección de abajo, lista para apretar "Conectar".</div>
+</div>
+
+<div class="card card--step">
+<h3><span class="step-badge">5</span> Avísale a Mateo esa dirección</h3>
+<p>Manda esa misma dirección web a Mateo, por el medio que sea más rápido. Él la deja fija en el código de las 5 páginas del plan, así nadie más en el equipo tiene que repetir estos pasos: apenas abran cualquiera de esas páginas, van a quedar conectados solos.</p>
+<div class="paso-vista">✅ Qué deberías ver: nada en pantalla — este paso es avisar, no configurar nada acá.</div>
+</div>
+</section>
+
+<section class="sec">
+<h2>Conectar ahora</h2>
+<p>Pega aquí la dirección web que te entregó Google en el paso 3 y aprieta "Conectar". La página va a guardarla en este dispositivo y va a probar la conexión al tiro, para confirmar que quedó bien.</p>
+
+<div class="conectar-estado-box" id="estado-actual" aria-live="polite"></div>
+
+<form class="conectar-form" id="conectar-form" novalidate>
+  <label for="sync-url-input">Dirección web de la hoja (la que entrega Google en el paso 3)</label>
+  <input type="text" inputmode="url" id="sync-url-input" name="sync-url" placeholder="https://script.google.com/macros/s/AKfycb.../exec" autocomplete="off" autocapitalize="off" spellcheck="false">
+  <div class="conectar-acciones">
+    <button type="submit" class="btn" id="btn-conectar">Conectar</button>
+  </div>
+</form>
+
+<div id="conectar-resultado" style="display:none"></div>
+</section>
+
+<section class="sec">
+<h2>Cómo saber que está funcionando</h2>
+<p>Dos lugares para revisar. El primero, en el celular o computador: abajo a la derecha de cualquier página con checklist aparece una píldora chica que avisa el estado. El segundo, en la hoja de cálculo misma: cada tarea marcada aparece ahí como una fila.</p>
+
+<div class="grid-3">
+  <div class="card" style="text-align:center">
+    <span class="sync-status sync-status--saving is-visible pill-demo">Guardando…</span>
+    <p style="margin:var(--space-3) 0 0;font-size:var(--fs-sm);color:var(--ink-soft)">Se está enviando el cambio a la hoja. Dura solo un instante.</p>
+  </div>
+  <div class="card" style="text-align:center">
+    <span class="sync-status sync-status--ok is-visible pill-demo">Sincronizado con el equipo ✓</span>
+    <p style="margin:var(--space-3) 0 0;font-size:var(--fs-sm);color:var(--ink-soft)">Todo quedó guardado y compartido. Este mensaje se esconde solo a los pocos segundos.</p>
+  </div>
+  <div class="card" style="text-align:center">
+    <span class="sync-status sync-status--offline is-visible pill-demo">Sin conexión — guardado solo aquí</span>
+    <p style="margin:var(--space-3) 0 0;font-size:var(--fs-sm);color:var(--ink-soft)">No hay internet o la hoja no respondió. Lo marcado sigue guardado en el dispositivo y se envía solo, apenas vuelva la señal.</p>
+  </div>
+</div>
+
+<p>En la hoja de cálculo, cada tarea marcada por cualquier persona queda como una fila, con 4 columnas: la clave de la tarea, el estado (1 marcada, 0 sin marcar), quién la marcó y cuándo. Así se ve (fila de ejemplo, no son datos reales):</p>
+
 <div class="table-wrap">
 <table>
-<thead><tr><th>Qué medir</th><th>Cómo</th></tr></thead>
+<thead><tr><th>clave</th><th>estado</th><th>quien</th><th>actualizado</th></tr></thead>
 <tbody>
-<tr><td>Visitas a la colección</td><td>Shopify Analytics → páginas de destino / comportamiento, filtrando por la URL de "Packs y Más Vendidos"</td></tr>
-<tr><td>Ticket promedio de quienes la visitan</td><td>Comparar el ticket promedio de los pedidos que pasaron por esa colección contra el ticket promedio general de la tienda ($33.000 hoy)</td></tr>
+<tr><td>bit:2026-07-27-felipe-entregar-accesos</td><td>1</td><td>Felipe</td><td>27-07-2026 14:32</td></tr>
+<tr><td>cro:ficha-resenas-visibles</td><td>1</td><td>Mateo</td><td>27-07-2026 09:10</td></tr>
+<tr><td>p90:definir-calendario-lanzamientos</td><td>0</td><td>Cote</td><td>26-07-2026 18:47</td></tr>
 </tbody>
 </table>
 </div>
+<p style="font-size:var(--fs-sm);color:var(--ink-soft)">Las letras antes de los dos puntos (<code>bit:</code>, <code>cro:</code>, <code>p90:</code>) identifican de qué página viene cada tarea, para que las 5 páginas puedan compartir la misma hoja sin mezclarse.</p>
 </section>
 
-<section class="sec" id="barra-envio-gratis">
-<h2>La barra de envío gratis en el carrito</h2>
+<section class="sec">
+<h2>Preguntas frecuentes</h2>
 
-<p>Es la palanca más directa de todas: mientras la persona ya tiene el carrito abierto —el momento de mayor intención de compra de toda la visita— se le muestra cuánto le falta para el envío gratis ($50.000 🟢). No hace falta convencer a nadie de nada nuevo: solo mostrar un número que ya es cierto.</p>
-
-<p>Funciona así: una barra de progreso, visible dentro del carrito, se llena a medida que la persona agrega productos. El texto de arriba cambia solo, según el total del carrito, entre dos estados: "te falta" y "ya lo lograste".</p>
-
-<div class="progress">
-  <div class="progress__track"><div class="progress__fill" style="width:64%"></div></div>
-  <span class="progress__label">Ejemplo: carrito en $32.000 de $50.000 (64%)</span>
+<div class="card">
+<h3>¿Qué pasa si se corta internet?</h3>
+<p>Nada se pierde. Lo marcado se sigue guardando en el teléfono o computador al tiro, y se envía a la hoja compartida solo cuando vuelve la conexión.</p>
 </div>
 
-<h3>Estado 1 — cuando todavía falta</h3>
-<div class="copyblock">
-<button type="button" class="copyblock__btn" data-copy-target="copy-shipbar-falta">Copiar</button>
-<div class="copyblock__text" id="copy-shipbar-falta">🚚 ¡Ya casi! Te faltan $12.000 para tu envío gratis.
-Agrega un producto más y el despacho corre por nuestra cuenta.</div>
+<div class="card">
+<h3>¿Qué pasa si dos personas marcan algo al mismo tiempo?</h3>
+<p>La hoja usa un turno interno — atiende un cambio a la vez, como una fila de espera. Dos personas escribiendo junto no se pisan ni pierden ningún cambio.</p>
 </div>
-<p class="calc-line--sub">El monto ($12.000 en este ejemplo) lo calcula la app automáticamente según lo que hay en el carrito en cada momento — el texto de alrededor es el que se deja fijo, tal como está escrito arriba.</p>
 
-<h3>Estado 2 — cuando ya se logró</h3>
-<div class="progress">
-  <div class="progress__track"><div class="progress__fill" style="width:100%; background:var(--success);"></div></div>
-  <span class="progress__label">Ejemplo: carrito en $54.000 de $50.000 — envío gratis logrado</span>
+<div class="card">
+<h3>¿Alguien de afuera puede ver la hoja?</h3>
+<p>Solo quien tenga la dirección web exacta. No lleva contraseñas ni datos personales, solo qué tarea se marcó, quién y cuándo. Aun así, mejor no publicarla en ningún lugar abierto.</p>
 </div>
-<div class="copyblock">
-<button type="button" class="copyblock__btn" data-copy-target="copy-shipbar-listo">Copiar</button>
-<div class="copyblock__text" id="copy-shipbar-listo">🎉 ¡Tienes envío gratis! Ya superaste los $50.000.
-Gracias por elegir Pedraza — tu pedido va con despacho gratis a todo Chile.</div>
+
+<div class="card">
+<h3>¿Se puede desconectar?</h3>
+<p>Sí, con el botón "Desconectar" de la sección "Conectar ahora", más arriba. Al desconectar, cada página sigue funcionando exactamente igual, solo que guarda el avance nada más en ese dispositivo.</p>
+</div>
+
+<div class="card">
+<h3>¿Hay que hacer esto en cada teléfono?</h3>
+<p>Por ahora sí: cada persona pega la misma dirección web una vez, en su propio dispositivo, en la sección "Conectar ahora". Cuando Mateo la deje fija en el código de las páginas, ya no va a hacer falta — va a quedar conectado solo.</p>
 </div>
 </section>
 
-<section class="sec" id="instalacion-48h">
-<h2>Plan de instalación de 48 horas</h2>
+<section class="sec">
+<h2>Las 5 páginas que se sincronizan</h2>
+<p>El motor de sincronización funciona igual en estas 5 páginas. Cada una guarda sus propias tareas en la hoja compartida, sin mezclarse con las demás.</p>
 
-<p>Todo lo de este documento se puede instalar en 2 días una vez que lleguen los accesos. El orden importa: primero lo que ya se sabe que funciona (el 10% del pop-up 2 y la barra de envío gratis), después lo nuevo que necesita más pruebas (el anclaje y el reconocimiento de clientes).</p>
-
-<div class="table-wrap">
-<table>
-<thead><tr><th>Día</th><th>Qué se hace</th><th>Acceso necesario</th></tr></thead>
-<tbody>
-<tr><td>Día 1</td><td>Crear los 4 packs como productos y armar la colección "Packs y Más Vendidos"</td><td>Shopify (Productos, Colecciones)</td></tr>
-<tr><td>Día 1</td><td>Agregar la colección al menú principal y a la primera franja del home</td><td>Shopify (Navegación, editor de tema)</td></tr>
-<tr><td>Día 1</td><td>Configurar la barra de envío gratis en el carrito, con el umbral en $50.000</td><td>Shopify (editor de tema o app de barra de anuncio)</td></tr>
-<tr><td>Día 1</td><td>Configurar el pop-up 2 (10% por correo) — se instala primero por ser la oferta que ya funciona</td><td>La app de pop-ups + Klaviyo (para que el correo capturado entre al flujo de bienvenida)</td></tr>
-<tr><td>Día 2</td><td>Configurar el pop-up 1 (anclaje, visitante nuevo) con su gatillo de 15 segundos y de salida</td><td>La app de pop-ups + Shopify (para instalar el código del tema, si la app lo requiere)</td></tr>
-<tr><td>Día 2</td><td>Configurar el pop-up 3 (cliente que ya compró) con la segmentación por correo/cookie</td><td>La app de pop-ups + Klaviyo (identificar quién ya es clienta)</td></tr>
-<tr><td>Día 2</td><td>Probar los 3 pop-ups en el celular y en el computador, en ventana de incógnito</td><td>Ninguno adicional — solo el sitio ya publicado</td></tr>
-<tr><td>Día 2</td><td>Activar todo y avisar al equipo</td><td>Shopify + la app de pop-ups</td></tr>
-</tbody>
-</table>
-</div>
-
-<h3>Cómo se verifica que quedó bien</h3>
-<ul>
-<li>El pop-up 1 aparece a los 15 segundos en una visita nueva (ventana de incógnito), y también al mover el mouse hacia arriba, simulando que la persona se quiere ir.</li>
-<li>El pop-up 2 aparece después de 2 minutos sin agregar nada al carrito, y no antes.</li>
-<li>El pop-up 3 no ofrece el 10% a alguien que ya compró — probar con un correo que ya existe en la base.</li>
-<li>La barra de envío gratis se actualiza sola al agregar o quitar productos del carrito, y muestra el mensaje de "logrado" al pasar los $50.000.</li>
-<li>Los 4 packs y la colección "Packs y Más Vendidos" se ven bien y son fáciles de tocar en el celular, no solo en el computador.</li>
-<li>Ningún pop-up se pisa con otro: cada visita ve como máximo uno.</li>
-</ul>
-
-<h3>Qué se mide en la primera semana</h3>
-<div class="kpi-grid">
-  <div class="kpi">
-    <span class="kpi__label">Ticket promedio</span>
-    <span class="kpi__value">vs. $33.000</span>
+<div class="grid-2">
+  <div class="card">
+    <h3><a href="index.html">index.html</a></h3>
+    <span class="pill pill--info" style="margin-bottom:var(--space-3)">35 tareas</span>
+    <p>Plan y estrategia — el mapa completo. La checklist más grande: todas las tareas de la estrategia, de principio a fin.</p>
   </div>
-  <div class="kpi">
-    <span class="kpi__label">Tasa de captura de correos</span>
-    <span class="kpi__value">pop-up 2</span>
+  <div class="card">
+    <h3><a href="cro.html">cro.html</a></h3>
+    <span class="pill pill--info" style="margin-bottom:var(--space-3)">60 tareas</span>
+    <p>Conversión — auditoría de la tienda. Los pasos para que más visitas terminen en una compra, con el mismo tráfico de hoy.</p>
   </div>
-  <div class="kpi">
-    <span class="kpi__label">% de carritos sobre $50.000</span>
-    <span class="kpi__value">envío gratis</span>
+  <div class="card">
+    <h3><a href="plan-90-dias.html">plan-90-dias.html</a></h3>
+    <span class="pill pill--info" style="margin-bottom:var(--space-3)">45 tareas</span>
+    <p>Plan de 90 días — roles, objetivos y checklist. El plan de trabajo de los próximos 90 días, con quién hace qué.</p>
+  </div>
+  <div class="card">
+    <h3><a href="bitacora.html">bitacora.html</a></h3>
+    <span class="pill pill--info" style="margin-bottom:var(--space-3)">20 tareas</span>
+    <p>Bitácora — reuniones, pendientes y entregables. El registro de cada reunión del equipo y los pendientes que salen de ahí.</p>
+  </div>
+  <div class="card">
+    <h3><a href="estado.html">estado.html</a></h3>
+    <span class="pill pill--info" style="margin-bottom:var(--space-3)">4 tareas</span>
+    <p>Estado del plan — en qué punto vamos hoy. La foto rápida de cómo va el plan esta semana.</p>
   </div>
 </div>
-<p><strong>Ticket promedio:</strong> se compara contra los $33.000 actuales en Shopify Analytics, la misma métrica de la sección de diagnóstico. <strong>Tasa de captura de correos:</strong> correos nuevos capturados por el pop-up 2, dividido por las veces que se mostró (lo reporta la app de pop-ups o Klaviyo). <strong>% de carritos sobre $50.000:</strong> si la app de la barra de envío gratis lo reporta, se usa ese dato directo; si no, se aproxima con el % de pedidos completados sobre $50.000 en Shopify Analytics, aunque esa es una medida más floja porque no cuenta los carritos que no llegaron a pagar.</p>
 </section>
+
+<footer class="page-footer"><p>Motor de sincronización descrito en detalle (para quien programe) en <code>docs/design-system.md</code>, sección 9. <a href="bitacora.html">← Volver a la bitácora</a></p></footer>
 
 </main>
+
+
+<script>
+  // Acceso seguro a localStorage (no revienta en navegación privada u otros bloqueos).
+  function pgGet(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+  function pgSet(key, valor) { try { localStorage.setItem(key, valor); } catch (e) { /* sin soporte, se ignora */ } }
+  function pgRemove(key) { try { localStorage.removeItem(key); } catch (e) { /* sin soporte, se ignora */ } }
+</script>
+
 
 <script>
   // Copiar al portapapeles — delegación de eventos, un solo listener por página.
@@ -1291,6 +1256,205 @@ Gracias por elegir Pedraza — tu pedido va con despacho gratis a todo Chile.</d
     }, 2000);
   }
 </script>
+
+
+<script>
+  // Lógica propia de esta página: guarda y prueba la dirección web de la hoja
+  // compartida (pedraza-plan:sync-url), la misma clave que lee el motor de
+  // sincronización (docs/design-system.md, sección 9) en las 5 páginas con
+  // checklist. Prefijo "conectar" en todo para no chocar con otros scripts.
+  // Requiere que ya esté cargado el bloque pgGet/pgSet/pgRemove, arriba.
+
+  document.addEventListener('DOMContentLoaded', function () {
+    conectarRenderEstado();
+    var form = document.getElementById('conectar-form');
+    if (form) form.addEventListener('submit', conectarManejarSubmit);
+  });
+
+  // Delegación: botones "Probar de nuevo" y "Desconectar" se recrean cada vez
+  // que se redibuja el estado, así que se escuchan por delegación en document.
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('#btn-probar-de-nuevo')) { conectarManejarProbarDeNuevo(); return; }
+    if (e.target.closest('#btn-desconectar')) { conectarManejarDesconectar(); return; }
+  });
+
+  function conectarEsUrlValida(texto) {
+    try {
+      var u = new URL(texto);
+      return u.protocol === 'https:' || u.protocol === 'http:';
+    } catch (e) {
+      return false;
+    }
+  }
+
+  // Prueba de verdad la conexión: pide el estado remoto y valida la forma de
+  // la respuesta, igual que hace pgSyncCargarRemoto en las páginas con checklist.
+  // Nunca deja una excepción sin capturar: cualquier error de red, de formato
+  // o de tiempo de espera termina en { ok:false, motivo:'...' }.
+  function conectarProbarConexion(url) {
+    return new Promise(function (resolve) {
+      var controller = ('AbortController' in window) ? new AbortController() : null;
+      var timeoutId = controller ? setTimeout(function () { controller.abort(); }, 8000) : null;
+
+      fetch(url, { cache: 'no-store', signal: controller ? controller.signal : undefined })
+        .then(function (res) {
+          if (timeoutId) clearTimeout(timeoutId);
+          if (!res.ok) {
+            resolve({ ok: false, motivo: 'la hoja respondió con un error (código ' + res.status + ').' });
+            return;
+          }
+          res.json().then(function (data) {
+            if (data && data.ok === true && data.items && typeof data.items === 'object') {
+              resolve({ ok: true, motivo: '' });
+            } else {
+              resolve({ ok: false, motivo: 'la dirección respondió, pero no con el formato esperado. Revisa que el código del paso 2 esté completo y sin editar.' });
+            }
+          }).catch(function () {
+            resolve({ ok: false, motivo: 'la dirección respondió, pero no con el formato esperado. Revisa que el código del paso 2 esté completo y sin editar.' });
+          });
+        })
+        .catch(function (err) {
+          if (timeoutId) clearTimeout(timeoutId);
+          if (err && err.name === 'AbortError') {
+            resolve({ ok: false, motivo: 'la dirección no respondió a tiempo. Revisa tu conexión a internet e inténtalo de nuevo.' });
+          } else {
+            resolve({ ok: false, motivo: 'la dirección no responde: revisa que la publicación tenga acceso para "Cualquier usuario" (paso 3) y que copiaste el link completo.' });
+          }
+        });
+    });
+  }
+
+  function conectarManejarSubmit(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    try {
+      var input = document.getElementById('sync-url-input');
+      var btn = document.getElementById('btn-conectar');
+      if (!input) return;
+      var valor = (input.value || '').trim();
+
+      if (!valor) {
+        conectarPintarResultado('warn', 'Falta pegar la dirección web. Copia la que te entregó Google en el paso 3 y pégala aquí arriba.');
+        return;
+      }
+
+      if (!conectarEsUrlValida(valor)) {
+        conectarPintarResultado('danger', 'Esa no es una dirección web válida. Tiene que empezar con "https://" — revisa que copiaste el link completo desde Google.');
+        return;
+      }
+
+      pgSet('pedraza-plan:sync-url', valor);
+      conectarRenderEstado();
+      if (btn) btn.disabled = true;
+      conectarPintarResultado('info', 'Probando la conexión…');
+
+      conectarProbarConexion(valor).then(function (r) {
+        if (btn) btn.disabled = false;
+        if (r.ok) {
+          conectarPintarResultado('success', 'Conectado: la hoja respondió bien, ya están sincronizados.');
+        } else {
+          conectarPintarResultado('danger', 'No se pudo conectar: ' + r.motivo);
+        }
+      });
+    } catch (err) {
+      conectarPintarResultado('danger', 'Algo salió mal al intentar conectar. Vuelve a intentarlo en unos segundos.');
+    }
+  }
+
+  function conectarManejarProbarDeNuevo() {
+    try {
+      var url = pgGet('pedraza-plan:sync-url');
+      if (!url) return;
+      conectarPintarResultado('info', 'Probando la conexión…');
+      conectarProbarConexion(url).then(function (r) {
+        if (r.ok) {
+          conectarPintarResultado('success', 'Conectado: la hoja respondió bien, ya están sincronizados.');
+        } else {
+          conectarPintarResultado('danger', 'No se pudo conectar: ' + r.motivo);
+        }
+      });
+    } catch (err) {
+      conectarPintarResultado('danger', 'Algo salió mal al probar la conexión. Vuelve a intentarlo.');
+    }
+  }
+
+  function conectarManejarDesconectar() {
+    try {
+      pgRemove('pedraza-plan:sync-url');
+      var input = document.getElementById('sync-url-input');
+      if (input) input.value = '';
+      conectarRenderEstado();
+      conectarOcultarResultado();
+    } catch (err) { /* sin soporte, se ignora */ }
+  }
+
+  function conectarRenderEstado() {
+    var caja = document.getElementById('estado-actual');
+    if (!caja) return;
+    var url = pgGet('pedraza-plan:sync-url');
+    caja.innerHTML = '';
+
+    if (url) {
+      var p1 = document.createElement('p');
+      var strong = document.createElement('strong');
+      strong.textContent = 'Ya hay una dirección conectada en este dispositivo:';
+      p1.appendChild(strong);
+      caja.appendChild(p1);
+
+      var codigo = document.createElement('div');
+      codigo.className = 'copyblock__text';
+      codigo.style.marginBottom = 'var(--space-3)';
+      codigo.style.wordBreak = 'break-all';
+      codigo.textContent = url;
+      caja.appendChild(codigo);
+
+      var acciones = document.createElement('div');
+      acciones.className = 'conectar-acciones';
+
+      var btnProbar = document.createElement('button');
+      btnProbar.type = 'button';
+      btnProbar.className = 'btn btn--ghost';
+      btnProbar.id = 'btn-probar-de-nuevo';
+      btnProbar.textContent = 'Probar de nuevo';
+      acciones.appendChild(btnProbar);
+
+      var btnDesconectar = document.createElement('button');
+      btnDesconectar.type = 'button';
+      btnDesconectar.className = 'btn btn--ghost';
+      btnDesconectar.id = 'btn-desconectar';
+      btnDesconectar.textContent = 'Desconectar';
+      acciones.appendChild(btnDesconectar);
+
+      caja.appendChild(acciones);
+    } else {
+      var p = document.createElement('p');
+      p.textContent = 'Todavía no hay ninguna dirección conectada en este dispositivo. Completa el formulario de abajo.';
+      caja.appendChild(p);
+    }
+  }
+
+  function conectarPintarResultado(tipo, texto) {
+    var caja = document.getElementById('conectar-resultado');
+    if (!caja) return;
+    caja.innerHTML = '';
+    var callout = document.createElement('div');
+    callout.className = 'callout callout--' + tipo;
+    callout.setAttribute('role', 'status');
+    callout.setAttribute('aria-live', 'polite');
+    var p = document.createElement('p');
+    p.textContent = texto;
+    callout.appendChild(p);
+    caja.appendChild(callout);
+    caja.style.display = 'block';
+  }
+
+  function conectarOcultarResultado() {
+    var caja = document.getElementById('conectar-resultado');
+    if (!caja) return;
+    caja.innerHTML = '';
+    caja.style.display = 'none';
+  }
+</script>
+
 <script>
   // Navegación global: barra superior + panel completo (15 páginas, 4 grupos).
   // Prefijo "nav" en todo para no chocar con otros scripts de la página.

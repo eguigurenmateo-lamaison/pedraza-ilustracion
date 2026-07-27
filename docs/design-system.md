@@ -14,6 +14,7 @@ Este documento es material de trabajo interno (vive en `docs/`, no se comparte c
 6. Parser CSV del tablero
 7. Reglas de página y plantilla de esqueleto HTML
 8. Checklist de calidad por página
+9. Motor de sincronización compartida (checklists de equipo vía Google Sheets)
 
 ---
 
@@ -1414,3 +1415,378 @@ Lo que revisa el orquestador antes de aceptar cada página:
 - [ ] Todo bloque de texto copiable (bio, guion, mensaje de DM, caption) está dentro de un `.copyblock` con botón funcional, y el texto es copy real, sin `[placeholders]`.
 - [ ] Si la página usa `localStorage`, respeta el prefijo `pedraza-plan:` y las claves exactas del contrato (sección 5).
 - [ ] Las secciones principales están envueltas en `.sec` con `<h2>` (numeración automática, no escrita a mano).
+
+---
+
+## 9. Motor de sincronización compartida (checklists de equipo vía Google Sheets)
+
+### El problema que resuelve
+
+Las 5 páginas con checklist guardan el avance en `localStorage`, que es **por navegador y por dispositivo** (ver nota de la sección 5). Eso significa que Felipe, Cote y Mateo, cada uno desde su propio celular o computador, ven su propio progreso — no uno solo compartido por el equipo.
+
+Este motor resuelve eso agregando una hoja de cálculo de Google como almacén compartido, sin dejar de funcionar cuando no está configurado: **si no hay URL remota, o la red falla, la página se comporta exactamente igual que con solo `localStorage`.** El progreso local nunca se pierde ni se bloquea por un problema de conexión.
+
+### Las 5 páginas y sus dos valores
+
+El motor es **un único bloque de JS**, idéntico en las 5 páginas. Lo único que cambia de una página a otra son dos constantes al principio del bloque:
+
+| Página | `SYNC_ATTR` | `SYNC_PREFIX` |
+|---|---|---|
+| `index.html` | `data-task` | `task:` |
+| `cro.html` | `data-cro` | `cro:` |
+| `plan-90-dias.html` | `data-plan90` | `p90:` |
+| `bitacora.html` | `data-bitacora` | `bit:` |
+| `estado.html` | `data-estado` | `est:` |
+
+El prefijo es lo que evita que las 5 páginas choquen entre sí dentro de la misma hoja: la clave que viaja al Google Sheet es siempre `SYNC_PREFIX + valor del atributo`, por ejemplo `bit:2026-07-27-felipe-entregar-accesos` o `cro:ficha-resenas-visibles`. El motor solo reconcilia (aplica valores remotos a) las claves de la hoja que empiezan con su propio prefijo — las de las otras páginas las ignora.
+
+### Cómo funciona, en criollo
+
+1. **Al cargar la página:** el script propio de cada página (sección 5) ya aplicó `localStorage` de inmediato, como hace hoy — eso no cambia, y la página se ve al tiro sin esperar ninguna red.
+2. **En segundo plano**, si hay una URL configurada, el motor pide el estado remoto (`GET`) y compara cada casillero: si el valor remoto es distinto al que se está mostrando (venga de `localStorage` o de un valor por defecto), **gana el remoto** — se actualiza el checkbox, y con un evento sintético se dispara el mismo listener de cambio que ya tiene la página, para que guarde en `localStorage` y refresque KPIs/barra de progreso sin duplicar esa lógica acá.
+3. **Al marcar un casillero:** el script propio de la página ya guardó en `localStorage` al instante (respuesta inmediata, sin esperar red). El motor solo encola el cambio y lo envía al remoto (`POST`) en segundo plano.
+4. **Si el envío falla** (sin señal, servidor caído, URL mala): el cambio queda en una cola en `localStorage` y se reintenta solo, cuando vuelve la conexión (evento `online`) o en la próxima carga de la página. Nada se pierde.
+5. **Una píldora discreta**, abajo a la derecha, avisa el estado: "Guardando…", "Sincronizado con el equipo ✓" (se esconde sola a los pocos segundos) o "Sin conexión — guardado solo aquí" (se queda visible, porque hay algo que avisar). Si no hay URL configurada, la píldora ni siquiera se crea — la página se ve exactamente igual que hoy.
+
+### Cómo se distingue un clic real de la reconciliación automática
+
+El paso 2 (reconciliar con el remoto) y el paso 3 (el usuario marca algo) usan el mismo tipo de evento (`change`) sobre el mismo checkbox, pero deben comportarse distinto: la reconciliación **no** debe reenviarse al remoto (sería un eco innecesario, y podría pisar el nombre de quien realmente marcó esa tarea). El motor distingue los dos casos con `event.isTrusted`: es `true` solo en eventos generados por una interacción real de la persona (un clic), y `false` en los eventos que el propio JS dispara con `dispatchEvent()`. El listener que encola envíos al remoto revisa `e.isTrusted` y ase gura así reaccionar solo a clics reales.
+
+### Claves de `localStorage` que usa el motor
+
+Además de las claves propias de cada página (contrato de la sección 5), el motor agrega estas, con el mismo prefijo `pedraza-plan:` de todo el sitio:
+
+| Clave | Formato | Para qué |
+|---|---|---|
+| `pedraza-plan:sync-url` | string (URL del Apps Script desplegado) | Configuración del motor. Vacía = sincronización desactivada. Pensada para que una futura página de ajustes la escriba con `pgSet()`, sin tocar código. |
+| `pedraza-plan:sync-cola` | JSON `{"bit:xxx":{"estado":"1","quien":"Felipe"},...}` | Cola de reintentos: cambios que todavía no se confirmaron con el remoto. |
+| `pedraza-plan:quien` | string (nombre que la persona escribió) | Se pregunta una sola vez por navegador, con `prompt()`. Si cancela, se usa "alguien del equipo" para esa sesión (guardado en `sessionStorage`, no en `localStorage`, para volver a preguntar la próxima vez que abra el navegador). |
+
+### CSS del indicador (agregar al bloque canónico de cada página)
+
+Se agrega como una sección más dentro del mismo `<style>` de cada página (junto al resto del bloque CSS canónico de la sección 2 de este documento, no como hoja aparte):
+
+```css
+/* ===== 21. Indicador de sincronización (.sync-status) — píldora fija, discreta ===== */
+.sync-status {
+  position: fixed;
+  right: max(var(--space-4), env(safe-area-inset-right, 0px));
+  bottom: max(var(--space-4), env(safe-area-inset-bottom, 0px));
+  z-index: 60;
+  max-width: calc(100vw - var(--space-4) * 2);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  background: rgba(28, 36, 32, .92);
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  line-height: 1.3;
+  box-shadow: var(--shadow);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.sync-status.is-visible { opacity: 1; transform: translateY(0); }
+.sync-status--saving { background: rgba(28, 36, 32, .92); }
+.sync-status--ok { background: var(--success); }
+.sync-status--offline { background: var(--warn); color: #2a1d02; }
+```
+
+No tapa el nav (que abre por encima, `z-index: 100`) ni el contenido: es una píldora chica, fija abajo a la derecha, con `pointer-events: none` porque es solo informativa, no interactiva. Respeta el área segura del celular (`env(safe-area-inset-*)`).
+
+### JS del motor (agregar tal cual, cambiando solo `SYNC_ATTR` y `SYNC_PREFIX`)
+
+Va en su propio `<script>`, **después** del bloque `pgGet`/`pgSet`/`pgRemove` (sección 5) y **después** del script propio de checklist de la página (el que ya sabe leer/escribir `localStorage` para cada casillero y refrescar KPIs/progreso) — el motor depende de ambos.
+
+```html
+<script>
+  // Motor de sincronización — checklist compartida por todo el equipo vía Google Sheets.
+  // Prefijo "pgSync" en todo para no chocar con el resto del JS de la página.
+  // Requiere que ya estén cargados: el bloque pgGet/pgSet/pgRemove y el script propio
+  // de la página que lee/escribe localStorage para cada checkbox (los dos, arriba).
+
+  // ÚNICOS DOS VALORES QUE CAMBIAN POR PÁGINA — todo lo demás se copia tal cual:
+  var SYNC_ATTR = 'data-bitacora';   // atributo de los checkboxes de esta página
+  var SYNC_PREFIX = 'bit:';          // prefijo de esta página dentro de la hoja compartida
+
+  // Configuración de la URL remota: vacía por defecto (sin backend configurado, la
+  // página funciona exactamente igual que hoy, solo con localStorage). Si queda vacía,
+  // se busca en localStorage — así se puede configurar desde una futura página de
+  // ajustes sin tocar código.
+  var SYNC_URL = '';
+  if (!SYNC_URL) {
+    try { SYNC_URL = localStorage.getItem('pedraza-plan:sync-url') || ''; }
+    catch (e) { SYNC_URL = ''; }
+  }
+
+  var pgSyncProcesando = false;
+  var pgSyncPillEl = null;
+  var pgSyncPillTimeout = null;
+
+  // ----- Arranque: solo si hay URL configurada. Sin ella, cero cambios de comportamiento. -----
+  document.addEventListener('DOMContentLoaded', function () {
+    if (!SYNC_URL) return;
+    pgSyncInicio();
+  });
+
+  window.addEventListener('online', function () {
+    if (!SYNC_URL) return;
+    pgSyncProcesarCola();
+  });
+
+  async function pgSyncInicio() {
+    await pgSyncCargarRemoto();
+    await pgSyncProcesarCola();
+  }
+
+  // ----- Paso 2 de la carga en dos tiempos: trae el remoto y reconcilia (gana el remoto). -----
+  // El paso 1 (aplicar localStorage de inmediato) ya lo hizo el script propio de la
+  // página, arriba, antes de que este fetch en segundo plano siquiera empiece.
+  async function pgSyncCargarRemoto() {
+    try {
+      var res = await fetch(SYNC_URL, { cache: 'no-store' });
+      if (!res.ok) { pgSyncMostrarEstado('offline'); return; }
+      var data = await res.json();
+      if (!data || data.ok !== true || !data.items || typeof data.items !== 'object') {
+        pgSyncMostrarEstado('offline');
+        return;
+      }
+      pgSyncReconciliar(data.items);
+      var cola = pgSyncLeerCola();
+      if (!Object.keys(cola).length) pgSyncMostrarEstado('ok');
+    } catch (e) {
+      // Red caída, URL inválida, JSON roto, servidor que no existe: la página sigue
+      // funcionando solo con localStorage, sin romperse y sin error visible.
+      pgSyncMostrarEstado('offline');
+    }
+  }
+
+  function pgSyncReconciliar(items) {
+    var checkboxes = document.querySelectorAll('[' + SYNC_ATTR + ']');
+    Object.keys(items).forEach(function (clave) {
+      if (clave.indexOf(SYNC_PREFIX) !== 0) return; // es de otra página, se ignora
+      var id = clave.slice(SYNC_PREFIX.length);
+      var cb = null;
+      for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].getAttribute(SYNC_ATTR) === id) { cb = checkboxes[i]; break; }
+      }
+      if (!cb) return; // esta página no tiene ese casillero
+
+      var remoto = items[clave] === '1';
+      if (cb.checked === remoto) return; // ya coincide, nada que reconciliar
+
+      cb.checked = remoto;
+      // Evento sintético (isTrusted=false): dispara el listener propio de la página,
+      // que ya sabe guardar en localStorage y refrescar KPIs/barra de progreso — así
+      // no hace falta duplicar esa lógica acá. Como no es un clic real, el listener
+      // de este motor (más abajo) lo ignora y no lo reenvía de vuelta al remoto.
+      cb.dispatchEvent(new Event('change', { bubbles: true }));
+    });
+  }
+
+  // ----- Al marcar: el script propio de la página ya guardó local al instante. -----
+  // Este listener solo encola el envío al remoto en segundo plano, y solo reacciona
+  // a clics reales (e.isTrusted) — nunca a los eventos sintéticos de la reconciliación.
+  document.addEventListener('change', function (e) {
+    var cb = e.target.closest('[' + SYNC_ATTR + ']');
+    if (!cb || !e.isTrusted || !SYNC_URL) return;
+    var claveCompleta = SYNC_PREFIX + cb.getAttribute(SYNC_ATTR);
+    var estado = cb.checked ? '1' : '0';
+    var quien = pgSyncObtenerQuien();
+    var cola = pgSyncLeerCola();
+    cola[claveCompleta] = { estado: estado, quien: quien };
+    pgSyncGuardarCola(cola);
+    pgSyncProcesarCola();
+  });
+
+  // ----- Cola de reintentos: nada se pierde por estar sin señal. -----
+  function pgSyncLeerCola() {
+    var texto = pgGet('pedraza-plan:sync-cola');
+    if (!texto) return {};
+    try { return JSON.parse(texto) || {}; } catch (e) { return {}; }
+  }
+
+  function pgSyncGuardarCola(cola) {
+    pgSet('pedraza-plan:sync-cola', JSON.stringify(cola));
+  }
+
+  async function pgSyncProcesarCola() {
+    if (!SYNC_URL || pgSyncProcesando) return;
+    pgSyncProcesando = true;
+    try {
+      var cola = pgSyncLeerCola();
+      var claves = Object.keys(cola);
+      if (!claves.length) return;
+      pgSyncMostrarEstado('guardando');
+      for (var i = 0; i < claves.length; i++) {
+        var clave = claves[i];
+        var item = cola[clave];
+        var ok = await pgSyncEnviarUno(clave, item.estado, item.quien);
+        if (!ok) { pgSyncMostrarEstado('offline'); return; } // se reintenta en 'online' o en la próxima carga
+        delete cola[clave];
+        pgSyncGuardarCola(cola);
+      }
+      pgSyncMostrarEstado('ok');
+    } catch (e) {
+      pgSyncMostrarEstado('offline');
+    } finally {
+      pgSyncProcesando = false;
+    }
+  }
+
+  function pgSyncEnviarUno(clave, estado, quien) {
+    return fetch(SYNC_URL, {
+      method: 'POST',
+      // text/plain evita el preflight de CORS, que Apps Script no maneja bien.
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({ clave: clave, estado: estado, quien: quien })
+    }).then(function (res) {
+      if (!res.ok) return false;
+      return res.json().then(function (data) { return !!(data && data.ok); }).catch(function () { return false; });
+    }).catch(function () { return false; }); // red caída, CORS, lo que sea: se degrada en silencio
+  }
+
+  // ----- Quién marcó: se pregunta una sola vez; si cancela, no vuelve a insistir en la sesión. -----
+  function pgSyncObtenerQuien() {
+    var guardado = pgGet('pedraza-plan:quien');
+    if (guardado) return guardado;
+    try {
+      if (sessionStorage.getItem('pedraza-plan:quien-omitido') === '1') return 'alguien del equipo';
+    } catch (e) { /* sin soporte, se ignora */ }
+    var nombre = null;
+    try { nombre = window.prompt('¿Cómo te llamas? Así el equipo sabe quién marcó cada cosa'); }
+    catch (e) { nombre = null; }
+    nombre = (nombre || '').trim();
+    if (nombre) { pgSet('pedraza-plan:quien', nombre); return nombre; }
+    try { sessionStorage.setItem('pedraza-plan:quien-omitido', '1'); } catch (e) { /* sin soporte, se ignora */ }
+    return 'alguien del equipo';
+  }
+
+  // ----- Píldora de estado: discreta, abajo a la derecha, no tapa nav ni contenido. -----
+  function pgSyncPill() {
+    if (pgSyncPillEl) return pgSyncPillEl;
+    pgSyncPillEl = document.createElement('div');
+    pgSyncPillEl.className = 'sync-status';
+    pgSyncPillEl.setAttribute('role', 'status');
+    pgSyncPillEl.setAttribute('aria-live', 'polite');
+    document.body.appendChild(pgSyncPillEl);
+    return pgSyncPillEl;
+  }
+
+  function pgSyncMostrarEstado(estado) {
+    var el = pgSyncPill();
+    clearTimeout(pgSyncPillTimeout);
+    el.classList.remove('sync-status--ok', 'sync-status--saving', 'sync-status--offline');
+    if (estado === 'guardando') {
+      el.textContent = 'Guardando…';
+      el.classList.add('sync-status--saving', 'is-visible');
+    } else if (estado === 'offline') {
+      el.textContent = 'Sin conexión — guardado solo aquí';
+      el.classList.add('sync-status--offline', 'is-visible');
+      // se queda visible a propósito: hay algo que avisar
+    } else {
+      el.textContent = 'Sincronizado con el equipo ✓';
+      el.classList.add('sync-status--ok', 'is-visible');
+      pgSyncPillTimeout = setTimeout(function () { el.classList.remove('is-visible'); }, 3000);
+    }
+  }
+</script>
+```
+
+### Código de Google Apps Script (backend)
+
+Se pega en el editor de Apps Script de la hoja de cálculo (**Extensiones → Apps Script** dentro de Google Sheets). Trabaja sobre una hoja con 4 columnas — `clave`, `estado`, `quien`, `actualizado` — y las crea solo si la hoja está vacía.
+
+```javascript
+/**
+ * Motor de sincronización — Plan Pedraza Ilustración
+ * Pega este código en el editor de Apps Script de la hoja de cálculo
+ * (Extensiones → Apps Script) y publícalo como app web:
+ *   Implementar → Nueva implementación → Tipo: Aplicación web
+ *   Ejecutar como: Yo · Quién tiene acceso: Cualquier usuario
+ * La URL que entrega esa implementación es el valor que va en
+ * localStorage["pedraza-plan:sync-url"] (o en la constante SYNC_URL del cliente).
+ *
+ * La hoja usa 4 columnas: clave | estado | quien | actualizado
+ * Si la hoja está vacía, el script crea esa fila de encabezados solo.
+ */
+
+var NOMBRE_HOJA = 'Checklist'; // cambia esto si tu pestaña se llama distinto
+var COLUMNAS = ['clave', 'estado', 'quien', 'actualizado'];
+
+// Devuelve la hoja de trabajo, creando el encabezado si hace falta.
+function obtenerHoja_() {
+  var libro = SpreadsheetApp.getActiveSpreadsheet();
+  var hoja = libro.getSheetByName(NOMBRE_HOJA) || libro.getSheets()[0];
+  if (hoja.getLastRow() === 0) {
+    hoja.appendRow(COLUMNAS);
+  }
+  return hoja;
+}
+
+// GET: entrega todos los estados guardados como { ok:true, items:{ "bit:xxx":"1", ... } }.
+function doGet(e) {
+  var hoja = obtenerHoja_();
+  var datos = hoja.getDataRange().getValues(); // incluye la fila de encabezado
+  var items = {};
+  for (var i = 1; i < datos.length; i++) {
+    var clave = datos[i][0];
+    if (!clave) continue; // fila vacía, se ignora
+    items[String(clave)] = String(datos[i][1]);
+  }
+  return respuestaJson_({ ok: true, items: items });
+}
+
+// POST: recibe { clave, estado, quien } como JSON en texto plano (para no gatillar
+// el preflight de CORS) y hace upsert: si la clave ya existe la actualiza, si no
+// agrega una fila nueva. Usa LockService para que dos personas escribiendo al
+// mismo tiempo no se pisen.
+function doPost(e) {
+  var candado = LockService.getScriptLock();
+  try {
+    candado.waitLock(10000); // hasta 10 segundos esperando el turno para escribir
+
+    var cuerpo = JSON.parse(e.postData.contents);
+    var clave = String(cuerpo.clave || '').trim();
+    if (!clave) return respuestaJson_({ ok: false, error: 'falta la clave' });
+    var estado = cuerpo.estado === '1' ? '1' : '0';
+    var quien = String(cuerpo.quien || 'alguien del equipo');
+    var ahora = new Date();
+
+    var hoja = obtenerHoja_();
+    var datos = hoja.getDataRange().getValues();
+    var filaEncontrada = -1;
+    for (var i = 1; i < datos.length; i++) {
+      if (String(datos[i][0]) === clave) { filaEncontrada = i + 1; break; } // +1: getRange es base 1
+    }
+
+    if (filaEncontrada === -1) {
+      hoja.appendRow([clave, estado, quien, ahora]);
+    } else {
+      hoja.getRange(filaEncontrada, 1, 1, 4).setValues([[clave, estado, quien, ahora]]);
+    }
+    return respuestaJson_({ ok: true });
+  } catch (err) {
+    return respuestaJson_({ ok: false, error: String(err) });
+  } finally {
+    candado.releaseLock();
+  }
+}
+
+// Arma la respuesta JSON con el tipo de contenido correcto.
+function respuestaJson_(objeto) {
+  return ContentService
+    .createTextOutput(JSON.stringify(objeto))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+```
+
+**Por qué `text/plain` en el `POST` y no `application/json`:** un `POST` con `Content-Type: application/json` es una petición "no simple" para el navegador, que primero manda una petición `OPTIONS` de verificación (preflight). Apps Script no implementa `doOptions`, así que ese preflight falla y el navegador nunca llega a mandar el `POST` real. `text/plain` es una de las pocas categorías de petición "simple" que no gatillan preflight — el cuerpo sigue siendo JSON de todas formas (`e.postData.contents` lo recibe como texto plano y el propio script lo parsea con `JSON.parse`), solo cambia la cabecera para evitar el problema de CORS.
+
+### Aplicación de referencia
+
+`bitacora.html` ya tiene este motor aplicado (`SYNC_ATTR = 'data-bitacora'`, `SYNC_PREFIX = 'bit:'`), como implementación de referencia para propagar a las otras 4 páginas cambiando solo esos dos valores.
