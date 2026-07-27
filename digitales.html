@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Productos digitales — Plan Pedraza Ilustración</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
+<style>
+/* ==========================================================================
+   Sistema de diseño — Plan Pedraza Ilustración
+   Bloque único y canónico. No editar por página: solo usar estas clases.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* --- tinta y superficies --- */
+  --ink: #1c2420;
+  --ink-soft: #4c5850;
+  --ink-faint: #7c887f;
+  --paper: #faf6ee;
+  --surface: #fffefb;
+  --line: #e6ded0;
+  --line-strong: #d6c9b0;
+
+  /* --- acento: rojo copihue --- */
+  --accent: #b0223f;
+  --accent-dark: #7c1830;
+  --accent-soft: #f8dfe4;
+
+  /* --- verde naturaleza del sitio web de la marca (dato del operador, jul-2026) --- */
+  --brand-green: #3b5751;
+  --brand-green-soft: #e3eae8;
+  --brand-green-dark: #2a403c;
+
+  /* --- apoyo semántico --- */
+  --success: #2f6b4a;
+  --success-soft: #dcece1;
+  --warn: #a8720a;
+  --warn-soft: #f8ecd2;
+  --danger: #ae3d17;
+  --danger-soft: #f7ddd0;
+  --info: var(--brand-green);
+  --info-soft: var(--brand-green-soft);
+
+  /* --- forma --- */
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-full: 999px;
+  --shadow-sm: 0 1px 3px rgba(28, 36, 32, .1);
+  --shadow: 0 6px 20px rgba(28, 36, 32, .12);
+
+  /* --- espaciado --- */
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  /* --- tipografía --- */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --fs-sm: clamp(.82rem, .78rem + .2vw, .9rem);
+  --fs-base: clamp(1rem, .95rem + .25vw, 1.0625rem);
+  --fs-lg: clamp(1.1rem, 1.02rem + .4vw, 1.25rem);
+  --fs-h3: clamp(1.15rem, 1.05rem + .5vw, 1.35rem);
+  --fs-h2: clamp(1.35rem, 1.15rem + 1vw, 1.75rem);
+  --fs-h1: clamp(1.75rem, 1.4rem + 2vw, 2.75rem);
+
+  /* --- área táctil mínima (regla mobile-first del proyecto) --- */
+  --tap: 44px;
+}
+
+/* ===== 1. Reset mínimo ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; }
+img, svg { max-width: 100%; display: block; }
+h1, h2, h3, h4, p, ul, ol, dl, figure { margin: 0 0 var(--space-4); }
+ul, ol { padding-left: 1.2em; }
+a { color: inherit; }
+button { font: inherit; }
+table { border-collapse: collapse; width: 100%; }
+
+/* ===== 2. Tipografía base ===== */
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: var(--font-serif); line-height: 1.2; color: var(--ink); }
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+p { max-width: 68ch; }
+strong { color: var(--ink); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* ===== 3. Layout ===== */
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 var(--space-4) var(--space-8); }
+
+/* ===== 4. Nav superior (.docnav) ===== */
+.docnav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--brand-green);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+.docnav__inner {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 var(--space-2);
+}
+.docnav__link {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  min-height: var(--tap);
+  padding: 0 var(--space-3);
+  color: #eae6dd;
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+}
+.docnav__link:hover { color: #fff; }
+.docnav__link.active {
+  color: #fff;
+  border-bottom-color: var(--accent);
+}
+
+/* ===== 5. Hero ===== */
+.hero {
+  padding: var(--space-7) var(--space-4);
+  background: linear-gradient(135deg, var(--brand-green) 0%, var(--brand-green-dark) 100%);
+  color: #fff;
+}
+.hero__inner { max-width: 960px; margin: 0 auto; }
+.hero h1 { color: #fff; margin-bottom: var(--space-3); }
+.hero p { color: rgba(255, 255, 255, .92); font-size: var(--fs-lg); max-width: 60ch; margin: 0; }
+
+/* ===== 6. Secciones numeradas (.sec) ===== */
+main { counter-reset: sec; }
+.sec { counter-increment: sec; margin-top: var(--space-7); }
+.sec:first-of-type { margin-top: var(--space-6); }
+.sec > h2 {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding-bottom: var(--space-2);
+  border-bottom: 2px solid var(--line-strong);
+}
+.sec > h2::before {
+  content: counter(sec);
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9em;
+  height: 1.9em;
+  border-radius: var(--radius-full);
+  background: var(--brand-green);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: .55em;
+  font-weight: 700;
+}
+
+/* ===== 7. Callouts ===== */
+.callout {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  margin: var(--space-4) 0;
+}
+.callout::before { flex: 0 0 auto; font-size: 1.3em; line-height: 1; }
+.callout p:last-child { margin-bottom: 0; }
+.callout--info { border-color: var(--info); background: var(--info-soft); }
+.callout--info::before { content: "💡"; }
+.callout--success { border-color: var(--success); background: var(--success-soft); }
+.callout--success::before { content: "✅"; }
+.callout--warn { border-color: var(--warn); background: var(--warn-soft); }
+.callout--warn::before { content: "🟡"; }
+.callout--danger { border-color: var(--danger); background: var(--danger-soft); }
+.callout--danger::before { content: "🔴"; }
+
+/* ===== 8. Bloque copiable (.copyblock) ===== */
+.copyblock {
+  position: relative;
+  margin: var(--space-4) 0;
+  padding: var(--space-8) var(--space-4) var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.copyblock__text {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--ink);
+}
+.copyblock__btn {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  min-height: var(--tap);
+  padding: 0 var(--space-4);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  cursor: pointer;
+}
+.copyblock__btn:hover { background: var(--accent-dark); }
+.copyblock__btn.is-copied { background: var(--success); }
+
+/* ===== 9. KPIs (.kpi) ===== */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  margin: var(--space-4) 0;
+}
+.kpi {
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.kpi__label { display: block; font-size: var(--fs-sm); color: var(--ink-soft); margin-bottom: var(--space-2); }
+.kpi__value { display: block; font-family: var(--font-serif); font-size: clamp(1.5rem, 1.3rem + 1vw, 2.1rem); font-weight: 700; color: var(--ink); }
+.kpi__delta { display: inline-block; margin-top: var(--space-2); font-size: var(--fs-sm); font-weight: 600; padding: 2px var(--space-2); border-radius: var(--radius-full); }
+.kpi__delta--up { color: var(--success); background: var(--success-soft); }
+.kpi__delta--down { color: var(--danger); background: var(--danger-soft); }
+
+/* ===== 10. Tarjeta genérica (.card) ===== */
+.card {
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  margin: var(--space-4) 0;
+}
+.card h3 { margin-top: 0; }
+
+/* ===== 11. Tablas responsive ===== */
+.table-wrap { overflow-x: auto; margin: var(--space-4) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); }
+.table-wrap table { min-width: 480px; }
+.table-wrap th, .table-wrap td { padding: var(--space-3); text-align: left; border-bottom: 1px solid var(--line); font-size: var(--fs-sm); }
+.table-wrap thead th { background: var(--brand-green); color: #fff; position: sticky; top: 0; }
+.table-wrap tbody tr:last-child td { border-bottom: none; }
+.table-wrap tbody tr:nth-child(even) { background: var(--paper); }
+
+/* ===== 12. Barra de progreso (.progress) ===== */
+.progress { margin: var(--space-4) 0; }
+.progress__track { height: 14px; background: var(--line); border-radius: var(--radius-full); overflow: hidden; }
+.progress__fill { height: 100%; background: var(--brand-green); border-radius: var(--radius-full); transition: width .3s ease; width: 0%; }
+.progress__label { display: block; margin-top: var(--space-2); font-size: var(--fs-sm); color: var(--ink-soft); }
+
+/* ===== 13. Checklist táctil (.checklist) ===== */
+.checklist { list-style: none; padding-left: 0; margin: var(--space-4) 0; }
+.checklist li { margin-bottom: var(--space-2); }
+.checklist label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  min-height: var(--tap);
+  padding: var(--space-2) var(--space-3);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+.checklist input[type="checkbox"] { width: 24px; height: 24px; flex: 0 0 auto; accent-color: var(--brand-green); margin-top: 2px; }
+.checklist input[type="checkbox"]:checked + span { text-decoration: line-through; color: var(--ink-soft); }
+
+/* ===== 14. Etiquetas (.pill) ===== */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+.pill--success { background: var(--success-soft); color: var(--success); }
+.pill--warn { background: var(--warn-soft); color: var(--warn); }
+.pill--danger { background: var(--danger-soft); color: var(--danger); }
+.pill--info { background: var(--info-soft); color: var(--info); }
+
+/* ===== 15. Grillas responsive ===== */
+.grid-2, .grid-3 { display: grid; gap: var(--space-4); margin: var(--space-4) 0; grid-template-columns: 1fr; }
+
+/* ===== 16. Gráficos SVG/CSS hechos a mano ===== */
+/* Barras horizontales */
+.chart-bar-row { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-2); }
+.chart-bar-row__label { flex: 0 0 9rem; font-size: var(--fs-sm); color: var(--ink-soft); }
+.chart-bar-row__track { flex: 1 1 auto; height: 20px; background: var(--line); border-radius: var(--radius-full); overflow: hidden; }
+.chart-bar-row__fill { height: 100%; background: var(--accent); border-radius: var(--radius-full); }
+.chart-bar-row__value { flex: 0 0 auto; font-size: var(--fs-sm); font-weight: 700; min-width: 3.5rem; text-align: right; }
+
+/* Embudo: cada .funnel-step define su ancho con --w inline, ej. style="--w:70%" */
+.funnel { display: flex; flex-direction: column; align-items: center; gap: 2px; margin: var(--space-4) 0; }
+.funnel-step {
+  width: var(--w, 100%);
+  max-width: 100%;
+  padding: var(--space-3);
+  text-align: center;
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  background: var(--accent);
+  border-radius: var(--radius-sm);
+}
+.funnel-step:nth-child(2) { opacity: .85; }
+.funnel-step:nth-child(3) { opacity: .7; }
+.funnel-step:nth-child(4) { opacity: .55; }
+.funnel-step:nth-child(5) { opacity: .4; }
+
+/* Línea de tiempo vertical */
+.timeline { position: relative; margin: var(--space-5) 0; padding-left: var(--space-6); border-left: 3px solid var(--line-strong); }
+.timeline-item { position: relative; margin-bottom: var(--space-5); }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--space-6) - 7px);
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--brand-green);
+  border: 3px solid var(--paper);
+}
+.timeline-item__date { font-size: var(--fs-sm); font-weight: 700; color: var(--accent-dark); }
+.timeline-item__title { font-family: var(--font-serif); font-size: var(--fs-lg); margin: var(--space-1) 0; }
+
+/* ===== 17. Botones ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-5);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-base);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover { background: var(--accent-dark); }
+.btn--ghost { background: transparent; border: 2px solid var(--line-strong); color: var(--ink); }
+.btn--ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ===== 18. Media queries (mobile-first: base = ~375px) ===== */
+@media (min-width: 640px) {
+  .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .hero { padding: var(--space-8) var(--space-6); }
+}
+@media (min-width: 960px) {
+  .kpi-grid { grid-template-columns: repeat(4, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ===== 19. Impresión ===== */
+@media print {
+  .docnav, .copyblock__btn, .btn { display: none !important; }
+  body { background: #fff; color: #000; }
+  .hero { background: #fff !important; color: #000 !important; }
+  .hero h1, .hero p { color: #000 !important; }
+  .card, .callout, .kpi, .copyblock { box-shadow: none; border: 1px solid #999; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: .8em; }
+}
+
+/* ==========================================================================
+   Extensiones propias de esta página (digitales.html)
+   digitales.html no es una de las 6 páginas del sitio (docs/design-system.md,
+   sección 1) y no está en el menú principal — se llega por link directo desde
+   el plan. El bloque de arriba es el canónico intacto; lo de abajo son
+   componentes propios de esta página (link de vuelta en el hero, fila de
+   etiquetas sobre cada tarjeta de producto, lista de "qué incluye" con
+   marca de check), agregados en la misma hoja de estilos única para no
+   crear un segundo archivo CSS.
+   ========================================================================== */
+
+.hero__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-2) 0 0;
+  margin-bottom: var(--space-3);
+  color: rgba(255, 255, 255, .85);
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+.hero__back:hover { color: #fff; }
+
+.card__pill-row { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-3); }
+
+.includes-list { list-style: none; padding-left: 0; margin: var(--space-3) 0; }
+.includes-list li { display: flex; gap: var(--space-2); align-items: flex-start; margin-bottom: var(--space-2); font-size: var(--fs-base); }
+.includes-list li::before { content: "✓"; flex: 0 0 auto; color: var(--success); font-weight: 700; }
+</style>
+</head>
+<body>
+
+<nav class="docnav" aria-label="Navegación del plan">
+  <div class="docnav__inner">
+    <a href="index.html" class="docnav__link">Plan</a>
+    <a href="kit-arranque.html" class="docnav__link">Kit de arranque</a>
+    <a href="guion-reels.html" class="docnav__link">Guiones de Reels</a>
+    <a href="sop-dm.html" class="docnav__link">Manual de DM</a>
+    <a href="recursos.html" class="docnav__link">Recursos</a>
+    <a href="tablero.html" class="docnav__link">Tablero</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero__inner">
+    <a href="index.html#datos-que-faltan" class="hero__back">← Volver al plan</a>
+    <h1>Productos digitales</h1>
+    <p>Vender algo que no ocupa espacio en la bodega, no se agota nunca y sube el ticket promedio (lo que gasta una persona en cada compra) sin gastar en producir una unidad más. Esta página no está en el menú principal — se comparte por link directo desde el plan.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section class="sec" id="por-que-importa">
+<h2>Por qué esto importa ahora</h2>
+
+<p>Hoy la tienda tiene dos problemas al mismo tiempo, y los productos digitales ayudan con los dos.</p>
+
+<div class="kpi-grid">
+  <div class="kpi">
+    <span class="kpi__label">Ticket promedio hoy <span class="pill pill--success">🟢 dato real</span></span>
+    <span class="kpi__value">$33.000</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Créditos activos financiando stock</span>
+    <span class="kpi__value">2</span>
+    <span class="pill pill--warn">🟡 uno más por pedir</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Puzzles (producto estrella)</span>
+    <span class="kpi__value">Sin stock</span>
+    <span class="pill pill--info">llegan 15 de agosto</span>
+  </div>
+</div>
+
+<p><strong>Problema 1 — el ticket promedio bajó.</strong> Hoy una persona gasta en promedio $33.000 por compra <span class="pill pill--success">🟢 dicho en la reunión del 27-jul</span>. Un producto digital se puede ofrecer al lado de cualquier compra para subir ese número, sin depender de que la persona compre un segundo producto físico.</p>
+
+<p><strong>Problema 2 — el stock se agota y demora en volver.</strong> El puzzle, el producto que más vende, está sin stock. El contenedor nuevo llega recién el 15 de agosto, y el producto va a estar disponible en la tienda recién la última semana de agosto, después de pasar por el operador logístico. El ciclo de compra a China toma entre 2 y 3 meses, ya ha tenido atrasos, y los 1.000 puzzles ya pedidos no alcanzan para Navidad — hay que hacer un pedido nuevo en agosto <span class="pill pill--success">🟢 dicho en la reunión del 27-jul</span>.</p>
+
+<p>Un producto digital no tiene ese problema: no hay que fabricarlo, no hay que esperar un contenedor, y se puede seguir vendiendo aunque la bodega esté vacía.</p>
+
+<div class="callout callout--info">
+<p><strong>El otro problema que resuelve: la plata.</strong> Hoy hay dos créditos activos financiando el stock, y se está por pedir uno más — antes la empresa financiaba todo el stock con caja propia. Cada puzzle nuevo hay que pagarlo antes de venderlo. Un producto digital es al revés: no hay que comprar nada antes de venderlo, así que no le pide plata a la caja en ningún momento <span class="pill pill--success">🟢 dicho en la reunión del 27-jul</span>.</p>
+</div>
+
+<h3>El contraste en el margen (cifras ilustrativas, no reales)</h3>
+<p><span class="pill pill--warn">🟡 ilustración</span> No tenemos todavía el costo exacto de fabricar y despachar un puzzle, así que estos dos números de abajo no son el margen real de la empresa — son solo un ejemplo para mostrar la idea: agregar un producto digital al lado de un producto físico sube el margen (lo que queda de ganancia después de descontar los costos) del pedido completo, porque el digital casi no tiene costo adicional.</p>
+
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">Puzzle solo</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:35%"></div></div>
+  <span class="chart-bar-row__value">~35%</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">Puzzle + digital</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:60%"></div></div>
+  <span class="chart-bar-row__value">~60%</span>
+</div>
+
+</section>
+
+<section class="sec" id="los-tres-productos">
+<h2>Los tres productos, ordenados por facilidad</h2>
+
+<p>Cote ya compra este tipo de producto para sí misma: clases digitales de patrones para tejer. Su lectura desde la reunión fue clara: <span class="pill pill--success">🟢 dicho en la reunión del 27-jul</span> ese tipo de producto vende, y ella misma es clienta habitual. Es su experiencia personal, no una estadística de mercado — pero es un buen indicio de que la idea le hace sentido a alguien que también compra este tipo de cosas.</p>
+
+<p>Para poner los precios de referencia en contexto: el puzzle físico más vendido cuesta $24.990 CLP. Un producto digital entre $9.000 y $15.000 se percibe como accesible al lado de ese precio, sin sentirse "barato" ni fuera de lugar <span class="pill pill--warn">🟡 propuesta</span>.</p>
+
+<div class="grid-3">
+
+<div class="card">
+<div class="card__pill-row">
+  <span class="pill pill--success">El más rápido</span>
+</div>
+<h3>1. Libro para pintar</h3>
+<p><strong>Qué es:</strong> el libro para pintar en acuarela que Cote ya tiene — lo vendía a través de un distribuidor y lo recuperó para venderlo directo <span class="pill pill--success">🟢 dicho en la reunión</span>.</p>
+<p><strong>Qué se necesita:</strong> preparar el archivo digital (un PDF listo para descargar e imprimir en casa) y publicarlo en la tienda. No hay que crear contenido nuevo, el libro ya existe.</p>
+<p><strong>Trabajo de Cote:</strong> <span class="pill pill--warn">🟡 estimado — bajo</span> revisar el archivo y aprobar la versión final para vender, una a dos horas.</p>
+<p><strong>Cómo se vende:</strong> como producto digital descargable en la tienda. También se puede ofrecer en versión física, impresa, además de la digital.</p>
+<p><strong>Precio de referencia:</strong> <span class="pill pill--warn">🟡 $9.990 CLP propuesto</span></p>
+</div>
+
+<div class="card">
+<div class="card__pill-row">
+  <span class="pill">El de más valor</span>
+</div>
+<h3>2. Libro + clase grabada</h3>
+<p><strong>Qué es:</strong> el mismo libro para pintar, más un video de 15 minutos de Cote explicando cómo pinta cada ilustración <span class="pill pill--success">🟢 dicho en la reunión</span>.</p>
+<p><strong>Qué se necesita:</strong> grabar el video con el celular — una toma, sin guion elaborado — y cortar los silencios antes de subirlo. Cote insistió en que no hace falta producción: lo que vale es que es ella enseñando, no la calidad del video <span class="pill pill--success">🟢 dicho en la reunión</span>.</p>
+<p><strong>Trabajo de Cote:</strong> <span class="pill pill--warn">🟡 estimado — medio</span> grabar los 15 minutos, probablemente en dos o tres intentos, sin edición de su parte.</p>
+<p><strong>Cómo se vende:</strong> como paquete libro + clase, un solo producto digital.</p>
+<p><strong>Precio de referencia:</strong> <span class="pill pill--warn">🟡 $14.990 CLP propuesto</span></p>
+</div>
+
+<div class="card">
+<div class="card__pill-row">
+  <span class="pill pill--warn">El más ambicioso</span>
+</div>
+<h3>3. Audiolibro de aves de Chile</h3>
+<p><strong>Qué es:</strong> historias y cantos de las especies que Cote ya ilustra — una guía sonora de aves o zonas de Chile <span class="pill pill--success">🟢 dicho en la reunión</span>.</p>
+<p><strong>Qué se necesita:</strong> escribir el contenido, grabar el audio con buena calidad y conseguir los cantos de cada ave. Requiere más trabajo que los otros dos — se deja para después de Navidad <span class="pill pill--success">🟢 dicho en la reunión</span>.</p>
+<p><strong>Trabajo de Cote:</strong> <span class="pill pill--warn">🟡 estimado — alto</span> escribir el guion y grabar; probablemente necesita apoyo externo para editar el audio.</p>
+<p><strong>Cómo se vende:</strong> como producto digital descargable, o como complemento del libro para pintar.</p>
+<p><strong>Precio de referencia:</strong> <span class="pill pill--warn">🟡 $12.990 CLP propuesto</span></p>
+</div>
+
+</div>
+
+</section>
+
+<section class="sec" id="como-se-venden">
+<h2>Cómo se venden: tres caminos a la vez</h2>
+
+<p>No hay que elegir uno solo. Los tres caminos se pueden activar en paralelo, apenas el primer producto esté listo.</p>
+
+<h3>a) Solo, para quien nunca compraría un puzzle</h3>
+<p>Entre los 62.500 seguidores <span class="pill pill--success">🟢 dato confirmado</span> de la cuenta hay personas a las que les gusta la ilustración pero nunca van a comprar un puzzle o una lámina — solo quieren aprender a pintar. Para ese grupo, el libro digital se vende solo, como su propia oferta.</p>
+
+<div class="copyblock">
+  <button type="button" class="copyblock__btn" data-copy-target="copy-digital-solo">Copiar</button>
+  <div class="copyblock__text" id="copy-digital-solo">🎨 ¿Te encantaría pintar la naturaleza de Chile pero nunca te animaste?
+
+Nuestro libro digital para pintar en acuarela trae las ilustraciones de Pedraza más una clase grabada de Cote, paso a paso, explicando cómo se pinta cada una.
+
+Se descarga al toque, lo imprimes las veces que quieras y pintas cuando tengas ganas. No necesitas experiencia previa.
+
+📥 Disponible ahora en el link de la bio.</div>
+</div>
+
+<h3>b) De regalo, para empujar el ticket sobre $50.000</h3>
+<p>El envío es gratis sobre $50.000 CLP en compras. Regalar el libro digital a quien llegue a ese monto da una razón concreta para agregar un producto más al carrito, en vez de solo empujar "compra más" sin nada a cambio.</p>
+
+<div class="copyblock">
+  <button type="button" class="copyblock__btn" data-copy-target="copy-digital-regalo">Copiar</button>
+  <div class="copyblock__text" id="copy-digital-regalo">🎁 Sobre $50.000 en tu compra, te llevas de regalo nuestro libro digital para pintar en acuarela (valor $9.990). Se agrega solo a tu pedido, no necesitas código ni hacer nada extra.</div>
+</div>
+
+<h3>c) Como complemento, en un clic</h3>
+<p>En el carrito o en la página de gracias (la que aparece justo después de pagar), se ofrece el libro digital a un precio especial, en un solo clic, sin tener que buscarlo en la tienda.</p>
+
+<div class="copyblock">
+  <button type="button" class="copyblock__btn" data-copy-target="copy-digital-complemento">Copiar</button>
+  <div class="copyblock__text" id="copy-digital-complemento">¿Seguimos pintando en casa? Agrega el libro digital para pintar en acuarela por $6.990 (precio especial solo en este paso). Se descarga al instante, no cambia tu envío.</div>
+</div>
+
+<p>Ver también: <a href="ofertas.html">la barra de envío gratis y los pop-ups</a>, donde vive la lógica del umbral de $50.000 que usa el camino (b).</p>
+
+</section>
+
+<section class="sec" id="vender-el-plan">
+<h2>El ángulo que cambia el negocio: vender el plan, no el producto</h2>
+
+<p>Esto fue lo que más entusiasmó en la reunión: no se vende un puzzle. Se vende <strong>el domingo en familia</strong> <span class="pill pill--success">🟢 dicho en la reunión — "está buenísimo"</span>. El puzzle es una excusa para sentarse juntos; el paquete completo es la experiencia.</p>
+
+<div class="card">
+<div class="card__pill-row">
+  <span class="pill pill--info">Paquete propuesto</span>
+</div>
+<h3>El Domingo Pedraza</h3>
+<p><span class="pill pill--warn">🟡 nombre y precio propuestos</span> Arma el puzzle en familia, descubre cada especie con la guía que ya trae adentro, y después sigue pintando con el libro digital y la clase grabada de Cote.</p>
+
+<ul class="includes-list">
+  <li>Puzzle Aves y Flores de Chile, 1000 piezas — incluye guía con nombre común y científico de cada especie</li>
+  <li>Libro digital para pintar en acuarela</li>
+  <li>Clase grabada de 15 minutos, Cote enseñando cómo pinta cada ilustración</li>
+</ul>
+
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">Por separado</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div>
+  <span class="chart-bar-row__value">$39.980</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">El Domingo Pedraza</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:87%"></div></div>
+  <span class="chart-bar-row__value">$34.990</span>
+</div>
+<p style="margin-top:var(--space-2);"><span class="pill pill--warn">🟡 propuesta</span> $24.990 del puzzle más $14.990 del libro con clase suman $39.980 comprados por separado. El paquete a $34.990 deja un ahorro visible de $4.990, sin necesitar un descuento grande para sentirse conveniente.</p>
+</div>
+
+<div class="copyblock">
+  <button type="button" class="copyblock__btn" data-copy-target="copy-domingo-pedraza">Copiar</button>
+  <div class="copyblock__text" id="copy-domingo-pedraza">🧩🎨 El Domingo Pedraza
+
+Arma la tarde perfecta en familia: el puzzle de 1000 piezas mientras descubres cada especie con la guía incluida, y después sigue pintando con el libro digital para pintar en acuarela y la clase grabada de Cote.
+
+Todo en un solo paquete, con precio especial.
+
+📥 Disponible en el link de la bio.</div>
+</div>
+
+<p><strong>Por qué esto sube la percepción de valor:</strong> un puzzle solo se compara por precio contra cualquier otro puzzle del mercado. Un plan completo para la tarde de domingo no se compara con nada — no es un objeto, es una experiencia armada. Eso también hace la marca más difícil de copiar: cualquiera puede imprimir una ilustración parecida de aves o flores de Chile, pero nadie puede copiar el libro que Cote recuperó, la clase que graba ella misma, ni la guía de especies que acompaña cada pieza. Copiar el dibujo es fácil; copiar la experiencia completa, no.</p>
+
+</section>
+
+<section class="sec" id="antes-de-publicar">
+<h2>Lo que hay que resolver antes de publicar</h2>
+
+<p>Antes de subir el primer producto digital a la tienda, hay cuatro puntos que conviene dejar resueltos.</p>
+
+<ul class="checklist">
+  <li>
+    <label>
+      <input type="checkbox">
+      <span><strong>Cómo se entrega el archivo:</strong> Shopify tiene entrega digital nativa (el comprador recibe el archivo para descargar apenas paga) <span class="pill pill--warn">🟡 confirmar qué app usan hoy o si hay que instalar una</span>.</span>
+    </label>
+  </li>
+  <li>
+    <label>
+      <input type="checkbox">
+      <span><strong>Qué pasa con las devoluciones:</strong> un archivo ya descargado no se puede "devolver". Hay que escribir una política clara en la ficha del producto antes de publicar, para que quede claro desde el principio.</span>
+    </label>
+  </li>
+  <li>
+    <label>
+      <input type="checkbox">
+      <span><strong>Protección básica del archivo:</strong> agregar una marca de agua discreta con el correo de quien compró, para desincentivar que el archivo se comparta libremente.</span>
+    </label>
+  </li>
+  <li>
+    <label>
+      <input type="checkbox">
+      <span><strong>Si el IVA se cobra distinto:</strong> <span class="pill pill--warn">🟡 a confirmar con el contador de la empresa</span> — un producto digital puede tener un tratamiento tributario distinto al de un producto físico. No corresponde adivinar la respuesta acá; se resuelve con quien lleva la contabilidad.</span>
+    </label>
+  </li>
+</ul>
+
+</section>
+
+<section class="sec" id="plan-de-lanzamiento">
+<h2>Plan de lanzamiento en 3 pasos</h2>
+
+<p>El orden sigue la misma lógica de la sección 2: primero lo que ya existe y es rápido, después lo que suma más valor, y al final lo más ambicioso, cuando haya tiempo después de la temporada alta.</p>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<div class="timeline-item__date">Semana 1 tras los accesos</div>
+<div class="timeline-item__title">Preparar y publicar el libro que ya existe</div>
+<p><strong>Quién:</strong> Cote prepara y aprueba el archivo final; el operador lo sube a la tienda como producto digital.</p>
+<p><strong>Cómo se mide si funcionó:</strong> unidades vendidas en las primeras dos semanas después de publicarlo.</p>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-item__date">Semanas 2-3 tras los accesos</div>
+<div class="timeline-item__title">Sumar la clase grabada</div>
+<p><strong>Quién:</strong> Cote graba el video de 15 minutos con el celular; el operador o la diseñadora de apoyo corta silencios y lo sube junto al libro como paquete.</p>
+<p><strong>Cómo se mide si funcionó:</strong> qué porcentaje de los pedidos que incluyen un digital eligen el paquete libro + clase en vez del libro solo.</p>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-item__date">Después de Navidad</div>
+<div class="timeline-item__title">Evaluar el audiolibro de aves</div>
+<p><strong>Quién:</strong> Cote y el operador revisan juntos los resultados de los dos pasos anteriores antes de decidir si vale la pena el trabajo extra que pide este producto.</p>
+<p><strong>Cómo se mide si funcionó:</strong> el efecto acumulado en el ticket promedio (¿subió desde los $33.000 de hoy?) y qué porcentaje del total de pedidos ya incluye algún producto digital.</p>
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<script>
+  // Copiar al portapapeles — delegación de eventos, un solo listener por página.
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-copy-target]');
+    if (!btn) return;
+    var el = document.getElementById(btn.getAttribute('data-copy-target'));
+    if (!el) return;
+    copiarTexto(el.innerText || el.textContent || '', btn);
+  });
+
+  function copiarTexto(texto, btn) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(texto).then(
+        function () { mostrarCopiado(btn); },
+        function () { copiarConFallback(texto, btn); }
+      );
+    } else {
+      copiarConFallback(texto, btn);
+    }
+  }
+
+  function copiarConFallback(texto, btn) {
+    var ta = document.createElement('textarea');
+    ta.value = texto;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.top = '-1000px';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (err) { /* sin soporte, se ignora */ }
+    document.body.removeChild(ta);
+    mostrarCopiado(btn);
+  }
+
+  function mostrarCopiado(btn) {
+    var original = btn.getAttribute('data-label') || btn.textContent;
+    btn.setAttribute('data-label', original);
+    btn.textContent = '✓ ¡Copiado!';
+    btn.classList.add('is-copied');
+    clearTimeout(btn._copyTimeout);
+    btn._copyTimeout = setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('is-copied');
+    }, 2000);
+  }
+</script>
+</body>
+</html>

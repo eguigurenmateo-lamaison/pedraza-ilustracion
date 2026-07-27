@@ -513,6 +513,47 @@ main { counter-reset: sec; }
 </div>
 </section>
 
+<section class="sec" id="hallazgos-reunion">
+<h2>Lo que ya sabemos que hay que arreglar</h2>
+<p>Antes de recorrer el checklist completo, hay 4 hallazgos concretos que salieron directo de la reunión del 27 de julio de 2026. Nadie los está suponiendo: alguien los vio en pantalla o los contó en la llamada. Van primero porque ya se puede empezar a actuar sobre ellos, ordenados de mayor a menor impacto.</p>
+
+<div class="callout callout--success">
+<p><strong>🟢 El arreglo más rentable y más rápido que existe hoy en la tienda (reunión del 27 de julio).</strong> El producto tiene 75 reseñas y la tienda 215 en total, todas en la aplicación Judge.me — pero el widget (el bloque que las muestra) no las está desplegando en la ficha de producto. <span class="pill pill--danger">Impacto alto</span> <span class="pill pill--info">Esfuerzo bajo 🟡</span></p>
+<p><strong>Por qué cuesta plata:</strong> ver que otras personas ya compraron y quedaron contentas es una de las razones más fuertes para animarse a comprar algo que nunca se ha tocado con las manos. Esa confianza ya está ganada — hoy simplemente está apagada.</p>
+<p><strong>Qué se hace:</strong> revisar la instalación de Judge.me en la plantilla de producto de Shopify y activar que el widget se muestre. No hace falta generar reseñas nuevas ni pedirle nada al cliente: las 75 ya existen, solo falta encenderlas. Este mismo punto queda marcado en la etapa <a href="#etapa-ficha">📦 Ficha de producto</a> de la auditoría, más abajo.</p>
+</div>
+
+<div class="grid-2">
+  <div class="card">
+  <h3>💳 Fricción de pago sin ubicar</h3>
+  <p><span class="pill pill--danger">Impacto alto</span> <span class="pill pill--info">Esfuerzo 🟡 por definir</span></p>
+  <p><strong>Qué pasa:</strong> 🟢 Cote contó en la reunión que entra harta gente y se cae justo en el momento de pagar. Consultó una inteligencia artificial (IA) que señaló el checkout (el proceso final de pago) como sospechoso, pero no lo pudo confirmar — puede ser un dato de una versión antigua guardada en caché del sitio. Los medios de pago sí están completos: tarjeta, transferencia, Mercado Pago y Flow.</p>
+  <p><strong>Por qué cuesta plata:</strong> quien llega hasta el pago ya decidió comprar. Perderlo justo ahí es la venta más cara de recuperar de todo el camino de compra.</p>
+  <p><strong>Qué se hace:</strong> simular una compra real de principio a fin apenas haya accesos, para ubicar el paso exacto donde se cae. Es la tarea prioritaria de la etapa <a href="#etapa-checkout">💳 Checkout</a> de esta auditoría.</p>
+  </div>
+
+  <div class="card">
+  <h3>🗂️ No existe una colección de packs ni de más vendidos</h3>
+  <p><span class="pill pill--warn">Impacto medio</span> <span class="pill pill--warn">Esfuerzo 🟡 medio</span></p>
+  <p><strong>Qué pasa:</strong> 🟢 Hoy la tienda no tiene armada una colección de packs ni de productos más vendidos. El cliente pidió en la reunión que sea la primera opción visible al entrar a la tienda.</p>
+  <p><strong>Por qué cuesta plata:</strong> quien no sabe por dónde partir necesita que la tienda le muestre un camino fácil. Sin esa vitrina se pierden ventas de más de un producto por compra (lo que sube el ticket promedio: lo que gasta una persona por compra) y compras de quien todavía está decidiendo.</p>
+  <p><strong>Qué se hace:</strong> crear la colección y dejarla primera en el menú y la portada. La propuesta completa — qué packs armar y con qué textos — ya está lista en <a href="ofertas.html#coleccion-packs">ofertas.html</a>.</p>
+  </div>
+
+  <div class="card">
+  <h3>🔔 Solo hay un pop-up, igual para todos</h3>
+  <p><span class="pill pill--warn">Impacto medio</span> <span class="pill pill--info">Esfuerzo bajo 🟡</span></p>
+  <p><strong>Qué pasa:</strong> 🟢 Hoy la tienda muestra un solo pop-up (ventana emergente) a todas las personas por igual: 10% de descuento.</p>
+  <p><strong>Por qué cuesta plata:</strong> alguien que ya compró antes ve el mismo mensaje que alguien que nunca había entrado a la tienda. No es el mensaje más efectivo para ninguno de los dos casos.</p>
+  <p><strong>Qué se hace:</strong> pasar a pop-ups segmentados (visitante nuevo, cliente que ya compró, y según el tiempo en el sitio). En la reunión se estimó que se instala en ~48 horas. Propuesta completa en <a href="ofertas.html#sistema-popups">ofertas.html</a>.</p>
+  </div>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>Para tener en cuenta mientras se audita.</strong> 🟢 Los puzzles — el producto estrella — están sin stock hasta la última semana de agosto: el contenedor llega el 15 de agosto y debe pasar por el operador logístico antes de estar disponible en Shopify. Mientras dure el quiebre, no tiene sentido invertir esfuerzo en optimizar la ficha o la colección de puzzles: conviene priorizar lo que sí se puede vender hoy.</p>
+</div>
+</section>
+
 <section class="sec">
 <h2>La calculadora de impacto</h2>
 <p>Cambia cualquiera de estos 3 números y las 3 tarjetas de abajo se actualizan solas. Vienen precargadas con los datos reales de la tienda, pero puedes probar otros escenarios.</p>
@@ -629,6 +670,9 @@ main { counter-reset: sec; }
 <li><label><input type="checkbox" data-cro="coleccion-fotos-consistentes" data-weight="1" data-stage="coleccion" data-texto="Fotos de producto consistentes entre sí"><span>Fotos de producto consistentes entre sí <span class="pill pill--info">baja</span></span></label><p class="cro-item-why">Por qué: fotos parejas dan una sensación de catálogo prolijo y confiable.</p></li>
 <li><label><input type="checkbox" data-cro="coleccion-productos-por-pagina" data-weight="1" data-stage="coleccion" data-texto="Entre 24 y 48 productos por página"><span>Entre 24 y 48 productos por página <span class="pill pill--info">baja</span></span></label><p class="cro-item-why">Por qué: ni tan pocos que obligan a cambiar de página todo el rato, ni tantos que la página carga lento.</p></li>
 </ul>
+<div class="callout callout--warn">
+<p><strong>Hoy no existe esta colección.</strong> 🟢 En la reunión del 27 de julio se confirmó que la tienda no tiene armada una colección de packs ni de productos más vendidos — y el cliente pidió que sea la primera opción visible al entrar a la tienda. La propuesta completa (qué packs armar, con qué nombres y textos) está en <a href="ofertas.html#coleccion-packs">ofertas.html</a>.</p>
+</div>
 </div>
 
 <div class="card cro-stage" id="etapa-ficha">
@@ -641,7 +685,7 @@ main { counter-reset: sec; }
 <ul class="checklist">
 <li><label><input type="checkbox" data-cro="ficha-boton-dominante" data-weight="3" data-stage="ficha" data-texto="Botón &quot;Añadir al carrito&quot; dominante"><span>Botón "Añadir al carrito" dominante <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: es la acción más importante de toda la página; tiene que ser imposible no verla.</p></li>
 <li><label><input type="checkbox" data-cro="ficha-galeria-zoom" data-weight="3" data-stage="ficha" data-texto="Galería con 6 o más fotos, con zoom"><span>Galería con 6 o más fotos, con zoom <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: sin poder tocar el producto, las fotos son la única forma de generar confianza.</p></li>
-<li><label><input type="checkbox" data-cro="ficha-resenas-visibles" data-weight="3" data-stage="ficha" data-texto="Reseñas con estrellas arriba, no escondidas en pestañas"><span>Reseñas con estrellas arriba, no escondidas en pestañas <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: si hay que buscarlas, la mayoría nunca las ve.</p></li>
+<li><label><input type="checkbox" data-cro="ficha-resenas-visibles" data-weight="3" data-stage="ficha" data-texto="Reseñas con estrellas arriba, no escondidas en pestañas"><span>Reseñas con estrellas arriba, no escondidas en pestañas <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: si hay que buscarlas, la mayoría nunca las ve.</p><p class="cro-item-why"><span class="pill pill--danger">🔴 falla confirmada</span> Reunión del 27 de julio: el widget de Judge.me no está mostrando las 75 reseñas que ya tiene este producto (215 en total en la tienda). Detalle en <a href="#hallazgos-reunion">el primer hallazgo de esta página</a>.</p></li>
 <li><label><input type="checkbox" data-cro="ficha-mobile-sin-bajar" data-weight="3" data-stage="ficha" data-texto="En celular: foto, nombre, precio y botón, sin tener que bajar"><span>En celular: foto, nombre, precio y botón, sin tener que bajar <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: son los datos que definen si la persona sigue mirando o cierra la página.</p></li>
 <li><label><input type="checkbox" data-cro="ficha-descripcion-beneficios" data-weight="2" data-stage="ficha" data-texto="Descripción de beneficios, no solo características"><span>Descripción de beneficios, no solo características <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: "hecho a mano" convence más que "papel Hahnemühle" si no se explica por qué importa.</p></li>
 <li><label><input type="checkbox" data-cro="ficha-variantes-claras" data-weight="2" data-stage="ficha" data-texto="Variantes claras que cambian la foto"><span>Variantes claras que cambian la foto <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: evita comprar el color o modelo equivocado por no verlo bien.</p></li>
@@ -694,6 +738,9 @@ main { counter-reset: sec; }
 <li><label><input type="checkbox" data-cro="checkout-autocompletar-direccion" data-weight="2" data-stage="checkout" data-texto="Autocompletar la dirección"><span>Autocompletar la dirección <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: escribir la dirección a mano en el celular es lento y con errores.</p></li>
 <li><label><input type="checkbox" data-cro="checkout-metodos-pago-chile" data-weight="2" data-stage="checkout" data-texto="Métodos de pago que usa la gente en Chile"><span>Métodos de pago que usa la gente en Chile <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: si falta el medio de pago habitual de alguien, esa venta se pierde en el último paso.</p></li>
 </ul>
+<div class="callout callout--warn">
+<p><strong>Caída reportada, todavía sin ubicar.</strong> 🟢 En la reunión del 27 de julio, Cote contó que entra mucha gente y se cae justo en el momento de pagar. Consultó una IA (inteligencia artificial) que señaló el checkout como sospechoso, pero no se pudo confirmar — puede ser un dato de una versión antigua guardada en caché del sitio. Los medios de pago sí están completos: tarjeta, transferencia, Mercado Pago y Flow. Por eso esta etapa es prioritaria de auditar apenas haya accesos: simular una compra real de principio a fin, paso por paso, hasta encontrar dónde se cae.</p>
+</div>
 </div>
 
 <div class="card cro-stage" id="etapa-gracias">
@@ -718,18 +765,38 @@ main { counter-reset: sec; }
 
 <section class="sec">
 <h2>Cómo usar esta auditoría (y cuándo)</h2>
-<p>No todas las etapas se pueden revisar hoy. Las primeras 3 se marcan navegando la tienda como cualquier persona; las últimas 3 necesitan simular una compra real, y eso recién es posible después de la reunión del lunes 27 y la entrega de accesos.</p>
+<p>No todas las etapas se pueden revisar hoy. Las primeras 3 se marcan navegando la tienda como cualquier persona, y eso no cambió. Las últimas 3 necesitan simular una compra real, y eso todavía no es posible: falta cerrar el acuerdo de salida con quien administra la tienda hoy y que entregue los accesos. 🟢 La reunión del lunes 27 de julio ya se hizo — sirvió para confirmar los hallazgos de esta página — y la próxima es el <strong>miércoles 29 de julio de 2026, a las 10:00 (hora de Chile)</strong>.</p>
 
 <div class="timeline">
   <div class="timeline-item">
-    <div class="timeline-item__date">Desde ahora — sábado 25 de julio de 2026</div>
+    <div class="timeline-item__date">Desde ahora — semana del 27 de julio de 2026</div>
     <div class="timeline-item__title">Hoy, sin necesitar accesos</div>
     <p>Entra a pedrazailustracion.com desde el celular, como si fueras a comprar un regalo. Con eso ya se puede marcar completo: <a href="#etapa-inicio">🏠 Página de inicio</a>, <a href="#etapa-coleccion">🗂️ Página de colección</a> y <a href="#etapa-ficha">📦 Ficha de producto</a>.</p>
   </div>
   <div class="timeline-item">
-    <div class="timeline-item__date">Desde el lunes 27 de julio de 2026, 10:00 (hora de Chile)</div>
-    <div class="timeline-item__title">Después de la reunión, con accesos</div>
-    <p>Con los accesos entregados en esa reunión, se simula una compra de prueba real (agregar productos, avanzar hasta el pago) para marcar <a href="#etapa-carrito">🛒 Carrito</a>, <a href="#etapa-checkout">💳 Checkout</a> y <a href="#etapa-gracias">🎉 Página de gracias</a>. Con acceso al panel de administración de Shopify, ese es también el momento de revisar velocidad de carga y configuración general de la tienda.</p>
+    <div class="timeline-item__date">Miércoles 29 de julio de 2026, 10:00 (hora de Chile)</div>
+    <div class="timeline-item__title">Próxima reunión: cierre y entrega de accesos</div>
+    <p>🟢 En la reunión del 27 de julio se confirmaron los 4 hallazgos de más arriba, pero todavía falta cerrar el acuerdo de salida con la persona que hoy administra la tienda para poder recibir los accesos. Apenas estén entregados, se simula una compra de prueba real (agregar productos, avanzar hasta el pago) para marcar <a href="#etapa-carrito">🛒 Carrito</a>, <a href="#etapa-checkout">💳 Checkout</a> y <a href="#etapa-gracias">🎉 Página de gracias</a>. Con acceso al panel de administración de Shopify, ese es también el momento de revisar velocidad de carga y configuración general de la tienda.</p>
+  </div>
+</div>
+
+<h3>Sigue revisando el resto del plan</h3>
+<p>Esta página se enfoca solo en conversión (CRO). El resto del plan vive en estas páginas hermanas:</p>
+<div class="grid-3">
+  <div class="card">
+    <h3>💥 Ofertas y pop-ups</h3>
+    <p>Pop-ups segmentados, cómo armar los packs y la barra de envío gratis en el carrito.</p>
+    <a class="btn btn--ghost" href="ofertas.html">Abrir ofertas.html →</a>
+  </div>
+  <div class="card">
+    <h3>✉️ Correo y campañas</h3>
+    <p>El plan de campañas de correo: 3 por semana, siempre con una historia primero y un producto después.</p>
+    <a class="btn btn--ghost" href="email.html">Abrir email.html →</a>
+  </div>
+  <div class="card">
+    <h3>🗓️ Plan de 90 días</h3>
+    <p>El plan completo, con roles, tareas y cómo se mide cada mes.</p>
+    <a class="btn btn--ghost" href="plan-90-dias.html">Abrir plan-90-dias.html →</a>
   </div>
 </div>
 

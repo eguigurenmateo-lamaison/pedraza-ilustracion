@@ -1,0 +1,753 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Google y Meta Ads — Plan Pedraza Ilustración</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
+<style>
+/* ==========================================================================
+   Sistema de diseño — Plan Pedraza Ilustración
+   Bloque único y canónico. No editar por página: solo usar estas clases.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* --- tinta y superficies --- */
+  --ink: #1c2420;
+  --ink-soft: #4c5850;
+  --ink-faint: #7c887f;
+  --paper: #faf6ee;
+  --surface: #fffefb;
+  --line: #e6ded0;
+  --line-strong: #d6c9b0;
+
+  /* --- acento: rojo copihue --- */
+  --accent: #b0223f;
+  --accent-dark: #7c1830;
+  --accent-soft: #f8dfe4;
+
+  /* --- verde naturaleza del sitio web de la marca (dato del operador, jul-2026) --- */
+  --brand-green: #3b5751;
+  --brand-green-soft: #e3eae8;
+  --brand-green-dark: #2a403c;
+
+  /* --- apoyo semántico --- */
+  --success: #2f6b4a;
+  --success-soft: #dcece1;
+  --warn: #a8720a;
+  --warn-soft: #f8ecd2;
+  --danger: #ae3d17;
+  --danger-soft: #f7ddd0;
+  --info: var(--brand-green);
+  --info-soft: var(--brand-green-soft);
+
+  /* --- forma --- */
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-full: 999px;
+  --shadow-sm: 0 1px 3px rgba(28, 36, 32, .1);
+  --shadow: 0 6px 20px rgba(28, 36, 32, .12);
+
+  /* --- espaciado --- */
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  /* --- tipografía --- */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --fs-sm: clamp(.82rem, .78rem + .2vw, .9rem);
+  --fs-base: clamp(1rem, .95rem + .25vw, 1.0625rem);
+  --fs-lg: clamp(1.1rem, 1.02rem + .4vw, 1.25rem);
+  --fs-h3: clamp(1.15rem, 1.05rem + .5vw, 1.35rem);
+  --fs-h2: clamp(1.35rem, 1.15rem + 1vw, 1.75rem);
+  --fs-h1: clamp(1.75rem, 1.4rem + 2vw, 2.75rem);
+
+  /* --- área táctil mínima (regla mobile-first del proyecto) --- */
+  --tap: 44px;
+}
+
+/* ===== 1. Reset mínimo ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; }
+img, svg { max-width: 100%; display: block; }
+h1, h2, h3, h4, p, ul, ol, dl, figure { margin: 0 0 var(--space-4); }
+ul, ol { padding-left: 1.2em; }
+a { color: inherit; }
+button { font: inherit; }
+table { border-collapse: collapse; width: 100%; }
+
+/* ===== 2. Tipografía base ===== */
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: var(--font-serif); line-height: 1.2; color: var(--ink); }
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+p { max-width: 68ch; }
+strong { color: var(--ink); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* ===== 3. Layout ===== */
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 var(--space-4) var(--space-8); }
+
+/* ===== 4. Nav superior (.docnav) ===== */
+.docnav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--brand-green);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+.docnav__inner {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 var(--space-2);
+}
+.docnav__link {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  min-height: var(--tap);
+  padding: 0 var(--space-3);
+  color: #eae6dd;
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+}
+.docnav__link:hover { color: #fff; }
+.docnav__link.active {
+  color: #fff;
+  border-bottom-color: var(--accent);
+}
+
+/* ===== 5. Hero ===== */
+.hero {
+  padding: var(--space-7) var(--space-4);
+  background: linear-gradient(135deg, var(--brand-green) 0%, var(--brand-green-dark) 100%);
+  color: #fff;
+}
+.hero__inner { max-width: 960px; margin: 0 auto; }
+.hero h1 { color: #fff; margin-bottom: var(--space-3); }
+.hero p { color: rgba(255, 255, 255, .92); font-size: var(--fs-lg); max-width: 60ch; margin: 0; }
+
+/* ===== 6. Secciones numeradas (.sec) ===== */
+main { counter-reset: sec; }
+.sec { counter-increment: sec; margin-top: var(--space-7); }
+.sec:first-of-type { margin-top: var(--space-6); }
+.sec > h2 {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding-bottom: var(--space-2);
+  border-bottom: 2px solid var(--line-strong);
+}
+.sec > h2::before {
+  content: counter(sec);
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9em;
+  height: 1.9em;
+  border-radius: var(--radius-full);
+  background: var(--brand-green);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: .55em;
+  font-weight: 700;
+}
+
+/* ===== 7. Callouts ===== */
+.callout {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  margin: var(--space-4) 0;
+}
+.callout::before { flex: 0 0 auto; font-size: 1.3em; line-height: 1; }
+.callout p:last-child { margin-bottom: 0; }
+.callout--info { border-color: var(--info); background: var(--info-soft); }
+.callout--info::before { content: "💡"; }
+.callout--success { border-color: var(--success); background: var(--success-soft); }
+.callout--success::before { content: "✅"; }
+.callout--warn { border-color: var(--warn); background: var(--warn-soft); }
+.callout--warn::before { content: "🟡"; }
+.callout--danger { border-color: var(--danger); background: var(--danger-soft); }
+.callout--danger::before { content: "🔴"; }
+
+/* ===== 8. Bloque copiable (.copyblock) ===== */
+.copyblock {
+  position: relative;
+  margin: var(--space-4) 0;
+  padding: var(--space-8) var(--space-4) var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.copyblock__text {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--ink);
+}
+.copyblock__btn {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  min-height: var(--tap);
+  padding: 0 var(--space-4);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  cursor: pointer;
+}
+.copyblock__btn:hover { background: var(--accent-dark); }
+.copyblock__btn.is-copied { background: var(--success); }
+
+/* ===== 9. KPIs (.kpi) ===== */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  margin: var(--space-4) 0;
+}
+.kpi {
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.kpi__label { display: block; font-size: var(--fs-sm); color: var(--ink-soft); margin-bottom: var(--space-2); }
+.kpi__value { display: block; font-family: var(--font-serif); font-size: clamp(1.5rem, 1.3rem + 1vw, 2.1rem); font-weight: 700; color: var(--ink); }
+.kpi__delta { display: inline-block; margin-top: var(--space-2); font-size: var(--fs-sm); font-weight: 600; padding: 2px var(--space-2); border-radius: var(--radius-full); }
+.kpi__delta--up { color: var(--success); background: var(--success-soft); }
+.kpi__delta--down { color: var(--danger); background: var(--danger-soft); }
+
+/* ===== 10. Tarjeta genérica (.card) ===== */
+.card {
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  margin: var(--space-4) 0;
+}
+.card h3 { margin-top: 0; }
+
+/* ===== 11. Tablas responsive ===== */
+.table-wrap { overflow-x: auto; margin: var(--space-4) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); }
+.table-wrap table { min-width: 480px; }
+.table-wrap th, .table-wrap td { padding: var(--space-3); text-align: left; border-bottom: 1px solid var(--line); font-size: var(--fs-sm); }
+.table-wrap thead th { background: var(--brand-green); color: #fff; position: sticky; top: 0; }
+.table-wrap tbody tr:last-child td { border-bottom: none; }
+.table-wrap tbody tr:nth-child(even) { background: var(--paper); }
+
+/* ===== 12. Barra de progreso (.progress) ===== */
+.progress { margin: var(--space-4) 0; }
+.progress__track { height: 14px; background: var(--line); border-radius: var(--radius-full); overflow: hidden; }
+.progress__fill { height: 100%; background: var(--brand-green); border-radius: var(--radius-full); transition: width .3s ease; width: 0%; }
+.progress__label { display: block; margin-top: var(--space-2); font-size: var(--fs-sm); color: var(--ink-soft); }
+
+/* ===== 13. Checklist táctil (.checklist) ===== */
+.checklist { list-style: none; padding-left: 0; margin: var(--space-4) 0; }
+.checklist li { margin-bottom: var(--space-2); }
+.checklist label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  min-height: var(--tap);
+  padding: var(--space-2) var(--space-3);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+.checklist input[type="checkbox"] { width: 24px; height: 24px; flex: 0 0 auto; accent-color: var(--brand-green); margin-top: 2px; }
+.checklist input[type="checkbox"]:checked + span { text-decoration: line-through; color: var(--ink-soft); }
+
+/* ===== 14. Etiquetas (.pill) ===== */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+.pill--success { background: var(--success-soft); color: var(--success); }
+.pill--warn { background: var(--warn-soft); color: var(--warn); }
+.pill--danger { background: var(--danger-soft); color: var(--danger); }
+.pill--info { background: var(--info-soft); color: var(--info); }
+
+/* ===== 15. Grillas responsive ===== */
+.grid-2, .grid-3 { display: grid; gap: var(--space-4); margin: var(--space-4) 0; grid-template-columns: 1fr; }
+
+/* ===== 16. Gráficos SVG/CSS hechos a mano ===== */
+/* Barras horizontales */
+.chart-bar-row { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-2); }
+.chart-bar-row__label { flex: 0 0 9rem; font-size: var(--fs-sm); color: var(--ink-soft); }
+.chart-bar-row__track { flex: 1 1 auto; height: 20px; background: var(--line); border-radius: var(--radius-full); overflow: hidden; }
+.chart-bar-row__fill { height: 100%; background: var(--accent); border-radius: var(--radius-full); }
+.chart-bar-row__value { flex: 0 0 auto; font-size: var(--fs-sm); font-weight: 700; min-width: 3.5rem; text-align: right; }
+
+/* Embudo: cada .funnel-step define su ancho con --w inline, ej. style="--w:70%" */
+.funnel { display: flex; flex-direction: column; align-items: center; gap: 2px; margin: var(--space-4) 0; }
+.funnel-step {
+  width: var(--w, 100%);
+  max-width: 100%;
+  padding: var(--space-3);
+  text-align: center;
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  background: var(--accent);
+  border-radius: var(--radius-sm);
+}
+.funnel-step:nth-child(2) { opacity: .85; }
+.funnel-step:nth-child(3) { opacity: .7; }
+.funnel-step:nth-child(4) { opacity: .55; }
+.funnel-step:nth-child(5) { opacity: .4; }
+
+/* Línea de tiempo vertical */
+.timeline { position: relative; margin: var(--space-5) 0; padding-left: var(--space-6); border-left: 3px solid var(--line-strong); }
+.timeline-item { position: relative; margin-bottom: var(--space-5); }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--space-6) - 7px);
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--brand-green);
+  border: 3px solid var(--paper);
+}
+.timeline-item__date { font-size: var(--fs-sm); font-weight: 700; color: var(--accent-dark); }
+.timeline-item__title { font-family: var(--font-serif); font-size: var(--fs-lg); margin: var(--space-1) 0; }
+
+/* ===== 17. Botones ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-5);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-base);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover { background: var(--accent-dark); }
+.btn--ghost { background: transparent; border: 2px solid var(--line-strong); color: var(--ink); }
+.btn--ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ===== 18. Media queries (mobile-first: base = ~375px) ===== */
+@media (min-width: 640px) {
+  .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .hero { padding: var(--space-8) var(--space-6); }
+}
+@media (min-width: 960px) {
+  .kpi-grid { grid-template-columns: repeat(4, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ===== 19. Impresión ===== */
+@media print {
+  .docnav, .copyblock__btn, .btn { display: none !important; }
+  body { background: #fff; color: #000; }
+  .hero { background: #fff !important; color: #000 !important; }
+  .hero h1, .hero p { color: #000 !important; }
+  .card, .callout, .kpi, .copyblock { box-shadow: none; border: 1px solid #999; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: .8em; }
+}
+
+/* ==========================================================================
+   Extensiones propias de esta página (ads.html)
+   ads.html no es una de las 6 páginas del sitio (docs/design-system.md,
+   sección 1) y no está en el menú principal — se llega por link directo
+   desde el plan. El bloque de arriba es el canónico intacto; lo de abajo
+   son componentes propios de esta página (link de vuelta en el hero,
+   tarjetas de auditoría con letra), agregados en la misma hoja de estilos
+   única para no crear un segundo archivo CSS.
+   ========================================================================== */
+
+.hero__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-2) 0 0;
+  margin-bottom: var(--space-3);
+  color: rgba(255, 255, 255, .85);
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+.hero__back:hover { color: #fff; }
+
+/* Tarjetas de auditoría con letra (sección 3: recorrido del día 1) */
+.audit-card > h3 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: 0;
+}
+.step-badge {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.7em;
+  height: 1.7em;
+  border-radius: 50%;
+  background: var(--brand-green);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: .8em;
+}
+.audit-card__label {
+  display: block;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--accent-dark);
+  margin: var(--space-3) 0 var(--space-1);
+}
+</style>
+</head>
+<body>
+
+<nav class="docnav" aria-label="Navegación del plan">
+  <div class="docnav__inner">
+    <a href="index.html" class="docnav__link">Plan</a>
+    <a href="kit-arranque.html" class="docnav__link">Kit de arranque</a>
+    <a href="guion-reels.html" class="docnav__link">Guiones de Reels</a>
+    <a href="sop-dm.html" class="docnav__link">Manual de DM</a>
+    <a href="recursos.html" class="docnav__link">Recursos</a>
+    <a href="tablero.html" class="docnav__link">Tablero</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero__inner">
+    <a href="index.html#datos-que-faltan" class="hero__back">← Volver al plan</a>
+    <h1>Google y Meta Ads: auditoría y plan de publicidad pagada</h1>
+    <p>Esta página es el plan de auditoría listo para ejecutar apenas lleguen los accesos a las dos cuentas — no es un informe de resultados. El operador todavía no tiene accesos: llegan cuando se cierre la salida de la persona que hoy lleva Meta, Google, Klaviyo y la tienda. Esta página no está en el menú principal — se comparte por link directo desde el plan.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section class="sec" id="donde-estamos">
+<h2>Dónde estamos hoy</h2>
+
+<p>Todo lo de esta sección se vio en pantalla durante la reunión del 27 de julio de 2026, directo desde Google Ads. Es la única fuente de datos reales de publicidad pagada que existe hasta ahora — no hay cifras de Meta Ads todavía, porque esa cuenta no se compartió en pantalla.</p>
+
+<div class="kpi-grid">
+  <div class="kpi">
+    <span class="kpi__label">Invertido (1-27 jul) 🟢</span>
+    <span class="kpi__value">$150.000</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Ventas atribuidas 🟢</span>
+    <span class="kpi__value">$425.000</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">ROAS 🟢</span>
+    <span class="kpi__value">2,85</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Conversiones 🟢</span>
+    <span class="kpi__value">15</span>
+  </div>
+</div>
+
+<p><strong>ROAS</strong> (retorno de la inversión publicitaria) es simple: por cada peso que se invierte en un anuncio, cuántos pesos vuelven en ventas. Un ROAS de <strong>2,85</strong> quiere decir que por cada $1.000 invertidos en Google Ads, volvieron $2.850 en ventas.</p>
+
+<div class="chart-bar-row"><span class="chart-bar-row__label">Invertido</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:35%"></div></div><span class="chart-bar-row__value">$150.000</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Ventas</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div><span class="chart-bar-row__value">$425.000</span></div>
+
+<div class="callout callout--info">
+<p><strong>Lectura honesta del número.</strong> <span class="pill pill--success">🟢 dato del acta</span> Google Ads recién se activó este mes (13 de julio) con una campaña <strong>Performance Max</strong> (más abajo se explica qué es) de ~$7.000 CLP al día. Con menos de dos semanas activa y solo 15 conversiones, un ROAS de 2,85 no es malo para un arranque. <span class="pill pill--warn">🟡 criterio del operador, no estudio publicado</span> Pero en búsqueda —donde la persona ya está escribiendo lo que quiere comprar— lo habitual es apuntar más alto que eso. La búsqueda no tiene que convencer a nadie de nada: solo tiene que estar primera cuando alguien ya decidió.</p>
+</div>
+
+<p>Ese matiz es clave para leer bien los números de las próximas semanas, y para comparar Google con Meta más adelante:</p>
+
+<div class="grid-2">
+<div class="card">
+<h3>🔍 Google (búsqueda)</h3>
+<p>Capta una <strong>intención que ya existe</strong>. La persona escribe en el buscador lo que quiere comprar; el anuncio solo tiene que aparecer en el momento justo. Google no crea las ganas de comprar — las encuentra.</p>
+</div>
+<div class="card">
+<h3>📱 Meta (Instagram / Facebook)</h3>
+<p>Tiene que <strong>generar una intención nueva</strong>. La persona está mirando fotos, no buscando comprar; el anuncio tiene que detenerla y despertarle las ganas ahí mismo, sin que las estuviera buscando.</p>
+</div>
+</div>
+
+<p>Por eso el mismo ROAS no significa lo mismo en las dos plataformas, y por eso este documento audita cada una con una vara distinta.</p>
+</section>
+
+<section class="sec" id="confiar-en-los-numeros">
+<h2>Lo primero: confiar en los números</h2>
+
+<p>Antes de tocar presupuestos, estructuras o públicos, hay que verificar algo más básico: que lo que Google llama <strong>"conversión"</strong> (una acción que la plataforma cuenta como resultado, en este caso una compra) sea de verdad una compra real y completa. Si el conteo está mal, cualquier decisión que se tome sobre esos números después también va a estar mal.</p>
+
+<div class="grid-2">
+<div class="card">
+<h3>Ya confirmado en la reunión</h3>
+<ul>
+<li><span class="pill pill--success">🟢 confirmado</span> El objetivo de "compra" está bien instalado en Google Ads.</li>
+<li><span class="pill pill--success">🟢 confirmado</span> "Carrito abandonado" está como objetivo <strong>secundario</strong>, no principal — está correcto así.</li>
+</ul>
+<p style="margin-bottom:0">Si "carrito abandonado" estuviera como objetivo principal, Google contaría como resultado a cualquiera que dejó productos en el carrito sin pagar, mezclado con las compras reales. Eso inflaría los números de conversión sin que haya una venta real detrás.</p>
+</div>
+<div class="card">
+<h3>Falta revisar con accesos</h3>
+<ul class="checklist">
+<li><label><input type="checkbox"><span>¿Hay conversiones duplicadas? (la misma compra contada dos veces, por ejemplo por dos herramientas de medición a la vez)</span></label></li>
+<li><label><input type="checkbox"><span>¿El valor de conversión que muestra Google coincide con lo que dice Shopify?</span></label></li>
+<li><label><input type="checkbox"><span>¿La campaña está contando conversiones de marca — gente que buscaba "Pedraza Ilustración" directamente?</span></label></li>
+</ul>
+</div>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>Por qué importa lo de las conversiones de marca.</strong> Si alguien busca "Pedraza Ilustración" en Google, ya conoce la marca. Esa persona iba a comprar de todas formas, con o sin anuncio — probablemente hasta la habría encontrado igual en el resultado gratis, justo debajo del anuncio. Si el sistema le muestra un anuncio y la persona hace clic ahí en vez del resultado gratis, la plataforma igual cuenta esa venta como si el anuncio la hubiera generado. Eso infla el ROAS artificialmente y hace parecer que la publicidad está trayendo ventas que en realidad ya venían solas.</p>
+</div>
+</section>
+
+<section class="sec" id="auditoria-google">
+<h2>Auditoría de Google Ads: el recorrido del día 1</h2>
+
+<p>Cinco puntos, en orden, con el porqué de cada uno y qué se hace si algo está mal.</p>
+
+<div class="card audit-card">
+<h3><span class="step-badge">a</span> Separar la búsqueda de marca del resto</h3>
+<span class="audit-card__label">Por qué importa</span>
+<p>Conecta directo con la sección anterior: para saber si Google realmente está trayendo ventas nuevas, hay que poder ver el rendimiento de la búsqueda de marca por separado del resto de las campañas. Mezcladas, una campaña de marca (que casi siempre convierte muy bien, porque ya es gente decidida) puede estar tapando un rendimiento más flojo en el resto.</p>
+<span class="audit-card__label">Si está mal</span>
+<p style="margin-bottom:0">Si la marca hoy está mezclada dentro de Performance Max o de otra campaña, se separa en una campaña de búsqueda propia, exclusiva para "Pedraza Ilustración" y variantes, con presupuesto bajo (ver la estructura propuesta en el punto e).</p>
+</div>
+
+<div class="card audit-card">
+<h3><span class="step-badge">b</span> Revisar qué está comiendo el presupuesto dentro de Performance Max</h3>
+<p><strong>Performance Max (PMax)</strong> es un tipo de campaña de Google que reparte sola la plata entre buscador, YouTube, Gmail y la red de display (banners en otras páginas web), sin que se pueda elegir a mano cuánto va a cada canal.</p>
+<span class="audit-card__label">Por qué importa</span>
+<p>Sin mirar el detalle, no se sabe si la plata se está yendo a búsqueda (donde la gente ya tiene intención de comprar) o a canales de menor intención como display, donde el anuncio solo se muestra de paso.</p>
+<span class="audit-card__label">Si está mal</span>
+<p style="margin-bottom:0">Revisar los informes de canal dentro de PMax. Si mucho presupuesto se va a canales de baja intención, ajustar las señales de audiencia que alimentan la campaña o mover ese presupuesto hacia la campaña de shopping/búsqueda del punto e.</p>
+</div>
+
+<div class="card audit-card">
+<h3><span class="step-badge">c</span> Revisar términos de búsqueda y negativos</h3>
+<p>Los <strong>términos de búsqueda</strong> son las palabras exactas que alguien escribió en Google antes de que le apareciera el anuncio. Las <strong>negativas</strong> son palabras que se excluyen a propósito para que el anuncio no se muestre en búsquedas que no sirven (por ejemplo, "puzzle gratis" o "dibujos para descargar").</p>
+<span class="audit-card__label">Por qué importa</span>
+<p>Sin una lista de negativas, se gasta presupuesto mostrando el anuncio a gente que busca algo parecido pero que no tiene intención de comprar.</p>
+<span class="audit-card__label">Si está mal</span>
+<p style="margin-bottom:0">Revisar el informe de términos de búsqueda de las últimas semanas y armar una lista de negativas con lo que no calza con el negocio.</p>
+</div>
+
+<div class="card audit-card">
+<h3><span class="step-badge">d</span> Revisar el feed de productos</h3>
+<p>El <strong>feed de productos</strong> es la lista que se le entrega a Google con el catálogo completo: título, imagen, precio y disponibilidad de cada producto. Google arma los anuncios de compras a partir de esa lista, no mirando la tienda en vivo.</p>
+<span class="audit-card__label">Por qué importa</span>
+<p>Títulos poco claros, imágenes viejas o precios desactualizados hacen que el anuncio rinda peor. Y esto es clave con los quiebres de stock: <strong>no se puede pagar por mostrar productos agotados</strong> — como los puzzles hasta la última semana de agosto (ver la sección siguiente).</p>
+<span class="audit-card__label">Si está mal</span>
+<p style="margin-bottom:0">Actualizar títulos, imágenes y precios, y marcar como sin stock cada producto agotado para que Google deje de anunciarlo automáticamente.</p>
+</div>
+
+<div class="card audit-card">
+<h3><span class="step-badge">e</span> Estructura de campañas propuesta</h3>
+<p><span class="pill pill--warn">🟡 propuesta</span> Para una tienda de este tamaño, una estructura simple de tres campañas:</p>
+<div class="grid-3">
+<div class="card" style="margin:0">
+<h3 style="font-size:var(--fs-base)">Marca</h3>
+<p style="margin-bottom:0">Presupuesto bajo. Protege el nombre "Pedraza Ilustración" y deja ver el rendimiento real del resto de las campañas, sin mezclarse con él.</p>
+</div>
+<div class="card" style="margin:0">
+<h3 style="font-size:var(--fs-base)">Performance Max</h3>
+<p style="margin-bottom:0">El catálogo principal. El motor grande de venta — se revisa seguido qué canales le están comiendo el presupuesto (punto b).</p>
+</div>
+<div class="card" style="margin:0">
+<h3 style="font-size:var(--fs-base)">Shopping / búsqueda</h3>
+<p style="margin-bottom:0">Solo los productos ganadores (los que más venden o mejor margen dejan), con control fino de palabras clave y negativas.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec" id="stock-y-publicidad">
+<h2>El problema del stock y la publicidad</h2>
+
+<div class="callout callout--danger">
+<p><strong>Los puzzles —el producto estrella— están agotados hasta la última semana de agosto.</strong> <span class="pill pill--success">🟢 dato del acta</span> El contenedor llega el 15 de agosto y debe pasar por Partner (el operador logístico) antes de estar disponible en Shopify. Pagar publicidad que lleva a un producto sin stock es quemar plata: se paga por el clic, y la persona llega a una ficha donde no puede comprar.</p>
+</div>
+
+<p>Mientras tanto, tres acciones simples:</p>
+
+<div class="grid-3">
+<div class="card">
+<h3>Pausar</h3>
+<p style="margin-bottom:0">Pausar los anuncios de cualquier producto agotado, en Google y en Meta.</p>
+</div>
+<div class="card">
+<h3>Mover</h3>
+<p style="margin-bottom:0">Mover ese presupuesto a los productos que sí tienen stock hoy.</p>
+</div>
+<div class="card">
+<h3>Redirigir</h3>
+<p style="margin-bottom:0">Si se activa una preventa de puzzles, usarla como destino del anuncio en vez de una ficha sin stock.</p>
+</div>
+</div>
+
+<h3>Antes de subir presupuesto, revisar stock</h3>
+<ul class="checklist">
+<li><label><input type="checkbox"><span>¿El producto que promociona el anuncio tiene stock real hoy? (recordar que el stock vive repartido en 4 lugares: Partner, bodega propia, consignación B2B y Mercado Libre — no solo lo que muestra Shopify)</span></label></li>
+<li><label><input type="checkbox"><span>¿Está marcado como agotado en el feed de productos, para que Google deje de mostrarlo solo?</span></label></li>
+<li><label><input type="checkbox"><span>¿Hay un producto alternativo con stock al que mover ese presupuesto?</span></label></li>
+<li><label><input type="checkbox"><span>¿Existe una preventa activa que pueda recibir el tráfico mientras el contenedor llega?</span></label></li>
+</ul>
+</section>
+
+<section class="sec" id="meta-ads">
+<h2>Meta Ads: qué revisar y cómo se estructura hoy</h2>
+
+<p><span class="pill pill--success">🟢 dato del acta</span> Antes, Cote llevaba las campañas de Meta de forma intuitiva. Hoy las lleva la persona externa que está saliendo, y ella misma dijo en la reunión que no tiene claro si conviene una campaña o dos, ni si conviene segmentar o no. Es una pregunta válida — y tiene una respuesta bastante concreta hoy.</p>
+
+<div class="callout callout--info">
+<p><strong>Lo que cambió en Meta.</strong> <span class="pill pill--success">🟢 dato del acta</span> Meta cambió a campañas automáticas con inteligencia artificial. En la práctica, eso significa que el sistema rinde mejor cuando recibe <strong>poca estructura y mucho material creativo</strong> (variedad de imágenes, videos y textos de anuncio), en vez de muchas segmentaciones armadas a mano. Dividir el público en muchos grupos chicos reparte los datos entre tantos grupos que a cada uno le cuesta más aprender solo; el sistema de Meta aprende más rápido y mejor cuando tiene un público amplio y varias piezas creativas para probar entre sí.</p>
+</div>
+
+<h3>Estructura de partida propuesta</h3>
+<div class="grid-2">
+<div class="card">
+<h3>1. Campaña de venta</h3>
+<p style="margin-bottom:0">Públicos amplios, sin segmentar a mano. El trabajo fuerte va a los creativos —probar varias imágenes, videos y textos— no a armar audiencias.</p>
+</div>
+<div class="card">
+<h3>2. Campaña de retorno</h3>
+<p style="margin-bottom:0">Para quienes ya visitaron la tienda o ya compraron. Es la única segmentación que sí vale la pena mantener, porque usa datos reales de comportamiento, no una suposición sobre quién podría interesarse.</p>
+</div>
+</div>
+
+<h3>Checklist de auditoría del día 1</h3>
+<p><span class="pill pill--warn">🟡 se confirma al entrar a la cuenta</span> Todo esto se termina de verificar apenas haya acceso — hoy no se sabe en qué estado exacto está la cuenta.</p>
+<ul class="checklist">
+<li><label><input type="checkbox"><span>Verificar el <strong>píxel</strong> (el código instalado en la tienda que le avisa a Meta cuando alguien compra) y que el evento de compra esté bien configurado</span></label></li>
+<li><label><input type="checkbox"><span>Revisar el catálogo de productos conectado — que esté actualizado y sin productos agotados</span></label></li>
+<li><label><input type="checkbox"><span>Ver qué creativos (imágenes, videos y textos de anuncio) existen hoy y cuáles vienen funcionando mejor</span></label></li>
+<li><label><input type="checkbox"><span>Revisar si hay <strong>públicos personalizados</strong> creados (listas de gente armadas con datos propios, como quienes visitaron la tienda o ya compraron) y si siguen sirviendo</span></label></li>
+</ul>
+</section>
+
+<section class="sec" id="que-se-mide">
+<h2>Qué se mide y cada cuánto</h2>
+
+<p>La <strong>atribución</strong> es cómo cada plataforma decide a quién "darle el crédito" de una venta. El problema es que Google, Meta y las ventas orgánicas pueden atribuirse la misma venta al mismo tiempo, si el sistema de cada una registra que estuvo en algún punto del camino de esa persona hacia la compra. Por eso Shopify —no Google Ads ni Meta Ads Manager— es la fuente de verdad de las ventas: una venta solo pasa una vez por la caja, y ahí queda registrada una sola vez, sin que dos plataformas se la disputen.</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Métrica</th><th>Dónde se mira</th><th>Cada cuánto</th><th>Qué decisión gatilla</th></tr>
+</thead>
+<tbody>
+<tr><td>ROAS por canal (Google y Meta por separado)</td><td>Google Ads + Meta Ads Manager</td><td>Semanal</td><td>Si un canal cae mucho, pausar o ajustar esa campaña antes de seguir invirtiendo</td></tr>
+<tr><td>Costo por compra</td><td>Google Ads + Meta Ads Manager</td><td>Semanal</td><td>Si sube sin control, revisar orientación, creativos o feed de productos</td></tr>
+<tr><td>Ventas atribuidas por plataforma</td><td>Google Ads + Meta Ads Manager</td><td>Semanal</td><td>Comparar contra las ventas reales de Shopify (fila siguiente)</td></tr>
+<tr><td>Ventas reales</td><td>Shopify</td><td>Semanal — cruce obligatorio contra lo que reporta cada plataforma</td><td>Si hay una diferencia grande, ajustar cuánto confiar en el número que muestra cada plataforma</td></tr>
+<tr><td>Pesos por visita (ingreso ÷ sesiones)</td><td>Shopify Analytics</td><td>Semanal</td><td>Ver si el conjunto —orgánico y pagado juntos— está mejorando; es la métrica transversal de todo el plan</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="sec" id="primeros-7-dias">
+<h2>Los primeros 7 días con accesos</h2>
+
+<p>Un día, un foco. Al cierre de la semana, todo lo auditado ya quedó decidido u ordenado para decidir en la reunión de mitad de mes.</p>
+
+<div class="timeline">
+<div class="timeline-item">
+<div class="timeline-item__date">Día 1</div>
+<div class="timeline-item__title">Acceso y confirmación de números</div>
+<p style="margin-bottom:0">Entrar a las dos cuentas. Revisar el objetivo de "compra" en Google y comparar el valor de conversión contra Shopify. Verificar el píxel y el evento de compra en Meta.</p>
+</div>
+<div class="timeline-item">
+<div class="timeline-item__date">Día 2</div>
+<div class="timeline-item__title">Auditoría de Google Ads</div>
+<p style="margin-bottom:0">Separar la búsqueda de marca, revisar el reparto de canales dentro de Performance Max, y armar la primera lista de negativas a partir de los términos de búsqueda.</p>
+</div>
+<div class="timeline-item">
+<div class="timeline-item__date">Día 3</div>
+<div class="timeline-item__title">Feed de productos y stock</div>
+<p style="margin-bottom:0">Revisar títulos, imágenes y precios del feed de Google Shopping. Cruzar contra el estado real del stock de puzzles y marcar como agotado lo que corresponda.</p>
+</div>
+<div class="timeline-item">
+<div class="timeline-item__date">Día 4</div>
+<div class="timeline-item__title">Auditoría de Meta Ads</div>
+<p style="margin-bottom:0">Revisar catálogo conectado, creativos existentes y públicos personalizados ya creados.</p>
+</div>
+<div class="timeline-item">
+<div class="timeline-item__date">Día 5</div>
+<div class="timeline-item__title">Armar la estructura propuesta</div>
+<p style="margin-bottom:0">Separar (o crear) la campaña de marca en Google. Ajustar Meta a una campaña de venta con públicos amplios más una de retorno.</p>
+</div>
+<div class="timeline-item">
+<div class="timeline-item__date">Día 6</div>
+<div class="timeline-item__title">Pausar y mover presupuesto</div>
+<p style="margin-bottom:0">Pausar anuncios de productos agotados en ambas plataformas y mover ese presupuesto a lo que sí tiene stock, o a la preventa si está activa.</p>
+</div>
+<div class="timeline-item">
+<div class="timeline-item__date">Día 7</div>
+<div class="timeline-item__title">Calendario de medición y reporte de cierre</div>
+<p style="margin-bottom:0">Armar el calendario de la tabla de medición con fechas reales. Entregable de la semana: un reporte con la foto real de ambas cuentas —qué estructura había, qué se encontró, qué se cambió— y las decisiones tomadas, listo para la reunión de mitad de mes.</p>
+</div>
+</div>
+
+</section>
+
+</main>
+
+</body>
+</html>
