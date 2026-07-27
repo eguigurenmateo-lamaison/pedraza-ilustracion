@@ -1,0 +1,771 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Correo y campañas — Plan Pedraza Ilustración</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
+<style>
+/* ==========================================================================
+   Sistema de diseño — Plan Pedraza Ilustración
+   Bloque único y canónico. No editar por página: solo usar estas clases.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* --- tinta y superficies --- */
+  --ink: #1c2420;
+  --ink-soft: #4c5850;
+  --ink-faint: #7c887f;
+  --paper: #faf6ee;
+  --surface: #fffefb;
+  --line: #e6ded0;
+  --line-strong: #d6c9b0;
+
+  /* --- acento: rojo copihue --- */
+  --accent: #b0223f;
+  --accent-dark: #7c1830;
+  --accent-soft: #f8dfe4;
+
+  /* --- verde naturaleza del sitio web de la marca (dato del operador, jul-2026) --- */
+  --brand-green: #3b5751;
+  --brand-green-soft: #e3eae8;
+  --brand-green-dark: #2a403c;
+
+  /* --- apoyo semántico --- */
+  --success: #2f6b4a;
+  --success-soft: #dcece1;
+  --warn: #a8720a;
+  --warn-soft: #f8ecd2;
+  --danger: #ae3d17;
+  --danger-soft: #f7ddd0;
+  --info: var(--brand-green);
+  --info-soft: var(--brand-green-soft);
+
+  /* --- forma --- */
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-full: 999px;
+  --shadow-sm: 0 1px 3px rgba(28, 36, 32, .1);
+  --shadow: 0 6px 20px rgba(28, 36, 32, .12);
+
+  /* --- espaciado --- */
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  /* --- tipografía --- */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --fs-sm: clamp(.82rem, .78rem + .2vw, .9rem);
+  --fs-base: clamp(1rem, .95rem + .25vw, 1.0625rem);
+  --fs-lg: clamp(1.1rem, 1.02rem + .4vw, 1.25rem);
+  --fs-h3: clamp(1.15rem, 1.05rem + .5vw, 1.35rem);
+  --fs-h2: clamp(1.35rem, 1.15rem + 1vw, 1.75rem);
+  --fs-h1: clamp(1.75rem, 1.4rem + 2vw, 2.75rem);
+
+  /* --- área táctil mínima (regla mobile-first del proyecto) --- */
+  --tap: 44px;
+}
+
+/* ===== 1. Reset mínimo ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; }
+img, svg { max-width: 100%; display: block; }
+h1, h2, h3, h4, p, ul, ol, dl, figure { margin: 0 0 var(--space-4); }
+ul, ol { padding-left: 1.2em; }
+a { color: inherit; }
+button { font: inherit; }
+table { border-collapse: collapse; width: 100%; }
+
+/* ===== 2. Tipografía base ===== */
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: var(--font-serif); line-height: 1.2; color: var(--ink); }
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+p { max-width: 68ch; }
+strong { color: var(--ink); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* ===== 3. Layout ===== */
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 var(--space-4) var(--space-8); }
+
+/* ===== 4. Nav superior (.docnav) ===== */
+.docnav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--brand-green);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+.docnav__inner {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 var(--space-2);
+}
+.docnav__link {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  min-height: var(--tap);
+  padding: 0 var(--space-3);
+  color: #eae6dd;
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+}
+.docnav__link:hover { color: #fff; }
+.docnav__link.active {
+  color: #fff;
+  border-bottom-color: var(--accent);
+}
+
+/* ===== 5. Hero ===== */
+.hero {
+  padding: var(--space-7) var(--space-4);
+  background: linear-gradient(135deg, var(--brand-green) 0%, var(--brand-green-dark) 100%);
+  color: #fff;
+}
+.hero__inner { max-width: 960px; margin: 0 auto; }
+.hero h1 { color: #fff; margin-bottom: var(--space-3); }
+.hero p { color: rgba(255, 255, 255, .92); font-size: var(--fs-lg); max-width: 60ch; margin: 0; }
+
+/* ===== 6. Secciones numeradas (.sec) ===== */
+main { counter-reset: sec; }
+.sec { counter-increment: sec; margin-top: var(--space-7); }
+.sec:first-of-type { margin-top: var(--space-6); }
+.sec > h2 {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding-bottom: var(--space-2);
+  border-bottom: 2px solid var(--line-strong);
+}
+.sec > h2::before {
+  content: counter(sec);
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9em;
+  height: 1.9em;
+  border-radius: var(--radius-full);
+  background: var(--brand-green);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: .55em;
+  font-weight: 700;
+}
+
+/* ===== 7. Callouts ===== */
+.callout {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  margin: var(--space-4) 0;
+}
+.callout::before { flex: 0 0 auto; font-size: 1.3em; line-height: 1; }
+.callout p:last-child { margin-bottom: 0; }
+.callout--info { border-color: var(--info); background: var(--info-soft); }
+.callout--info::before { content: "💡"; }
+.callout--success { border-color: var(--success); background: var(--success-soft); }
+.callout--success::before { content: "✅"; }
+.callout--warn { border-color: var(--warn); background: var(--warn-soft); }
+.callout--warn::before { content: "🟡"; }
+.callout--danger { border-color: var(--danger); background: var(--danger-soft); }
+.callout--danger::before { content: "🔴"; }
+
+/* ===== 8. Bloque copiable (.copyblock) ===== */
+.copyblock {
+  position: relative;
+  margin: var(--space-4) 0;
+  padding: var(--space-8) var(--space-4) var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.copyblock__text {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--ink);
+}
+.copyblock__btn {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  min-height: var(--tap);
+  padding: 0 var(--space-4);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  cursor: pointer;
+}
+.copyblock__btn:hover { background: var(--accent-dark); }
+.copyblock__btn.is-copied { background: var(--success); }
+
+/* ===== 9. KPIs (.kpi) ===== */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  margin: var(--space-4) 0;
+}
+.kpi {
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.kpi__label { display: block; font-size: var(--fs-sm); color: var(--ink-soft); margin-bottom: var(--space-2); }
+.kpi__value { display: block; font-family: var(--font-serif); font-size: clamp(1.5rem, 1.3rem + 1vw, 2.1rem); font-weight: 700; color: var(--ink); }
+.kpi__delta { display: inline-block; margin-top: var(--space-2); font-size: var(--fs-sm); font-weight: 600; padding: 2px var(--space-2); border-radius: var(--radius-full); }
+.kpi__delta--up { color: var(--success); background: var(--success-soft); }
+.kpi__delta--down { color: var(--danger); background: var(--danger-soft); }
+
+/* ===== 10. Tarjeta genérica (.card) ===== */
+.card {
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  margin: var(--space-4) 0;
+}
+.card h3 { margin-top: 0; }
+
+/* ===== 11. Tablas responsive ===== */
+.table-wrap { overflow-x: auto; margin: var(--space-4) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); }
+.table-wrap table { min-width: 480px; }
+.table-wrap th, .table-wrap td { padding: var(--space-3); text-align: left; border-bottom: 1px solid var(--line); font-size: var(--fs-sm); }
+.table-wrap thead th { background: var(--brand-green); color: #fff; position: sticky; top: 0; }
+.table-wrap tbody tr:last-child td { border-bottom: none; }
+.table-wrap tbody tr:nth-child(even) { background: var(--paper); }
+
+/* ===== 12. Barra de progreso (.progress) ===== */
+.progress { margin: var(--space-4) 0; }
+.progress__track { height: 14px; background: var(--line); border-radius: var(--radius-full); overflow: hidden; }
+.progress__fill { height: 100%; background: var(--brand-green); border-radius: var(--radius-full); transition: width .3s ease; width: 0%; }
+.progress__label { display: block; margin-top: var(--space-2); font-size: var(--fs-sm); color: var(--ink-soft); }
+
+/* ===== 13. Checklist táctil (.checklist) ===== */
+.checklist { list-style: none; padding-left: 0; margin: var(--space-4) 0; }
+.checklist li { margin-bottom: var(--space-2); }
+.checklist label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  min-height: var(--tap);
+  padding: var(--space-2) var(--space-3);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+.checklist input[type="checkbox"] { width: 24px; height: 24px; flex: 0 0 auto; accent-color: var(--brand-green); margin-top: 2px; }
+.checklist input[type="checkbox"]:checked + span { text-decoration: line-through; color: var(--ink-soft); }
+
+/* ===== 14. Etiquetas (.pill) ===== */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+.pill--success { background: var(--success-soft); color: var(--success); }
+.pill--warn { background: var(--warn-soft); color: var(--warn); }
+.pill--danger { background: var(--danger-soft); color: var(--danger); }
+.pill--info { background: var(--info-soft); color: var(--info); }
+
+/* ===== 15. Grillas responsive ===== */
+.grid-2, .grid-3 { display: grid; gap: var(--space-4); margin: var(--space-4) 0; grid-template-columns: 1fr; }
+
+/* ===== 16. Gráficos SVG/CSS hechos a mano ===== */
+/* Barras horizontales */
+.chart-bar-row { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-2); }
+.chart-bar-row__label { flex: 0 0 9rem; font-size: var(--fs-sm); color: var(--ink-soft); }
+.chart-bar-row__track { flex: 1 1 auto; height: 20px; background: var(--line); border-radius: var(--radius-full); overflow: hidden; }
+.chart-bar-row__fill { height: 100%; background: var(--accent); border-radius: var(--radius-full); }
+.chart-bar-row__value { flex: 0 0 auto; font-size: var(--fs-sm); font-weight: 700; min-width: 3.5rem; text-align: right; }
+
+/* Embudo: cada .funnel-step define su ancho con --w inline, ej. style="--w:70%" */
+.funnel { display: flex; flex-direction: column; align-items: center; gap: 2px; margin: var(--space-4) 0; }
+.funnel-step {
+  width: var(--w, 100%);
+  max-width: 100%;
+  padding: var(--space-3);
+  text-align: center;
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  background: var(--accent);
+  border-radius: var(--radius-sm);
+}
+.funnel-step:nth-child(2) { opacity: .85; }
+.funnel-step:nth-child(3) { opacity: .7; }
+.funnel-step:nth-child(4) { opacity: .55; }
+.funnel-step:nth-child(5) { opacity: .4; }
+
+/* Línea de tiempo vertical */
+.timeline { position: relative; margin: var(--space-5) 0; padding-left: var(--space-6); border-left: 3px solid var(--line-strong); }
+.timeline-item { position: relative; margin-bottom: var(--space-5); }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--space-6) - 7px);
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--brand-green);
+  border: 3px solid var(--paper);
+}
+.timeline-item__date { font-size: var(--fs-sm); font-weight: 700; color: var(--accent-dark); }
+.timeline-item__title { font-family: var(--font-serif); font-size: var(--fs-lg); margin: var(--space-1) 0; }
+
+/* ===== 17. Botones ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-5);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-base);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover { background: var(--accent-dark); }
+.btn--ghost { background: transparent; border: 2px solid var(--line-strong); color: var(--ink); }
+.btn--ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ===== 18. Media queries (mobile-first: base = ~375px) ===== */
+@media (min-width: 640px) {
+  .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .hero { padding: var(--space-8) var(--space-6); }
+}
+@media (min-width: 960px) {
+  .kpi-grid { grid-template-columns: repeat(4, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ===== 19. Impresión ===== */
+@media print {
+  .docnav, .copyblock__btn, .btn { display: none !important; }
+  body { background: #fff; color: #000; }
+  .hero { background: #fff !important; color: #000 !important; }
+  .hero h1, .hero p { color: #000 !important; }
+  .card, .callout, .kpi, .copyblock { box-shadow: none; border: 1px solid #999; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: .8em; }
+}
+
+/* ==========================================================================
+   Extensiones propias de esta página (email.html)
+   email.html no es una de las 6 páginas del sitio (docs/design-system.md,
+   sección 1) y no está en el menú principal — se llega por link desde el
+   plan. El bloque de arriba es el canónico intacto; lo de abajo es el único
+   componente propio de esta página (el link "Volver al plan" del hero),
+   igual al ya usado en cro.html, agregado en la misma hoja de estilos única
+   para no crear un segundo archivo CSS.
+   ========================================================================== */
+
+.hero__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-2) 0 0;
+  margin-bottom: var(--space-3);
+  color: rgba(255, 255, 255, .85);
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+.hero__back:hover { color: #fff; }
+</style>
+</head>
+<body>
+
+<nav class="docnav" aria-label="Navegación del plan">
+  <div class="docnav__inner">
+    <a href="index.html" class="docnav__link">Plan</a>
+    <a href="kit-arranque.html" class="docnav__link">Kit de arranque</a>
+    <a href="guion-reels.html" class="docnav__link">Guiones de Reels</a>
+    <a href="sop-dm.html" class="docnav__link">Manual de DM</a>
+    <a href="recursos.html" class="docnav__link">Recursos</a>
+    <a href="tablero.html" class="docnav__link">Tablero</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero__inner">
+    <a href="index.html#datos-que-faltan" class="hero__back">← Volver al plan</a>
+    <h1>Correo y campañas</h1>
+    <p>Cuánto aporta hoy el correo a las ventas, la respuesta a las dos dudas que quedaron abiertas en la reunión del 27 de julio, y las primeras campañas listas para copiar y enviar. Esta página no está en el menú principal — se comparte por link directo desde el plan.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section class="sec" id="donde-estamos">
+<h2>Dónde estamos y cuánto hay en juego</h2>
+<p>Klaviyo es el programa de correo que ya usa la tienda. Sirve para saber, de todo lo que vende Pedraza Ilustración, cuánto llega gracias a un correo — el resto llega por Instagram, Google, o gente que escribe la dirección directo en el navegador. Esta sección muestra cuánto es esa parte hoy, cuánto podría llegar a ser, y qué significa esa diferencia en plata.</p>
+
+<div class="kpi-grid">
+  <div class="kpi"><span class="kpi__label">Aporte de Klaviyo, últimos 30 días 🟢</span><span class="kpi__value">~9%</span></div>
+  <div class="kpi"><span class="kpi__label">Aporte de Klaviyo, últimos 7 días 🟢</span><span class="kpi__value">13,8%</span></div>
+  <div class="kpi"><span class="kpi__label">Meta propuesta 🟡</span><span class="kpi__value">20-25%</span></div>
+  <div class="kpi"><span class="kpi__label">Plata adicional estimada al mes 🟡</span><span class="kpi__value">~$495.000</span></div>
+</div>
+<p><span class="pill pill--success">🟢 dato real</span> Fuente: pantalla de Klaviyo mostrada en la reunión del 27 de julio de 2026 (ver acta).</p>
+
+<p>Explicado simple: de cada $100 pesos que vende hoy la tienda, cerca de $9 llegan gracias a un correo. El dato de los últimos 7 días es más alto (13,8 de cada $100) — posiblemente por la Semana Pedraza, la semana de promoción que recién terminó, con más campañas enviadas de lo normal. <span class="pill pill--warn">🟡 lectura razonable, no confirmada campaña por campaña</span></p>
+
+<div class="callout callout--warn">
+<p><strong>La meta de 20-25% no es un estudio publicado.</strong> Es una referencia que sale de la experiencia del operador con otras tiendas que tienen sus flujos y campañas de correo bien trabajados. Sirve como norte hacia dónde apuntar, no como una promesa de resultado.</p>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>Lo que significa en plata (cálculo, no promesa):</strong> usando ~$4.500.000 CLP al mes como referencia del tamaño de la tienda (el orden de magnitud real de la facturación mensual, ver el research de la tienda) — pasar del 9% actual al 20% de meta significa pasar de unos $405.000 a unos $900.000 CLP al mes generados por correo. La diferencia: <strong>cerca de $495.000 CLP al mes</strong>, casi medio millón de pesos adicionales, sin gastar un peso más en publicidad. Es un cálculo aritmético simple sobre datos reales, no una cifra garantizada.</p>
+</div>
+
+<h3>Flujos vs. campañas: dónde está el hueco</h3>
+<p>Dentro de Klaviyo hay dos tipos de correos, y conviene no confundirlos:</p>
+
+<div class="grid-2">
+  <div class="card">
+    <h3>Flujos <span class="pill pill--success">funcionan</span></h3>
+    <p>Correos automáticos. Se arman una vez y después se disparan solos cuando pasa algo: alguien compra por primera vez, deja un carrito sin pagar, o hace tiempo que no compra.</p>
+  </div>
+  <div class="card">
+    <h3>Campañas <span class="pill pill--danger">el hueco</span></h3>
+    <p>Correos manuales. Se escriben y se envían a mano, semana a semana. Hoy se mandan 1 a 2 por semana — 3 a 4 en semanas de promoción como la Semana Pedraza que recién terminó. 🟢</p>
+  </div>
+</div>
+
+<p>Ahí está la oportunidad más grande y más rápida de cerrar: no depende de tráfico nuevo ni de gastar en publicidad, solo de escribir y enviar más seguido a la gente que ya conoce la marca.</p>
+</section>
+
+<section class="sec" id="tres-correos-por-semana">
+<h2>¿Tres correos por semana no es mucho?</h2>
+<p>En la reunión, Cote hizo una pregunta que cualquiera se haría: tres correos a la semana, ¿no es demasiado? Es una duda válida — nadie quiere ser la marca que satura la bandeja de entrada.</p>
+
+<p>La respuesta corta: <strong>no es la cantidad, es a quién le llega y qué le llega.</strong> No todas las personas de la lista reciben los mismos 3 correos — depende de hace cuánto compraron por última vez (la <strong>recencia</strong>, en simple: hace cuánto tiempo fue la última compra de esa persona).</p>
+
+<div class="chart-bar-row"><span class="chart-bar-row__label">Activos (0-30 días)</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:33%"></div></div><span class="chart-bar-row__value">1 correo</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Recompra (30-60 días)</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:66%"></div></div><span class="chart-bar-row__value">2 correos</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Reactivación (60+ o nunca)</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div><span class="chart-bar-row__value">3 correos</span></div>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Segmento</th><th>Hace cuánto compró</th><th>Correos por semana</th><th>Por qué</th></tr></thead>
+<tbody>
+<tr><td>Activos</td><td>0-30 días</td><td>1</td><td>Ya está comprando. No hay que saturarlo.</td></tr>
+<tr><td>Recompra</td><td>30-60 días</td><td>2</td><td>Es el momento en que suele volver a comprar.</td></tr>
+<tr><td>Reactivación</td><td>Más de 60 días, o nunca compró</td><td>3</td><td>Hay que despertarlo y crear el hábito de abrir.</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>El principio de fondo: <strong>la mayoría de los correos no deben oler a venta.</strong> Sirven para que abrir el correo de Pedraza Ilustración se vuelva un hábito. Así, cuando llega el correo que sí vende algo, la persona ya tiene la costumbre de abrir — no lo siente como spam.</p>
+
+<div class="callout callout--info">
+<p><strong>El efecto reputación, explicado simple.</strong> Es como el cartero: si la gente siempre abre las cartas que le mandas, Gmail y Outlook empiezan a confiar en ti y dejan tus correos en la bandeja principal. Si la gente nunca los abre, o los manda a spam, el cartero empieza a dudar y los deja en la pestaña de promociones — o derecho en spam. Enviar contenido que se abre, aunque no venda nada, mejora que los correos de venta también lleguen bien.</p>
+</div>
+</section>
+
+<section class="sec" id="historia-y-producto">
+<h2>La estructura de cada campaña: historia → producto</h2>
+<p>El enfoque ya está definido: cada campaña parte con una historia y después conecta con un producto, nunca al revés. Son 4 pasos.</p>
+
+<div class="timeline">
+<div class="timeline-item"><span class="timeline-item__date">Paso 1</span><h3 class="timeline-item__title">Gancho en el asunto</h3><p>Una frase que da curiosidad, sin sonar a publicidad ni prometer descuento.</p></div>
+<div class="timeline-item"><span class="timeline-item__date">Paso 2</span><h3 class="timeline-item__title">Historia breve</h3><p>La especie, el proceso o la anécdota. Sin mencionar el producto todavía.</p></div>
+<div class="timeline-item"><span class="timeline-item__date">Paso 3</span><h3 class="timeline-item__title">Puente natural</h3><p>La frase que conecta la historia con el producto, sin que se sienta forzado.</p></div>
+<div class="timeline-item"><span class="timeline-item__date">Paso 4</span><h3 class="timeline-item__title">Un solo llamado a la acción</h3><p>Un solo link o botón. Nunca dos ofertas compitiendo por el clic.</p></div>
+</div>
+
+<p>Abajo, 3 campañas completas, listas para copiar y pegar en Klaviyo. Cada una trae su asunto principal y un asunto alternativo, para probar cuál se abre más.</p>
+
+<h3 id="campana-chucao">Campaña 1 — El chucao</h3>
+<p><span class="pill">Producto: pack de láminas Martín Pescador y Chucao</span> <span class="pill pill--warn">🟡 precio del pack por confirmar — no se menciona en el correo</span></p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-chucao">Copiar</button>
+<div class="copyblock__text" id="copy-chucao">Asunto: El pájaro que grita antes de que salgas de tu casa
+
+Hola,
+
+Hay un pájaro chileno que casi nadie ve, pero que todos escuchan.
+
+Se llama chucao. Vive escondido entre la maleza de los bosques del sur, tan pegado al suelo que parece más un ratón con plumas que un ave. Pero apenas abre el pico, ese pajarito chico suelta un grito fuerte y seco que se escucha de lejos: "chu-cao, chu-cao".
+
+En Chiloé dicen que el chucao anuncia lo que viene. Si lo escuchas cantar a tu derecha, dicen que trae buena suerte. Si canta a tu izquierda, algunos prefieren devolverse a la casa un rato.
+
+Nosotros no sabemos si eso es cierto. Pero sí sabemos por qué quisimos dibujarlo: pocas aves tienen tanto carácter en un cuerpo tan chico.
+
+Por eso el chucao vive hoy en uno de nuestros packs de láminas, junto al Martín Pescador — otro personaje pequeño con harta personalidad. Dos acuarelas en impresión de calidad, listas para enmarcar y colgar en un lugar donde las veas todos los días.
+
+Ver el pack de láminas → https://pedrazailustracion.com/products/pack-laminas-loica-y-siete-colores-copia
+
+Un abrazo,
+Cote</div>
+</div>
+<p>Asunto alternativo para probar:</p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-chucao-alt">Copiar</button>
+<div class="copyblock__text" id="copy-chucao-alt">Por qué el chucao es tan escandaloso (y tan querido en el sur)</div>
+</div>
+
+<h3 id="campana-proceso">Campaña 2 — Del cerro al puzzle</h3>
+<p><span class="pill">Producto: puzzle Aves y Flores de Chile</span> <span class="pill pill--warn">🟡 sin stock hasta fines de agosto — la campaña pide el correo, no vende</span></p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-proceso">Copiar</button>
+<div class="copyblock__text" id="copy-proceso">Asunto: Del cerro al rompecabezas: así nace cada ilustración
+
+Hola,
+
+Antes de que una ilustración nuestra llegue a tus manos, pasa por hartos pasos que no se ven.
+
+Todo parte en terreno: fotos, apuntes y horas mirando cómo se posa un ave, cómo se abre una flor, qué color tiene el musgo después de la lluvia. De ahí sale el boceto a lápiz, y después la acuarela, capa por capa, hasta que el papel se llena de esos colores que reconoces al tiro como parte de Pedraza.
+
+Recién ahí la ilustración se convierte en producto: se separa en mil piezas, se calcula cada corte, y se arma la guía con el nombre de cada especie —común y científico— para que armar el puzzle también sea aprender algo de la naturaleza de Chile.
+
+Ahora mismo estamos sin stock de puzzles: viene un cargamento nuevo que llega a fines de agosto. Deja tu correo marcado y te avisamos apenas estén disponibles otra vez, antes de que se agoten como la vez pasada.
+
+Avísame cuando vuelva el puzzle → https://pedrazailustracion.com/products/puzzle-1000-piezas-aves-flores-chilenas
+
+Un abrazo,
+Cote</div>
+</div>
+<p>Asunto alternativo para probar:</p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-proceso-alt">Copiar</button>
+<div class="copyblock__text" id="copy-proceso-alt">Lo que nadie ve antes de que exista un puzzle Pedraza</div>
+</div>
+
+<h3 id="campana-hongos">Campaña 3 — Los hongos no son plantas</h3>
+<p><span class="pill">Producto: puzzle de Hongos de Chile</span> <span class="pill pill--warn">🟡 sin stock hasta fines de agosto — la campaña pide el correo, no vende</span></p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-hongos">Copiar</button>
+<div class="copyblock__text" id="copy-hongos">Asunto: Los hongos no son plantas (y esto lo cambia todo)
+
+Hola,
+
+Una pregunta simple: ¿los hongos son plantas?
+
+La respuesta corta es no. Ni siquiera están cerca. Los científicos los ponen en su propio grupo, separado de las plantas y de los animales — y, tan curioso como suena, están genéticamente más cerca de los animales que de las plantas.
+
+¿Por qué? Las plantas fabrican su propio alimento con luz del sol. Los hongos no pueden hacer eso. Ellos se alimentan absorbiendo lo que encuentran a su alrededor: hojas caídas, madera vieja, materia en descomposición. Por eso los ves crecer en troncos húmedos y no en las ramas de un árbol.
+
+Lo que vemos como "el hongo" —el sombrerito de colores— es solo la parte visible. Por debajo hay una red enorme, casi invisible, que conecta el bosque entero y lo ayuda a mantenerse sano.
+
+Esa es la razón por la que le dedicamos un puzzle entero a los hongos de Chile: son de los seres más raros y menos entendidos de nuestros bosques, y se merecían su propia ilustración.
+
+Hoy estamos sin stock — vuelven a fines de agosto. Deja tu correo marcado y te avisamos apenas estén de vuelta.
+
+Avísame cuando vuelva el puzzle de hongos → https://pedrazailustracion.com/collections/puzzles
+
+Un abrazo,
+Cote</div>
+</div>
+<p>Asunto alternativo para probar:</p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-hongos-alt">Copiar</button>
+<div class="copyblock__text" id="copy-hongos-alt">Lo que la mayoría no sabe de los hongos de Chile</div>
+</div>
+</section>
+
+<section class="sec" id="diseno-o-texto-plano">
+<h2>Diseño elaborado o texto plano: cómo decidirlo</h2>
+<p>La otra duda que dejó Cote en la reunión: ¿conviene un correo con diseño elaborado —colores, banner, botones— o un texto plano, como una carta personal? No hay que adivinar la respuesta: se prueba.</p>
+
+<div class="callout callout--info">
+<p><strong>Qué es una prueba A/B, en una frase:</strong> se manda el mismo contenido en dos formatos distintos a dos mitades iguales de la lista, y se mira cuál genera más clics y más ventas. Gana el que funciona mejor con esta audiencia, no el que más nos gusta a nosotros.</p>
+</div>
+
+<div class="grid-2">
+<div class="card"><span class="pill pill--info">Mitad A</span><h3>Texto plano, carta de Cote</h3><p>Sin imágenes ni botones grandes. Igual a los 3 ejemplos de la sección anterior: se ve como un correo personal, no como publicidad.</p></div>
+<div class="card"><span class="pill pill--warn">Mitad B</span><h3>Diseño con banner</h3><p>El mismo contenido, con una imagen de cabecera y un botón de color para el llamado a la acción.</p></div>
+</div>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Qué</th><th>Detalle</th></tr></thead>
+<tbody>
+<tr><td>Qué se envía</td><td>La misma campaña (por ejemplo, la del chucao) en dos formatos: texto plano vs. diseño con banner</td></tr>
+<tr><td>A quién</td><td>La lista se divide al azar en dos mitades iguales — Klaviyo lo hace automático con su función de prueba A/B. Nadie recibe las dos versiones</td></tr>
+<tr><td>Qué se mide</td><td>Tasa de apertura (de cada 100 que reciben el correo, cuántos lo abren), clics y ventas atribuidas a cada mitad</td></tr>
+<tr><td>Cuánto tiempo</td><td>2 a 3 envíos seguidos (unas 2-3 semanas) antes de decidir. Con un solo envío la muestra es chica y el resultado puede ser casualidad</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="callout callout--success">
+<p><strong>Recomendación:</strong> partir probando el texto plano tipo carta de Cote, porque el contenido de estas campañas es de historia — más cerca de una carta personal que de un afiche publicitario. Pero la decisión final la dan los números de la prueba, no el gusto de nadie.</p>
+</div>
+</section>
+
+<section class="sec" id="flujos-automaticos">
+<h2>Los flujos que hay que revisar</h2>
+<p>Un <strong>flujo</strong> es un correo automático: se arma una vez y después se dispara solo. Estos son los que ya existen en Klaviyo y hoy "funcionan" según la evaluación general de la reunión — pero nadie los ha revisado en detalle todavía. Apenas entren los accesos, esta es la lista de qué mirar en cada uno.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Flujo</th><th>Qué revisar</th><th>Qué debería aportar</th></tr></thead>
+<tbody>
+<tr><td>Bienvenida</td><td>¿Entrega automático el 10% de descuento del pop-up? ¿Cuántos correos tiene la secuencia y cada cuánto se envían?</td><td>Que alguien nuevo compre rápido, mientras el interés está fresco</td></tr>
+<tr><td>Carrito abandonado</td><td>¿Cuántos recordatorios manda? ¿Sale el primero rápido — idealmente dentro de la primera hora?</td><td>Recuperar ventas que ya estaban casi cerradas</td></tr>
+<tr><td>Navegación abandonada</td><td>¿Existe? Alguien que miró productos pero no llegó a agregarlos al carrito, ¿recibe algún correo?</td><td>Traer de vuelta a quien mostró interés real, aunque no haya llegado al carrito</td></tr>
+<tr><td>Post-compra</td><td>¿Pide reseña, conectado a Judge.me? ¿Ofrece una segunda compra o un producto relacionado?</td><td>Reseñas nuevas y una segunda compra más rápida</td></tr>
+<tr><td>Reactivación de dormidos</td><td>¿Existe un correo para quien no compra hace mucho tiempo? ¿Qué le ofrece?</td><td>Recuperar clientes que ya conocen la marca, sin gastar en atraer gente nueva</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>En la primera revisión de cada flujo hay que anotar el mismo dato base: cuántos correos tiene, cada cuánto se envían, tasa de apertura, clics y venta atribuida. Esa foto inicial sirve para comparar después de cualquier cambio que se haga.</p>
+
+<div class="callout callout--warn">
+<p><strong>Pregunta abierta de la reunión: ¿conviene el carrito abandonado por WhatsApp?</strong> Sí puede funcionar — WhatsApp se abre mucho más que el correo. Pero hay dos condiciones para hacerlo bien: pedir permiso antes (que la persona haya escrito primero, no contactarla en frío) y mantener el tono de la marca: cercano y personal, como ya lo hace Cote hoy, nunca un bot (Cote cierra prácticamente todas las ventas que llegan por WhatsApp hoy, y la atención personal es parte del valor de la marca). La recomendación: probarlo primero solo con quienes ya escribieron antes por WhatsApp, donde el permiso ya existe, antes de pensar en aplicarlo a toda la base de carritos abandonados.</p>
+</div>
+</section>
+
+<section class="sec" id="calendario-4-semanas">
+<h2>Calendario de las primeras 4 semanas</h2>
+<p>Propuesta de calendario a partir de la semana del 3 de agosto de 2026 — una semana después de esta reunión, con tiempo para que se entreguen los accesos. 3 campañas por semana, siguiendo la lógica de recencia de la sección 2.</p>
+
+<div class="timeline">
+<div class="timeline-item"><span class="timeline-item__date">27 de julio de 2026</span><h3 class="timeline-item__title">Reunión con Felipe y Cote <span class="pill pill--success">🟢 hoy</span></h3></div>
+<div class="timeline-item"><span class="timeline-item__date">3 de agosto de 2026</span><h3 class="timeline-item__title">Arranca el calendario de campañas <span class="pill pill--warn">🟡 propuesto</span></h3></div>
+<div class="timeline-item"><span class="timeline-item__date">9 de agosto de 2026</span><h3 class="timeline-item__title">Día del Niño <span class="pill pill--success">🟢 confirmado</span></h3></div>
+<div class="timeline-item"><span class="timeline-item__date">24-30 de agosto de 2026</span><h3 class="timeline-item__title">Llegan los puzzles a Shopify <span class="pill pill--success">🟢 confirmado</span></h3></div>
+<div class="timeline-item"><span class="timeline-item__date">18-19 de septiembre de 2026</span><h3 class="timeline-item__title">Fiestas Patrias <span class="pill pill--success">🟢 confirmado</span></h3></div>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>Ojo con el Día del Niño (9 de agosto):</strong> los puzzles —el regalo educativo típico para esa fecha— siguen sin stock hasta fines de agosto. La campaña de esa semana no puede prometer un puzzle que no hay: mejor empujar productos que sí están disponibles hoy (loza, calcetines, libretas) y aprovechar el interés para sumar gente a la lista de aviso del puzzle.</p>
+</div>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Semana</th><th>Día</th><th>Tema</th><th>Segmento</th><th>Tipo</th></tr></thead>
+<tbody>
+<tr><td rowspan="3">Semana 1<br>3-9 ago</td><td>Lunes 3</td><td><a href="#campana-chucao">El chucao</a> → pack de láminas</td><td>Todos</td><td><span class="pill pill--info">Historia</span></td></tr>
+<tr><td>Miércoles 5</td><td><a href="#campana-proceso">Del cerro al puzzle</a> (avísame cuando vuelva)</td><td>Recompra + Reactivación</td><td><span class="pill pill--info">Historia</span></td></tr>
+<tr><td>Viernes 7</td><td>Regalos para el Día del Niño con lo que sí hay en stock</td><td>Solo Reactivación</td><td><span class="pill pill--warn">Venta</span></td></tr>
+<tr><td rowspan="3">Semana 2<br>10-16 ago</td><td>Lunes 10</td><td><a href="#campana-hongos">Los hongos no son plantas</a> → puzzle de hongos (avísame)</td><td>Todos</td><td><span class="pill pill--info">Historia</span></td></tr>
+<tr><td>Miércoles 12</td><td>Historia de otra especie del catálogo (ej. Siete Colores) → láminas o papelería</td><td>Recompra + Reactivación</td><td><span class="pill pill--info">Historia</span></td></tr>
+<tr><td>Viernes 14</td><td>Loza Aves en preventa (con calcetín de regalo)</td><td>Solo Reactivación</td><td><span class="pill pill--warn">Venta</span></td></tr>
+<tr><td rowspan="3">Semana 3<br>17-23 ago</td><td>Lunes 17</td><td>Por qué las láminas no se destiñen: impresión Giclée y papel Hahnemühle</td><td>Todos</td><td><span class="pill pill--info">Historia</span></td></tr>
+<tr><td>Miércoles 19</td><td>Historia real de una reseña de clienta (215 reseñas en Judge.me) → papelería</td><td>Recompra + Reactivación</td><td><span class="pill pill--info">Historia</span></td></tr>
+<tr><td>Viernes 21</td><td>Bolsos y botellas como idea de regalo</td><td>Solo Reactivación</td><td><span class="pill pill--warn">Venta</span></td></tr>
+<tr><td rowspan="3">Semana 4<br>24-30 ago</td><td>Lunes 24</td><td>"Volvieron los puzzles" — anuncio real, cierra el aviso de las semanas 1 y 2</td><td>Todos</td><td><span class="pill pill--warn">Venta</span></td></tr>
+<tr><td>Miércoles 26</td><td>Historia de cómo armar el puzzle en familia, conectada al recién llegado</td><td>Recompra + Reactivación</td><td><span class="pill pill--info">Historia</span></td></tr>
+<tr><td>Viernes 28</td><td>Recordatorio suave + primer guiño a Fiestas Patrias</td><td>Solo Reactivación</td><td><span class="pill pill--warn">Venta</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Aunque cae fuera de estas primeras 4 semanas, ya vale la pena prepararlo con tiempo: <strong>Fiestas Patrias (18 y 19 de septiembre)</strong> es la siguiente fecha fuerte del calendario chileno, y las campañas de la semana 5 en adelante deberían empezar a construir hacia esa fecha.</p>
+
+<h3>Qué se mide cada semana</h3>
+<div class="grid-2">
+<div class="card"><h3>Tasa de apertura</h3><p>De cada 100 personas que reciben el correo, cuántas lo abren.</p></div>
+<div class="card"><h3>Clics</h3><p>Cuántas personas tocan algún link dentro del correo.</p></div>
+<div class="card"><h3>Ventas atribuidas</h3><p>Cuánta plata en ventas se puede atribuir directamente a ese correo. Klaviyo lo calcula automático.</p></div>
+<div class="card"><h3>Bajas de la lista</h3><p>Cuántas personas se dan de baja después de ese envío — la señal de alerta si un formato o una frecuencia está molestando.</p></div>
+</div>
+</section>
+
+</main>
+
+<script>
+  // Copiar al portapapeles — delegación de eventos, un solo listener por página.
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-copy-target]');
+    if (!btn) return;
+    var el = document.getElementById(btn.getAttribute('data-copy-target'));
+    if (!el) return;
+    copiarTexto(el.innerText || el.textContent || '', btn);
+  });
+
+  function copiarTexto(texto, btn) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(texto).then(
+        function () { mostrarCopiado(btn); },
+        function () { copiarConFallback(texto, btn); }
+      );
+    } else {
+      copiarConFallback(texto, btn);
+    }
+  }
+
+  function copiarConFallback(texto, btn) {
+    var ta = document.createElement('textarea');
+    ta.value = texto;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.top = '-1000px';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (err) { /* sin soporte, se ignora */ }
+    document.body.removeChild(ta);
+    mostrarCopiado(btn);
+  }
+
+  function mostrarCopiado(btn) {
+    var original = btn.getAttribute('data-label') || btn.textContent;
+    btn.setAttribute('data-label', original);
+    btn.textContent = '✓ ¡Copiado!';
+    btn.classList.add('is-copied');
+    clearTimeout(btn._copyTimeout);
+    btn._copyTimeout = setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('is-copied');
+    }, 2000);
+  }
+</script>
+</body>
+</html>
