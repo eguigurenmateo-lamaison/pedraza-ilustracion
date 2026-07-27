@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Guiones de Reels — Plan Pedraza Ilustración</title>
+<title>Bitácora — Plan Pedraza Ilustración</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
 <style>
 /* ==========================================================================
@@ -617,18 +617,75 @@ main { counter-reset: sec; }
   .callout { border-left: 4px solid #999; }
   a[href]::after { content: " (" attr(href) ")"; font-size: .8em; }
 }
-/* ===== 20. Puntual de esta página: barra de anatomía del Reel y ficha de guion ===== */
-.reelbar { display: flex; border-radius: var(--radius-sm); overflow: hidden; box-shadow: var(--shadow-sm); margin: var(--space-4) 0 var(--space-2); }
-.reelbar__seg { padding: var(--space-3) var(--space-2); text-align: center; color: #fff; font-size: var(--fs-sm); font-weight: 700; }
-.reelbar__labels { display: flex; margin-bottom: var(--space-5); }
-.reelbar__labels span { font-size: var(--fs-sm); color: var(--ink-soft); text-align: center; }
-.guion-meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); margin: var(--space-2) 0 var(--space-3); }
-.guion-meta__dur { font-size: var(--fs-sm); font-weight: 700; color: var(--ink-soft); }
-.necesitas { font-size: var(--fs-sm); }
-.necesitas li { margin-bottom: var(--space-1); }
+/* ==========================================================================
+   Extensiones propias de esta página (bitacora.html)
+   bitacora.html no es una de las 6 páginas del sitio (docs/design-system.md,
+   sección 1) y no está en el menú principal — se llega por link desde el plan.
+   El bloque de arriba es el canónico intacto; lo de abajo son componentes
+   propios de esta página, agregados en la misma hoja de estilos única para no
+   crear un segundo archivo CSS.
+   ========================================================================== */
+
+.hero__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-2) 0 0;
+  margin-bottom: var(--space-3);
+  color: rgba(255, 255, 255, .85);
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+.hero__back:hover { color: #fff; }
+
+.owner-label {
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--accent-dark);
+  margin: var(--space-5) 0 var(--space-2);
+  font-weight: 700;
+}
+
+/* Ficha de reunión: pares etiqueta/valor, en una columna en el celular */
+.ficha-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-4); margin: 0; }
+.ficha-grid > div { display: flex; flex-direction: column; gap: 2px; }
+.ficha-grid dt { margin: 0; font-size: var(--fs-sm); font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-soft); }
+.ficha-grid dd { margin: 0; font-size: var(--fs-base); }
+@media (min-width: 640px) { .ficha-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* Lista de decisiones tomadas: una tarjeta angosta por decisión, con marca de confirmado */
+.decision-list { list-style: none; padding: 0; margin: var(--space-4) 0; display: grid; gap: var(--space-3); }
+.decision-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-xs);
+  font-size: var(--fs-sm);
+}
+.decision-list li::before {
+  content: "✅";
+  flex: 0 0 auto;
+  font-size: 1.05em;
+  line-height: 1.5;
+}
+
+.deliverable-card p { font-size: var(--fs-sm); }
+.deliverable-card .btn { margin-top: var(--space-2); }
+
+.page-footer { margin-top: var(--space-8); padding-top: var(--space-4); border-top: 1px solid var(--line); color: var(--ink-faint); font-size: var(--fs-sm); }
+.page-footer a { color: var(--accent-dark); font-weight: 700; text-decoration: none; }
+.page-footer a:hover { text-decoration: underline; }
 </style>
 </head>
-<body data-nav-actual="guion-reels">
+<body data-nav-actual="bitacora">
 <nav class="navbar" aria-label="Barra de navegación">
   <div class="navbar__inner">
     <a href="estado.html" class="navbar__home" aria-label="Ir al inicio: Estado del plan">🦋</a>
@@ -776,508 +833,287 @@ main { counter-reset: sec; }
 
 <header class="hero">
   <div class="hero__inner">
-    <h1>Guiones de Reels</h1>
-    <p>7 guiones listos para grabar con el celular, un banco de ganchos para reutilizar y el Reel firma de la marca — pensados para especies chilenas, empaques reales y la historia de los hermanos.</p>
+    <a href="index.html" class="hero__back">← Volver al plan</a>
+    <h1>Bitácora del proyecto</h1>
+    <p>El registro de cada reunión: qué se conversó, qué quedó pendiente y de quién, y qué se entregó después. Esta página no está en el menú principal — se comparte por link directo desde el plan.</p>
   </div>
 </header>
 
 <main class="wrap">
 
-  <section class="sec">
-    <h2>Anatomía de un Reel que vende</h2>
-    <p>Todo Reel que funciona tiene la misma estructura de 3 partes, sin importar el tema. Pensarlo así, antes de grabar, evita perder tiempo filmando algo que nadie va a terminar de ver.</p>
+<section class="sec">
+<h2>Cómo funciona esta bitácora</h2>
+<p>Cada vez que el equipo se reúne, el registro queda guardado acá abajo: la fecha, quién participó, los números que se vieron en pantalla, lo que se decidió y los pendientes que salieron, con nombre de quién tiene que hacer cada uno. También queda el link a cada página que nació de esa reunión.</p>
+<p>Para leerla rápido: revisa la <strong>línea de tiempo</strong> para ver el ritmo de las reuniones, abre el registro de la que te interesa para el detalle completo, y marca los pendientes a medida que se van completando.</p>
 
-    <div class="callout callout--info">
-      <p><strong>Filtro 5-50: la prueba antes de grabar.</strong> Antes de grabar cualquiera de estos guiones, hay que pasarlo por dos pruebas simples. 👶 <strong>Prueba de 5 años:</strong> un niño de 5 años debería poder decir de qué trata el Reel. 👥 <strong>Prueba de 50-50:</strong> si se les muestra a 100 personas al azar, al menos 50 deberían entender el 50% inicial (los primeros segundos). Si hay que pensar para entender, no se comparte.</p>
-    </div>
+<div class="kpi-grid">
+  <div class="kpi">
+    <span class="kpi__label">Reuniones registradas</span>
+    <span class="kpi__value" id="kpi-reuniones">0</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Pendientes abiertos</span>
+    <span class="kpi__value" id="kpi-pendientes-abiertos">0</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Pendientes cerrados</span>
+    <span class="kpi__value" id="kpi-pendientes-cerrados">0</span>
+  </div>
+</div>
+<p style="font-size:var(--fs-sm);color:var(--ink-soft)">Estos 3 números se calculan solos al abrir la página y se actualizan al marcar o desmarcar cualquier pendiente. El progreso queda guardado en este navegador y este dispositivo — no se comparte automáticamente entre el celular de una persona y el computador de otra.</p>
+</section>
 
-    <div class="reelbar" aria-hidden="true">
-      <div class="reelbar__seg" style="flex:12; background:var(--accent);">Gancho</div>
-      <div class="reelbar__seg" style="flex:73; background:var(--info);">Retención</div>
-      <div class="reelbar__seg" style="flex:15; background:var(--success);">CTA</div>
-    </div>
-    <div class="reelbar__labels">
-      <span style="flex:12;">0-3 seg</span>
-      <span style="flex:73;">el desarrollo</span>
-      <span style="flex:15;">últimos seg</span>
-    </div>
+<section class="sec">
+<h2>Línea de tiempo de reuniones</h2>
+<p>De un vistazo: cuándo se ha reunido el equipo y cuándo es la próxima.</p>
 
-    <div class="grid-3">
-      <div class="card">
-        <h3>1. Gancho</h3>
-        <p><strong>Los primeros 3 segundos.</strong> Una imagen, una pregunta o una frase que hace que el dedo se detenga en vez de seguir haciendo scroll. Sin gancho, nadie llega al resto del video, sin importar cuán bueno sea.</p>
-      </div>
-      <div class="card">
-        <h3>2. Retención</h3>
-        <p><strong>El desarrollo del Reel.</strong> Cumple lo que prometió el gancho: se ve el proceso completo, se revela el producto, se cuenta el dato curioso. Cortes cada 2-3 segundos ayudan a que la mirada no se aburra.</p>
-      </div>
-      <div class="card">
-        <h3>3. CTA</h3>
-        <p><strong>La invitación final.</strong> Se dice en voz alta y se repite en texto en pantalla: "link en la bio", "comenta la palabra", "cómpralo ahora". Nunca se da por hecho que la persona ya sabe qué hacer.</p>
-      </div>
-    </div>
+<div class="timeline">
+<div class="timeline-item">
+<div class="timeline-item__date">27 de julio de 2026</div>
+<div class="timeline-item__title">Reunión de arranque <span class="pill pill--success">Realizada</span></div>
+<p>Primera reunión formal del proyecto: números reales del negocio, decisiones sobre el stock de Navidad, el acuerdo comercial y el reparto de pendientes. Registro completo más abajo.</p>
+</div>
+<div class="timeline-item">
+<div class="timeline-item__date">29 de julio de 2026 · 10:00 hora de Chile</div>
+<div class="timeline-item__title">Reunión de seguimiento <span class="pill pill--warn">Agendada</span></div>
+<p>Revisión de avance de los pendientes de la reunión anterior. El registro se agrega a esta bitácora apenas termine.</p>
+</div>
+</div>
 
-    <div class="callout callout--info">
-      <p><strong>¿Por qué importa tanto el gancho?</strong> Cuando se publica un Reel, Instagram no se lo muestra de inmediato a todos los seguidores: primero se lo muestra a un grupo chico de gente que todavía no sigue la cuenta, como una prueba. Si ese grupo lo mira completo, lo comenta o lo comparte, Instagram lo empieza a mostrar a más y más gente. Si en los primeros segundos nadie se detiene, la prueba sale mal y el Reel no se sigue empujando — ni siquiera llega bien a los propios seguidores.</p>
-    </div>
+<div class="callout callout--info">
+<p><strong>Contacto para coordinar:</strong> cote@pedrazailustracion.com · felipe1@pedrazailustracion.com</p>
+</div>
+</section>
 
-    <p><strong>Duración objetivo: 15 a 45 segundos.</strong> Los Reels cortos son los que mejor llegan a gente que todavía no sigue la cuenta — pasado ese rango, el contenido tiende a quedarse dentro del círculo de quienes ya siguen. Los 7 guiones de este pack están pensados para moverse dentro de ese rango.</p>
+<section class="sec" data-reunion-record>
+<h2>Reunión del 27 de julio de 2026</h2>
 
-    <div class="callout callout--success">
-      <p><strong>La métrica que manda: compartidos.</strong> Para un Reel, el número que más importa es cuántas veces alguien lo comparte — que se lo mande por DM a otra persona. El gancho y todo el contenido de estos guiones están pensados para eso: para que alguien quiera mandárselo a alguien más.</p>
-    </div>
-  </section>
+<div class="card">
+<dl class="ficha-grid">
+<div><dt>Fecha</dt><dd>Lunes 27 de julio de 2026</dd></div>
+<div><dt>Participantes</dt><dd>Felipe Robinson, María José "Cote" Pedraza, Mateo Eguiguren</dd></div>
+<div><dt>Duración</dt><dd>~71 minutos (60 min de llamada + 11 min de conversación extra) <span class="pill pill--success">🟢</span></dd></div>
+<div><dt>De qué se trató</dt><dd>Revisión de los números reales del negocio, decisiones sobre el quiebre de stock de los puzzles y el pedido a China, el acuerdo comercial con el operador, y el reparto de pendientes para las próximas semanas.</dd></div>
+</dl>
+</div>
 
-  <section class="sec">
-    <h2>7 guiones listos para grabar</h2>
-    <p>Cada guion está listo para copiar y llevar directo a la grabación: qué se ve, qué texto va en pantalla, qué se dice (o qué se escucha) y cómo se cierra con la invitación a comprar. El formato es siempre el mismo: <strong>[ESCENA]</strong> lo que se ve, <strong>[TEXTO EN PANTALLA]</strong> lo que se lee, <strong>[VOZ o AUDIO]</strong> lo que se escucha, y <strong>[CTA]</strong> el cierre, hablado y en texto.</p>
+<h3>Los números que se vieron en pantalla</h3>
+<p style="font-size:var(--fs-sm);color:var(--ink-soft)">Todos estos datos son reales, mostrados en pantalla durante la llamada — no son estimaciones.</p>
+<div class="kpi-grid">
+<div class="kpi">
+<span class="kpi__label">Crecimiento año a la fecha <span class="pill pill--success">🟢</span></span>
+<span class="kpi__value">+68%</span>
+<span class="kpi__delta kpi__delta--up">todos los canales</span>
+</div>
+<div class="kpi">
+<span class="kpi__label">Crecimiento de Shopify <span class="pill pill--success">🟢</span></span>
+<span class="kpi__value">+27%</span>
+</div>
+<div class="kpi">
+<span class="kpi__label">Ticket promedio <span class="pill pill--success">🟢</span></span>
+<span class="kpi__value">~$33.000</span>
+</div>
+<div class="kpi">
+<span class="kpi__label">Aporte del correo (Klaviyo) <span class="pill pill--success">🟢</span></span>
+<span class="kpi__value">~9%</span>
+<span class="kpi__delta kpi__delta--up">13,8% en los últimos 7 días</span>
+</div>
+<div class="kpi">
+<span class="kpi__label">ROAS de Google Ads <span class="pill pill--success">🟢</span></span>
+<span class="kpi__value">2,85</span>
+<span class="kpi__delta kpi__delta--up">15 conversiones, 1-27 jul</span>
+</div>
+<div class="kpi">
+<span class="kpi__label">Reseñas totales <span class="pill pill--success">🟢</span></span>
+<span class="kpi__value">215</span>
+<span class="kpi__delta kpi__delta--up">75 en un solo producto</span>
+</div>
+</div>
 
-    <p>Los 7 guiones cubren 4 de los 5 pilares de contenido: Producto y Colecciones, Proceso y Detrás de Escena, Flora y Fauna de Chile, y Los Hermanos y la Misión. El pilar "Clientes y Reseñas" no tiene un guion propio en este pack a propósito: ese contenido funciona mejor como material real de clientes (una foto que mandan, una reseña, un unboxing grabado por ellos mismos) que como algo escrito de antemano — su momento de pedirlo es justo después de una compra, como parte del paso 5 del embudo.</p>
+<h3>Decisiones que se tomaron</h3>
+<ul class="decision-list">
+<li>Quiebre de stock del producto estrella (los puzzles): el contenedor llega el 15 de agosto y el producto vuelve a estar disponible en Shopify recién la última semana de agosto, después de pasar por Partner.</li>
+<li>El ciclo de compra a China toma entre 2 y 3 meses, y ya ha tenido atrasos.</li>
+<li>Los 1.000 puzzles ya pedidos no alcanzan para Navidad: hacer un pedido nuevo en agosto es obligatorio.</li>
+<li>El stock vive repartido en 4 lugares — Partner, bodega propia, consignación B2B y Mercado Libre — sin una vista única todavía.</li>
+<li>El variable del acuerdo comercial se calcula sobre la utilidad del e-commerce (descontando costo de producto, envíos, aplicaciones y publicidad), no sobre el ingreso.</li>
+<li>Periodo de prueba de 3 meses: agosto, septiembre y octubre, evaluando antes de la temporada alta de diciembre.</li>
+<li>El widget de reseñas de Judge.me no está mostrando las 75 reseñas en la ficha de producto.</li>
+<li>Hoy solo existe un pop-up: 10% de descuento, igual para todas las personas.</li>
+<li>Los packs de 2, 3 o 4 puzzles antes funcionaban bien; hoy ya no enganchan.</li>
+<li>Cote cierra casi todas las ventas que llegan por WhatsApp. No se instala un bot: la atención personal es parte del valor de la marca.</li>
+</ul>
 
-    <!-- Guion 1 -->
-    <div class="card">
-      <h3>1. ASMR empacando un pedido real</h3>
-      <div class="guion-meta">
-        <span class="pill pill--info">Proceso y Detrás de Escena</span>
-        <span class="guion-meta__dur">⏱️ 20-25 segundos</span>
-      </div>
-      <p><strong>Qué necesitas:</strong></p>
-      <ul class="necesitas">
-        <li>Celular (el micrófono integrado alcanza)</li>
-        <li>Un pedido real listo para armar, por ejemplo una Libreta Aves + un par de Calcetines Aves de Chile</li>
-        <li>Papel de seda, sticker o sello de marca, tarjeta para escribir a mano</li>
-        <li>Un lugar silencioso, sin música de fondo, para que se escuchen los sonidos</li>
-      </ul>
-      <div class="copyblock">
-        <button type="button" class="copyblock__btn" data-copy-target="copy-guion-1">Copiar</button>
-        <div class="copyblock__text" id="copy-guion-1">[ESCENA] Manos sobre la mesa armando un pedido real: sacar el producto de su lugar, envolverlo en papel de seda, poner el sticker de la marca, escribir una tarjeta a mano y cerrar la caja o el sobre con cinta.
+<h3>Pendientes que salieron</h3>
+<p>Marca cada tarea a medida que se completa.</p>
 
-[TEXTO EN PANTALLA]
-- Inicio: "Así se ve tu pedido antes de salir de nuestro taller"
-- Mitad: "Cada pedido lleva una tarjeta escrita a mano"
-- Final: "Listo para viajar 📦"
+<div class="progress">
+  <div class="progress__track">
+    <div class="progress__fill" data-progress-fill-bit></div>
+  </div>
+  <span class="progress__label" data-progress-label-bit>0 de 0 pendientes (0%)</span>
+</div>
 
-[VOZ o AUDIO] Sin narración: solo el sonido real del papel, la cinta y el sello (ASMR). Música de fondo apagada para que se escuche bien.
+<h4 class="owner-label">Felipe</h4>
+<ul class="checklist">
+<li><label><input type="checkbox" data-bitacora="2026-07-27-felipe-cerrar-acuerdo-salida"><span>Cerrar el acuerdo de salida con la persona que lleva hoy las cuentas de marketing <span class="pill pill--warn">🟡 1h</span></span></label></li>
+<li><label><input type="checkbox" data-bitacora="2026-07-27-felipe-definir-porcentaje-con-cote"><span>Definir con Cote el porcentaje del acuerdo comercial <span class="pill pill--warn">🟡 45 min</span></span></label></li>
+<li><label><input type="checkbox" data-bitacora="2026-07-27-felipe-pasar-hoja-stock"><span>Pasar la hoja de stock de los 4 lugares: Partner, bodega propia, consignación B2B y Mercado Libre <span class="pill pill--warn">🟡 30 min</span></span></label></li>
+<li><label><input type="checkbox" data-bitacora="2026-07-27-felipe-estructura-costos-mes-tipo"><span>Armar la estructura de costos de un mes tipo <span class="pill pill--warn">🟡 1,5h</span></span></label></li>
+<li><label><input type="checkbox" data-bitacora="2026-07-27-felipe-decidir-pedido-china"><span>Decidir cuánto pedir a China para el pedido nuevo <span class="pill pill--warn">🟡 1h, en la próxima reunión</span></span></label></li>
+<li><label><input type="checkbox" data-bitacora="2026-07-27-felipe-entregar-accesos"><span>Entregar los accesos a Shopify, Klaviyo, Meta, Google Ads y Judge.me <span class="pill pill--warn">🟡 30 min</span></span></label></li>
+</ul>
 
-[CTA]
-Hablado (si se agrega una frase al final): "Así armamos cada pedido. El tuyo puede salir esta semana."
-En texto: "Compra en el link de la bio 🛍️"</div>
-      </div>
-      <p><strong>Caption sugerido:</strong></p>
-      <div class="copyblock">
-        <button type="button" class="copyblock__btn" data-copy-target="copy-guion-1-caption">Copiar</button>
-        <div class="copyblock__text" id="copy-guion-1-caption">Empaque artesanal hecho en Chile 📦
-Así armamos cada pedido en nuestro taller: papel de seda, sello y una tarjeta escrita a mano.
-¿Ya pediste el tuyo? Compra en el link de la bio 🦋
+<h4 class="owner-label">Cote</h4>
+<ul class="checklist">
+<li><label><input type="checkbox" data-bitacora="2026-07-27-cote-escribir-anecdotas"><span>Escribir 10 anécdotas para las campañas de correo <span class="pill pill--warn">🟡 2h</span></span></label></li>
+<li><label><input type="checkbox" data-bitacora="2026-07-27-cote-definir-porcentaje-con-felipe"><span>Definir con Felipe el porcentaje del acuerdo comercial <span class="pill pill--warn">🟡 45 min</span></span></label></li>
+<li><label><input type="checkbox" data-bitacora="2026-07-27-cote-elegir-regalo-preventa"><span>Elegir el producto de regalo para la próxima preventa <span class="pill pill--warn">🟡 30 min</span></span></label></li>
+<li><label><input type="checkbox" data-bitacora="2026-07-27-cote-entregar-accesos"><span>Entregar los accesos que están a su nombre <span class="pill pill--warn">🟡 15 min</span></span></label></li>
+<li><label><input type="checkbox" data-bitacora="2026-07-27-cote-avanzar-propuesta-hotel"><span>Avanzar la propuesta B2B para el hotel <span class="pill pill--info">su prioridad</span></span></label></li>
+</ul>
 
-#ilustraciónchilena #hechoenchile #regalosconsentido</div>
-      </div>
-    </div>
+<h4 class="owner-label">Mateo</h4>
+<p style="font-size:var(--fs-sm);color:var(--ink-soft)">Los primeros 6 ya están hechos — quedan marcados desde el principio, pero se pueden desmarcar si algo cambia.</p>
+<ul class="checklist">
+<li><label><input type="checkbox" data-bitacora="2026-07-27-mateo-plan-90-dias" data-bitacora-default="1"><span>Armar el plan de 90 días (<a href="plan-90-dias.html">plan-90-dias.html</a>) <span class="pill pill--success">✅ hecho</span></span></label></li>
+<li><label><input type="checkbox" data-bitacora="2026-07-27-mateo-stock-navidad" data-bitacora-default="1"><span>Armar el plan de stock para Navidad (<a href="stock-navidad.html">stock-navidad.html</a>) <span class="pill pill--success">✅ hecho</span></span></label></li>
+<li><label><input type="checkbox" data-bitacora="2026-07-27-mateo-ofertas-popups" data-bitacora-default="1"><span>Armar el sistema de ofertas y pop-ups (<a href="ofertas.html">ofertas.html</a>) <span class="pill pill--success">✅ hecho</span></span></label></li>
+<li><label><input type="checkbox" data-bitacora="2026-07-27-mateo-plan-correo" data-bitacora-default="1"><span>Armar el plan de correo y campañas (<a href="email.html">email.html</a>) <span class="pill pill--success">✅ hecho</span></span></label></li>
+<li><label><input type="checkbox" data-bitacora="2026-07-27-mateo-auditoria-ads" data-bitacora-default="1"><span>Armar la auditoría y plan de Google y Meta Ads (<a href="ads.html">ads.html</a>) <span class="pill pill--success">✅ hecho</span></span></label></li>
+<li><label><input type="checkbox" data-bitacora="2026-07-27-mateo-productos-digitales" data-bitacora-default="1"><span>Armar el plan de productos digitales (<a href="digitales.html">digitales.html</a>) <span class="pill pill--success">✅ hecho</span></span></label></li>
+<li><label><input type="checkbox" data-bitacora="2026-07-27-mateo-instalar-popups"><span>Instalar el sistema de pop-ups apenas haya accesos <span class="pill pill--warn">🟡 2h</span></span></label></li>
+<li><label><input type="checkbox" data-bitacora="2026-07-27-mateo-arreglar-widget-resenas"><span>Arreglar el widget de reseñas de Judge.me <span class="pill pill--warn">🟡 1h</span></span></label></li>
+<li><label><input type="checkbox" data-bitacora="2026-07-27-mateo-recorrido-compra"><span>Hacer un recorrido completo de la tienda simulando una compra <span class="pill pill--warn">🟡 4h</span></span></label></li>
+</ul>
 
-    <!-- Guion 2 -->
-    <div class="card">
-      <h3>2. Time-lapse de una ilustración con dato curioso</h3>
-      <div class="guion-meta">
-        <span class="pill pill--success">Flora y Fauna de Chile</span>
-        <span class="guion-meta__dur">⏱️ 18-20 segundos</span>
-      </div>
-      <p><strong>Qué necesitas:</strong></p>
-      <ul class="necesitas">
-        <li>Celular en un soporte fijo (trípode o algo que no se mueva)</li>
-        <li>La ilustración en proceso: papel y acuarela, o tablet</li>
-        <li>Luz de ventana</li>
-        <li>Editor de video del celular, para acelerar el clip (time-lapse)</li>
-      </ul>
-      <div class="copyblock">
-        <button type="button" class="copyblock__btn" data-copy-target="copy-guion-2">Copiar</button>
-        <div class="copyblock__text" id="copy-guion-2">[ESCENA] Time-lapse acelerado desde la hoja en blanco hasta la ilustración terminada de un copihue.
+<h3>Entregables que se produjeron</h3>
+<div class="grid-2">
+<div class="card deliverable-card">
+<h4>plan-90-dias.html</h4>
+<p>El plan completo de agosto a octubre: roles, 4 objetivos con su métrica y una checklist semana a semana.</p>
+<a class="btn btn--ghost" href="plan-90-dias.html">Abrir →</a>
+</div>
+<div class="card deliverable-card">
+<h4>stock-navidad.html</h4>
+<p>Cuánto pedir a China, cómo pagarlo y qué hacer mientras no llega el contenedor de puzzles.</p>
+<a class="btn btn--ghost" href="stock-navidad.html">Abrir →</a>
+</div>
+<div class="card deliverable-card">
+<h4>ofertas.html</h4>
+<p>El sistema para subir el ticket promedio: pop-ups segmentados, packs y envío gratis, listo para instalar en 48 horas.</p>
+<a class="btn btn--ghost" href="ofertas.html">Abrir →</a>
+</div>
+<div class="card deliverable-card">
+<h4>email.html</h4>
+<p>Cuánto aporta hoy el correo a la venta y las primeras campañas listas para copiar y enviar.</p>
+<a class="btn btn--ghost" href="email.html">Abrir →</a>
+</div>
+<div class="card deliverable-card">
+<h4>ads.html</h4>
+<p>El plan de auditoría para Google Ads y Meta Ads, listo para ejecutar apenas lleguen los accesos.</p>
+<a class="btn btn--ghost" href="ads.html">Abrir →</a>
+</div>
+<div class="card deliverable-card">
+<h4>digitales.html</h4>
+<p>Productos sin stock ni envío, con margen alto, para subir el ticket promedio.</p>
+<a class="btn btn--ghost" href="digitales.html">Abrir →</a>
+</div>
+<div class="card deliverable-card">
+<h4>cro.html <span class="pill pill--info">actualizado</span></h4>
+<p>La revisión de las 6 etapas de la tienda, ahora con los hallazgos de la reunión del 27 de julio.</p>
+<a class="btn btn--ghost" href="cro.html">Abrir →</a>
+</div>
+</div>
+</section>
 
-[TEXTO EN PANTALLA]
-- Inicio: "De la hoja en blanco a Chile en acuarela 🎨"
-- Mitad: "El copihue es la flor nacional de Chile y solo crece en los bosques del sur"
-- Final: "Cada ilustración, una especie real de nuestra flora"
+<section class="sec">
+<h2>Cómo agregar la próxima reunión</h2>
+<p>Después de cada reunión, se agrega un registro nuevo acá abajo, siguiendo siempre la misma estructura. Así se sigue viendo de un vistazo todo el historial del proyecto.</p>
 
-[VOZ o AUDIO] Música suave de fondo. Sin narración obligatoria; si se agrega voz, leer el dato curioso en tono cercano.
+<ol>
+<li>Copia el bloque completo del recuadro de abajo con el botón "Copiar".</li>
+<li>Pégalo dentro de <code>&lt;main class="wrap"&gt;</code>, justo después del último registro de reunión que ya existe (antes del pie de página).</li>
+<li>Reemplaza cada parte marcada entre corchetes <code>[ ]</code> con la información real: fecha, participantes, duración, números, decisiones, pendientes y entregables.</li>
+<li>Cambia cada <code>data-bitacora</code> por un identificador nuevo. Usa la fecha de la reunión como prefijo, por ejemplo <code>2026-08-05-felipe-revisar-margenes</code>, para que nunca choque con uno de una reunión anterior.</li>
+<li>Si esa reunión ya estaba en la línea de tiempo como "agendada", edita esa tarjeta en la sección 2 y cámbiala a "realizada". Agrega ahí también la fecha de la reunión siguiente, si ya se agendó.</li>
+<li>Guarda el archivo. Los 3 números de arriba (reuniones, pendientes abiertos y cerrados) y la barra de avance del nuevo registro se calculan solos — no hay que tocar el código.</li>
+</ol>
 
-[CTA]
-Hablado (opcional): "Esta ilustración también está disponible como lámina."
-En texto: "Descúbrela en el link de la bio 🌿"</div>
-      </div>
-      <p><strong>Caption sugerido:</strong></p>
-      <div class="copyblock">
-        <button type="button" class="copyblock__btn" data-copy-target="copy-guion-2-caption">Copiar</button>
-        <div class="copyblock__text" id="copy-guion-2-caption">Ilustración de flora chilena en acuarela 🎨
-De la hoja en blanco al copihue, la flor nacional de Chile. Ya está disponible como lámina.
-Descúbrela en el link de la bio 🌿
+<div class="callout callout--danger">
+<p><strong>Ojo con los identificadores repetidos.</strong> Cada casillero nuevo necesita un <code>data-bitacora</code> distinto a todos los que ya existen en la página. Si por error se repite un identificador que ya se usó en otra reunión, las dos tareas quedan compartiendo el mismo casillero: marcar una marca la otra, y el historial de la reunión anterior queda alterado sin darse cuenta. Antes de guardar, revisa que ningún <code>data-bitacora</code> se repita en todo el archivo.</p>
+</div>
 
-#floradechile #copihue #arteoriginal</div>
-      </div>
-    </div>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-bloque-reunion">Copiar</button>
+<div class="copyblock__text" id="copy-bloque-reunion">&lt;section class="sec" data-reunion-record&gt;
+&lt;h2&gt;Reunión del [DD] de [mes] de [AAAA]&lt;/h2&gt;
 
-    <!-- Guion 3 -->
-    <div class="card">
-      <h3>3. "¿Sabías que esta ave vive solo en Chile?"</h3>
-      <div class="guion-meta">
-        <span class="pill pill--success">Flora y Fauna de Chile</span>
-        <span class="guion-meta__dur">⏱️ 20-25 segundos</span>
-      </div>
-      <p><strong>Qué necesitas:</strong></p>
-      <ul class="necesitas">
-        <li>La lámina "35 Aves de Chile" impresa, o la ilustración en pantalla</li>
-        <li>Celular</li>
-        <li>Luz natural, sin sombras duras sobre la lámina</li>
-        <li>Tu voz grabada aparte (o subtítulos, si prefieres no hablar)</li>
-      </ul>
-      <div class="copyblock">
-        <button type="button" class="copyblock__btn" data-copy-target="copy-guion-3">Copiar</button>
-        <div class="copyblock__text" id="copy-guion-3">[ESCENA] Primer plano de la lámina "35 Aves de Chile", la cámara se acerca lento hasta la ilustración del Picaflor de Arica.
+&lt;!-- FICHA: reemplaza fecha, participantes, duración y el resumen de una frase --&gt;
+&lt;div class="card"&gt;
+&lt;dl class="ficha-grid"&gt;
+&lt;div&gt;&lt;dt&gt;Fecha&lt;/dt&gt;&lt;dd&gt;[día] [DD] de [mes] de [AAAA]&lt;/dd&gt;&lt;/div&gt;
+&lt;div&gt;&lt;dt&gt;Participantes&lt;/dt&gt;&lt;dd&gt;[Nombre 1, Nombre 2…]&lt;/dd&gt;&lt;/div&gt;
+&lt;div&gt;&lt;dt&gt;Duración&lt;/dt&gt;&lt;dd&gt;[~XX minutos]&lt;/dd&gt;&lt;/div&gt;
+&lt;div&gt;&lt;dt&gt;De qué se trató&lt;/dt&gt;&lt;dd&gt;[una frase con el tema central de la reunión]&lt;/dd&gt;&lt;/div&gt;
+&lt;/dl&gt;
+&lt;/div&gt;
 
-[TEXTO EN PANTALLA]
-- Inicio: "¿Sabías que esta ave vive solo en Chile?"
-- Mitad: "El Picaflor de Arica solo vive en los valles del extremo norte"
-- Final: "Está en peligro crítico de extinción"
+&lt;h3&gt;Los números que se vieron en pantalla&lt;/h3&gt;
+&lt;!-- Agrega o quita tarjetas .kpi según los datos de esta reunión. Usa 🟢 si es un dato real y 🟡 si es una estimación --&gt;
+&lt;div class="kpi-grid"&gt;
+&lt;div class="kpi"&gt;
+&lt;span class="kpi__label"&gt;[Nombre del dato] &lt;span class="pill pill--success"&gt;🟢&lt;/span&gt;&lt;/span&gt;
+&lt;span class="kpi__value"&gt;[Valor]&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 
-[VOZ o AUDIO] Voz de María José narrando el dato, tono cercano y pausado (no apurado).
+&lt;h3&gt;Decisiones que se tomaron&lt;/h3&gt;
+&lt;!-- Un &lt;li&gt; por cada decisión confirmada --&gt;
+&lt;ul class="decision-list"&gt;
+&lt;li&gt;[Decisión confirmada, en una frase]&lt;/li&gt;
+&lt;/ul&gt;
 
-[CTA]
-Hablado: "Cada lámina que compras ayuda a que más gente conozca y cuide esta especie."
-En texto: "Conócela en el link de la bio 🦋"</div>
-      </div>
-      <p><strong>Caption sugerido:</strong></p>
-      <div class="copyblock">
-        <button type="button" class="copyblock__btn" data-copy-target="copy-guion-3-caption">Copiar</button>
-        <div class="copyblock__text" id="copy-guion-3-caption">Aves de Chile: el Picaflor de Arica 🐦
-Vive solo en los valles del extremo norte de Chile y está en peligro crítico de extinción. Está en nuestra lámina de 35 aves de Chile.
-Conócela en el link de la bio 🦋
+&lt;h3&gt;Pendientes que salieron&lt;/h3&gt;
+&lt;!-- IMPORTANTE: cada data-bitacora debe ser único en toda la página. Usa la fecha como prefijo, ej. 2026-08-05-felipe-revisar-margenes --&gt;
+&lt;div class="progress"&gt;
+&lt;div class="progress__track"&gt;&lt;div class="progress__fill" data-progress-fill-bit&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;span class="progress__label" data-progress-label-bit&gt;0 de 0 pendientes (0%)&lt;/span&gt;
+&lt;/div&gt;
 
-#avesdechile #conservación #picaflordearica</div>
-      </div>
-    </div>
+&lt;h4 class="owner-label"&gt;[Responsable 1]&lt;/h4&gt;
+&lt;ul class="checklist"&gt;
+&lt;li&gt;&lt;label&gt;&lt;input type="checkbox" data-bitacora="[AAAA-MM-DD-responsable-tarea]"&gt;&lt;span&gt;[Descripción de la tarea] &lt;span class="pill pill--warn"&gt;🟡 [tiempo estimado]&lt;/span&gt;&lt;/span&gt;&lt;/label&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-    <!-- Guion 4 -->
-    <div class="card">
-      <h3>4. Antes/después: boceto → producto</h3>
-      <div class="guion-meta">
-        <span class="pill pill--info">Proceso y Detrás de Escena</span>
-        <span class="guion-meta__dur">⏱️ 15 segundos</span>
-      </div>
-      <p><strong>Qué necesitas:</strong></p>
-      <ul class="necesitas">
-        <li>Foto o video del boceto original a lápiz o acuarela</li>
-        <li>La lámina terminada (por ejemplo, Lámina Sietecolores) en mano</li>
-        <li>Buena luz</li>
-        <li>Editor simple para hacer el corte o deslizar entre las dos imágenes</li>
-      </ul>
-      <div class="copyblock">
-        <button type="button" class="copyblock__btn" data-copy-target="copy-guion-4">Copiar</button>
-        <div class="copyblock__text" id="copy-guion-4">[ESCENA] Corte directo entre dos planos: (1) el boceto a lápiz o acuarela sobre la mesa, (2) el mismo diseño ya impreso en la Lámina Sietecolores, sostenida en la mano.
+&lt;h4 class="owner-label"&gt;[Responsable 2]&lt;/h4&gt;
+&lt;ul class="checklist"&gt;
+&lt;li&gt;&lt;label&gt;&lt;input type="checkbox" data-bitacora="[AAAA-MM-DD-responsable-tarea]"&gt;&lt;span&gt;[Descripción de la tarea] &lt;span class="pill pill--warn"&gt;🟡 [tiempo estimado]&lt;/span&gt;&lt;/span&gt;&lt;/label&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-[TEXTO EN PANTALLA]
-- Sobre la primera imagen: "Boceto"
-- Sobre la segunda imagen: "Producto terminado"
-- Final: "Del papel a tus manos"
+&lt;h3&gt;Entregables que se produjeron&lt;/h3&gt;
+&lt;!-- Una tarjeta por cada página o documento nuevo. Si no hubo ninguno, borra este bloque completo --&gt;
+&lt;div class="grid-2"&gt;
+&lt;div class="card deliverable-card"&gt;
+&lt;h4&gt;[nombre-del-archivo.html]&lt;/h4&gt;
+&lt;p&gt;[Qué resuelve esta página, en una frase]&lt;/p&gt;
+&lt;a class="btn btn--ghost" href="[nombre-del-archivo.html]"&gt;Abrir →&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;</div>
+</div>
+</section>
 
-[VOZ o AUDIO] Sonido de transición (swoosh) + música suave. Sin narración obligatoria.
-
-[CTA]
-Hablado (opcional): "Así nace cada diseño de Pedraza Ilustración."
-En texto: "Míralo completo en el link de la bio ✏️"</div>
-      </div>
-      <p><strong>Caption sugerido:</strong></p>
-      <div class="copyblock">
-        <button type="button" class="copyblock__btn" data-copy-target="copy-guion-4-caption">Copiar</button>
-        <div class="copyblock__text" id="copy-guion-4-caption">Del boceto a la lámina terminada ✏️
-Así nace cada diseño de Pedraza Ilustración: del papel a tus manos.
-Míralo completo en el link de la bio.
-
-#procesocreativo #ilustraciónchilena #arteoriginal</div>
-      </div>
-    </div>
-
-    <!-- Guion 5 -->
-    <div class="card">
-      <h3>5. La historia de los hermanos en 30 segundos</h3>
-      <div class="guion-meta">
-        <span class="pill pill--warn">Los Hermanos y la Misión</span>
-        <span class="guion-meta__dur">⏱️ 30 segundos</span>
-      </div>
-      <p><strong>Qué necesitas:</strong></p>
-      <ul class="necesitas">
-        <li>Celular</li>
-        <li>María José y/o Felipe frente a cámara, en el taller</li>
-        <li>Luz de ventana</li>
-        <li>Productos o ilustraciones de fondo, para dar contexto visual</li>
-      </ul>
-      <div class="copyblock">
-        <button type="button" class="copyblock__btn" data-copy-target="copy-guion-5">Copiar</button>
-        <div class="copyblock__text" id="copy-guion-5">[ESCENA] María José habla directo a cámara en el taller, rodeada de ilustraciones y productos terminados.
-
-[TEXTO EN PANTALLA]
-- Inicio: "Somos 2 hermanos chilenos"
-- Mitad: "Ella ilustra, él arma el negocio"
-- Final: "Juntos, Pedraza Ilustración"
-
-[VOZ o AUDIO] María José (a cámara): "Somos María José y Felipe, hermanos. Yo ilustro la flora y fauna de Chile, y mi hermano se encarga de que cada pieza llegue a las manos correctas. Todo esto nació de las ganas de que más gente conozca y cuide lo que tenemos acá."
-
-[CTA]
-Hablado: "Conoce nuestra historia completa en el perfil."
-En texto: "Más sobre nosotros en el link de la bio 🦋"</div>
-      </div>
-      <p><strong>Caption sugerido:</strong></p>
-      <div class="copyblock">
-        <button type="button" class="copyblock__btn" data-copy-target="copy-guion-5-caption">Copiar</button>
-        <div class="copyblock__text" id="copy-guion-5-caption">Somos 2 hermanos chilenos, María José y Felipe 🦋
-Ella ilustra la flora y fauna de Chile, él hace que cada pieza llegue a tus manos.
-Conoce nuestra historia completa en el link de la bio.
-
-#pedrazailustracion #hechoenchile #historiadefamilia</div>
-      </div>
-    </div>
-
-    <!-- Guion 6 -->
-    <div class="card">
-      <h3>6. Armado del puzzle con la guía de especies</h3>
-      <div class="guion-meta">
-        <span class="pill">Producto y Colecciones</span>
-        <span class="guion-meta__dur">⏱️ 30-35 segundos</span>
-      </div>
-      <p><strong>Qué necesitas:</strong></p>
-      <ul class="necesitas">
-        <li>Puzzle Aves y Flores de Chile (1000 piezas)</li>
-        <li>Mesa con buena luz, celular fijo apuntando hacia abajo (o en trípode)</li>
-        <li>La guía de especies que viene incluida en la caja</li>
-        <li>Editor de video para acelerar el armado (time-lapse)</li>
-      </ul>
-      <div class="copyblock">
-        <button type="button" class="copyblock__btn" data-copy-target="copy-guion-6">Copiar</button>
-        <div class="copyblock__text" id="copy-guion-6">[ESCENA] Time-lapse acelerado armando el Puzzle Aves y Flores de Chile de 1000 piezas, con un corte a mitad de video mostrando la guía de especies (nombre común y científico).
-
-[TEXTO EN PANTALLA]
-- Inicio: "1000 piezas, un mapa de nuestra fauna"
-- Mitad: "Cada puzzle trae una guía con el nombre de cada especie"
-- Final: imagen del puzzle terminado + "Arma, aprende, decora"
-
-[VOZ o AUDIO] Música animada de fondo. Sin narración obligatoria.
-
-[CTA]
-Hablado (opcional): "Arma, aprende y decora con este puzzle."
-En texto: "Cómpralo en el link de la bio 🧩"</div>
-      </div>
-      <p><strong>Caption sugerido:</strong></p>
-      <div class="copyblock">
-        <button type="button" class="copyblock__btn" data-copy-target="copy-guion-6-caption">Copiar</button>
-        <div class="copyblock__text" id="copy-guion-6-caption">Puzzle de Aves y Flores de Chile, 1000 piezas 🧩
-Arma, aprende y decora: cada puzzle trae una guía con el nombre de cada especie.
-Cómpralo en el link de la bio.
-
-#puzzlechile #avesdechile #regaloeducativo</div>
-      </div>
-    </div>
-
-    <!-- Guion 7 -->
-    <div class="card">
-      <h3>7. "3 regalos con historia para el Día del Niño"</h3>
-      <div class="guion-meta">
-        <span class="pill">Producto y Colecciones</span>
-        <span class="guion-meta__dur">⏱️ 30-35 segundos</span>
-      </div>
-      <p><strong>Qué necesitas:</strong></p>
-      <ul class="necesitas">
-        <li>Puzzle Aves y Flores de Chile, Calcetines Aves de Chile y Libreta Aves (o los 3 productos que elijas)</li>
-        <li>Fondo neutro o mesa de madera</li>
-        <li>Buena luz</li>
-        <li>5-10 minutos para grabar los 3 cortes seguidos</li>
-      </ul>
-      <div class="copyblock">
-        <button type="button" class="copyblock__btn" data-copy-target="copy-guion-7">Copiar</button>
-        <div class="copyblock__text" id="copy-guion-7">[ESCENA] 3 cortes rápidos, uno por producto, cada uno con una acción simple: armar una pieza del puzzle, poner los calcetines, abrir la libreta en una página.
-
-[TEXTO EN PANTALLA]
-- Inicio: "3 regalos con historia para el Día del Niño 🧒"
-- Sobre cada producto: "1. Puzzle Aves y Flores de Chile" / "2. Calcetines Aves de Chile" / "3. Libreta Aves"
-- Final: "9 de agosto"
-
-[VOZ o AUDIO] Voz en off (Felipe o María José): "Para el Día del Niño, un regalo distinto: que además de entretener, enseñe algo sobre Chile."
-
-[CTA]
-Hablado: "Los tres están disponibles en la tienda."
-En texto: "Regala con historia — link en la bio 🎁"</div>
-      </div>
-      <p><strong>Caption sugerido:</strong></p>
-      <div class="copyblock">
-        <button type="button" class="copyblock__btn" data-copy-target="copy-guion-7-caption">Copiar</button>
-        <div class="copyblock__text" id="copy-guion-7-caption">3 regalos con historia para el Día del Niño 🎁
-Puzzle Aves y Flores de Chile, Calcetines Aves de Chile y Libreta Aves — para regalar algo que también enseña.
-9 de agosto. Compra en el link de la bio.
-
-#díadelniño #regalosconsentido #hechoenchile</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec">
-    <h2>Banco de ganchos reutilizables</h2>
-    <p>25 ganchos de una línea, listos para usar como primera frase hablada o como primer texto en pantalla de cualquier Reel. Agrupados por tipo — cada grupo se copia entero, en un solo clic, para tenerlos a mano al planificar la semana.</p>
-
-    <h3>Proceso</h3>
-    <div class="copyblock">
-      <button type="button" class="copyblock__btn" data-copy-target="copy-ganchos-proceso">Copiar</button>
-      <div class="copyblock__text" id="copy-ganchos-proceso">Mira cómo una hoja en blanco se transforma en esto.
-Este dibujo tardó horas. Te lo muestro en 20 segundos.
-Así se ve el estudio de una ilustradora chilena un martes cualquiera.
-De la acuarela al papel: así nace cada lámina.
-Nadie te muestra esto: el antes de cada ilustración terminada.</div>
-    </div>
-
-    <h3>Empaque</h3>
-    <div class="copyblock">
-      <button type="button" class="copyblock__btn" data-copy-target="copy-ganchos-empaque">Copiar</button>
-      <div class="copyblock__text" id="copy-ganchos-empaque">Así suena tu pedido antes de llegar a tu casa.
-Empacando un pedido real, sin cortes.
-Esto es lo primero que ves al abrir tu caja.
-Cada pedido lleva algo escrito a mano. Mira qué.
-El sonido más satisfactorio de esta semana: papel de seda.</div>
-    </div>
-
-    <h3>Flora y fauna con dato curioso</h3>
-    <div class="copyblock">
-      <button type="button" class="copyblock__btn" data-copy-target="copy-ganchos-flora-fauna">Copiar</button>
-      <div class="copyblock__text" id="copy-ganchos-flora-fauna">¿Sabías que esta ave vive solo en Chile?
-Hay un pajarito que casi nadie ha visto en persona. Nosotros lo ilustramos.
-El copihue es la flor nacional de Chile. ¿Sabes por qué es roja?
-Esta especie está en peligro. Así la estamos dando a conocer.
-Chile tiene animales que no existen en ningún otro país. Uno está en esta lámina.</div>
-    </div>
-
-    <h3>Antes/después</h3>
-    <div class="copyblock">
-      <button type="button" class="copyblock__btn" data-copy-target="copy-ganchos-antes-despues">Copiar</button>
-      <div class="copyblock__text" id="copy-ganchos-antes-despues">Boceto vs. producto terminado. Adivina cuál prefieres.
-De esto... a esto. En segundos.
-Así se ve una idea antes de convertirse en un plato.
-El antes y el después que más nos enorgullece mostrar.
-Del papel a tus manos: mira el proceso completo.</div>
-    </div>
-
-    <h3>Producto / regalo</h3>
-    <div class="copyblock">
-      <button type="button" class="copyblock__btn" data-copy-target="copy-ganchos-producto-regalo">Copiar</button>
-      <div class="copyblock__text" id="copy-ganchos-producto-regalo">El regalo que nadie más le va a dar.
-3 ideas de regalo que no son ni perfume ni chocolate.
-Esto es lo que compras cuando regalas con historia.
-Un regalo chileno, con nombre científico incluido.
-Esto no es solo un puzzle: es una guía de especies chilenas.</div>
-    </div>
-  </section>
-
-  <section class="sec">
-    <h2>El Reel firma</h2>
-    <p>Este es el Reel evergreen de la marca: el que se puede volver a grabar cada 2-3 meses (con otra especie, otro producto, otra clienta) y siempre va a funcionar, porque muestra en 35 segundos todo lo que hace distinta a Pedraza Ilustración.</p>
-
-    <div class="card">
-      <h3>Papel en blanco → ilustración → producto en las manos de un cliente</h3>
-      <div class="guion-meta">
-        <span class="pill pill--warn">Los Hermanos y la Misión</span>
-        <span class="guion-meta__dur">⏱️ 35-40 segundos</span>
-      </div>
-      <p><strong>Qué necesitas:</strong></p>
-      <ul class="necesitas">
-        <li>Celular en soporte fijo</li>
-        <li>Hoja en blanco + pincel o acuarela (o tablet)</li>
-        <li>Un producto terminado: lámina, plato o calcetín</li>
-        <li>Una clienta real recibiendo o usando el producto (si no hay clienta disponible ese día, puede ser la propia María José o Felipe)</li>
-        <li>Voz de María José narrando</li>
-      </ul>
-      <div class="copyblock">
-        <button type="button" class="copyblock__btn" data-copy-target="copy-reel-firma">Copiar</button>
-        <div class="copyblock__text" id="copy-reel-firma">[ESCENA] Tres actos en un solo Reel: (1) una hoja en blanco, el pincel entra en cuadro; (2) time-lapse de la ilustración tomando forma; (3) corte al producto terminado en las manos de una clienta real, sonriendo al recibirlo.
-
-[TEXTO EN PANTALLA]
-- Acto 1: "Todo parte de una hoja en blanco"
-- Acto 2: "...y de dos hermanos que quieren que conozcas Chile"
-- Acto 3: "...hasta llegar a tus manos"
-
-[VOZ o AUDIO] María José (voz en off): "Todo lo que ves nació de una hoja en blanco. Yo dibujo la flora y fauna de Chile, mi hermano Felipe hace que llegue hasta ti. Cada pieza tiene una historia real detrás — y un dato que capaz no sabías sobre nuestra naturaleza."
-
-[CTA]
-Hablado: "Esto es Pedraza Ilustración."
-En texto: "Descubre más en el link de la bio 🦋"</div>
-      </div>
-      <p><strong>Caption sugerido:</strong></p>
-      <div class="copyblock">
-        <button type="button" class="copyblock__btn" data-copy-target="copy-reel-firma-caption">Copiar</button>
-        <div class="copyblock__text" id="copy-reel-firma-caption">De la hoja en blanco a tus manos 🦋
-Así nace cada pieza de Pedraza Ilustración: dos hermanos chilenos, una especie real, un producto con historia.
-Conócenos en el link de la bio.
-
-#pedrazailustracion #ilustraciónchilena #hechoenchile</div>
-      </div>
-    </div>
-
-    <div class="callout callout--success">
-      <p><strong>Por qué es el Reel firma:</strong> combina, en un solo video, los 3 diferenciales de la promesa de marca: arte propio (se ve el dibujo naciendo, no es contenido de terceros), educación sobre flora y fauna de Chile (el dato real detrás de la especie), y hecho por dos hermanos chilenos (la voz y la historia detrás del producto). Ningún otro Reel del pack junta los 3 a la vez — por eso conviene repetirlo cada 2-3 meses en vez de dejarlo publicado una sola vez.</p>
-    </div>
-  </section>
-
-  <section class="sec">
-    <h2>Trial Reels: cómo probar sin miedo</h2>
-    <p><strong>Qué son:</strong> un Trial Reel es un Reel que Instagram muestra primero solo a gente que todavía no sigue la cuenta. Si a esa gente le gusta — lo mira completo, lo comenta, lo comparte — recién ahí Instagram se lo empieza a mostrar también a los propios seguidores y lo deja en la grilla del perfil. Si no funciona, se queda solo entre desconocidos y no "gasta" el espacio del feed frente a quienes ya siguen la cuenta.</p>
-
-    <p><strong>Cuándo usarlos:</strong> son el lugar ideal para probar un gancho nuevo del banco de la sección 3, un chiste sobre fauna chilena, un formato que nunca se ha grabado, o cualquier idea de la que no se está 100% seguro. Nada de esto arriesga la imagen que ya tienen los seguidores actuales de la marca.</p>
-
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-item__date">Día 1</div>
-        <div class="timeline-item__title">Grabar y publicar como Trial Reel</div>
-        <p>Elegir 1 sola variable para probar: un gancho nuevo, un tono distinto, un formato experimental. Publicar marcando la opción "Trial Reel" al subir.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-item__date">+24 horas</div>
-        <div class="timeline-item__title">Revisar las primeras señales</div>
-        <p>Mirar alcance a no-seguidores, si lo ven completo, comentarios y compartidos. Todavía no hay que decidir nada, solo observar.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-item__date">+72 horas</div>
-        <div class="timeline-item__title">Instagram decide si pasa a los seguidores</div>
-        <p>Si respondió bien, Instagram lo comparte automáticamente con los seguidores y lo fija en la grilla del perfil. Si no, se queda solo como prueba.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-item__date">Semana siguiente</div>
-        <div class="timeline-item__title">Repetir o descartar el formato</div>
-        <p>Si funcionó, se anota en la bitácora de pruebas y se repite con variaciones. Si no, se descarta esa variable puntual y se prueba otra la semana que viene.</p>
-      </div>
-    </div>
-
-    <div class="callout callout--info">
-      <p><strong>Mini-rutina semanal:</strong> según el calendario de la sección 6 de la estrategia, el sábado es el día natural para un Trial Reel (Reel o Trial Reel, pilar Producto y Colecciones), pero se puede usar en cualquier día en que haya un formato nuevo por probar. La idea es simple: 1 Trial Reel por semana, 1 variable a la vez, y una decisión clara a los 3 días — sigue o se descarta.</p>
-    </div>
-  </section>
-
-  <section class="sec">
-    <h2>Checklist antes de publicar cada Reel</h2>
-    <p>Revisión rápida de consulta, no una lista para marcar: repasar estos 6 puntos antes de tocar "Publicar".</p>
-
-    <div class="callout callout--success">
-      <p><strong>¿Pasa el filtro 5-50?</strong> Un niño de 5 años podría decir de qué trata, y al menos 50 de 100 personas al azar entenderían el gancho sin tener que pensarlo dos veces. Si no pasa esta prueba, se reedita el gancho antes de publicar.</p>
-    </div>
-    <div class="callout callout--success">
-      <p><strong>Gancho en el primer segundo.</strong> Lo primero que se ve o se dice debe detener el scroll — nada de logos, intros ni cuentas regresivas antes del gancho.</p>
-    </div>
-    <div class="callout callout--success">
-      <p><strong>Texto en pantalla legible en el celular.</strong> Letra grande, alto contraste, sin quedar tapado por los íconos de Instagram (comentarios, corazón) en los bordes.</p>
-    </div>
-    <div class="callout callout--success">
-      <p><strong>CTA hablado Y en texto.</strong> La invitación final se dice en voz alta y además se repite escrita en pantalla — no se asume que todos ven el Reel con el audio activado.</p>
-    </div>
-    <div class="callout callout--success">
-      <p><strong>Caption con la palabra clave primero.</strong> La primera línea del caption lleva la palabra clave del contenido (la especie, el producto, "regalo hecho en Chile"), no un emoji suelto ni un saludo genérico.</p>
-    </div>
-    <div class="callout callout--success">
-      <p><strong>Responder comentarios en la primera hora.</strong> Instagram prueba el Reel con un grupo chico apenas se publica — responder rápido ayuda a que esa primera señal se vea fuerte.</p>
-    </div>
-  </section>
+<footer class="page-footer"><p>Fuente principal: acta de la reunión del 27 de julio de 2026 con Felipe Robinson y María José Pedraza (Cote). <a href="index.html">← Volver al plan</a></p></footer>
 
 </main>
+
+<script>
+  // Acceso seguro a localStorage (no revienta en navegación privada u otros bloqueos).
+  function pgGet(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+  function pgSet(key, valor) { try { localStorage.setItem(key, valor); } catch (e) { /* sin soporte, se ignora */ } }
+  function pgRemove(key) { try { localStorage.removeItem(key); } catch (e) { /* sin soporte, se ignora */ } }
+</script>
 
 <script>
   // Copiar al portapapeles — delegación de eventos, un solo listener por página.
@@ -1323,6 +1159,64 @@ Conócenos en el link de la bio.
       btn.textContent = original;
       btn.classList.remove('is-copied');
     }, 2000);
+  }
+</script>
+
+<script>
+  // Checklist de la bitácora — usa data-bitacora y localStorage con prefijo pedraza-plan:bit:<id>.
+  // A diferencia del resto del sitio, algunos pendientes (los ya completados por Mateo) empiezan
+  // marcados por defecto. Por eso cada cambio se guarda siempre como '1' o '0' explícito (nunca se
+  // borra la clave): así se distingue "nunca se ha tocado este casillero" (no hay nada guardado
+  // todavía → se usa el valor por defecto de data-bitacora-default) de "se desmarcó a propósito"
+  // (ya hay un '0' guardado, y ese '0' se respeta siempre, sin volver a marcarse solo).
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-bitacora]').forEach(function (cb) {
+      var guardado = pgGet('pedraza-plan:bit:' + cb.getAttribute('data-bitacora'));
+      if (guardado === null) {
+        cb.checked = cb.getAttribute('data-bitacora-default') === '1';
+      } else {
+        cb.checked = guardado === '1';
+      }
+    });
+    actualizarBitacora();
+  });
+
+  // Delegación: un solo listener de cambio para toda la bitácora.
+  document.addEventListener('change', function (e) {
+    var cb = e.target.closest('[data-bitacora]');
+    if (!cb) return;
+    pgSet('pedraza-plan:bit:' + cb.getAttribute('data-bitacora'), cb.checked ? '1' : '0');
+    actualizarBitacora();
+  });
+
+  function actualizarBitacora() {
+    var todas = document.querySelectorAll('[data-bitacora]');
+    var totalGlobal = todas.length;
+    var doneGlobal = 0;
+    todas.forEach(function (cb) { if (cb.checked) doneGlobal++; });
+
+    var elReuniones = document.getElementById('kpi-reuniones');
+    if (elReuniones) elReuniones.textContent = document.querySelectorAll('[data-reunion-record]').length;
+    var elAbiertos = document.getElementById('kpi-pendientes-abiertos');
+    if (elAbiertos) elAbiertos.textContent = totalGlobal - doneGlobal;
+    var elCerrados = document.getElementById('kpi-pendientes-cerrados');
+    if (elCerrados) elCerrados.textContent = doneGlobal;
+
+    // La barra de avance es propia de cada reunión: solo cuenta los pendientes de esa reunión,
+    // para que al agregar reuniones nuevas cada una muestre su propio avance, no el de todas juntas.
+    document.querySelectorAll('[data-reunion-record]').forEach(function (reunionEl) {
+      var cajas = reunionEl.querySelectorAll('[data-bitacora]');
+      var total = cajas.length;
+      var done = 0;
+      cajas.forEach(function (cb) { if (cb.checked) done++; });
+      var pct = total ? Math.round((done / total) * 100) : 0;
+      reunionEl.querySelectorAll('[data-progress-fill-bit]').forEach(function (fill) {
+        fill.style.width = pct + '%';
+      });
+      reunionEl.querySelectorAll('[data-progress-label-bit]').forEach(function (label) {
+        label.textContent = done + ' de ' + total + ' pendientes (' + pct + '%)';
+      });
+    });
   }
 </script>
 <script>
