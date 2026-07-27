@@ -1,0 +1,1007 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Ofertas y pop-ups — Plan Pedraza Ilustración</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
+<style>
+/* ==========================================================================
+   Sistema de diseño v2 — Plan Pedraza Ilustración
+   Estética limpia, curada y serena, tipo iOS. Mismo contrato de clases
+   que el sistema v1: solo cambia el aspecto (espacio, tipografía,
+   superficies, radios, sombras), nunca la estructura de marcado.
+   Bloque único y canónico. No editar por página: solo usar estas clases.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* --- tinta y superficies: fondo agrupado gris cálido, tarjetas blanco puro --- */
+  --ink: #1c2420;
+  --ink-soft: #4c5850;
+  --ink-faint: #7c887f;
+  --paper: #f4f2ed;
+  --surface: #ffffff;
+  --line: rgba(28, 36, 32, .08);
+  --line-strong: rgba(28, 36, 32, .16);
+
+  /* --- acento: rojo copihue (color de acción, se mantiene) --- */
+  --accent: #b0223f;
+  --accent-dark: #7c1830;
+  --accent-soft: #f8dfe4;
+
+  /* --- verde naturaleza del sitio web de la marca (identidad y estructura, se mantiene) --- */
+  --brand-green: #3b5751;
+  --brand-green-soft: #e3eae8;
+  --brand-green-dark: #2a403c;
+
+  /* --- apoyo semántico (valores de marca sin cambios) --- */
+  --success: #2f6b4a;
+  --success-soft: #dcece1;
+  --warn: #a8720a;
+  --warn-soft: #f8ecd2;
+  --danger: #ae3d17;
+  --danger-soft: #f7ddd0;
+  --info: var(--brand-green);
+  --info-soft: var(--brand-green-soft);
+
+  /* --- forma: radios generosos y consistentes --- */
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius: 20px;
+  --radius-lg: 28px;
+  --radius-full: 999px;
+
+  /* --- sombras suaves y en capas, nunca marcadas --- */
+  --shadow-xs: 0 1px 2px rgba(24, 32, 28, .04);
+  --shadow-sm: 0 1px 3px rgba(24, 32, 28, .05), 0 4px 10px rgba(24, 32, 28, .05);
+  --shadow: 0 6px 16px rgba(24, 32, 28, .07), 0 16px 32px -12px rgba(24, 32, 28, .14);
+
+  /* --- espaciado: escala amplia; los saltos grandes son fluidos (más aire en desktop, proporcional en móvil) --- */
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .875rem;
+  --space-4: 1.25rem;
+  --space-5: 1.75rem;
+  --space-6: clamp(2rem, 1.6rem + 1.6vw, 2.75rem);
+  --space-7: clamp(2.75rem, 2rem + 3vw, 4.5rem);
+  --space-8: clamp(3.5rem, 2.3rem + 5vw, 6rem);
+
+  /* --- tipografía: una sola voz, pila de sistema (ver sección 1 del documento) --- */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: var(--font-sans); /* alias de compatibilidad: el sistema v2 unifica todo en la pila sans, ver sección 1 */
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --fs-sm: clamp(.85rem, .81rem + .2vw, .92rem);
+  --fs-base: clamp(1rem, .95rem + .25vw, 1.0625rem);
+  --fs-lg: clamp(1.1rem, 1.02rem + .4vw, 1.25rem);
+  --fs-h3: clamp(1.2rem, 1.1rem + .5vw, 1.4rem);
+  --fs-h2: clamp(1.5rem, 1.3rem + 1vw, 1.9rem);
+  --fs-h1: clamp(2rem, 1.6rem + 2.4vw, 3rem);
+
+  /* --- área táctil mínima (regla mobile-first del proyecto) --- */
+  --tap: 44px;
+
+  /* --- movimiento discreto --- */
+  --ease: cubic-bezier(.4, 0, .2, 1);
+  --dur: 200ms;
+}
+
+/* ===== 1. Reset mínimo ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; }
+img, svg { max-width: 100%; display: block; }
+h1, h2, h3, h4, p, ul, ol, dl, figure { margin: 0 0 var(--space-4); }
+ul, ol { padding-left: 1.2em; }
+a { color: inherit; }
+button { font: inherit; }
+table { border-collapse: collapse; width: 100%; }
+
+/* ===== 2. Tipografía base ===== */
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+h1, h2, h3 { font-family: var(--font-sans); font-weight: 700; line-height: 1.15; letter-spacing: -.02em; color: var(--ink); }
+h1 { font-size: var(--fs-h1); font-weight: 800; letter-spacing: -.03em; }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -.01em; }
+p { max-width: 68ch; color: var(--ink); }
+strong { color: var(--ink); font-weight: 700; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+/* ===== 3. Layout ===== */
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 var(--space-4) var(--space-8); }
+
+/* ===== 4. Nav superior (.docnav) — translúcida, con fallback sólido ===== */
+.docnav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--brand-green);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .docnav {
+    background: rgba(59, 87, 81, .72);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+  }
+}
+.docnav__inner {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 var(--space-3);
+  gap: var(--space-1);
+}
+.docnav__link {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  min-height: var(--tap);
+  padding: 0 var(--space-3);
+  color: rgba(255, 255, 255, .78);
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+  transition: color var(--dur) var(--ease);
+}
+.docnav__link:hover { color: #fff; }
+.docnav__link.active {
+  color: #fff;
+  font-weight: 700;
+  border-bottom-color: var(--accent);
+}
+
+/* ===== 5. Hero ===== */
+.hero {
+  padding: var(--space-8) var(--space-4);
+  background:
+    radial-gradient(120% 160% at 12% -20%, rgba(255, 255, 255, .14), transparent 55%),
+    linear-gradient(160deg, var(--brand-green) 0%, var(--brand-green-dark) 100%);
+  color: #fff;
+}
+.hero__inner { max-width: 960px; margin: 0 auto; }
+.hero h1 { color: #fff; margin-bottom: var(--space-3); }
+.hero p { color: rgba(255, 255, 255, .86); font-size: var(--fs-lg); font-weight: 400; max-width: 60ch; margin: 0; line-height: 1.55; }
+
+/* ===== 6. Secciones numeradas (.sec) ===== */
+main { counter-reset: sec; }
+.sec { counter-increment: sec; margin-top: var(--space-7); }
+.sec:first-of-type { margin-top: var(--space-6); }
+.sec > h2 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding-bottom: var(--space-3);
+  margin-bottom: var(--space-5);
+  border-bottom: 1px solid var(--line-strong);
+}
+.sec > h2::before {
+  content: counter(sec);
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9em;
+  height: 1.9em;
+  border-radius: var(--radius-full);
+  background: var(--brand-green);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: .5em;
+  font-weight: 700;
+  box-shadow: var(--shadow-xs);
+}
+
+/* ===== 7. Callouts: superficies sobrias con un detalle de color ===== */
+.callout {
+  display: block;
+  position: relative;
+  padding: var(--space-5) var(--space-5) var(--space-5) calc(var(--space-5) + 2.1em + var(--space-4));
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--ink-faint);
+  background: var(--surface);
+  box-shadow: var(--shadow-xs);
+  margin: var(--space-5) 0;
+}
+.callout::before {
+  position: absolute;
+  left: var(--space-5);
+  top: var(--space-5);
+  width: 2.1em;
+  height: 2.1em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--paper);
+  font-size: 1.1em;
+  line-height: 1;
+}
+.callout p:last-child { margin-bottom: 0; }
+.callout--info { border-left-color: var(--info); }
+.callout--info::before { content: "💡"; background: var(--info-soft); }
+.callout--success { border-left-color: var(--success); }
+.callout--success::before { content: "✅"; background: var(--success-soft); }
+.callout--warn { border-left-color: var(--warn); }
+.callout--warn::before { content: "🟡"; background: var(--warn-soft); }
+.callout--danger { border-left-color: var(--danger); }
+.callout--danger::before { content: "🔴"; background: var(--danger-soft); }
+
+/* ===== 8. Bloque copiable (.copyblock) ===== */
+.copyblock {
+  position: relative;
+  margin: var(--space-5) 0;
+  padding: calc(var(--tap) + var(--space-3)) var(--space-5) var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.copyblock__text {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--ink);
+}
+.copyblock__btn {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  min-height: var(--tap);
+  padding: 0 var(--space-4);
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.copyblock__btn:hover { background: var(--accent-dark); }
+.copyblock__btn:active { transform: scale(.96); }
+.copyblock__btn.is-copied { background: var(--success); }
+
+/* ===== 9. KPIs (.kpi) ===== */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+  margin: var(--space-5) 0;
+}
+.kpi {
+  padding: var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.kpi__label { display: block; font-size: var(--fs-sm); font-weight: 600; color: var(--ink-soft); margin-bottom: var(--space-2); overflow-wrap: break-word; }
+.kpi__value { display: block; font-family: var(--font-sans); font-size: clamp(1.35rem, 1.05rem + 1.4vw, 2.25rem); font-weight: 800; letter-spacing: -.02em; color: var(--ink); overflow-wrap: break-word; hyphens: none; }
+.kpi__delta { display: inline-block; margin-top: var(--space-2); font-size: var(--fs-sm); font-weight: 700; padding: 3px var(--space-3); border-radius: var(--radius-full); }
+.kpi__delta--up { color: var(--success); background: var(--success-soft); }
+.kpi__delta--down { color: var(--danger); background: var(--danger-soft); }
+
+/* ===== 10. Tarjeta genérica (.card) ===== */
+.card {
+  padding: var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  margin: var(--space-4) 0;
+}
+.card h3 { margin-top: 0; }
+
+/* ===== 11. Tablas responsive ===== */
+.table-wrap { overflow-x: auto; margin: var(--space-5) 0; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-xs); }
+.table-wrap table { min-width: 480px; }
+.table-wrap th, .table-wrap td { padding: var(--space-4); text-align: left; border-bottom: 1px solid var(--line); font-size: var(--fs-sm); }
+.table-wrap thead th { background: var(--brand-green); color: #fff; position: sticky; top: 0; font-weight: 700; }
+.table-wrap tbody tr:last-child td { border-bottom: none; }
+.table-wrap tbody tr:nth-child(even) { background: transparent; } /* sin cebrado: la separación es por hairline, no por color */
+
+/* ===== 12. Barra de progreso (.progress) — píldora fina ===== */
+.progress { margin: var(--space-4) 0; }
+.progress__track { height: 10px; background: var(--line-strong); border-radius: var(--radius-full); overflow: hidden; }
+.progress__fill { height: 100%; background: var(--brand-green); border-radius: var(--radius-full); transition: width .4s var(--ease); width: 0%; }
+.progress__label { display: block; margin-top: var(--space-3); font-size: var(--fs-sm); color: var(--ink-soft); }
+
+/* ===== 13. Checklist táctil (.checklist) ===== */
+.checklist { list-style: none; padding-left: 0; margin: var(--space-4) 0; }
+.checklist li { margin-bottom: var(--space-3); }
+.checklist label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  min-height: var(--tap);
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-xs);
+  cursor: pointer;
+  transition: box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.checklist label:hover { border-color: var(--line-strong); box-shadow: var(--shadow-sm); }
+.checklist input[type="checkbox"] { width: 26px; height: 26px; flex: 0 0 auto; accent-color: var(--brand-green); margin-top: 2px; }
+.checklist input[type="checkbox"]:checked + span { text-decoration: line-through; color: var(--ink-soft); }
+
+/* ===== 14. Etiquetas (.pill) ===== */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+.pill--success { background: var(--success-soft); color: var(--success); }
+.pill--warn { background: var(--warn-soft); color: var(--warn); }
+.pill--danger { background: var(--danger-soft); color: var(--danger); }
+.pill--info { background: var(--info-soft); color: var(--info); }
+
+/* ===== 15. Grillas responsive ===== */
+.grid-2, .grid-3 { display: grid; gap: var(--space-5); margin: var(--space-5) 0; grid-template-columns: minmax(0, 1fr); }
+
+/* ===== 16. Gráficos SVG/CSS hechos a mano ===== */
+/* Barras horizontales */
+.chart-bar-row { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-3); }
+.chart-bar-row__label { flex: 0 0 9rem; font-size: var(--fs-sm); color: var(--ink-soft); }
+.chart-bar-row__track { flex: 1 1 auto; height: 16px; background: var(--line-strong); border-radius: var(--radius-full); overflow: hidden; }
+.chart-bar-row__fill { height: 100%; background: var(--accent); border-radius: var(--radius-full); transition: width .5s var(--ease); }
+.chart-bar-row__value { flex: 0 0 auto; font-size: var(--fs-sm); font-weight: 700; min-width: 3.5rem; text-align: right; }
+
+/* Embudo: cada .funnel-step define su ancho con --w inline, ej. style="--w:70%" */
+.funnel { display: flex; flex-direction: column; align-items: center; gap: var(--space-1); margin: var(--space-5) 0; }
+.funnel-step {
+  width: var(--w, 100%);
+  max-width: 100%;
+  padding: var(--space-4);
+  text-align: center;
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  background: var(--accent);
+  border-radius: var(--radius-sm);
+  transition: opacity var(--dur) var(--ease);
+}
+.funnel-step:nth-child(2) { opacity: .85; }
+.funnel-step:nth-child(3) { opacity: .7; }
+.funnel-step:nth-child(4) { opacity: .55; }
+.funnel-step:nth-child(5) { opacity: .4; }
+
+/* Línea de tiempo vertical: línea hairline y puntos pequeños */
+.timeline { position: relative; margin: var(--space-6) 0; padding-left: var(--space-6); border-left: 1px solid var(--line-strong); }
+.timeline-item { position: relative; margin-bottom: var(--space-5); }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--space-6) - 6px);
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--brand-green);
+  border: 3px solid var(--paper);
+  box-shadow: var(--shadow-xs);
+}
+.timeline-item__date { font-size: var(--fs-sm); font-weight: 700; color: var(--accent-dark); }
+.timeline-item__title { font-family: var(--font-sans); font-weight: 700; font-size: var(--fs-lg); letter-spacing: -.01em; margin: var(--space-1) 0; }
+
+/* ===== 17. Botones: cápsula, con estados sutiles ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-5);
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-base);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-xs);
+  transition: background var(--dur) var(--ease), transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.btn:hover { background: var(--accent-dark); box-shadow: var(--shadow-sm); }
+.btn:active { transform: scale(.97); }
+.btn--ghost { background: transparent; border: 2px solid var(--line-strong); color: var(--ink); box-shadow: none; }
+.btn--ghost:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+
+/* ===== 18. Media queries (mobile-first: base = ~375px) ===== */
+@media (min-width: 480px) {
+  .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 640px) {
+  .kpi-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero { padding: var(--space-8) var(--space-6); }
+}
+@media (min-width: 960px) {
+  .kpi-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* ===== 19. Movimiento discreto: respeta preferencia de menos movimiento ===== */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===== 20. Impresión ===== */
+@media print {
+  .docnav, .copyblock__btn, .btn { display: none !important; }
+  body { background: #fff; color: #000; }
+  .hero { background: #fff !important; color: #000 !important; }
+  .hero h1, .hero p { color: #000 !important; }
+  .card, .callout, .kpi, .copyblock { box-shadow: none; border: 1px solid #999; }
+  .callout { border-left: 4px solid #999; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: .8em; }
+}
+/* ==========================================================================
+   Extensiones propias de esta página (ofertas.html)
+   ofertas.html no es una de las 6 páginas del sitio (docs/design-system.md,
+   sección 1) y no está en el menú principal — se llega por link desde el
+   plan. El bloque de arriba es el canónico intacto; lo de abajo son
+   componentes propios de esta página (maqueta visual de pop-up, líneas de
+   cálculo de precio de packs), agregados en la misma hoja de estilos única
+   para no crear un segundo archivo CSS.
+   ========================================================================== */
+
+.hero__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-2) 0 0;
+  margin-bottom: var(--space-3);
+  color: rgba(255, 255, 255, .85);
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+.hero__back:hover { color: #fff; }
+
+/* Maqueta visual de un pop-up, solo para mostrar cómo se ve — no es funcional */
+.popup-mock {
+  position: relative;
+  max-width: 380px;
+  margin: var(--space-5) auto;
+  padding: var(--space-6) var(--space-5) var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+.popup-mock__close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--ink-faint);
+  font-size: .85rem;
+  line-height: 1;
+}
+.popup-mock__eyebrow { font-size: var(--fs-sm); font-weight: 700; color: var(--brand-green); letter-spacing: .04em; margin: 0 0 var(--space-2); }
+.popup-mock__title { font-family: var(--font-serif); font-size: var(--fs-h3); margin: 0 0 var(--space-2); }
+.popup-mock__sub { font-size: var(--fs-sm); color: var(--ink-soft); margin: 0 0 var(--space-4); }
+.popup-mock__field {
+  display: block;
+  width: 100%;
+  min-height: var(--tap);
+  margin: 0 0 var(--space-3);
+  padding: 0 var(--space-3);
+  line-height: var(--tap);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  color: var(--ink-faint);
+  font-size: var(--fs-sm);
+  text-align: left;
+}
+.popup-mock__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--tap);
+  width: 100%;
+  padding: 0 var(--space-5);
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: var(--fs-sm);
+}
+
+/* Líneas de cálculo de precio (packs, ancla) */
+.calc-line { margin: 0 0 var(--space-1); font-size: var(--fs-base); }
+.calc-line strong { font-family: var(--font-serif); font-size: var(--fs-lg); }
+.calc-line--sub { color: var(--ink-faint); font-size: var(--fs-sm); margin: 0 0 var(--space-3); }
+</style>
+</head>
+<body>
+
+<nav class="docnav" aria-label="Navegación del plan">
+  <div class="docnav__inner">
+    <a href="index.html" class="docnav__link">Plan</a>
+    <a href="kit-arranque.html" class="docnav__link">Kit de arranque</a>
+    <a href="guion-reels.html" class="docnav__link">Guiones de Reels</a>
+    <a href="sop-dm.html" class="docnav__link">Manual de DM</a>
+    <a href="recursos.html" class="docnav__link">Recursos</a>
+    <a href="tablero.html" class="docnav__link">Tablero</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero__inner">
+    <a href="index.html#datos-que-faltan" class="hero__back">← Volver al plan</a>
+    <h1>Ofertas y pop-ups</h1>
+    <p>El sistema completo para subir el ticket promedio (lo que gasta una persona en cada compra): pop-ups que muestran la oferta correcta a la persona correcta, packs armados para que sí den ganas de comprar, y la barra de envío gratis que empuja el carrito hacia arriba. Todo listo para instalar en 48 horas apenas lleguen los accesos. Esta página no está en el menú principal — se comparte por link directo desde el plan.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section class="sec" id="diagnostico">
+<h2>Por qué bajó el ticket promedio y cómo se sube</h2>
+
+<div class="kpi-grid">
+  <div class="kpi">
+    <span class="kpi__label">Ticket promedio hoy 🟢</span>
+    <span class="kpi__value">$33.000</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Meta propuesta</span>
+    <span class="kpi__value">$45.000</span>
+    <span class="pill pill--warn">🟡 propuesta</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Envío gratis desde 🟢</span>
+    <span class="kpi__value">$50.000</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Naipes (canibalizan) 🟢</span>
+    <span class="kpi__value">$22.990</span>
+  </div>
+</div>
+
+<p>El <strong>ticket promedio</strong> (lo que gasta una persona en cada compra) hoy está en <strong>$33.000 CLP</strong> <span class="pill pill--success">🟢 dato del acta, pantalla de Shopify mostrada en la reunión del 27 de julio de 2026</span>. Bajó: antes era más alto. Este número es más reciente que el AOV de $37.900 que usa el resto del plan (una captura de Shopify del 1 al 24 de julio) — se usa acá como referencia principal por venir directo de la pantalla que Felipe mostró en la misma reunión donde se acordó este sistema.</p>
+
+<p>La causa que se conversó en la reunión: cuando entra al catálogo un producto más barato sin que haya una estrategia detrás, la gente compra ese producto y nada más. Es justo lo que está pasando con los <strong>naipes ilustrados</strong> ($22.990 🟢, producto nuevo): se venden harto, pero están <strong>canibalizando</strong> a los puzzles — le están quitando venta al producto estrella en vez de sumar. Antes, alguien entraba pensando en un puzzle de $24.990 a $27.290; hoy se va con un naipe de $22.990. Un ticket más bajo, sin que la tienda gane nada extra por eso.</p>
+
+<div class="callout callout--info">
+<p><strong>La solución no es sacar los naipes del catálogo.</strong> Se venden bien y hay que aprovecharlos. La solución es construir un camino hacia arriba: que después de ver el naipe, a la persona también le aparezca un motivo real para agregar algo más, o para llevarse un pack en vez de una sola pieza suelta. Tres palancas hacen ese trabajo — son las tres piezas de este documento:</p>
+</div>
+
+<ul>
+<li><strong>Anclaje de precio</strong> (mostrar primero el pack más caro del catálogo, para que el resto se vea barato en comparación) — sección "El sistema de pop-ups segmentados".</li>
+<li><strong>Packs visibles</strong>, armados por ocasión y no por categoría — sección "Los packs".</li>
+<li><strong>El umbral de envío gratis</strong> ($50.000 🟢) como empujón directo en el carrito — sección "La barra de envío gratis".</li>
+</ul>
+
+<h3>De $33.000 a una meta de $45.000</h3>
+<p><span class="pill pill--warn">🟡 propuesta</span> $45.000 no es una meta oficial del cliente — es una meta de trabajo para dimensionar el impacto de las tres palancas. Compararla con el ticket actual ayuda a ver de dónde puede salir la subida.</p>
+
+<div class="chart-bar-row"><span class="chart-bar-row__label">Ticket actual</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:73%"></div></div><span class="chart-bar-row__value">$33.000</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Meta propuesta</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div><span class="chart-bar-row__value">$45.000</span></div>
+
+<p>¿Qué aporta cada palanca a esos $12.000 de diferencia? Un reparto ilustrativo, no una promesa cerrada:</p>
+
+<div class="grid-3">
+<div class="card">
+<span class="pill pill--warn">🟡 estimado</span>
+<h3>+$4.000 — Packs visibles</h3>
+<p>Con una colección de packs por ocasión, visible desde el menú y el home, parte de quienes hoy compran una sola pieza empieza a llevarse un pack.</p>
+</div>
+<div class="card">
+<span class="pill pill--warn">🟡 estimado</span>
+<h3>+$4.000 — Envío gratis</h3>
+<p>La barra que muestra cuánto falta para los $50.000 empuja a agregar un producto más, justo en el carrito, el momento de mayor intención de compra.</p>
+</div>
+<div class="card">
+<span class="pill pill--warn">🟡 estimado</span>
+<h3>+$4.000 — Anclaje de precio</h3>
+<p>Mostrar primero el pack más caro del catálogo cambia la referencia mental: después de ver un precio alto, un puzzle de $24.990 se siente barato.</p>
+</div>
+</div>
+
+<div class="callout callout--warn">
+<p>Estos tres números son una hipótesis de trabajo, no una promesa. Muestran de dónde puede salir la subida, pero el impacto real recién se conoce midiendo la primera semana después de instalar el sistema (ver la última sección de esta página). Lo que sí es un hecho hoy: ninguna de las tres palancas está activa todavía en la tienda.</p>
+</div>
+</section>
+
+<section class="sec" id="sistema-popups">
+<h2>El sistema de pop-ups segmentados</h2>
+
+<p>Hoy la tienda muestra <strong>un solo pop-up</strong> — una ventana que aparece sobre la página mientras la persona navega, con una oferta o un mensaje —: 10% de descuento, igual para cualquiera que entra, sin importar si nunca ha comprado o si ya es clienta hace un año.</p>
+
+<p>La propuesta cambia esto por <strong>3 reglas que no se pisan entre sí</strong>. Cada persona ve como máximo un pop-up: el que le corresponde según quién es y qué está haciendo en el sitio en ese momento.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Pop-up</th><th>A quién</th><th>Cuándo aparece</th><th>Qué ofrece</th><th>Por qué</th></tr></thead>
+<tbody>
+<tr><td><strong>1. Visitante nuevo</strong></td><td>Nunca ha comprado, primera visita</td><td>~15 segundos, o al intentar salir del sitio</td><td>El pack más grande del catálogo, como "la colección completa"</td><td>Ancla el precio: todo lo demás se ve más barato después</td></tr>
+<tr><td><strong>2. Interesado sin decidir</strong></td><td>Más de 2 minutos en el sitio, nada en el carrito</td><td>A los 2 minutos de navegación</td><td>10% de descuento a cambio del correo</td><td>Está interesado pero no decidido — es la oferta que ya se sabe que funciona</td></tr>
+<tr><td><strong>3. Cliente que ya compró</strong></td><td>Reconocido por correo o cookie</td><td>Misma lógica, contenido distinto</td><td>Novedades o el pack complementario a lo que ya compró</td><td>Ya usó el 10% de bienvenida — ofrecérselo de nuevo devalúa a quien ya confía en la marca</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Pop-up 1 — Visitante nuevo: el anclaje de precio</h3>
+<p>El <strong>anclaje de precio</strong> es un efecto simple: el primer precio que alguien ve se convierte en su punto de comparación para todo lo que ve después. Es el mismo truco que usan los supermercados grandes cuando ponen un televisor carísimo justo a la entrada. Casi nadie lo compra ahí mismo, pero después de verlo, el resto de la tienda —desde el detergente hasta el chocolate— se siente más barato en comparación. El precio caro de entrada no está ahí para venderse: está ahí para cambiar la referencia de todo lo demás.</p>
+
+<p>Este pop-up hace lo mismo: a los ~15 segundos, o si la persona mueve el mouse hacia arriba como para cerrar la pestaña (la señal de que se está por ir), aparece <strong>la Colección Completa</strong> — 3 puzzles + naipes ilustrados, presentada como "todo Pedraza en una caja". Después de ver ese precio, un puzzle solo a $24.990 se percibe barato, aunque casi nadie compre la colección completa.</p>
+
+<div class="card">
+<h3>🎁 La Colección Completa (el pack ancla)</h3>
+<ul>
+<li>Puzzle Aves y Flores de Chile — $24.990 🟢</li>
+<li>Puzzle Mariposas y Escarabajos de Chile — $27.290 🟢</li>
+<li>Puzzle Cetáceos de Chile — $24.990 🟢</li>
+<li>Naipes ilustrados — $22.990 🟢</li>
+</ul>
+<p class="calc-line">Precio normal: <strong>$100.260</strong> <span class="pill pill--success">🟢 suma real de catálogo</span></p>
+<p class="calc-line">Precio en el pop-up (15% dcto <span class="pill pill--warn">🟡 propuesta</span>): <strong>$85.200</strong> — ahorras $15.060</p>
+<p class="calc-line--sub">$85.200 es $100.260 con 15% de descuento, redondeado para que el precio se vea limpio en la vitrina. El 15% es una propuesta de partida — hay que validarlo con el margen real de cada producto antes de publicar.</p>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>Dos cosas por confirmar antes de instalar este pop-up.</strong> Primero: en la reunión se mencionó un pack ancla "del orden de $180.000". Sumando los precios reales publicados hoy en el catálogo, 3 puzzles + naipes da $100.260 — la diferencia puede ser porque se pensaba en una colección más amplia (agregando loza o láminas) o en un número de memoria. Validar con Felipe y Cote qué composición exacta quieren mostrar como "la colección completa" antes de publicarla. Segundo, y más urgente: <strong>los puzzles están sin stock hasta la última semana de agosto</strong> (llega el contenedor el 15 de agosto, pero debe pasar por Partner antes de estar disponible en Shopify). No instalar este pop-up con puzzles mientras no haya stock — mientras tanto, reemplazar el ancla por otra combinación de precio alto que sí tenga inventario (por ejemplo, loza + botella + lámina, ver la sección de packs), y volver a los puzzles apenas vuelva el stock.</p>
+</div>
+
+<div class="popup-mock">
+  <span class="popup-mock__close" aria-hidden="true">✕</span>
+  <p class="popup-mock__eyebrow">🦋 PEDRAZA ILUSTRACIÓN</p>
+  <p class="popup-mock__title">Llévate la naturaleza de Chile completa</p>
+  <p class="popup-mock__sub">3 puzzles + naipes ilustrados, con 15% de descuento. La Colección Completa: de $100.260 a $85.200.</p>
+  <span class="popup-mock__btn">Quiero la Colección Completa</span>
+</div>
+
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-popup1">Copiar</button>
+<div class="copyblock__text" id="copy-popup1">Título: Llévate la naturaleza de Chile completa
+Subtítulo: 3 puzzles + naipes ilustrados, con 15% de descuento. La Colección Completa: de $100.260 a $85.200.
+Botón: Quiero la Colección Completa</div>
+</div>
+
+<h3>Pop-up 2 — Interesado sin decidir: el 10% que ya funciona</h3>
+<p>Alguien que lleva más de 2 minutos mirando el sitio y no ha agregado nada al carrito está interesado, pero no decidido — necesita un empujón, no un catálogo nuevo. Para esta persona se mantiene <strong>la oferta que ya se sabe que funciona</strong>: 10% de descuento a cambio del correo. No hay que inventar nada nuevo acá; lo único que cambia es que este pop-up deja de mostrarse a todo el mundo por igual, y se reserva para quien de verdad lo necesita.</p>
+
+<div class="popup-mock">
+  <span class="popup-mock__close" aria-hidden="true">✕</span>
+  <p class="popup-mock__eyebrow">🦋 PEDRAZA ILUSTRACIÓN</p>
+  <p class="popup-mock__title">¿Necesitas un empujón?</p>
+  <p class="popup-mock__sub">Déjanos tu correo y llévate 10% de descuento en tu primera compra.</p>
+  <span class="popup-mock__field">Tu correo electrónico</span>
+  <span class="popup-mock__btn">Quiero mi 10%</span>
+</div>
+
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-popup2">Copiar</button>
+<div class="copyblock__text" id="copy-popup2">Título: ¿Necesitas un empujón?
+Subtítulo: Déjanos tu correo y llévate 10% de descuento en tu primera compra.
+Campo: Tu correo electrónico
+Botón: Quiero mi 10%</div>
+</div>
+
+<h3>Pop-up 3 — Cliente que ya compró: nada de bienvenida</h3>
+<p>Ofrecerle el 10% de "bienvenida" a alguien que ya compró es un error doble: primero, porque probablemente ya lo usó; segundo, porque le dice a una clienta fiel que vale lo mismo que alguien que recién llega. A quien la tienda reconoce por correo o por cookie (una marca que el navegador guarda para recordar que esa persona ya visitó o compró antes) se le muestra algo distinto: novedades, o el pack que complementa lo que ya tiene en casa.</p>
+
+<p><span class="pill pill--warn">🟡 nota</span> La versión de "pack complementario" (por ejemplo, a quien ya compró un puzzle mostrarle los naipes o la loza de la misma serie) requiere saber qué compró cada persona — ese cruce todavía no existe (el mix de productos vendidos sigue pendiente, ver <code>docs/research/tienda.md</code>). Mientras tanto, se instala la versión de "novedades", que no depende de ese dato y es igual de válida.</p>
+
+<div class="popup-mock">
+  <span class="popup-mock__close" aria-hidden="true">✕</span>
+  <p class="popup-mock__eyebrow">🦋 PEDRAZA ILUSTRACIÓN</p>
+  <p class="popup-mock__title">Qué bueno tenerte de vuelta</p>
+  <p class="popup-mock__sub">Estas son las novedades de Pedraza desde tu última compra.</p>
+  <span class="popup-mock__btn">Ver novedades</span>
+</div>
+
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-popup3">Copiar</button>
+<div class="copyblock__text" id="copy-popup3">Título: Qué bueno tenerte de vuelta
+Subtítulo: Estas son las novedades de Pedraza desde tu última compra.
+Botón: Ver novedades</div>
+</div>
+
+<div class="callout callout--success">
+<p><strong>Regla de operación acordada.</strong> En las semanas donde ya hay una oferta activa (Semana Pedraza, Navidad, una fecha comercial), estos pop-ups usan la oferta que ya se sabe que funciona — ir a la segura, sin arriesgar una venta de temporada alta probando algo nuevo. En las semanas sin oferta especial, es el momento de probar variantes: otro copy, otro pack ancla, otro gatillo de tiempo. Probar, medir y quedarse con lo que funciona mejor.</p>
+</div>
+</section>
+
+<section class="sec" id="packs">
+<h2>Los packs: cómo armarlos para que sí enganchen</h2>
+
+<p>Antes, los packs de 2, 3 o 4 puzzles funcionaban bien. Hoy no enganchan. No hay un dato cerrado de por qué <span class="pill pill--warn">🟡 hipótesis, a validar con Cote y Felipe</span>, pero hay tres razones que probablemente se están sumando:</p>
+
+<ul>
+<li>Se armaron <strong>por producto</strong> (varios puzzles juntos) y no <strong>por ocasión</strong> (un regalo, un domingo en familia). Sin una ocasión clara, cuesta imaginarse comprándolo.</li>
+<li>El precio no comunica el ahorro: si el pack cuesta casi lo mismo que las piezas por separado, no hay ningún motivo para llevarse el pack en vez de un solo producto.</li>
+<li>No están visibles: hoy no existe una colección de packs (ver la próxima sección), así que solo los encuentra quien ya sabía que existían.</li>
+</ul>
+
+<p>La propuesta: 4 packs armados por ocasión, cada uno con productos reales del catálogo. <strong>Los precios de pack de esta sección son una propuesta 🟡 a validar con los márgenes reales</strong> antes de publicarlos — acá se muestra la lógica y el orden de magnitud, no un precio final cerrado.</p>
+
+<div class="callout callout--info">
+<p><strong>La regla del envío gratis en los packs.</strong> Cuando tiene sentido, el pack se arma para quedar justo sobre $50.000 CLP (el umbral de envío gratis 🟢), o claramente por sobre ese monto. Es el gatillo más barato que existe para subir el ticket: no cuesta nada regalarlo, porque de todas formas la tienda va a asumir el envío de un pedido grande — la diferencia es que ahora ese envío gratis empuja a comprar más, en vez de ser solo una condición escondida en la política de despacho.</p>
+</div>
+
+<div class="grid-2">
+
+<div class="card">
+<h3>🎨 Regalo con Historia</h3>
+<p>Lámina + libreta de la misma serie. Para alguien a quien hay que regalarle algo con significado, no solo un objeto.</p>
+<ul>
+<li>1 lámina ilustrada (serie a elección: aves, flores o mariposas) — <span class="pill pill--warn">🟡 sin precio confirmado</span></li>
+<li>1 libreta de la misma serie — $13.590 🟢</li>
+</ul>
+<p class="calc-line">Precio de referencia: <strong>cerca de $50.000</strong> <span class="pill pill--warn">🟡 SUPUESTO</span></p>
+<p class="calc-line--sub">La lámina no tiene precio confirmado en el research (<code>docs/research/tienda.md</code>, sección 2). Para que el pack quede justo sobre el umbral de envío gratis, debería aportar cerca de $36.000-37.000. Confirmar el precio real de la lámina antes de fijar el precio final del pack.</p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-pack1">Copiar</button>
+<div class="copyblock__text" id="copy-pack1">Nombre: Pack Regalo con Historia — Lámina + Libreta
+Descripción: Un regalo que cuenta una historia: una lámina ilustrada a mano y una libreta para anotar las propias. Ideal para cumpleaños, agradecimientos o para alguien que ama la naturaleza de Chile.</div>
+</div>
+</div>
+
+<div class="card">
+<h3>🧩 Domingo en Familia</h3>
+<p>Un puzzle y un mazo de naipes para armar en la mesa. Resuelve el problema de los naipes solos: en vez de competir con el puzzle, lo acompañan.</p>
+<ul>
+<li>1 puzzle Mariposas y Escarabajos de Chile — $27.290 🟢</li>
+<li>Naipes ilustrados — $22.990 🟢</li>
+</ul>
+<p class="calc-line">Precio pack: <strong>$50.280</strong> <span class="pill pill--success">🟢 suma real, sin descuento adicional</span></p>
+<p class="calc-line--sub">Este pack ya cruza el umbral de envío gratis por sí solo. El "ahorro" que comunica no es de precio: es el despacho gratis, que normalmente se cobra aparte.</p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-pack2">Copiar</button>
+<div class="copyblock__text" id="copy-pack2">Nombre: Pack Domingo en Familia — Puzzle + Naipes
+Descripción: Para armar en la mesa un domingo completo: un puzzle de 1000 piezas y un mazo de naipes ilustrados. Con envío gratis incluido.</div>
+</div>
+</div>
+
+<div class="card">
+<h3>🏡 La Casa Completa</h3>
+<p>Loza, lámina y botella con la misma ilustración, para decorar y usar todos los días.</p>
+<ul>
+<li>Juego de Loza Aves Azul, 12 piezas — $69.990 🟢 (precio de preventa, incluye calcetín de regalo, según research)</li>
+<li>Botella térmica Aves de Chile — $28.990 🟢</li>
+<li>1 lámina ilustrada — <span class="pill pill--warn">🟡 sin precio confirmado</span></li>
+</ul>
+<p class="calc-line">Loza + botella (real): <strong>$98.980</strong>. Con 12% de descuento de pack <span class="pill pill--warn">🟡 propuesta</span>: <strong>$87.100</strong> — ahorras $11.880.</p>
+<p class="calc-line--sub">La lámina se suma al pack cuando se confirme su precio. Mientras tanto, el pack puede publicarse solo con loza + botella, ya muy por sobre el umbral de envío gratis.</p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-pack3">Copiar</button>
+<div class="copyblock__text" id="copy-pack3">Nombre: Pack La Casa Completa — Loza + Lámina + Botella
+Descripción: Para decorar y usar todos los días: un juego de loza, una lámina para colgar y una botella térmica, todo con la misma ilustración de flora y fauna chilena.</div>
+</div>
+</div>
+
+<div class="card">
+<h3>🧩🧩🧩 La Colección</h3>
+<p>Los 3 puzzles insignia, juntos. Es el mismo rol que cumple el pack ancla del pop-up 1, pero visible todo el tiempo dentro de la tienda, no solo en la primera visita.</p>
+<ul>
+<li>Puzzle Aves y Flores de Chile — $24.990 🟢</li>
+<li>Puzzle Hongos de Chile — $24.990 🟢</li>
+<li>Puzzle Mariposas y Escarabajos de Chile — $27.290 🟢</li>
+</ul>
+<p class="calc-line">Precio normal: <strong>$77.270</strong> 🟢. Con 12% de descuento de pack <span class="pill pill--warn">🟡 propuesta</span>: <strong>$68.000</strong> — ahorras $9.270.</p>
+<p class="calc-line--sub">Depende de la misma condición de stock del pop-up 1: no publicar mientras los puzzles no tengan inventario (vuelven la última semana de agosto).</p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-pack4">Copiar</button>
+<div class="copyblock__text" id="copy-pack4">Nombre: Pack La Colección — 3 Puzzles Ilustrados
+Descripción: Los 3 puzzles más queridos de Pedraza Ilustración, juntos en un solo pack. 3.000 piezas de naturaleza chilena para armar una y otra vez.</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="sec" id="coleccion-packs">
+<h2>La colección que falta en la tienda</h2>
+
+<p>Hoy pedrazailustracion.com no tiene ninguna colección dedicada a packs, ni una de más vendidos. Felipe la pidió como la primera opción visible de la tienda: el lugar donde cualquiera que entra sabe de inmediato qué comprar, sin tener que explorar todo el catálogo.</p>
+
+<div class="card">
+<h3>Nombre sugerido: "Packs y Más Vendidos"</h3>
+<p><span class="pill pill--warn">🟡 propuesta</span> Un nombre simple y funcional, fácil de entender en el menú sin tener que explicarlo.</p>
+</div>
+
+<h3>Qué productos van, en qué orden</h3>
+<ol>
+<li>Los 4 packs de la sección anterior, <strong>fijados arriba</strong> (orden manual, siempre visibles primero — son lo que más necesita exposición).</li>
+<li>El resto de la colección ordenado por "más vendidos" (el orden automático de Shopify, según ventas reales). Los puzzles son "el producto estrella" de la tienda <span class="pill pill--success">🟢 dicho por Cote en la reunión</span>, así que probablemente encabecen esta parte una vez ordenados así.</li>
+</ol>
+
+<div class="callout callout--warn">
+<p>Mientras los puzzles estén sin stock (hasta la última semana de agosto), no deberían aparecer arriba de esta lista aunque el orden por "más vendidos" los ponga ahí — un producto agotado como primera opción visible genera frustración, no venta. Revisar el orden a mano mientras dure el quiebre de stock.</p>
+</div>
+
+<h3>Dónde se enlaza</h3>
+<ul>
+<li><strong>Menú principal:</strong> como una de las primeras opciones, junto a (o antes de) "Puzzles".</li>
+<li><strong>Home:</strong> como la primera franja de productos que se ve al entrar, justo después del banner principal — antes de cualquier otra colección.</li>
+</ul>
+
+<h3>Cómo se mide si funcionó</h3>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Qué medir</th><th>Cómo</th></tr></thead>
+<tbody>
+<tr><td>Visitas a la colección</td><td>Shopify Analytics → páginas de destino / comportamiento, filtrando por la URL de "Packs y Más Vendidos"</td></tr>
+<tr><td>Ticket promedio de quienes la visitan</td><td>Comparar el ticket promedio de los pedidos que pasaron por esa colección contra el ticket promedio general de la tienda ($33.000 hoy)</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="sec" id="barra-envio-gratis">
+<h2>La barra de envío gratis en el carrito</h2>
+
+<p>Es la palanca más directa de todas: mientras la persona ya tiene el carrito abierto —el momento de mayor intención de compra de toda la visita— se le muestra cuánto le falta para el envío gratis ($50.000 🟢). No hace falta convencer a nadie de nada nuevo: solo mostrar un número que ya es cierto.</p>
+
+<p>Funciona así: una barra de progreso, visible dentro del carrito, se llena a medida que la persona agrega productos. El texto de arriba cambia solo, según el total del carrito, entre dos estados: "te falta" y "ya lo lograste".</p>
+
+<div class="progress">
+  <div class="progress__track"><div class="progress__fill" style="width:64%"></div></div>
+  <span class="progress__label">Ejemplo: carrito en $32.000 de $50.000 (64%)</span>
+</div>
+
+<h3>Estado 1 — cuando todavía falta</h3>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-shipbar-falta">Copiar</button>
+<div class="copyblock__text" id="copy-shipbar-falta">🚚 ¡Ya casi! Te faltan $12.000 para tu envío gratis.
+Agrega un producto más y el despacho corre por nuestra cuenta.</div>
+</div>
+<p class="calc-line--sub">El monto ($12.000 en este ejemplo) lo calcula la app automáticamente según lo que hay en el carrito en cada momento — el texto de alrededor es el que se deja fijo, tal como está escrito arriba.</p>
+
+<h3>Estado 2 — cuando ya se logró</h3>
+<div class="progress">
+  <div class="progress__track"><div class="progress__fill" style="width:100%; background:var(--success);"></div></div>
+  <span class="progress__label">Ejemplo: carrito en $54.000 de $50.000 — envío gratis logrado</span>
+</div>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-shipbar-listo">Copiar</button>
+<div class="copyblock__text" id="copy-shipbar-listo">🎉 ¡Tienes envío gratis! Ya superaste los $50.000.
+Gracias por elegir Pedraza — tu pedido va con despacho gratis a todo Chile.</div>
+</div>
+</section>
+
+<section class="sec" id="instalacion-48h">
+<h2>Plan de instalación de 48 horas</h2>
+
+<p>Todo lo de este documento se puede instalar en 2 días una vez que lleguen los accesos. El orden importa: primero lo que ya se sabe que funciona (el 10% del pop-up 2 y la barra de envío gratis), después lo nuevo que necesita más pruebas (el anclaje y el reconocimiento de clientes).</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Día</th><th>Qué se hace</th><th>Acceso necesario</th></tr></thead>
+<tbody>
+<tr><td>Día 1</td><td>Crear los 4 packs como productos y armar la colección "Packs y Más Vendidos"</td><td>Shopify (Productos, Colecciones)</td></tr>
+<tr><td>Día 1</td><td>Agregar la colección al menú principal y a la primera franja del home</td><td>Shopify (Navegación, editor de tema)</td></tr>
+<tr><td>Día 1</td><td>Configurar la barra de envío gratis en el carrito, con el umbral en $50.000</td><td>Shopify (editor de tema o app de barra de anuncio)</td></tr>
+<tr><td>Día 1</td><td>Configurar el pop-up 2 (10% por correo) — se instala primero por ser la oferta que ya funciona</td><td>La app de pop-ups + Klaviyo (para que el correo capturado entre al flujo de bienvenida)</td></tr>
+<tr><td>Día 2</td><td>Configurar el pop-up 1 (anclaje, visitante nuevo) con su gatillo de 15 segundos y de salida</td><td>La app de pop-ups + Shopify (para instalar el código del tema, si la app lo requiere)</td></tr>
+<tr><td>Día 2</td><td>Configurar el pop-up 3 (cliente que ya compró) con la segmentación por correo/cookie</td><td>La app de pop-ups + Klaviyo (identificar quién ya es clienta)</td></tr>
+<tr><td>Día 2</td><td>Probar los 3 pop-ups en el celular y en el computador, en ventana de incógnito</td><td>Ninguno adicional — solo el sitio ya publicado</td></tr>
+<tr><td>Día 2</td><td>Activar todo y avisar al equipo</td><td>Shopify + la app de pop-ups</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Cómo se verifica que quedó bien</h3>
+<ul>
+<li>El pop-up 1 aparece a los 15 segundos en una visita nueva (ventana de incógnito), y también al mover el mouse hacia arriba, simulando que la persona se quiere ir.</li>
+<li>El pop-up 2 aparece después de 2 minutos sin agregar nada al carrito, y no antes.</li>
+<li>El pop-up 3 no ofrece el 10% a alguien que ya compró — probar con un correo que ya existe en la base.</li>
+<li>La barra de envío gratis se actualiza sola al agregar o quitar productos del carrito, y muestra el mensaje de "logrado" al pasar los $50.000.</li>
+<li>Los 4 packs y la colección "Packs y Más Vendidos" se ven bien y son fáciles de tocar en el celular, no solo en el computador.</li>
+<li>Ningún pop-up se pisa con otro: cada visita ve como máximo uno.</li>
+</ul>
+
+<h3>Qué se mide en la primera semana</h3>
+<div class="kpi-grid">
+  <div class="kpi">
+    <span class="kpi__label">Ticket promedio</span>
+    <span class="kpi__value">vs. $33.000</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Tasa de captura de correos</span>
+    <span class="kpi__value">pop-up 2</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">% de carritos sobre $50.000</span>
+    <span class="kpi__value">envío gratis</span>
+  </div>
+</div>
+<p><strong>Ticket promedio:</strong> se compara contra los $33.000 actuales en Shopify Analytics, la misma métrica de la sección de diagnóstico. <strong>Tasa de captura de correos:</strong> correos nuevos capturados por el pop-up 2, dividido por las veces que se mostró (lo reporta la app de pop-ups o Klaviyo). <strong>% de carritos sobre $50.000:</strong> si la app de la barra de envío gratis lo reporta, se usa ese dato directo; si no, se aproxima con el % de pedidos completados sobre $50.000 en Shopify Analytics, aunque esa es una medida más floja porque no cuenta los carritos que no llegaron a pagar.</p>
+</section>
+
+</main>
+
+<script>
+  // Copiar al portapapeles — delegación de eventos, un solo listener por página.
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-copy-target]');
+    if (!btn) return;
+    var el = document.getElementById(btn.getAttribute('data-copy-target'));
+    if (!el) return;
+    copiarTexto(el.innerText || el.textContent || '', btn);
+  });
+
+  function copiarTexto(texto, btn) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(texto).then(
+        function () { mostrarCopiado(btn); },
+        function () { copiarConFallback(texto, btn); }
+      );
+    } else {
+      copiarConFallback(texto, btn);
+    }
+  }
+
+  function copiarConFallback(texto, btn) {
+    var ta = document.createElement('textarea');
+    ta.value = texto;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.top = '-1000px';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (err) { /* sin soporte, se ignora */ }
+    document.body.removeChild(ta);
+    mostrarCopiado(btn);
+  }
+
+  function mostrarCopiado(btn) {
+    var original = btn.getAttribute('data-label') || btn.textContent;
+    btn.setAttribute('data-label', original);
+    btn.textContent = '✓ ¡Copiado!';
+    btn.classList.add('is-copied');
+    clearTimeout(btn._copyTimeout);
+    btn._copyTimeout = setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('is-copied');
+    }, 2000);
+  }
+</script>
+</body>
+</html>

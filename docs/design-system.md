@@ -19,59 +19,64 @@ Este documento es material de trabajo interno (vive en `docs/`, no se comparte c
 
 ## 1. Identidad visual
 
+> **Sistema v2 (jul-2026).** Esta sección y la sección 2 (bloque CSS canónico) reemplazan por completo a la versión anterior del sistema en las páginas HTML del sitio. El contrato de clases no cambió — ningún nombre de clase, ningún elemento del marcado — solo el aspecto: espaciado, tipografía, superficies, radios y sombras. Cualquier página que pegue el bloque CSS de la sección 2 encima de su marcado existente queda actualizada sin tocar una sola línea de HTML.
+
+### Dirección estética: limpia, curada y serena, tipo iOS
+
+El pedido del cliente fue explícito: una estética muy cuidada al estilo Apple/iOS, con formas redondeadas, colores agradables y — el punto más importante — que cada elemento tenga espacio y protagonismo propio, sin competir con los de al lado. El sitio v1 se sentía denso (bordes duros, callouts de color saturado, tipografía mixta serif/sans). El sistema v2 resuelve esto con cinco movimientos, sin tocar los colores de marca:
+
+1. **Más aire.** La escala de espaciado sube un peldaño completo y los saltos grandes (separación entre secciones, padding del hero) son fluidos con `clamp()`: generosos en escritorio (4-6rem), proporcionales en el celular.
+2. **Fondo agrupado, tarjetas blancas.** El "papel cálido" se convierte en un gris cálido muy suave (fondo agrupado tipo iOS) y las tarjetas pasan a blanco puro — la separación entre superficies se lee por contraste tonal, no por bordes marcados.
+3. **Sombras en capas, bordes hairline.** Se reemplaza la sombra única por 2-3 capas muy tenues (`--shadow-xs/sm`), y los bordes duros pasan a líneas hairline casi imperceptibles (`rgba` translúcido sobre tinta, no un gris fijo).
+4. **Una sola voz tipográfica.** Se retira la pila serif editorial (Georgia) y todo — títulos, cuerpo, números de KPI, fechas de la línea de tiempo — pasa a la pila de sistema (`-apple-system` / SF Pro y equivalentes). La jerarquía ya no se construye alternando familia tipográfica, sino con peso alto (700-800) y letter-spacing negativo en los títulos, que es como Apple logra el look "una sola voz, muy cuidada". Detalle de compatibilidad: la variable `--font-serif` se conserva (para no romper ningún uso inline en las otras páginas del sitio) pero ahora apunta a la misma pila sans.
+5. **Color con moderación.** Los callouts dejan de ser bloques de fondo saturado y pasan a superficies blancas sobrias con un detalle de color: una barra lateral fina y un ícono en una burbuja de color. El acento (rojo copihue) sigue reservado para la acción, y por eso aparece menos y destaca más.
+
 ### Paleta
 
-La marca ilustra flora y fauna nativa de Chile en acuarela — el sitio debe sentirse como una guía de campo bien editada, no como un dashboard de software genérico: fondo tipo papel, tinta oscura para el texto, un solo acento con carácter.
-
-**Acento elegido: rojo copihue** (`#b0223f`), no verde bosque.
-
-Justificación (2 líneas): el copihue es la flor nacional de Chile y ya es rojo intenso — le da al acento una identidad chilena inequívoca y reconocible, en vez de un "verde naturaleza" genérico que comparte cualquier marca de conservación. Además, al ser cálido, resalta con fuerza sobre el verde que ya domina las ilustraciones de flora del catálogo (contraste, no competencia).
-
-El verde bosque no se descarta: se usa como color de apoyo semántico para "éxito", donde además refuerza el eje de conservación de la marca.
-
-**Nota (jul-2026):** el operador confirmó que el sitio web de la marca ya usa un verde naturaleza propio, `#3B5751`. Se incorpora al sistema como `--brand-green`, y reemplaza al teal genérico que antes tenía la familia `--info` (callouts y pills informativos). Con el ajuste de identidad del mismo mes, el reparto final entre los dos colores queda así: **el verde de marca cubre identidad y estructura** — fondo del nav, gradiente del hero, encabezados de tabla, el círculo numerado de cada sección (`.sec > h2::before`), el relleno de la barra de progreso, el color de los checkboxes de la checklist y los puntos de la línea de tiempo — y **el rojo copihue queda reservado para la acción** — botones (`.btn`), botón Copiar (`.copyblock__btn`), subrayado del link activo del nav, pills por defecto y el embudo (`.funnel-step`).
+Los colores de identidad de la marca **no cambian**: el verde naturaleza (`#3B5751`) y el rojo copihue (`#b0223f`) se mantienen exactamente en los mismos hex y con el mismo reparto de responsabilidades que en v1 — **el verde de marca cubre identidad y estructura** (fondo del nav, gradiente del hero, encabezados de tabla, círculo numerado de cada sección, relleno de la barra de progreso, checkboxes, puntos de la línea de tiempo) y **el rojo copihue queda reservado para la acción** (botones, botón Copiar, subrayado del link activo del nav, pills por defecto, embudo). Lo que cambia en v2 son los tonos neutros de apoyo — tinta, papel, superficie y líneas — para lograr el fondo agrupado y las tarjetas blanco puro del look iOS, más la forma (radios, sombras) descrita en la sección siguiente.
 
 | Token | Valor | Uso |
 |---|---|---|
-| `--ink` | `#1c2420` | Texto principal |
+| `--ink` | `#1c2420` | Texto principal (gris oscuro, no negro puro) |
 | `--ink-soft` | `#4c5850` | Texto secundario, etiquetas |
 | `--ink-faint` | `#7c887f` | Texto terciario, marcas de tiempo |
-| `--paper` | `#faf6ee` | Fondo de página (papel cálido, no blanco puro) |
-| `--surface` | `#fffefb` | Fondo de tarjetas y bloques |
-| `--line` | `#e6ded0` | Bordes suaves |
-| `--line-strong` | `#d6c9b0` | Bordes de énfasis, separadores de sección |
-| `--accent` | `#b0223f` | Rojo copihue — color de acción: botones, botón Copiar, link activo del nav, pills, embudo |
-| `--accent-dark` | `#7c1830` | Hover/gradiente del acento |
-| `--accent-soft` | `#f8dfe4` | Fondos tenues de acento (pills, badges) |
-| `--success` | `#2f6b4a` | Verde bosque — éxito, cifras positivas |
-| `--success-soft` | `#dcece1` | Fondo tenue de éxito |
-| `--warn` | `#a8720a` | Alerta 🟡 (mismo código de color que el resto del proyecto) |
-| `--warn-soft` | `#f8ecd2` | Fondo tenue de alerta |
-| `--danger` | `#ae3d17` | Peligro / error — terracota, deliberadamente distinto del rojo copihue para no confundirse con el acento |
-| `--danger-soft` | `#f7ddd0` | Fondo tenue de peligro |
-| `--brand-green` | `#3b5751` | Verde naturaleza del sitio web de la marca — color de identidad y estructura: fondo del nav, gradiente del hero, encabezados de tabla, números de sección, barra de progreso, checkboxes, línea de tiempo; alias base de `--info` |
-| `--brand-green-dark` | `#2a403c` | Tono oscuro del verde de marca, para el gradiente del hero |
-| `--brand-green-soft` | `#e3eae8` | Fondo tenue del verde de marca; alias base de `--info-soft` |
+| `--paper` | `#f4f2ed` | Fondo de página — gris cálido suave, fondo "agrupado" tipo iOS (antes: papel cálido `#faf6ee`) |
+| `--surface` | `#ffffff` | Fondo de tarjetas y bloques — blanco puro (antes: `#fffefb`) |
+| `--line` | `rgba(28, 36, 32, .08)` | Bordes hairline, casi imperceptibles (antes: hex sólido `#e6ded0`) |
+| `--line-strong` | `rgba(28, 36, 32, .16)` | Bordes de énfasis, separadores de sección, track de progreso/barras (antes: hex sólido `#d6c9b0`) |
+| `--accent` | `#b0223f` | Rojo copihue — color de acción: botones, botón Copiar, link activo del nav, pills, embudo (sin cambios) |
+| `--accent-dark` | `#7c1830` | Hover/gradiente del acento (sin cambios) |
+| `--accent-soft` | `#f8dfe4` | Fondos tenues de acento (pills, badges, chip de ícono del callout) (sin cambios) |
+| `--success` | `#2f6b4a` | Verde bosque — éxito, cifras positivas (sin cambios) |
+| `--success-soft` | `#dcece1` | Fondo tenue de éxito (sin cambios) |
+| `--warn` | `#a8720a` | Alerta 🟡 (sin cambios) |
+| `--warn-soft` | `#f8ecd2` | Fondo tenue de alerta (sin cambios) |
+| `--danger` | `#ae3d17` | Peligro / error — terracota (sin cambios) |
+| `--danger-soft` | `#f7ddd0` | Fondo tenue de peligro (sin cambios) |
+| `--brand-green` | `#3b5751` | Verde naturaleza del sitio web de la marca — identidad y estructura (sin cambios) |
+| `--brand-green-dark` | `#2a403c` | Tono oscuro del verde de marca, gradiente del hero (sin cambios) |
+| `--brand-green-soft` | `#e3eae8` | Fondo tenue del verde de marca; alias base de `--info-soft` (sin cambios) |
 | `--info` | `#3b5751` (= `--brand-green`) | Información neutra — callouts y pills informativos |
 | `--info-soft` | `#e3eae8` (= `--brand-green-soft`) | Fondo tenue de información |
 
-Solo 5 familias de color en total (tinta, papel, acento, y 4 tonos semánticos de bajo protagonismo) — con una excepción deliberada: el verde de marca (`--brand-green`, alias de `--info`) sí cubre varias superficies grandes de identidad y estructura (nav, hero, encabezados de tabla, números de sección, progreso, checkboxes, línea de tiempo), no solo bordes/iconos/pills como el resto de la familia semántica. El rojo copihue queda reservado para la acción (botones, subrayado activo, pills, embudo). Mantiene el sitio con aspecto de sistema diseñado, no de paleta improvisada por 6 personas distintas.
-
 ### Tipografía
 
-System stack, cero fuentes web. Los títulos usan la pila serif del sistema (Georgia y equivalentes) para dar un aire editorial de "guía de campo" — el mismo espíritu que las fichas de especies del catálogo (nombre común + nombre científico); el cuerpo de texto usa la pila sans-serif del sistema, más legible en bloques largos y en pantallas chicas.
+Pila de sistema única, cero fuentes web:
 
 ```css
---font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
---font-serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
+--font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+--font-serif: var(--font-sans); /* alias de compatibilidad — ver justificación arriba */
 --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 ```
 
-Tamaños fluidos con `clamp()` — se ven bien desde 375px sin romper en pantallas grandes (ver variables `--fs-*` en el bloque CSS).
+**Por qué se abandona la serif editorial:** el sistema v1 usaba Georgia en los títulos para un aire de "guía de campo". El pedido del cliente para v2 es una estética limpia tipo iOS, y ese look se construye con una sola familia tipográfica bien jerarquizada (peso, tamaño, letter-spacing), no combinando dos. Mantener la serif habría competido con la limpieza que pide el rediseño. Los títulos ahora usan peso 700-800 y letter-spacing negativo (-0.01em a -0.03em, más cerrado cuanto más grande el texto) para lograr esa sensación "curada" sin cambiar de familia. Tamaños fluidos con `clamp()` en toda la escala (ver `--fs-*`), line-height 1.6 en cuerpo y 1.15 en títulos.
 
 ### Radios, sombras y espaciado
 
-Radios generosos (16px en tarjetas) para un aire orgánico, coherente con acuarela — nada de esquinas duras de dashboard corporativo. Sombras muy suaves, casi imperceptibles, solo para separar superficies. Escala de espaciado en `rem` de 8 pasos.
+- **Radios:** generosos y consistentes — `--radius-sm` 12px (elementos chicos: botones ghost, chips), `--radius` 20px (tarjetas, callouts, copyblock, KPIs, tabla), `--radius-lg` 28px (disponible para superficies grandes puntuales), `--radius-full` cápsula completa (botones, pills, progreso, tracks de barra).
+- **Sombras:** dos-tres capas muy tenues, nunca marcadas — `--shadow-xs` para detalles sutiles (badges, tabla), `--shadow-sm` para tarjetas y KPIs en reposo, `--shadow` (más profunda, dos capas) disponible para estados elevados puntuales. Los bordes duros del sistema anterior pasan a líneas hairline en `rgba` (`--line` / `--line-strong`), casi imperceptibles.
+- **Espaciado:** escala de 8 pasos en `rem`. Los primeros 5 pasos (`--space-1` a `--space-5`) son valores fijos para controles y padding interno; los 3 pasos grandes (`--space-6` a `--space-8`, usados en separación entre secciones y padding del hero) son fluidos con `clamp()` — generosos en escritorio, proporcionales en el celular, sin necesidad de una media query aparte para "dar más aire" en pantallas grandes.
+- **Movimiento:** transiciones discretas de 150-250ms (`--dur` + `--ease`) en hover/estados de botones, links del nav, checklist y barras — se desactivan automáticamente si el sistema tiene activado "reducir movimiento" (`prefers-reduced-motion`).
 
 ---
 
@@ -81,33 +86,36 @@ Este bloque completo va dentro de un único `<style>...</style>` en el `<head>` 
 
 ```css
 /* ==========================================================================
-   Sistema de diseño — Plan Pedraza Ilustración
+   Sistema de diseño v2 — Plan Pedraza Ilustración
+   Estética limpia, curada y serena, tipo iOS. Mismo contrato de clases
+   que el sistema v1: solo cambia el aspecto (espacio, tipografía,
+   superficies, radios, sombras), nunca la estructura de marcado.
    Bloque único y canónico. No editar por página: solo usar estas clases.
    ========================================================================== */
 
 :root {
   color-scheme: light;
 
-  /* --- tinta y superficies --- */
+  /* --- tinta y superficies: fondo agrupado gris cálido, tarjetas blanco puro --- */
   --ink: #1c2420;
   --ink-soft: #4c5850;
   --ink-faint: #7c887f;
-  --paper: #faf6ee;
-  --surface: #fffefb;
-  --line: #e6ded0;
-  --line-strong: #d6c9b0;
+  --paper: #f4f2ed;
+  --surface: #ffffff;
+  --line: rgba(28, 36, 32, .08);
+  --line-strong: rgba(28, 36, 32, .16);
 
-  /* --- acento: rojo copihue --- */
+  /* --- acento: rojo copihue (color de acción, se mantiene) --- */
   --accent: #b0223f;
   --accent-dark: #7c1830;
   --accent-soft: #f8dfe4;
 
-  /* --- verde naturaleza del sitio web de la marca (dato del operador, jul-2026) --- */
+  /* --- verde naturaleza del sitio web de la marca (identidad y estructura, se mantiene) --- */
   --brand-green: #3b5751;
   --brand-green-soft: #e3eae8;
   --brand-green-dark: #2a403c;
 
-  /* --- apoyo semántico --- */
+  /* --- apoyo semántico (valores de marca sin cambios) --- */
   --success: #2f6b4a;
   --success-soft: #dcece1;
   --warn: #a8720a;
@@ -117,36 +125,45 @@ Este bloque completo va dentro de un único `<style>...</style>` en el `<head>` 
   --info: var(--brand-green);
   --info-soft: var(--brand-green-soft);
 
-  /* --- forma --- */
-  --radius: 16px;
-  --radius-sm: 10px;
+  /* --- forma: radios generosos y consistentes --- */
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius: 20px;
+  --radius-lg: 28px;
   --radius-full: 999px;
-  --shadow-sm: 0 1px 3px rgba(28, 36, 32, .1);
-  --shadow: 0 6px 20px rgba(28, 36, 32, .12);
 
-  /* --- espaciado --- */
+  /* --- sombras suaves y en capas, nunca marcadas --- */
+  --shadow-xs: 0 1px 2px rgba(24, 32, 28, .04);
+  --shadow-sm: 0 1px 3px rgba(24, 32, 28, .05), 0 4px 10px rgba(24, 32, 28, .05);
+  --shadow: 0 6px 16px rgba(24, 32, 28, .07), 0 16px 32px -12px rgba(24, 32, 28, .14);
+
+  /* --- espaciado: escala amplia; los saltos grandes son fluidos (más aire en desktop, proporcional en móvil) --- */
   --space-1: .25rem;
   --space-2: .5rem;
-  --space-3: .75rem;
-  --space-4: 1rem;
-  --space-5: 1.5rem;
-  --space-6: 2rem;
-  --space-7: 3rem;
-  --space-8: 4rem;
+  --space-3: .875rem;
+  --space-4: 1.25rem;
+  --space-5: 1.75rem;
+  --space-6: clamp(2rem, 1.6rem + 1.6vw, 2.75rem);
+  --space-7: clamp(2.75rem, 2rem + 3vw, 4.5rem);
+  --space-8: clamp(3.5rem, 2.3rem + 5vw, 6rem);
 
-  /* --- tipografía --- */
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  /* --- tipografía: una sola voz, pila de sistema (ver sección 1 del documento) --- */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: var(--font-sans); /* alias de compatibilidad: el sistema v2 unifica todo en la pila sans, ver sección 1 */
   --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
-  --fs-sm: clamp(.82rem, .78rem + .2vw, .9rem);
+  --fs-sm: clamp(.85rem, .81rem + .2vw, .92rem);
   --fs-base: clamp(1rem, .95rem + .25vw, 1.0625rem);
   --fs-lg: clamp(1.1rem, 1.02rem + .4vw, 1.25rem);
-  --fs-h3: clamp(1.15rem, 1.05rem + .5vw, 1.35rem);
-  --fs-h2: clamp(1.35rem, 1.15rem + 1vw, 1.75rem);
-  --fs-h1: clamp(1.75rem, 1.4rem + 2vw, 2.75rem);
+  --fs-h3: clamp(1.2rem, 1.1rem + .5vw, 1.4rem);
+  --fs-h2: clamp(1.5rem, 1.3rem + 1vw, 1.9rem);
+  --fs-h1: clamp(2rem, 1.6rem + 2.4vw, 3rem);
 
   /* --- área táctil mínima (regla mobile-first del proyecto) --- */
   --tap: 44px;
+
+  /* --- movimiento discreto --- */
+  --ease: cubic-bezier(.4, 0, .2, 1);
+  --dur: 200ms;
 }
 
 /* ===== 1. Reset mínimo ===== */
@@ -164,29 +181,37 @@ table { border-collapse: collapse; width: 100%; }
 body {
   font-family: var(--font-sans);
   font-size: var(--fs-base);
-  line-height: 1.55;
+  line-height: 1.6;
   color: var(--ink);
   background: var(--paper);
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
-h1, h2, h3 { font-family: var(--font-serif); line-height: 1.2; color: var(--ink); }
-h1 { font-size: var(--fs-h1); }
+h1, h2, h3 { font-family: var(--font-sans); font-weight: 700; line-height: 1.15; letter-spacing: -.02em; color: var(--ink); }
+h1 { font-size: var(--fs-h1); font-weight: 800; letter-spacing: -.03em; }
 h2 { font-size: var(--fs-h2); }
-h3 { font-size: var(--fs-h3); }
-p { max-width: 68ch; }
-strong { color: var(--ink); }
-:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+h3 { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -.01em; }
+p { max-width: 68ch; color: var(--ink); }
+strong { color: var(--ink); font-weight: 700; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 
 /* ===== 3. Layout ===== */
 .wrap { max-width: 960px; margin: 0 auto; padding: 0 var(--space-4) var(--space-8); }
 
-/* ===== 4. Nav superior (.docnav) ===== */
+/* ===== 4. Nav superior (.docnav) — translúcida, con fallback sólido ===== */
 .docnav {
   position: sticky;
   top: 0;
   z-index: 50;
   background: var(--brand-green);
   border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .docnav {
+    background: rgba(59, 87, 81, .72);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+  }
 }
 .docnav__inner {
   display: flex;
@@ -195,7 +220,8 @@ strong { color: var(--ink); }
   scrollbar-width: thin;
   max-width: 960px;
   margin: 0 auto;
-  padding: 0 var(--space-2);
+  padding: 0 var(--space-3);
+  gap: var(--space-1);
 }
 .docnav__link {
   flex: 0 0 auto;
@@ -203,28 +229,32 @@ strong { color: var(--ink); }
   align-items: center;
   min-height: var(--tap);
   padding: 0 var(--space-3);
-  color: #eae6dd;
+  color: rgba(255, 255, 255, .78);
   text-decoration: none;
   font-size: var(--fs-sm);
   font-weight: 600;
   white-space: nowrap;
   border-bottom: 3px solid transparent;
+  transition: color var(--dur) var(--ease);
 }
 .docnav__link:hover { color: #fff; }
 .docnav__link.active {
   color: #fff;
+  font-weight: 700;
   border-bottom-color: var(--accent);
 }
 
 /* ===== 5. Hero ===== */
 .hero {
-  padding: var(--space-7) var(--space-4);
-  background: linear-gradient(135deg, var(--brand-green) 0%, var(--brand-green-dark) 100%);
+  padding: var(--space-8) var(--space-4);
+  background:
+    radial-gradient(120% 160% at 12% -20%, rgba(255, 255, 255, .14), transparent 55%),
+    linear-gradient(160deg, var(--brand-green) 0%, var(--brand-green-dark) 100%);
   color: #fff;
 }
 .hero__inner { max-width: 960px; margin: 0 auto; }
 .hero h1 { color: #fff; margin-bottom: var(--space-3); }
-.hero p { color: rgba(255, 255, 255, .92); font-size: var(--fs-lg); max-width: 60ch; margin: 0; }
+.hero p { color: rgba(255, 255, 255, .86); font-size: var(--fs-lg); font-weight: 400; max-width: 60ch; margin: 0; line-height: 1.55; }
 
 /* ===== 6. Secciones numeradas (.sec) ===== */
 main { counter-reset: sec; }
@@ -232,10 +262,11 @@ main { counter-reset: sec; }
 .sec:first-of-type { margin-top: var(--space-6); }
 .sec > h2 {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: var(--space-3);
-  padding-bottom: var(--space-2);
-  border-bottom: 2px solid var(--line-strong);
+  padding-bottom: var(--space-3);
+  margin-bottom: var(--space-5);
+  border-bottom: 1px solid var(--line-strong);
 }
 .sec > h2::before {
   content: counter(sec);
@@ -249,36 +280,52 @@ main { counter-reset: sec; }
   background: var(--brand-green);
   color: #fff;
   font-family: var(--font-sans);
-  font-size: .55em;
+  font-size: .5em;
   font-weight: 700;
+  box-shadow: var(--shadow-xs);
 }
 
-/* ===== 7. Callouts ===== */
+/* ===== 7. Callouts: superficies sobrias con un detalle de color ===== */
 .callout {
-  display: flex;
-  gap: var(--space-3);
-  padding: var(--space-4);
-  border-radius: var(--radius-sm);
+  display: block;
+  position: relative;
+  padding: var(--space-5) var(--space-5) var(--space-5) calc(var(--space-5) + 2.1em + var(--space-4));
+  border-radius: var(--radius);
   border: 1px solid var(--line);
+  border-left: 4px solid var(--ink-faint);
   background: var(--surface);
-  margin: var(--space-4) 0;
+  box-shadow: var(--shadow-xs);
+  margin: var(--space-5) 0;
 }
-.callout::before { flex: 0 0 auto; font-size: 1.3em; line-height: 1; }
+.callout::before {
+  position: absolute;
+  left: var(--space-5);
+  top: var(--space-5);
+  width: 2.1em;
+  height: 2.1em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--paper);
+  font-size: 1.1em;
+  line-height: 1;
+}
 .callout p:last-child { margin-bottom: 0; }
-.callout--info { border-color: var(--info); background: var(--info-soft); }
-.callout--info::before { content: "💡"; }
-.callout--success { border-color: var(--success); background: var(--success-soft); }
-.callout--success::before { content: "✅"; }
-.callout--warn { border-color: var(--warn); background: var(--warn-soft); }
-.callout--warn::before { content: "🟡"; }
-.callout--danger { border-color: var(--danger); background: var(--danger-soft); }
-.callout--danger::before { content: "🔴"; }
+.callout--info { border-left-color: var(--info); }
+.callout--info::before { content: "💡"; background: var(--info-soft); }
+.callout--success { border-left-color: var(--success); }
+.callout--success::before { content: "✅"; background: var(--success-soft); }
+.callout--warn { border-left-color: var(--warn); }
+.callout--warn::before { content: "🟡"; background: var(--warn-soft); }
+.callout--danger { border-left-color: var(--danger); }
+.callout--danger::before { content: "🔴"; background: var(--danger-soft); }
 
 /* ===== 8. Bloque copiable (.copyblock) ===== */
 .copyblock {
   position: relative;
-  margin: var(--space-4) 0;
-  padding: var(--space-8) var(--space-4) var(--space-4);
+  margin: var(--space-5) 0;
+  padding: calc(var(--tap) + var(--space-3)) var(--space-5) var(--space-5);
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -287,6 +334,7 @@ main { counter-reset: sec; }
 .copyblock__text {
   font-family: var(--font-mono);
   font-size: var(--fs-sm);
+  line-height: 1.6;
   white-space: pre-wrap;
   word-break: break-word;
   color: var(--ink);
@@ -298,39 +346,41 @@ main { counter-reset: sec; }
   min-height: var(--tap);
   padding: 0 var(--space-4);
   border: none;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-full);
   background: var(--accent);
   color: #fff;
   font-size: var(--fs-sm);
   font-weight: 700;
   cursor: pointer;
+  transition: background var(--dur) var(--ease), transform var(--dur) var(--ease);
 }
 .copyblock__btn:hover { background: var(--accent-dark); }
+.copyblock__btn:active { transform: scale(.96); }
 .copyblock__btn.is-copied { background: var(--success); }
 
 /* ===== 9. KPIs (.kpi) ===== */
 .kpi-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-3);
-  margin: var(--space-4) 0;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+  margin: var(--space-5) 0;
 }
 .kpi {
-  padding: var(--space-4);
+  padding: var(--space-5);
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
 }
-.kpi__label { display: block; font-size: var(--fs-sm); color: var(--ink-soft); margin-bottom: var(--space-2); }
-.kpi__value { display: block; font-family: var(--font-serif); font-size: clamp(1.5rem, 1.3rem + 1vw, 2.1rem); font-weight: 700; color: var(--ink); }
-.kpi__delta { display: inline-block; margin-top: var(--space-2); font-size: var(--fs-sm); font-weight: 600; padding: 2px var(--space-2); border-radius: var(--radius-full); }
+.kpi__label { display: block; font-size: var(--fs-sm); font-weight: 600; color: var(--ink-soft); margin-bottom: var(--space-2); overflow-wrap: break-word; }
+.kpi__value { display: block; font-family: var(--font-sans); font-size: clamp(1.35rem, 1.05rem + 1.4vw, 2.25rem); font-weight: 800; letter-spacing: -.02em; color: var(--ink); overflow-wrap: break-word; hyphens: none; }
+.kpi__delta { display: inline-block; margin-top: var(--space-2); font-size: var(--fs-sm); font-weight: 700; padding: 3px var(--space-3); border-radius: var(--radius-full); }
 .kpi__delta--up { color: var(--success); background: var(--success-soft); }
 .kpi__delta--down { color: var(--danger); background: var(--danger-soft); }
 
 /* ===== 10. Tarjeta genérica (.card) ===== */
 .card {
-  padding: var(--space-4);
+  padding: var(--space-5);
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -340,41 +390,44 @@ main { counter-reset: sec; }
 .card h3 { margin-top: 0; }
 
 /* ===== 11. Tablas responsive ===== */
-.table-wrap { overflow-x: auto; margin: var(--space-4) 0; border: 1px solid var(--line); border-radius: var(--radius-sm); }
+.table-wrap { overflow-x: auto; margin: var(--space-5) 0; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-xs); }
 .table-wrap table { min-width: 480px; }
-.table-wrap th, .table-wrap td { padding: var(--space-3); text-align: left; border-bottom: 1px solid var(--line); font-size: var(--fs-sm); }
-.table-wrap thead th { background: var(--brand-green); color: #fff; position: sticky; top: 0; }
+.table-wrap th, .table-wrap td { padding: var(--space-4); text-align: left; border-bottom: 1px solid var(--line); font-size: var(--fs-sm); }
+.table-wrap thead th { background: var(--brand-green); color: #fff; position: sticky; top: 0; font-weight: 700; }
 .table-wrap tbody tr:last-child td { border-bottom: none; }
-.table-wrap tbody tr:nth-child(even) { background: var(--paper); }
+.table-wrap tbody tr:nth-child(even) { background: transparent; } /* sin cebrado: la separación es por hairline, no por color */
 
-/* ===== 12. Barra de progreso (.progress) ===== */
+/* ===== 12. Barra de progreso (.progress) — píldora fina ===== */
 .progress { margin: var(--space-4) 0; }
-.progress__track { height: 14px; background: var(--line); border-radius: var(--radius-full); overflow: hidden; }
-.progress__fill { height: 100%; background: var(--brand-green); border-radius: var(--radius-full); transition: width .3s ease; width: 0%; }
-.progress__label { display: block; margin-top: var(--space-2); font-size: var(--fs-sm); color: var(--ink-soft); }
+.progress__track { height: 10px; background: var(--line-strong); border-radius: var(--radius-full); overflow: hidden; }
+.progress__fill { height: 100%; background: var(--brand-green); border-radius: var(--radius-full); transition: width .4s var(--ease); width: 0%; }
+.progress__label { display: block; margin-top: var(--space-3); font-size: var(--fs-sm); color: var(--ink-soft); }
 
 /* ===== 13. Checklist táctil (.checklist) ===== */
 .checklist { list-style: none; padding-left: 0; margin: var(--space-4) 0; }
-.checklist li { margin-bottom: var(--space-2); }
+.checklist li { margin-bottom: var(--space-3); }
 .checklist label {
   display: flex;
   align-items: flex-start;
   gap: var(--space-3);
   min-height: var(--tap);
-  padding: var(--space-2) var(--space-3);
+  padding: var(--space-3) var(--space-4);
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-xs);
   cursor: pointer;
+  transition: box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease);
 }
-.checklist input[type="checkbox"] { width: 24px; height: 24px; flex: 0 0 auto; accent-color: var(--brand-green); margin-top: 2px; }
+.checklist label:hover { border-color: var(--line-strong); box-shadow: var(--shadow-sm); }
+.checklist input[type="checkbox"] { width: 26px; height: 26px; flex: 0 0 auto; accent-color: var(--brand-green); margin-top: 2px; }
 .checklist input[type="checkbox"]:checked + span { text-decoration: line-through; color: var(--ink-soft); }
 
 /* ===== 14. Etiquetas (.pill) ===== */
 .pill {
   display: inline-flex;
   align-items: center;
-  padding: 2px var(--space-3);
+  padding: 4px var(--space-3);
   border-radius: var(--radius-full);
   font-size: var(--fs-sm);
   font-weight: 600;
@@ -387,52 +440,54 @@ main { counter-reset: sec; }
 .pill--info { background: var(--info-soft); color: var(--info); }
 
 /* ===== 15. Grillas responsive ===== */
-.grid-2, .grid-3 { display: grid; gap: var(--space-4); margin: var(--space-4) 0; grid-template-columns: 1fr; }
+.grid-2, .grid-3 { display: grid; gap: var(--space-5); margin: var(--space-5) 0; grid-template-columns: minmax(0, 1fr); }
 
 /* ===== 16. Gráficos SVG/CSS hechos a mano ===== */
 /* Barras horizontales */
-.chart-bar-row { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-2); }
+.chart-bar-row { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-3); }
 .chart-bar-row__label { flex: 0 0 9rem; font-size: var(--fs-sm); color: var(--ink-soft); }
-.chart-bar-row__track { flex: 1 1 auto; height: 20px; background: var(--line); border-radius: var(--radius-full); overflow: hidden; }
-.chart-bar-row__fill { height: 100%; background: var(--accent); border-radius: var(--radius-full); }
+.chart-bar-row__track { flex: 1 1 auto; height: 16px; background: var(--line-strong); border-radius: var(--radius-full); overflow: hidden; }
+.chart-bar-row__fill { height: 100%; background: var(--accent); border-radius: var(--radius-full); transition: width .5s var(--ease); }
 .chart-bar-row__value { flex: 0 0 auto; font-size: var(--fs-sm); font-weight: 700; min-width: 3.5rem; text-align: right; }
 
 /* Embudo: cada .funnel-step define su ancho con --w inline, ej. style="--w:70%" */
-.funnel { display: flex; flex-direction: column; align-items: center; gap: 2px; margin: var(--space-4) 0; }
+.funnel { display: flex; flex-direction: column; align-items: center; gap: var(--space-1); margin: var(--space-5) 0; }
 .funnel-step {
   width: var(--w, 100%);
   max-width: 100%;
-  padding: var(--space-3);
+  padding: var(--space-4);
   text-align: center;
   color: #fff;
   font-size: var(--fs-sm);
   font-weight: 700;
   background: var(--accent);
   border-radius: var(--radius-sm);
+  transition: opacity var(--dur) var(--ease);
 }
 .funnel-step:nth-child(2) { opacity: .85; }
 .funnel-step:nth-child(3) { opacity: .7; }
 .funnel-step:nth-child(4) { opacity: .55; }
 .funnel-step:nth-child(5) { opacity: .4; }
 
-/* Línea de tiempo vertical */
-.timeline { position: relative; margin: var(--space-5) 0; padding-left: var(--space-6); border-left: 3px solid var(--line-strong); }
+/* Línea de tiempo vertical: línea hairline y puntos pequeños */
+.timeline { position: relative; margin: var(--space-6) 0; padding-left: var(--space-6); border-left: 1px solid var(--line-strong); }
 .timeline-item { position: relative; margin-bottom: var(--space-5); }
 .timeline-item::before {
   content: "";
   position: absolute;
-  left: calc(-1 * var(--space-6) - 7px);
+  left: calc(-1 * var(--space-6) - 6px);
   top: 4px;
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background: var(--brand-green);
   border: 3px solid var(--paper);
+  box-shadow: var(--shadow-xs);
 }
 .timeline-item__date { font-size: var(--fs-sm); font-weight: 700; color: var(--accent-dark); }
-.timeline-item__title { font-family: var(--font-serif); font-size: var(--fs-lg); margin: var(--space-1) 0; }
+.timeline-item__title { font-family: var(--font-sans); font-weight: 700; font-size: var(--fs-lg); letter-spacing: -.01em; margin: var(--space-1) 0; }
 
-/* ===== 17. Botones ===== */
+/* ===== 17. Botones: cápsula, con estados sutiles ===== */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -441,37 +496,55 @@ main { counter-reset: sec; }
   min-height: var(--tap);
   padding: 0 var(--space-5);
   border: none;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-full);
   background: var(--accent);
   color: #fff;
   font-size: var(--fs-base);
   font-weight: 700;
   text-decoration: none;
   cursor: pointer;
+  box-shadow: var(--shadow-xs);
+  transition: background var(--dur) var(--ease), transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
 }
-.btn:hover { background: var(--accent-dark); }
-.btn--ghost { background: transparent; border: 2px solid var(--line-strong); color: var(--ink); }
-.btn--ghost:hover { border-color: var(--accent); color: var(--accent); }
+.btn:hover { background: var(--accent-dark); box-shadow: var(--shadow-sm); }
+.btn:active { transform: scale(.97); }
+.btn--ghost { background: transparent; border: 2px solid var(--line-strong); color: var(--ink); box-shadow: none; }
+.btn--ghost:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
 
 /* ===== 18. Media queries (mobile-first: base = ~375px) ===== */
+@media (min-width: 480px) {
+  .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 @media (min-width: 640px) {
-  .kpi-grid { grid-template-columns: repeat(3, 1fr); }
-  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .kpi-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .hero { padding: var(--space-8) var(--space-6); }
 }
 @media (min-width: 960px) {
-  .kpi-grid { grid-template-columns: repeat(4, 1fr); }
-  .grid-2 { grid-template-columns: repeat(2, 1fr); }
-  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .kpi-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
-/* ===== 19. Impresión ===== */
+/* ===== 19. Movimiento discreto: respeta preferencia de menos movimiento ===== */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===== 20. Impresión ===== */
 @media print {
   .docnav, .copyblock__btn, .btn { display: none !important; }
   body { background: #fff; color: #000; }
   .hero { background: #fff !important; color: #000 !important; }
   .hero h1, .hero p { color: #000 !important; }
   .card, .callout, .kpi, .copyblock { box-shadow: none; border: 1px solid #999; }
+  .callout { border-left: 4px solid #999; }
   a[href]::after { content: " (" attr(href) ")"; font-size: .8em; }
 }
 ```
