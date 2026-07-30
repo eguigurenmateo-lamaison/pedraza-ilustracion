@@ -1,0 +1,1264 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Los números del negocio — Plan Pedraza Ilustración</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
+<style>
+/* ==========================================================================
+   Sistema de diseño v2 — Plan Pedraza Ilustración
+   Estética limpia, curada y serena, tipo iOS. Mismo contrato de clases
+   que el sistema v1: solo cambia el aspecto (espacio, tipografía,
+   superficies, radios, sombras), nunca la estructura de marcado.
+   Bloque único y canónico. No editar por página: solo usar estas clases.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* --- tinta y superficies: fondo agrupado gris cálido, tarjetas blanco puro --- */
+  --ink: #1c2420;
+  --ink-soft: #4c5850;
+  --ink-faint: #7c887f;
+  --paper: #f4f2ed;
+  --surface: #ffffff;
+  --line: rgba(28, 36, 32, .08);
+  --line-strong: rgba(28, 36, 32, .16);
+
+  /* --- acento: rojo copihue (color de acción, se mantiene) --- */
+  --accent: #b0223f;
+  --accent-dark: #7c1830;
+  --accent-soft: #f8dfe4;
+
+  /* --- verde naturaleza del sitio web de la marca (identidad y estructura, se mantiene) --- */
+  --brand-green: #3b5751;
+  --brand-green-soft: #e3eae8;
+  --brand-green-dark: #2a403c;
+
+  /* --- apoyo semántico (valores de marca sin cambios) --- */
+  --success: #2f6b4a;
+  --success-soft: #dcece1;
+  --warn: #a8720a;
+  --warn-soft: #f8ecd2;
+  --danger: #ae3d17;
+  --danger-soft: #f7ddd0;
+  --info: var(--brand-green);
+  --info-soft: var(--brand-green-soft);
+
+  /* --- forma: radios generosos y consistentes --- */
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius: 20px;
+  --radius-lg: 28px;
+  --radius-full: 999px;
+
+  /* --- sombras suaves y en capas, nunca marcadas --- */
+  --shadow-xs: 0 1px 2px rgba(24, 32, 28, .04);
+  --shadow-sm: 0 1px 3px rgba(24, 32, 28, .05), 0 4px 10px rgba(24, 32, 28, .05);
+  --shadow: 0 6px 16px rgba(24, 32, 28, .07), 0 16px 32px -12px rgba(24, 32, 28, .14);
+
+  /* --- espaciado: escala amplia; los saltos grandes son fluidos (más aire en desktop, proporcional en móvil) --- */
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .875rem;
+  --space-4: 1.25rem;
+  --space-5: 1.75rem;
+  --space-6: clamp(2rem, 1.6rem + 1.6vw, 2.75rem);
+  --space-7: clamp(2.75rem, 2rem + 3vw, 4.5rem);
+  --space-8: clamp(3.5rem, 2.3rem + 5vw, 6rem);
+
+  /* --- tipografía: una sola voz, pila de sistema (ver sección 1 del documento) --- */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: var(--font-sans); /* alias de compatibilidad: el sistema v2 unifica todo en la pila sans, ver sección 1 */
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --fs-sm: clamp(.85rem, .81rem + .2vw, .92rem);
+  --fs-base: clamp(1rem, .95rem + .25vw, 1.0625rem);
+  --fs-lg: clamp(1.1rem, 1.02rem + .4vw, 1.25rem);
+  --fs-h3: clamp(1.2rem, 1.1rem + .5vw, 1.4rem);
+  --fs-h2: clamp(1.5rem, 1.3rem + 1vw, 1.9rem);
+  --fs-h1: clamp(2rem, 1.6rem + 2.4vw, 3rem);
+
+  /* --- área táctil mínima (regla mobile-first del proyecto) --- */
+  --tap: 44px;
+
+  /* --- movimiento discreto --- */
+  --ease: cubic-bezier(.4, 0, .2, 1);
+  --dur: 200ms;
+}
+
+/* ===== 1. Reset mínimo ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; }
+img, svg { max-width: 100%; display: block; }
+h1, h2, h3, h4, p, ul, ol, dl, figure { margin: 0 0 var(--space-4); }
+ul, ol { padding-left: 1.2em; }
+a { color: inherit; }
+button { font: inherit; }
+table { border-collapse: collapse; width: 100%; }
+
+/* ===== 2. Tipografía base ===== */
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+h1, h2, h3 { font-family: var(--font-sans); font-weight: 700; line-height: 1.15; letter-spacing: -.02em; color: var(--ink); }
+h1 { font-size: var(--fs-h1); font-weight: 800; letter-spacing: -.03em; }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -.01em; }
+p { max-width: 68ch; color: var(--ink); }
+strong { color: var(--ink); font-weight: 700; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+/* ===== 3. Layout ===== */
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 var(--space-4) var(--space-8); }
+
+/* ===== 4. Barra superior (.navbar) — translúcida, con fallback sólido ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--brand-green);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .navbar {
+    background: rgba(59, 87, 81, .72);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+  }
+}
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--space-1) var(--space-3);
+}
+.navbar__home {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap);
+  height: var(--tap);
+  border-radius: var(--radius-full);
+  font-size: 1.3rem;
+  line-height: 1;
+  text-decoration: none;
+  color: #fff;
+  transition: background var(--dur) var(--ease);
+}
+.navbar__home:hover, .navbar__home:active { background: rgba(255, 255, 255, .14); }
+.navbar__title {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+.navbar__menu-btn {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-width: var(--tap);
+  min-height: var(--tap);
+  padding: 0 var(--space-3);
+  border: none;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, .14);
+  color: #fff;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease);
+}
+.navbar__menu-btn:hover { background: rgba(255, 255, 255, .22); }
+.navbar__menu-icon { display: inline-flex; flex-direction: column; justify-content: center; gap: 4px; width: 18px; flex: 0 0 auto; }
+.navbar__menu-icon span { display: block; height: 2px; width: 100%; background: #fff; border-radius: 2px; }
+.navbar__menu-label { font-size: var(--fs-sm); font-weight: 600; white-space: nowrap; }
+@media (max-width: 420px) { .navbar__menu-label { display: none; } }
+
+/* ===== 4b. Panel de navegación completo (.navpanel) — 15 páginas en 4 grupos ===== */
+html.nav-lock, body.nav-lock { overflow: hidden; }
+.navpanel {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.navpanel[hidden] { display: none; }
+.navpanel__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 20, 18, .5);
+  opacity: 0;
+  transition: opacity var(--dur) var(--ease);
+}
+.navpanel__sheet {
+  position: relative;
+  width: 100%;
+  max-height: 92vh;
+  background: var(--paper);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  transform: translateY(100%);
+  transition: transform var(--dur) var(--ease);
+}
+.navpanel.is-open .navpanel__backdrop { opacity: 1; }
+.navpanel.is-open .navpanel__sheet { transform: translateY(0); }
+.navpanel__header {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-4) var(--space-3);
+  border-bottom: 1px solid var(--line);
+}
+.navpanel__headtitle { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -.01em; color: var(--ink); }
+.navpanel__close {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap);
+  height: var(--tap);
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--line-strong);
+  color: var(--ink);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.navpanel__close:hover { background: var(--accent-soft); color: var(--accent-dark); }
+.navpanel__body {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: var(--space-4) var(--space-4) var(--space-7);
+}
+.navpanel__group + .navpanel__group { margin-top: var(--space-5); }
+.navpanel__group-title {
+  margin: 0 0 var(--space-2);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--ink-faint);
+}
+.navpanel__link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: calc(var(--tap) + 12px);
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-xs);
+  text-decoration: none;
+  color: var(--ink);
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+.navpanel__link:hover { border-color: var(--line-strong); box-shadow: var(--shadow-sm); }
+.navpanel__link:last-child { margin-bottom: 0; }
+.navpanel__link-text { flex: 1 1 auto; min-width: 0; }
+.navpanel__link-name { display: block; font-weight: 700; font-size: var(--fs-base); letter-spacing: -.01em; color: var(--ink); }
+.navpanel__link-desc { display: block; margin-top: 2px; font-size: var(--fs-sm); color: var(--ink-soft); }
+.navpanel__check {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .8rem;
+  color: #fff;
+  background: var(--brand-green);
+  opacity: 0;
+  transform: scale(.6);
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.navpanel__link--current { background: var(--brand-green-soft); border-color: transparent; }
+.navpanel__link--current .navpanel__link-name { color: var(--brand-green-dark); }
+.navpanel__link--current .navpanel__check { opacity: 1; transform: scale(1); }
+@media (min-width: 640px) {
+  .navpanel { align-items: center; padding: var(--space-5); }
+  .navpanel__sheet {
+    max-width: 560px;
+    max-height: 84vh;
+    border-radius: var(--radius-lg);
+    transform: translateY(16px) scale(.98);
+    opacity: 0;
+    transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease);
+  }
+  .navpanel.is-open .navpanel__sheet { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* ===== 5. Hero ===== */
+.hero {
+  padding: var(--space-8) var(--space-4);
+  background:
+    radial-gradient(120% 160% at 12% -20%, rgba(255, 255, 255, .14), transparent 55%),
+    linear-gradient(160deg, var(--brand-green) 0%, var(--brand-green-dark) 100%);
+  color: #fff;
+}
+.hero__inner { max-width: 960px; margin: 0 auto; }
+.hero h1 { color: #fff; margin-bottom: var(--space-3); }
+.hero p { color: rgba(255, 255, 255, .86); font-size: var(--fs-lg); font-weight: 400; max-width: 60ch; margin: 0; line-height: 1.55; }
+
+/* ===== 6. Secciones numeradas (.sec) ===== */
+main { counter-reset: sec; }
+.sec { counter-increment: sec; margin-top: var(--space-7); }
+.sec:first-of-type { margin-top: var(--space-6); }
+.sec > h2 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding-bottom: var(--space-3);
+  margin-bottom: var(--space-5);
+  border-bottom: 1px solid var(--line-strong);
+}
+.sec > h2::before {
+  content: counter(sec);
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9em;
+  height: 1.9em;
+  border-radius: var(--radius-full);
+  background: var(--brand-green);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: .5em;
+  font-weight: 700;
+  box-shadow: var(--shadow-xs);
+}
+
+/* ===== 7. Callouts: superficies sobrias con un detalle de color ===== */
+.callout {
+  display: block;
+  position: relative;
+  padding: var(--space-5) var(--space-5) var(--space-5) calc(var(--space-5) + 2.1em + var(--space-4));
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--ink-faint);
+  background: var(--surface);
+  box-shadow: var(--shadow-xs);
+  margin: var(--space-5) 0;
+}
+.callout::before {
+  position: absolute;
+  left: var(--space-5);
+  top: var(--space-5);
+  width: 2.1em;
+  height: 2.1em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--paper);
+  font-size: 1.1em;
+  line-height: 1;
+}
+.callout p:last-child { margin-bottom: 0; }
+.callout--info { border-left-color: var(--info); }
+.callout--info::before { content: "💡"; background: var(--info-soft); }
+.callout--success { border-left-color: var(--success); }
+.callout--success::before { content: "✅"; background: var(--success-soft); }
+.callout--warn { border-left-color: var(--warn); }
+.callout--warn::before { content: "🟡"; background: var(--warn-soft); }
+.callout--danger { border-left-color: var(--danger); }
+.callout--danger::before { content: "🔴"; background: var(--danger-soft); }
+
+/* ===== 8. Bloque copiable (.copyblock) ===== */
+.copyblock {
+  position: relative;
+  margin: var(--space-5) 0;
+  padding: calc(var(--tap) + var(--space-3)) var(--space-5) var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.copyblock__text {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--ink);
+}
+.copyblock__btn {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  min-height: var(--tap);
+  padding: 0 var(--space-4);
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.copyblock__btn:hover { background: var(--accent-dark); }
+.copyblock__btn:active { transform: scale(.96); }
+.copyblock__btn.is-copied { background: var(--success); }
+
+/* ===== 9. KPIs (.kpi) ===== */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+  margin: var(--space-5) 0;
+}
+.kpi {
+  padding: var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.kpi__label { display: block; font-size: var(--fs-sm); font-weight: 600; color: var(--ink-soft); margin-bottom: var(--space-2); overflow-wrap: break-word; }
+.kpi__value { display: block; font-family: var(--font-sans); font-size: clamp(1.35rem, 1.05rem + 1.4vw, 2.25rem); font-weight: 800; letter-spacing: -.02em; color: var(--ink); overflow-wrap: break-word; hyphens: none; }
+.kpi__delta { display: inline-block; margin-top: var(--space-2); font-size: var(--fs-sm); font-weight: 700; padding: 3px var(--space-3); border-radius: var(--radius-full); }
+.kpi__delta--up { color: var(--success); background: var(--success-soft); }
+.kpi__delta--down { color: var(--danger); background: var(--danger-soft); }
+
+/* ===== 10. Tarjeta genérica (.card) ===== */
+.card {
+  padding: var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  margin: var(--space-4) 0;
+}
+.card h3 { margin-top: 0; }
+
+/* ===== 11. Tablas responsive ===== */
+.table-wrap { overflow-x: auto; margin: var(--space-5) 0; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-xs); }
+.table-wrap table { min-width: 480px; }
+.table-wrap th, .table-wrap td { padding: var(--space-4); text-align: left; border-bottom: 1px solid var(--line); font-size: var(--fs-sm); }
+.table-wrap thead th { background: var(--brand-green); color: #fff; position: sticky; top: 0; font-weight: 700; }
+.table-wrap tbody tr:last-child td { border-bottom: none; }
+.table-wrap tbody tr:nth-child(even) { background: transparent; } /* sin cebrado: la separación es por hairline, no por color */
+
+/* ===== 12. Barra de progreso (.progress) — píldora fina ===== */
+.progress { margin: var(--space-4) 0; }
+.progress__track { height: 10px; background: var(--line-strong); border-radius: var(--radius-full); overflow: hidden; }
+.progress__fill { height: 100%; background: var(--brand-green); border-radius: var(--radius-full); transition: width .4s var(--ease); width: 0%; }
+.progress__label { display: block; margin-top: var(--space-3); font-size: var(--fs-sm); color: var(--ink-soft); }
+
+/* ===== 13. Checklist táctil (.checklist) ===== */
+.checklist { list-style: none; padding-left: 0; margin: var(--space-4) 0; }
+.checklist li { margin-bottom: var(--space-3); }
+.checklist label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  min-height: var(--tap);
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-xs);
+  cursor: pointer;
+  transition: box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.checklist label:hover { border-color: var(--line-strong); box-shadow: var(--shadow-sm); }
+.checklist input[type="checkbox"] { width: 26px; height: 26px; flex: 0 0 auto; accent-color: var(--brand-green); margin-top: 2px; }
+.checklist input[type="checkbox"]:checked + span { text-decoration: line-through; color: var(--ink-soft); }
+
+/* ===== 14. Etiquetas (.pill) ===== */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+.pill--success { background: var(--success-soft); color: var(--success); }
+.pill--warn { background: var(--warn-soft); color: var(--warn); }
+.pill--danger { background: var(--danger-soft); color: var(--danger); }
+.pill--info { background: var(--info-soft); color: var(--info); }
+
+/* ===== 15. Grillas responsive ===== */
+.grid-2, .grid-3 { display: grid; gap: var(--space-5); margin: var(--space-5) 0; grid-template-columns: minmax(0, 1fr); }
+
+/* ===== 16. Gráficos SVG/CSS hechos a mano ===== */
+/* Barras horizontales */
+.chart-bar-row { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-3); }
+.chart-bar-row__label { flex: 0 0 9rem; font-size: var(--fs-sm); color: var(--ink-soft); }
+.chart-bar-row__track { flex: 1 1 auto; height: 16px; background: var(--line-strong); border-radius: var(--radius-full); overflow: hidden; }
+.chart-bar-row__fill { height: 100%; background: var(--accent); border-radius: var(--radius-full); transition: width .5s var(--ease); }
+.chart-bar-row__value { flex: 0 0 auto; font-size: var(--fs-sm); font-weight: 700; min-width: 3.5rem; text-align: right; }
+
+/* Embudo: cada .funnel-step define su ancho con --w inline, ej. style="--w:70%" */
+.funnel { display: flex; flex-direction: column; align-items: center; gap: var(--space-1); margin: var(--space-5) 0; }
+.funnel-step {
+  width: var(--w, 100%);
+  max-width: 100%;
+  padding: var(--space-4);
+  text-align: center;
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  background: var(--accent);
+  border-radius: var(--radius-sm);
+  transition: opacity var(--dur) var(--ease);
+}
+.funnel-step:nth-child(2) { opacity: .85; }
+.funnel-step:nth-child(3) { opacity: .7; }
+.funnel-step:nth-child(4) { opacity: .55; }
+.funnel-step:nth-child(5) { opacity: .4; }
+
+/* Línea de tiempo vertical: línea hairline y puntos pequeños */
+.timeline { position: relative; margin: var(--space-6) 0; padding-left: var(--space-6); border-left: 1px solid var(--line-strong); }
+.timeline-item { position: relative; margin-bottom: var(--space-5); }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--space-6) - 6px);
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--brand-green);
+  border: 3px solid var(--paper);
+  box-shadow: var(--shadow-xs);
+}
+.timeline-item__date { font-size: var(--fs-sm); font-weight: 700; color: var(--accent-dark); }
+.timeline-item__title { font-family: var(--font-sans); font-weight: 700; font-size: var(--fs-lg); letter-spacing: -.01em; margin: var(--space-1) 0; }
+
+/* ===== 17. Botones: cápsula, con estados sutiles ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-5);
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-base);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-xs);
+  transition: background var(--dur) var(--ease), transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.btn:hover { background: var(--accent-dark); box-shadow: var(--shadow-sm); }
+.btn:active { transform: scale(.97); }
+.btn--ghost { background: transparent; border: 2px solid var(--line-strong); color: var(--ink); box-shadow: none; }
+.btn--ghost:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+
+/* ===== 18. Media queries (mobile-first: base = ~375px) ===== */
+@media (min-width: 480px) {
+  .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 640px) {
+  .kpi-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero { padding: var(--space-8) var(--space-6); }
+}
+@media (min-width: 960px) {
+  .kpi-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* ===== 19. Movimiento discreto: respeta preferencia de menos movimiento ===== */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===== 20. Impresión ===== */
+@media print {
+  .navbar, .navpanel, .copyblock__btn, .btn { display: none !important; }
+  body { background: #fff; color: #000; }
+  .hero { background: #fff !important; color: #000 !important; }
+  .hero h1, .hero p { color: #000 !important; }
+  .card, .callout, .kpi, .copyblock { box-shadow: none; border: 1px solid #999; }
+  .callout { border-left: 4px solid #999; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: .8em; }
+}
+
+/* ==========================================================================
+   Extensiones propias de esta página (finanzas.html)
+   finanzas.html no es una de las 6 páginas del sitio (docs/design-system.md,
+   sección 1) y no está en el menú principal — se llega por link directo desde
+   el plan o la bitácora. El bloque de arriba es el canónico intacto; lo de
+   abajo son componentes propios de esta página (link de vuelta, fila de
+   gráfico destacada para diciembre), agregados en la misma hoja de estilos
+   única para no crear un segundo archivo CSS.
+   ========================================================================== */
+
+.hero__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-2) 0 0;
+  margin-bottom: var(--space-3);
+  color: rgba(255, 255, 255, .85);
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+.hero__back:hover { color: #fff; }
+
+/* Fila de gráfico destacada: se usa una sola vez, en diciembre-2025 (sección 3) */
+.chart-bar-row--peak .chart-bar-row__label,
+.chart-bar-row--peak .chart-bar-row__value { font-weight: 800; color: var(--brand-green-dark); }
+
+/* Variante amber del badge de KPI, para "margen más bajo en comparación" sin usar el rojo de peligro */
+.kpi__delta--warn { color: var(--warn); background: var(--warn-soft); }
+
+.page-footer { margin-top: var(--space-8); padding-top: var(--space-4); border-top: 1px solid var(--line); color: var(--ink-faint); font-size: var(--fs-sm); }
+.page-footer a { color: var(--accent-dark); font-weight: 700; text-decoration: none; }
+.page-footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body data-nav-actual="finanzas">
+<nav class="navbar" aria-label="Barra de navegación">
+  <div class="navbar__inner">
+    <a href="estado.html" class="navbar__home" aria-label="Ir al inicio: Estado del plan">🦋</a>
+    <span class="navbar__title" data-nav-title>Plan Pedraza Ilustración</span>
+    <button type="button" class="navbar__menu-btn" data-nav-open aria-expanded="false" aria-controls="nav-panel">
+      <span class="navbar__menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span class="navbar__menu-label">Menú</span>
+    </button>
+  </div>
+</nav>
+
+<div class="navpanel" id="nav-panel" role="dialog" aria-modal="true" aria-label="Menú de navegación" hidden>
+  <div class="navpanel__backdrop" data-nav-close></div>
+  <div class="navpanel__sheet">
+    <div class="navpanel__header">
+      <span class="navpanel__headtitle">Menú</span>
+      <button type="button" class="navpanel__close" data-nav-close aria-label="Cerrar menú">✕</button>
+    </div>
+    <nav class="navpanel__body" aria-label="Todas las páginas del plan">
+
+      <div class="navpanel__group">
+        <h3 class="navpanel__group-title">Seguimiento</h3>
+        <a href="estado.html" class="navpanel__link" data-nav-key="estado">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Estado del plan</span>
+            <span class="navpanel__link-desc">En qué punto vamos hoy</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="bitacora.html" class="navpanel__link" data-nav-key="bitacora">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Bitácora</span>
+            <span class="navpanel__link-desc">Reuniones, pendientes y entregables</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="sincronizar.html" class="navpanel__link" data-nav-key="sincronizar">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Conectar con la hoja</span>
+            <span class="navpanel__link-desc">Compartir el avance con el equipo</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+      </div>
+
+      <div class="navpanel__group">
+        <h3 class="navpanel__group-title">La estrategia</h3>
+        <a href="index.html" class="navpanel__link" data-nav-key="index">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Plan y estrategia</span>
+            <span class="navpanel__link-desc">El mapa completo</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+      </div>
+
+      <div class="navpanel__group">
+        <h3 class="navpanel__group-title">Plan de acción</h3>
+        <a href="plan-90-dias.html" class="navpanel__link" data-nav-key="plan-90-dias">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Plan de 90 días</span>
+            <span class="navpanel__link-desc">Roles, objetivos y checklist</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="stock-navidad.html" class="navpanel__link" data-nav-key="stock-navidad">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Stock para Navidad</span>
+            <span class="navpanel__link-desc">Cuánto pedir y cuándo</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="ofertas.html" class="navpanel__link" data-nav-key="ofertas">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Ofertas y pop-ups</span>
+            <span class="navpanel__link-desc">Subir el ticket promedio</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="email.html" class="navpanel__link" data-nav-key="email">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Correo y campañas</span>
+            <span class="navpanel__link-desc">Del 9% al 20-25%</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="cro.html" class="navpanel__link" data-nav-key="cro">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Conversión</span>
+            <span class="navpanel__link-desc">Auditoría de la tienda</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="ads.html" class="navpanel__link" data-nav-key="ads">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Google y Meta Ads</span>
+            <span class="navpanel__link-desc">Auditoría de las cuentas</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="digitales.html" class="navpanel__link" data-nav-key="digitales">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Productos digitales</span>
+            <span class="navpanel__link-desc">Margen sin stock</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+      </div>
+
+      <div class="navpanel__group">
+        <h3 class="navpanel__group-title">Herramientas del día a día</h3>
+        <a href="kit-arranque.html" class="navpanel__link" data-nav-key="kit-arranque">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Kit de arranque</span>
+            <span class="navpanel__link-desc">Lo primero que se hace</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="guion-reels.html" class="navpanel__link" data-nav-key="guion-reels">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Guiones de Reels</span>
+            <span class="navpanel__link-desc">Qué grabar y cómo</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="sop-dm.html" class="navpanel__link" data-nav-key="sop-dm">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Mensajes y DM</span>
+            <span class="navpanel__link-desc">Qué responder</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="recursos.html" class="navpanel__link" data-nav-key="recursos">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Recursos</span>
+            <span class="navpanel__link-desc">Herramientas y enlaces</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="tablero.html" class="navpanel__link" data-nav-key="tablero">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Tablero</span>
+            <span class="navpanel__link-desc">Métricas semanales</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+      </div>
+
+    </nav>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="hero__inner">
+    <a href="estado.html" class="hero__back">← Volver al estado del plan</a>
+    <h1>Los números del negocio</h1>
+    <p>La primera lectura completa de 18 meses de datos reales — de enero de 2025 a junio de 2026 — que Felipe compartió por primera vez. Con esto se puede planificar el stock de Navidad, decidir precios y saber dónde vale más la pena poner el esfuerzo.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<p style="margin-top:var(--space-6)"><span class="pill pill--success">🟢 Datos reales</span> Todos los números de esta página salen de los archivos financieros que Felipe compartió el 29 de julio de 2026: 18 meses completos, de enero de 2025 a junio de 2026. Las lecturas marcadas con <span class="pill pill--warn">🟡 Lectura</span> son análisis del operador sobre esos datos, no cifras nuevas.</p>
+
+<section class="sec" id="foto-18-meses">
+<h2>La foto de 18 meses</h2>
+<p>Estos son los números grandes del negocio completo: la tienda (Shopify y Mercado Libre) más el mayorista, o "B2B" (venta a otras empresas, como tiendas y librerías que revenden el producto). Fuente: archivos de Felipe, 18 meses ene-2025 a jun-2026.</p>
+
+<div class="kpi-grid">
+  <div class="kpi">
+    <span class="kpi__label">Venta total, 18 meses</span>
+    <span class="kpi__value">$202.150.825</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Margen bruto consolidado</span>
+    <span class="kpi__value">67,1%</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Venta en la tienda (e-commerce)</span>
+    <span class="kpi__value">55,4%</span>
+    <span class="kpi__delta kpi__delta--up">Margen 78,9%</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Venta al mayoreo (B2B)</span>
+    <span class="kpi__value">44,6%</span>
+    <span class="kpi__delta kpi__delta--warn">Margen 52,5%</span>
+  </div>
+</div>
+
+<div class="callout callout--info">
+<p><strong>Qué es el margen bruto:</strong> de cada $100 que entran por una venta, cuánto queda después de pagar solo el producto (lo que costó fabricarlo o comprarlo) — sin restar todavía arriendo, sueldos, publicidad ni el resto de los gastos del negocio. Un margen bruto de 67,1% quiere decir que, en promedio, de cada $100 vendidos quedan $67 después de pagar la mercadería.</p>
+<p>Es distinto de la <strong>utilidad</strong>, que es lo que queda después de restar además esos otros gastos. Esta página usa margen bruto como referencia principal porque es el dato más confiable hoy — la sección 5 explica qué falta para poder confiar también en la utilidad final de cada canal.</p>
+</div>
+
+<p>El dato que más importa de esta foto: la tienda es poco más de la mitad de la venta — <strong>55,4%</strong> — pero deja <strong>78,9%</strong> de margen. El mayorista es el 44,6% restante, con <strong>52,5%</strong> de margen. <span class="pill pill--warn">🟡 Lectura</span> Con casi la misma venta, la tienda deja bastante más plata en el bolsillo. La siguiente sección muestra por qué eso importa para decidir dónde poner el esfuerzo.</p>
+
+<h3>Margen bruto por canal</h3>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">Tienda (e-commerce)</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:78.9%;background:var(--brand-green)"></div></div>
+  <span class="chart-bar-row__value">78,9%</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">Mayorista (B2B)</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:52.5%"></div></div>
+  <span class="chart-bar-row__value">52,5%</span>
+</div>
+</section>
+
+<section class="sec" id="donde-esta-la-plata">
+<h2>Dónde está la plata: e-commerce contra B2B</h2>
+<p>Esta es la comparación que ordena las prioridades. Fuente: archivos de Felipe, 18 meses ene-2025 a jun-2026.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Canal</th><th>Ventas</th><th>% del total</th><th>Margen bruto</th></tr></thead>
+<tbody>
+<tr><td>Shopify</td><td>$111.013.953</td><td>54,9%</td><td>79,1%</td></tr>
+<tr><td>Mercado Libre</td><td>$993.961</td><td>0,5%</td><td>60,7%</td></tr>
+<tr><td><strong>E-commerce (Shopify + Mercado Libre)</strong></td><td><strong>$112.007.914</strong></td><td><strong>55,4%</strong></td><td><strong>78,9%</strong></td></tr>
+<tr><td>B2B (Bsale)</td><td>$66.077.363</td><td>32,7%</td><td>52,4%</td></tr>
+<tr><td>Creado en Chile (cliente B2B)</td><td>$24.065.548</td><td>11,9%</td><td>52,8%</td></tr>
+<tr><td><strong>B2B total</strong></td><td><strong>$90.142.911</strong></td><td><strong>44,6%</strong></td><td><strong>52,5%</strong></td></tr>
+<tr><td><strong>TOTAL</strong></td><td><strong>$202.150.825</strong></td><td><strong>100%</strong></td><td><strong>67,1%</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Cuánto vende cada canal</h3>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">E-commerce</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%;background:var(--brand-green)"></div></div>
+  <span class="chart-bar-row__value">$112,0 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">B2B</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:80.5%"></div></div>
+  <span class="chart-bar-row__value">$90,1 M</span>
+</div>
+
+<div class="callout callout--success">
+<p><strong>La cuenta que importa:</strong> una venta de $100 en la tienda deja $79 después de pagar el producto. La misma venta de $100 en el mayorista deja $52. <span class="pill pill--warn">🟡 Lectura</span> Por eso, subir la venta de la tienda vale más que subir la venta del mayorista — peso por peso, deja más plata en el negocio.</p>
+</div>
+
+<p><span class="pill pill--warn">🟡 Lectura</span> Esto no quiere decir que haya que abandonar el B2B: es el canal que mueve los volúmenes grandes de una sola vez, y es gran parte de lo que explica el crecimiento del negocio este último año. La idea no es dejar de atenderlo — es que la tienda reciba la prioridad que su margen se merece.</p>
+</section>
+
+<section class="sec" id="estacionalidad">
+<h2>La estacionalidad, medida</h2>
+<p>Esta es la pieza más importante para planificar. <strong>Estacionalidad</strong> es la palabra para el patrón que se repite todos los años: los meses en que se vende mucho más (o mucho menos) que el resto, no por suerte, sino porque siempre pasa en esa fecha — como Navidad. El gráfico muestra la venta de la tienda (Shopify + Mercado Libre) mes a mes. Fuente: archivos de Felipe, 18 meses ene-2025 a jun-2026.</p>
+
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">ene-25</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:22.4%"></div></div>
+  <span class="chart-bar-row__value">$4,1 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">feb-25</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:19.2%"></div></div>
+  <span class="chart-bar-row__value">$3,5 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">mar-25</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:26.0%"></div></div>
+  <span class="chart-bar-row__value">$4,7 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">abr-25</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:32.7%"></div></div>
+  <span class="chart-bar-row__value">$6,0 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">may-25</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:23.1%"></div></div>
+  <span class="chart-bar-row__value">$4,2 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">jun-25</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:37.5%"></div></div>
+  <span class="chart-bar-row__value">$6,8 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">jul-25</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:27.2%"></div></div>
+  <span class="chart-bar-row__value">$5,0 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">ago-25</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:24.4%"></div></div>
+  <span class="chart-bar-row__value">$4,5 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">sep-25</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:25.2%"></div></div>
+  <span class="chart-bar-row__value">$4,6 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">oct-25</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:34.4%"></div></div>
+  <span class="chart-bar-row__value">$6,3 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">nov-25</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:51.5%"></div></div>
+  <span class="chart-bar-row__value">$9,4 M</span>
+</div>
+<div class="chart-bar-row chart-bar-row--peak">
+  <span class="chart-bar-row__label">dic-25 🎄</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%;background:var(--brand-green)"></div></div>
+  <span class="chart-bar-row__value">$18,3 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">ene-26</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:38.4%"></div></div>
+  <span class="chart-bar-row__value">$7,0 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">feb-26</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:24.9%"></div></div>
+  <span class="chart-bar-row__value">$4,5 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">mar-26</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:24.0%"></div></div>
+  <span class="chart-bar-row__value">$4,4 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">abr-26</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:41.2%"></div></div>
+  <span class="chart-bar-row__value">$7,5 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">may-26</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:23.7%"></div></div>
+  <span class="chart-bar-row__value">$4,3 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">jun-26</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:37.9%"></div></div>
+  <span class="chart-bar-row__value">$6,9 M</span>
+</div>
+
+<div class="callout callout--success">
+<p><strong>Diciembre 2025: $18.256.474</strong> — 2,9 veces el mes promedio ($6.222.662). Es el mes que define el año.</p>
+</div>
+
+<p><span class="pill pill--warn">🟡 Lectura</span> El año se juega, sobre todo, en dos meses: noviembre y diciembre. La consecuencia práctica es de calendario: el stock para esos dos meses no se puede pedir en octubre o noviembre — para cuando llega desde China, ya pasó la fecha. Se pide en agosto, con tiempo de sobra para que esté en la bodega antes de que empiece la temporada (ver el detalle en <a href="stock-navidad.html">Stock para Navidad</a>).</p>
+</section>
+
+<section class="sec" id="puzzles-unidades">
+<h2>Los puzzles, en unidades</h2>
+<p>Todo lo anterior fue en pesos. Esto es lo mismo, pero contado en piezas: cuántos puzzles se vendieron, por qué canal y de qué modelo. Es la base para decidir cuánto pedir. Fuente: archivos de Felipe, 18 meses ene-2025 a jun-2026.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Canal</th><th>Total 18 meses</th><th>Promedio al mes</th></tr></thead>
+<tbody>
+<tr><td>Shopify</td><td>1.096</td><td>61</td></tr>
+<tr><td>B2B</td><td>733</td><td>41</td></tr>
+<tr><td>Creado en Chile</td><td>490</td><td>27</td></tr>
+<tr><td>Mercado Libre</td><td>42</td><td>2 (solo desde jun-2026)</td></tr>
+<tr><td><strong>TOTAL</strong></td><td><strong>2.361</strong></td><td><strong>131</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Unidades vendidas por canal</h3>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">Shopify</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div>
+  <span class="chart-bar-row__value">1.096</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">B2B</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:66.9%"></div></div>
+  <span class="chart-bar-row__value">733</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">Creado en Chile</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:44.7%"></div></div>
+  <span class="chart-bar-row__value">490</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">Mercado Libre</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:3.8%"></div></div>
+  <span class="chart-bar-row__value">42</span>
+</div>
+
+<div class="callout callout--info">
+<p><strong>La estacionalidad también se ve en unidades:</strong> noviembre y diciembre de 2025 promediaron 298 puzzles al mes — 2,3 veces el promedio normal (131). Diciembre solo vendió 367 unidades, el mes más alto de toda la serie.</p>
+</div>
+
+<h3>Puzzles vendidos en Shopify, por modelo</h3>
+<p>De los 1.096 puzzles vendidos en la tienda en 18 meses, así se reparten entre los 4 modelos:</p>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">Aves</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%;background:var(--brand-green)"></div></div>
+  <span class="chart-bar-row__value">624</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">Cetáceos</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:39.7%"></div></div>
+  <span class="chart-bar-row__value">248</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">Hongos</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:22.9%"></div></div>
+  <span class="chart-bar-row__value">143</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">Mariposas</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:13.0%"></div></div>
+  <span class="chart-bar-row__value">81</span>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>El puzzle de aves es el 57% de la venta de puzzles de la tienda.</strong> <span class="pill pill--warn">🟡 Lectura</span> Esto confirma la estrategia de precios que planteó Felipe: al modelo que se vende solo (aves) se le puede subir el precio y ponerle un descuento simbólico — igual se sigue vendiendo, y a algunas personas el cartel de oferta las hace comprar igual. A los de rotación más lenta, como mariposas, les toca un descuento real y mayor, para emparejar la venta entre modelos.</p>
+</div>
+</section>
+
+<section class="sec" id="lo-que-falta">
+<h2>Lo que falta para que estos números sirvan para decidir</h2>
+<p>El modelo financiero de Felipe está bien armado: tiene tres capas de datos, una maestra de productos, y el calendario de los dos créditos reconstruido y validado contra el banco. <span class="pill pill--warn">🟡 Lectura</span> Lo que sigue no son errores de diseño — son piezas de información que todavía faltan para que la última línea (la utilidad final) sea 100% confiable. Se listan acá con la solución al lado.</p>
+
+<div class="callout callout--warn">
+<p><strong>1. Los gastos variables solo están cargados en un mes</strong></p>
+<p><strong>Qué pasa:</strong> en los 18 meses de registro, la publicidad ($973.425 en total) y los envíos ($966.537 en total) aparecen casi enteros en un solo mes — junio de 2026. En los otros 17 meses figuran en cero. Además, la comisión de la pasarela de pago (el porcentaje que se descuenta de cada venta pagada con tarjeta o Webpay) no aparece registrada en ningún mes.</p>
+<p><strong>Por qué importa:</strong> la utilidad operacional que muestra hoy el modelo ($104.371.491 en 18 meses) queda inflada, porque a 17 de los 18 meses no se les está descontando un gasto que sí ocurrió. Junio de 2026 es, por ahora, el único mes con el cuadro completo.</p>
+<p><strong>Qué se hace:</strong> reconstruir el gasto variable mes a mes junto con Felipe y sumar las comisiones de pasarela que faltan. El detalle completo, con las correcciones propuestas, está en <a href="modelo-datos.html">Corrigiendo el modelo</a>.</p>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>2. La venta de "Creado en Chile" podría estar contada dos veces</strong></p>
+<p><strong>Qué pasa:</strong> "Creado en Chile" es un cliente B2B que compró $24.065.548 en 18 meses — el 12% de toda la venta. El propio Felipe advirtió, en el correo donde compartió los archivos, que el archivo de ventas consolidadas "tiene la venta detallada de Creado en Chile, por lo que se repite el número del archivo anterior" (el de ventas B2B).</p>
+<p><strong>Por qué importa:</strong> si esa venta efectivamente se sumó dos veces, tanto la venta total como la utilidad bruta están un poco más altas de lo real. Sobre $202 millones no cambia la conclusión general, pero conviene confirmarlo antes de fijar una meta con ese número.</p>
+<p><strong>Qué se hace:</strong> cruzar los dos archivos fila por fila para confirmar si se repite o no, y corregir el total si corresponde. También en <a href="modelo-datos.html">Corrigiendo el modelo</a>.</p>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>3. Los retiros de los socios distorsionan la última línea</strong></p>
+<p><strong>Qué pasa:</strong> en 3 de los 15 meses con este dato, la utilidad final quedó en cero o en negativo — pese a que esos mismos meses tuvieron utilidad operacional de varios millones antes de que los socios se pagaran:</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Mes</th><th>Antes de retiros</th><th>Retiro de socios</th><th>Utilidad final</th></tr></thead>
+<tbody>
+<tr><td>Julio 2025</td><td>$3.666.615</td><td>−$3.629.497</td><td>$37.118</td></tr>
+<tr><td>Agosto 2025</td><td>$3.048.300</td><td>−$4.285.000</td><td>−$1.236.700</td></tr>
+<tr><td>Enero 2026</td><td>$10.586.173</td><td>−$10.592.000</td><td>−$5.827</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Por qué importa:</strong> mirando solo la última línea, esos tres meses parecen malos — o directamente que se perdió plata. En realidad, el negocio generó millones en cada uno; lo que pasó es que los socios se pagaron ese mes. Confundir las dos cosas puede llevar a frenar decisiones, como comprar stock, en meses que en realidad fueron buenos.</p>
+<p><strong>Qué se hace:</strong> separar siempre, en el reporte, la utilidad del negocio de los retiros de los socios — dos líneas distintas, no una sola mezclada.</p>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>4. Los gastos no están separados por canal</strong></p>
+<p><strong>Qué pasa:</strong> hoy los gastos operativos ($21.016.956 en los 15 meses con este dato) están juntos, sin dividir entre Shopify, B2B y Mercado Libre. Felipe ya identificó este pendiente.</p>
+<p><strong>Por qué importa:</strong> sin esa separación, todavía no se puede calcular la utilidad real de cada canal — solo el margen bruto (sección 1 de esta página), que es lo que queda después de pagar el producto, pero antes de pagar arriendo, sueldos, publicidad y el resto de los gastos del negocio.</p>
+<p><strong>Qué se hace:</strong> esto ya está en marcha — en la reunión del 29 de julio, Felipe se comprometió a hacer el cierre de julio separando las tres verticales (Shopify, B2B, Mercado Libre) y asignando un peso de gastos por canal según venta. Ese será el primer corte de utilidad real por canal.</p>
+</div>
+</section>
+
+<section class="sec" id="carga-financiera">
+<h2>La carga financiera</h2>
+<p>Esto es contexto, no una alarma: el negocio tiene dos créditos vigentes, ambos del programa estatal FOGAPE, a 36 cuotas cada uno. Fuente: archivos de Felipe.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Crédito</th><th>Monto</th><th>Cuota mensual</th><th>Tasa mensual</th><th>Desde</th></tr></thead>
+<tbody>
+<tr><td>Crédito 1</td><td>~$15,5 M</td><td>$553.198</td><td>~1,42%</td><td>jul-2025</td></tr>
+<tr><td>Crédito 2</td><td>~$17,6 M</td><td>$613.930</td><td>~1,33%</td><td>jun-2026</td></tr>
+<tr><td colspan="2"><strong>Carga combinada</strong></td><td><strong>$1.167.128 / mes</strong></td><td colspan="2"></td></tr>
+</tbody>
+</table>
+</div>
+
+<p>La <strong>cuota</strong> es el pago fijo que hay que hacer cada mes para ir pagando el crédito — no es opcional ni negociable mes a mes: hay que pagarlo pase lo que pase.</p>
+
+<p><span class="pill pill--warn">🟡 Lectura</span> Por qué esto importa para las compras de stock: cada peso que queda guardado en inventario (puzzles, botellas, calcetines comprados y esperando en la bodega) es un peso que no está disponible en la cuenta para pagar esta cuota. No es un problema en sí mismo — es simplemente el motivo por el que el pedido de stock (cuánto y cuándo comprar) conviene hacerlo con los números medidos, y no a ojo.</p>
+</section>
+
+<section class="sec" id="que-haria-yo">
+<h2>Qué haría yo con esta información</h2>
+<p>Con estos 18 meses medidos, hay tres decisiones que estos números ya respaldan hoy — sin necesidad de esperar a que se resuelvan los cuatro puntos pendientes de la sección anterior:</p>
+
+<div class="grid-3">
+  <div class="card">
+    <h3>1. Subir precios</h3>
+    <p>No se tocan hace un año. Felipe y Cote ya lo definieron como la prioridad número uno de esta semana. La estrategia por producto — subir el que se vende solo, descontar el de rotación lenta — está en <a href="ofertas.html">Ofertas y pop-ups</a>.</p>
+  </div>
+  <div class="card">
+    <h3>2. Pedir el stock de Navidad con los números, no a ojo</h3>
+    <p>La estacionalidad ya está medida: diciembre vende 2,9 veces el mes promedio, y el stock para esos dos meses se pide en agosto. El detalle de cuánto pedir está en <a href="stock-navidad.html">Stock para Navidad</a>.</p>
+  </div>
+  <div class="card">
+    <h3>3. Concentrar el esfuerzo en la tienda</h3>
+    <p>Por cada peso de venta, la tienda deja más margen que el mayorista (79% contra 52%). Eso no significa abandonar el B2B — significa que el esfuerzo extra rinde más en la tienda. El plan completo está en <a href="plan-90-dias.html">Plan de 90 días</a>.</p>
+  </div>
+</div>
+
+</section>
+
+<footer class="page-footer"><p>Datos: archivos financieros de Felipe, 18 meses (enero 2025 a junio 2026). Las lecturas marcadas <span class="pill pill--warn">🟡</span> son análisis del operador sobre esos datos. Ver también <a href="modelo-datos.html">Corrigiendo el modelo</a> y la <a href="bitacora.html">bitácora</a> del proyecto.</p></footer>
+
+</main>
+
+<script>
+  // Navegación global: barra superior + panel completo (15 páginas, 4 grupos).
+  // Prefijo "nav" en todo para no chocar con otros scripts de la página.
+  var NAV_PAGES = [
+    { grupo: 'Seguimiento', id: 'estado', nombre: 'Estado del plan' },
+    { grupo: 'Seguimiento', id: 'bitacora', nombre: 'Bitácora' },
+    { grupo: 'Seguimiento', id: 'sincronizar', nombre: 'Conectar con la hoja' },
+    { grupo: 'La estrategia', id: 'index', nombre: 'Plan y estrategia' },
+    { grupo: 'Plan de acción', id: 'plan-90-dias', nombre: 'Plan de 90 días' },
+    { grupo: 'Plan de acción', id: 'stock-navidad', nombre: 'Stock para Navidad' },
+    { grupo: 'Plan de acción', id: 'ofertas', nombre: 'Ofertas y pop-ups' },
+    { grupo: 'Plan de acción', id: 'email', nombre: 'Correo y campañas' },
+    { grupo: 'Plan de acción', id: 'cro', nombre: 'Conversión' },
+    { grupo: 'Plan de acción', id: 'ads', nombre: 'Google y Meta Ads' },
+    { grupo: 'Plan de acción', id: 'digitales', nombre: 'Productos digitales' },
+    { grupo: 'Herramientas del día a día', id: 'kit-arranque', nombre: 'Kit de arranque' },
+    { grupo: 'Herramientas del día a día', id: 'guion-reels', nombre: 'Guiones de Reels' },
+    { grupo: 'Herramientas del día a día', id: 'sop-dm', nombre: 'Mensajes y DM' },
+    { grupo: 'Herramientas del día a día', id: 'recursos', nombre: 'Recursos' },
+    { grupo: 'Herramientas del día a día', id: 'tablero', nombre: 'Tablero' }
+  ];
+
+  var navPanelEl, navMenuBtn;
+
+  function navInit() {
+    navPanelEl = document.getElementById('nav-panel');
+    navMenuBtn = document.querySelector('[data-nav-open]');
+    if (!navPanelEl || !navMenuBtn) return;
+
+    var actual = document.body.getAttribute('data-nav-actual') || '';
+    var titleEl = document.querySelector('[data-nav-title]');
+    var pagina = null;
+    for (var i = 0; i < NAV_PAGES.length; i++) {
+      if (NAV_PAGES[i].id === actual) { pagina = NAV_PAGES[i]; break; }
+    }
+    if (titleEl && pagina) { titleEl.textContent = pagina.nombre; }
+
+    var linkActual = navPanelEl.querySelector('[data-nav-key="' + actual + '"]');
+    if (linkActual) {
+      linkActual.classList.add('navpanel__link--current');
+      linkActual.setAttribute('aria-current', 'page');
+    }
+
+    navMenuBtn.addEventListener('click', navAbrirPanel);
+    navPanelEl.querySelectorAll('[data-nav-close]').forEach(function (el) {
+      el.addEventListener('click', navCerrarPanel);
+    });
+    navPanelEl.querySelectorAll('.navpanel__link').forEach(function (a) {
+      a.addEventListener('click', navCerrarPanel);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (!navPanelEl.classList.contains('is-open')) return;
+      if (e.key === 'Escape') { navCerrarPanel(); }
+      if (e.key === 'Tab') { navAtraparFoco(e); }
+    });
+  }
+
+  function navAbrirPanel() {
+    navPanelEl.hidden = false;
+    document.documentElement.classList.add('nav-lock');
+    document.body.classList.add('nav-lock');
+    navMenuBtn.setAttribute('aria-expanded', 'true');
+    requestAnimationFrame(function () {
+      navPanelEl.classList.add('is-open');
+      var closeBtn = navPanelEl.querySelector('.navpanel__close');
+      if (closeBtn) closeBtn.focus();
+    });
+  }
+
+  function navCerrarPanel() {
+    if (!navPanelEl.classList.contains('is-open')) return;
+    navPanelEl.classList.remove('is-open');
+    document.documentElement.classList.remove('nav-lock');
+    document.body.classList.remove('nav-lock');
+    navMenuBtn.setAttribute('aria-expanded', 'false');
+    navMenuBtn.focus();
+    var ocultarAlTerminar = function () {
+      navPanelEl.hidden = true;
+      navPanelEl.removeEventListener('transitionend', ocultarAlTerminar);
+    };
+    navPanelEl.addEventListener('transitionend', ocultarAlTerminar);
+    setTimeout(ocultarAlTerminar, 300); // respaldo si no hay transición (prefers-reduced-motion)
+  }
+
+  function navAtraparFoco(e) {
+    var focusables = navPanelEl.querySelectorAll('button, a[href]');
+    if (!focusables.length) return;
+    var primero = focusables[0];
+    var ultimo = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === primero) { e.preventDefault(); ultimo.focus(); }
+    else if (!e.shiftKey && document.activeElement === ultimo) { e.preventDefault(); primero.focus(); }
+  }
+
+  document.addEventListener('DOMContentLoaded', navInit);
+</script>
+
+</body>
+</html>

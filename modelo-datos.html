@@ -1,0 +1,1310 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Ordenar el modelo de datos — Plan Pedraza Ilustración</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
+<style>
+/* ==========================================================================
+   Sistema de diseño v2 — Plan Pedraza Ilustración
+   Estética limpia, curada y serena, tipo iOS. Mismo contrato de clases
+   que el sistema v1: solo cambia el aspecto (espacio, tipografía,
+   superficies, radios, sombras), nunca la estructura de marcado.
+   Bloque único y canónico. No editar por página: solo usar estas clases.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* --- tinta y superficies: fondo agrupado gris cálido, tarjetas blanco puro --- */
+  --ink: #1c2420;
+  --ink-soft: #4c5850;
+  --ink-faint: #7c887f;
+  --paper: #f4f2ed;
+  --surface: #ffffff;
+  --line: rgba(28, 36, 32, .08);
+  --line-strong: rgba(28, 36, 32, .16);
+
+  /* --- acento: rojo copihue (color de acción, se mantiene) --- */
+  --accent: #b0223f;
+  --accent-dark: #7c1830;
+  --accent-soft: #f8dfe4;
+
+  /* --- verde naturaleza del sitio web de la marca (identidad y estructura, se mantiene) --- */
+  --brand-green: #3b5751;
+  --brand-green-soft: #e3eae8;
+  --brand-green-dark: #2a403c;
+
+  /* --- apoyo semántico (valores de marca sin cambios) --- */
+  --success: #2f6b4a;
+  --success-soft: #dcece1;
+  --warn: #a8720a;
+  --warn-soft: #f8ecd2;
+  --danger: #ae3d17;
+  --danger-soft: #f7ddd0;
+  --info: var(--brand-green);
+  --info-soft: var(--brand-green-soft);
+
+  /* --- forma: radios generosos y consistentes --- */
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius: 20px;
+  --radius-lg: 28px;
+  --radius-full: 999px;
+
+  /* --- sombras suaves y en capas, nunca marcadas --- */
+  --shadow-xs: 0 1px 2px rgba(24, 32, 28, .04);
+  --shadow-sm: 0 1px 3px rgba(24, 32, 28, .05), 0 4px 10px rgba(24, 32, 28, .05);
+  --shadow: 0 6px 16px rgba(24, 32, 28, .07), 0 16px 32px -12px rgba(24, 32, 28, .14);
+
+  /* --- espaciado: escala amplia; los saltos grandes son fluidos (más aire en desktop, proporcional en móvil) --- */
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .875rem;
+  --space-4: 1.25rem;
+  --space-5: 1.75rem;
+  --space-6: clamp(2rem, 1.6rem + 1.6vw, 2.75rem);
+  --space-7: clamp(2.75rem, 2rem + 3vw, 4.5rem);
+  --space-8: clamp(3.5rem, 2.3rem + 5vw, 6rem);
+
+  /* --- tipografía: una sola voz, pila de sistema (ver sección 1 del documento) --- */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: var(--font-sans); /* alias de compatibilidad: el sistema v2 unifica todo en la pila sans, ver sección 1 */
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --fs-sm: clamp(.85rem, .81rem + .2vw, .92rem);
+  --fs-base: clamp(1rem, .95rem + .25vw, 1.0625rem);
+  --fs-lg: clamp(1.1rem, 1.02rem + .4vw, 1.25rem);
+  --fs-h3: clamp(1.2rem, 1.1rem + .5vw, 1.4rem);
+  --fs-h2: clamp(1.5rem, 1.3rem + 1vw, 1.9rem);
+  --fs-h1: clamp(2rem, 1.6rem + 2.4vw, 3rem);
+
+  /* --- área táctil mínima (regla mobile-first del proyecto) --- */
+  --tap: 44px;
+
+  /* --- movimiento discreto --- */
+  --ease: cubic-bezier(.4, 0, .2, 1);
+  --dur: 200ms;
+}
+
+/* ===== 1. Reset mínimo ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; }
+img, svg { max-width: 100%; display: block; }
+h1, h2, h3, h4, p, ul, ol, dl, figure { margin: 0 0 var(--space-4); }
+ul, ol { padding-left: 1.2em; }
+a { color: inherit; }
+button { font: inherit; }
+table { border-collapse: collapse; width: 100%; }
+
+/* ===== 2. Tipografía base ===== */
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+h1, h2, h3 { font-family: var(--font-sans); font-weight: 700; line-height: 1.15; letter-spacing: -.02em; color: var(--ink); }
+h1 { font-size: var(--fs-h1); font-weight: 800; letter-spacing: -.03em; }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -.01em; }
+p { max-width: 68ch; color: var(--ink); }
+strong { color: var(--ink); font-weight: 700; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+/* ===== 3. Layout ===== */
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 var(--space-4) var(--space-8); }
+
+/* ===== 4. Barra superior (.navbar) — translúcida, con fallback sólido ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--brand-green);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .navbar {
+    background: rgba(59, 87, 81, .72);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+  }
+}
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--space-1) var(--space-3);
+}
+.navbar__home {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap);
+  height: var(--tap);
+  border-radius: var(--radius-full);
+  font-size: 1.3rem;
+  line-height: 1;
+  text-decoration: none;
+  color: #fff;
+  transition: background var(--dur) var(--ease);
+}
+.navbar__home:hover, .navbar__home:active { background: rgba(255, 255, 255, .14); }
+.navbar__title {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+.navbar__menu-btn {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-width: var(--tap);
+  min-height: var(--tap);
+  padding: 0 var(--space-3);
+  border: none;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, .14);
+  color: #fff;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease);
+}
+.navbar__menu-btn:hover { background: rgba(255, 255, 255, .22); }
+.navbar__menu-icon { display: inline-flex; flex-direction: column; justify-content: center; gap: 4px; width: 18px; flex: 0 0 auto; }
+.navbar__menu-icon span { display: block; height: 2px; width: 100%; background: #fff; border-radius: 2px; }
+.navbar__menu-label { font-size: var(--fs-sm); font-weight: 600; white-space: nowrap; }
+@media (max-width: 420px) { .navbar__menu-label { display: none; } }
+
+/* ===== 4b. Panel de navegación completo (.navpanel) — 15 páginas en 4 grupos ===== */
+html.nav-lock, body.nav-lock { overflow: hidden; }
+.navpanel {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.navpanel[hidden] { display: none; }
+.navpanel__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 20, 18, .5);
+  opacity: 0;
+  transition: opacity var(--dur) var(--ease);
+}
+.navpanel__sheet {
+  position: relative;
+  width: 100%;
+  max-height: 92vh;
+  background: var(--paper);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  transform: translateY(100%);
+  transition: transform var(--dur) var(--ease);
+}
+.navpanel.is-open .navpanel__backdrop { opacity: 1; }
+.navpanel.is-open .navpanel__sheet { transform: translateY(0); }
+.navpanel__header {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-4) var(--space-3);
+  border-bottom: 1px solid var(--line);
+}
+.navpanel__headtitle { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -.01em; color: var(--ink); }
+.navpanel__close {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap);
+  height: var(--tap);
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--line-strong);
+  color: var(--ink);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.navpanel__close:hover { background: var(--accent-soft); color: var(--accent-dark); }
+.navpanel__body {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: var(--space-4) var(--space-4) var(--space-7);
+}
+.navpanel__group + .navpanel__group { margin-top: var(--space-5); }
+.navpanel__group-title {
+  margin: 0 0 var(--space-2);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--ink-faint);
+}
+.navpanel__link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: calc(var(--tap) + 12px);
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-xs);
+  text-decoration: none;
+  color: var(--ink);
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+.navpanel__link:hover { border-color: var(--line-strong); box-shadow: var(--shadow-sm); }
+.navpanel__link:last-child { margin-bottom: 0; }
+.navpanel__link-text { flex: 1 1 auto; min-width: 0; }
+.navpanel__link-name { display: block; font-weight: 700; font-size: var(--fs-base); letter-spacing: -.01em; color: var(--ink); }
+.navpanel__link-desc { display: block; margin-top: 2px; font-size: var(--fs-sm); color: var(--ink-soft); }
+.navpanel__check {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .8rem;
+  color: #fff;
+  background: var(--brand-green);
+  opacity: 0;
+  transform: scale(.6);
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.navpanel__link--current { background: var(--brand-green-soft); border-color: transparent; }
+.navpanel__link--current .navpanel__link-name { color: var(--brand-green-dark); }
+.navpanel__link--current .navpanel__check { opacity: 1; transform: scale(1); }
+@media (min-width: 640px) {
+  .navpanel { align-items: center; padding: var(--space-5); }
+  .navpanel__sheet {
+    max-width: 560px;
+    max-height: 84vh;
+    border-radius: var(--radius-lg);
+    transform: translateY(16px) scale(.98);
+    opacity: 0;
+    transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease);
+  }
+  .navpanel.is-open .navpanel__sheet { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* ===== 5. Hero ===== */
+.hero {
+  padding: var(--space-8) var(--space-4);
+  background:
+    radial-gradient(120% 160% at 12% -20%, rgba(255, 255, 255, .14), transparent 55%),
+    linear-gradient(160deg, var(--brand-green) 0%, var(--brand-green-dark) 100%);
+  color: #fff;
+}
+.hero__inner { max-width: 960px; margin: 0 auto; }
+.hero h1 { color: #fff; margin-bottom: var(--space-3); }
+.hero p { color: rgba(255, 255, 255, .86); font-size: var(--fs-lg); font-weight: 400; max-width: 60ch; margin: 0; line-height: 1.55; }
+
+/* ===== 6. Secciones numeradas (.sec) ===== */
+main { counter-reset: sec; }
+.sec { counter-increment: sec; margin-top: var(--space-7); }
+.sec:first-of-type { margin-top: var(--space-6); }
+.sec > h2 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding-bottom: var(--space-3);
+  margin-bottom: var(--space-5);
+  border-bottom: 1px solid var(--line-strong);
+}
+.sec > h2::before {
+  content: counter(sec);
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9em;
+  height: 1.9em;
+  border-radius: var(--radius-full);
+  background: var(--brand-green);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: .5em;
+  font-weight: 700;
+  box-shadow: var(--shadow-xs);
+}
+
+/* ===== 7. Callouts: superficies sobrias con un detalle de color ===== */
+.callout {
+  display: block;
+  position: relative;
+  padding: var(--space-5) var(--space-5) var(--space-5) calc(var(--space-5) + 2.1em + var(--space-4));
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--ink-faint);
+  background: var(--surface);
+  box-shadow: var(--shadow-xs);
+  margin: var(--space-5) 0;
+}
+.callout::before {
+  position: absolute;
+  left: var(--space-5);
+  top: var(--space-5);
+  width: 2.1em;
+  height: 2.1em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--paper);
+  font-size: 1.1em;
+  line-height: 1;
+}
+.callout p:last-child { margin-bottom: 0; }
+.callout--info { border-left-color: var(--info); }
+.callout--info::before { content: "💡"; background: var(--info-soft); }
+.callout--success { border-left-color: var(--success); }
+.callout--success::before { content: "✅"; background: var(--success-soft); }
+.callout--warn { border-left-color: var(--warn); }
+.callout--warn::before { content: "🟡"; background: var(--warn-soft); }
+.callout--danger { border-left-color: var(--danger); }
+.callout--danger::before { content: "🔴"; background: var(--danger-soft); }
+
+/* ===== 8. Bloque copiable (.copyblock) ===== */
+.copyblock {
+  position: relative;
+  margin: var(--space-5) 0;
+  padding: calc(var(--tap) + var(--space-3)) var(--space-5) var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.copyblock__text {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--ink);
+}
+.copyblock__btn {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  min-height: var(--tap);
+  padding: 0 var(--space-4);
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.copyblock__btn:hover { background: var(--accent-dark); }
+.copyblock__btn:active { transform: scale(.96); }
+.copyblock__btn.is-copied { background: var(--success); }
+
+/* ===== 9. KPIs (.kpi) ===== */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+  margin: var(--space-5) 0;
+}
+.kpi {
+  padding: var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.kpi__label { display: block; font-size: var(--fs-sm); font-weight: 600; color: var(--ink-soft); margin-bottom: var(--space-2); overflow-wrap: break-word; }
+.kpi__value { display: block; font-family: var(--font-sans); font-size: clamp(1.35rem, 1.05rem + 1.4vw, 2.25rem); font-weight: 800; letter-spacing: -.02em; color: var(--ink); overflow-wrap: break-word; hyphens: none; }
+.kpi__delta { display: inline-block; margin-top: var(--space-2); font-size: var(--fs-sm); font-weight: 700; padding: 3px var(--space-3); border-radius: var(--radius-full); }
+.kpi__delta--up { color: var(--success); background: var(--success-soft); }
+.kpi__delta--down { color: var(--danger); background: var(--danger-soft); }
+
+/* ===== 10. Tarjeta genérica (.card) ===== */
+.card {
+  padding: var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  margin: var(--space-4) 0;
+}
+.card h3 { margin-top: 0; }
+
+/* ===== 11. Tablas responsive ===== */
+.table-wrap { overflow-x: auto; margin: var(--space-5) 0; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-xs); }
+.table-wrap table { min-width: 480px; }
+.table-wrap th, .table-wrap td { padding: var(--space-4); text-align: left; border-bottom: 1px solid var(--line); font-size: var(--fs-sm); }
+.table-wrap thead th { background: var(--brand-green); color: #fff; position: sticky; top: 0; font-weight: 700; }
+.table-wrap tbody tr:last-child td { border-bottom: none; }
+.table-wrap tbody tr:nth-child(even) { background: transparent; } /* sin cebrado: la separación es por hairline, no por color */
+
+/* ===== 12. Barra de progreso (.progress) — píldora fina ===== */
+.progress { margin: var(--space-4) 0; }
+.progress__track { height: 10px; background: var(--line-strong); border-radius: var(--radius-full); overflow: hidden; }
+.progress__fill { height: 100%; background: var(--brand-green); border-radius: var(--radius-full); transition: width .4s var(--ease); width: 0%; }
+.progress__label { display: block; margin-top: var(--space-3); font-size: var(--fs-sm); color: var(--ink-soft); }
+
+/* ===== 13. Checklist táctil (.checklist) ===== */
+.checklist { list-style: none; padding-left: 0; margin: var(--space-4) 0; }
+.checklist li { margin-bottom: var(--space-3); }
+.checklist label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  min-height: var(--tap);
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-xs);
+  cursor: pointer;
+  transition: box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.checklist label:hover { border-color: var(--line-strong); box-shadow: var(--shadow-sm); }
+.checklist input[type="checkbox"] { width: 26px; height: 26px; flex: 0 0 auto; accent-color: var(--brand-green); margin-top: 2px; }
+.checklist input[type="checkbox"]:checked + span { text-decoration: line-through; color: var(--ink-soft); }
+
+/* ===== 14. Etiquetas (.pill) ===== */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+.pill--success { background: var(--success-soft); color: var(--success); }
+.pill--warn { background: var(--warn-soft); color: var(--warn); }
+.pill--danger { background: var(--danger-soft); color: var(--danger); }
+.pill--info { background: var(--info-soft); color: var(--info); }
+
+/* ===== 15. Grillas responsive ===== */
+.grid-2, .grid-3 { display: grid; gap: var(--space-5); margin: var(--space-5) 0; grid-template-columns: minmax(0, 1fr); }
+
+/* ===== 16. Gráficos SVG/CSS hechos a mano ===== */
+/* Barras horizontales */
+.chart-bar-row { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-3); }
+.chart-bar-row__label { flex: 0 0 9rem; font-size: var(--fs-sm); color: var(--ink-soft); }
+.chart-bar-row__track { flex: 1 1 auto; height: 16px; background: var(--line-strong); border-radius: var(--radius-full); overflow: hidden; }
+.chart-bar-row__fill { height: 100%; background: var(--accent); border-radius: var(--radius-full); transition: width .5s var(--ease); }
+.chart-bar-row__value { flex: 0 0 auto; font-size: var(--fs-sm); font-weight: 700; min-width: 3.5rem; text-align: right; }
+
+/* Embudo: cada .funnel-step define su ancho con --w inline, ej. style="--w:70%" */
+.funnel { display: flex; flex-direction: column; align-items: center; gap: var(--space-1); margin: var(--space-5) 0; }
+.funnel-step {
+  width: var(--w, 100%);
+  max-width: 100%;
+  padding: var(--space-4);
+  text-align: center;
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  background: var(--accent);
+  border-radius: var(--radius-sm);
+  transition: opacity var(--dur) var(--ease);
+}
+.funnel-step:nth-child(2) { opacity: .85; }
+.funnel-step:nth-child(3) { opacity: .7; }
+.funnel-step:nth-child(4) { opacity: .55; }
+.funnel-step:nth-child(5) { opacity: .4; }
+
+/* Línea de tiempo vertical: línea hairline y puntos pequeños */
+.timeline { position: relative; margin: var(--space-6) 0; padding-left: var(--space-6); border-left: 1px solid var(--line-strong); }
+.timeline-item { position: relative; margin-bottom: var(--space-5); }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--space-6) - 6px);
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--brand-green);
+  border: 3px solid var(--paper);
+  box-shadow: var(--shadow-xs);
+}
+.timeline-item__date { font-size: var(--fs-sm); font-weight: 700; color: var(--accent-dark); }
+.timeline-item__title { font-family: var(--font-sans); font-weight: 700; font-size: var(--fs-lg); letter-spacing: -.01em; margin: var(--space-1) 0; }
+
+/* ===== 17. Botones: cápsula, con estados sutiles ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-5);
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-base);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-xs);
+  transition: background var(--dur) var(--ease), transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.btn:hover { background: var(--accent-dark); box-shadow: var(--shadow-sm); }
+.btn:active { transform: scale(.97); }
+.btn--ghost { background: transparent; border: 2px solid var(--line-strong); color: var(--ink); box-shadow: none; }
+.btn--ghost:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+
+/* ===== 18. Media queries (mobile-first: base = ~375px) ===== */
+@media (min-width: 480px) {
+  .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 640px) {
+  .kpi-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero { padding: var(--space-8) var(--space-6); }
+}
+@media (min-width: 960px) {
+  .kpi-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* ===== 19. Movimiento discreto: respeta preferencia de menos movimiento ===== */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===== 20. Impresión ===== */
+@media print {
+  .navbar, .navpanel, .copyblock__btn, .btn { display: none !important; }
+  body { background: #fff; color: #000; }
+  .hero { background: #fff !important; color: #000 !important; }
+  .hero h1, .hero p { color: #000 !important; }
+  .card, .callout, .kpi, .copyblock { box-shadow: none; border: 1px solid #999; }
+  .callout { border-left: 4px solid #999; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: .8em; }
+}
+
+/* ===== 21. Extensión puntual de esta página: cuadrícula de 18 meses (Corrección 1) ===== */
+.mesgrid { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--space-2); margin: var(--space-4) 0; }
+.mesgrid__cell { padding: var(--space-2) var(--space-1); border-radius: var(--radius-xs); background: var(--line-strong); color: var(--ink-soft); font-size: .68rem; font-weight: 700; text-align: center; line-height: 1.3; }
+.mesgrid__cell--ok { background: var(--success); color: #fff; }
+@media (min-width: 480px) { .mesgrid { grid-template-columns: repeat(9, 1fr); } }
+</style>
+</head>
+<body data-nav-actual="modelo-datos">
+
+<nav class="navbar" aria-label="Barra de navegación">
+  <div class="navbar__inner">
+    <a href="estado.html" class="navbar__home" aria-label="Ir al inicio: Estado del plan">🦋</a>
+    <span class="navbar__title" data-nav-title>Plan Pedraza Ilustración</span>
+    <button type="button" class="navbar__menu-btn" data-nav-open aria-expanded="false" aria-controls="nav-panel">
+      <span class="navbar__menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span class="navbar__menu-label">Menú</span>
+    </button>
+  </div>
+</nav>
+
+<div class="navpanel" id="nav-panel" role="dialog" aria-modal="true" aria-label="Menú de navegación" hidden>
+  <div class="navpanel__backdrop" data-nav-close></div>
+  <div class="navpanel__sheet">
+    <div class="navpanel__header">
+      <span class="navpanel__headtitle">Menú</span>
+      <button type="button" class="navpanel__close" data-nav-close aria-label="Cerrar menú">✕</button>
+    </div>
+    <nav class="navpanel__body" aria-label="Todas las páginas del plan">
+
+      <div class="navpanel__group">
+        <h3 class="navpanel__group-title">Seguimiento</h3>
+        <a href="estado.html" class="navpanel__link" data-nav-key="estado">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Estado del plan</span>
+            <span class="navpanel__link-desc">En qué punto vamos hoy</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="bitacora.html" class="navpanel__link" data-nav-key="bitacora">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Bitácora</span>
+            <span class="navpanel__link-desc">Reuniones, pendientes y entregables</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="sincronizar.html" class="navpanel__link" data-nav-key="sincronizar">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Conectar con la hoja</span>
+            <span class="navpanel__link-desc">Compartir el avance con el equipo</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+      </div>
+
+      <div class="navpanel__group">
+        <h3 class="navpanel__group-title">La estrategia</h3>
+        <a href="index.html" class="navpanel__link" data-nav-key="index">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Plan y estrategia</span>
+            <span class="navpanel__link-desc">El mapa completo</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+      </div>
+
+      <div class="navpanel__group">
+        <h3 class="navpanel__group-title">Plan de acción</h3>
+        <a href="plan-90-dias.html" class="navpanel__link" data-nav-key="plan-90-dias">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Plan de 90 días</span>
+            <span class="navpanel__link-desc">Roles, objetivos y checklist</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="stock-navidad.html" class="navpanel__link" data-nav-key="stock-navidad">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Stock para Navidad</span>
+            <span class="navpanel__link-desc">Cuánto pedir y cuándo</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="ofertas.html" class="navpanel__link" data-nav-key="ofertas">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Ofertas y pop-ups</span>
+            <span class="navpanel__link-desc">Subir el ticket promedio</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="email.html" class="navpanel__link" data-nav-key="email">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Correo y campañas</span>
+            <span class="navpanel__link-desc">Del 9% al 20-25%</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="cro.html" class="navpanel__link" data-nav-key="cro">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Conversión</span>
+            <span class="navpanel__link-desc">Auditoría de la tienda</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="ads.html" class="navpanel__link" data-nav-key="ads">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Google y Meta Ads</span>
+            <span class="navpanel__link-desc">Auditoría de las cuentas</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="digitales.html" class="navpanel__link" data-nav-key="digitales">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Productos digitales</span>
+            <span class="navpanel__link-desc">Margen sin stock</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+      </div>
+
+      <div class="navpanel__group">
+        <h3 class="navpanel__group-title">Herramientas del día a día</h3>
+        <a href="kit-arranque.html" class="navpanel__link" data-nav-key="kit-arranque">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Kit de arranque</span>
+            <span class="navpanel__link-desc">Lo primero que se hace</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="guion-reels.html" class="navpanel__link" data-nav-key="guion-reels">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Guiones de Reels</span>
+            <span class="navpanel__link-desc">Qué grabar y cómo</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="sop-dm.html" class="navpanel__link" data-nav-key="sop-dm">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Mensajes y DM</span>
+            <span class="navpanel__link-desc">Qué responder</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="recursos.html" class="navpanel__link" data-nav-key="recursos">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Recursos</span>
+            <span class="navpanel__link-desc">Herramientas y enlaces</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="tablero.html" class="navpanel__link" data-nav-key="tablero">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Tablero</span>
+            <span class="navpanel__link-desc">Métricas semanales</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+      </div>
+
+    </nav>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="hero__inner">
+    <h1>Ordenar el modelo de datos</h1>
+    <p>Una revisión del modelo financiero que armó Felipe: qué ya está bien resuelto y qué falta cargar para que los números reflejen lo que de verdad está pasando en el negocio, mes a mes.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section class="sec">
+<h2>Lo que ya está bien resuelto</h2>
+
+<p>Antes de entrar en las correcciones, vale la pena decirlo con claridad: el modelo financiero que armó Felipe está bien construido. No es una planilla improvisada — tiene una arquitectura pensada, reglas claras y decisiones técnicas correctas que no son fáciles de acertar a la primera. Esto es lo que ya está resuelto:</p>
+
+<div class="grid-2">
+  <div class="card">
+    <h3>🏗️ Arquitectura de tres capas</h3>
+    <p>Datos crudos → lógica de cálculo (fórmulas SUMIFS) → reporte final. Cada capa cumple una función distinta, y la regla de no editar a mano una celda con fórmula evita el error más común de cualquier planilla financiera: que alguien pise un cálculo sin darse cuenta.</p>
+  </div>
+  <div class="card">
+    <h3>🗂️ Maestra de SKU con mapeos documentados</h3>
+    <p>Las correcciones de producto ya quedaron registradas por escrito: <strong>CAL-TDP</strong> se reasignó a <strong>CAL-TORR</strong>, y <strong>LAM-IND-PEQ</strong> quedó marcado como inactivo. Ese nivel de detalle es el que evita que un producto discontinuado siga sumando ventas en los reportes.</p>
+  </div>
+  <div class="card">
+    <h3>🏦 Calendario de los 2 créditos, calibrado contra el banco</h3>
+    <p>Felipe reconstruyó cuota por cuota los dos créditos FOGAPE con la propiedad <strong>Capital(t+1) = Capital(t) × (1 + tasa)</strong>, y la calibró contra las capturas reales del banco. Ese tipo de trabajo casi nunca queda bien armado a la primera.</p>
+  </div>
+  <div class="card">
+    <h3>✂️ Capital e interés, separados correctamente</h3>
+    <p>La cuota del crédito no es un gasto completo: solo el interés lo es, porque el capital es plata que vuelve al banco, no plata que se gasta. Separar bien esos dos conceptos es la base de cualquier estado de resultados que se quiera tomar en serio.</p>
+  </div>
+</div>
+
+<p>Las correcciones que vienen a continuación <strong>no son de diseño</strong> — la estructura del modelo está bien armada. Son de <strong>completitud de datos</strong>: al modelo le faltan datos, no un rediseño.</p>
+
+<div class="callout callout--info">
+  <p>💡 <em>"Si hay una forma que tú crees que es mejor de hacerlo, feliz, voy a recibir cambios y sugerencias."</em><br>— Felipe Robinson, reunión del 29 de julio de 2026.</p>
+</div>
+
+</section>
+
+<section class="sec">
+<h2>Corrección 1 — cargar los gastos variables de los 18 meses</h2>
+
+<p>Esta es la corrección más importante de las cuatro, porque de ella depende si se puede confiar en cualquier número de utilidad que hoy salga del modelo.</p>
+
+<div class="callout callout--danger">
+  <p>Hoy los gastos variables solo están cargados en <strong>junio de 2026</strong>. En los otros 17 meses del período figuran en cero.</p>
+</div>
+
+<div class="mesgrid" role="img" aria-label="18 meses del período: 17 sin datos de gastos variables, 1 con datos completos (junio de 2026)">
+  <div class="mesgrid__cell">01-25</div>
+  <div class="mesgrid__cell">02-25</div>
+  <div class="mesgrid__cell">03-25</div>
+  <div class="mesgrid__cell">04-25</div>
+  <div class="mesgrid__cell">05-25</div>
+  <div class="mesgrid__cell">06-25</div>
+  <div class="mesgrid__cell">07-25</div>
+  <div class="mesgrid__cell">08-25</div>
+  <div class="mesgrid__cell">09-25</div>
+  <div class="mesgrid__cell">10-25</div>
+  <div class="mesgrid__cell">11-25</div>
+  <div class="mesgrid__cell">12-25</div>
+  <div class="mesgrid__cell">01-26</div>
+  <div class="mesgrid__cell">02-26</div>
+  <div class="mesgrid__cell">03-26</div>
+  <div class="mesgrid__cell">04-26</div>
+  <div class="mesgrid__cell">05-26</div>
+  <div class="mesgrid__cell mesgrid__cell--ok">✓ 06-26</div>
+</div>
+<p style="font-size:var(--fs-sm); color:var(--ink-soft);">Gris = sin gastos variables cargados. Verde = el único mes con datos completos.</p>
+
+<p>Cuando un gasto real queda en cero, la utilidad de ese mes se ve más alta de lo que en verdad es. Por eso <strong>junio de 2026 es, hoy, el único mes del modelo con una utilidad operacional confiable</strong> — los otros 17 meses están sobrestimados.</p>
+
+<div class="kpi-grid">
+  <div class="kpi">
+    <span class="kpi__label">Publicidad, 18 meses</span>
+    <span class="kpi__value">$973.425</span>
+    <span class="kpi__delta kpi__delta--down">🔴 eso es más o menos lo que se gasta en un mes</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Envíos Packner, 18 meses</span>
+    <span class="kpi__value">$966.537</span>
+    <span class="kpi__delta kpi__delta--down">🔴 imposible para $202M de venta</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Comisiones de pasarela de pago</span>
+    <span class="kpi__value">$0</span>
+    <span class="kpi__delta kpi__delta--down">🔴 no aparecen en ninguna parte</span>
+  </div>
+</div>
+
+<p>Lo que hay que cargar mes a mes, y de dónde sale cada dato:</p>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Gasto a cargar</th><th>De dónde sale el dato</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Publicidad Meta</td><td>Administrador de anuncios de Meta → informe de gasto mensual</td></tr>
+      <tr><td>Publicidad Google</td><td>Panel de Google Ads → informe de gasto mensual</td></tr>
+      <tr><td>Envíos Packner</td><td>Facturas o liquidaciones mensuales de Packner</td></tr>
+      <tr><td>Comisión Shopify Payments</td><td>Liquidaciones de Shopify (Finanzas → Pagos)</td></tr>
+      <tr><td>Comisión Flow</td><td>Panel de Flow</td></tr>
+      <tr><td>Comisión Mercado Pago</td><td>Panel de Mercado Pago</td></tr>
+      <tr><td>Comisión transferencia bancaria</td><td>Cartola bancaria</td></tr>
+      <tr><td>Suscripciones Shopify y apps</td><td>Cartola bancaria o panel de facturación de Shopify</td></tr>
+      <tr><td>Comisiones Mercado Libre</td><td>Panel de Mercado Libre (resumen de ventas)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+</section>
+
+<section class="sec">
+<h2>Corrección 2 — resolver el doble conteo de "Creado en Chile"</h2>
+
+<p>Esto no es un error confirmado. Es una duda que vale la pena resolver, porque el propio Felipe la dejó marcada en su correo:</p>
+
+<div class="callout callout--warn">
+  <p>🟡 <em>"Consolidado Ventas también tiene la venta detallada de Creado en Chile (Cliente B2B), por lo que se repite el número del archivo anterior."</em><br>— Felipe Robinson, correo del 29 de julio de 2026.</p>
+</div>
+
+<p>En el modelo, la venta de Creado en Chile aparece como una <strong>columna separada</strong>, junto a B2B, en la pestaña 30. Si las facturas de BSALE ya incluyen esa venta, se está contando dos veces.</p>
+
+<div class="kpi-grid">
+  <div class="kpi">
+    <span class="kpi__label">Posible doble conteo</span>
+    <span class="kpi__value">$24.065.548</span>
+    <span class="kpi__delta kpi__delta--down">🟡 hasta 12% de la venta de 18 meses</span>
+  </div>
+</div>
+
+<p>La verificación es simple y no toma mucho tiempo:</p>
+
+<div class="timeline">
+  <div class="timeline-item">
+    <div class="timeline-item__date">Paso 1</div>
+    <div class="timeline-item__title">Elegir un mes cualquiera del período</div>
+    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Por ejemplo, abril de 2026.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">Paso 2</div>
+    <div class="timeline-item__title">Filtrar las facturas de BSALE de ese mes por el cliente Creado en Chile</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">Paso 3</div>
+    <div class="timeline-item__title">Sumar el total facturado a ese cliente en ese mes</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">Paso 4</div>
+    <div class="timeline-item__title">Comparar ese total contra la columna "Creado en Chile" del Consolidado Ventas, mismo mes</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">Paso 5</div>
+    <div class="timeline-item__title">Si coinciden, hay duplicación y se elimina una de las dos fuentes</div>
+    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Si son distintos, cada fuente mide algo diferente y no hay duplicación.</p>
+  </div>
+</div>
+
+<div class="callout callout--info">
+  <p>💡 Felipe puede tener una razón que no vemos para llevarlo separado. Por eso esto se presenta como una pregunta para confirmar con él, no como un error ya encontrado.</p>
+</div>
+
+</section>
+
+<section class="sec">
+<h2>Corrección 3 — sacar los retiros de socios del cálculo de rentabilidad</h2>
+
+<p>En 3 de los 15 meses con datos, la utilidad neta final del modelo quedó en cero o negativa — aunque el negocio había generado millones de utilidad operacional ese mismo mes. La razón: el retiro de los socios se comió toda la utilidad.</p>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Mes</th><th>Utilidad antes de retiros</th><th>Retiro de socios</th><th>Utilidad neta final</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>2025-07</td><td>$3.666.615</td><td>−$3.629.497</td><td>$37.118</td></tr>
+      <tr><td>2025-08</td><td>$3.048.300</td><td>−$4.285.000</td><td>−$1.236.700</td></tr>
+      <tr><td>2026-01</td><td>$10.586.173</td><td>−$10.592.000</td><td>−$5.827</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p style="font-size:var(--fs-sm); color:var(--ink-soft);">Cuánto de la utilidad de cada mes se llevó el retiro de socios:</p>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">2025-07</span>
+  <span class="chart-bar-row__track"><span class="chart-bar-row__fill" style="width:99%"></span></span>
+  <span class="chart-bar-row__value">99%</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">2025-08</span>
+  <span class="chart-bar-row__track"><span class="chart-bar-row__fill" style="width:100%"></span></span>
+  <span class="chart-bar-row__value">141%</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">2026-01</span>
+  <span class="chart-bar-row__track"><span class="chart-bar-row__fill" style="width:100%"></span></span>
+  <span class="chart-bar-row__value">100%</span>
+</div>
+<p style="font-size:var(--fs-sm); color:var(--ink-soft);">En agosto de 2025 el retiro fue incluso más grande que toda la utilidad del mes (141%).</p>
+
+<p>El punto de fondo: <strong>el retiro de los dueños es una decisión de reparto, no un costo de operar.</strong> Mezclarlo con los gastos hace imposible saber si el negocio realmente gana plata. Un mes tan bueno como enero de 2026 — con $10,6 millones de utilidad antes de retiros — termina viéndose en la última línea como si casi no hubiera generado nada.</p>
+
+<div class="callout callout--success">
+  <p>✅ <strong>La corrección:</strong> dejar "Utilidad antes de retiros" como la línea que mide la salud del negocio — la que responde "¿el negocio gana plata?". Los retiros pasan a ser una línea informativa después de esa, que responde una pregunta distinta: "¿cuánto se llevaron los socios este mes?".</p>
+</div>
+
+<div class="kpi-grid">
+  <div class="kpi">
+    <span class="kpi__label">Utilidad antes de retiros, 18 meses</span>
+    <span class="kpi__value">$101.856.993</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Remuneración socios, 18 meses</span>
+    <span class="kpi__value">−$42.924.543</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Utilidad neta final, 18 meses</span>
+    <span class="kpi__value">$58.932.450</span>
+  </div>
+</div>
+
+</section>
+
+<section class="sec">
+<h2>Corrección 4 — separar gastos por canal</h2>
+
+<p>Esto es algo que Felipe ya dijo que iba a hacer: el cierre de julio viene con las verticales (Shopify, B2B, Mercado Libre) separadas, asignando un peso de gastos por canal según la venta. Esta sección propone el método concreto.</p>
+
+<div class="grid-2">
+  <div class="card">
+    <h3>Gastos directos</h3>
+    <p>Van completos al canal que los generó:</p>
+    <ul style="font-size:var(--fs-sm);">
+      <li>Publicidad (Meta + Google) y Packner → E-commerce</li>
+      <li>Bsale → B2B</li>
+      <li>Comisiones de Mercado Libre → Mercado Libre</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Gastos compartidos</h3>
+    <p>Se reparten según el peso de venta de cada canal — hoy, Shopify 54,9%, Mercado Libre 0,5%, B2B 44,6%:</p>
+    <ul style="font-size:var(--fs-sm);">
+      <li>Bodega, diseñadora, contador</li>
+      <li>Herramientas de software de uso general</li>
+    </ul>
+  </div>
+</div>
+
+<p>Aplicado a las categorías reales de gasto fijo del negocio:</p>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Categoría</th><th>Gasto (18 meses)</th><th>Canal sugerido</th><th>Por qué</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Diseñadora</td><td>$4.350.000</td><td><span class="pill pill--warn">🟡 Compartido</span></td><td>Trabaja contenido y catálogo para más de un canal</td></tr>
+      <tr><td>Bodega</td><td>$1.875.146</td><td><span class="pill pill--warn">🟡 Compartido</span></td><td>Guarda inventario de varios canales a la vez</td></tr>
+      <tr><td>Bsale</td><td>$1.687.950</td><td><span class="pill pill--info">Directo B2B</span></td><td>Es el sistema de facturación de esa vertical</td></tr>
+      <tr><td>Klaviyo</td><td>$1.463.940</td><td><span class="pill pill--info">Directo E-commerce</span></td><td>Es la herramienta de correo de la tienda Shopify</td></tr>
+      <tr><td>ChatGPT</td><td>$826.749</td><td><span class="pill pill--warn">🟡 Compartido</span></td><td>Herramienta de uso general del equipo</td></tr>
+      <tr><td>Google Suite</td><td>$786.554</td><td><span class="pill pill--warn">🟡 Compartido</span></td><td>Correo y documentos de todo el equipo</td></tr>
+      <tr><td>Pivot</td><td>$703.688</td><td><span class="pill pill--danger">🟡 Verificar con Felipe</span></td><td>No tenemos claro para qué se usa esta herramienta</td></tr>
+      <tr><td>Adobe</td><td>$570.684</td><td><span class="pill pill--warn">🟡 Compartido</span></td><td>Diseño usado en más de un canal, a confirmar con Felipe</td></tr>
+      <tr><td>Contador</td><td>$360.000</td><td><span class="pill pill--warn">🟡 Compartido</span></td><td>Contabilidad de toda la empresa, no de un canal</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>Sin esto, la pregunta que más importa —¿cuál canal gana plata de verdad?— no se puede contestar. Hoy el e-commerce se ve mejor porque tiene mejor margen bruto (79,1% contra 52,5% del B2B), pero eso es <strong>antes</strong> de gastos. Con los gastos separados se sabe si esa ventaja se mantiene después de pagar publicidad, envíos y comisiones — o si el B2B, con menos gasto variable propio, termina dejando más plata líquida.</p>
+
+</section>
+
+<section class="sec">
+<h2>La plantilla de cierre mensual</h2>
+
+<p>Esto es lo más útil de este documento: qué hacer cada mes para que el modelo se mantenga con datos completos, sin que se vuelva a acumular un atraso de 17 meses.</p>
+
+<div class="timeline">
+  <div class="timeline-item">
+    <div class="timeline-item__date">~5 min</div>
+    <div class="timeline-item__title">Descargar el gasto de Meta Ads del mes</div>
+    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Administrador de anuncios de Meta → informes.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">~5 min</div>
+    <div class="timeline-item__title">Descargar el gasto de Google Ads del mes</div>
+    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Panel de Google Ads → informe de gasto.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">~5 min</div>
+    <div class="timeline-item__title">Sacar el total de envíos de Packner del mes</div>
+    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Factura o liquidación mensual de Packner.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">~15 min</div>
+    <div class="timeline-item__title">Sacar las comisiones de las pasarelas de pago</div>
+    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Shopify Payments (liquidaciones de Shopify), Flow y Mercado Pago (paneles respectivos), transferencias (cartola bancaria).</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">~5 min</div>
+    <div class="timeline-item__title">Revisar suscripciones de Shopify y apps del mes</div>
+    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Cartola bancaria o panel de facturación de Shopify.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">~5 min</div>
+    <div class="timeline-item__title">Sacar las comisiones de Mercado Libre del mes</div>
+    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Panel de Mercado Libre.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">~15 min</div>
+    <div class="timeline-item__title">Cargar todo en la hoja de gastos variables, marcando el canal</div>
+    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Directo o compartido, según la Corrección 4.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">~5 min</div>
+    <div class="timeline-item__title">Revisar que "Creado en Chile" no se repita con BSALE ese mes</div>
+    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Mientras se confirma la Corrección 2 con Felipe.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">~2 min</div>
+    <div class="timeline-item__title">Confirmar que el retiro de socios quedó en la línea informativa</div>
+    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">No dentro de la utilidad operacional del mes.</p>
+  </div>
+</div>
+
+<p style="font-size:var(--fs-sm); color:var(--ink-soft);">Total: cerca de <strong>1 hora al mes</strong>.</p>
+
+<p>Encabezados listos para pegar en una hoja de Google Sheets nueva, dedicada a gastos variables:</p>
+
+<div class="copyblock">
+  <button type="button" class="copyblock__btn" data-copy-target="copy-encabezados-gastos">Copiar</button>
+  <div class="copyblock__text" id="copy-encabezados-gastos">Mes,Publicidad Meta,Publicidad Google,Envíos Packner,Comisión Shopify Payments,Comisión Flow,Comisión Mercado Pago,Comisión transferencia bancaria,Suscripciones Shopify y apps,Comisiones Mercado Libre,Canal,Total gasto variable del mes</div>
+</div>
+
+<p>Orden sugerido de las correcciones, por impacto y esfuerzo:</p>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Orden</th><th>Corrección</th><th>Impacto</th><th>Esfuerzo</th><th>Por qué en ese orden</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Corrección 3 — sacar retiros del cálculo</td><td><span class="pill pill--info">Alto</span></td><td><span class="pill pill--success">Bajo</span></td><td>Es reordenar filas que ya existen, no cargar datos nuevos</td></tr>
+      <tr><td>2</td><td>Corrección 2 — verificar Creado en Chile</td><td><span class="pill pill--info">Alto</span></td><td><span class="pill pill--success">Bajo</span></td><td>Es comparar un mes, no reconstruir nada</td></tr>
+      <tr><td>3</td><td>Corrección 1 — cargar 17 meses de gastos variables</td><td><span class="pill pill--info">Alto</span></td><td><span class="pill pill--danger">Alto</span></td><td>Es la que más trabajo toma, pero la que más cambia los números</td></tr>
+      <tr><td>4</td><td>Corrección 4 — separar por canal</td><td><span class="pill pill--info">Alto</span></td><td><span class="pill pill--warn">Medio</span></td><td>Conviene hacerla al final, cuando los gastos ya estén completos y sin duplicados</td></tr>
+    </tbody>
+  </table>
+</div>
+
+</section>
+
+<section class="sec">
+<h2>Qué se desbloquea con esto</h2>
+
+<p>Con los gastos completos y separados por canal se puede:</p>
+
+<div class="grid-3">
+  <div class="card">
+    <h3>💰 Calcular la utilidad real del e-commerce</h3>
+    <p style="font-size:var(--fs-sm);">La base para saber si el canal principal del negocio realmente gana plata — y también la base del acuerdo variable.</p>
+  </div>
+  <div class="card">
+    <h3>📦 Decidir el pedido a China con datos</h3>
+    <p style="font-size:var(--fs-sm);">Saber cuánto margen real deja cada producto antes de comprometer capital de trabajo.</p>
+  </div>
+  <div class="card">
+    <h3>🎯 Saber qué producto y qué canal empujar</h3>
+    <p style="font-size:var(--fs-sm);">Con gastos reales por canal, se puede comparar de verdad dónde conviene poner el esfuerzo.</p>
+  </div>
+</div>
+
+<p>Esto conecta directo con dos entregables de este plan:</p>
+<p><a class="btn" href="finanzas.html">Ver finanzas.html</a> <a class="btn btn--ghost" href="stock-navidad.html">Ver Stock para Navidad</a></p>
+
+</section>
+
+</main>
+
+<script>
+  // Navegación global: barra superior + panel completo (16 páginas, 4 grupos).
+  // Prefijo "nav" en todo para no chocar con otros scripts de la página.
+  var NAV_PAGES = [
+    { grupo: 'Seguimiento', id: 'estado', nombre: 'Estado del plan' },
+    { grupo: 'Seguimiento', id: 'bitacora', nombre: 'Bitácora' },
+    { grupo: 'Seguimiento', id: 'sincronizar', nombre: 'Conectar con la hoja' },
+    { grupo: 'La estrategia', id: 'index', nombre: 'Plan y estrategia' },
+    { grupo: 'Plan de acción', id: 'plan-90-dias', nombre: 'Plan de 90 días' },
+    { grupo: 'Plan de acción', id: 'stock-navidad', nombre: 'Stock para Navidad' },
+    { grupo: 'Plan de acción', id: 'ofertas', nombre: 'Ofertas y pop-ups' },
+    { grupo: 'Plan de acción', id: 'email', nombre: 'Correo y campañas' },
+    { grupo: 'Plan de acción', id: 'cro', nombre: 'Conversión' },
+    { grupo: 'Plan de acción', id: 'ads', nombre: 'Google y Meta Ads' },
+    { grupo: 'Plan de acción', id: 'digitales', nombre: 'Productos digitales' },
+    { grupo: 'Herramientas del día a día', id: 'kit-arranque', nombre: 'Kit de arranque' },
+    { grupo: 'Herramientas del día a día', id: 'guion-reels', nombre: 'Guiones de Reels' },
+    { grupo: 'Herramientas del día a día', id: 'sop-dm', nombre: 'Mensajes y DM' },
+    { grupo: 'Herramientas del día a día', id: 'recursos', nombre: 'Recursos' },
+    { grupo: 'Herramientas del día a día', id: 'tablero', nombre: 'Tablero' }
+  ];
+
+  var navPanelEl, navMenuBtn;
+
+  function navInit() {
+    navPanelEl = document.getElementById('nav-panel');
+    navMenuBtn = document.querySelector('[data-nav-open]');
+    if (!navPanelEl || !navMenuBtn) return;
+
+    var actual = document.body.getAttribute('data-nav-actual') || '';
+    var titleEl = document.querySelector('[data-nav-title]');
+    var pagina = null;
+    for (var i = 0; i < NAV_PAGES.length; i++) {
+      if (NAV_PAGES[i].id === actual) { pagina = NAV_PAGES[i]; break; }
+    }
+    if (titleEl && pagina) { titleEl.textContent = pagina.nombre; }
+
+    var linkActual = navPanelEl.querySelector('[data-nav-key="' + actual + '"]');
+    if (linkActual) {
+      linkActual.classList.add('navpanel__link--current');
+      linkActual.setAttribute('aria-current', 'page');
+    }
+
+    navMenuBtn.addEventListener('click', navAbrirPanel);
+    navPanelEl.querySelectorAll('[data-nav-close]').forEach(function (el) {
+      el.addEventListener('click', navCerrarPanel);
+    });
+    navPanelEl.querySelectorAll('.navpanel__link').forEach(function (a) {
+      a.addEventListener('click', navCerrarPanel);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (!navPanelEl.classList.contains('is-open')) return;
+      if (e.key === 'Escape') { navCerrarPanel(); }
+      if (e.key === 'Tab') { navAtraparFoco(e); }
+    });
+  }
+
+  function navAbrirPanel() {
+    navPanelEl.hidden = false;
+    document.documentElement.classList.add('nav-lock');
+    document.body.classList.add('nav-lock');
+    navMenuBtn.setAttribute('aria-expanded', 'true');
+    requestAnimationFrame(function () {
+      navPanelEl.classList.add('is-open');
+      var closeBtn = navPanelEl.querySelector('.navpanel__close');
+      if (closeBtn) closeBtn.focus();
+    });
+  }
+
+  function navCerrarPanel() {
+    if (!navPanelEl.classList.contains('is-open')) return;
+    navPanelEl.classList.remove('is-open');
+    document.documentElement.classList.remove('nav-lock');
+    document.body.classList.remove('nav-lock');
+    navMenuBtn.setAttribute('aria-expanded', 'false');
+    navMenuBtn.focus();
+    var ocultarAlTerminar = function () {
+      navPanelEl.hidden = true;
+      navPanelEl.removeEventListener('transitionend', ocultarAlTerminar);
+    };
+    navPanelEl.addEventListener('transitionend', ocultarAlTerminar);
+    setTimeout(ocultarAlTerminar, 300); // respaldo si no hay transición (prefers-reduced-motion)
+  }
+
+  function navAtraparFoco(e) {
+    var focusables = navPanelEl.querySelectorAll('button, a[href]');
+    if (!focusables.length) return;
+    var primero = focusables[0];
+    var ultimo = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === primero) { e.preventDefault(); ultimo.focus(); }
+    else if (!e.shiftKey && document.activeElement === ultimo) { e.preventDefault(); primero.focus(); }
+  }
+
+  document.addEventListener('DOMContentLoaded', navInit);
+</script>
+
+<script>
+  // Copiar al portapapeles — delegación de eventos, un solo listener por página.
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-copy-target]');
+    if (!btn) return;
+    var el = document.getElementById(btn.getAttribute('data-copy-target'));
+    if (!el) return;
+    copiarTexto(el.innerText || el.textContent || '', btn);
+  });
+
+  function copiarTexto(texto, btn) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(texto).then(
+        function () { mostrarCopiado(btn); },
+        function () { copiarConFallback(texto, btn); }
+      );
+    } else {
+      copiarConFallback(texto, btn);
+    }
+  }
+
+  function copiarConFallback(texto, btn) {
+    var ta = document.createElement('textarea');
+    ta.value = texto;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.top = '-1000px';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (err) { /* sin soporte, se ignora */ }
+    document.body.removeChild(ta);
+    mostrarCopiado(btn);
+  }
+
+  function mostrarCopiado(btn) {
+    var original = btn.getAttribute('data-label') || btn.textContent;
+    btn.setAttribute('data-label', original);
+    btn.textContent = '✓ ¡Copiado!';
+    btn.classList.add('is-copied');
+    clearTimeout(btn._copyTimeout);
+    btn._copyTimeout = setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('is-copied');
+    }, 2000);
+  }
+</script>
+
+</body>
+</html>

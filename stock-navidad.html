@@ -696,6 +696,10 @@ main { counter-reset: sec; }
   .cash-flow { flex-direction: row; align-items: stretch; }
   .cash-flow__arrow { display: flex; align-items: center; }
 }
+
+/* Barra destacada: para marcar noviembre-diciembre en el gráfico de 18 meses */
+.chart-bar-row--peak .chart-bar-row__fill { background: var(--brand-green); }
+.chart-bar-row--peak .chart-bar-row__value { color: var(--brand-green-dark); }
 </style>
 </head>
 <body data-nav-actual="stock-navidad">
@@ -955,43 +959,50 @@ main { counter-reset: sec; }
 
 <section class="sec">
 <h2>Qué necesitamos saber antes de decidir</h2>
-<p>La calculadora de la siguiente sección funciona con cualquier número, pero para que el resultado sirva de verdad hacen falta 5 datos que solo Felipe tiene. Sin ellos, la calculadora solo puede mostrar un ejemplo — no una recomendación real.</p>
+<p>Ya llegaron los datos que más importaban: ventas reales de 18 meses, inventario y el desglose por diseño de puzzle — el detalle completo está en la sección siguiente, y la calculadora de más abajo ya los usa. Quedan 3 datos que solo Felipe tiene.</p>
 
 <ul class="checklist">
   <li>
     <label>
-      <input type="checkbox" id="dato-1">
-      <span>Unidades vendidas por mes de los últimos 12 meses, por canal (Shopify, B2B y Mercado Libre)</span>
+      <input type="checkbox" id="dato-1" checked>
+      <span>Unidades vendidas por mes, por canal (Shopify, B2B, Creado en Chile y Mercado Libre) — 18 meses</span>
     </label>
-    <p class="dato-why">Para qué sirve: calcular la venta real en temporada normal y el factor de temporada alta de noviembre-diciembre, en vez de adivinarlos.</p>
+    <p class="dato-why">✅ Recibido. 2.361 puzzles vendidos en 18 meses, promedio 131/mes, con noviembre-diciembre 2,3 veces por sobre el resto del año. Detalle completo en la sección "Lo que dicen 18 meses de ventas".</p>
   </li>
   <li>
     <label>
-      <input type="checkbox" id="dato-2">
-      <span>Stock actual en cada uno de los 4 lugares: Partner, bodega propia, consignación B2B y Mercado Libre</span>
+      <input type="checkbox" id="dato-2" checked>
+      <span>Stock actual repartido entre Packner, bodega propia y Mercado Libre</span>
     </label>
-    <p class="dato-why">Para qué sirve: saber cuánto stock hay disponible de verdad hoy, no solo lo que se ve en Shopify (que solo muestra lo que está en Partner).</p>
+    <p class="dato-why">✅ Recibido. Inventario al 13 de julio de 2026, 29 SKU. Los puzzles están en 0 en todos los canales — es el quiebre que motivó este pedido.</p>
   </li>
   <li>
     <label>
-      <input type="checkbox" id="dato-3">
+      <input type="checkbox" id="dato-3" checked>
       <span>Unidades por diseño de puzzle, no solo el total</span>
     </label>
-    <p class="dato-why">Para qué sirve: pedir la mezcla correcta de diseños, para no quebrar un diseño mientras sobra otro.</p>
+    <p class="dato-why">✅ Recibido para Shopify: Aves 624 (57%), Cetáceos 248, Hongos 143, Mariposas 81. Sostiene la estrategia de precios que planteó Felipe — ver la sección siguiente.</p>
   </li>
   <li>
     <label>
       <input type="checkbox" id="dato-4">
       <span>Costo unitario puesto en Chile (el costo final por unidad, con todo incluido)</span>
     </label>
-    <p class="dato-why">Para qué sirve: calcular la inversión total que significa el pedido nuevo.</p>
+    <p class="dato-why">🟡 Pendiente. Para qué sirve: calcular la inversión total que significa el pedido nuevo.</p>
   </li>
   <li>
     <label>
       <input type="checkbox" id="dato-5">
       <span>Plazo real del último pedido a China, desde que se hizo hasta que llegó a Chile</span>
     </label>
-    <p class="dato-why">Para qué sirve: ajustar el colchón de tiempo del próximo pedido con un dato real, no solo con el rango de "2 a 3 meses".</p>
+    <p class="dato-why">🟡 Pendiente. Para qué sirve: ajustar el colchón de tiempo del próximo pedido con un dato real, no solo con el rango de "2 a 3 meses".</p>
+  </li>
+  <li>
+    <label>
+      <input type="checkbox" id="dato-6">
+      <span>Unidades de puzzles ya comprometidas con clientes B2B para Navidad</span>
+    </label>
+    <p class="dato-why">🟡 Pendiente. Para qué sirve: esas unidades hay que reservarlas aparte — si no se cuentan, el pedido de agosto puede quedar corto sin que se note hasta diciembre.</p>
   </li>
 </ul>
 
@@ -999,41 +1010,85 @@ main { counter-reset: sec; }
   <button type="button" class="copyblock__btn" data-copy-target="copy-mensaje-felipe">Copiar</button>
   <div class="copyblock__text" id="copy-mensaje-felipe">Hola Felipe,
 
-Para calcular cuántos puzzles pedir a China antes de que salga el pedido de agosto, necesito estos 5 datos:
+Gracias por los datos de los últimos 18 meses — ya están cargados en la calculadora de stock para Navidad (ventas por canal, unidades por diseño de puzzle e inventario).
 
-1. Unidades vendidas por mes de los últimos 12 meses, separadas por canal (Shopify, B2B y Mercado Libre).
-2. Stock actual en cada uno de los 4 lugares: Partner, bodega propia, consignación B2B y Mercado Libre.
-3. Cuántas unidades hay de cada diseño de puzzle, no solo el total.
-4. Costo unitario puesto en Chile (el costo final por unidad, con todo incluido).
-5. Cuánto se demoró en la práctica el último pedido a China, desde que se hizo hasta que llegó.
+Para terminar de calibrar cuánto pedir, faltan 3 datos:
 
-Con estos 5 datos dejo lista la calculadora de cuánto pedir para Navidad. Mientras antes los tengamos, más margen queda antes de que salga el pedido.
+1. Costo unitario puesto en Chile (el costo final por unidad, con producto, flete y todo lo demás incluido).
+2. Cuánto se demoró en la práctica el último pedido a China, desde que se hizo hasta que llegó.
+3. Cuántas unidades de puzzles ya están comprometidas con clientes B2B para Navidad, para reservarlas aparte del pedido.
+
+Con estos 3 datos la calculadora queda con la inversión estimada y el colchón bien calibrados.
 
 Gracias</div>
 </div>
 </section>
 
+<section class="sec" id="datos-18-meses">
+<h2>Lo que dicen 18 meses de ventas</h2>
+<p>El forecast ya no se apoya en supuestos: se apoya en las ventas reales de puzzles entre enero de 2025 y junio de 2026 🟢 (archivos de Felipe, 18 meses). El análisis financiero completo, con todos los canales, está en <a href="finanzas.html">la página de finanzas</a> — aquí va solo lo que importa para decidir el pedido de agosto.</p>
+
+<h3>Puzzles vendidos, todos los canales</h3>
+<p>Los archivos no traen el detalle de cada uno de los 18 meses, pero sí el promedio general y el detalle exacto del pico de noviembre-diciembre 2025 — que es lo que de verdad importa para este pedido.</p>
+
+<div class="chart-bar-row"><span class="chart-bar-row__label">Promedio mensual</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:36%"></div></div><span class="chart-bar-row__value">131</span></div>
+<div class="chart-bar-row chart-bar-row--peak"><span class="chart-bar-row__label"><strong>Noviembre 2025</strong></span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:63%"></div></div><span class="chart-bar-row__value">230</span></div>
+<div class="chart-bar-row chart-bar-row--peak"><span class="chart-bar-row__label"><strong>Diciembre 2025</strong></span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div><span class="chart-bar-row__value">367</span></div>
+<p class="calc-line--sub">Noviembre se calcula restando: 597 unidades entre noviembre y diciembre 🟢, menos 367 de diciembre 🟢, da 230. Diciembre de 2025 es el mes más alto de toda la serie.</p>
+
+<h3>Por canal (18 meses)</h3>
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Canal</th><th>Total 18 meses</th><th>Promedio al mes</th></tr>
+</thead>
+<tbody>
+<tr><td>Shopify</td><td>1.096</td><td>61</td></tr>
+<tr><td>B2B</td><td>733</td><td>41</td></tr>
+<tr><td>Creado en Chile</td><td>490</td><td>27</td></tr>
+<tr><td>Mercado Libre</td><td>42</td><td>2 (solo desde jun-2026)</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>2.361</strong></td><td><strong>131</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Por diseño, canal Shopify</h3>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Aves</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div><span class="chart-bar-row__value">624 (57%)</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Cetáceos</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:40%"></div></div><span class="chart-bar-row__value">248 (23%)</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Hongos</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:23%"></div></div><span class="chart-bar-row__value">143 (13%)</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Mariposas</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:13%"></div></div><span class="chart-bar-row__value">81 (7%)</span></div>
+
+<div class="callout callout--info">
+<p><strong>El puzzle de aves es el 57% de la venta de puzzles en Shopify 🟢.</strong> Es el que sostiene la estrategia de precios que planteó Felipe: al de aves — que se vende solo y tiene la mejor visibilidad — se le sube el precio y se le pone un descuento simbólico; a los de rotación lenta, como el de mariposas, les toca un descuento real y mayor, para emparejar la venta entre modelos.</p>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>La demanda de noviembre-diciembre es 2,3 veces la de un mes normal 🟢.</strong> Eso es lo que hay que cubrir con el pedido que sale en agosto — no el promedio del año, sino el pico medido de la temporada alta.</p>
+</div>
+</section>
+
 <section class="sec" id="calculadora">
 <h2>La calculadora de cuánto pedir</h2>
-<p>Cambia cualquiera de estos números y los resultados de abajo se actualizan solos. Los campos marcados <span class="pill pill--warn">🟡 ejemplo</span> son valores de muestra — reemplázalos por los datos reales apenas Felipe los entregue (sección anterior). El único valor ya confirmado es cuánto llega el 15 de agosto <span class="pill pill--success">🟢 dato real</span>.</p>
+<p>Cambia cualquiera de estos números y los resultados de abajo se actualizan solos. Los campos marcados <span class="pill pill--success">🟢 dato real</span> ya son las ventas medidas de los últimos 18 meses (sección anterior) — no hace falta esperar más para usarlos. Los marcados <span class="pill pill--warn">🟡 tu decisión</span> siguen siendo una elección tuya o de Felipe: cuánta cobertura extra dejar después de Navidad y cuánto colchón por atraso.</p>
 
 <div class="card" id="calculadora-stock">
 <h3>Tus datos</h3>
 <div class="grid-2">
 
   <div class="field">
-    <label for="calc-ventas-normal"><span class="pill pill--warn field__tag">🟡 ejemplo</span><br>Ventas por mes en temporada normal (unidades)</label>
-    <input type="number" id="calc-ventas-normal" inputmode="numeric" min="0" step="1" value="250">
+    <label for="calc-ventas-normal"><span class="pill pill--success field__tag">🟢 dato real (18 meses)</span><br>Ventas por mes en temporada normal (unidades, todos los canales)</label>
+    <input type="number" id="calc-ventas-normal" inputmode="numeric" min="0" step="1" value="131">
   </div>
 
   <div class="field">
-    <label for="calc-factor-alta"><span class="pill pill--warn field__tag">🟡 ejemplo</span><br>Factor de temporada alta nov-dic (multiplicador)</label>
-    <input type="number" id="calc-factor-alta" inputmode="decimal" min="0" step="0.1" value="2.5">
+    <label for="calc-factor-alta"><span class="pill pill--success field__tag">🟢 dato real (nov-dic 2025)</span><br>Factor de temporada alta nov-dic (multiplicador)</label>
+    <input type="number" id="calc-factor-alta" inputmode="decimal" min="0" step="0.1" value="2.3">
   </div>
 
   <div class="field">
-    <label for="calc-stock-hoy"><span class="pill pill--warn field__tag">🟡 ejemplo</span><br>Stock disponible hoy, sumando los 4 lugares (unidades)</label>
-    <input type="number" id="calc-stock-hoy" inputmode="numeric" min="0" step="1" value="300">
+    <label for="calc-stock-hoy"><span class="pill pill--success field__tag">🟢 dato real (agotado)</span><br>Stock disponible hoy, sumando los 4 lugares (unidades)</label>
+    <input type="number" id="calc-stock-hoy" inputmode="numeric" min="0" step="1" value="0">
+    <p class="dato-why">Hoy está en 0 porque los puzzles se agotaron. Déjalo así o cámbialo si Felipe tiene unidades sueltas en algún canal.</p>
   </div>
 
   <div class="field">
@@ -1042,18 +1097,19 @@ Gracias</div>
   </div>
 
   <div class="field">
-    <label for="calc-meses-cobertura"><span class="pill pill--warn field__tag">🟡 ejemplo</span><br>Meses de cobertura deseados después de Navidad</label>
+    <label for="calc-meses-cobertura"><span class="pill pill--warn field__tag">🟡 tu decisión</span><br>Meses de cobertura deseados después de Navidad</label>
     <input type="number" id="calc-meses-cobertura" inputmode="numeric" min="0" step="1" value="2">
   </div>
 
   <div class="field">
-    <label for="calc-colchon"><span class="pill pill--warn field__tag">🟡 ejemplo</span><br>Colchón por atraso o sobre-demanda (%)</label>
+    <label for="calc-colchon"><span class="pill pill--warn field__tag">🟡 tu decisión</span><br>Colchón por atraso o sobre-demanda (%)</label>
     <input type="number" id="calc-colchon" inputmode="numeric" min="0" step="1" value="20">
   </div>
 
 </div>
 
-<p class="calc-line--sub">Los valores de ejemplo (🟡) están calibrados para reflejar lo que dijo Felipe en la reunión: las 1.000 unidades que llegan el 15 de agosto <strong>no alcanzan para Navidad</strong>. Reemplázalos por las ventas reales por canal apenas Felipe las entregue (sección anterior) — con datos reales el resultado puede cambiar, incluso mostrar que sobra stock.</p>
+<p class="calc-line--sub">Los números marcados 🟢 ya no son un ejemplo: son las ventas reales de puzzles medidas en 18 meses (enero de 2025 a junio de 2026), de los archivos que compartió Felipe — todos los canales sumados (Shopify, B2B, Creado en Chile y Mercado Libre). El detalle completo está en la sección anterior.</p>
+<p class="calc-line--sub">Ojo con leer el resultado solo: esta cuenta compara la demanda de noviembre-diciembre más la cobertura post-Navidad contra el stock que va a existir en agosto. No resta lo que se vende entre agosto y noviembre, porque hoy el stock real es 0 — por eso conviene revisar también el "punto de quiebre" más abajo, que sigue el stock semana a semana desde hoy.</p>
 
 <div class="field">
   <label for="calc-costo-unitario">Costo unitario puesto en Chile, en pesos (opcional — para ver la inversión estimada)</label>
@@ -1065,6 +1121,8 @@ Gracias</div>
 <div class="grid-2">
   <div class="card">
     <h3>Demanda estimada</h3>
+    <p class="calc-line">Septiembre + octubre (antes de la temporada alta): <strong id="out-demanda-sepoct">—</strong></p>
+    <p class="calc-line--sub">Lo que se vende a ritmo normal entre que llega el contenedor y noviembre. Este stock ya está gastado cuando parte la temporada alta, por eso hay que descontarlo.</p>
     <p class="calc-line">Noviembre + diciembre: <strong id="out-demanda-novdic">—</strong></p>
     <p class="calc-line--sub">Ventas normales × factor de temporada alta × 2 meses.</p>
     <p class="calc-line">Enero + febrero (cobertura post Navidad): <strong id="out-demanda-enefeb">—</strong></p>
@@ -1093,13 +1151,43 @@ Gracias</div>
 </section>
 
 <section class="sec">
+<h2>Otros productos que entran al horizonte</h2>
+<p>El pedido de agosto no es solo de puzzles. Hay más productos nuevos en camino, y cada uno compite por la misma caja del contenedor 🟢 (acta del 29 de julio) — hay que priorizar.</p>
+
+<div class="timeline">
+  <div class="timeline-item">
+    <div class="timeline-item__date">Agosto 2026 🟢</div>
+    <div class="timeline-item__title">Puzzle de niños</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">Septiembre 2026 🟢</div>
+    <div class="timeline-item__title">Dos calcetines nuevos y bandanas</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">Fines de septiembre 2026 🟢</div>
+    <div class="timeline-item__title">Botella térmica de ballena</div>
+    <p>Producto pensado más para el verano.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">En evaluación 🟢</div>
+    <div class="timeline-item__title">Mini puzzles tipo "travel" (~20x15 cm, 100 piezas)</div>
+    <p>Pensados para el comprador extranjero que no puede llevarse la caja de 1.000 piezas, y para librerías, donde se venden en el mostrador por impulso.</p>
+  </div>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>Cada producto nuevo compite por la misma caja.</strong> El espacio y la plata del pedido de agosto se reparten entre puzzles y todo lo demás — calcetines, bandanas, botellas, mini puzzles. Antes de cerrar el pedido hay que priorizar qué entra y en qué cantidad, no solo cuántos puzzles pedir.</p>
+</div>
+</section>
+
+<section class="sec">
 <h2>Las tres decisiones que hay que tomar en agosto</h2>
 <p>No basta con decidir cuánto pedir. En agosto hay que resolver, en paralelo, cómo pagarlo y qué hacer mientras tanto no llega.</p>
 
 <div class="grid-3">
   <div class="card">
     <h3>a) Cuánto pedir</h3>
-    <p>La calculadora de la sección anterior. En cuanto Felipe entregue los 5 datos reales, el resultado deja de ser un ejemplo y se convierte en la cantidad a pedir.</p>
+    <p>La calculadora ya usa las ventas reales de 18 meses. En cuanto Felipe entregue los 3 datos que faltan — costo, plazo real y compromisos B2B —, el resultado queda completo con la inversión y el colchón bien calibrados.</p>
     <a href="#calculadora" class="btn btn--ghost">Ir a la calculadora ↑</a>
   </div>
   <div class="card">
@@ -1309,8 +1397,13 @@ Gracias</div>
     var C = leerNumero('calc-costo-unitario');
 
     var demandaNovDic = (V !== null && F !== null) ? V * F * 2 : null;
+    // Lo que se vende entre que llega el contenedor (15-ago) y noviembre: septiembre y octubre
+    // a ritmo normal. Sin esto la cuenta da "stock suficiente" cuando en realidad ese stock
+    // ya se consumió antes de la temporada alta.
+    var demandaSepOct = (V !== null) ? V * 2 : null;
     var demandaEneFeb = (V !== null && M !== null) ? V * M : null;
-    var demandaTotal = (demandaNovDic !== null && demandaEneFeb !== null) ? demandaNovDic + demandaEneFeb : null;
+    var demandaTotal = (demandaSepOct !== null && demandaNovDic !== null && demandaEneFeb !== null)
+      ? demandaSepOct + demandaNovDic + demandaEneFeb : null;
     var stockProyectado = (S0 !== null && L !== null) ? S0 + L : null;
     var deficit = (demandaTotal !== null && stockProyectado !== null) ? demandaTotal - stockProyectado : null;
 
@@ -1322,6 +1415,7 @@ Gracias</div>
     }
     var inversion = (unidadesPedir !== null && C !== null) ? unidadesPedir * C : null;
 
+    setTexto('out-demanda-sepoct', fmtUnidades(demandaSepOct));
     setTexto('out-demanda-novdic', fmtUnidades(demandaNovDic));
     setTexto('out-demanda-enefeb', fmtUnidades(demandaEneFeb));
     setTexto('out-stock-proyectado', fmtUnidades(stockProyectado));
