@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Estado del plan — Plan Pedraza Ilustración</title>
+<title>Control de stock y alertas — Plan Pedraza Ilustración</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
 <style>
 /* ==========================================================================
@@ -618,44 +618,14 @@ main { counter-reset: sec; }
   a[href]::after { content: " (" attr(href) ")"; font-size: .8em; }
 }
 
-/* ===== 21. Indicador de sincronización (.sync-status) — píldora fija, discreta =====
-   Parte del bloque canónico del motor de sincronización (docs/design-system.md,
-   sección 9). Se agrega igual en las 5 páginas con checklist — no es propia de
-   bitacora.html. Solo aparece cuando hay una URL de sincronización configurada. */
-.sync-status {
-  position: fixed;
-  right: max(var(--space-4), env(safe-area-inset-right, 0px));
-  bottom: max(var(--space-4), env(safe-area-inset-bottom, 0px));
-  z-index: 60;
-  max-width: calc(100vw - var(--space-4) * 2);
-  padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-full);
-  background: rgba(28, 36, 32, .92);
-  color: #fff;
-  font-size: var(--fs-sm);
-  font-weight: 600;
-  line-height: 1.3;
-  box-shadow: var(--shadow);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  opacity: 0;
-  transform: translateY(8px);
-  pointer-events: none;
-  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
-}
-.sync-status.is-visible { opacity: 1; transform: translateY(0); }
-.sync-status--saving { background: rgba(28, 36, 32, .92); }
-.sync-status--ok { background: var(--success); }
-.sync-status--offline { background: var(--warn); color: #2a1d02; }
-
 /* ==========================================================================
-   Extensiones propias de esta página (bitacora.html)
-   bitacora.html no es una de las 6 páginas del sitio (docs/design-system.md,
-   sección 1) y no está en el menú principal — se llega por link desde el plan.
-   El bloque de arriba es el canónico intacto; lo de abajo son componentes
-   propios de esta página, agregados en la misma hoja de estilos única para no
-   crear un segundo archivo CSS.
+   Extensiones propias de esta página (inventario.html)
+   inventario.html no es una de las 15 páginas listadas en el panel de
+   navegación (docs/design-system.md, sección 3) — se llega por link directo,
+   igual que stock-navidad.html, modelo-datos.html o finanzas.html. El bloque
+   de arriba es el canónico intacto; lo de abajo son componentes propios de
+   esta página, agregados en la misma hoja de estilos para no crear un
+   segundo archivo CSS.
    ========================================================================== */
 
 .hero__back {
@@ -672,52 +642,66 @@ main { counter-reset: sec; }
 }
 .hero__back:hover { color: #fff; }
 
-.owner-label {
-  font-family: var(--font-sans);
-  font-size: var(--fs-sm);
-  text-transform: uppercase;
-  letter-spacing: .05em;
-  color: var(--accent-dark);
-  margin: var(--space-5) 0 var(--space-2);
-  font-weight: 700;
-}
-
-/* Ficha de reunión: pares etiqueta/valor, en una columna en el celular */
-.ficha-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-4); margin: 0; }
-.ficha-grid > div { display: flex; flex-direction: column; gap: 2px; }
-.ficha-grid dt { margin: 0; font-size: var(--fs-sm); font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-soft); }
-.ficha-grid dd { margin: 0; font-size: var(--fs-base); }
-@media (min-width: 640px) { .ficha-grid { grid-template-columns: repeat(2, 1fr); } }
-
-/* Lista de decisiones tomadas: una tarjeta angosta por decisión, con marca de confirmado */
-.decision-list { list-style: none; padding: 0; margin: var(--space-4) 0; display: grid; gap: var(--space-3); }
-.decision-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-3);
-  padding: var(--space-4);
-  background: var(--surface);
-  border: 1px solid var(--line);
+/* Campos de la calculadora */
+.field { display: flex; flex-direction: column; gap: var(--space-2); margin-bottom: var(--space-4); }
+.field label { font-size: var(--fs-sm); font-weight: 600; color: var(--ink-soft); }
+.field__tag { margin-bottom: var(--space-2); }
+.field input, .field select {
+  min-height: var(--tap);
+  padding: 0 var(--space-3);
+  border: 1px solid var(--line-strong);
   border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-xs);
-  font-size: var(--fs-sm);
+  background: var(--surface);
+  font-size: var(--fs-base);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  width: 100%;
 }
-.decision-list li::before {
-  content: "✅";
-  flex: 0 0 auto;
-  font-size: 1.05em;
-  line-height: 1.5;
+.field select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--ink-soft) 50%),
+    linear-gradient(135deg, var(--ink-soft) 50%, transparent 50%);
+  background-position: calc(100% - 22px) center, calc(100% - 16px) center;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  padding-right: calc(var(--space-6) + 4px);
+}
+.field input:focus-visible, .field select:focus-visible { outline: 3px solid var(--accent); outline-offset: 1px; }
+.field-help { margin: var(--space-1) 0 0; font-size: var(--fs-sm); color: var(--ink-faint); max-width: 62ch; }
+
+.calc-line { margin: 0 0 var(--space-1); font-size: var(--fs-base); }
+.calc-line strong { font-family: var(--font-serif); }
+.calc-line--sub { color: var(--ink-faint); font-size: var(--fs-sm); margin: 0 0 var(--space-3); }
+
+.resultado-cobertura {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 1.7rem + 3vw, 3.4rem);
+  font-weight: 700;
+  margin: var(--space-2) 0;
+  line-height: 1.1;
+  color: var(--ink);
 }
 
-.deliverable-card p { font-size: var(--fs-sm); }
-.deliverable-card .btn { margin-top: var(--space-2); }
+/* Barra numérica del umbral (sección 2) */
+.threshold-bar { display: flex; height: 30px; border-radius: var(--radius-full); overflow: hidden; box-shadow: var(--shadow-xs); margin-bottom: var(--space-2); }
+.threshold-bar__seg { display: flex; align-items: center; justify-content: center; color: #fff; font-size: var(--fs-sm); font-weight: 700; padding: 0 4px; overflow: hidden; white-space: nowrap; }
+.threshold-bar__labels { display: flex; justify-content: space-between; font-size: var(--fs-sm); color: var(--ink-faint); padding: 0 2px; }
+
+/* Suma visual de la aritmética del umbral */
+.sum-row { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: stretch; margin: var(--space-5) 0; }
+.sum-box { flex: 1 1 100px; min-width: 88px; border-radius: var(--radius-sm); padding: var(--space-4) var(--space-2); text-align: center; }
+.sum-box__num { font-size: 1.7rem; font-weight: 800; line-height: 1.1; }
+.sum-box__label { font-size: var(--fs-sm); color: var(--ink-soft); margin-top: 4px; }
+.sum-op { display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 800; color: var(--ink-faint); flex: 0 0 auto; }
 
 .page-footer { margin-top: var(--space-8); padding-top: var(--space-4); border-top: 1px solid var(--line); color: var(--ink-faint); font-size: var(--fs-sm); }
 .page-footer a { color: var(--accent-dark); font-weight: 700; text-decoration: none; }
 .page-footer a:hover { text-decoration: underline; }
 </style>
 </head>
-<body data-nav-actual="estado">
+<body data-nav-actual="inventario">
 <nav class="navbar" aria-label="Barra de navegación">
   <div class="navbar__inner">
     <a href="estado.html" class="navbar__home" aria-label="Ir al inicio: Estado del plan">🦋</a>
@@ -900,338 +884,498 @@ main { counter-reset: sec; }
 
 <header class="hero">
   <div class="hero__inner">
-    <h1>Estado del plan</h1>
-    <p>De un vistazo: en qué etapa vamos, qué está listo, qué está frenado y qué viene ahora. Foto tomada el 27 de julio de 2026, después de la reunión con Felipe y María José.</p>
+    <a href="estado.html" class="hero__back">← Volver al estado del plan</a>
+    <h1>Control de stock y alertas</h1>
+    <p>El puzzle, el producto estrella de la tienda, está agotado hoy 🟢. Esta página explica por qué se agota el stock, corrige el umbral de alerta que llegaba tarde, y deja lista una calculadora y una hoja de control para que no vuelva a pasar. No está en el menú principal — se comparte por link directo desde el plan.</p>
   </div>
 </header>
 
 <main class="wrap">
 
 <section class="sec">
-<h2>¿En qué punto vamos hoy?</h2>
-<p>El proyecto tiene 5 etapas. Esta es la que está encendida hoy.</p>
+<h2>Por qué se agota el stock</h2>
 
-<!-- Mapa de etapas: fila de nodos + conectores, 100% HTML/CSS inline -->
-<div style="display:flex; align-items:flex-start; gap:2px; margin:var(--space-5) 0 var(--space-3);">
-
-  <div style="flex:1; min-width:0; display:flex; flex-direction:column; align-items:center;">
-    <div style="width:100%; display:flex; height:3px; margin-bottom:var(--space-2);">
-      <div style="flex:1; background:transparent;"></div>
-      <div style="flex:1; background:var(--success);"></div>
-    </div>
-    <div style="width:34px; height:34px; border-radius:50%; background:var(--success); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:.95rem; box-shadow:var(--shadow-sm); flex:0 0 auto;">✓</div>
-    <div style="margin-top:var(--space-2); font-size:.68rem; font-weight:700; color:var(--ink); line-height:1.25; text-align:center; overflow-wrap:break-word;">Diagnóstico<br>y plan</div>
-  </div>
-
-  <div style="flex:1; min-width:0; display:flex; flex-direction:column; align-items:center;">
-    <div style="width:100%; display:flex; height:3px; margin-bottom:var(--space-2);">
-      <div style="flex:1; background:var(--success);"></div>
-      <div style="flex:1; background:var(--line-strong);"></div>
-    </div>
-    <div style="width:40px; height:40px; border-radius:50%; background:var(--warn); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:1.05rem; box-shadow:0 0 0 4px var(--warn-soft), var(--shadow-sm); flex:0 0 auto;">2</div>
-    <div style="margin-top:var(--space-2); font-size:.68rem; font-weight:800; color:var(--warn); line-height:1.25; text-align:center; overflow-wrap:break-word;">HOY<br>Accesos</div>
-  </div>
-
-  <div style="flex:1; min-width:0; display:flex; flex-direction:column; align-items:center;">
-    <div style="width:100%; display:flex; height:3px; margin-bottom:var(--space-2);">
-      <div style="flex:1; background:var(--line-strong);"></div>
-      <div style="flex:1; background:var(--line-strong);"></div>
-    </div>
-    <div style="width:34px; height:34px; border-radius:50%; background:var(--surface); border:2px solid var(--line-strong); color:var(--ink-faint); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:.95rem; flex:0 0 auto;">3</div>
-    <div style="margin-top:var(--space-2); font-size:.68rem; font-weight:700; color:var(--ink-faint); line-height:1.25; text-align:center; overflow-wrap:break-word;">Instalación</div>
-  </div>
-
-  <div style="flex:1; min-width:0; display:flex; flex-direction:column; align-items:center;">
-    <div style="width:100%; display:flex; height:3px; margin-bottom:var(--space-2);">
-      <div style="flex:1; background:var(--line-strong);"></div>
-      <div style="flex:1; background:var(--line-strong);"></div>
-    </div>
-    <div style="width:34px; height:34px; border-radius:50%; background:var(--surface); border:2px solid var(--line-strong); color:var(--ink-faint); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:.95rem; flex:0 0 auto;">4</div>
-    <div style="margin-top:var(--space-2); font-size:.68rem; font-weight:700; color:var(--ink-faint); line-height:1.25; text-align:center; overflow-wrap:break-word;">Optimizar</div>
-  </div>
-
-  <div style="flex:1; min-width:0; display:flex; flex-direction:column; align-items:center;">
-    <div style="width:100%; display:flex; height:3px; margin-bottom:var(--space-2);">
-      <div style="flex:1; background:var(--line-strong);"></div>
-      <div style="flex:1; background:transparent;"></div>
-    </div>
-    <div style="width:34px; height:34px; border-radius:50%; background:var(--surface); border:2px solid var(--line-strong); color:var(--ink-faint); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:.95rem; flex:0 0 auto;">5</div>
-    <div style="margin-top:var(--space-2); font-size:.68rem; font-weight:700; color:var(--ink-faint); line-height:1.25; text-align:center; overflow-wrap:break-word;">Navidad</div>
-  </div>
-
-</div>
-
-<div class="callout callout--warn">
-<p style="font-size:var(--fs-h3); font-weight:800; margin-bottom:var(--space-2);">Hoy estamos en la Etapa 2: esperando los accesos.</p>
-<p>Lo que destraba avanzar: Felipe cierra la salida de la persona que hoy lleva Shopify, Klaviyo, Meta y Google Ads → entrega los accesos → arranca la Etapa 3, la instalación de 48 horas.</p>
-</div>
-
-<h3>El detalle de cada etapa</h3>
-<div class="timeline">
-  <div class="timeline-item" style="--brand-green:var(--success)">
-    <div class="timeline-item__date">27 de julio de 2026</div>
-    <div class="timeline-item__title">Etapa 1 — Diagnóstico y plan <span class="pill pill--success">✅ Completada</span></div>
-    <p>Reunión con Felipe y María José. Quedaron 7 páginas de plan de acción listas para revisar y ejecutar.</p>
-  </div>
-  <div class="timeline-item" style="--brand-green:var(--warn)">
-    <div class="timeline-item__date">En curso desde el 27 de julio</div>
-    <div class="timeline-item__title">Etapa 2 — Cierre y accesos <span class="pill pill--warn">🟡 En curso — bloquea todo lo demás</span></div>
-    <p>Cerrar la salida de la persona actual y entregar los accesos a Shopify, Klaviyo, Meta, Google Ads y Judge.me.</p>
-  </div>
-  <div class="timeline-item" style="--brand-green:var(--ink-faint)">
-    <div class="timeline-item__date">48 horas desde que lleguen los accesos</div>
-    <div class="timeline-item__title" style="color:var(--ink-soft)">Etapa 3 — Instalación rápida <span class="pill" style="background:var(--line-strong);color:var(--ink-soft)">⚪ Pendiente</span></div>
-    <p style="color:var(--ink-soft)">Pop-ups, colección de packs, arreglo de las reseñas invisibles de Judge.me y las primeras campañas.</p>
-  </div>
-  <div class="timeline-item" style="--brand-green:var(--ink-faint)">
-    <div class="timeline-item__date">Agosto a octubre de 2026</div>
-    <div class="timeline-item__title" style="color:var(--ink-soft)">Etapa 4 — Optimización y medición <span class="pill" style="background:var(--line-strong);color:var(--ink-soft)">⚪ Pendiente</span></div>
-    <p style="color:var(--ink-soft)">Los 3 meses de prueba acordados con Felipe y Cote: probar, medir y ajustar, con revisión de métricas a mitad de mes.</p>
-  </div>
-  <div class="timeline-item" style="--brand-green:var(--ink-faint)">
-    <div class="timeline-item__date">Noviembre y diciembre de 2026</div>
-    <div class="timeline-item__title" style="color:var(--ink-soft)">Etapa 5 — Navidad <span class="pill" style="background:var(--line-strong);color:var(--ink-soft)">⚪ Pendiente</span></div>
-    <p style="color:var(--ink-soft)">La temporada alta. Se juega con el stock que llegue del pedido nuevo a China, que debe salir en agosto.</p>
-  </div>
-</div>
-</section>
-
-<section class="sec">
-<h2>Lo que está frenando el avance</h2>
-<p>4 cosas atrasan el plan. 2 lo bloquean del todo, 2 lo atrasan pero no lo detienen.</p>
-
-<div class="grid-2">
-  <div class="callout callout--danger">
-    <p><strong>Cierre con la persona actual.</strong></p>
-    <p>Quién lo destraba: <strong>Felipe.</strong> Qué pasa cuando se destrabe: se pueden entregar los accesos y empieza la Etapa 3.</p>
-  </div>
-  <div class="callout callout--danger">
-    <p><strong>Entrega de accesos</strong> (Shopify, Klaviyo, Meta, Google Ads y Judge.me).</p>
-    <p>Quién lo destraba: <strong>Felipe y Cote.</strong> Qué pasa cuando se destrabe: arranca la instalación de 48 horas — pop-ups, packs, reseñas y primeras campañas.</p>
-  </div>
-  <div class="callout callout--warn">
-    <p><strong>Porcentaje del acuerdo comercial.</strong></p>
-    <p>Quién lo destraba: <strong>Felipe y Cote.</strong> Qué pasa cuando se destrabe: queda formalizado el periodo de prueba de 3 meses, con el variable calculado sobre la utilidad del negocio.</p>
-  </div>
-  <div class="callout callout--warn">
-    <p><strong>Hoja de stock y costos.</strong></p>
-    <p>Quién lo destraba: <strong>Felipe.</strong> Qué pasa cuando se destrabe: se puede calcular con números reales cuánto pedir a China en agosto y armar el plan de Navidad.</p>
-  </div>
-</div>
-</section>
-
-<section class="sec">
-<h2>El semáforo de los 6 frentes</h2>
-<p>Las barras son una estimación de avance, no un dato medido. Los datos con 🟢 sí son reales, con fuente.</p>
-
-<div class="grid-2">
-
-<div class="card">
-<h3>🟢 Contenido y redes</h3>
-<div class="chart-bar-row" style="--accent:var(--success)">
-  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:80%"></div></div>
-  <div class="chart-bar-row__value">80%</div>
-</div>
-<p><strong>Hoy:</strong> 7 guiones de Reels listos para grabar, banco de ganchos y bio lista para publicar. El calendario semanal ya está armado.</p>
-<p><strong>Falta para el verde total:</strong> empezar a grabar y publicar de forma constante, activando a la vez la base de 62.500 seguidores y la búsqueda de audiencia nueva.</p>
-<p><a href="guion-reels.html">Ver Guiones de Reels →</a></p>
-</div>
-
-<div class="card">
-<h3>🟡 Conversión de la tienda</h3>
-<div class="chart-bar-row" style="--accent:var(--warn)">
-  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:35%"></div></div>
-  <div class="chart-bar-row__value">35%</div>
-</div>
-<p><strong>Hoy:</strong> conversión (personas que compran de las que visitan la tienda) <span class="pill pill--success">🟢 ~1%</span>, 0,98% exacto (captura de Shopify, Felipe, jul-2026). El pre-diagnóstico de las 6 etapas del camino de compra ya está listo.</p>
-<p><strong>Falta para el verde:</strong> accesos a Shopify para ejecutar los cambios — pop-ups, colección de packs, arreglo de las reseñas.</p>
-<p><a href="cro.html">Ver Pre-diagnóstico de conversión →</a></p>
-</div>
-
-<div class="card">
-<h3>🔴 Correo</h3>
-<div class="chart-bar-row" style="--accent:var(--danger)">
-  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:20%"></div></div>
-  <div class="chart-bar-row__value">20%</div>
-</div>
-<p><strong>Hoy:</strong> aporta <span class="pill pill--success">🟢 9%</span> del ingreso en los últimos 30 días (13,8% en los últimos 7; pantalla de Klaviyo, acta 27-jul-2026). Las 3 campañas semanales ya están escritas.</p>
-<p><strong>Falta para el verde:</strong> accesos a Klaviyo para programarlas y empezar a enviarlas.</p>
-<p><a href="email.html">Ver Correo y campañas →</a></p>
-</div>
-
-<div class="card">
-<h3>🔴 Publicidad</h3>
-<div class="chart-bar-row" style="--accent:var(--danger)">
-  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:15%"></div></div>
-  <div class="chart-bar-row__value">15%</div>
-</div>
-<p><strong>Hoy:</strong> Google Ads con ROAS (retorno de la inversión publicitaria) <span class="pill pill--success">🟢 2,85</span> — por cada $1.000 invertidos, vuelven $2.850 en ventas (1-27 jul-2026). Meta Ads todavía sin revisar. La auditoría completa ya está lista.</p>
-<p><strong>Falta para el verde:</strong> accesos a Google Ads y Meta Ads para ejecutar los ajustes.</p>
-<p><a href="ads.html">Ver Google y Meta Ads →</a></p>
-</div>
-
-<div class="card">
-<h3>🔴 Stock y compras</h3>
-<div class="chart-bar-row" style="--accent:var(--danger)">
-  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:15%"></div></div>
-  <div class="chart-bar-row__value">15%</div>
-</div>
-<p><strong>Hoy:</strong> el contenedor actual llega el 15 de agosto, pero los 1.000 puzzles pedidos no alcanzan para Navidad. La calculadora de cuánto pedir ya está lista.</p>
-<p><strong>Falta para el verde:</strong> la hoja de stock real (repartido en 4 lugares) y los costos, para calcular el pedido de agosto con números reales.</p>
-<p><a href="stock-navidad.html">Ver Stock para Navidad →</a></p>
-</div>
-
-<div class="card">
-<h3>⚪ Productos digitales</h3>
-<div class="chart-bar-row" style="--accent:var(--ink-faint)">
-  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:5%"></div></div>
-  <div class="chart-bar-row__value">5%</div>
-</div>
-<p><strong>Hoy:</strong> la idea está definida — libro para pintar en acuarela con clase grabada y audiolibro de aves. Margen 100%, sin stock ni envío.</p>
-<p><strong>Falta para el verde:</strong> decidir dónde se vende, subir el producto a la tienda y grabar la clase.</p>
-<p><a href="digitales.html">Ver Productos digitales →</a></p>
-</div>
-
-</div>
-</section>
-
-<section class="sec">
-<h2>La cuenta regresiva que importa</h2>
-<p>Dos fechas que marcan el ritmo de las próximas semanas.</p>
-
-<div class="grid-2">
-  <div class="kpi" style="text-align:center;">
-    <span class="kpi__label">Próxima reunión — miércoles 29 de julio, 10:00 (hora de Chile)</span>
-    <span class="kpi__value" id="conteo-reunion">—</span>
-  </div>
-  <div class="kpi" style="text-align:center;">
-    <span class="kpi__label">Navidad — 25 de diciembre de 2026</span>
-    <span class="kpi__value" id="conteo-navidad">—</span>
-  </div>
-</div>
-
-<div class="callout callout--warn"><p><strong>El pedido nuevo a China debe salir en agosto.</strong> El ciclo de compra dura entre 2 y 3 meses y ya ha tenido atrasos — si no sale en agosto, no llega a tiempo para Black Friday ni Navidad. <a href="stock-navidad.html">Ver el detalle en Stock para Navidad →</a></p></div>
-</section>
-
-<section class="sec">
-<h2>Los números de partida</h2>
-<p>La foto del negocio al 27 de julio de 2026. Todo lo que sigue en este plan se compara contra estos números.</p>
+<p>Hoy los puzzles están en cero en los cuatro lugares donde vive el stock de Pedraza Ilustración: <strong>Packner</strong> (el operador logístico que administra la bodega y despacha los pedidos de Shopify), la <strong>bodega propia</strong>, <strong>Mercado Libre</strong> y la <strong>consignación B2B</strong> (cuando se le entrega producto a un cliente mayorista para que lo venda, y se le cobra recién cuando efectivamente se vende — el producto sigue siendo de Pedraza Ilustración hasta ese momento) 🟢. No es la primera vez que pasa esto — el patrón se repite. Esta sección explica el mecanismo que lo provoca.</p>
 
 <div class="kpi-grid">
   <div class="kpi">
-    <span class="kpi__label">Venta mensual (línea base) <span class="pill pill--warn">🟡 estimado</span></span>
-    <span class="kpi__value">$4-5 millones CLP</span>
+    <span class="kpi__label">Tránsito desde China 🟢</span>
+    <span class="kpi__value">60-75 días</span>
   </div>
   <div class="kpi">
-    <span class="kpi__label">Ticket promedio <span class="pill pill--success">🟢 dato real</span></span>
-    <span class="kpi__value">$33.000 CLP</span>
-    <span class="kpi__delta kpi__delta--down">bajó vs. antes</span>
+    <span class="kpi__label">Venta promedio de puzzles 🟢</span>
+    <span class="kpi__value">131/mes</span>
   </div>
   <div class="kpi">
-    <span class="kpi__label">Conversión de la tienda <span class="pill pill--success">🟢 dato real</span></span>
-    <span class="kpi__value">~1%</span>
+    <span class="kpi__label">Factor temporada alta (nov-dic) 🟢</span>
+    <span class="kpi__value">×2,3</span>
   </div>
   <div class="kpi">
-    <span class="kpi__label">Correo, últimos 30 días <span class="pill pill--success">🟢 dato real</span></span>
-    <span class="kpi__value">9%</span>
-    <span style="display:block; font-size:var(--fs-sm); color:var(--ink-soft); margin-top:var(--space-2);">13,8% en los últimos 7 días</span>
-  </div>
-  <div class="kpi">
-    <span class="kpi__label">ROAS de Google Ads <span class="pill pill--success">🟢 dato real</span></span>
-    <span class="kpi__value">2,85</span>
-    <span style="display:block; font-size:var(--fs-sm); color:var(--ink-soft); margin-top:var(--space-2);">por cada $1.000 invertidos, vuelven $2.850</span>
-  </div>
-  <div class="kpi">
-    <span class="kpi__label">Crecimiento año a la fecha <span class="pill pill--success">🟢 dato real</span></span>
-    <span class="kpi__value">+68%</span>
-    <span class="kpi__delta kpi__delta--up">todos los canales</span>
-  </div>
-  <div class="kpi" style="border-left:4px solid var(--accent)">
-    <span class="kpi__label">Meta del plan <span class="pill">🟢 confirmado</span></span>
-    <span class="kpi__value">$10 millones CLP/mes</span>
+    <span class="kpi__label">Lugares donde vive el stock 🟢</span>
+    <span class="kpi__value">4</span>
   </div>
 </div>
 
-<div class="progress">
-  <div class="progress__track"><div class="progress__fill" style="width:45%"></div></div>
-  <span class="progress__label">Venta mensual actual (~$4,5M CLP, orden de magnitud) — cerca del 45% del camino a la meta de $10M CLP/mes.</span>
+<h3>El mecanismo, paso a paso</h3>
+<div class="timeline">
+  <div class="timeline-item">
+    <div class="timeline-item__date">Día 0</div>
+    <div class="timeline-item__title">El stock empieza a bajar</div>
+    <p>La venta sigue con normalidad. Si se espera a "ver cómo van las ventas" antes de decidir, ya se perdió tiempo — el reloj del tránsito no empieza a correr hasta que el pedido efectivamente sale.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">Día 0 (si se decide pedir)</div>
+    <div class="timeline-item__title">Sale el pedido a la fábrica en China</div>
+    <p>Desde acá empieza a contar el <strong>tránsito</strong> — el tiempo que el producto pasa viajando desde que sale de la fábrica hasta que llega a Chile.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">Entre el día 60 y el día 75</div>
+    <div class="timeline-item__title">El contenedor llega a Chile</div>
+    <p>El tránsito dura entre 60 y 75 días 🟢, y ya ha tenido atrasos (acta de la reunión del 29 de julio de 2026, sección 4). Ese es el mínimo tiempo que hay que cubrir con el stock que va quedando.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">Unos días más</div>
+    <div class="timeline-item__title">Pasa por Packner</div>
+    <p>Antes de estar disponible para vender, el producto se revisa, se etiqueta y se prepara en Packner 🟡. Recién ahí se puede volver a vender.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">Todo ese tiempo</div>
+    <div class="timeline-item__title">El producto se sigue vendiendo</div>
+    <p>Con el stock que quedaba el día 0. Si ese stock no alcanza para cubrir todos esos días, se agota antes de que llegue el repuesto — y eso es exactamente lo que pasó con los puzzles.</p>
+  </div>
 </div>
 
-<p style="font-size:var(--fs-sm); color:var(--ink-soft)">Fuentes: acta de la reunión del 27 de julio de 2026 (capturas de Shopify, Klaviyo y Google Ads mostradas en la llamada). Venta mensual con 🟡 porque julio todavía no cierra: es un orden de magnitud, no un cierre de mes.</p>
+<h3>El caso real de los puzzles</h3>
+<div class="timeline">
+  <div class="timeline-item">
+    <div class="timeline-item__date">30 de julio de 2026 🟢</div>
+    <div class="timeline-item__title">Los puzzles están en 0 en los 4 lugares</div>
+    <p>Stock total: 0 unidades (datos-financieros-2025-2026.md, sección 8). Se venden en promedio 131 al mes entre todos los canales (misma fuente, sección 3) — cada día sin stock es venta perdida del producto que sostiene mejor margen.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">15 de agosto de 2026 🟢</div>
+    <div class="timeline-item__title">Llega el contenedor que ya estaba en camino</div>
+    <p>Este contenedor se pidió antes de que el stock llegara a cero — no es una respuesta al quiebre actual, es el pedido anterior llegando justo cuando ya no queda nada que vender.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">Última semana de agosto de 2026 🟢</div>
+    <div class="timeline-item__title">Recién ahí está disponible para vender</div>
+    <p>Después de pasar por Packner. En total: cerca de un mes completo sin poder vender el producto estrella — "quedan aproximadamente un mes sin stock de puzzles" (acta de la reunión del 29 de julio de 2026, sección 4).</p>
+  </div>
+</div>
+
+<div class="callout callout--danger">
+<p><strong>Por qué avisar a los 60 días de cobertura llega tarde.</strong> El tránsito solo, sin sumar nada más, ya dura entre 60 y 75 días. Si la alerta se dispara cuando quedan 60 días de stock, el mejor caso posible es llegar justo a tiempo — y el caso típico es quedar entre 0 y 15 días sin producto, y eso sin contar los días en Packner ni el tiempo que toma cotizar, negociar y fabricar.</p>
+</div>
+
+<div class="callout callout--info">
+<p style="font-size:var(--fs-h3); font-weight:800; margin-bottom:var(--space-2);">No es un problema de comprar poco. Es un problema de avisar tarde.</p>
+<p>Con el umbral correcto — sección siguiente — la alerta suena con tiempo de sobra para cotizar, negociar y producir antes de que el stock llegue a cero.</p>
+</div>
 </section>
 
 <section class="sec">
-<h2>Qué pasa esta semana</h2>
-<p>4 cosas concretas, con quién responde por cada una. Marca cada una a medida que se resuelve — queda guardado en este navegador.</p>
+<h2>El semáforo: cuándo hay que pedir</h2>
 
-<ul class="checklist">
-  <li><label><input type="checkbox" data-estado="reunion-29-julio"><span><strong>Miércoles 29 de julio, 10:00 (Chile):</strong> reunión de seguimiento con Felipe y María José. Responsable: Mateo (operador).</span></label></li>
-  <li><label><input type="checkbox" data-estado="cierre-persona-actual"><span><strong>Cierre del acuerdo de salida</strong> con la persona que hoy lleva Meta, Google, Klaviyo y la tienda. Responsable: Felipe.</span></label></li>
-  <li><label><input type="checkbox" data-estado="entrega-accesos"><span><strong>Entrega de accesos:</strong> Shopify, Klaviyo, Meta, Google Ads y Judge.me. Responsables: Felipe y Cote.</span></label></li>
-  <li><label><input type="checkbox" data-estado="pedido-china-agosto"><span><strong>Definir y encargar el pedido nuevo a China.</strong> Debe salir en agosto por el ciclo de 2 a 3 meses. Responsable: Felipe.</span></label></li>
+<p>La idea central de este sistema es una sola: medir los <strong>días de cobertura</strong> de cada producto, y avisar con la anticipación suficiente para que la reposición llegue antes de que se acabe.</p>
+
+<div class="callout callout--info">
+<p><strong>Días de cobertura:</strong> cuántos días más alcanza el stock que tienes, al ritmo al que se está vendiendo hoy. Se calcula así: stock total ÷ venta diaria promedio.</p>
+</div>
+
+<div class="grid-3">
+  <div class="card" style="border-left:4px solid var(--success)">
+    <span class="pill pill--success">🟢 VERDE — más de 105 días</span>
+    <h3>Todo bien</h3>
+    <p>No se hace nada. El stock alcanza con margen de sobra.</p>
+  </div>
+  <div class="card" style="border-left:4px solid var(--warn)">
+    <span class="pill pill--warn">🟡 AMARILLO — entre 90 y 105 días</span>
+    <h3>Hay que empezar a moverse</h3>
+    <p>Cotizar y negociar con el proveedor. Todavía no hay que pagar ni pedir en firme, pero el reloj ya está corriendo.</p>
+  </div>
+  <div class="card" style="border-left:4px solid var(--danger)">
+    <span class="pill pill--danger">🔴 ROJO — menos de 90 días</span>
+    <h3>El pedido tiene que salir ya</h3>
+    <p>Cada día de atraso, desde acá, es venta perdida directa. No hay margen para esperar.</p>
+  </div>
+</div>
+
+<h3>La aritmética detrás del umbral</h3>
+<p>El umbral no es un número inventado — sale de sumar cada tramo del proceso completo, desde que sale el pedido hasta que el producto está listo para venderse de nuevo:</p>
+
+<div class="sum-row">
+  <div class="sum-box" style="background:var(--brand-green-soft)">
+    <div class="sum-box__num" style="color:var(--brand-green-dark)">75</div>
+    <div class="sum-box__label">días de tránsito 🟢<br>(el extremo más largo del rango medido)</div>
+  </div>
+  <div class="sum-op">+</div>
+  <div class="sum-box" style="background:var(--warn-soft)">
+    <div class="sum-box__num" style="color:var(--warn)">7</div>
+    <div class="sum-box__label">días de proceso en Packner 🟡</div>
+  </div>
+  <div class="sum-op">+</div>
+  <div class="sum-box" style="background:var(--accent-soft)">
+    <div class="sum-box__num" style="color:var(--accent-dark)">15</div>
+    <div class="sum-box__label">días de margen 🟡<br>para cotizar, negociar y producir</div>
+  </div>
+  <div class="sum-op">=</div>
+  <div class="sum-box" style="background:var(--ink); flex:1 1 130px;">
+    <div class="sum-box__num" style="color:#fff">97</div>
+    <div class="sum-box__label" style="color:rgba(255,255,255,.75)">días → se redondea al rango 90-105 para dejar algo de aire en ambas direcciones</div>
+  </div>
+</div>
+
+<div class="threshold-bar">
+  <div class="threshold-bar__seg" style="flex:0 0 60%; background:var(--danger);">🔴 Rojo</div>
+  <div class="threshold-bar__seg" style="flex:0 0 10%; background:var(--warn);">🟡</div>
+  <div class="threshold-bar__seg" style="flex:1; background:var(--success);">🟢 Verde</div>
+</div>
+<div class="threshold-bar__labels"><span>0 días</span><span>90</span><span>105</span><span>150+ días</span></div>
+
+<div class="callout callout--warn">
+<p><strong>En temporada alta el umbral efectivo sube.</strong> Entre noviembre y diciembre se vende 2,3 veces más rápido que el resto del año 🟢 (datos-financieros-2025-2026.md, sección 3). Los mismos días de cobertura representan mucho menos tiempo real cuando el ritmo de venta se acelera así de fuerte. Por eso, desde octubre en adelante conviene calcular los días de cobertura con el ritmo de venta de temporada alta — no con el promedio del año — para que la alerta siga llegando con el mismo margen real de seguridad. La calculadora de la siguiente sección ya tiene ese ajuste incorporado.</p>
+</div>
+</section>
+
+<section class="sec" id="calculadora">
+<h2>La calculadora de días de cobertura</h2>
+<p>Cambia cualquiera de estos números y los resultados de abajo se actualizan solos. Viene precargada con los datos reales de los puzzles — por eso arranca en rojo.</p>
+
+<div class="card" id="calculadora-stock">
+<h3>Tus datos</h3>
+<div class="grid-2">
+
+  <div class="field">
+    <label for="calc-stock-packner"><span class="pill pill--success field__tag">🟢 dato real (agotado)</span><br>Stock en Packner (unidades)</label>
+    <input type="number" id="calc-stock-packner" inputmode="numeric" min="0" step="1" value="0">
+  </div>
+
+  <div class="field">
+    <label for="calc-stock-bodega"><span class="pill pill--success field__tag">🟢 dato real (agotado)</span><br>Stock en bodega propia (unidades)</label>
+    <input type="number" id="calc-stock-bodega" inputmode="numeric" min="0" step="1" value="0">
+  </div>
+
+  <div class="field">
+    <label for="calc-stock-meli"><span class="pill pill--success field__tag">🟢 dato real (agotado)</span><br>Stock en Mercado Libre (unidades)</label>
+    <input type="number" id="calc-stock-meli" inputmode="numeric" min="0" step="1" value="0">
+  </div>
+
+  <div class="field">
+    <label for="calc-stock-b2b"><span class="pill pill--success field__tag">🟢 dato real (agotado)</span><br>Stock en consignación B2B (unidades)</label>
+    <input type="number" id="calc-stock-b2b" inputmode="numeric" min="0" step="1" value="0">
+    <p class="field-help">Consignación: el producto que está en manos de un cliente mayorista para vender, pero que sigue siendo de Pedraza Ilustración hasta que se vende.</p>
+  </div>
+
+</div>
+
+<div class="field">
+  <label for="calc-ventas-30"><span class="pill pill--success field__tag">🟢 dato real (promedio 18 meses)</span><br>Ventas de los últimos 30 días, todos los canales (unidades)</label>
+  <input type="number" id="calc-ventas-30" inputmode="numeric" min="0" step="1" value="131">
+</div>
+
+<div class="field">
+  <label for="calc-temporada"><span class="pill pill--warn field__tag">🟡 tu elección</span><br>Temporada</label>
+  <select id="calc-temporada">
+    <option value="normal" selected>Normal</option>
+    <option value="alta">Alta (noviembre-diciembre, ×2,3)</option>
+  </select>
+  <p class="field-help">En temporada alta la venta diaria se multiplica por 2,3 — el factor medido en noviembre-diciembre de 2025 (datos-financieros-2025-2026.md, sección 3).</p>
+</div>
+</div>
+
+<div class="card">
+<p class="calc-line">Stock total: <strong id="out-stock-total">—</strong></p>
+<p class="calc-line">Venta diaria: <strong id="out-venta-diaria">—</strong></p>
+
+<span class="pill" id="pill-semaforo">SEMÁFORO</span>
+<h3>Días de cobertura</h3>
+<p class="resultado-cobertura" id="out-dias-cobertura">—</p>
+<p class="calc-line--sub" id="out-mensaje-semaforo">Completa los datos de arriba para ver el resultado.</p>
+<p class="calc-line">Fecha estimada de quiebre: <strong id="out-fecha-quiebre">—</strong></p>
+</div>
+</section>
+
+<section class="sec">
+<h2>La hoja de control que hay que montar</h2>
+
+<p>Hoy no existe una vista única del stock: cada lugar vive por separado y Felipe lo junta a mano cada 15 días (acta de la reunión del 29 de julio de 2026, sección 4). Esta es la estructura que hay que montar en un Google Sheet para tener, por primera vez, todos los productos con su semáforo al día.</p>
+
+<ul>
+  <li><strong>SKU</strong> (el código único que identifica cada producto y variante, por ejemplo el puzzle de aves de 1.000 piezas) y <strong>Descripción</strong>.</li>
+  <li><strong>Stock en cada uno de los 4 lugares:</strong> Packner, bodega propia, Mercado Libre y consignación B2B.</li>
+  <li><strong>Stock total:</strong> la suma de los 4 lugares.</li>
+  <li><strong>Ventas de los últimos 30, 60 y 90 días</strong>, todos los canales sumados.</li>
+  <li><strong>Venta diaria:</strong> el promedio de ventas por día, calculado sobre los últimos 30 días.</li>
+  <li><strong>Días de cobertura:</strong> cuánto alcanza el stock total al ritmo de venta actual.</li>
+  <li><strong>Punto de re-pedido (unidades):</strong> el nivel de stock, en unidades, en el que hay que hacer un nuevo pedido — venta diaria × 97 días (el umbral calculado en la sección anterior, antes de redondear a 90-105).</li>
+  <li><strong>Estado:</strong> el semáforo — 🟢, 🟡 o 🔴 — calculado automáticamente a partir de los días de cobertura.</li>
 </ul>
 
-<div class="grid-2">
-  <a href="bitacora.html" class="btn btn--ghost">Ver bitácora de pendientes →</a>
-  <a href="plan-90-dias.html" class="btn">Ver plan de 90 días →</a>
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>SKU</th><th>Descripción</th><th>Packner</th><th>Bodega</th><th>Mercado Libre</th><th>Consig. B2B</th><th>Stock total</th><th>V. 30d</th><th>V. 60d</th><th>V. 90d</th><th>Venta diaria</th><th>Días cobertura</th><th>Punto re-pedido</th><th>Estado</th><th>Actualizado</th></tr>
+</thead>
+<tbody>
+<tr><td>PUZ</td><td>Puzzles (todos los diseños) 🟢</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>131</td><td>🟡 falta</td><td>🟡 falta</td><td>4,37</td><td>0</td><td>424</td><td>🔴 Rojo — pedir ya</td><td>30-07-2026</td></tr>
+<tr><td>NAI-AVES (ejemplo)</td><td>Naipes Aves (ejemplo)</td><td>35</td><td>35</td><td>6</td><td>5</td><td>81</td><td>25</td><td>48</td><td>70</td><td>0,83</td><td>97</td><td>81</td><td>🟡 Amarillo — cotizar</td><td>—</td></tr>
+<tr><td>CAL-AVES (ejemplo)</td><td>Calcetín Aves (ejemplo)</td><td>80</td><td>60</td><td>10</td><td>20</td><td>170</td><td>20</td><td>38</td><td>55</td><td>0,67</td><td>255</td><td>65</td><td>🟢 Verde — todo bien</td><td>—</td></tr>
+</tbody>
+</table>
 </div>
+<p class="calc-line--sub">Fila 1: dato real — stock (agotado) y venta mensual promedio de los puzzles, todos los diseños juntos (datos-financieros-2025-2026.md, secciones 3 y 8). Filas 2 y 3: ejemplos ilustrativos, marcados como tal, solo para mostrar cómo se ve un producto en amarillo y uno en verde — no son datos cargados.</p>
+
+<h3>Encabezados listos para pegar</h3>
+<div class="copyblock">
+  <button type="button" class="copyblock__btn" data-copy-target="copy-headers-hoja-stock">Copiar</button>
+  <div class="copyblock__text" id="copy-headers-hoja-stock">SKU, Descripción, Stock Packner, Stock bodega, Stock Mercado Libre, Stock consignación B2B, Stock total, Ventas 30 días, Ventas 60 días, Ventas 90 días, Venta diaria, Días de cobertura, Punto de re-pedido (unidades), Estado, Fecha de actualización</div>
+</div>
+
+<h3>Fórmulas de Google Sheets para las columnas calculadas</h3>
+<p>Encabezados en la fila 1, datos desde la fila 2. Pega cada fórmula en la celda de la fila 2 que corresponde a su columna, y luego arrastra hacia abajo (selecciona la celda, toma la esquina inferior derecha y arrastra) para copiarla al resto de las filas.</p>
+<div class="copyblock">
+  <button type="button" class="copyblock__btn" data-copy-target="copy-formulas-hoja-stock">Copiar</button>
+  <div class="copyblock__text" id="copy-formulas-hoja-stock">G2 (Stock total): =SUM(C2:F2)
+
+K2 (Venta diaria): =IF(H2="","",ROUND(H2/30,2))
+
+L2 (Días de cobertura): =IF(OR(K2="",K2=0),"—",ROUND(G2/K2,0))
+
+M2 (Punto de re-pedido, unidades): =IF(K2="","",ROUND(K2*97,0))
+
+N2 (Estado): =IF(G2="","",IF(L2="—","⚪ Sin ventas registradas",IF(L2<90,"🔴 Rojo — pedir ya",IF(L2<=105,"🟡 Amarillo — cotizar y negociar","🟢 Verde — todo bien"))))</div>
+</div>
+<p class="calc-line--sub">El 97 en la fórmula del punto de re-pedido es el umbral calculado en la sección anterior (75 + 7 + 15, antes de redondear a 90-105). Si algún producto tiene un proveedor con plazos distintos, ese número se puede ajustar fila por fila.</p>
+</section>
+
+<section class="sec">
+<h2>De dónde sale cada dato</h2>
+<p>La pregunta práctica: quién carga cada número, y qué cambia cuando lleguen los accesos a Shopify.</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Dato</th><th>Fuente</th><th>Fase 1 — hoy</th><th>Fase 2 — con Shopify conectado</th></tr>
+</thead>
+<tbody>
+<tr><td>Stock en Packner</td><td>Shopify, una vez lleguen los accesos (viernes 31 de julio de 2026 🟢)</td><td>A mano, del archivo que Felipe actualiza cada 15 días</td><td>Automático, directo desde Shopify</td></tr>
+<tr><td>Stock en Mercado Libre</td><td>Shopify / Mercado Libre Full</td><td>A mano</td><td>Automático, directo desde Shopify</td></tr>
+<tr><td>Stock en bodega propia</td><td>Conteo físico de Felipe (Ciudad Empresarial)</td><td>A mano</td><td>A mano — no cambia, no pasa por Shopify</td></tr>
+<tr><td>Stock en consignación B2B</td><td>Felipe y los clientes B2B</td><td>A mano</td><td>A mano — no cambia, el B2B es cerca del 45% de la demanda 🟢 y no pasa por Shopify</td></tr>
+<tr><td>Ventas (30/60/90 días)</td><td>Shopify (online) + Bsale (B2B y venta presencial)</td><td>A mano, exportando y sumando los dos reportes</td><td>Automático para el canal online (Shopify); Bsale sigue a mano</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="grid-2">
+  <div class="card">
+    <h3>Fase 1 — todo a mano</h3>
+    <p>Funciona desde el día uno, con la misma cadencia quincenal que Felipe ya usa hoy para consolidar el stock. No depende de que lleguen accesos ni de ninguna integración — basta con completar la hoja cada 15 días.</p>
+  </div>
+  <div class="card">
+    <h3>Fase 2 — Shopify conectado</h3>
+    <p>Una vez que lleguen los accesos, el stock de Packner y Mercado Libre, más las ventas del canal online, se pueden traer automáticos desde Shopify. Solo quedan a mano el stock de bodega propia y el de consignación B2B — los dos que nunca pasan por Shopify.</p>
+  </div>
+</div>
+</section>
+
+<section class="sec">
+<h2>Por qué construimos esto en vez de comprar una app</h2>
+<p>Es una decisión que vale la pena justificar, en corto.</p>
+
+<div class="grid-2">
+  <div class="card">
+    <h3>Lo que asumen las apps del rubro</h3>
+    <p>Apps como Inventory Planner, Prediko o Cogsy son buenas herramientas 🟡 (reputación general del rubro, a verificar caso a caso), pero todas parten de la misma base: <strong>Shopify es la fuente de verdad</strong>. Todo el inventario y todas las ventas pasan por ahí, y el pronóstico se arma sobre esos datos.</p>
+  </div>
+  <div class="card">
+    <h3>La realidad de Pedraza hoy</h3>
+    <p>El B2B es cerca del 45% de la demanda 🟢 (datos-financieros-2025-2026.md, sección 1) y no pasa por Shopify. El stock vive en 4 lugares distintos 🟢, y hoy no hay ninguna integración que los junte automáticamente. Para este negocio, Shopify no es la fuente de verdad — es una de cuatro.</p>
+  </div>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>El costo también pesa.</strong> Estas apps cuestan, en general, del orden de USD 200 a 250 al mes 🟡 (referencia de rubro a verificar — varía según plan y volumen de pedidos). Es un gasto fijo más para un negocio que ya paga cerca de $1.167.128 CLP al mes solo en cuotas de crédito (datos-financieros-2025-2026.md, sección 6), y que hoy tiene la caja apretada.</p>
+</div>
+
+<div class="callout callout--success">
+<p><strong>La recomendación:</strong> partir con esta hoja y esta calculadora, que no agregan ningún gasto fijo y ya resuelven el problema real — la vista única y el aviso a tiempo. Reevaluar una app pagada después de diciembre, con la temporada alta ya pasada y los datos ordenados: ahí va a quedar claro si hace falta más automatización de la que esta hoja puede dar.</p>
+</div>
+
+<p>Ninguna de estas apps es mala — simplemente no calzan hoy, porque están pensadas para un negocio donde Shopify ve todo el inventario, y ese no es el caso de Pedraza Ilustración mientras el B2B siga siendo casi la mitad de la venta.</p>
+</section>
+
+<section class="sec">
+<h2>Las alertas</h2>
+<p>Cómo se entera el equipo cuando un producto entra en amarillo o rojo, sin depender de que alguien se acuerde de revisar todos los días.</p>
+
+<div class="grid-2">
+  <div class="card">
+    <h3>Revisión quincenal</h3>
+    <p>Cuando Felipe actualiza la hoja cada 15 días — lo que ya hace hoy — revisa la columna Estado de cada producto. Cualquier fila en amarillo o rojo queda marcada como pendiente esa misma semana.</p>
+  </div>
+  <div class="card">
+    <h3>Resumen en la reunión semanal</h3>
+    <p>Un vistazo rápido: cuántos productos están en 🟢, cuántos en 🟡 y cuántos en 🔴, como parte fija de la agenda. No hace falta revisar fila por fila en la reunión — el semáforo ya hace ese trabajo.</p>
+  </div>
+</div>
+
+<div class="callout callout--info">
+<p><strong>La alerta automática por correo se puede agregar después</strong>, con la misma mecánica de Apps Script (el código que ejecuta Google detrás de la hoja) que ya usa este sitio para sincronizar los checklists del equipo — ver el detalle técnico en <a href="sincronizar.html">Conectar con la hoja</a>. La idea sería la misma: un script que revisa la columna Estado y manda un correo cuando algún producto pasa a amarillo o rojo. La fase 1 no la necesita para funcionar: alcanza con la revisión quincenal y el resumen semanal de arriba.</p>
+</div>
+
+<p>Esta página se enfoca en el día a día: cuándo pedir para no quebrar. Para la pregunta de cuánto pedir de cara a la Navidad, con los tres escenarios de forecast de Felipe (conservador, medio y agresivo), revisa las siguientes páginas:</p>
+
+<div class="grid-2">
+  <a href="stock-navidad.html" class="btn">Ver Stock para Navidad →</a>
+  <a href="escenarios.html" class="btn btn--ghost">Ver Escenarios →</a>
+</div>
+
+<p class="page-footer">🟢 = dato medido, con fuente citada. 🟡 = estimación, supuesto o referencia a verificar. Fuentes principales: <code>datos-financieros-2025-2026.md</code> (secciones 1, 3, 6 y 8) y <code>reunion-2026-07-29.md</code> (sección 4), julio de 2026.</p>
 </section>
 
 </main>
 
 <script>
-  // Acceso seguro a localStorage (no revienta en navegación privada u otros bloqueos).
-  function pgGet(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
-  function pgSet(key, valor) { try { localStorage.setItem(key, valor); } catch (e) { /* sin soporte, se ignora */ } }
-  function pgRemove(key) { try { localStorage.removeItem(key); } catch (e) { /* sin soporte, se ignora */ } }
-</script>
-
-<script>
-  // Checklist "Qué pasa esta semana" — prefijo propio pedraza-plan:est:, atributo data-estado.
-  document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('[data-estado]').forEach(function (cb) {
-      cb.checked = pgGet('pedraza-plan:est:' + cb.getAttribute('data-estado')) === '1';
-    });
-  });
-
-  document.addEventListener('change', function (e) {
-    var cb = e.target.closest('[data-estado]');
-    if (!cb) return;
-    var key = 'pedraza-plan:est:' + cb.getAttribute('data-estado');
-    if (cb.checked) { pgSet(key, '1'); } else { pgRemove(key); }
-  });
-</script>
-
-<script>
-  // Cuentas regresivas en vivo: próxima reunión y Navidad.
-  function pintarConteo(id, objetivoISO, textoPasado) {
-    var el = document.getElementById(id);
+  // Copiar al portapapeles — delegación de eventos, un solo listener por página.
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-copy-target]');
+    if (!btn) return;
+    var el = document.getElementById(btn.getAttribute('data-copy-target'));
     if (!el) return;
-    var objetivo = new Date(objetivoISO);
-    var ahora = new Date();
-    var diffMs = objetivo.getTime() - ahora.getTime();
+    copiarTexto(el.innerText || el.textContent || '', btn);
+  });
 
-    if (diffMs <= 0) {
-      el.textContent = textoPasado;
-      el.style.fontSize = 'var(--fs-lg)';
+  function copiarTexto(texto, btn) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(texto).then(
+        function () { mostrarCopiado(btn); },
+        function () { copiarConFallback(texto, btn); }
+      );
+    } else {
+      copiarConFallback(texto, btn);
+    }
+  }
+
+  function copiarConFallback(texto, btn) {
+    var ta = document.createElement('textarea');
+    ta.value = texto;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.top = '-1000px';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (err) { /* sin soporte, se ignora */ }
+    document.body.removeChild(ta);
+    mostrarCopiado(btn);
+  }
+
+  function mostrarCopiado(btn) {
+    var original = btn.getAttribute('data-label') || btn.textContent;
+    btn.setAttribute('data-label', original);
+    btn.textContent = '✓ ¡Copiado!';
+    btn.classList.add('is-copied');
+    clearTimeout(btn._copyTimeout);
+    btn._copyTimeout = setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('is-copied');
+    }, 2000);
+  }
+</script>
+
+<script>
+  // ===== Calculadora de días de cobertura (sección 3) =====
+  function setTexto(id, valor) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = valor;
+  }
+
+  function leerNumero(id) {
+    var el = document.getElementById(id);
+    if (!el) return null;
+    var v = el.value;
+    if (v === null || v === undefined || v === '') return null;
+    var n = parseFloat(v);
+    if (isNaN(n)) return null;
+    return n;
+  }
+
+  function calcularCobertura() {
+    var P = leerNumero('calc-stock-packner');
+    var Bo = leerNumero('calc-stock-bodega');
+    var Me = leerNumero('calc-stock-meli');
+    var B2 = leerNumero('calc-stock-b2b');
+    var V30 = leerNumero('calc-ventas-30');
+    var temporadaEl = document.getElementById('calc-temporada');
+    var temporada = temporadaEl ? temporadaEl.value : 'normal';
+    var factor = (temporada === 'alta') ? 2.3 : 1;
+
+    var stockTotal = (P || 0) + (Bo || 0) + (Me || 0) + (B2 || 0);
+    setTexto('out-stock-total', stockTotal.toLocaleString('es-CL') + ' unidades');
+
+    var pill = document.getElementById('pill-semaforo');
+    var mensaje = document.getElementById('out-mensaje-semaforo');
+    var diasEl = document.getElementById('out-dias-cobertura');
+
+    if (V30 === null) {
+      setTexto('out-venta-diaria', '—');
+      if (diasEl) { diasEl.textContent = '—'; diasEl.style.color = ''; }
+      setTexto('out-fecha-quiebre', '—');
+      if (pill) { pill.className = 'pill'; pill.textContent = 'SEMÁFORO'; }
+      if (mensaje) mensaje.textContent = 'Completa las ventas de los últimos 30 días para ver el resultado.';
       return;
     }
 
-    var dias = Math.ceil(diffMs / 86400000);
-    if (dias === 0) {
-      el.textContent = 'Es hoy';
+    var ventaDiaria = (V30 / 30) * factor;
+    setTexto('out-venta-diaria', ventaDiaria.toLocaleString('es-CL', { maximumFractionDigits: 2 }) + ' unidades/día');
+
+    if (ventaDiaria <= 0) {
+      if (diasEl) { diasEl.textContent = '∞'; diasEl.style.color = 'var(--success)'; }
+      setTexto('out-fecha-quiebre', 'no se agota (sin ventas registradas)');
+      if (pill) { pill.className = 'pill pill--success'; pill.textContent = '🟢 VERDE'; }
+      if (mensaje) mensaje.textContent = 'Sin ventas en los últimos 30 días no hay riesgo de quiebre — pero conviene revisar si el dato está bien cargado.';
+      return;
+    }
+
+    var diasCobertura = stockTotal / ventaDiaria;
+    var diasRedondeado = Math.round(diasCobertura);
+
+    var hoy = new Date();
+    var fechaQuiebre = new Date(hoy.getTime() + diasCobertura * 86400000);
+    var fechaTexto = fechaQuiebre.toLocaleDateString('es-CL', { day: 'numeric', month: 'long', year: 'numeric' });
+
+    if (diasRedondeado <= 0) {
+      if (diasEl) { diasEl.textContent = '0 días'; diasEl.style.color = 'var(--danger)'; }
+      setTexto('out-fecha-quiebre', 'ya se agotó (hoy)');
+      if (pill) { pill.className = 'pill pill--danger'; pill.textContent = '🔴 ROJO'; }
+      if (mensaje) mensaje.textContent = 'El stock ya está en cero. El pedido debería haber salido hace tiempo — cada día que pasa es venta perdida.';
+    } else if (diasRedondeado < 90) {
+      if (diasEl) { diasEl.textContent = diasRedondeado + ' días'; diasEl.style.color = 'var(--danger)'; }
+      setTexto('out-fecha-quiebre', fechaTexto);
+      if (pill) { pill.className = 'pill pill--danger'; pill.textContent = '🔴 ROJO'; }
+      if (mensaje) mensaje.textContent = 'El pedido tiene que salir ya. Cada día de atraso es venta perdida.';
+    } else if (diasRedondeado <= 105) {
+      if (diasEl) { diasEl.textContent = diasRedondeado + ' días'; diasEl.style.color = 'var(--warn)'; }
+      setTexto('out-fecha-quiebre', fechaTexto);
+      if (pill) { pill.className = 'pill pill--warn'; pill.textContent = '🟡 AMARILLO'; }
+      if (mensaje) mensaje.textContent = 'Hay que empezar a cotizar y negociar con el proveedor.';
     } else {
-      el.textContent = dias + (dias === 1 ? ' día' : ' días');
+      if (diasEl) { diasEl.textContent = diasRedondeado + ' días'; diasEl.style.color = 'var(--success)'; }
+      setTexto('out-fecha-quiebre', fechaTexto);
+      if (pill) { pill.className = 'pill pill--success'; pill.textContent = '🟢 VERDE'; }
+      if (mensaje) mensaje.textContent = 'Todo bien. No hace falta hacer nada todavía.';
     }
   }
 
-  function actualizarCuentasRegresivas() {
-    pintarConteo('conteo-reunion', '2026-07-29T10:00:00-04:00', 'La reunión ya se realizó.');
-    pintarConteo('conteo-navidad', '2026-12-25T00:00:00-03:00', 'Ya pasó esta Navidad.');
-  }
-
-  actualizarCuentasRegresivas();
-  setInterval(actualizarCuentasRegresivas, 60000);
+  document.addEventListener('DOMContentLoaded', function () {
+    calcularCobertura();
+    var calc = document.getElementById('calculadora-stock');
+    if (calc) {
+      calc.addEventListener('input', calcularCobertura);
+      calc.addEventListener('change', calcularCobertura);
+    }
+  });
 </script>
 
 <script>
@@ -1333,201 +1477,6 @@ main { counter-reset: sec; }
   }
 
   document.addEventListener('DOMContentLoaded', navInit);
-</script>
-
-<script>
-  // Motor de sincronización — checklist compartida por todo el equipo vía Google Sheets.
-  // Prefijo "pgSync" en todo para no chocar con el resto del JS de la página.
-  // Ver docs/design-system.md sección 9 para la documentación completa (incluye el
-  // código de Google Apps Script del backend) y la tabla de valores por página.
-  // Requiere que ya estén cargados: el bloque pgGet/pgSet/pgRemove y el script propio
-  // de la página que lee/escribe localStorage para cada checkbox (los dos, arriba).
-
-  // ÚNICOS DOS VALORES QUE CAMBIAN POR PÁGINA — todo lo demás se copia tal cual:
-  var SYNC_ATTR = 'data-estado';   // atributo de los checkboxes de esta página
-  var SYNC_PREFIX = 'est:';          // prefijo de esta página dentro de la hoja compartida
-
-  // Configuración de la URL remota: vacía por defecto (sin backend configurado, la
-  // página funciona exactamente igual que hoy, solo con localStorage). Si queda vacía,
-  // se busca en localStorage — así se puede configurar desde una futura página de
-  // ajustes sin tocar código.
-  var SYNC_URL = '';
-  if (!SYNC_URL) {
-    try { SYNC_URL = localStorage.getItem('pedraza-plan:sync-url') || ''; }
-    catch (e) { SYNC_URL = ''; }
-  }
-
-  var pgSyncProcesando = false;
-  var pgSyncPillEl = null;
-  var pgSyncPillTimeout = null;
-
-  // ----- Arranque: solo si hay URL configurada. Sin ella, cero cambios de comportamiento. -----
-  document.addEventListener('DOMContentLoaded', function () {
-    if (!SYNC_URL) return;
-    pgSyncInicio();
-  });
-
-  window.addEventListener('online', function () {
-    if (!SYNC_URL) return;
-    pgSyncProcesarCola();
-  });
-
-  async function pgSyncInicio() {
-    await pgSyncCargarRemoto();
-    await pgSyncProcesarCola();
-  }
-
-  // ----- Paso 2 de la carga en dos tiempos: trae el remoto y reconcilia (gana el remoto). -----
-  // El paso 1 (aplicar localStorage de inmediato) ya lo hizo el script propio de la
-  // página, arriba, antes de que este fetch en segundo plano siquiera empiece.
-  async function pgSyncCargarRemoto() {
-    try {
-      var res = await fetch(SYNC_URL, { cache: 'no-store' });
-      if (!res.ok) { pgSyncMostrarEstado('offline'); return; }
-      var data = await res.json();
-      if (!data || data.ok !== true || !data.items || typeof data.items !== 'object') {
-        pgSyncMostrarEstado('offline');
-        return;
-      }
-      pgSyncReconciliar(data.items);
-      var cola = pgSyncLeerCola();
-      if (!Object.keys(cola).length) pgSyncMostrarEstado('ok');
-    } catch (e) {
-      // Red caída, URL inválida, JSON roto, servidor que no existe: la página sigue
-      // funcionando solo con localStorage, sin romperse y sin error visible.
-      pgSyncMostrarEstado('offline');
-    }
-  }
-
-  function pgSyncReconciliar(items) {
-    var checkboxes = document.querySelectorAll('[' + SYNC_ATTR + ']');
-    Object.keys(items).forEach(function (clave) {
-      if (clave.indexOf(SYNC_PREFIX) !== 0) return; // es de otra página, se ignora
-      var id = clave.slice(SYNC_PREFIX.length);
-      var cb = null;
-      for (var i = 0; i < checkboxes.length; i++) {
-        if (checkboxes[i].getAttribute(SYNC_ATTR) === id) { cb = checkboxes[i]; break; }
-      }
-      if (!cb) return; // esta página no tiene ese casillero
-
-      var remoto = items[clave] === '1';
-      if (cb.checked === remoto) return; // ya coincide, nada que reconciliar
-
-      cb.checked = remoto;
-      // Evento sintético (isTrusted=false): dispara el listener propio de la página,
-      // que ya sabe guardar en localStorage y refrescar KPIs/barra de progreso — así
-      // no hace falta duplicar esa lógica acá. Como no es un clic real, el listener
-      // de este motor (más abajo) lo ignora y no lo reenvía de vuelta al remoto.
-      cb.dispatchEvent(new Event('change', { bubbles: true }));
-    });
-  }
-
-  // ----- Al marcar: el script propio de la página ya guardó local al instante. -----
-  // Este listener solo encola el envío al remoto en segundo plano, y solo reacciona
-  // a clics reales (e.isTrusted) — nunca a los eventos sintéticos de la reconciliación.
-  document.addEventListener('change', function (e) {
-    var cb = e.target.closest('[' + SYNC_ATTR + ']');
-    if (!cb || !e.isTrusted || !SYNC_URL) return;
-    var claveCompleta = SYNC_PREFIX + cb.getAttribute(SYNC_ATTR);
-    var estado = cb.checked ? '1' : '0';
-    var quien = pgSyncObtenerQuien();
-    var cola = pgSyncLeerCola();
-    cola[claveCompleta] = { estado: estado, quien: quien };
-    pgSyncGuardarCola(cola);
-    pgSyncProcesarCola();
-  });
-
-  // ----- Cola de reintentos: nada se pierde por estar sin señal. -----
-  function pgSyncLeerCola() {
-    var texto = pgGet('pedraza-plan:sync-cola');
-    if (!texto) return {};
-    try { return JSON.parse(texto) || {}; } catch (e) { return {}; }
-  }
-
-  function pgSyncGuardarCola(cola) {
-    pgSet('pedraza-plan:sync-cola', JSON.stringify(cola));
-  }
-
-  async function pgSyncProcesarCola() {
-    if (!SYNC_URL || pgSyncProcesando) return;
-    pgSyncProcesando = true;
-    try {
-      var cola = pgSyncLeerCola();
-      var claves = Object.keys(cola);
-      if (!claves.length) return;
-      pgSyncMostrarEstado('guardando');
-      for (var i = 0; i < claves.length; i++) {
-        var clave = claves[i];
-        var item = cola[clave];
-        var ok = await pgSyncEnviarUno(clave, item.estado, item.quien);
-        if (!ok) { pgSyncMostrarEstado('offline'); return; } // se reintenta en 'online' o en la próxima carga
-        delete cola[clave];
-        pgSyncGuardarCola(cola);
-      }
-      pgSyncMostrarEstado('ok');
-    } catch (e) {
-      pgSyncMostrarEstado('offline');
-    } finally {
-      pgSyncProcesando = false;
-    }
-  }
-
-  function pgSyncEnviarUno(clave, estado, quien) {
-    return fetch(SYNC_URL, {
-      method: 'POST',
-      // text/plain evita el preflight de CORS, que Apps Script no maneja bien.
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify({ clave: clave, estado: estado, quien: quien })
-    }).then(function (res) {
-      if (!res.ok) return false;
-      return res.json().then(function (data) { return !!(data && data.ok); }).catch(function () { return false; });
-    }).catch(function () { return false; }); // red caída, CORS, lo que sea: se degrada en silencio
-  }
-
-  // ----- Quién marcó: se pregunta una sola vez; si cancela, no vuelve a insistir en la sesión. -----
-  function pgSyncObtenerQuien() {
-    var guardado = pgGet('pedraza-plan:quien');
-    if (guardado) return guardado;
-    try {
-      if (sessionStorage.getItem('pedraza-plan:quien-omitido') === '1') return 'alguien del equipo';
-    } catch (e) { /* sin soporte, se ignora */ }
-    var nombre = null;
-    try { nombre = window.prompt('¿Cómo te llamas? Así el equipo sabe quién marcó cada cosa'); }
-    catch (e) { nombre = null; }
-    nombre = (nombre || '').trim();
-    if (nombre) { pgSet('pedraza-plan:quien', nombre); return nombre; }
-    try { sessionStorage.setItem('pedraza-plan:quien-omitido', '1'); } catch (e) { /* sin soporte, se ignora */ }
-    return 'alguien del equipo';
-  }
-
-  // ----- Píldora de estado: discreta, abajo a la derecha, no tapa nav ni contenido. -----
-  function pgSyncPill() {
-    if (pgSyncPillEl) return pgSyncPillEl;
-    pgSyncPillEl = document.createElement('div');
-    pgSyncPillEl.className = 'sync-status';
-    pgSyncPillEl.setAttribute('role', 'status');
-    pgSyncPillEl.setAttribute('aria-live', 'polite');
-    document.body.appendChild(pgSyncPillEl);
-    return pgSyncPillEl;
-  }
-
-  function pgSyncMostrarEstado(estado) {
-    var el = pgSyncPill();
-    clearTimeout(pgSyncPillTimeout);
-    el.classList.remove('sync-status--ok', 'sync-status--saving', 'sync-status--offline');
-    if (estado === 'guardando') {
-      el.textContent = 'Guardando…';
-      el.classList.add('sync-status--saving', 'is-visible');
-    } else if (estado === 'offline') {
-      el.textContent = 'Sin conexión — guardado solo aquí';
-      el.classList.add('sync-status--offline', 'is-visible');
-      // se queda visible a propósito: hay algo que avisar
-    } else {
-      el.textContent = 'Sincronizado con el equipo ✓';
-      el.classList.add('sync-status--ok', 'is-visible');
-      pgSyncPillTimeout = setTimeout(function () { el.classList.remove('is-visible'); }, 3000);
-    }
-  }
 </script>
 
 </body>

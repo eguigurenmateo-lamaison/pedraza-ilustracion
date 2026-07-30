@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Estado del plan — Plan Pedraza Ilustración</title>
+<title>Los números del negocio — Plan Pedraza Ilustración</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
 <style>
 /* ==========================================================================
@@ -618,44 +618,14 @@ main { counter-reset: sec; }
   a[href]::after { content: " (" attr(href) ")"; font-size: .8em; }
 }
 
-/* ===== 21. Indicador de sincronización (.sync-status) — píldora fija, discreta =====
-   Parte del bloque canónico del motor de sincronización (docs/design-system.md,
-   sección 9). Se agrega igual en las 5 páginas con checklist — no es propia de
-   bitacora.html. Solo aparece cuando hay una URL de sincronización configurada. */
-.sync-status {
-  position: fixed;
-  right: max(var(--space-4), env(safe-area-inset-right, 0px));
-  bottom: max(var(--space-4), env(safe-area-inset-bottom, 0px));
-  z-index: 60;
-  max-width: calc(100vw - var(--space-4) * 2);
-  padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-full);
-  background: rgba(28, 36, 32, .92);
-  color: #fff;
-  font-size: var(--fs-sm);
-  font-weight: 600;
-  line-height: 1.3;
-  box-shadow: var(--shadow);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  opacity: 0;
-  transform: translateY(8px);
-  pointer-events: none;
-  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
-}
-.sync-status.is-visible { opacity: 1; transform: translateY(0); }
-.sync-status--saving { background: rgba(28, 36, 32, .92); }
-.sync-status--ok { background: var(--success); }
-.sync-status--offline { background: var(--warn); color: #2a1d02; }
-
 /* ==========================================================================
-   Extensiones propias de esta página (bitacora.html)
-   bitacora.html no es una de las 6 páginas del sitio (docs/design-system.md,
-   sección 1) y no está en el menú principal — se llega por link desde el plan.
-   El bloque de arriba es el canónico intacto; lo de abajo son componentes
-   propios de esta página, agregados en la misma hoja de estilos única para no
-   crear un segundo archivo CSS.
+   Extensiones propias de esta página (finanzas.html)
+   finanzas.html no es una de las 6 páginas del sitio (docs/design-system.md,
+   sección 1) y no está en el menú principal — se llega por link directo desde
+   el plan o la bitácora. El bloque de arriba es el canónico intacto; lo de
+   abajo son componentes propios de esta página (link de vuelta, fila de
+   gráfico destacada para diciembre), agregados en la misma hoja de estilos
+   única para no crear un segundo archivo CSS.
    ========================================================================== */
 
 .hero__back {
@@ -672,52 +642,19 @@ main { counter-reset: sec; }
 }
 .hero__back:hover { color: #fff; }
 
-.owner-label {
-  font-family: var(--font-sans);
-  font-size: var(--fs-sm);
-  text-transform: uppercase;
-  letter-spacing: .05em;
-  color: var(--accent-dark);
-  margin: var(--space-5) 0 var(--space-2);
-  font-weight: 700;
-}
+/* Fila de gráfico destacada: se usa una sola vez, en diciembre-2025 (sección 3) */
+.chart-bar-row--peak .chart-bar-row__label,
+.chart-bar-row--peak .chart-bar-row__value { font-weight: 800; color: var(--brand-green-dark); }
 
-/* Ficha de reunión: pares etiqueta/valor, en una columna en el celular */
-.ficha-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-4); margin: 0; }
-.ficha-grid > div { display: flex; flex-direction: column; gap: 2px; }
-.ficha-grid dt { margin: 0; font-size: var(--fs-sm); font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-soft); }
-.ficha-grid dd { margin: 0; font-size: var(--fs-base); }
-@media (min-width: 640px) { .ficha-grid { grid-template-columns: repeat(2, 1fr); } }
-
-/* Lista de decisiones tomadas: una tarjeta angosta por decisión, con marca de confirmado */
-.decision-list { list-style: none; padding: 0; margin: var(--space-4) 0; display: grid; gap: var(--space-3); }
-.decision-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-3);
-  padding: var(--space-4);
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-xs);
-  font-size: var(--fs-sm);
-}
-.decision-list li::before {
-  content: "✅";
-  flex: 0 0 auto;
-  font-size: 1.05em;
-  line-height: 1.5;
-}
-
-.deliverable-card p { font-size: var(--fs-sm); }
-.deliverable-card .btn { margin-top: var(--space-2); }
+/* Variante amber del badge de KPI, para "margen más bajo en comparación" sin usar el rojo de peligro */
+.kpi__delta--warn { color: var(--warn); background: var(--warn-soft); }
 
 .page-footer { margin-top: var(--space-8); padding-top: var(--space-4); border-top: 1px solid var(--line); color: var(--ink-faint); font-size: var(--fs-sm); }
 .page-footer a { color: var(--accent-dark); font-weight: 700; text-decoration: none; }
 .page-footer a:hover { text-decoration: underline; }
 </style>
 </head>
-<body data-nav-actual="estado">
+<body data-nav-actual="finanzas">
 <nav class="navbar" aria-label="Barra de navegación">
   <div class="navbar__inner">
     <a href="estado.html" class="navbar__home" aria-label="Ir al inicio: Estado del plan">🦋</a>
@@ -900,339 +837,359 @@ main { counter-reset: sec; }
 
 <header class="hero">
   <div class="hero__inner">
-    <h1>Estado del plan</h1>
-    <p>De un vistazo: en qué etapa vamos, qué está listo, qué está frenado y qué viene ahora. Foto tomada el 27 de julio de 2026, después de la reunión con Felipe y María José.</p>
+    <a href="estado.html" class="hero__back">← Volver al estado del plan</a>
+    <h1>Los números del negocio</h1>
+    <p>La primera lectura completa de 18 meses de datos reales — de enero de 2025 a junio de 2026 — que Felipe compartió por primera vez. Con esto se puede planificar el stock de Navidad, decidir precios y saber dónde vale más la pena poner el esfuerzo.</p>
   </div>
 </header>
 
 <main class="wrap">
 
-<section class="sec">
-<h2>¿En qué punto vamos hoy?</h2>
-<p>El proyecto tiene 5 etapas. Esta es la que está encendida hoy.</p>
+<p style="margin-top:var(--space-6)"><span class="pill pill--success">🟢 Datos reales</span> Todos los números de esta página salen de los archivos financieros que Felipe compartió el 29 de julio de 2026: 18 meses completos, de enero de 2025 a junio de 2026. Las lecturas marcadas con <span class="pill pill--warn">🟡 Lectura</span> son análisis del operador sobre esos datos, no cifras nuevas.</p>
 
-<!-- Mapa de etapas: fila de nodos + conectores, 100% HTML/CSS inline -->
-<div style="display:flex; align-items:flex-start; gap:2px; margin:var(--space-5) 0 var(--space-3);">
-
-  <div style="flex:1; min-width:0; display:flex; flex-direction:column; align-items:center;">
-    <div style="width:100%; display:flex; height:3px; margin-bottom:var(--space-2);">
-      <div style="flex:1; background:transparent;"></div>
-      <div style="flex:1; background:var(--success);"></div>
-    </div>
-    <div style="width:34px; height:34px; border-radius:50%; background:var(--success); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:.95rem; box-shadow:var(--shadow-sm); flex:0 0 auto;">✓</div>
-    <div style="margin-top:var(--space-2); font-size:.68rem; font-weight:700; color:var(--ink); line-height:1.25; text-align:center; overflow-wrap:break-word;">Diagnóstico<br>y plan</div>
-  </div>
-
-  <div style="flex:1; min-width:0; display:flex; flex-direction:column; align-items:center;">
-    <div style="width:100%; display:flex; height:3px; margin-bottom:var(--space-2);">
-      <div style="flex:1; background:var(--success);"></div>
-      <div style="flex:1; background:var(--line-strong);"></div>
-    </div>
-    <div style="width:40px; height:40px; border-radius:50%; background:var(--warn); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:1.05rem; box-shadow:0 0 0 4px var(--warn-soft), var(--shadow-sm); flex:0 0 auto;">2</div>
-    <div style="margin-top:var(--space-2); font-size:.68rem; font-weight:800; color:var(--warn); line-height:1.25; text-align:center; overflow-wrap:break-word;">HOY<br>Accesos</div>
-  </div>
-
-  <div style="flex:1; min-width:0; display:flex; flex-direction:column; align-items:center;">
-    <div style="width:100%; display:flex; height:3px; margin-bottom:var(--space-2);">
-      <div style="flex:1; background:var(--line-strong);"></div>
-      <div style="flex:1; background:var(--line-strong);"></div>
-    </div>
-    <div style="width:34px; height:34px; border-radius:50%; background:var(--surface); border:2px solid var(--line-strong); color:var(--ink-faint); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:.95rem; flex:0 0 auto;">3</div>
-    <div style="margin-top:var(--space-2); font-size:.68rem; font-weight:700; color:var(--ink-faint); line-height:1.25; text-align:center; overflow-wrap:break-word;">Instalación</div>
-  </div>
-
-  <div style="flex:1; min-width:0; display:flex; flex-direction:column; align-items:center;">
-    <div style="width:100%; display:flex; height:3px; margin-bottom:var(--space-2);">
-      <div style="flex:1; background:var(--line-strong);"></div>
-      <div style="flex:1; background:var(--line-strong);"></div>
-    </div>
-    <div style="width:34px; height:34px; border-radius:50%; background:var(--surface); border:2px solid var(--line-strong); color:var(--ink-faint); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:.95rem; flex:0 0 auto;">4</div>
-    <div style="margin-top:var(--space-2); font-size:.68rem; font-weight:700; color:var(--ink-faint); line-height:1.25; text-align:center; overflow-wrap:break-word;">Optimizar</div>
-  </div>
-
-  <div style="flex:1; min-width:0; display:flex; flex-direction:column; align-items:center;">
-    <div style="width:100%; display:flex; height:3px; margin-bottom:var(--space-2);">
-      <div style="flex:1; background:var(--line-strong);"></div>
-      <div style="flex:1; background:transparent;"></div>
-    </div>
-    <div style="width:34px; height:34px; border-radius:50%; background:var(--surface); border:2px solid var(--line-strong); color:var(--ink-faint); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:.95rem; flex:0 0 auto;">5</div>
-    <div style="margin-top:var(--space-2); font-size:.68rem; font-weight:700; color:var(--ink-faint); line-height:1.25; text-align:center; overflow-wrap:break-word;">Navidad</div>
-  </div>
-
-</div>
-
-<div class="callout callout--warn">
-<p style="font-size:var(--fs-h3); font-weight:800; margin-bottom:var(--space-2);">Hoy estamos en la Etapa 2: esperando los accesos.</p>
-<p>Lo que destraba avanzar: Felipe cierra la salida de la persona que hoy lleva Shopify, Klaviyo, Meta y Google Ads → entrega los accesos → arranca la Etapa 3, la instalación de 48 horas.</p>
-</div>
-
-<h3>El detalle de cada etapa</h3>
-<div class="timeline">
-  <div class="timeline-item" style="--brand-green:var(--success)">
-    <div class="timeline-item__date">27 de julio de 2026</div>
-    <div class="timeline-item__title">Etapa 1 — Diagnóstico y plan <span class="pill pill--success">✅ Completada</span></div>
-    <p>Reunión con Felipe y María José. Quedaron 7 páginas de plan de acción listas para revisar y ejecutar.</p>
-  </div>
-  <div class="timeline-item" style="--brand-green:var(--warn)">
-    <div class="timeline-item__date">En curso desde el 27 de julio</div>
-    <div class="timeline-item__title">Etapa 2 — Cierre y accesos <span class="pill pill--warn">🟡 En curso — bloquea todo lo demás</span></div>
-    <p>Cerrar la salida de la persona actual y entregar los accesos a Shopify, Klaviyo, Meta, Google Ads y Judge.me.</p>
-  </div>
-  <div class="timeline-item" style="--brand-green:var(--ink-faint)">
-    <div class="timeline-item__date">48 horas desde que lleguen los accesos</div>
-    <div class="timeline-item__title" style="color:var(--ink-soft)">Etapa 3 — Instalación rápida <span class="pill" style="background:var(--line-strong);color:var(--ink-soft)">⚪ Pendiente</span></div>
-    <p style="color:var(--ink-soft)">Pop-ups, colección de packs, arreglo de las reseñas invisibles de Judge.me y las primeras campañas.</p>
-  </div>
-  <div class="timeline-item" style="--brand-green:var(--ink-faint)">
-    <div class="timeline-item__date">Agosto a octubre de 2026</div>
-    <div class="timeline-item__title" style="color:var(--ink-soft)">Etapa 4 — Optimización y medición <span class="pill" style="background:var(--line-strong);color:var(--ink-soft)">⚪ Pendiente</span></div>
-    <p style="color:var(--ink-soft)">Los 3 meses de prueba acordados con Felipe y Cote: probar, medir y ajustar, con revisión de métricas a mitad de mes.</p>
-  </div>
-  <div class="timeline-item" style="--brand-green:var(--ink-faint)">
-    <div class="timeline-item__date">Noviembre y diciembre de 2026</div>
-    <div class="timeline-item__title" style="color:var(--ink-soft)">Etapa 5 — Navidad <span class="pill" style="background:var(--line-strong);color:var(--ink-soft)">⚪ Pendiente</span></div>
-    <p style="color:var(--ink-soft)">La temporada alta. Se juega con el stock que llegue del pedido nuevo a China, que debe salir en agosto.</p>
-  </div>
-</div>
-</section>
-
-<section class="sec">
-<h2>Lo que está frenando el avance</h2>
-<p>4 cosas atrasan el plan. 2 lo bloquean del todo, 2 lo atrasan pero no lo detienen.</p>
-
-<div class="grid-2">
-  <div class="callout callout--danger">
-    <p><strong>Cierre con la persona actual.</strong></p>
-    <p>Quién lo destraba: <strong>Felipe.</strong> Qué pasa cuando se destrabe: se pueden entregar los accesos y empieza la Etapa 3.</p>
-  </div>
-  <div class="callout callout--danger">
-    <p><strong>Entrega de accesos</strong> (Shopify, Klaviyo, Meta, Google Ads y Judge.me).</p>
-    <p>Quién lo destraba: <strong>Felipe y Cote.</strong> Qué pasa cuando se destrabe: arranca la instalación de 48 horas — pop-ups, packs, reseñas y primeras campañas.</p>
-  </div>
-  <div class="callout callout--warn">
-    <p><strong>Porcentaje del acuerdo comercial.</strong></p>
-    <p>Quién lo destraba: <strong>Felipe y Cote.</strong> Qué pasa cuando se destrabe: queda formalizado el periodo de prueba de 3 meses, con el variable calculado sobre la utilidad del negocio.</p>
-  </div>
-  <div class="callout callout--warn">
-    <p><strong>Hoja de stock y costos.</strong></p>
-    <p>Quién lo destraba: <strong>Felipe.</strong> Qué pasa cuando se destrabe: se puede calcular con números reales cuánto pedir a China en agosto y armar el plan de Navidad.</p>
-  </div>
-</div>
-</section>
-
-<section class="sec">
-<h2>El semáforo de los 6 frentes</h2>
-<p>Las barras son una estimación de avance, no un dato medido. Los datos con 🟢 sí son reales, con fuente.</p>
-
-<div class="grid-2">
-
-<div class="card">
-<h3>🟢 Contenido y redes</h3>
-<div class="chart-bar-row" style="--accent:var(--success)">
-  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:80%"></div></div>
-  <div class="chart-bar-row__value">80%</div>
-</div>
-<p><strong>Hoy:</strong> 7 guiones de Reels listos para grabar, banco de ganchos y bio lista para publicar. El calendario semanal ya está armado.</p>
-<p><strong>Falta para el verde total:</strong> empezar a grabar y publicar de forma constante, activando a la vez la base de 62.500 seguidores y la búsqueda de audiencia nueva.</p>
-<p><a href="guion-reels.html">Ver Guiones de Reels →</a></p>
-</div>
-
-<div class="card">
-<h3>🟡 Conversión de la tienda</h3>
-<div class="chart-bar-row" style="--accent:var(--warn)">
-  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:35%"></div></div>
-  <div class="chart-bar-row__value">35%</div>
-</div>
-<p><strong>Hoy:</strong> conversión (personas que compran de las que visitan la tienda) <span class="pill pill--success">🟢 ~1%</span>, 0,98% exacto (captura de Shopify, Felipe, jul-2026). El pre-diagnóstico de las 6 etapas del camino de compra ya está listo.</p>
-<p><strong>Falta para el verde:</strong> accesos a Shopify para ejecutar los cambios — pop-ups, colección de packs, arreglo de las reseñas.</p>
-<p><a href="cro.html">Ver Pre-diagnóstico de conversión →</a></p>
-</div>
-
-<div class="card">
-<h3>🔴 Correo</h3>
-<div class="chart-bar-row" style="--accent:var(--danger)">
-  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:20%"></div></div>
-  <div class="chart-bar-row__value">20%</div>
-</div>
-<p><strong>Hoy:</strong> aporta <span class="pill pill--success">🟢 9%</span> del ingreso en los últimos 30 días (13,8% en los últimos 7; pantalla de Klaviyo, acta 27-jul-2026). Las 3 campañas semanales ya están escritas.</p>
-<p><strong>Falta para el verde:</strong> accesos a Klaviyo para programarlas y empezar a enviarlas.</p>
-<p><a href="email.html">Ver Correo y campañas →</a></p>
-</div>
-
-<div class="card">
-<h3>🔴 Publicidad</h3>
-<div class="chart-bar-row" style="--accent:var(--danger)">
-  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:15%"></div></div>
-  <div class="chart-bar-row__value">15%</div>
-</div>
-<p><strong>Hoy:</strong> Google Ads con ROAS (retorno de la inversión publicitaria) <span class="pill pill--success">🟢 2,85</span> — por cada $1.000 invertidos, vuelven $2.850 en ventas (1-27 jul-2026). Meta Ads todavía sin revisar. La auditoría completa ya está lista.</p>
-<p><strong>Falta para el verde:</strong> accesos a Google Ads y Meta Ads para ejecutar los ajustes.</p>
-<p><a href="ads.html">Ver Google y Meta Ads →</a></p>
-</div>
-
-<div class="card">
-<h3>🔴 Stock y compras</h3>
-<div class="chart-bar-row" style="--accent:var(--danger)">
-  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:15%"></div></div>
-  <div class="chart-bar-row__value">15%</div>
-</div>
-<p><strong>Hoy:</strong> el contenedor actual llega el 15 de agosto, pero los 1.000 puzzles pedidos no alcanzan para Navidad. La calculadora de cuánto pedir ya está lista.</p>
-<p><strong>Falta para el verde:</strong> la hoja de stock real (repartido en 4 lugares) y los costos, para calcular el pedido de agosto con números reales.</p>
-<p><a href="stock-navidad.html">Ver Stock para Navidad →</a></p>
-</div>
-
-<div class="card">
-<h3>⚪ Productos digitales</h3>
-<div class="chart-bar-row" style="--accent:var(--ink-faint)">
-  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:5%"></div></div>
-  <div class="chart-bar-row__value">5%</div>
-</div>
-<p><strong>Hoy:</strong> la idea está definida — libro para pintar en acuarela con clase grabada y audiolibro de aves. Margen 100%, sin stock ni envío.</p>
-<p><strong>Falta para el verde:</strong> decidir dónde se vende, subir el producto a la tienda y grabar la clase.</p>
-<p><a href="digitales.html">Ver Productos digitales →</a></p>
-</div>
-
-</div>
-</section>
-
-<section class="sec">
-<h2>La cuenta regresiva que importa</h2>
-<p>Dos fechas que marcan el ritmo de las próximas semanas.</p>
-
-<div class="grid-2">
-  <div class="kpi" style="text-align:center;">
-    <span class="kpi__label">Próxima reunión — miércoles 29 de julio, 10:00 (hora de Chile)</span>
-    <span class="kpi__value" id="conteo-reunion">—</span>
-  </div>
-  <div class="kpi" style="text-align:center;">
-    <span class="kpi__label">Navidad — 25 de diciembre de 2026</span>
-    <span class="kpi__value" id="conteo-navidad">—</span>
-  </div>
-</div>
-
-<div class="callout callout--warn"><p><strong>El pedido nuevo a China debe salir en agosto.</strong> El ciclo de compra dura entre 2 y 3 meses y ya ha tenido atrasos — si no sale en agosto, no llega a tiempo para Black Friday ni Navidad. <a href="stock-navidad.html">Ver el detalle en Stock para Navidad →</a></p></div>
-</section>
-
-<section class="sec">
-<h2>Los números de partida</h2>
-<p>La foto del negocio al 27 de julio de 2026. Todo lo que sigue en este plan se compara contra estos números.</p>
+<section class="sec" id="foto-18-meses">
+<h2>La foto de 18 meses</h2>
+<p>Estos son los números grandes del negocio completo: la tienda (Shopify y Mercado Libre) más el mayorista, o "B2B" (venta a otras empresas, como tiendas y librerías que revenden el producto). Fuente: archivos de Felipe, 18 meses ene-2025 a jun-2026.</p>
 
 <div class="kpi-grid">
   <div class="kpi">
-    <span class="kpi__label">Venta mensual (línea base) <span class="pill pill--warn">🟡 estimado</span></span>
-    <span class="kpi__value">$4-5 millones CLP</span>
+    <span class="kpi__label">Venta total, 18 meses</span>
+    <span class="kpi__value">$202.150.825</span>
   </div>
   <div class="kpi">
-    <span class="kpi__label">Ticket promedio <span class="pill pill--success">🟢 dato real</span></span>
-    <span class="kpi__value">$33.000 CLP</span>
-    <span class="kpi__delta kpi__delta--down">bajó vs. antes</span>
+    <span class="kpi__label">Margen bruto consolidado</span>
+    <span class="kpi__value">67,1%</span>
   </div>
   <div class="kpi">
-    <span class="kpi__label">Conversión de la tienda <span class="pill pill--success">🟢 dato real</span></span>
-    <span class="kpi__value">~1%</span>
+    <span class="kpi__label">Venta en la tienda (e-commerce)</span>
+    <span class="kpi__value">55,4%</span>
+    <span class="kpi__delta kpi__delta--up">Margen 78,9%</span>
   </div>
   <div class="kpi">
-    <span class="kpi__label">Correo, últimos 30 días <span class="pill pill--success">🟢 dato real</span></span>
-    <span class="kpi__value">9%</span>
-    <span style="display:block; font-size:var(--fs-sm); color:var(--ink-soft); margin-top:var(--space-2);">13,8% en los últimos 7 días</span>
-  </div>
-  <div class="kpi">
-    <span class="kpi__label">ROAS de Google Ads <span class="pill pill--success">🟢 dato real</span></span>
-    <span class="kpi__value">2,85</span>
-    <span style="display:block; font-size:var(--fs-sm); color:var(--ink-soft); margin-top:var(--space-2);">por cada $1.000 invertidos, vuelven $2.850</span>
-  </div>
-  <div class="kpi">
-    <span class="kpi__label">Crecimiento año a la fecha <span class="pill pill--success">🟢 dato real</span></span>
-    <span class="kpi__value">+68%</span>
-    <span class="kpi__delta kpi__delta--up">todos los canales</span>
-  </div>
-  <div class="kpi" style="border-left:4px solid var(--accent)">
-    <span class="kpi__label">Meta del plan <span class="pill">🟢 confirmado</span></span>
-    <span class="kpi__value">$10 millones CLP/mes</span>
+    <span class="kpi__label">Venta al mayoreo (B2B)</span>
+    <span class="kpi__value">44,6%</span>
+    <span class="kpi__delta kpi__delta--warn">Margen 52,5%</span>
   </div>
 </div>
 
-<div class="progress">
-  <div class="progress__track"><div class="progress__fill" style="width:45%"></div></div>
-  <span class="progress__label">Venta mensual actual (~$4,5M CLP, orden de magnitud) — cerca del 45% del camino a la meta de $10M CLP/mes.</span>
+<div class="callout callout--info">
+<p><strong>Qué es el margen bruto:</strong> de cada $100 que entran por una venta, cuánto queda después de pagar solo el producto (lo que costó fabricarlo o comprarlo) — sin restar todavía arriendo, sueldos, publicidad ni el resto de los gastos del negocio. Un margen bruto de 67,1% quiere decir que, en promedio, de cada $100 vendidos quedan $67 después de pagar la mercadería.</p>
+<p>Es distinto de la <strong>utilidad</strong>, que es lo que queda después de restar además esos otros gastos. Esta página usa margen bruto como referencia principal porque es el dato más confiable hoy — la sección 5 explica qué falta para poder confiar también en la utilidad final de cada canal.</p>
 </div>
 
-<p style="font-size:var(--fs-sm); color:var(--ink-soft)">Fuentes: acta de la reunión del 27 de julio de 2026 (capturas de Shopify, Klaviyo y Google Ads mostradas en la llamada). Venta mensual con 🟡 porque julio todavía no cierra: es un orden de magnitud, no un cierre de mes.</p>
-</section>
+<p>El dato que más importa de esta foto: la tienda es poco más de la mitad de la venta — <strong>55,4%</strong> — pero deja <strong>78,9%</strong> de margen. El mayorista es el 44,6% restante, con <strong>52,5%</strong> de margen. <span class="pill pill--warn">🟡 Lectura</span> Con casi la misma venta, la tienda deja bastante más plata en el bolsillo. La siguiente sección muestra por qué eso importa para decidir dónde poner el esfuerzo.</p>
 
-<section class="sec">
-<h2>Qué pasa esta semana</h2>
-<p>4 cosas concretas, con quién responde por cada una. Marca cada una a medida que se resuelve — queda guardado en este navegador.</p>
-
-<ul class="checklist">
-  <li><label><input type="checkbox" data-estado="reunion-29-julio"><span><strong>Miércoles 29 de julio, 10:00 (Chile):</strong> reunión de seguimiento con Felipe y María José. Responsable: Mateo (operador).</span></label></li>
-  <li><label><input type="checkbox" data-estado="cierre-persona-actual"><span><strong>Cierre del acuerdo de salida</strong> con la persona que hoy lleva Meta, Google, Klaviyo y la tienda. Responsable: Felipe.</span></label></li>
-  <li><label><input type="checkbox" data-estado="entrega-accesos"><span><strong>Entrega de accesos:</strong> Shopify, Klaviyo, Meta, Google Ads y Judge.me. Responsables: Felipe y Cote.</span></label></li>
-  <li><label><input type="checkbox" data-estado="pedido-china-agosto"><span><strong>Definir y encargar el pedido nuevo a China.</strong> Debe salir en agosto por el ciclo de 2 a 3 meses. Responsable: Felipe.</span></label></li>
-</ul>
-
-<div class="grid-2">
-  <a href="bitacora.html" class="btn btn--ghost">Ver bitácora de pendientes →</a>
-  <a href="plan-90-dias.html" class="btn">Ver plan de 90 días →</a>
+<h3>Margen bruto por canal</h3>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">Tienda (e-commerce)</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:78.9%;background:var(--brand-green)"></div></div>
+  <span class="chart-bar-row__value">78,9%</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">Mayorista (B2B)</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:52.5%"></div></div>
+  <span class="chart-bar-row__value">52,5%</span>
 </div>
 </section>
+
+<section class="sec" id="donde-esta-la-plata">
+<h2>Dónde está la plata: e-commerce contra B2B</h2>
+<p>Esta es la comparación que ordena las prioridades. Fuente: archivos de Felipe, 18 meses ene-2025 a jun-2026.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Canal</th><th>Ventas</th><th>% del total</th><th>Margen bruto</th></tr></thead>
+<tbody>
+<tr><td>Shopify</td><td>$111.013.953</td><td>54,9%</td><td>79,1%</td></tr>
+<tr><td>Mercado Libre</td><td>$993.961</td><td>0,5%</td><td>60,7%</td></tr>
+<tr><td><strong>E-commerce (Shopify + Mercado Libre)</strong></td><td><strong>$112.007.914</strong></td><td><strong>55,4%</strong></td><td><strong>78,9%</strong></td></tr>
+<tr><td>B2B (Bsale)</td><td>$66.077.363</td><td>32,7%</td><td>52,4%</td></tr>
+<tr><td>Creado en Chile (cliente B2B)</td><td>$24.065.548</td><td>11,9%</td><td>52,8%</td></tr>
+<tr><td><strong>B2B total</strong></td><td><strong>$90.142.911</strong></td><td><strong>44,6%</strong></td><td><strong>52,5%</strong></td></tr>
+<tr><td><strong>TOTAL</strong></td><td><strong>$202.150.825</strong></td><td><strong>100%</strong></td><td><strong>67,1%</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Cuánto vende cada canal</h3>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">E-commerce</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%;background:var(--brand-green)"></div></div>
+  <span class="chart-bar-row__value">$112,0 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">B2B</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:80.5%"></div></div>
+  <span class="chart-bar-row__value">$90,1 M</span>
+</div>
+
+<div class="callout callout--success">
+<p><strong>La cuenta que importa:</strong> una venta de $100 en la tienda deja $79 después de pagar el producto. La misma venta de $100 en el mayorista deja $52. <span class="pill pill--warn">🟡 Lectura</span> Por eso, subir la venta de la tienda vale más que subir la venta del mayorista — peso por peso, deja más plata en el negocio.</p>
+</div>
+
+<p><span class="pill pill--warn">🟡 Lectura</span> Esto no quiere decir que haya que abandonar el B2B: es el canal que mueve los volúmenes grandes de una sola vez, y es gran parte de lo que explica el crecimiento del negocio este último año. La idea no es dejar de atenderlo — es que la tienda reciba la prioridad que su margen se merece.</p>
+</section>
+
+<section class="sec" id="estacionalidad">
+<h2>La estacionalidad, medida</h2>
+<p>Esta es la pieza más importante para planificar. <strong>Estacionalidad</strong> es la palabra para el patrón que se repite todos los años: los meses en que se vende mucho más (o mucho menos) que el resto, no por suerte, sino porque siempre pasa en esa fecha — como Navidad. El gráfico muestra la venta de la tienda (Shopify + Mercado Libre) mes a mes. Fuente: archivos de Felipe, 18 meses ene-2025 a jun-2026.</p>
+
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">ene-25</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:22.4%"></div></div>
+  <span class="chart-bar-row__value">$4,1 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">feb-25</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:19.2%"></div></div>
+  <span class="chart-bar-row__value">$3,5 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">mar-25</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:26.0%"></div></div>
+  <span class="chart-bar-row__value">$4,7 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">abr-25</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:32.7%"></div></div>
+  <span class="chart-bar-row__value">$6,0 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">may-25</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:23.1%"></div></div>
+  <span class="chart-bar-row__value">$4,2 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">jun-25</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:37.5%"></div></div>
+  <span class="chart-bar-row__value">$6,8 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">jul-25</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:27.2%"></div></div>
+  <span class="chart-bar-row__value">$5,0 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">ago-25</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:24.4%"></div></div>
+  <span class="chart-bar-row__value">$4,5 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">sep-25</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:25.2%"></div></div>
+  <span class="chart-bar-row__value">$4,6 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">oct-25</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:34.4%"></div></div>
+  <span class="chart-bar-row__value">$6,3 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">nov-25</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:51.5%"></div></div>
+  <span class="chart-bar-row__value">$9,4 M</span>
+</div>
+<div class="chart-bar-row chart-bar-row--peak">
+  <span class="chart-bar-row__label">dic-25 🎄</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%;background:var(--brand-green)"></div></div>
+  <span class="chart-bar-row__value">$18,3 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">ene-26</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:38.4%"></div></div>
+  <span class="chart-bar-row__value">$7,0 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">feb-26</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:24.9%"></div></div>
+  <span class="chart-bar-row__value">$4,5 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">mar-26</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:24.0%"></div></div>
+  <span class="chart-bar-row__value">$4,4 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">abr-26</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:41.2%"></div></div>
+  <span class="chart-bar-row__value">$7,5 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">may-26</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:23.7%"></div></div>
+  <span class="chart-bar-row__value">$4,3 M</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">jun-26</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:37.9%"></div></div>
+  <span class="chart-bar-row__value">$6,9 M</span>
+</div>
+
+<div class="callout callout--success">
+<p><strong>Diciembre 2025: $18.256.474</strong> — 2,9 veces el mes promedio ($6.222.662). Es el mes que define el año.</p>
+</div>
+
+<p><span class="pill pill--warn">🟡 Lectura</span> El año se juega, sobre todo, en dos meses: noviembre y diciembre. La consecuencia práctica es de calendario: el stock para esos dos meses no se puede pedir en octubre o noviembre — para cuando llega desde China, ya pasó la fecha. Se pide en agosto, con tiempo de sobra para que esté en la bodega antes de que empiece la temporada (ver el detalle en <a href="stock-navidad.html">Stock para Navidad</a>).</p>
+</section>
+
+<section class="sec" id="puzzles-unidades">
+<h2>Los puzzles, en unidades</h2>
+<p>Todo lo anterior fue en pesos. Esto es lo mismo, pero contado en piezas: cuántos puzzles se vendieron, por qué canal y de qué modelo. Es la base para decidir cuánto pedir. Fuente: archivos de Felipe, 18 meses ene-2025 a jun-2026.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Canal</th><th>Total 18 meses</th><th>Promedio al mes</th></tr></thead>
+<tbody>
+<tr><td>Shopify</td><td>1.096</td><td>61</td></tr>
+<tr><td>B2B</td><td>733</td><td>41</td></tr>
+<tr><td>Creado en Chile</td><td>490</td><td>27</td></tr>
+<tr><td>Mercado Libre</td><td>42</td><td>2 (solo desde jun-2026)</td></tr>
+<tr><td><strong>TOTAL</strong></td><td><strong>2.361</strong></td><td><strong>131</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Unidades vendidas por canal</h3>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">Shopify</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div>
+  <span class="chart-bar-row__value">1.096</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">B2B</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:66.9%"></div></div>
+  <span class="chart-bar-row__value">733</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">Creado en Chile</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:44.7%"></div></div>
+  <span class="chart-bar-row__value">490</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">Mercado Libre</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:3.8%"></div></div>
+  <span class="chart-bar-row__value">42</span>
+</div>
+
+<div class="callout callout--info">
+<p><strong>La estacionalidad también se ve en unidades:</strong> noviembre y diciembre de 2025 promediaron 298 puzzles al mes — 2,3 veces el promedio normal (131). Diciembre solo vendió 367 unidades, el mes más alto de toda la serie.</p>
+</div>
+
+<h3>Puzzles vendidos en Shopify, por modelo</h3>
+<p>De los 1.096 puzzles vendidos en la tienda en 18 meses, así se reparten entre los 4 modelos:</p>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">Aves</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%;background:var(--brand-green)"></div></div>
+  <span class="chart-bar-row__value">624</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">Cetáceos</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:39.7%"></div></div>
+  <span class="chart-bar-row__value">248</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">Hongos</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:22.9%"></div></div>
+  <span class="chart-bar-row__value">143</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">Mariposas</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:13.0%"></div></div>
+  <span class="chart-bar-row__value">81</span>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>El puzzle de aves es el 57% de la venta de puzzles de la tienda.</strong> <span class="pill pill--warn">🟡 Lectura</span> Esto confirma la estrategia de precios que planteó Felipe: al modelo que se vende solo (aves) se le puede subir el precio y ponerle un descuento simbólico — igual se sigue vendiendo, y a algunas personas el cartel de oferta las hace comprar igual. A los de rotación más lenta, como mariposas, les toca un descuento real y mayor, para emparejar la venta entre modelos.</p>
+</div>
+</section>
+
+<section class="sec" id="lo-que-falta">
+<h2>Lo que falta para que estos números sirvan para decidir</h2>
+<p>El modelo financiero de Felipe está bien armado: tiene tres capas de datos, una maestra de productos, y el calendario de los dos créditos reconstruido y validado contra el banco. <span class="pill pill--warn">🟡 Lectura</span> Lo que sigue no son errores de diseño — son piezas de información que todavía faltan para que la última línea (la utilidad final) sea 100% confiable. Se listan acá con la solución al lado.</p>
+
+<div class="callout callout--warn">
+<p><strong>1. Los gastos variables solo están cargados en un mes</strong></p>
+<p><strong>Qué pasa:</strong> en los 18 meses de registro, la publicidad ($973.425 en total) y los envíos ($966.537 en total) aparecen casi enteros en un solo mes — junio de 2026. En los otros 17 meses figuran en cero. Además, la comisión de la pasarela de pago (el porcentaje que se descuenta de cada venta pagada con tarjeta o Webpay) no aparece registrada en ningún mes.</p>
+<p><strong>Por qué importa:</strong> la utilidad operacional que muestra hoy el modelo ($104.371.491 en 18 meses) queda inflada, porque a 17 de los 18 meses no se les está descontando un gasto que sí ocurrió. Junio de 2026 es, por ahora, el único mes con el cuadro completo.</p>
+<p><strong>Qué se hace:</strong> reconstruir el gasto variable mes a mes junto con Felipe y sumar las comisiones de pasarela que faltan. El detalle completo, con las correcciones propuestas, está en <a href="modelo-datos.html">Corrigiendo el modelo</a>.</p>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>2. La venta de "Creado en Chile" podría estar contada dos veces</strong></p>
+<p><strong>Qué pasa:</strong> "Creado en Chile" es un cliente B2B que compró $24.065.548 en 18 meses — el 12% de toda la venta. El propio Felipe advirtió, en el correo donde compartió los archivos, que el archivo de ventas consolidadas "tiene la venta detallada de Creado en Chile, por lo que se repite el número del archivo anterior" (el de ventas B2B).</p>
+<p><strong>Por qué importa:</strong> si esa venta efectivamente se sumó dos veces, tanto la venta total como la utilidad bruta están un poco más altas de lo real. Sobre $202 millones no cambia la conclusión general, pero conviene confirmarlo antes de fijar una meta con ese número.</p>
+<p><strong>Qué se hace:</strong> cruzar los dos archivos fila por fila para confirmar si se repite o no, y corregir el total si corresponde. También en <a href="modelo-datos.html">Corrigiendo el modelo</a>.</p>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>3. Los retiros de los socios distorsionan la última línea</strong></p>
+<p><strong>Qué pasa:</strong> en 3 de los 15 meses con este dato, la utilidad final quedó en cero o en negativo — pese a que esos mismos meses tuvieron utilidad operacional de varios millones antes de que los socios se pagaran:</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Mes</th><th>Antes de retiros</th><th>Retiro de socios</th><th>Utilidad final</th></tr></thead>
+<tbody>
+<tr><td>Julio 2025</td><td>$3.666.615</td><td>−$3.629.497</td><td>$37.118</td></tr>
+<tr><td>Agosto 2025</td><td>$3.048.300</td><td>−$4.285.000</td><td>−$1.236.700</td></tr>
+<tr><td>Enero 2026</td><td>$10.586.173</td><td>−$10.592.000</td><td>−$5.827</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Por qué importa:</strong> mirando solo la última línea, esos tres meses parecen malos — o directamente que se perdió plata. En realidad, el negocio generó millones en cada uno; lo que pasó es que los socios se pagaron ese mes. Confundir las dos cosas puede llevar a frenar decisiones, como comprar stock, en meses que en realidad fueron buenos.</p>
+<p><strong>Qué se hace:</strong> separar siempre, en el reporte, la utilidad del negocio de los retiros de los socios — dos líneas distintas, no una sola mezclada.</p>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>4. Los gastos no están separados por canal</strong></p>
+<p><strong>Qué pasa:</strong> hoy los gastos operativos ($21.016.956 en los 15 meses con este dato) están juntos, sin dividir entre Shopify, B2B y Mercado Libre. Felipe ya identificó este pendiente.</p>
+<p><strong>Por qué importa:</strong> sin esa separación, todavía no se puede calcular la utilidad real de cada canal — solo el margen bruto (sección 1 de esta página), que es lo que queda después de pagar el producto, pero antes de pagar arriendo, sueldos, publicidad y el resto de los gastos del negocio.</p>
+<p><strong>Qué se hace:</strong> esto ya está en marcha — en la reunión del 29 de julio, Felipe se comprometió a hacer el cierre de julio separando las tres verticales (Shopify, B2B, Mercado Libre) y asignando un peso de gastos por canal según venta. Ese será el primer corte de utilidad real por canal.</p>
+</div>
+</section>
+
+<section class="sec" id="carga-financiera">
+<h2>La carga financiera</h2>
+<p>Esto es contexto, no una alarma: el negocio tiene dos créditos vigentes, ambos del programa estatal FOGAPE, a 36 cuotas cada uno. Fuente: archivos de Felipe.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Crédito</th><th>Monto</th><th>Cuota mensual</th><th>Tasa mensual</th><th>Desde</th></tr></thead>
+<tbody>
+<tr><td>Crédito 1</td><td>~$15,5 M</td><td>$553.198</td><td>~1,42%</td><td>jul-2025</td></tr>
+<tr><td>Crédito 2</td><td>~$17,6 M</td><td>$613.930</td><td>~1,33%</td><td>jun-2026</td></tr>
+<tr><td colspan="2"><strong>Carga combinada</strong></td><td><strong>$1.167.128 / mes</strong></td><td colspan="2"></td></tr>
+</tbody>
+</table>
+</div>
+
+<p>La <strong>cuota</strong> es el pago fijo que hay que hacer cada mes para ir pagando el crédito — no es opcional ni negociable mes a mes: hay que pagarlo pase lo que pase.</p>
+
+<p><span class="pill pill--warn">🟡 Lectura</span> Por qué esto importa para las compras de stock: cada peso que queda guardado en inventario (puzzles, botellas, calcetines comprados y esperando en la bodega) es un peso que no está disponible en la cuenta para pagar esta cuota. No es un problema en sí mismo — es simplemente el motivo por el que el pedido de stock (cuánto y cuándo comprar) conviene hacerlo con los números medidos, y no a ojo.</p>
+</section>
+
+<section class="sec" id="que-haria-yo">
+<h2>Qué haría yo con esta información</h2>
+<p>Con estos 18 meses medidos, hay tres decisiones que estos números ya respaldan hoy — sin necesidad de esperar a que se resuelvan los cuatro puntos pendientes de la sección anterior:</p>
+
+<div class="grid-3">
+  <div class="card">
+    <h3>1. Subir precios</h3>
+    <p>No se tocan hace un año. Felipe y Cote ya lo definieron como la prioridad número uno de esta semana. La estrategia por producto — subir el que se vende solo, descontar el de rotación lenta — está en <a href="ofertas.html">Ofertas y pop-ups</a>.</p>
+  </div>
+  <div class="card">
+    <h3>2. Pedir el stock de Navidad con los números, no a ojo</h3>
+    <p>La estacionalidad ya está medida: diciembre vende 2,9 veces el mes promedio, y el stock para esos dos meses se pide en agosto. El detalle de cuánto pedir está en <a href="stock-navidad.html">Stock para Navidad</a>.</p>
+  </div>
+  <div class="card">
+    <h3>3. Concentrar el esfuerzo en la tienda</h3>
+    <p>Por cada peso de venta, la tienda deja más margen que el mayorista (79% contra 52%). Eso no significa abandonar el B2B — significa que el esfuerzo extra rinde más en la tienda. El plan completo está en <a href="plan-90-dias.html">Plan de 90 días</a>.</p>
+  </div>
+</div>
+
+</section>
+
+<footer class="page-footer"><p>Datos: archivos financieros de Felipe, 18 meses (enero 2025 a junio 2026). Las lecturas marcadas <span class="pill pill--warn">🟡</span> son análisis del operador sobre esos datos. Ver también <a href="modelo-datos.html">Corrigiendo el modelo</a> y la <a href="bitacora.html">bitácora</a> del proyecto.</p></footer>
 
 </main>
-
-<script>
-  // Acceso seguro a localStorage (no revienta en navegación privada u otros bloqueos).
-  function pgGet(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
-  function pgSet(key, valor) { try { localStorage.setItem(key, valor); } catch (e) { /* sin soporte, se ignora */ } }
-  function pgRemove(key) { try { localStorage.removeItem(key); } catch (e) { /* sin soporte, se ignora */ } }
-</script>
-
-<script>
-  // Checklist "Qué pasa esta semana" — prefijo propio pedraza-plan:est:, atributo data-estado.
-  document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('[data-estado]').forEach(function (cb) {
-      cb.checked = pgGet('pedraza-plan:est:' + cb.getAttribute('data-estado')) === '1';
-    });
-  });
-
-  document.addEventListener('change', function (e) {
-    var cb = e.target.closest('[data-estado]');
-    if (!cb) return;
-    var key = 'pedraza-plan:est:' + cb.getAttribute('data-estado');
-    if (cb.checked) { pgSet(key, '1'); } else { pgRemove(key); }
-  });
-</script>
-
-<script>
-  // Cuentas regresivas en vivo: próxima reunión y Navidad.
-  function pintarConteo(id, objetivoISO, textoPasado) {
-    var el = document.getElementById(id);
-    if (!el) return;
-    var objetivo = new Date(objetivoISO);
-    var ahora = new Date();
-    var diffMs = objetivo.getTime() - ahora.getTime();
-
-    if (diffMs <= 0) {
-      el.textContent = textoPasado;
-      el.style.fontSize = 'var(--fs-lg)';
-      return;
-    }
-
-    var dias = Math.ceil(diffMs / 86400000);
-    if (dias === 0) {
-      el.textContent = 'Es hoy';
-    } else {
-      el.textContent = dias + (dias === 1 ? ' día' : ' días');
-    }
-  }
-
-  function actualizarCuentasRegresivas() {
-    pintarConteo('conteo-reunion', '2026-07-29T10:00:00-04:00', 'La reunión ya se realizó.');
-    pintarConteo('conteo-navidad', '2026-12-25T00:00:00-03:00', 'Ya pasó esta Navidad.');
-  }
-
-  actualizarCuentasRegresivas();
-  setInterval(actualizarCuentasRegresivas, 60000);
-</script>
 
 <script>
   // Navegación global: barra superior + panel completo (15 páginas, 4 grupos).
@@ -1333,201 +1290,6 @@ main { counter-reset: sec; }
   }
 
   document.addEventListener('DOMContentLoaded', navInit);
-</script>
-
-<script>
-  // Motor de sincronización — checklist compartida por todo el equipo vía Google Sheets.
-  // Prefijo "pgSync" en todo para no chocar con el resto del JS de la página.
-  // Ver docs/design-system.md sección 9 para la documentación completa (incluye el
-  // código de Google Apps Script del backend) y la tabla de valores por página.
-  // Requiere que ya estén cargados: el bloque pgGet/pgSet/pgRemove y el script propio
-  // de la página que lee/escribe localStorage para cada checkbox (los dos, arriba).
-
-  // ÚNICOS DOS VALORES QUE CAMBIAN POR PÁGINA — todo lo demás se copia tal cual:
-  var SYNC_ATTR = 'data-estado';   // atributo de los checkboxes de esta página
-  var SYNC_PREFIX = 'est:';          // prefijo de esta página dentro de la hoja compartida
-
-  // Configuración de la URL remota: vacía por defecto (sin backend configurado, la
-  // página funciona exactamente igual que hoy, solo con localStorage). Si queda vacía,
-  // se busca en localStorage — así se puede configurar desde una futura página de
-  // ajustes sin tocar código.
-  var SYNC_URL = '';
-  if (!SYNC_URL) {
-    try { SYNC_URL = localStorage.getItem('pedraza-plan:sync-url') || ''; }
-    catch (e) { SYNC_URL = ''; }
-  }
-
-  var pgSyncProcesando = false;
-  var pgSyncPillEl = null;
-  var pgSyncPillTimeout = null;
-
-  // ----- Arranque: solo si hay URL configurada. Sin ella, cero cambios de comportamiento. -----
-  document.addEventListener('DOMContentLoaded', function () {
-    if (!SYNC_URL) return;
-    pgSyncInicio();
-  });
-
-  window.addEventListener('online', function () {
-    if (!SYNC_URL) return;
-    pgSyncProcesarCola();
-  });
-
-  async function pgSyncInicio() {
-    await pgSyncCargarRemoto();
-    await pgSyncProcesarCola();
-  }
-
-  // ----- Paso 2 de la carga en dos tiempos: trae el remoto y reconcilia (gana el remoto). -----
-  // El paso 1 (aplicar localStorage de inmediato) ya lo hizo el script propio de la
-  // página, arriba, antes de que este fetch en segundo plano siquiera empiece.
-  async function pgSyncCargarRemoto() {
-    try {
-      var res = await fetch(SYNC_URL, { cache: 'no-store' });
-      if (!res.ok) { pgSyncMostrarEstado('offline'); return; }
-      var data = await res.json();
-      if (!data || data.ok !== true || !data.items || typeof data.items !== 'object') {
-        pgSyncMostrarEstado('offline');
-        return;
-      }
-      pgSyncReconciliar(data.items);
-      var cola = pgSyncLeerCola();
-      if (!Object.keys(cola).length) pgSyncMostrarEstado('ok');
-    } catch (e) {
-      // Red caída, URL inválida, JSON roto, servidor que no existe: la página sigue
-      // funcionando solo con localStorage, sin romperse y sin error visible.
-      pgSyncMostrarEstado('offline');
-    }
-  }
-
-  function pgSyncReconciliar(items) {
-    var checkboxes = document.querySelectorAll('[' + SYNC_ATTR + ']');
-    Object.keys(items).forEach(function (clave) {
-      if (clave.indexOf(SYNC_PREFIX) !== 0) return; // es de otra página, se ignora
-      var id = clave.slice(SYNC_PREFIX.length);
-      var cb = null;
-      for (var i = 0; i < checkboxes.length; i++) {
-        if (checkboxes[i].getAttribute(SYNC_ATTR) === id) { cb = checkboxes[i]; break; }
-      }
-      if (!cb) return; // esta página no tiene ese casillero
-
-      var remoto = items[clave] === '1';
-      if (cb.checked === remoto) return; // ya coincide, nada que reconciliar
-
-      cb.checked = remoto;
-      // Evento sintético (isTrusted=false): dispara el listener propio de la página,
-      // que ya sabe guardar en localStorage y refrescar KPIs/barra de progreso — así
-      // no hace falta duplicar esa lógica acá. Como no es un clic real, el listener
-      // de este motor (más abajo) lo ignora y no lo reenvía de vuelta al remoto.
-      cb.dispatchEvent(new Event('change', { bubbles: true }));
-    });
-  }
-
-  // ----- Al marcar: el script propio de la página ya guardó local al instante. -----
-  // Este listener solo encola el envío al remoto en segundo plano, y solo reacciona
-  // a clics reales (e.isTrusted) — nunca a los eventos sintéticos de la reconciliación.
-  document.addEventListener('change', function (e) {
-    var cb = e.target.closest('[' + SYNC_ATTR + ']');
-    if (!cb || !e.isTrusted || !SYNC_URL) return;
-    var claveCompleta = SYNC_PREFIX + cb.getAttribute(SYNC_ATTR);
-    var estado = cb.checked ? '1' : '0';
-    var quien = pgSyncObtenerQuien();
-    var cola = pgSyncLeerCola();
-    cola[claveCompleta] = { estado: estado, quien: quien };
-    pgSyncGuardarCola(cola);
-    pgSyncProcesarCola();
-  });
-
-  // ----- Cola de reintentos: nada se pierde por estar sin señal. -----
-  function pgSyncLeerCola() {
-    var texto = pgGet('pedraza-plan:sync-cola');
-    if (!texto) return {};
-    try { return JSON.parse(texto) || {}; } catch (e) { return {}; }
-  }
-
-  function pgSyncGuardarCola(cola) {
-    pgSet('pedraza-plan:sync-cola', JSON.stringify(cola));
-  }
-
-  async function pgSyncProcesarCola() {
-    if (!SYNC_URL || pgSyncProcesando) return;
-    pgSyncProcesando = true;
-    try {
-      var cola = pgSyncLeerCola();
-      var claves = Object.keys(cola);
-      if (!claves.length) return;
-      pgSyncMostrarEstado('guardando');
-      for (var i = 0; i < claves.length; i++) {
-        var clave = claves[i];
-        var item = cola[clave];
-        var ok = await pgSyncEnviarUno(clave, item.estado, item.quien);
-        if (!ok) { pgSyncMostrarEstado('offline'); return; } // se reintenta en 'online' o en la próxima carga
-        delete cola[clave];
-        pgSyncGuardarCola(cola);
-      }
-      pgSyncMostrarEstado('ok');
-    } catch (e) {
-      pgSyncMostrarEstado('offline');
-    } finally {
-      pgSyncProcesando = false;
-    }
-  }
-
-  function pgSyncEnviarUno(clave, estado, quien) {
-    return fetch(SYNC_URL, {
-      method: 'POST',
-      // text/plain evita el preflight de CORS, que Apps Script no maneja bien.
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify({ clave: clave, estado: estado, quien: quien })
-    }).then(function (res) {
-      if (!res.ok) return false;
-      return res.json().then(function (data) { return !!(data && data.ok); }).catch(function () { return false; });
-    }).catch(function () { return false; }); // red caída, CORS, lo que sea: se degrada en silencio
-  }
-
-  // ----- Quién marcó: se pregunta una sola vez; si cancela, no vuelve a insistir en la sesión. -----
-  function pgSyncObtenerQuien() {
-    var guardado = pgGet('pedraza-plan:quien');
-    if (guardado) return guardado;
-    try {
-      if (sessionStorage.getItem('pedraza-plan:quien-omitido') === '1') return 'alguien del equipo';
-    } catch (e) { /* sin soporte, se ignora */ }
-    var nombre = null;
-    try { nombre = window.prompt('¿Cómo te llamas? Así el equipo sabe quién marcó cada cosa'); }
-    catch (e) { nombre = null; }
-    nombre = (nombre || '').trim();
-    if (nombre) { pgSet('pedraza-plan:quien', nombre); return nombre; }
-    try { sessionStorage.setItem('pedraza-plan:quien-omitido', '1'); } catch (e) { /* sin soporte, se ignora */ }
-    return 'alguien del equipo';
-  }
-
-  // ----- Píldora de estado: discreta, abajo a la derecha, no tapa nav ni contenido. -----
-  function pgSyncPill() {
-    if (pgSyncPillEl) return pgSyncPillEl;
-    pgSyncPillEl = document.createElement('div');
-    pgSyncPillEl.className = 'sync-status';
-    pgSyncPillEl.setAttribute('role', 'status');
-    pgSyncPillEl.setAttribute('aria-live', 'polite');
-    document.body.appendChild(pgSyncPillEl);
-    return pgSyncPillEl;
-  }
-
-  function pgSyncMostrarEstado(estado) {
-    var el = pgSyncPill();
-    clearTimeout(pgSyncPillTimeout);
-    el.classList.remove('sync-status--ok', 'sync-status--saving', 'sync-status--offline');
-    if (estado === 'guardando') {
-      el.textContent = 'Guardando…';
-      el.classList.add('sync-status--saving', 'is-visible');
-    } else if (estado === 'offline') {
-      el.textContent = 'Sin conexión — guardado solo aquí';
-      el.classList.add('sync-status--offline', 'is-visible');
-      // se queda visible a propósito: hay algo que avisar
-    } else {
-      el.textContent = 'Sincronizado con el equipo ✓';
-      el.classList.add('sync-status--ok', 'is-visible');
-      pgSyncPillTimeout = setTimeout(function () { el.classList.remove('is-visible'); }, 3000);
-    }
-  }
 </script>
 
 </body>

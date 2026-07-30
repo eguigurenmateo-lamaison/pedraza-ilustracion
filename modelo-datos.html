@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Estado del plan — Plan Pedraza Ilustración</title>
+<title>Ordenar el modelo de datos — Plan Pedraza Ilustración</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
 <style>
 /* ==========================================================================
@@ -618,106 +618,15 @@ main { counter-reset: sec; }
   a[href]::after { content: " (" attr(href) ")"; font-size: .8em; }
 }
 
-/* ===== 21. Indicador de sincronización (.sync-status) — píldora fija, discreta =====
-   Parte del bloque canónico del motor de sincronización (docs/design-system.md,
-   sección 9). Se agrega igual en las 5 páginas con checklist — no es propia de
-   bitacora.html. Solo aparece cuando hay una URL de sincronización configurada. */
-.sync-status {
-  position: fixed;
-  right: max(var(--space-4), env(safe-area-inset-right, 0px));
-  bottom: max(var(--space-4), env(safe-area-inset-bottom, 0px));
-  z-index: 60;
-  max-width: calc(100vw - var(--space-4) * 2);
-  padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-full);
-  background: rgba(28, 36, 32, .92);
-  color: #fff;
-  font-size: var(--fs-sm);
-  font-weight: 600;
-  line-height: 1.3;
-  box-shadow: var(--shadow);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  opacity: 0;
-  transform: translateY(8px);
-  pointer-events: none;
-  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
-}
-.sync-status.is-visible { opacity: 1; transform: translateY(0); }
-.sync-status--saving { background: rgba(28, 36, 32, .92); }
-.sync-status--ok { background: var(--success); }
-.sync-status--offline { background: var(--warn); color: #2a1d02; }
-
-/* ==========================================================================
-   Extensiones propias de esta página (bitacora.html)
-   bitacora.html no es una de las 6 páginas del sitio (docs/design-system.md,
-   sección 1) y no está en el menú principal — se llega por link desde el plan.
-   El bloque de arriba es el canónico intacto; lo de abajo son componentes
-   propios de esta página, agregados en la misma hoja de estilos única para no
-   crear un segundo archivo CSS.
-   ========================================================================== */
-
-.hero__back {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  min-height: var(--tap);
-  padding: 0 var(--space-2) 0 0;
-  margin-bottom: var(--space-3);
-  color: rgba(255, 255, 255, .85);
-  text-decoration: none;
-  font-size: var(--fs-sm);
-  font-weight: 700;
-}
-.hero__back:hover { color: #fff; }
-
-.owner-label {
-  font-family: var(--font-sans);
-  font-size: var(--fs-sm);
-  text-transform: uppercase;
-  letter-spacing: .05em;
-  color: var(--accent-dark);
-  margin: var(--space-5) 0 var(--space-2);
-  font-weight: 700;
-}
-
-/* Ficha de reunión: pares etiqueta/valor, en una columna en el celular */
-.ficha-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-4); margin: 0; }
-.ficha-grid > div { display: flex; flex-direction: column; gap: 2px; }
-.ficha-grid dt { margin: 0; font-size: var(--fs-sm); font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-soft); }
-.ficha-grid dd { margin: 0; font-size: var(--fs-base); }
-@media (min-width: 640px) { .ficha-grid { grid-template-columns: repeat(2, 1fr); } }
-
-/* Lista de decisiones tomadas: una tarjeta angosta por decisión, con marca de confirmado */
-.decision-list { list-style: none; padding: 0; margin: var(--space-4) 0; display: grid; gap: var(--space-3); }
-.decision-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-3);
-  padding: var(--space-4);
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-xs);
-  font-size: var(--fs-sm);
-}
-.decision-list li::before {
-  content: "✅";
-  flex: 0 0 auto;
-  font-size: 1.05em;
-  line-height: 1.5;
-}
-
-.deliverable-card p { font-size: var(--fs-sm); }
-.deliverable-card .btn { margin-top: var(--space-2); }
-
-.page-footer { margin-top: var(--space-8); padding-top: var(--space-4); border-top: 1px solid var(--line); color: var(--ink-faint); font-size: var(--fs-sm); }
-.page-footer a { color: var(--accent-dark); font-weight: 700; text-decoration: none; }
-.page-footer a:hover { text-decoration: underline; }
+/* ===== 21. Extensión puntual de esta página: cuadrícula de 18 meses (Corrección 1) ===== */
+.mesgrid { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--space-2); margin: var(--space-4) 0; }
+.mesgrid__cell { padding: var(--space-2) var(--space-1); border-radius: var(--radius-xs); background: var(--line-strong); color: var(--ink-soft); font-size: .68rem; font-weight: 700; text-align: center; line-height: 1.3; }
+.mesgrid__cell--ok { background: var(--success); color: #fff; }
+@media (min-width: 480px) { .mesgrid { grid-template-columns: repeat(9, 1fr); } }
 </style>
 </head>
-<body data-nav-actual="estado">
+<body data-nav-actual="modelo-datos">
+
 <nav class="navbar" aria-label="Barra de navegación">
   <div class="navbar__inner">
     <a href="estado.html" class="navbar__home" aria-label="Ir al inicio: Estado del plan">🦋</a>
@@ -900,342 +809,389 @@ main { counter-reset: sec; }
 
 <header class="hero">
   <div class="hero__inner">
-    <h1>Estado del plan</h1>
-    <p>De un vistazo: en qué etapa vamos, qué está listo, qué está frenado y qué viene ahora. Foto tomada el 27 de julio de 2026, después de la reunión con Felipe y María José.</p>
+    <h1>Ordenar el modelo de datos</h1>
+    <p>Una revisión del modelo financiero que armó Felipe: qué ya está bien resuelto y qué falta cargar para que los números reflejen lo que de verdad está pasando en el negocio, mes a mes.</p>
   </div>
 </header>
 
 <main class="wrap">
 
 <section class="sec">
-<h2>¿En qué punto vamos hoy?</h2>
-<p>El proyecto tiene 5 etapas. Esta es la que está encendida hoy.</p>
+<h2>Lo que ya está bien resuelto</h2>
 
-<!-- Mapa de etapas: fila de nodos + conectores, 100% HTML/CSS inline -->
-<div style="display:flex; align-items:flex-start; gap:2px; margin:var(--space-5) 0 var(--space-3);">
-
-  <div style="flex:1; min-width:0; display:flex; flex-direction:column; align-items:center;">
-    <div style="width:100%; display:flex; height:3px; margin-bottom:var(--space-2);">
-      <div style="flex:1; background:transparent;"></div>
-      <div style="flex:1; background:var(--success);"></div>
-    </div>
-    <div style="width:34px; height:34px; border-radius:50%; background:var(--success); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:.95rem; box-shadow:var(--shadow-sm); flex:0 0 auto;">✓</div>
-    <div style="margin-top:var(--space-2); font-size:.68rem; font-weight:700; color:var(--ink); line-height:1.25; text-align:center; overflow-wrap:break-word;">Diagnóstico<br>y plan</div>
-  </div>
-
-  <div style="flex:1; min-width:0; display:flex; flex-direction:column; align-items:center;">
-    <div style="width:100%; display:flex; height:3px; margin-bottom:var(--space-2);">
-      <div style="flex:1; background:var(--success);"></div>
-      <div style="flex:1; background:var(--line-strong);"></div>
-    </div>
-    <div style="width:40px; height:40px; border-radius:50%; background:var(--warn); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:1.05rem; box-shadow:0 0 0 4px var(--warn-soft), var(--shadow-sm); flex:0 0 auto;">2</div>
-    <div style="margin-top:var(--space-2); font-size:.68rem; font-weight:800; color:var(--warn); line-height:1.25; text-align:center; overflow-wrap:break-word;">HOY<br>Accesos</div>
-  </div>
-
-  <div style="flex:1; min-width:0; display:flex; flex-direction:column; align-items:center;">
-    <div style="width:100%; display:flex; height:3px; margin-bottom:var(--space-2);">
-      <div style="flex:1; background:var(--line-strong);"></div>
-      <div style="flex:1; background:var(--line-strong);"></div>
-    </div>
-    <div style="width:34px; height:34px; border-radius:50%; background:var(--surface); border:2px solid var(--line-strong); color:var(--ink-faint); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:.95rem; flex:0 0 auto;">3</div>
-    <div style="margin-top:var(--space-2); font-size:.68rem; font-weight:700; color:var(--ink-faint); line-height:1.25; text-align:center; overflow-wrap:break-word;">Instalación</div>
-  </div>
-
-  <div style="flex:1; min-width:0; display:flex; flex-direction:column; align-items:center;">
-    <div style="width:100%; display:flex; height:3px; margin-bottom:var(--space-2);">
-      <div style="flex:1; background:var(--line-strong);"></div>
-      <div style="flex:1; background:var(--line-strong);"></div>
-    </div>
-    <div style="width:34px; height:34px; border-radius:50%; background:var(--surface); border:2px solid var(--line-strong); color:var(--ink-faint); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:.95rem; flex:0 0 auto;">4</div>
-    <div style="margin-top:var(--space-2); font-size:.68rem; font-weight:700; color:var(--ink-faint); line-height:1.25; text-align:center; overflow-wrap:break-word;">Optimizar</div>
-  </div>
-
-  <div style="flex:1; min-width:0; display:flex; flex-direction:column; align-items:center;">
-    <div style="width:100%; display:flex; height:3px; margin-bottom:var(--space-2);">
-      <div style="flex:1; background:var(--line-strong);"></div>
-      <div style="flex:1; background:transparent;"></div>
-    </div>
-    <div style="width:34px; height:34px; border-radius:50%; background:var(--surface); border:2px solid var(--line-strong); color:var(--ink-faint); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:.95rem; flex:0 0 auto;">5</div>
-    <div style="margin-top:var(--space-2); font-size:.68rem; font-weight:700; color:var(--ink-faint); line-height:1.25; text-align:center; overflow-wrap:break-word;">Navidad</div>
-  </div>
-
-</div>
-
-<div class="callout callout--warn">
-<p style="font-size:var(--fs-h3); font-weight:800; margin-bottom:var(--space-2);">Hoy estamos en la Etapa 2: esperando los accesos.</p>
-<p>Lo que destraba avanzar: Felipe cierra la salida de la persona que hoy lleva Shopify, Klaviyo, Meta y Google Ads → entrega los accesos → arranca la Etapa 3, la instalación de 48 horas.</p>
-</div>
-
-<h3>El detalle de cada etapa</h3>
-<div class="timeline">
-  <div class="timeline-item" style="--brand-green:var(--success)">
-    <div class="timeline-item__date">27 de julio de 2026</div>
-    <div class="timeline-item__title">Etapa 1 — Diagnóstico y plan <span class="pill pill--success">✅ Completada</span></div>
-    <p>Reunión con Felipe y María José. Quedaron 7 páginas de plan de acción listas para revisar y ejecutar.</p>
-  </div>
-  <div class="timeline-item" style="--brand-green:var(--warn)">
-    <div class="timeline-item__date">En curso desde el 27 de julio</div>
-    <div class="timeline-item__title">Etapa 2 — Cierre y accesos <span class="pill pill--warn">🟡 En curso — bloquea todo lo demás</span></div>
-    <p>Cerrar la salida de la persona actual y entregar los accesos a Shopify, Klaviyo, Meta, Google Ads y Judge.me.</p>
-  </div>
-  <div class="timeline-item" style="--brand-green:var(--ink-faint)">
-    <div class="timeline-item__date">48 horas desde que lleguen los accesos</div>
-    <div class="timeline-item__title" style="color:var(--ink-soft)">Etapa 3 — Instalación rápida <span class="pill" style="background:var(--line-strong);color:var(--ink-soft)">⚪ Pendiente</span></div>
-    <p style="color:var(--ink-soft)">Pop-ups, colección de packs, arreglo de las reseñas invisibles de Judge.me y las primeras campañas.</p>
-  </div>
-  <div class="timeline-item" style="--brand-green:var(--ink-faint)">
-    <div class="timeline-item__date">Agosto a octubre de 2026</div>
-    <div class="timeline-item__title" style="color:var(--ink-soft)">Etapa 4 — Optimización y medición <span class="pill" style="background:var(--line-strong);color:var(--ink-soft)">⚪ Pendiente</span></div>
-    <p style="color:var(--ink-soft)">Los 3 meses de prueba acordados con Felipe y Cote: probar, medir y ajustar, con revisión de métricas a mitad de mes.</p>
-  </div>
-  <div class="timeline-item" style="--brand-green:var(--ink-faint)">
-    <div class="timeline-item__date">Noviembre y diciembre de 2026</div>
-    <div class="timeline-item__title" style="color:var(--ink-soft)">Etapa 5 — Navidad <span class="pill" style="background:var(--line-strong);color:var(--ink-soft)">⚪ Pendiente</span></div>
-    <p style="color:var(--ink-soft)">La temporada alta. Se juega con el stock que llegue del pedido nuevo a China, que debe salir en agosto.</p>
-  </div>
-</div>
-</section>
-
-<section class="sec">
-<h2>Lo que está frenando el avance</h2>
-<p>4 cosas atrasan el plan. 2 lo bloquean del todo, 2 lo atrasan pero no lo detienen.</p>
+<p>Antes de entrar en las correcciones, vale la pena decirlo con claridad: el modelo financiero que armó Felipe está bien construido. No es una planilla improvisada — tiene una arquitectura pensada, reglas claras y decisiones técnicas correctas que no son fáciles de acertar a la primera. Esto es lo que ya está resuelto:</p>
 
 <div class="grid-2">
-  <div class="callout callout--danger">
-    <p><strong>Cierre con la persona actual.</strong></p>
-    <p>Quién lo destraba: <strong>Felipe.</strong> Qué pasa cuando se destrabe: se pueden entregar los accesos y empieza la Etapa 3.</p>
+  <div class="card">
+    <h3>🏗️ Arquitectura de tres capas</h3>
+    <p>Datos crudos → lógica de cálculo (fórmulas SUMIFS) → reporte final. Cada capa cumple una función distinta, y la regla de no editar a mano una celda con fórmula evita el error más común de cualquier planilla financiera: que alguien pise un cálculo sin darse cuenta.</p>
   </div>
-  <div class="callout callout--danger">
-    <p><strong>Entrega de accesos</strong> (Shopify, Klaviyo, Meta, Google Ads y Judge.me).</p>
-    <p>Quién lo destraba: <strong>Felipe y Cote.</strong> Qué pasa cuando se destrabe: arranca la instalación de 48 horas — pop-ups, packs, reseñas y primeras campañas.</p>
+  <div class="card">
+    <h3>🗂️ Maestra de SKU con mapeos documentados</h3>
+    <p>Las correcciones de producto ya quedaron registradas por escrito: <strong>CAL-TDP</strong> se reasignó a <strong>CAL-TORR</strong>, y <strong>LAM-IND-PEQ</strong> quedó marcado como inactivo. Ese nivel de detalle es el que evita que un producto discontinuado siga sumando ventas en los reportes.</p>
   </div>
-  <div class="callout callout--warn">
-    <p><strong>Porcentaje del acuerdo comercial.</strong></p>
-    <p>Quién lo destraba: <strong>Felipe y Cote.</strong> Qué pasa cuando se destrabe: queda formalizado el periodo de prueba de 3 meses, con el variable calculado sobre la utilidad del negocio.</p>
+  <div class="card">
+    <h3>🏦 Calendario de los 2 créditos, calibrado contra el banco</h3>
+    <p>Felipe reconstruyó cuota por cuota los dos créditos FOGAPE con la propiedad <strong>Capital(t+1) = Capital(t) × (1 + tasa)</strong>, y la calibró contra las capturas reales del banco. Ese tipo de trabajo casi nunca queda bien armado a la primera.</p>
   </div>
-  <div class="callout callout--warn">
-    <p><strong>Hoja de stock y costos.</strong></p>
-    <p>Quién lo destraba: <strong>Felipe.</strong> Qué pasa cuando se destrabe: se puede calcular con números reales cuánto pedir a China en agosto y armar el plan de Navidad.</p>
+  <div class="card">
+    <h3>✂️ Capital e interés, separados correctamente</h3>
+    <p>La cuota del crédito no es un gasto completo: solo el interés lo es, porque el capital es plata que vuelve al banco, no plata que se gasta. Separar bien esos dos conceptos es la base de cualquier estado de resultados que se quiera tomar en serio.</p>
   </div>
 </div>
+
+<p>Las correcciones que vienen a continuación <strong>no son de diseño</strong> — la estructura del modelo está bien armada. Son de <strong>completitud de datos</strong>: al modelo le faltan datos, no un rediseño.</p>
+
+<div class="callout callout--info">
+  <p>💡 <em>"Si hay una forma que tú crees que es mejor de hacerlo, feliz, voy a recibir cambios y sugerencias."</em><br>— Felipe Robinson, reunión del 29 de julio de 2026.</p>
+</div>
+
 </section>
 
 <section class="sec">
-<h2>El semáforo de los 6 frentes</h2>
-<p>Las barras son una estimación de avance, no un dato medido. Los datos con 🟢 sí son reales, con fuente.</p>
+<h2>Corrección 1 — cargar los gastos variables de los 18 meses</h2>
 
-<div class="grid-2">
+<p>Esta es la corrección más importante de las cuatro, porque de ella depende si se puede confiar en cualquier número de utilidad que hoy salga del modelo.</p>
 
-<div class="card">
-<h3>🟢 Contenido y redes</h3>
-<div class="chart-bar-row" style="--accent:var(--success)">
-  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:80%"></div></div>
-  <div class="chart-bar-row__value">80%</div>
-</div>
-<p><strong>Hoy:</strong> 7 guiones de Reels listos para grabar, banco de ganchos y bio lista para publicar. El calendario semanal ya está armado.</p>
-<p><strong>Falta para el verde total:</strong> empezar a grabar y publicar de forma constante, activando a la vez la base de 62.500 seguidores y la búsqueda de audiencia nueva.</p>
-<p><a href="guion-reels.html">Ver Guiones de Reels →</a></p>
+<div class="callout callout--danger">
+  <p>Hoy los gastos variables solo están cargados en <strong>junio de 2026</strong>. En los otros 17 meses del período figuran en cero.</p>
 </div>
 
-<div class="card">
-<h3>🟡 Conversión de la tienda</h3>
-<div class="chart-bar-row" style="--accent:var(--warn)">
-  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:35%"></div></div>
-  <div class="chart-bar-row__value">35%</div>
+<div class="mesgrid" role="img" aria-label="18 meses del período: 17 sin datos de gastos variables, 1 con datos completos (junio de 2026)">
+  <div class="mesgrid__cell">01-25</div>
+  <div class="mesgrid__cell">02-25</div>
+  <div class="mesgrid__cell">03-25</div>
+  <div class="mesgrid__cell">04-25</div>
+  <div class="mesgrid__cell">05-25</div>
+  <div class="mesgrid__cell">06-25</div>
+  <div class="mesgrid__cell">07-25</div>
+  <div class="mesgrid__cell">08-25</div>
+  <div class="mesgrid__cell">09-25</div>
+  <div class="mesgrid__cell">10-25</div>
+  <div class="mesgrid__cell">11-25</div>
+  <div class="mesgrid__cell">12-25</div>
+  <div class="mesgrid__cell">01-26</div>
+  <div class="mesgrid__cell">02-26</div>
+  <div class="mesgrid__cell">03-26</div>
+  <div class="mesgrid__cell">04-26</div>
+  <div class="mesgrid__cell">05-26</div>
+  <div class="mesgrid__cell mesgrid__cell--ok">✓ 06-26</div>
 </div>
-<p><strong>Hoy:</strong> conversión (personas que compran de las que visitan la tienda) <span class="pill pill--success">🟢 ~1%</span>, 0,98% exacto (captura de Shopify, Felipe, jul-2026). El pre-diagnóstico de las 6 etapas del camino de compra ya está listo.</p>
-<p><strong>Falta para el verde:</strong> accesos a Shopify para ejecutar los cambios — pop-ups, colección de packs, arreglo de las reseñas.</p>
-<p><a href="cro.html">Ver Pre-diagnóstico de conversión →</a></p>
-</div>
+<p style="font-size:var(--fs-sm); color:var(--ink-soft);">Gris = sin gastos variables cargados. Verde = el único mes con datos completos.</p>
 
-<div class="card">
-<h3>🔴 Correo</h3>
-<div class="chart-bar-row" style="--accent:var(--danger)">
-  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:20%"></div></div>
-  <div class="chart-bar-row__value">20%</div>
-</div>
-<p><strong>Hoy:</strong> aporta <span class="pill pill--success">🟢 9%</span> del ingreso en los últimos 30 días (13,8% en los últimos 7; pantalla de Klaviyo, acta 27-jul-2026). Las 3 campañas semanales ya están escritas.</p>
-<p><strong>Falta para el verde:</strong> accesos a Klaviyo para programarlas y empezar a enviarlas.</p>
-<p><a href="email.html">Ver Correo y campañas →</a></p>
-</div>
-
-<div class="card">
-<h3>🔴 Publicidad</h3>
-<div class="chart-bar-row" style="--accent:var(--danger)">
-  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:15%"></div></div>
-  <div class="chart-bar-row__value">15%</div>
-</div>
-<p><strong>Hoy:</strong> Google Ads con ROAS (retorno de la inversión publicitaria) <span class="pill pill--success">🟢 2,85</span> — por cada $1.000 invertidos, vuelven $2.850 en ventas (1-27 jul-2026). Meta Ads todavía sin revisar. La auditoría completa ya está lista.</p>
-<p><strong>Falta para el verde:</strong> accesos a Google Ads y Meta Ads para ejecutar los ajustes.</p>
-<p><a href="ads.html">Ver Google y Meta Ads →</a></p>
-</div>
-
-<div class="card">
-<h3>🔴 Stock y compras</h3>
-<div class="chart-bar-row" style="--accent:var(--danger)">
-  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:15%"></div></div>
-  <div class="chart-bar-row__value">15%</div>
-</div>
-<p><strong>Hoy:</strong> el contenedor actual llega el 15 de agosto, pero los 1.000 puzzles pedidos no alcanzan para Navidad. La calculadora de cuánto pedir ya está lista.</p>
-<p><strong>Falta para el verde:</strong> la hoja de stock real (repartido en 4 lugares) y los costos, para calcular el pedido de agosto con números reales.</p>
-<p><a href="stock-navidad.html">Ver Stock para Navidad →</a></p>
-</div>
-
-<div class="card">
-<h3>⚪ Productos digitales</h3>
-<div class="chart-bar-row" style="--accent:var(--ink-faint)">
-  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:5%"></div></div>
-  <div class="chart-bar-row__value">5%</div>
-</div>
-<p><strong>Hoy:</strong> la idea está definida — libro para pintar en acuarela con clase grabada y audiolibro de aves. Margen 100%, sin stock ni envío.</p>
-<p><strong>Falta para el verde:</strong> decidir dónde se vende, subir el producto a la tienda y grabar la clase.</p>
-<p><a href="digitales.html">Ver Productos digitales →</a></p>
-</div>
-
-</div>
-</section>
-
-<section class="sec">
-<h2>La cuenta regresiva que importa</h2>
-<p>Dos fechas que marcan el ritmo de las próximas semanas.</p>
-
-<div class="grid-2">
-  <div class="kpi" style="text-align:center;">
-    <span class="kpi__label">Próxima reunión — miércoles 29 de julio, 10:00 (hora de Chile)</span>
-    <span class="kpi__value" id="conteo-reunion">—</span>
-  </div>
-  <div class="kpi" style="text-align:center;">
-    <span class="kpi__label">Navidad — 25 de diciembre de 2026</span>
-    <span class="kpi__value" id="conteo-navidad">—</span>
-  </div>
-</div>
-
-<div class="callout callout--warn"><p><strong>El pedido nuevo a China debe salir en agosto.</strong> El ciclo de compra dura entre 2 y 3 meses y ya ha tenido atrasos — si no sale en agosto, no llega a tiempo para Black Friday ni Navidad. <a href="stock-navidad.html">Ver el detalle en Stock para Navidad →</a></p></div>
-</section>
-
-<section class="sec">
-<h2>Los números de partida</h2>
-<p>La foto del negocio al 27 de julio de 2026. Todo lo que sigue en este plan se compara contra estos números.</p>
+<p>Cuando un gasto real queda en cero, la utilidad de ese mes se ve más alta de lo que en verdad es. Por eso <strong>junio de 2026 es, hoy, el único mes del modelo con una utilidad operacional confiable</strong> — los otros 17 meses están sobrestimados.</p>
 
 <div class="kpi-grid">
   <div class="kpi">
-    <span class="kpi__label">Venta mensual (línea base) <span class="pill pill--warn">🟡 estimado</span></span>
-    <span class="kpi__value">$4-5 millones CLP</span>
+    <span class="kpi__label">Publicidad, 18 meses</span>
+    <span class="kpi__value">$973.425</span>
+    <span class="kpi__delta kpi__delta--down">🔴 eso es más o menos lo que se gasta en un mes</span>
   </div>
   <div class="kpi">
-    <span class="kpi__label">Ticket promedio <span class="pill pill--success">🟢 dato real</span></span>
-    <span class="kpi__value">$33.000 CLP</span>
-    <span class="kpi__delta kpi__delta--down">bajó vs. antes</span>
+    <span class="kpi__label">Envíos Packner, 18 meses</span>
+    <span class="kpi__value">$966.537</span>
+    <span class="kpi__delta kpi__delta--down">🔴 imposible para $202M de venta</span>
   </div>
   <div class="kpi">
-    <span class="kpi__label">Conversión de la tienda <span class="pill pill--success">🟢 dato real</span></span>
-    <span class="kpi__value">~1%</span>
-  </div>
-  <div class="kpi">
-    <span class="kpi__label">Correo, últimos 30 días <span class="pill pill--success">🟢 dato real</span></span>
-    <span class="kpi__value">9%</span>
-    <span style="display:block; font-size:var(--fs-sm); color:var(--ink-soft); margin-top:var(--space-2);">13,8% en los últimos 7 días</span>
-  </div>
-  <div class="kpi">
-    <span class="kpi__label">ROAS de Google Ads <span class="pill pill--success">🟢 dato real</span></span>
-    <span class="kpi__value">2,85</span>
-    <span style="display:block; font-size:var(--fs-sm); color:var(--ink-soft); margin-top:var(--space-2);">por cada $1.000 invertidos, vuelven $2.850</span>
-  </div>
-  <div class="kpi">
-    <span class="kpi__label">Crecimiento año a la fecha <span class="pill pill--success">🟢 dato real</span></span>
-    <span class="kpi__value">+68%</span>
-    <span class="kpi__delta kpi__delta--up">todos los canales</span>
-  </div>
-  <div class="kpi" style="border-left:4px solid var(--accent)">
-    <span class="kpi__label">Meta del plan <span class="pill">🟢 confirmado</span></span>
-    <span class="kpi__value">$10 millones CLP/mes</span>
+    <span class="kpi__label">Comisiones de pasarela de pago</span>
+    <span class="kpi__value">$0</span>
+    <span class="kpi__delta kpi__delta--down">🔴 no aparecen en ninguna parte</span>
   </div>
 </div>
 
-<div class="progress">
-  <div class="progress__track"><div class="progress__fill" style="width:45%"></div></div>
-  <span class="progress__label">Venta mensual actual (~$4,5M CLP, orden de magnitud) — cerca del 45% del camino a la meta de $10M CLP/mes.</span>
+<p>Lo que hay que cargar mes a mes, y de dónde sale cada dato:</p>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Gasto a cargar</th><th>De dónde sale el dato</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Publicidad Meta</td><td>Administrador de anuncios de Meta → informe de gasto mensual</td></tr>
+      <tr><td>Publicidad Google</td><td>Panel de Google Ads → informe de gasto mensual</td></tr>
+      <tr><td>Envíos Packner</td><td>Facturas o liquidaciones mensuales de Packner</td></tr>
+      <tr><td>Comisión Shopify Payments</td><td>Liquidaciones de Shopify (Finanzas → Pagos)</td></tr>
+      <tr><td>Comisión Flow</td><td>Panel de Flow</td></tr>
+      <tr><td>Comisión Mercado Pago</td><td>Panel de Mercado Pago</td></tr>
+      <tr><td>Comisión transferencia bancaria</td><td>Cartola bancaria</td></tr>
+      <tr><td>Suscripciones Shopify y apps</td><td>Cartola bancaria o panel de facturación de Shopify</td></tr>
+      <tr><td>Comisiones Mercado Libre</td><td>Panel de Mercado Libre (resumen de ventas)</td></tr>
+    </tbody>
+  </table>
 </div>
 
-<p style="font-size:var(--fs-sm); color:var(--ink-soft)">Fuentes: acta de la reunión del 27 de julio de 2026 (capturas de Shopify, Klaviyo y Google Ads mostradas en la llamada). Venta mensual con 🟡 porque julio todavía no cierra: es un orden de magnitud, no un cierre de mes.</p>
 </section>
 
 <section class="sec">
-<h2>Qué pasa esta semana</h2>
-<p>4 cosas concretas, con quién responde por cada una. Marca cada una a medida que se resuelve — queda guardado en este navegador.</p>
+<h2>Corrección 2 — resolver el doble conteo de "Creado en Chile"</h2>
 
-<ul class="checklist">
-  <li><label><input type="checkbox" data-estado="reunion-29-julio"><span><strong>Miércoles 29 de julio, 10:00 (Chile):</strong> reunión de seguimiento con Felipe y María José. Responsable: Mateo (operador).</span></label></li>
-  <li><label><input type="checkbox" data-estado="cierre-persona-actual"><span><strong>Cierre del acuerdo de salida</strong> con la persona que hoy lleva Meta, Google, Klaviyo y la tienda. Responsable: Felipe.</span></label></li>
-  <li><label><input type="checkbox" data-estado="entrega-accesos"><span><strong>Entrega de accesos:</strong> Shopify, Klaviyo, Meta, Google Ads y Judge.me. Responsables: Felipe y Cote.</span></label></li>
-  <li><label><input type="checkbox" data-estado="pedido-china-agosto"><span><strong>Definir y encargar el pedido nuevo a China.</strong> Debe salir en agosto por el ciclo de 2 a 3 meses. Responsable: Felipe.</span></label></li>
-</ul>
+<p>Esto no es un error confirmado. Es una duda que vale la pena resolver, porque el propio Felipe la dejó marcada en su correo:</p>
+
+<div class="callout callout--warn">
+  <p>🟡 <em>"Consolidado Ventas también tiene la venta detallada de Creado en Chile (Cliente B2B), por lo que se repite el número del archivo anterior."</em><br>— Felipe Robinson, correo del 29 de julio de 2026.</p>
+</div>
+
+<p>En el modelo, la venta de Creado en Chile aparece como una <strong>columna separada</strong>, junto a B2B, en la pestaña 30. Si las facturas de BSALE ya incluyen esa venta, se está contando dos veces.</p>
+
+<div class="kpi-grid">
+  <div class="kpi">
+    <span class="kpi__label">Posible doble conteo</span>
+    <span class="kpi__value">$24.065.548</span>
+    <span class="kpi__delta kpi__delta--down">🟡 hasta 12% de la venta de 18 meses</span>
+  </div>
+</div>
+
+<p>La verificación es simple y no toma mucho tiempo:</p>
+
+<div class="timeline">
+  <div class="timeline-item">
+    <div class="timeline-item__date">Paso 1</div>
+    <div class="timeline-item__title">Elegir un mes cualquiera del período</div>
+    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Por ejemplo, abril de 2026.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">Paso 2</div>
+    <div class="timeline-item__title">Filtrar las facturas de BSALE de ese mes por el cliente Creado en Chile</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">Paso 3</div>
+    <div class="timeline-item__title">Sumar el total facturado a ese cliente en ese mes</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">Paso 4</div>
+    <div class="timeline-item__title">Comparar ese total contra la columna "Creado en Chile" del Consolidado Ventas, mismo mes</div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">Paso 5</div>
+    <div class="timeline-item__title">Si coinciden, hay duplicación y se elimina una de las dos fuentes</div>
+    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Si son distintos, cada fuente mide algo diferente y no hay duplicación.</p>
+  </div>
+</div>
+
+<div class="callout callout--info">
+  <p>💡 Felipe puede tener una razón que no vemos para llevarlo separado. Por eso esto se presenta como una pregunta para confirmar con él, no como un error ya encontrado.</p>
+</div>
+
+</section>
+
+<section class="sec">
+<h2>Corrección 3 — sacar los retiros de socios del cálculo de rentabilidad</h2>
+
+<p>En 3 de los 15 meses con datos, la utilidad neta final del modelo quedó en cero o negativa — aunque el negocio había generado millones de utilidad operacional ese mismo mes. La razón: el retiro de los socios se comió toda la utilidad.</p>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Mes</th><th>Utilidad antes de retiros</th><th>Retiro de socios</th><th>Utilidad neta final</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>2025-07</td><td>$3.666.615</td><td>−$3.629.497</td><td>$37.118</td></tr>
+      <tr><td>2025-08</td><td>$3.048.300</td><td>−$4.285.000</td><td>−$1.236.700</td></tr>
+      <tr><td>2026-01</td><td>$10.586.173</td><td>−$10.592.000</td><td>−$5.827</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p style="font-size:var(--fs-sm); color:var(--ink-soft);">Cuánto de la utilidad de cada mes se llevó el retiro de socios:</p>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">2025-07</span>
+  <span class="chart-bar-row__track"><span class="chart-bar-row__fill" style="width:99%"></span></span>
+  <span class="chart-bar-row__value">99%</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">2025-08</span>
+  <span class="chart-bar-row__track"><span class="chart-bar-row__fill" style="width:100%"></span></span>
+  <span class="chart-bar-row__value">141%</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">2026-01</span>
+  <span class="chart-bar-row__track"><span class="chart-bar-row__fill" style="width:100%"></span></span>
+  <span class="chart-bar-row__value">100%</span>
+</div>
+<p style="font-size:var(--fs-sm); color:var(--ink-soft);">En agosto de 2025 el retiro fue incluso más grande que toda la utilidad del mes (141%).</p>
+
+<p>El punto de fondo: <strong>el retiro de los dueños es una decisión de reparto, no un costo de operar.</strong> Mezclarlo con los gastos hace imposible saber si el negocio realmente gana plata. Un mes tan bueno como enero de 2026 — con $10,6 millones de utilidad antes de retiros — termina viéndose en la última línea como si casi no hubiera generado nada.</p>
+
+<div class="callout callout--success">
+  <p>✅ <strong>La corrección:</strong> dejar "Utilidad antes de retiros" como la línea que mide la salud del negocio — la que responde "¿el negocio gana plata?". Los retiros pasan a ser una línea informativa después de esa, que responde una pregunta distinta: "¿cuánto se llevaron los socios este mes?".</p>
+</div>
+
+<div class="kpi-grid">
+  <div class="kpi">
+    <span class="kpi__label">Utilidad antes de retiros, 18 meses</span>
+    <span class="kpi__value">$101.856.993</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Remuneración socios, 18 meses</span>
+    <span class="kpi__value">−$42.924.543</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Utilidad neta final, 18 meses</span>
+    <span class="kpi__value">$58.932.450</span>
+  </div>
+</div>
+
+</section>
+
+<section class="sec">
+<h2>Corrección 4 — separar gastos por canal</h2>
+
+<p>Esto es algo que Felipe ya dijo que iba a hacer: el cierre de julio viene con las verticales (Shopify, B2B, Mercado Libre) separadas, asignando un peso de gastos por canal según la venta. Esta sección propone el método concreto.</p>
 
 <div class="grid-2">
-  <a href="bitacora.html" class="btn btn--ghost">Ver bitácora de pendientes →</a>
-  <a href="plan-90-dias.html" class="btn">Ver plan de 90 días →</a>
+  <div class="card">
+    <h3>Gastos directos</h3>
+    <p>Van completos al canal que los generó:</p>
+    <ul style="font-size:var(--fs-sm);">
+      <li>Publicidad (Meta + Google) y Packner → E-commerce</li>
+      <li>Bsale → B2B</li>
+      <li>Comisiones de Mercado Libre → Mercado Libre</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Gastos compartidos</h3>
+    <p>Se reparten según el peso de venta de cada canal — hoy, Shopify 54,9%, Mercado Libre 0,5%, B2B 44,6%:</p>
+    <ul style="font-size:var(--fs-sm);">
+      <li>Bodega, diseñadora, contador</li>
+      <li>Herramientas de software de uso general</li>
+    </ul>
+  </div>
 </div>
+
+<p>Aplicado a las categorías reales de gasto fijo del negocio:</p>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Categoría</th><th>Gasto (18 meses)</th><th>Canal sugerido</th><th>Por qué</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Diseñadora</td><td>$4.350.000</td><td><span class="pill pill--warn">🟡 Compartido</span></td><td>Trabaja contenido y catálogo para más de un canal</td></tr>
+      <tr><td>Bodega</td><td>$1.875.146</td><td><span class="pill pill--warn">🟡 Compartido</span></td><td>Guarda inventario de varios canales a la vez</td></tr>
+      <tr><td>Bsale</td><td>$1.687.950</td><td><span class="pill pill--info">Directo B2B</span></td><td>Es el sistema de facturación de esa vertical</td></tr>
+      <tr><td>Klaviyo</td><td>$1.463.940</td><td><span class="pill pill--info">Directo E-commerce</span></td><td>Es la herramienta de correo de la tienda Shopify</td></tr>
+      <tr><td>ChatGPT</td><td>$826.749</td><td><span class="pill pill--warn">🟡 Compartido</span></td><td>Herramienta de uso general del equipo</td></tr>
+      <tr><td>Google Suite</td><td>$786.554</td><td><span class="pill pill--warn">🟡 Compartido</span></td><td>Correo y documentos de todo el equipo</td></tr>
+      <tr><td>Pivot</td><td>$703.688</td><td><span class="pill pill--danger">🟡 Verificar con Felipe</span></td><td>No tenemos claro para qué se usa esta herramienta</td></tr>
+      <tr><td>Adobe</td><td>$570.684</td><td><span class="pill pill--warn">🟡 Compartido</span></td><td>Diseño usado en más de un canal, a confirmar con Felipe</td></tr>
+      <tr><td>Contador</td><td>$360.000</td><td><span class="pill pill--warn">🟡 Compartido</span></td><td>Contabilidad de toda la empresa, no de un canal</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>Sin esto, la pregunta que más importa —¿cuál canal gana plata de verdad?— no se puede contestar. Hoy el e-commerce se ve mejor porque tiene mejor margen bruto (79,1% contra 52,5% del B2B), pero eso es <strong>antes</strong> de gastos. Con los gastos separados se sabe si esa ventaja se mantiene después de pagar publicidad, envíos y comisiones — o si el B2B, con menos gasto variable propio, termina dejando más plata líquida.</p>
+
+</section>
+
+<section class="sec">
+<h2>La plantilla de cierre mensual</h2>
+
+<p>Esto es lo más útil de este documento: qué hacer cada mes para que el modelo se mantenga con datos completos, sin que se vuelva a acumular un atraso de 17 meses.</p>
+
+<div class="timeline">
+  <div class="timeline-item">
+    <div class="timeline-item__date">~5 min</div>
+    <div class="timeline-item__title">Descargar el gasto de Meta Ads del mes</div>
+    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Administrador de anuncios de Meta → informes.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">~5 min</div>
+    <div class="timeline-item__title">Descargar el gasto de Google Ads del mes</div>
+    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Panel de Google Ads → informe de gasto.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">~5 min</div>
+    <div class="timeline-item__title">Sacar el total de envíos de Packner del mes</div>
+    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Factura o liquidación mensual de Packner.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">~15 min</div>
+    <div class="timeline-item__title">Sacar las comisiones de las pasarelas de pago</div>
+    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Shopify Payments (liquidaciones de Shopify), Flow y Mercado Pago (paneles respectivos), transferencias (cartola bancaria).</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">~5 min</div>
+    <div class="timeline-item__title">Revisar suscripciones de Shopify y apps del mes</div>
+    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Cartola bancaria o panel de facturación de Shopify.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">~5 min</div>
+    <div class="timeline-item__title">Sacar las comisiones de Mercado Libre del mes</div>
+    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Panel de Mercado Libre.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">~15 min</div>
+    <div class="timeline-item__title">Cargar todo en la hoja de gastos variables, marcando el canal</div>
+    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Directo o compartido, según la Corrección 4.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">~5 min</div>
+    <div class="timeline-item__title">Revisar que "Creado en Chile" no se repita con BSALE ese mes</div>
+    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Mientras se confirma la Corrección 2 con Felipe.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">~2 min</div>
+    <div class="timeline-item__title">Confirmar que el retiro de socios quedó en la línea informativa</div>
+    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">No dentro de la utilidad operacional del mes.</p>
+  </div>
+</div>
+
+<p style="font-size:var(--fs-sm); color:var(--ink-soft);">Total: cerca de <strong>1 hora al mes</strong>.</p>
+
+<p>Encabezados listos para pegar en una hoja de Google Sheets nueva, dedicada a gastos variables:</p>
+
+<div class="copyblock">
+  <button type="button" class="copyblock__btn" data-copy-target="copy-encabezados-gastos">Copiar</button>
+  <div class="copyblock__text" id="copy-encabezados-gastos">Mes,Publicidad Meta,Publicidad Google,Envíos Packner,Comisión Shopify Payments,Comisión Flow,Comisión Mercado Pago,Comisión transferencia bancaria,Suscripciones Shopify y apps,Comisiones Mercado Libre,Canal,Total gasto variable del mes</div>
+</div>
+
+<p>Orden sugerido de las correcciones, por impacto y esfuerzo:</p>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Orden</th><th>Corrección</th><th>Impacto</th><th>Esfuerzo</th><th>Por qué en ese orden</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Corrección 3 — sacar retiros del cálculo</td><td><span class="pill pill--info">Alto</span></td><td><span class="pill pill--success">Bajo</span></td><td>Es reordenar filas que ya existen, no cargar datos nuevos</td></tr>
+      <tr><td>2</td><td>Corrección 2 — verificar Creado en Chile</td><td><span class="pill pill--info">Alto</span></td><td><span class="pill pill--success">Bajo</span></td><td>Es comparar un mes, no reconstruir nada</td></tr>
+      <tr><td>3</td><td>Corrección 1 — cargar 17 meses de gastos variables</td><td><span class="pill pill--info">Alto</span></td><td><span class="pill pill--danger">Alto</span></td><td>Es la que más trabajo toma, pero la que más cambia los números</td></tr>
+      <tr><td>4</td><td>Corrección 4 — separar por canal</td><td><span class="pill pill--info">Alto</span></td><td><span class="pill pill--warn">Medio</span></td><td>Conviene hacerla al final, cuando los gastos ya estén completos y sin duplicados</td></tr>
+    </tbody>
+  </table>
+</div>
+
+</section>
+
+<section class="sec">
+<h2>Qué se desbloquea con esto</h2>
+
+<p>Con los gastos completos y separados por canal se puede:</p>
+
+<div class="grid-3">
+  <div class="card">
+    <h3>💰 Calcular la utilidad real del e-commerce</h3>
+    <p style="font-size:var(--fs-sm);">La base para saber si el canal principal del negocio realmente gana plata — y también la base del acuerdo variable.</p>
+  </div>
+  <div class="card">
+    <h3>📦 Decidir el pedido a China con datos</h3>
+    <p style="font-size:var(--fs-sm);">Saber cuánto margen real deja cada producto antes de comprometer capital de trabajo.</p>
+  </div>
+  <div class="card">
+    <h3>🎯 Saber qué producto y qué canal empujar</h3>
+    <p style="font-size:var(--fs-sm);">Con gastos reales por canal, se puede comparar de verdad dónde conviene poner el esfuerzo.</p>
+  </div>
+</div>
+
+<p>Esto conecta directo con dos entregables de este plan:</p>
+<p><a class="btn" href="finanzas.html">Ver finanzas.html</a> <a class="btn btn--ghost" href="stock-navidad.html">Ver Stock para Navidad</a></p>
+
 </section>
 
 </main>
 
 <script>
-  // Acceso seguro a localStorage (no revienta en navegación privada u otros bloqueos).
-  function pgGet(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
-  function pgSet(key, valor) { try { localStorage.setItem(key, valor); } catch (e) { /* sin soporte, se ignora */ } }
-  function pgRemove(key) { try { localStorage.removeItem(key); } catch (e) { /* sin soporte, se ignora */ } }
-</script>
-
-<script>
-  // Checklist "Qué pasa esta semana" — prefijo propio pedraza-plan:est:, atributo data-estado.
-  document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('[data-estado]').forEach(function (cb) {
-      cb.checked = pgGet('pedraza-plan:est:' + cb.getAttribute('data-estado')) === '1';
-    });
-  });
-
-  document.addEventListener('change', function (e) {
-    var cb = e.target.closest('[data-estado]');
-    if (!cb) return;
-    var key = 'pedraza-plan:est:' + cb.getAttribute('data-estado');
-    if (cb.checked) { pgSet(key, '1'); } else { pgRemove(key); }
-  });
-</script>
-
-<script>
-  // Cuentas regresivas en vivo: próxima reunión y Navidad.
-  function pintarConteo(id, objetivoISO, textoPasado) {
-    var el = document.getElementById(id);
-    if (!el) return;
-    var objetivo = new Date(objetivoISO);
-    var ahora = new Date();
-    var diffMs = objetivo.getTime() - ahora.getTime();
-
-    if (diffMs <= 0) {
-      el.textContent = textoPasado;
-      el.style.fontSize = 'var(--fs-lg)';
-      return;
-    }
-
-    var dias = Math.ceil(diffMs / 86400000);
-    if (dias === 0) {
-      el.textContent = 'Es hoy';
-    } else {
-      el.textContent = dias + (dias === 1 ? ' día' : ' días');
-    }
-  }
-
-  function actualizarCuentasRegresivas() {
-    pintarConteo('conteo-reunion', '2026-07-29T10:00:00-04:00', 'La reunión ya se realizó.');
-    pintarConteo('conteo-navidad', '2026-12-25T00:00:00-03:00', 'Ya pasó esta Navidad.');
-  }
-
-  actualizarCuentasRegresivas();
-  setInterval(actualizarCuentasRegresivas, 60000);
-</script>
-
-<script>
-  // Navegación global: barra superior + panel completo (15 páginas, 4 grupos).
+  // Navegación global: barra superior + panel completo (16 páginas, 4 grupos).
   // Prefijo "nav" en todo para no chocar con otros scripts de la página.
   var NAV_PAGES = [
     { grupo: 'Seguimiento', id: 'estado', nombre: 'Estado del plan' },
@@ -1336,197 +1292,49 @@ main { counter-reset: sec; }
 </script>
 
 <script>
-  // Motor de sincronización — checklist compartida por todo el equipo vía Google Sheets.
-  // Prefijo "pgSync" en todo para no chocar con el resto del JS de la página.
-  // Ver docs/design-system.md sección 9 para la documentación completa (incluye el
-  // código de Google Apps Script del backend) y la tabla de valores por página.
-  // Requiere que ya estén cargados: el bloque pgGet/pgSet/pgRemove y el script propio
-  // de la página que lee/escribe localStorage para cada checkbox (los dos, arriba).
-
-  // ÚNICOS DOS VALORES QUE CAMBIAN POR PÁGINA — todo lo demás se copia tal cual:
-  var SYNC_ATTR = 'data-estado';   // atributo de los checkboxes de esta página
-  var SYNC_PREFIX = 'est:';          // prefijo de esta página dentro de la hoja compartida
-
-  // Configuración de la URL remota: vacía por defecto (sin backend configurado, la
-  // página funciona exactamente igual que hoy, solo con localStorage). Si queda vacía,
-  // se busca en localStorage — así se puede configurar desde una futura página de
-  // ajustes sin tocar código.
-  var SYNC_URL = '';
-  if (!SYNC_URL) {
-    try { SYNC_URL = localStorage.getItem('pedraza-plan:sync-url') || ''; }
-    catch (e) { SYNC_URL = ''; }
-  }
-
-  var pgSyncProcesando = false;
-  var pgSyncPillEl = null;
-  var pgSyncPillTimeout = null;
-
-  // ----- Arranque: solo si hay URL configurada. Sin ella, cero cambios de comportamiento. -----
-  document.addEventListener('DOMContentLoaded', function () {
-    if (!SYNC_URL) return;
-    pgSyncInicio();
+  // Copiar al portapapeles — delegación de eventos, un solo listener por página.
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-copy-target]');
+    if (!btn) return;
+    var el = document.getElementById(btn.getAttribute('data-copy-target'));
+    if (!el) return;
+    copiarTexto(el.innerText || el.textContent || '', btn);
   });
 
-  window.addEventListener('online', function () {
-    if (!SYNC_URL) return;
-    pgSyncProcesarCola();
-  });
-
-  async function pgSyncInicio() {
-    await pgSyncCargarRemoto();
-    await pgSyncProcesarCola();
-  }
-
-  // ----- Paso 2 de la carga en dos tiempos: trae el remoto y reconcilia (gana el remoto). -----
-  // El paso 1 (aplicar localStorage de inmediato) ya lo hizo el script propio de la
-  // página, arriba, antes de que este fetch en segundo plano siquiera empiece.
-  async function pgSyncCargarRemoto() {
-    try {
-      var res = await fetch(SYNC_URL, { cache: 'no-store' });
-      if (!res.ok) { pgSyncMostrarEstado('offline'); return; }
-      var data = await res.json();
-      if (!data || data.ok !== true || !data.items || typeof data.items !== 'object') {
-        pgSyncMostrarEstado('offline');
-        return;
-      }
-      pgSyncReconciliar(data.items);
-      var cola = pgSyncLeerCola();
-      if (!Object.keys(cola).length) pgSyncMostrarEstado('ok');
-    } catch (e) {
-      // Red caída, URL inválida, JSON roto, servidor que no existe: la página sigue
-      // funcionando solo con localStorage, sin romperse y sin error visible.
-      pgSyncMostrarEstado('offline');
-    }
-  }
-
-  function pgSyncReconciliar(items) {
-    var checkboxes = document.querySelectorAll('[' + SYNC_ATTR + ']');
-    Object.keys(items).forEach(function (clave) {
-      if (clave.indexOf(SYNC_PREFIX) !== 0) return; // es de otra página, se ignora
-      var id = clave.slice(SYNC_PREFIX.length);
-      var cb = null;
-      for (var i = 0; i < checkboxes.length; i++) {
-        if (checkboxes[i].getAttribute(SYNC_ATTR) === id) { cb = checkboxes[i]; break; }
-      }
-      if (!cb) return; // esta página no tiene ese casillero
-
-      var remoto = items[clave] === '1';
-      if (cb.checked === remoto) return; // ya coincide, nada que reconciliar
-
-      cb.checked = remoto;
-      // Evento sintético (isTrusted=false): dispara el listener propio de la página,
-      // que ya sabe guardar en localStorage y refrescar KPIs/barra de progreso — así
-      // no hace falta duplicar esa lógica acá. Como no es un clic real, el listener
-      // de este motor (más abajo) lo ignora y no lo reenvía de vuelta al remoto.
-      cb.dispatchEvent(new Event('change', { bubbles: true }));
-    });
-  }
-
-  // ----- Al marcar: el script propio de la página ya guardó local al instante. -----
-  // Este listener solo encola el envío al remoto en segundo plano, y solo reacciona
-  // a clics reales (e.isTrusted) — nunca a los eventos sintéticos de la reconciliación.
-  document.addEventListener('change', function (e) {
-    var cb = e.target.closest('[' + SYNC_ATTR + ']');
-    if (!cb || !e.isTrusted || !SYNC_URL) return;
-    var claveCompleta = SYNC_PREFIX + cb.getAttribute(SYNC_ATTR);
-    var estado = cb.checked ? '1' : '0';
-    var quien = pgSyncObtenerQuien();
-    var cola = pgSyncLeerCola();
-    cola[claveCompleta] = { estado: estado, quien: quien };
-    pgSyncGuardarCola(cola);
-    pgSyncProcesarCola();
-  });
-
-  // ----- Cola de reintentos: nada se pierde por estar sin señal. -----
-  function pgSyncLeerCola() {
-    var texto = pgGet('pedraza-plan:sync-cola');
-    if (!texto) return {};
-    try { return JSON.parse(texto) || {}; } catch (e) { return {}; }
-  }
-
-  function pgSyncGuardarCola(cola) {
-    pgSet('pedraza-plan:sync-cola', JSON.stringify(cola));
-  }
-
-  async function pgSyncProcesarCola() {
-    if (!SYNC_URL || pgSyncProcesando) return;
-    pgSyncProcesando = true;
-    try {
-      var cola = pgSyncLeerCola();
-      var claves = Object.keys(cola);
-      if (!claves.length) return;
-      pgSyncMostrarEstado('guardando');
-      for (var i = 0; i < claves.length; i++) {
-        var clave = claves[i];
-        var item = cola[clave];
-        var ok = await pgSyncEnviarUno(clave, item.estado, item.quien);
-        if (!ok) { pgSyncMostrarEstado('offline'); return; } // se reintenta en 'online' o en la próxima carga
-        delete cola[clave];
-        pgSyncGuardarCola(cola);
-      }
-      pgSyncMostrarEstado('ok');
-    } catch (e) {
-      pgSyncMostrarEstado('offline');
-    } finally {
-      pgSyncProcesando = false;
-    }
-  }
-
-  function pgSyncEnviarUno(clave, estado, quien) {
-    return fetch(SYNC_URL, {
-      method: 'POST',
-      // text/plain evita el preflight de CORS, que Apps Script no maneja bien.
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify({ clave: clave, estado: estado, quien: quien })
-    }).then(function (res) {
-      if (!res.ok) return false;
-      return res.json().then(function (data) { return !!(data && data.ok); }).catch(function () { return false; });
-    }).catch(function () { return false; }); // red caída, CORS, lo que sea: se degrada en silencio
-  }
-
-  // ----- Quién marcó: se pregunta una sola vez; si cancela, no vuelve a insistir en la sesión. -----
-  function pgSyncObtenerQuien() {
-    var guardado = pgGet('pedraza-plan:quien');
-    if (guardado) return guardado;
-    try {
-      if (sessionStorage.getItem('pedraza-plan:quien-omitido') === '1') return 'alguien del equipo';
-    } catch (e) { /* sin soporte, se ignora */ }
-    var nombre = null;
-    try { nombre = window.prompt('¿Cómo te llamas? Así el equipo sabe quién marcó cada cosa'); }
-    catch (e) { nombre = null; }
-    nombre = (nombre || '').trim();
-    if (nombre) { pgSet('pedraza-plan:quien', nombre); return nombre; }
-    try { sessionStorage.setItem('pedraza-plan:quien-omitido', '1'); } catch (e) { /* sin soporte, se ignora */ }
-    return 'alguien del equipo';
-  }
-
-  // ----- Píldora de estado: discreta, abajo a la derecha, no tapa nav ni contenido. -----
-  function pgSyncPill() {
-    if (pgSyncPillEl) return pgSyncPillEl;
-    pgSyncPillEl = document.createElement('div');
-    pgSyncPillEl.className = 'sync-status';
-    pgSyncPillEl.setAttribute('role', 'status');
-    pgSyncPillEl.setAttribute('aria-live', 'polite');
-    document.body.appendChild(pgSyncPillEl);
-    return pgSyncPillEl;
-  }
-
-  function pgSyncMostrarEstado(estado) {
-    var el = pgSyncPill();
-    clearTimeout(pgSyncPillTimeout);
-    el.classList.remove('sync-status--ok', 'sync-status--saving', 'sync-status--offline');
-    if (estado === 'guardando') {
-      el.textContent = 'Guardando…';
-      el.classList.add('sync-status--saving', 'is-visible');
-    } else if (estado === 'offline') {
-      el.textContent = 'Sin conexión — guardado solo aquí';
-      el.classList.add('sync-status--offline', 'is-visible');
-      // se queda visible a propósito: hay algo que avisar
+  function copiarTexto(texto, btn) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(texto).then(
+        function () { mostrarCopiado(btn); },
+        function () { copiarConFallback(texto, btn); }
+      );
     } else {
-      el.textContent = 'Sincronizado con el equipo ✓';
-      el.classList.add('sync-status--ok', 'is-visible');
-      pgSyncPillTimeout = setTimeout(function () { el.classList.remove('is-visible'); }, 3000);
+      copiarConFallback(texto, btn);
     }
+  }
+
+  function copiarConFallback(texto, btn) {
+    var ta = document.createElement('textarea');
+    ta.value = texto;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.top = '-1000px';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (err) { /* sin soporte, se ignora */ }
+    document.body.removeChild(ta);
+    mostrarCopiado(btn);
+  }
+
+  function mostrarCopiado(btn) {
+    var original = btn.getAttribute('data-label') || btn.textContent;
+    btn.setAttribute('data-label', original);
+    btn.textContent = '✓ ¡Copiado!';
+    btn.classList.add('is-copied');
+    clearTimeout(btn._copyTimeout);
+    btn._copyTimeout = setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('is-copied');
+    }, 2000);
   }
 </script>
 
