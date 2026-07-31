@@ -191,7 +191,7 @@ strong { color: var(--ink); font-weight: 700; }
 .navbar__menu-label { font-size: var(--fs-sm); font-weight: 600; white-space: nowrap; }
 @media (max-width: 420px) { .navbar__menu-label { display: none; } }
 
-/* ===== 4b. Panel de navegación completo (.navpanel) ===== */
+/* ===== 4b. Panel de navegación completo (.navpanel) — 15 páginas en 4 grupos ===== */
 html.nav-lock, body.nav-lock { overflow: hidden; }
 .navpanel {
   position: fixed;
@@ -465,7 +465,7 @@ main { counter-reset: sec; }
 .table-wrap th, .table-wrap td { padding: var(--space-4); text-align: left; border-bottom: 1px solid var(--line); font-size: var(--fs-sm); }
 .table-wrap thead th { background: var(--brand-green); color: #fff; position: sticky; top: 0; font-weight: 700; }
 .table-wrap tbody tr:last-child td { border-bottom: none; }
-.table-wrap tbody tr:nth-child(even) { background: transparent; }
+.table-wrap tbody tr:nth-child(even) { background: transparent; } /* sin cebrado: la separación es por hairline, no por color */
 
 /* ===== 12. Barra de progreso (.progress) — píldora fina ===== */
 .progress { margin: var(--space-4) 0; }
@@ -513,12 +513,14 @@ main { counter-reset: sec; }
 .grid-2, .grid-3 { display: grid; gap: var(--space-5); margin: var(--space-5) 0; grid-template-columns: minmax(0, 1fr); }
 
 /* ===== 16. Gráficos SVG/CSS hechos a mano ===== */
+/* Barras horizontales */
 .chart-bar-row { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-3); }
 .chart-bar-row__label { flex: 0 0 9rem; font-size: var(--fs-sm); color: var(--ink-soft); }
 .chart-bar-row__track { flex: 1 1 auto; height: 16px; background: var(--line-strong); border-radius: var(--radius-full); overflow: hidden; }
 .chart-bar-row__fill { height: 100%; background: var(--accent); border-radius: var(--radius-full); transition: width .5s var(--ease); }
 .chart-bar-row__value { flex: 0 0 auto; font-size: var(--fs-sm); font-weight: 700; min-width: 3.5rem; text-align: right; }
 
+/* Embudo: cada .funnel-step define su ancho con --w inline, ej. style="--w:70%" */
 .funnel { display: flex; flex-direction: column; align-items: center; gap: var(--space-1); margin: var(--space-5) 0; }
 .funnel-step {
   width: var(--w, 100%);
@@ -537,6 +539,7 @@ main { counter-reset: sec; }
 .funnel-step:nth-child(4) { opacity: .55; }
 .funnel-step:nth-child(5) { opacity: .4; }
 
+/* Línea de tiempo vertical: línea hairline y puntos pequeños */
 .timeline { position: relative; margin: var(--space-6) 0; padding-left: var(--space-6); border-left: 1px solid var(--line-strong); }
 .timeline-item { position: relative; margin-bottom: var(--space-5); }
 .timeline-item::before {
@@ -614,7 +617,6 @@ main { counter-reset: sec; }
   .callout { border-left: 4px solid #999; }
   a[href]::after { content: " (" attr(href) ")"; font-size: .8em; }
 }
-
 /* ==========================================================================
    Extensiones propias de esta página (preventa.html)
    Componentes puntuales para esta página: link de vuelta, cuenta regresiva
