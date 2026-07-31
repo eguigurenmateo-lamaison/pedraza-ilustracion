@@ -53,3 +53,29 @@ Reglas permanentes para TODOS los entregables de este repo (documentos, páginas
 - Sitio: HTML autocontenido por archivo, cero dependencias externas, cero CDNs, todo CSS/JS inline. Sistema de diseño compartido vía variables CSS. localStorage con prefijo `pedraza-plan:`.
 - Cada documento operativo trae plantillas listas para copiar y pegar (copy real, sin `[placeholder]`).
 - Commits descriptivos al final de cada fase; push a la rama que indique el entorno.
+
+## Proceso de cierre de cada ronda (obligatorio, en este orden)
+
+Toda ronda de trabajo termina con estos tres pasos, siempre en esta secuencia y sin saltarse ninguno:
+
+1. **Crear el PR** contra `main`, con cuerpo que explique qué resuelve, la tabla de páginas nuevas o modificadas, y el detalle del QC realizado.
+2. **Correr el QC completo** sobre TODAS las páginas del sitio, no solo las nuevas. El QC no es opcional ni se declara: se ejecuta y se reportan los números.
+3. **Merge a `main`** únicamente si el QC pasó al 100%. Si algo falla, se arregla y se vuelve a correr el QC antes del merge.
+
+### Qué verifica el QC (todas las páginas × móvil 375px y escritorio 1280px)
+
+- Cero errores de consola y cero excepciones de JavaScript.
+- Cero scroll horizontal, con el panel de navegación **abierto y cerrado**.
+- El menú abre, marca correctamente la página actual (`aria-current="page"` coincide con el nombre del archivo), y cierra con Escape.
+- Todas las páginas presentes en el menú, con el mismo número de entradas en el panel y en el array `NAV_PAGES`.
+- Bloque CSS canónico **byte a byte idéntico** en todos los archivos (hasta el cierre de `@media print`).
+- Checkboxes que persisten en `localStorage` al recargar.
+- Botones "Copiar" funcionando, con destino existente para cada `data-copy-target`.
+- Cero ids duplicados, HTML balanceado, anclas internas y enlaces entre páginas sin roturas.
+- Cero recursos externos (ni CDNs, ni fuentes, ni imágenes remotas).
+- **Contratos de checklist aislados:** cada página usa su propio atributo `data-*` y su propio prefijo de `localStorage`. Nunca se reutiliza uno existente. Contratos tomados: `task`, `cro`, `plan90`, `bitacora`, `estado`, `preventa`, `tienda`, `clientes`, `precios`.
+- Todo cálculo con fechas o plata se verifica con un script independiente antes de publicarlo.
+
+### Al terminar
+
+Entregar al operador el mensaje de WhatsApp para el grupo, con los links directos a lo creado y los pendientes de cada persona.
