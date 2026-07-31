@@ -1,0 +1,1299 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Clientes que vuelven — Plan Pedraza Ilustración</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
+<style>
+/* ==========================================================================
+   Sistema de diseño v2 — Plan Pedraza Ilustración
+   Estética limpia, curada y serena, tipo iOS. Mismo contrato de clases
+   que el sistema v1: solo cambia el aspecto (espacio, tipografía,
+   superficies, radios, sombras), nunca la estructura de marcado.
+   Bloque único y canónico. No editar por página: solo usar estas clases.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* --- tinta y superficies: fondo agrupado gris cálido, tarjetas blanco puro --- */
+  --ink: #1c2420;
+  --ink-soft: #4c5850;
+  --ink-faint: #7c887f;
+  --paper: #f4f2ed;
+  --surface: #ffffff;
+  --line: rgba(28, 36, 32, .08);
+  --line-strong: rgba(28, 36, 32, .16);
+
+  /* --- acento: rojo copihue (color de acción, se mantiene) --- */
+  --accent: #b0223f;
+  --accent-dark: #7c1830;
+  --accent-soft: #f8dfe4;
+
+  /* --- verde naturaleza del sitio web de la marca (identidad y estructura, se mantiene) --- */
+  --brand-green: #3b5751;
+  --brand-green-soft: #e3eae8;
+  --brand-green-dark: #2a403c;
+
+  /* --- apoyo semántico (valores de marca sin cambios) --- */
+  --success: #2f6b4a;
+  --success-soft: #dcece1;
+  --warn: #a8720a;
+  --warn-soft: #f8ecd2;
+  --danger: #ae3d17;
+  --danger-soft: #f7ddd0;
+  --info: var(--brand-green);
+  --info-soft: var(--brand-green-soft);
+
+  /* --- forma: radios generosos y consistentes --- */
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius: 20px;
+  --radius-lg: 28px;
+  --radius-full: 999px;
+
+  /* --- sombras suaves y en capas, nunca marcadas --- */
+  --shadow-xs: 0 1px 2px rgba(24, 32, 28, .04);
+  --shadow-sm: 0 1px 3px rgba(24, 32, 28, .05), 0 4px 10px rgba(24, 32, 28, .05);
+  --shadow: 0 6px 16px rgba(24, 32, 28, .07), 0 16px 32px -12px rgba(24, 32, 28, .14);
+
+  /* --- espaciado: escala amplia; los saltos grandes son fluidos (más aire en desktop, proporcional en móvil) --- */
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .875rem;
+  --space-4: 1.25rem;
+  --space-5: 1.75rem;
+  --space-6: clamp(2rem, 1.6rem + 1.6vw, 2.75rem);
+  --space-7: clamp(2.75rem, 2rem + 3vw, 4.5rem);
+  --space-8: clamp(3.5rem, 2.3rem + 5vw, 6rem);
+
+  /* --- tipografía: una sola voz, pila de sistema (ver sección 1 del documento) --- */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: var(--font-sans); /* alias de compatibilidad: el sistema v2 unifica todo en la pila sans, ver sección 1 */
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --fs-sm: clamp(.85rem, .81rem + .2vw, .92rem);
+  --fs-base: clamp(1rem, .95rem + .25vw, 1.0625rem);
+  --fs-lg: clamp(1.1rem, 1.02rem + .4vw, 1.25rem);
+  --fs-h3: clamp(1.2rem, 1.1rem + .5vw, 1.4rem);
+  --fs-h2: clamp(1.5rem, 1.3rem + 1vw, 1.9rem);
+  --fs-h1: clamp(2rem, 1.6rem + 2.4vw, 3rem);
+
+  /* --- área táctil mínima (regla mobile-first del proyecto) --- */
+  --tap: 44px;
+
+  /* --- movimiento discreto --- */
+  --ease: cubic-bezier(.4, 0, .2, 1);
+  --dur: 200ms;
+}
+
+/* ===== 1. Reset mínimo ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; }
+img, svg { max-width: 100%; display: block; }
+h1, h2, h3, h4, p, ul, ol, dl, figure { margin: 0 0 var(--space-4); }
+ul, ol { padding-left: 1.2em; }
+a { color: inherit; }
+button { font: inherit; }
+table { border-collapse: collapse; width: 100%; }
+
+/* ===== 2. Tipografía base ===== */
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+h1, h2, h3 { font-family: var(--font-sans); font-weight: 700; line-height: 1.15; letter-spacing: -.02em; color: var(--ink); }
+h1 { font-size: var(--fs-h1); font-weight: 800; letter-spacing: -.03em; }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -.01em; }
+p { max-width: 68ch; color: var(--ink); }
+strong { color: var(--ink); font-weight: 700; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+/* ===== 3. Layout ===== */
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 var(--space-4) var(--space-8); }
+
+/* ===== 4. Barra superior (.navbar) — translúcida, con fallback sólido ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--brand-green);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .navbar {
+    background: rgba(59, 87, 81, .72);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+  }
+}
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--space-1) var(--space-3);
+}
+.navbar__home {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap);
+  height: var(--tap);
+  border-radius: var(--radius-full);
+  font-size: 1.3rem;
+  line-height: 1;
+  text-decoration: none;
+  color: #fff;
+  transition: background var(--dur) var(--ease);
+}
+.navbar__home:hover, .navbar__home:active { background: rgba(255, 255, 255, .14); }
+.navbar__title {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+.navbar__menu-btn {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-width: var(--tap);
+  min-height: var(--tap);
+  padding: 0 var(--space-3);
+  border: none;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, .14);
+  color: #fff;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease);
+}
+.navbar__menu-btn:hover { background: rgba(255, 255, 255, .22); }
+.navbar__menu-icon { display: inline-flex; flex-direction: column; justify-content: center; gap: 4px; width: 18px; flex: 0 0 auto; }
+.navbar__menu-icon span { display: block; height: 2px; width: 100%; background: #fff; border-radius: 2px; }
+.navbar__menu-label { font-size: var(--fs-sm); font-weight: 600; white-space: nowrap; }
+@media (max-width: 420px) { .navbar__menu-label { display: none; } }
+
+/* ===== 4b. Panel de navegación completo (.navpanel) — 15 páginas en 4 grupos ===== */
+html.nav-lock, body.nav-lock { overflow: hidden; }
+.navpanel {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.navpanel[hidden] { display: none; }
+.navpanel__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 20, 18, .5);
+  opacity: 0;
+  transition: opacity var(--dur) var(--ease);
+}
+.navpanel__sheet {
+  position: relative;
+  width: 100%;
+  max-height: 92vh;
+  background: var(--paper);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  transform: translateY(100%);
+  transition: transform var(--dur) var(--ease);
+}
+.navpanel.is-open .navpanel__backdrop { opacity: 1; }
+.navpanel.is-open .navpanel__sheet { transform: translateY(0); }
+.navpanel__header {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-4) var(--space-3);
+  border-bottom: 1px solid var(--line);
+}
+.navpanel__headtitle { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -.01em; color: var(--ink); }
+.navpanel__close {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap);
+  height: var(--tap);
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--line-strong);
+  color: var(--ink);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.navpanel__close:hover { background: var(--accent-soft); color: var(--accent-dark); }
+.navpanel__body {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: var(--space-4) var(--space-4) var(--space-7);
+}
+.navpanel__group + .navpanel__group { margin-top: var(--space-5); }
+.navpanel__group-title {
+  margin: 0 0 var(--space-2);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--ink-faint);
+}
+.navpanel__link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: calc(var(--tap) + 12px);
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-xs);
+  text-decoration: none;
+  color: var(--ink);
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+.navpanel__link:hover { border-color: var(--line-strong); box-shadow: var(--shadow-sm); }
+.navpanel__link:last-child { margin-bottom: 0; }
+.navpanel__link-text { flex: 1 1 auto; min-width: 0; }
+.navpanel__link-name { display: block; font-weight: 700; font-size: var(--fs-base); letter-spacing: -.01em; color: var(--ink); }
+.navpanel__link-desc { display: block; margin-top: 2px; font-size: var(--fs-sm); color: var(--ink-soft); }
+.navpanel__check {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .8rem;
+  color: #fff;
+  background: var(--brand-green);
+  opacity: 0;
+  transform: scale(.6);
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.navpanel__link--current { background: var(--brand-green-soft); border-color: transparent; }
+.navpanel__link--current .navpanel__link-name { color: var(--brand-green-dark); }
+.navpanel__link--current .navpanel__check { opacity: 1; transform: scale(1); }
+@media (min-width: 640px) {
+  .navpanel { align-items: center; padding: var(--space-5); }
+  .navpanel__sheet {
+    max-width: 560px;
+    max-height: 84vh;
+    border-radius: var(--radius-lg);
+    transform: translateY(16px) scale(.98);
+    opacity: 0;
+    transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease);
+  }
+  .navpanel.is-open .navpanel__sheet { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* ===== 5. Hero ===== */
+.hero {
+  padding: var(--space-8) var(--space-4);
+  background:
+    radial-gradient(120% 160% at 12% -20%, rgba(255, 255, 255, .14), transparent 55%),
+    linear-gradient(160deg, var(--brand-green) 0%, var(--brand-green-dark) 100%);
+  color: #fff;
+}
+.hero__inner { max-width: 960px; margin: 0 auto; }
+.hero h1 { color: #fff; margin-bottom: var(--space-3); }
+.hero p { color: rgba(255, 255, 255, .86); font-size: var(--fs-lg); font-weight: 400; max-width: 60ch; margin: 0; line-height: 1.55; }
+
+/* ===== 6. Secciones numeradas (.sec) ===== */
+main { counter-reset: sec; }
+.sec { counter-increment: sec; margin-top: var(--space-7); }
+.sec:first-of-type { margin-top: var(--space-6); }
+.sec > h2 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding-bottom: var(--space-3);
+  margin-bottom: var(--space-5);
+  border-bottom: 1px solid var(--line-strong);
+}
+.sec > h2::before {
+  content: counter(sec);
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9em;
+  height: 1.9em;
+  border-radius: var(--radius-full);
+  background: var(--brand-green);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: .5em;
+  font-weight: 700;
+  box-shadow: var(--shadow-xs);
+}
+
+/* ===== 7. Callouts: superficies sobrias con un detalle de color ===== */
+.callout {
+  display: block;
+  position: relative;
+  padding: var(--space-5) var(--space-5) var(--space-5) calc(var(--space-5) + 2.1em + var(--space-4));
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--ink-faint);
+  background: var(--surface);
+  box-shadow: var(--shadow-xs);
+  margin: var(--space-5) 0;
+}
+.callout::before {
+  position: absolute;
+  left: var(--space-5);
+  top: var(--space-5);
+  width: 2.1em;
+  height: 2.1em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--paper);
+  font-size: 1.1em;
+  line-height: 1;
+}
+.callout p:last-child { margin-bottom: 0; }
+.callout--info { border-left-color: var(--info); }
+.callout--info::before { content: "💡"; background: var(--info-soft); }
+.callout--success { border-left-color: var(--success); }
+.callout--success::before { content: "✅"; background: var(--success-soft); }
+.callout--warn { border-left-color: var(--warn); }
+.callout--warn::before { content: "🟡"; background: var(--warn-soft); }
+.callout--danger { border-left-color: var(--danger); }
+.callout--danger::before { content: "🔴"; background: var(--danger-soft); }
+
+/* ===== 8. Bloque copiable (.copyblock) ===== */
+.copyblock {
+  position: relative;
+  margin: var(--space-5) 0;
+  padding: calc(var(--tap) + var(--space-3)) var(--space-5) var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.copyblock__text {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--ink);
+}
+.copyblock__btn {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  min-height: var(--tap);
+  padding: 0 var(--space-4);
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.copyblock__btn:hover { background: var(--accent-dark); }
+.copyblock__btn:active { transform: scale(.96); }
+.copyblock__btn.is-copied { background: var(--success); }
+
+/* ===== 9. KPIs (.kpi) ===== */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+  margin: var(--space-5) 0;
+}
+.kpi {
+  padding: var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.kpi__label { display: block; font-size: var(--fs-sm); font-weight: 600; color: var(--ink-soft); margin-bottom: var(--space-2); overflow-wrap: break-word; }
+.kpi__value { display: block; font-family: var(--font-sans); font-size: clamp(1.35rem, 1.05rem + 1.4vw, 2.25rem); font-weight: 800; letter-spacing: -.02em; color: var(--ink); overflow-wrap: break-word; hyphens: none; }
+.kpi__delta { display: inline-block; margin-top: var(--space-2); font-size: var(--fs-sm); font-weight: 700; padding: 3px var(--space-3); border-radius: var(--radius-full); }
+.kpi__delta--up { color: var(--success); background: var(--success-soft); }
+.kpi__delta--down { color: var(--danger); background: var(--danger-soft); }
+
+/* ===== 10. Tarjeta genérica (.card) ===== */
+.card {
+  padding: var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  margin: var(--space-4) 0;
+}
+.card h3 { margin-top: 0; }
+
+/* ===== 11. Tablas responsive ===== */
+.table-wrap { overflow-x: auto; margin: var(--space-5) 0; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-xs); }
+.table-wrap table { min-width: 480px; }
+.table-wrap th, .table-wrap td { padding: var(--space-4); text-align: left; border-bottom: 1px solid var(--line); font-size: var(--fs-sm); }
+.table-wrap thead th { background: var(--brand-green); color: #fff; position: sticky; top: 0; font-weight: 700; }
+.table-wrap tbody tr:last-child td { border-bottom: none; }
+.table-wrap tbody tr:nth-child(even) { background: transparent; } /* sin cebrado: la separación es por hairline, no por color */
+
+/* ===== 12. Barra de progreso (.progress) — píldora fina ===== */
+.progress { margin: var(--space-4) 0; }
+.progress__track { height: 10px; background: var(--line-strong); border-radius: var(--radius-full); overflow: hidden; }
+.progress__fill { height: 100%; background: var(--brand-green); border-radius: var(--radius-full); transition: width .4s var(--ease); width: 0%; }
+.progress__label { display: block; margin-top: var(--space-3); font-size: var(--fs-sm); color: var(--ink-soft); }
+
+/* ===== 13. Checklist táctil (.checklist) ===== */
+.checklist { list-style: none; padding-left: 0; margin: var(--space-4) 0; }
+.checklist li { margin-bottom: var(--space-3); }
+.checklist label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  min-height: var(--tap);
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-xs);
+  cursor: pointer;
+  transition: box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.checklist label:hover { border-color: var(--line-strong); box-shadow: var(--shadow-sm); }
+.checklist input[type="checkbox"] { width: 26px; height: 26px; flex: 0 0 auto; accent-color: var(--brand-green); margin-top: 2px; }
+.checklist input[type="checkbox"]:checked + span { text-decoration: line-through; color: var(--ink-soft); }
+
+/* ===== 14. Etiquetas (.pill) ===== */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+.pill--success { background: var(--success-soft); color: var(--success); }
+.pill--warn { background: var(--warn-soft); color: var(--warn); }
+.pill--danger { background: var(--danger-soft); color: var(--danger); }
+.pill--info { background: var(--info-soft); color: var(--info); }
+
+/* ===== 15. Grillas responsive ===== */
+.grid-2, .grid-3 { display: grid; gap: var(--space-5); margin: var(--space-5) 0; grid-template-columns: minmax(0, 1fr); }
+
+/* ===== 16. Gráficos SVG/CSS hechos a mano ===== */
+/* Barras horizontales */
+.chart-bar-row { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-3); }
+.chart-bar-row__label { flex: 0 0 9rem; font-size: var(--fs-sm); color: var(--ink-soft); }
+.chart-bar-row__track { flex: 1 1 auto; height: 16px; background: var(--line-strong); border-radius: var(--radius-full); overflow: hidden; }
+.chart-bar-row__fill { height: 100%; background: var(--accent); border-radius: var(--radius-full); transition: width .5s var(--ease); }
+.chart-bar-row__value { flex: 0 0 auto; font-size: var(--fs-sm); font-weight: 700; min-width: 3.5rem; text-align: right; }
+
+/* Embudo: cada .funnel-step define su ancho con --w inline, ej. style="--w:70%" */
+.funnel { display: flex; flex-direction: column; align-items: center; gap: var(--space-1); margin: var(--space-5) 0; }
+.funnel-step {
+  width: var(--w, 100%);
+  max-width: 100%;
+  padding: var(--space-4);
+  text-align: center;
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  background: var(--accent);
+  border-radius: var(--radius-sm);
+  transition: opacity var(--dur) var(--ease);
+}
+.funnel-step:nth-child(2) { opacity: .85; }
+.funnel-step:nth-child(3) { opacity: .7; }
+.funnel-step:nth-child(4) { opacity: .55; }
+.funnel-step:nth-child(5) { opacity: .4; }
+
+/* Línea de tiempo vertical: línea hairline y puntos pequeños */
+.timeline { position: relative; margin: var(--space-6) 0; padding-left: var(--space-6); border-left: 1px solid var(--line-strong); }
+.timeline-item { position: relative; margin-bottom: var(--space-5); }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--space-6) - 6px);
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--brand-green);
+  border: 3px solid var(--paper);
+  box-shadow: var(--shadow-xs);
+}
+.timeline-item__date { font-size: var(--fs-sm); font-weight: 700; color: var(--accent-dark); }
+.timeline-item__title { font-family: var(--font-sans); font-weight: 700; font-size: var(--fs-lg); letter-spacing: -.01em; margin: var(--space-1) 0; }
+
+/* ===== 17. Botones: cápsula, con estados sutiles ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-5);
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-base);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-xs);
+  transition: background var(--dur) var(--ease), transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.btn:hover { background: var(--accent-dark); box-shadow: var(--shadow-sm); }
+.btn:active { transform: scale(.97); }
+.btn--ghost { background: transparent; border: 2px solid var(--line-strong); color: var(--ink); box-shadow: none; }
+.btn--ghost:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+
+/* ===== 18. Media queries (mobile-first: base = ~375px) ===== */
+@media (min-width: 480px) {
+  .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 640px) {
+  .kpi-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero { padding: var(--space-8) var(--space-6); }
+}
+@media (min-width: 960px) {
+  .kpi-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* ===== 19. Movimiento discreto: respeta preferencia de menos movimiento ===== */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===== 20. Impresión ===== */
+@media print {
+  .navbar, .navpanel, .copyblock__btn, .btn { display: none !important; }
+  body { background: #fff; color: #000; }
+  .hero { background: #fff !important; color: #000 !important; }
+  .hero h1, .hero p { color: #000 !important; }
+  .card, .callout, .kpi, .copyblock { box-shadow: none; border: 1px solid #999; }
+  .callout { border-left: 4px solid #999; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: .8em; }
+}
+/* ==========================================================================
+   Extensiones propias de esta página (clientes.html)
+   clientes.html no es una de las 6 páginas del sitio (docs/design-system.md,
+   sección 1) y no está en el menú principal — se llega por link desde el
+   plan. El bloque de arriba es el canónico intacto; lo de abajo son
+   componentes propios de esta página (link "Volver al plan" del hero, pie de
+   página con la fuente), agregados en la misma hoja de estilos única para no
+   crear un segundo archivo CSS.
+   ========================================================================== */
+
+.hero__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-2) 0 0;
+  margin-bottom: var(--space-3);
+  color: rgba(255, 255, 255, .85);
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+.hero__back:hover { color: #fff; }
+
+.page-footer { margin-top: var(--space-8); padding-top: var(--space-4); border-top: 1px solid var(--line); color: var(--ink-faint); font-size: var(--fs-sm); }
+.page-footer a { color: var(--accent-dark); font-weight: 700; text-decoration: none; }
+.page-footer a:hover { text-decoration: underline; }
+
+code { font-family: var(--font-mono); font-size: .92em; background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: .1em .4em; }
+</style>
+</head>
+<body data-nav-actual="clientes">
+<nav class="navbar" aria-label="Barra de navegación">
+  <div class="navbar__inner">
+    <a href="estado.html" class="navbar__home" aria-label="Ir al inicio: Estado del plan">🦋</a>
+    <span class="navbar__title" data-nav-title>Plan Pedraza Ilustración</span>
+    <button type="button" class="navbar__menu-btn" data-nav-open aria-expanded="false" aria-controls="nav-panel">
+      <span class="navbar__menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span class="navbar__menu-label">Menú</span>
+    </button>
+  </div>
+</nav>
+
+<div class="navpanel" id="nav-panel" role="dialog" aria-modal="true" aria-label="Menú de navegación" hidden>
+  <div class="navpanel__backdrop" data-nav-close></div>
+  <div class="navpanel__sheet">
+    <div class="navpanel__header">
+      <span class="navpanel__headtitle">Menú</span>
+      <button type="button" class="navpanel__close" data-nav-close aria-label="Cerrar menú">✕</button>
+    </div>
+    <nav class="navpanel__body" aria-label="Todas las páginas del plan">
+
+      <div class="navpanel__group">
+        <h3 class="navpanel__group-title">Seguimiento</h3>
+        <a href="estado.html" class="navpanel__link" data-nav-key="estado">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Estado del plan</span>
+            <span class="navpanel__link-desc">En qué punto vamos hoy</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="bitacora.html" class="navpanel__link" data-nav-key="bitacora">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Bitácora</span>
+            <span class="navpanel__link-desc">Reuniones, pendientes y entregables</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="finanzas.html" class="navpanel__link" data-nav-key="finanzas">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Los números del negocio</span>
+            <span class="navpanel__link-desc">Qué dicen 18 meses de datos</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="sincronizar.html" class="navpanel__link" data-nav-key="sincronizar">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Conectar con la hoja</span>
+            <span class="navpanel__link-desc">Compartir el avance con el equipo</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+      </div>
+
+      <div class="navpanel__group">
+        <h3 class="navpanel__group-title">La estrategia</h3>
+        <a href="index.html" class="navpanel__link" data-nav-key="index">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Plan y estrategia</span>
+            <span class="navpanel__link-desc">El mapa completo</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+      </div>
+
+      <div class="navpanel__group">
+        <h3 class="navpanel__group-title">Plan de acción</h3>
+        <a href="plan-90-dias.html" class="navpanel__link" data-nav-key="plan-90-dias">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Plan de 90 días</span>
+            <span class="navpanel__link-desc">Roles, objetivos y checklist</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="stock-navidad.html" class="navpanel__link" data-nav-key="stock-navidad">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Stock para Navidad</span>
+            <span class="navpanel__link-desc">Cuánto pedir y cuándo</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="escenarios.html" class="navpanel__link" data-nav-key="escenarios">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Escenarios</span>
+            <span class="navpanel__link-desc">Cuánto podemos crecer y qué pedir</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="inventario.html" class="navpanel__link" data-nav-key="inventario">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Control de stock</span>
+            <span class="navpanel__link-desc">Semáforo y alertas de quiebre</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="modelo-datos.html" class="navpanel__link" data-nav-key="modelo-datos">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Ordenar los datos</span>
+            <span class="navpanel__link-desc">Correcciones al modelo financiero</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="ofertas.html" class="navpanel__link" data-nav-key="ofertas">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Ofertas y pop-ups</span>
+            <span class="navpanel__link-desc">Subir el ticket promedio</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="email.html" class="navpanel__link" data-nav-key="email">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Correo y campañas</span>
+            <span class="navpanel__link-desc">Del 9% al 20-25%</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="clientes.html" class="navpanel__link" data-nav-key="clientes">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Clientes que vuelven</span>
+            <span class="navpanel__link-desc">Del 10% al 20-30% de repetición</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="cro.html" class="navpanel__link" data-nav-key="cro">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Conversión</span>
+            <span class="navpanel__link-desc">Auditoría de la tienda</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="ads.html" class="navpanel__link" data-nav-key="ads">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Google y Meta Ads</span>
+            <span class="navpanel__link-desc">Auditoría de las cuentas</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="digitales.html" class="navpanel__link" data-nav-key="digitales">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Productos digitales</span>
+            <span class="navpanel__link-desc">Margen sin stock</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+      </div>
+
+      <div class="navpanel__group">
+        <h3 class="navpanel__group-title">Herramientas del día a día</h3>
+        <a href="kit-arranque.html" class="navpanel__link" data-nav-key="kit-arranque">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Kit de arranque</span>
+            <span class="navpanel__link-desc">Lo primero que se hace</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="guion-reels.html" class="navpanel__link" data-nav-key="guion-reels">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Guiones de Reels</span>
+            <span class="navpanel__link-desc">Qué grabar y cómo</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="sop-dm.html" class="navpanel__link" data-nav-key="sop-dm">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Mensajes y DM</span>
+            <span class="navpanel__link-desc">Qué responder</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="recursos.html" class="navpanel__link" data-nav-key="recursos">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Recursos</span>
+            <span class="navpanel__link-desc">Herramientas y enlaces</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="tablero.html" class="navpanel__link" data-nav-key="tablero">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Tablero</span>
+            <span class="navpanel__link-desc">Métricas semanales</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+      </div>
+
+    </nav>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="hero__inner">
+    <a href="index.html#datos-que-faltan" class="hero__back">← Volver al plan</a>
+    <h1>Clientes que vuelven</h1>
+    <p>Hoy solo 1 de cada 10 personas que compra en Pedraza Ilustración vuelve a comprar. Esta página explica por qué ese número importa más que cualquier campaña de publicidad, dónde se corta exactamente, y qué hacer con cada tipo de cliente. Esta página no está en el menú principal — se comparte por link directo desde el plan.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section class="sec" id="agujero-numeros">
+<h2>El agujero, en números</h2>
+
+<p>Un <strong>cliente que repite</strong> es alguien que ya compró una vez en Pedraza Ilustración y vuelve a comprar de nuevo, en cualquier producto. Importa más que sumar un cliente nuevo por una razón simple: esa persona ya conoce la marca, ya confió en pagar, y ya sabe que el pedido llega bien. Convencerla de comprar otra vez cuesta mucho menos que convencer a alguien que nunca ha oído hablar de Pedraza — la aritmética completa está en la próxima sección.</p>
+
+<div class="kpi-grid">
+  <div class="kpi"><span class="kpi__label">Clientes que repiten hoy (30 días) 🟢</span><span class="kpi__value">10%</span></div>
+  <div class="kpi"><span class="kpi__label">Referencia sana 🟡</span><span class="kpi__value">20-30%</span></div>
+  <div class="kpi"><span class="kpi__label">Clientes con 2 pedidos o más 🟢</span><span class="kpi__value">412</span></div>
+  <div class="kpi"><span class="kpi__label">Clientes con más de 2 pedidos 🟢</span><span class="kpi__value">82</span></div>
+</div>
+
+<div class="chart-bar-row"><span class="chart-bar-row__label">Tasa actual</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:33%"></div></div><span class="chart-bar-row__value">10%</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Referencia sana</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div><span class="chart-bar-row__value">20-30%</span></div>
+
+<p><span class="pill pill--success">🟢 dato real</span> Fuente: pantalla de Shopify mostrada en la reunión del 31 de julio de 2026 (ver acta, sección 5). La referencia de 20-30% <span class="pill pill--warn">🟡 criterio del operador</span> no es un estudio publicado — es lo que el operador considera una tasa sana según su experiencia con otras tiendas, no una promesa de resultado ni un número de la industria.</p>
+
+<div class="callout callout--danger">
+<p><strong>El dato más importante de este documento:</strong> ese 10% no mejora aunque se mire un periodo más largo (60 o 90 días). Eso significa que no es un problema de tiempo — es un problema estructural. Cada mes la tienda gasta en traer clientes nuevos, los vende una vez, y la enorme mayoría no vuelve nunca más. El negocio corre con una fuga permanente justo en la base de clientes.</p>
+</div>
+
+<h3>Dónde se corta: la segunda compra</h3>
+<p>De los clientes de Pedraza Ilustración, 412 ya llegaron a comprar dos veces o más. Pero solo 82 pasaron de ahí — hicieron una tercera compra, o más. La diferencia entre esos dos números cuenta toda la historia:</p>
+
+<div class="chart-bar-row"><span class="chart-bar-row__label">2 pedidos o más</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div><span class="chart-bar-row__value">412</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Más de 2 pedidos</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:20%"></div></div><span class="chart-bar-row__value">82</span></div>
+
+<p>412 menos 82 son <strong>330 personas</strong> que compraron dos veces y ahí se quedaron — nunca hicieron una tercera compra. Dicho de otra forma: solo <strong>1 de cada 5 personas (20%)</strong> que llega a la segunda compra sigue comprando después. Cuatro de cada cinco se detienen justo ahí. Esto se desarrolla en la sección 3.</p>
+
+<h3>Qué significa esto en plata</h3>
+<p>En la reunión se calculó que pasar del 10% actual a la meta de 20% significaría del orden de <strong>$500.000 adicionales al mes</strong>, sin gastar un peso más en publicidad. <span class="pill pill--warn">🟡 estimación</span> Así se reconstruye ese cálculo con los datos reales del plan, para mostrar de dónde sale:</p>
+
+<div class="callout callout--warn">
+<p><strong>La aritmética completa:</strong></p>
+<ul>
+<li>Pedidos proyectados al mes: <strong>~140</strong> — según la captura de Shopify del 1 al 24 de julio: 110 pedidos en 24 días, unos 4,6 pedidos por día, proyectados a 30 días.</li>
+<li>Con 10% de repetición (hoy): ~14 de esos 140 pedidos son de alguien que ya había comprado antes (10% × 140).</li>
+<li>Con 20% de repetición (meta): serían ~28 pedidos de clientes que repiten (20% × 140).</li>
+<li>Diferencia: <strong>14 pedidos adicionales al mes</strong>, gracias a gente que ya es clienta — no a publicidad nueva.</li>
+<li>14 pedidos × ticket promedio real de $37.900 ≈ <strong>$530.600 al mes</strong>.</li>
+</ul>
+<p style="font-size:var(--fs-sm);color:var(--ink-faint);margin:0">Ese resultado cae en el mismo orden de magnitud que los "$500.000 adicionales al mes" que se calcularon en la llamada — la diferencia de unos $30.000 es solo redondeo entre los datos usados. No es una promesa de resultado: es el tamaño de la oportunidad si la tasa de repetición mejora.</p>
+</div>
+</section>
+
+<section class="sec" id="mas-barato-publicidad">
+<h2>Por qué es más barato que la publicidad</h2>
+
+<p>La idea que planteó el operador en la llamada es simple: hoy la tienda le paga a Meta y a Google cada vez que un anuncio logra una venta nueva. Ese mismo monto, puesto como incentivo para alguien que ya compró, debería rendir más — porque a esa persona no hay que convencerla de cero: ya confía en la marca, ya compró antes y ya sabe que el pedido llega bien.</p>
+
+<p><strong>Costo de adquisición</strong> (a veces se le dice "CAC"), en una frase: es lo que cuesta, en promedio, conseguir una venta a través de publicidad. Se calcula dividiendo lo que se gastó en anuncios por la cantidad de pedidos que llegaron en ese mismo periodo.</p>
+
+<div class="callout callout--info">
+<p><strong>El cálculo, con los datos reales de la reunión del 31 de julio (últimos 30 días, ver acta sección 4):</strong></p>
+<ul>
+<li>Inversión en publicidad: <strong>$914.000</strong> 🟢 ($752.000 en Meta + $162.000 en Google).</li>
+<li>Pedidos proyectados en el mismo periodo: <strong>~140</strong> 🟡 (misma proyección de la sección 1, sobre la captura de Shopify del 1-24 de julio).</li>
+<li>Costo de adquisición: $914.000 ÷ 140 ≈ <strong>$6.530 por pedido</strong> 🟡.</li>
+</ul>
+</div>
+
+<p>$6.530 no dice mucho solo. Comparado con el ticket promedio real de <strong>$37.900</strong> 🟢, ese costo de adquisición equivale a cerca de un <strong>17% de descuento</strong> sobre una compra típica. Dicho de otra forma: hoy, en promedio, la tienda ya está dispuesta a "gastar" cerca de un 17% del valor de una venta con tal de conseguirla — solo que ese 17% se lo lleva Meta o Google, no el cliente.</p>
+
+<div class="chart-bar-row"><span class="chart-bar-row__label">Traer venta nueva (ads)</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div><span class="chart-bar-row__value">$6.530</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">15% a quien ya compró</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:87%"></div></div><span class="chart-bar-row__value">$5.685</span></div>
+
+<p>Un incentivo de 15% de descuento sobre el ticket promedio ($5.685) ya cuesta menos que el costo de adquisición actual ($6.530) — y eso sin contar que alguien que ya compró probablemente necesita mucho menos empuje para decidirse que un desconocido que ve un anuncio por primera vez.</p>
+
+<div class="callout callout--success">
+<p><strong>La conclusión que debe quedar clara:</strong> el margen bruto real del negocio de e-commerce es de <strong>78,9%</strong> 🟢 (18 meses de datos, ver <code>docs/datos-financieros-2025-2026.md</code>). Hay espacio de sobra para ofrecerle a alguien que ya compró un incentivo generoso — 15%, incluso más — y seguir gastando menos que lo que hoy cuesta convencer a un desconocido. <strong>El cliente que ya compró es el activo más barato que tiene el negocio, y hoy está sin usar.</strong></p>
+</div>
+
+<div class="callout callout--warn">
+<p>Todavía no existe en Pedraza Ilustración una prueba real que compare cuánto mejor convierte una oferta a alguien que ya compró frente a un anuncio a alguien nuevo. Es razonable esperar que sea bastante mejor — ya conoce la marca — pero eso hay que medirlo, no darlo por hecho de entrada. La sección 7 de esta página deja listo qué medir para comprobarlo.</p>
+</div>
+</section>
+
+<section class="sec" id="segundo-pedido">
+<h2>Dónde se cae la gente: el segundo pedido</h2>
+
+<p>El dato de 412 contra 82 dice algo preciso: el problema no es que la gente nunca repita — 412 personas ya demostraron que sí vuelven. El problema es que casi nadie pasa de ahí. Compran dos veces, y ahí se quedan.</p>
+
+<p>¿Por qué se corta justo en la segunda compra? No hay un dato cerrado que lo explique con certeza <span class="pill pill--warn">🟡 hipótesis</span>, pero hay tres razones que probablemente se están sumando:</p>
+
+<div class="grid-3">
+<div class="card"><h3>No hay motivo para volver</h3><p>A nadie se le avisa que existe algo más para él o ella. Sin un mensaje concreto, "volver a comprar" simplemente no está en su cabeza.</p></div>
+<div class="card"><h3>No hay novedad</h3><p>Hasta ahora, lanzar productos nuevos dependía de los tiempos de Cote. Sin nada nuevo que mostrar, no hay razón para volver a mirar la tienda.</p></div>
+<div class="card"><h3>El producto dura mucho</h3><p>Un puzzle o una lámina no se gastan como un café o una crema — no hay una necesidad natural que traiga de vuelta a comprar lo mismo otra vez.</p></div>
+</div>
+
+<p>La salida para esta marca es concreta: el catálogo ya tiene productos complementarios reales, no hace falta inventar nada. Alguien que se llevó un puzzle puede llevarse después unos naipes ilustrados, una botella térmica, unos calcetines o una libreta — todo con la misma mirada de flora y fauna de Chile. Hay un camino natural de segunda y tercera compra dentro del catálogo actual; hoy simplemente no se le muestra a nadie.</p>
+
+<div class="callout callout--info">
+<p>Esto conecta con algo que recién cambió: los <strong>lanzamientos de producto</strong> ahora son posibles — antes estaban limitados por los tiempos de Cote. La preventa del 6 de agosto (sección 6 de esta página) es la primera prueba real de usar una novedad para traer de vuelta a quien ya compró.</p>
+</div>
+</section>
+
+<section class="sec" id="tres-segmentos">
+<h2>Los tres segmentos y qué se le ofrece a cada uno</h2>
+
+<p>Un <strong>segmento</strong>, en simple, es un grupo de clientes que se define con una regla clara, para poder hablarle a cada grupo de forma distinta en vez de mandarle lo mismo a todo el mundo. Estos son los tres segmentos que hay que crear en Shopify (Clientes → Segmentos), con el filtro exacto y la oferta que le corresponde a cada uno.</p>
+
+<div class="card">
+<h3>1. Nunca ha comprado <span class="pill pill--info">La puerta de entrada</span></h3>
+<p><strong>Filtro en Shopify:</strong> <code>number_of_orders = 0</code> — personas que ya dejaron su correo (por un pop-up o el flujo de bienvenida) pero todavía no compran nada. <span class="pill pill--warn">🟡</span> verificar el nombre exacto del campo al crear el segmento en Shopify; el criterio es "cero pedidos".</p>
+<p><strong>Qué recibe:</strong> la oferta de primera compra que ya existe — no hay que inventar nada nuevo, ya está definida en <a href="ofertas.html#sistema-popups">ofertas.html</a> (pop-up "Interesado sin decidir").</p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-seg1">Copiar</button>
+<div class="copyblock__text" id="copy-seg1">Título: ¿Necesitas un empujón?
+Subtítulo: Déjanos tu correo y llévate 10% de descuento en tu primera compra.
+Botón: Quiero mi 10%</div>
+</div>
+</div>
+
+<div class="card">
+<h3>2. Compró una vez <span class="pill pill--danger">Aquí está el 100% de la oportunidad</span></h3>
+<p><strong>Filtro en Shopify:</strong> <code>number_of_orders = 1</code>.</p>
+<p>Es el segmento más importante de los tres. Ahí están los 330 clientes que se detuvieron justo después de su primera compra (sección 3), más todos los que todavía no llegan a ese punto. La oferta no puede ser "más de lo mismo" — tiene que ser un producto que complemente lo que ya se llevó: si compró un puzzle, mostrarle naipes, botella o calcetines de la misma serie, no otro puzzle.</p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-seg2">Copiar</button>
+<div class="copyblock__text" id="copy-seg2">Asunto: Lo que le falta a lo que ya tienes (y no es otro puzzle)
+
+Hola,
+
+Hace un tiempo te llevaste algo de Pedraza a tu casa — ojalá ya tenga un lugar especial ahí.
+
+Hoy te mostramos lo que mejor lo acompaña: naipes ilustrados para esos ratos sin mesa libre, una botella térmica para el día a día, o unos calcetines con la misma flora y fauna de siempre. Nada de otro puzzle — algo distinto, de la misma familia.
+
+Como ya compraste antes, tienes 15% de descuento en tu próxima compra, válido por 7 días.
+
+Ver los complementos → https://pedrazailustracion.com/collections/accesorios
+
+Un abrazo,
+Cote</div>
+</div>
+<p style="font-size:var(--fs-sm);color:var(--ink-faint)"><span class="pill pill--warn">🟡</span> El 15% de descuento es una propuesta, en línea con el descuento de pack ya usado en <a href="ofertas.html#packs">ofertas.html</a> — igual queda por debajo del costo de adquisición calculado en la sección 2 (~17%). Idealmente, con el tiempo, este correo se personaliza según el producto exacto que compró cada persona (Klaviyo puede cruzar eso con el historial de compra); mientras no esté armado ese cruce, sirve esta versión genérica con productos complementarios que funcionan para casi cualquier primera compra.</p>
+</div>
+
+<div class="card">
+<h3>3. Compró dos o más veces <span class="pill pill--success">Los 82</span></h3>
+<p><strong>Filtro en Shopify:</strong> <code>number_of_orders >= 2</code>.</p>
+<p>Esta persona no necesita un descuento: ya compra seguido, sin que nadie se lo pida. Ofrecerle un 10% o un 15% no genera una venta que no fuera a pasar de todas formas — solo reduce lo que gana la tienda en una compra que iba a ocurrir igual. Es regalar margen sin conseguir nada nuevo a cambio.</p>
+<p>Lo que sí funciona con este grupo: <strong>acceso anticipado</strong>, ser los primeros en enterarse de las novedades, y sentir que la marca los reconoce. Es el mismo principio que se prueba con la preventa del 6 de agosto (sección 6).</p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-seg3">Copiar</button>
+<div class="copyblock__text" id="copy-seg3">Asunto: Antes que nadie: la preventa de puzzles abre para ti primero
+
+Hola,
+
+Llevas más de dos compras con nosotros, así que sabes que esto no es cualquier lanzamiento: vuelven los puzzles, todos los modelos.
+
+La preventa abre al público este jueves 6 de agosto. Pero como ya eres parte de quienes más confían en Pedraza, tú entras unas horas antes — sin tener que competir por stock con el resto.
+
+Guarda la fecha: el jueves 6 de agosto revisa tu correo temprano.
+
+Un abrazo,
+Cote</div>
+</div>
+</div>
+
+<h3>Para partir</h3>
+<p>Marca cada paso a medida que se completa. El progreso queda guardado en este navegador.</p>
+<div class="progress">
+  <div class="progress__track">
+    <div class="progress__fill" data-progress-fill-cli></div>
+  </div>
+  <span class="progress__label" data-progress-label-cli>0 de 0 tareas (0%)</span>
+</div>
+<ul class="checklist">
+<li><label><input type="checkbox" data-clientes="crear-segmento-nunca-compro"><span>Crear en Shopify el segmento "Nunca ha comprado" (<code>number_of_orders = 0</code>)</span></label></li>
+<li><label><input type="checkbox" data-clientes="crear-segmento-compro-una-vez"><span>Crear en Shopify el segmento "Compró una vez" (<code>number_of_orders = 1</code>)</span></label></li>
+<li><label><input type="checkbox" data-clientes="crear-segmento-compro-dos-mas"><span>Crear en Shopify el segmento "Compró dos o más veces" (<code>number_of_orders >= 2</code>)</span></label></li>
+<li><label><input type="checkbox" data-clientes="activar-oferta-segunda-compra"><span>Activar en Klaviyo la campaña de producto complementario para "Compró una vez"</span></label></li>
+<li><label><input type="checkbox" data-clientes="activar-acceso-anticipado"><span>Activar el acceso anticipado del 6 de agosto para "Compró dos o más veces"</span></label></li>
+<li><label><input type="checkbox" data-clientes="revisar-tasa-mensual"><span>Agendar la revisión mensual de la tasa de clientes que repiten (sección 7)</span></label></li>
+</ul>
+</section>
+
+<section class="sec" id="calendario-contacto">
+<h2>El calendario de contacto</h2>
+
+<p>Qué recibe cada segmento y cuándo, contado en días desde la compra. Esta tabla no repite lo que ya está definido en <a href="email.html">email.html</a> (los flujos y campañas de correo) ni en <a href="ofertas.html">ofertas.html</a> (los pop-ups del sitio) — conecta los dos con los tres segmentos de esta página.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Cuándo</th><th>A quién</th><th>Qué recibe</th><th>Dónde está definido</th></tr></thead>
+<tbody>
+<tr><td>Inmediato</td><td>Nunca ha comprado, dejó su correo</td><td>Flujo de bienvenida, con el 10% de primera compra</td><td>Flujo Bienvenida — ver <a href="email.html#flujos-automaticos">email.html</a></td></tr>
+<tr><td>Día 0-1 (justo después de pagar)</td><td>Todos los que acaban de comprar</td><td>Correo de agradecimiento; si compró algo en preventa junto con algo en stock, aviso de que el pedido se despacha junto</td><td>Flujo Post-compra — ver <a href="email.html#flujos-automaticos">email.html</a></td></tr>
+<tr><td>Día 7</td><td>Compró 1 vez</td><td>Sigue en el segmento "Activos" del correo: 1 envío semanal, contenido, no venta</td><td><a href="email.html#tres-correos-por-semana">email.html</a>, segmento Activos</td></tr>
+<tr><td>Día 30</td><td>Compró 1 vez, sin repetir</td><td>Pasa a "Recompra" (2 correos/semana); si vuelve al sitio, ve el pop-up con el producto complementario</td><td><a href="email.html#tres-correos-por-semana">email.html</a> (Recompra) + <a href="ofertas.html#sistema-popups">ofertas.html</a> (pop-up 3)</td></tr>
+<tr><td>Día 60</td><td>Sigue sin repetir</td><td>Pasa a "Reactivación" (3 correos/semana)</td><td><a href="email.html#tres-correos-por-semana">email.html</a>, segmento Reactivación</td></tr>
+<tr><td>Día 90</td><td>Sigue sin repetir</td><td>Se revisa en la métrica mensual si conviene un incentivo mayor</td><td>Sección 7 de esta página</td></tr>
+<tr><td>Continuo</td><td>Compró 2+ veces (los 82)</td><td>Acceso anticipado a lanzamientos y novedades primero, nunca un descuento genérico</td><td>Sección 4 y 6 de esta página</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="sec" id="preventa-primera-prueba">
+<h2>La preventa como primera prueba</h2>
+
+<p>El jueves 6 de agosto se lanza la preventa de puzzles (ver acta de la reunión, sección 3). Es la primera oportunidad real de tratar distinto a quien ya compró: darle acceso a la preventa unas horas antes que al resto.</p>
+
+<p>¿Por qué funciona? No es plata — es <strong>reconocimiento</strong>. A los segmentos "Compró una vez" y "Compró dos o más veces" no se les regala nada extra: se les avisa, antes que a nadie, que algo que esperaban ya está disponible. La campaña creativa de la preventa se arma justo con capturas de mensajes reales preguntando "¿cuándo llegan los puzzles?" — para esa misma gente, llegar primero es el premio.</p>
+
+<h3>Cómo se implementa</h3>
+<div class="timeline">
+<div class="timeline-item"><span class="timeline-item__date">Jueves 6 de agosto, mañana</span><h3 class="timeline-item__title">Acceso anticipado</h3><p>Correo (y WhatsApp, para quien ya escribió antes) a todos los que ya compraron al menos una vez (<code>number_of_orders >= 1</code>), con el link de la preventa unas horas antes del anuncio público.</p></div>
+<div class="timeline-item"><span class="timeline-item__date">Jueves 6 de agosto</span><h3 class="timeline-item__title">Lanzamiento público</h3><p>Anuncio en Instagram y en el sitio para todo el mundo, con la campaña del collage de mensajes reales.</p></div>
+<div class="timeline-item"><span class="timeline-item__date">Primera semana de septiembre</span><h3 class="timeline-item__title">Primer despacho</h3><p>Se cumple lo prometido — fecha deliberadamente conservadora frente a la llegada real del contenedor a mediados de agosto.</p></div>
+</div>
+
+<p>El detalle completo de la preventa — precios, productos, mecánica del sitio — vive en <a href="preventa.html">preventa.html</a>.</p>
+</section>
+
+<section class="sec" id="que-se-mide">
+<h2>Qué se mide</h2>
+
+<p>Una métrica principal, y tres de apoyo. Cada una en una frase, y dónde se mira en Shopify.</p>
+
+<div class="card">
+<h3>📌 Métrica principal: % de clientes que repiten</h3>
+<p>De todos los clientes que compraron, cuántos volvieron a comprar dentro de un periodo (hoy: 30 días). Se revisa una vez al mes, el mismo día fijo que ya se usa para el resto de los números del plan.</p>
+<p style="font-size:var(--fs-sm);color:var(--ink-faint)">Dónde se mira: Shopify → Analíticas → Informes → sección de clientes (busca el reporte de clientes recurrentes o de cohortes de clientes).</p>
+</div>
+
+<div class="grid-3">
+<div class="card">
+<h3>Pedidos por cliente</h3>
+<p>Cuántas veces compra en promedio cada persona. Se calcula dividiendo el total de pedidos por el total de clientes únicos, en un periodo.</p>
+<p style="font-size:var(--fs-sm);color:var(--ink-faint)">Dónde: lista de clientes de Shopify, columna de número de pedidos.</p>
+</div>
+<div class="card">
+<h3>Tiempo entre 1ª y 2ª compra</h3>
+<p>Cuántos días pasan, en promedio, entre el primer y el segundo pedido de un mismo cliente. Dice si la ventana para ofrecer el producto complementario (sección 4) está bien calibrada.</p>
+<p style="font-size:var(--fs-sm);color:var(--ink-faint)">Dónde: no sale directo en un reporte estándar — se revisa la fecha de los pedidos de cada cliente con 2 o más compras.</p>
+</div>
+<div class="card">
+<h3>Valor total por cliente</h3>
+<p>Cuánto ha gastado en total, en toda su historia, cada persona. Sube solo con que más gente pase de 1 a 2 compras, o de 2 a 3.</p>
+<p style="font-size:var(--fs-sm);color:var(--ink-faint)">Dónde: aparece directo en el perfil de cada cliente en Shopify, como "total gastado".</p>
+</div>
+</div>
+
+<div class="callout callout--success">
+<p>Si el % de clientes que repiten sube mes a mes, todo lo demás de este documento está funcionando. Si se queda plano en 10%, es la señal de que hay que revisar la oferta del segmento "Compró una vez" (sección 4) antes que cualquier otra cosa — ahí vive el 100% de la oportunidad.</p>
+</div>
+</section>
+
+</main>
+
+<footer class="page-footer">
+<div class="wrap" style="padding-top:0;padding-bottom:0">
+<p>Fuente principal: acta de la reunión del 31 de julio de 2026 con Felipe Robinson y María José Pedraza (Cote), sección 5. Datos financieros: <code>docs/datos-financieros-2025-2026.md</code>. <a href="index.html">← Volver al plan</a></p>
+</div>
+</footer>
+
+<script>
+  // Copiar al portapapeles — delegación de eventos, un solo listener por página.
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-copy-target]');
+    if (!btn) return;
+    var el = document.getElementById(btn.getAttribute('data-copy-target'));
+    if (!el) return;
+    copiarTexto(el.innerText || el.textContent || '', btn);
+  });
+
+  function copiarTexto(texto, btn) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(texto).then(
+        function () { mostrarCopiado(btn); },
+        function () { copiarConFallback(texto, btn); }
+      );
+    } else {
+      copiarConFallback(texto, btn);
+    }
+  }
+
+  function copiarConFallback(texto, btn) {
+    var ta = document.createElement('textarea');
+    ta.value = texto;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.top = '-1000px';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (err) { /* sin soporte, se ignora */ }
+    document.body.removeChild(ta);
+    mostrarCopiado(btn);
+  }
+
+  function mostrarCopiado(btn) {
+    var original = btn.getAttribute('data-label') || btn.textContent;
+    btn.setAttribute('data-label', original);
+    btn.textContent = '✓ ¡Copiado!';
+    btn.classList.add('is-copied');
+    clearTimeout(btn._copyTimeout);
+    btn._copyTimeout = setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('is-copied');
+    }, 2000);
+  }
+</script>
+
+<script>
+  // Acceso seguro a localStorage (no revienta en navegación privada u otros bloqueos).
+  function pgGet(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+  function pgSet(key, valor) { try { localStorage.setItem(key, valor); } catch (e) { /* sin soporte, se ignora */ } }
+  function pgRemove(key) { try { localStorage.removeItem(key); } catch (e) { /* sin soporte, se ignora */ } }
+</script>
+
+<script>
+  // Checklist de esta página — usa data-clientes (data-task, data-cro, data-plan90,
+  // data-bitacora, data-estado, data-preventa y data-tienda ya están tomados por otras
+  // páginas) y localStorage con prefijo pedraza-plan:cli:<id>.
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-clientes]').forEach(function (cb) {
+      cb.checked = pgGet('pedraza-plan:cli:' + cb.getAttribute('data-clientes')) === '1';
+    });
+    actualizarProgresoCli();
+  });
+
+  document.addEventListener('change', function (e) {
+    var cb = e.target.closest('[data-clientes]');
+    if (!cb) return;
+    var key = 'pedraza-plan:cli:' + cb.getAttribute('data-clientes');
+    if (cb.checked) { pgSet(key, '1'); } else { pgRemove(key); }
+    actualizarProgresoCli();
+  });
+
+  function actualizarProgresoCli() {
+    var cajas = document.querySelectorAll('[data-clientes]');
+    var total = cajas.length;
+    var done = 0;
+    cajas.forEach(function (cb) { if (cb.checked) done++; });
+    var pct = total ? Math.round((done / total) * 100) : 0;
+
+    document.querySelectorAll('[data-progress-fill-cli]').forEach(function (fill) {
+      fill.style.width = pct + '%';
+    });
+    document.querySelectorAll('[data-progress-label-cli]').forEach(function (label) {
+      label.textContent = done + ' de ' + total + ' tareas (' + pct + '%)';
+    });
+  }
+</script>
+
+<script>
+  // Navegación global: barra superior + panel completo (páginas del plan, 4 grupos).
+  // Prefijo "nav" en todo para no chocar con otros scripts de la página.
+  var NAV_PAGES = [
+    { grupo: 'Seguimiento', id: 'estado', nombre: 'Estado del plan' },
+    { grupo: 'Seguimiento', id: 'bitacora', nombre: 'Bitácora' },
+    { grupo: 'Seguimiento', id: 'finanzas', nombre: 'Los números del negocio' },
+    { grupo: 'Seguimiento', id: 'sincronizar', nombre: 'Conectar con la hoja' },
+    { grupo: 'La estrategia', id: 'index', nombre: 'Plan y estrategia' },
+    { grupo: 'Plan de acción', id: 'plan-90-dias', nombre: 'Plan de 90 días' },
+    { grupo: 'Plan de acción', id: 'stock-navidad', nombre: 'Stock para Navidad' },
+    { grupo: 'Plan de acción', id: 'escenarios', nombre: 'Escenarios' },
+    { grupo: 'Plan de acción', id: 'inventario', nombre: 'Control de stock' },
+    { grupo: 'Plan de acción', id: 'modelo-datos', nombre: 'Ordenar los datos' },
+    { grupo: 'Plan de acción', id: 'ofertas', nombre: 'Ofertas y pop-ups' },
+    { grupo: 'Plan de acción', id: 'email', nombre: 'Correo y campañas' },
+    { grupo: 'Plan de acción', id: 'clientes', nombre: 'Clientes que vuelven' },
+    { grupo: 'Plan de acción', id: 'cro', nombre: 'Conversión' },
+    { grupo: 'Plan de acción', id: 'ads', nombre: 'Google y Meta Ads' },
+    { grupo: 'Plan de acción', id: 'digitales', nombre: 'Productos digitales' },
+    { grupo: 'Herramientas del día a día', id: 'kit-arranque', nombre: 'Kit de arranque' },
+    { grupo: 'Herramientas del día a día', id: 'guion-reels', nombre: 'Guiones de Reels' },
+    { grupo: 'Herramientas del día a día', id: 'sop-dm', nombre: 'Mensajes y DM' },
+    { grupo: 'Herramientas del día a día', id: 'recursos', nombre: 'Recursos' },
+    { grupo: 'Herramientas del día a día', id: 'tablero', nombre: 'Tablero' }
+  ];
+
+  var navPanelEl, navMenuBtn;
+
+  function navInit() {
+    navPanelEl = document.getElementById('nav-panel');
+    navMenuBtn = document.querySelector('[data-nav-open]');
+    if (!navPanelEl || !navMenuBtn) return;
+
+    var actual = document.body.getAttribute('data-nav-actual') || '';
+    var titleEl = document.querySelector('[data-nav-title]');
+    var pagina = null;
+    for (var i = 0; i < NAV_PAGES.length; i++) {
+      if (NAV_PAGES[i].id === actual) { pagina = NAV_PAGES[i]; break; }
+    }
+    if (titleEl && pagina) { titleEl.textContent = pagina.nombre; }
+
+    var linkActual = navPanelEl.querySelector('[data-nav-key="' + actual + '"]');
+    if (linkActual) {
+      linkActual.classList.add('navpanel__link--current');
+      linkActual.setAttribute('aria-current', 'page');
+    }
+
+    navMenuBtn.addEventListener('click', navAbrirPanel);
+    navPanelEl.querySelectorAll('[data-nav-close]').forEach(function (el) {
+      el.addEventListener('click', navCerrarPanel);
+    });
+    navPanelEl.querySelectorAll('.navpanel__link').forEach(function (a) {
+      a.addEventListener('click', navCerrarPanel);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (!navPanelEl.classList.contains('is-open')) return;
+      if (e.key === 'Escape') { navCerrarPanel(); }
+      if (e.key === 'Tab') { navAtraparFoco(e); }
+    });
+  }
+
+  function navAbrirPanel() {
+    navPanelEl.hidden = false;
+    document.documentElement.classList.add('nav-lock');
+    document.body.classList.add('nav-lock');
+    navMenuBtn.setAttribute('aria-expanded', 'true');
+    requestAnimationFrame(function () {
+      navPanelEl.classList.add('is-open');
+      var closeBtn = navPanelEl.querySelector('.navpanel__close');
+      if (closeBtn) closeBtn.focus();
+    });
+  }
+
+  function navCerrarPanel() {
+    if (!navPanelEl.classList.contains('is-open')) return;
+    navPanelEl.classList.remove('is-open');
+    document.documentElement.classList.remove('nav-lock');
+    document.body.classList.remove('nav-lock');
+    navMenuBtn.setAttribute('aria-expanded', 'false');
+    navMenuBtn.focus();
+    var ocultarAlTerminar = function () {
+      navPanelEl.hidden = true;
+      navPanelEl.removeEventListener('transitionend', ocultarAlTerminar);
+    };
+    navPanelEl.addEventListener('transitionend', ocultarAlTerminar);
+    setTimeout(ocultarAlTerminar, 300); // respaldo si no hay transición (prefers-reduced-motion)
+  }
+
+  function navAtraparFoco(e) {
+    var focusables = navPanelEl.querySelectorAll('button, a[href]');
+    if (!focusables.length) return;
+    var primero = focusables[0];
+    var ultimo = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === primero) { e.preventDefault(); ultimo.focus(); }
+    else if (!e.shiftKey && document.activeElement === ultimo) { e.preventDefault(); primero.focus(); }
+  }
+
+  document.addEventListener('DOMContentLoaded', navInit);
+</script>
+
+</body>
+</html>

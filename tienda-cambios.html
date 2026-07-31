@@ -1,0 +1,1559 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Cambios en la tienda — Plan Pedraza Ilustración</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
+<style>
+/* ==========================================================================
+   Sistema de diseño v2 — Plan Pedraza Ilustración
+   Estética limpia, curada y serena, tipo iOS. Mismo contrato de clases
+   que el sistema v1: solo cambia el aspecto (espacio, tipografía,
+   superficies, radios, sombras), nunca la estructura de marcado.
+   Bloque único y canónico. No editar por página: solo usar estas clases.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* --- tinta y superficies: fondo agrupado gris cálido, tarjetas blanco puro --- */
+  --ink: #1c2420;
+  --ink-soft: #4c5850;
+  --ink-faint: #7c887f;
+  --paper: #f4f2ed;
+  --surface: #ffffff;
+  --line: rgba(28, 36, 32, .08);
+  --line-strong: rgba(28, 36, 32, .16);
+
+  /* --- acento: rojo copihue (color de acción, se mantiene) --- */
+  --accent: #b0223f;
+  --accent-dark: #7c1830;
+  --accent-soft: #f8dfe4;
+
+  /* --- verde naturaleza del sitio web de la marca (identidad y estructura, se mantiene) --- */
+  --brand-green: #3b5751;
+  --brand-green-soft: #e3eae8;
+  --brand-green-dark: #2a403c;
+
+  /* --- apoyo semántico (valores de marca sin cambios) --- */
+  --success: #2f6b4a;
+  --success-soft: #dcece1;
+  --warn: #a8720a;
+  --warn-soft: #f8ecd2;
+  --danger: #ae3d17;
+  --danger-soft: #f7ddd0;
+  --info: var(--brand-green);
+  --info-soft: var(--brand-green-soft);
+
+  /* --- forma: radios generosos y consistentes --- */
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius: 20px;
+  --radius-lg: 28px;
+  --radius-full: 999px;
+
+  /* --- sombras suaves y en capas, nunca marcadas --- */
+  --shadow-xs: 0 1px 2px rgba(24, 32, 28, .04);
+  --shadow-sm: 0 1px 3px rgba(24, 32, 28, .05), 0 4px 10px rgba(24, 32, 28, .05);
+  --shadow: 0 6px 16px rgba(24, 32, 28, .07), 0 16px 32px -12px rgba(24, 32, 28, .14);
+
+  /* --- espaciado: escala amplia; los saltos grandes son fluidos (más aire en desktop, proporcional en móvil) --- */
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .875rem;
+  --space-4: 1.25rem;
+  --space-5: 1.75rem;
+  --space-6: clamp(2rem, 1.6rem + 1.6vw, 2.75rem);
+  --space-7: clamp(2.75rem, 2rem + 3vw, 4.5rem);
+  --space-8: clamp(3.5rem, 2.3rem + 5vw, 6rem);
+
+  /* --- tipografía: una sola voz, pila de sistema (ver sección 1 del documento) --- */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: var(--font-sans); /* alias de compatibilidad: el sistema v2 unifica todo en la pila sans, ver sección 1 */
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --fs-sm: clamp(.85rem, .81rem + .2vw, .92rem);
+  --fs-base: clamp(1rem, .95rem + .25vw, 1.0625rem);
+  --fs-lg: clamp(1.1rem, 1.02rem + .4vw, 1.25rem);
+  --fs-h3: clamp(1.2rem, 1.1rem + .5vw, 1.4rem);
+  --fs-h2: clamp(1.5rem, 1.3rem + 1vw, 1.9rem);
+  --fs-h1: clamp(2rem, 1.6rem + 2.4vw, 3rem);
+
+  /* --- área táctil mínima (regla mobile-first del proyecto) --- */
+  --tap: 44px;
+
+  /* --- movimiento discreto --- */
+  --ease: cubic-bezier(.4, 0, .2, 1);
+  --dur: 200ms;
+}
+
+/* ===== 1. Reset mínimo ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; }
+img, svg { max-width: 100%; display: block; }
+h1, h2, h3, h4, p, ul, ol, dl, figure { margin: 0 0 var(--space-4); }
+ul, ol { padding-left: 1.2em; }
+a { color: inherit; }
+button { font: inherit; }
+table { border-collapse: collapse; width: 100%; }
+
+/* ===== 2. Tipografía base ===== */
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+h1, h2, h3 { font-family: var(--font-sans); font-weight: 700; line-height: 1.15; letter-spacing: -.02em; color: var(--ink); }
+h1 { font-size: var(--fs-h1); font-weight: 800; letter-spacing: -.03em; }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -.01em; }
+p { max-width: 68ch; color: var(--ink); }
+strong { color: var(--ink); font-weight: 700; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+/* ===== 3. Layout ===== */
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 var(--space-4) var(--space-8); }
+
+/* ===== 4. Barra superior (.navbar) — translúcida, con fallback sólido ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--brand-green);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .navbar {
+    background: rgba(59, 87, 81, .72);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+  }
+}
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--space-1) var(--space-3);
+}
+.navbar__home {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap);
+  height: var(--tap);
+  border-radius: var(--radius-full);
+  font-size: 1.3rem;
+  line-height: 1;
+  text-decoration: none;
+  color: #fff;
+  transition: background var(--dur) var(--ease);
+}
+.navbar__home:hover, .navbar__home:active { background: rgba(255, 255, 255, .14); }
+.navbar__title {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+.navbar__menu-btn {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-width: var(--tap);
+  min-height: var(--tap);
+  padding: 0 var(--space-3);
+  border: none;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, .14);
+  color: #fff;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease);
+}
+.navbar__menu-btn:hover { background: rgba(255, 255, 255, .22); }
+.navbar__menu-icon { display: inline-flex; flex-direction: column; justify-content: center; gap: 4px; width: 18px; flex: 0 0 auto; }
+.navbar__menu-icon span { display: block; height: 2px; width: 100%; background: #fff; border-radius: 2px; }
+.navbar__menu-label { font-size: var(--fs-sm); font-weight: 600; white-space: nowrap; }
+@media (max-width: 420px) { .navbar__menu-label { display: none; } }
+
+/* ===== 4b. Panel de navegación completo (.navpanel) — 15 páginas en 4 grupos ===== */
+html.nav-lock, body.nav-lock { overflow: hidden; }
+.navpanel {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.navpanel[hidden] { display: none; }
+.navpanel__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 20, 18, .5);
+  opacity: 0;
+  transition: opacity var(--dur) var(--ease);
+}
+.navpanel__sheet {
+  position: relative;
+  width: 100%;
+  max-height: 92vh;
+  background: var(--paper);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  transform: translateY(100%);
+  transition: transform var(--dur) var(--ease);
+}
+.navpanel.is-open .navpanel__backdrop { opacity: 1; }
+.navpanel.is-open .navpanel__sheet { transform: translateY(0); }
+.navpanel__header {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-4) var(--space-3);
+  border-bottom: 1px solid var(--line);
+}
+.navpanel__headtitle { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -.01em; color: var(--ink); }
+.navpanel__close {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap);
+  height: var(--tap);
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--line-strong);
+  color: var(--ink);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.navpanel__close:hover { background: var(--accent-soft); color: var(--accent-dark); }
+.navpanel__body {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: var(--space-4) var(--space-4) var(--space-7);
+}
+.navpanel__group + .navpanel__group { margin-top: var(--space-5); }
+.navpanel__group-title {
+  margin: 0 0 var(--space-2);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--ink-faint);
+}
+.navpanel__link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: calc(var(--tap) + 12px);
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-xs);
+  text-decoration: none;
+  color: var(--ink);
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+.navpanel__link:hover { border-color: var(--line-strong); box-shadow: var(--shadow-sm); }
+.navpanel__link:last-child { margin-bottom: 0; }
+.navpanel__link-text { flex: 1 1 auto; min-width: 0; }
+.navpanel__link-name { display: block; font-weight: 700; font-size: var(--fs-base); letter-spacing: -.01em; color: var(--ink); }
+.navpanel__link-desc { display: block; margin-top: 2px; font-size: var(--fs-sm); color: var(--ink-soft); }
+.navpanel__check {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .8rem;
+  color: #fff;
+  background: var(--brand-green);
+  opacity: 0;
+  transform: scale(.6);
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.navpanel__link--current { background: var(--brand-green-soft); border-color: transparent; }
+.navpanel__link--current .navpanel__link-name { color: var(--brand-green-dark); }
+.navpanel__link--current .navpanel__check { opacity: 1; transform: scale(1); }
+@media (min-width: 640px) {
+  .navpanel { align-items: center; padding: var(--space-5); }
+  .navpanel__sheet {
+    max-width: 560px;
+    max-height: 84vh;
+    border-radius: var(--radius-lg);
+    transform: translateY(16px) scale(.98);
+    opacity: 0;
+    transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease);
+  }
+  .navpanel.is-open .navpanel__sheet { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* ===== 5. Hero ===== */
+.hero {
+  padding: var(--space-8) var(--space-4);
+  background:
+    radial-gradient(120% 160% at 12% -20%, rgba(255, 255, 255, .14), transparent 55%),
+    linear-gradient(160deg, var(--brand-green) 0%, var(--brand-green-dark) 100%);
+  color: #fff;
+}
+.hero__inner { max-width: 960px; margin: 0 auto; }
+.hero h1 { color: #fff; margin-bottom: var(--space-3); }
+.hero p { color: rgba(255, 255, 255, .86); font-size: var(--fs-lg); font-weight: 400; max-width: 60ch; margin: 0; line-height: 1.55; }
+
+/* ===== 6. Secciones numeradas (.sec) ===== */
+main { counter-reset: sec; }
+.sec { counter-increment: sec; margin-top: var(--space-7); }
+.sec:first-of-type { margin-top: var(--space-6); }
+.sec > h2 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding-bottom: var(--space-3);
+  margin-bottom: var(--space-5);
+  border-bottom: 1px solid var(--line-strong);
+}
+.sec > h2::before {
+  content: counter(sec);
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9em;
+  height: 1.9em;
+  border-radius: var(--radius-full);
+  background: var(--brand-green);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: .5em;
+  font-weight: 700;
+  box-shadow: var(--shadow-xs);
+}
+
+/* ===== 7. Callouts: superficies sobrias con un detalle de color ===== */
+.callout {
+  display: block;
+  position: relative;
+  padding: var(--space-5) var(--space-5) var(--space-5) calc(var(--space-5) + 2.1em + var(--space-4));
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--ink-faint);
+  background: var(--surface);
+  box-shadow: var(--shadow-xs);
+  margin: var(--space-5) 0;
+}
+.callout::before {
+  position: absolute;
+  left: var(--space-5);
+  top: var(--space-5);
+  width: 2.1em;
+  height: 2.1em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--paper);
+  font-size: 1.1em;
+  line-height: 1;
+}
+.callout p:last-child { margin-bottom: 0; }
+.callout--info { border-left-color: var(--info); }
+.callout--info::before { content: "💡"; background: var(--info-soft); }
+.callout--success { border-left-color: var(--success); }
+.callout--success::before { content: "✅"; background: var(--success-soft); }
+.callout--warn { border-left-color: var(--warn); }
+.callout--warn::before { content: "🟡"; background: var(--warn-soft); }
+.callout--danger { border-left-color: var(--danger); }
+.callout--danger::before { content: "🔴"; background: var(--danger-soft); }
+
+/* ===== 8. Bloque copiable (.copyblock) ===== */
+.copyblock {
+  position: relative;
+  margin: var(--space-5) 0;
+  padding: calc(var(--tap) + var(--space-3)) var(--space-5) var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.copyblock__text {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--ink);
+}
+.copyblock__btn {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  min-height: var(--tap);
+  padding: 0 var(--space-4);
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.copyblock__btn:hover { background: var(--accent-dark); }
+.copyblock__btn:active { transform: scale(.96); }
+.copyblock__btn.is-copied { background: var(--success); }
+
+/* ===== 9. KPIs (.kpi) ===== */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+  margin: var(--space-5) 0;
+}
+.kpi {
+  padding: var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.kpi__label { display: block; font-size: var(--fs-sm); font-weight: 600; color: var(--ink-soft); margin-bottom: var(--space-2); overflow-wrap: break-word; }
+.kpi__value { display: block; font-family: var(--font-sans); font-size: clamp(1.35rem, 1.05rem + 1.4vw, 2.25rem); font-weight: 800; letter-spacing: -.02em; color: var(--ink); overflow-wrap: break-word; hyphens: none; }
+.kpi__delta { display: inline-block; margin-top: var(--space-2); font-size: var(--fs-sm); font-weight: 700; padding: 3px var(--space-3); border-radius: var(--radius-full); }
+.kpi__delta--up { color: var(--success); background: var(--success-soft); }
+.kpi__delta--down { color: var(--danger); background: var(--danger-soft); }
+
+/* ===== 10. Tarjeta genérica (.card) ===== */
+.card {
+  padding: var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  margin: var(--space-4) 0;
+}
+.card h3 { margin-top: 0; }
+
+/* ===== 11. Tablas responsive ===== */
+.table-wrap { overflow-x: auto; margin: var(--space-5) 0; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-xs); }
+.table-wrap table { min-width: 480px; }
+.table-wrap th, .table-wrap td { padding: var(--space-4); text-align: left; border-bottom: 1px solid var(--line); font-size: var(--fs-sm); }
+.table-wrap thead th { background: var(--brand-green); color: #fff; position: sticky; top: 0; font-weight: 700; }
+.table-wrap tbody tr:last-child td { border-bottom: none; }
+.table-wrap tbody tr:nth-child(even) { background: transparent; } /* sin cebrado: la separación es por hairline, no por color */
+
+/* ===== 12. Barra de progreso (.progress) — píldora fina ===== */
+.progress { margin: var(--space-4) 0; }
+.progress__track { height: 10px; background: var(--line-strong); border-radius: var(--radius-full); overflow: hidden; }
+.progress__fill { height: 100%; background: var(--brand-green); border-radius: var(--radius-full); transition: width .4s var(--ease); width: 0%; }
+.progress__label { display: block; margin-top: var(--space-3); font-size: var(--fs-sm); color: var(--ink-soft); }
+
+/* ===== 13. Checklist táctil (.checklist) ===== */
+.checklist { list-style: none; padding-left: 0; margin: var(--space-4) 0; }
+.checklist li { margin-bottom: var(--space-3); }
+.checklist label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  min-height: var(--tap);
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-xs);
+  cursor: pointer;
+  transition: box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.checklist label:hover { border-color: var(--line-strong); box-shadow: var(--shadow-sm); }
+.checklist input[type="checkbox"] { width: 26px; height: 26px; flex: 0 0 auto; accent-color: var(--brand-green); margin-top: 2px; }
+.checklist input[type="checkbox"]:checked + span { text-decoration: line-through; color: var(--ink-soft); }
+
+/* ===== 14. Etiquetas (.pill) ===== */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+.pill--success { background: var(--success-soft); color: var(--success); }
+.pill--warn { background: var(--warn-soft); color: var(--warn); }
+.pill--danger { background: var(--danger-soft); color: var(--danger); }
+.pill--info { background: var(--info-soft); color: var(--info); }
+
+/* ===== 15. Grillas responsive ===== */
+.grid-2, .grid-3 { display: grid; gap: var(--space-5); margin: var(--space-5) 0; grid-template-columns: minmax(0, 1fr); }
+
+/* ===== 16. Gráficos SVG/CSS hechos a mano ===== */
+/* Barras horizontales */
+.chart-bar-row { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-3); }
+.chart-bar-row__label { flex: 0 0 9rem; font-size: var(--fs-sm); color: var(--ink-soft); }
+.chart-bar-row__track { flex: 1 1 auto; height: 16px; background: var(--line-strong); border-radius: var(--radius-full); overflow: hidden; }
+.chart-bar-row__fill { height: 100%; background: var(--accent); border-radius: var(--radius-full); transition: width .5s var(--ease); }
+.chart-bar-row__value { flex: 0 0 auto; font-size: var(--fs-sm); font-weight: 700; min-width: 3.5rem; text-align: right; }
+
+/* Embudo: cada .funnel-step define su ancho con --w inline, ej. style="--w:70%" */
+.funnel { display: flex; flex-direction: column; align-items: center; gap: var(--space-1); margin: var(--space-5) 0; }
+.funnel-step {
+  width: var(--w, 100%);
+  max-width: 100%;
+  padding: var(--space-4);
+  text-align: center;
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  background: var(--accent);
+  border-radius: var(--radius-sm);
+  transition: opacity var(--dur) var(--ease);
+}
+.funnel-step:nth-child(2) { opacity: .85; }
+.funnel-step:nth-child(3) { opacity: .7; }
+.funnel-step:nth-child(4) { opacity: .55; }
+.funnel-step:nth-child(5) { opacity: .4; }
+
+/* Línea de tiempo vertical: línea hairline y puntos pequeños */
+.timeline { position: relative; margin: var(--space-6) 0; padding-left: var(--space-6); border-left: 1px solid var(--line-strong); }
+.timeline-item { position: relative; margin-bottom: var(--space-5); }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--space-6) - 6px);
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--brand-green);
+  border: 3px solid var(--paper);
+  box-shadow: var(--shadow-xs);
+}
+.timeline-item__date { font-size: var(--fs-sm); font-weight: 700; color: var(--accent-dark); }
+.timeline-item__title { font-family: var(--font-sans); font-weight: 700; font-size: var(--fs-lg); letter-spacing: -.01em; margin: var(--space-1) 0; }
+
+/* ===== 17. Botones: cápsula, con estados sutiles ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-5);
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-base);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-xs);
+  transition: background var(--dur) var(--ease), transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.btn:hover { background: var(--accent-dark); box-shadow: var(--shadow-sm); }
+.btn:active { transform: scale(.97); }
+.btn--ghost { background: transparent; border: 2px solid var(--line-strong); color: var(--ink); box-shadow: none; }
+.btn--ghost:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+
+/* ===== 18. Media queries (mobile-first: base = ~375px) ===== */
+@media (min-width: 480px) {
+  .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 640px) {
+  .kpi-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero { padding: var(--space-8) var(--space-6); }
+}
+@media (min-width: 960px) {
+  .kpi-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* ===== 19. Movimiento discreto: respeta preferencia de menos movimiento ===== */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===== 20. Impresión ===== */
+@media print {
+  .navbar, .navpanel, .copyblock__btn, .btn { display: none !important; }
+  body { background: #fff; color: #000; }
+  .hero { background: #fff !important; color: #000 !important; }
+  .hero h1, .hero p { color: #000 !important; }
+  .card, .callout, .kpi, .copyblock { box-shadow: none; border: 1px solid #999; }
+  .callout { border-left: 4px solid #999; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: .8em; }
+}
+
+/* ==========================================================================
+   Extensiones propias de esta página (tienda-cambios.html)
+   No es una de las 6 páginas del sitio ni está en el menú principal —
+   se llega por link directo desde cro.html y desde el plan. El bloque de
+   arriba es el canónico intacto; lo de abajo son componentes propios de
+   esta página en la misma hoja de estilos única, sin crear un segundo
+   archivo CSS.
+   ========================================================================== */
+
+.hero__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-2) 0 0;
+  margin-bottom: var(--space-3);
+  color: rgba(255, 255, 255, .85);
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+.hero__back:hover { color: #fff; }
+
+/* Ficha de cambio: meta (pills) + comparación antes/después + checklist de aplicación */
+.tie-ficha__meta { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-3); }
+.tie-ficha__where { color: var(--ink-soft); font-size: var(--fs-sm); }
+.tie-ficha .checklist { margin-top: var(--space-4); margin-bottom: 0; }
+
+/* Comparación visual "cómo está hoy" / "cómo queda" */
+.compare-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-3); margin: var(--space-4) 0; }
+.compare-box { padding: var(--space-4); border-radius: var(--radius-sm); border: 1px solid var(--line); }
+.compare-box p { margin: 0; font-size: var(--fs-sm); }
+.compare-box__label { display: block; font-size: var(--fs-sm); font-weight: 700; margin-bottom: var(--space-2); }
+.compare-box--before { background: var(--danger-soft); }
+.compare-box--before .compare-box__label { color: var(--danger); }
+.compare-box--after { background: var(--success-soft); }
+.compare-box--after .compare-box__label { color: var(--success); }
+@media (min-width: 640px) { .compare-grid { grid-template-columns: 1fr 1fr; } }
+
+/* Ejemplos de recomendación de la app de productos sugeridos: sí / no */
+.rec-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-3); margin: var(--space-4) 0; }
+.rec-box { padding: var(--space-4); border-radius: var(--radius-sm); border: 1px solid var(--line); }
+.rec-box ul { margin: 0; padding-left: 1.1em; font-size: var(--fs-sm); }
+.rec-box li { margin-bottom: var(--space-2); }
+.rec-box li:last-child { margin-bottom: 0; }
+.rec-box__label { display: block; font-size: var(--fs-sm); font-weight: 700; margin-bottom: var(--space-2); }
+.rec-box--si { background: var(--success-soft); }
+.rec-box--si .rec-box__label { color: var(--success); }
+.rec-box--no { background: var(--danger-soft); }
+.rec-box--no .rec-box__label { color: var(--danger); }
+@media (min-width: 640px) { .rec-grid { grid-template-columns: 1fr 1fr; } }
+
+.tie-footer { margin-top: var(--space-8); padding-top: var(--space-4); border-top: 1px solid var(--line); color: var(--ink-faint); font-size: var(--fs-sm); }
+</style>
+</head>
+<body data-nav-actual="tienda-cambios">
+<nav class="navbar" aria-label="Barra de navegación">
+  <div class="navbar__inner">
+    <a href="estado.html" class="navbar__home" aria-label="Ir al inicio: Estado del plan">🦋</a>
+    <span class="navbar__title" data-nav-title>Plan Pedraza Ilustración</span>
+    <button type="button" class="navbar__menu-btn" data-nav-open aria-expanded="false" aria-controls="nav-panel">
+      <span class="navbar__menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span class="navbar__menu-label">Menú</span>
+    </button>
+  </div>
+</nav>
+
+<div class="navpanel" id="nav-panel" role="dialog" aria-modal="true" aria-label="Menú de navegación" hidden>
+  <div class="navpanel__backdrop" data-nav-close></div>
+  <div class="navpanel__sheet">
+    <div class="navpanel__header">
+      <span class="navpanel__headtitle">Menú</span>
+      <button type="button" class="navpanel__close" data-nav-close aria-label="Cerrar menú">✕</button>
+    </div>
+    <nav class="navpanel__body" aria-label="Todas las páginas del plan">
+
+      <div class="navpanel__group">
+        <h3 class="navpanel__group-title">Seguimiento</h3>
+        <a href="estado.html" class="navpanel__link" data-nav-key="estado">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Estado del plan</span>
+            <span class="navpanel__link-desc">En qué punto vamos hoy</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="bitacora.html" class="navpanel__link" data-nav-key="bitacora">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Bitácora</span>
+            <span class="navpanel__link-desc">Reuniones, pendientes y entregables</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="finanzas.html" class="navpanel__link" data-nav-key="finanzas">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Los números del negocio</span>
+            <span class="navpanel__link-desc">Qué dicen 18 meses de datos</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="sincronizar.html" class="navpanel__link" data-nav-key="sincronizar">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Conectar con la hoja</span>
+            <span class="navpanel__link-desc">Compartir el avance con el equipo</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+      </div>
+
+      <div class="navpanel__group">
+        <h3 class="navpanel__group-title">La estrategia</h3>
+        <a href="index.html" class="navpanel__link" data-nav-key="index">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Plan y estrategia</span>
+            <span class="navpanel__link-desc">El mapa completo</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+      </div>
+
+      <div class="navpanel__group">
+        <h3 class="navpanel__group-title">Plan de acción</h3>
+        <a href="plan-90-dias.html" class="navpanel__link" data-nav-key="plan-90-dias">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Plan de 90 días</span>
+            <span class="navpanel__link-desc">Roles, objetivos y checklist</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="stock-navidad.html" class="navpanel__link" data-nav-key="stock-navidad">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Stock para Navidad</span>
+            <span class="navpanel__link-desc">Cuánto pedir y cuándo</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="escenarios.html" class="navpanel__link" data-nav-key="escenarios">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Escenarios</span>
+            <span class="navpanel__link-desc">Cuánto podemos crecer y qué pedir</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="inventario.html" class="navpanel__link" data-nav-key="inventario">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Control de stock</span>
+            <span class="navpanel__link-desc">Semáforo y alertas de quiebre</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="modelo-datos.html" class="navpanel__link" data-nav-key="modelo-datos">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Ordenar los datos</span>
+            <span class="navpanel__link-desc">Correcciones al modelo financiero</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="ofertas.html" class="navpanel__link" data-nav-key="ofertas">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Ofertas y pop-ups</span>
+            <span class="navpanel__link-desc">Subir el ticket promedio</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="email.html" class="navpanel__link" data-nav-key="email">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Correo y campañas</span>
+            <span class="navpanel__link-desc">Del 9% al 20-25%</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="cro.html" class="navpanel__link" data-nav-key="cro">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Conversión</span>
+            <span class="navpanel__link-desc">Auditoría de la tienda</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="ads.html" class="navpanel__link" data-nav-key="ads">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Google y Meta Ads</span>
+            <span class="navpanel__link-desc">Auditoría de las cuentas</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="digitales.html" class="navpanel__link" data-nav-key="digitales">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Productos digitales</span>
+            <span class="navpanel__link-desc">Margen sin stock</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+      </div>
+
+      <div class="navpanel__group">
+        <h3 class="navpanel__group-title">Herramientas del día a día</h3>
+        <a href="kit-arranque.html" class="navpanel__link" data-nav-key="kit-arranque">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Kit de arranque</span>
+            <span class="navpanel__link-desc">Lo primero que se hace</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="guion-reels.html" class="navpanel__link" data-nav-key="guion-reels">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Guiones de Reels</span>
+            <span class="navpanel__link-desc">Qué grabar y cómo</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="sop-dm.html" class="navpanel__link" data-nav-key="sop-dm">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Mensajes y DM</span>
+            <span class="navpanel__link-desc">Qué responder</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="recursos.html" class="navpanel__link" data-nav-key="recursos">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Recursos</span>
+            <span class="navpanel__link-desc">Herramientas y enlaces</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="tablero.html" class="navpanel__link" data-nav-key="tablero">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Tablero</span>
+            <span class="navpanel__link-desc">Métricas semanales</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+      </div>
+
+    </nav>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="hero__inner">
+    <a href="cro.html" class="hero__back">← Volver a la auditoría de conversión</a>
+    <h1>Cambios en la tienda</h1>
+    <p>El siguiente paso después del pre-diagnóstico: 17 cambios concretos, listos para aplicar en Shopify. Cada uno explica dónde se aplica, cómo está hoy, cómo queda, y cómo se verifica que funcionó. Esta página no está en el menú principal — se comparte por link directo desde el plan.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section class="sec">
+<h2>Cómo usar este documento</h2>
+
+<p>Este documento no repite el diagnóstico de <a href="cro.html">la auditoría de conversión</a> — parte de ahí y baja al detalle de qué tocar, dónde y con qué texto. Son <strong>17 cambios</strong>, cada uno en una ficha con la misma estructura: qué se cambia, cómo está hoy, cómo queda, por qué, esfuerzo e impacto esperado, y cómo se verifica que quedó bien.</p>
+
+<div class="callout callout--warn">
+<p><strong>Nunca se edita el tema publicado directo.</strong> Antes de tocar cualquier cosa: en Shopify, ve a <strong>Tienda online → Temas</strong>, busca el tema que está publicado y haz clic en los tres puntos (⋮) → <strong>Duplicar</strong>. Todos los cambios de este documento se aplican sobre esa copia (aparece como "Copia de [nombre del tema]"), nunca sobre el tema en vivo. Se revisa cada cambio con el botón <strong>Vista previa</strong> de la copia, y solo cuando todo se ve bien —incluido en el celular—, se publica la copia como tema activo (⋮ → Publicar). Si algo sale mal, el tema anterior sigue guardado y se puede volver a publicar en segundos.</p>
+</div>
+
+<p>Una vez publicados los cambios, conviene grabar un video corto mostrándolos en vivo —celular en mano, recorriendo la tienda real—: sirve para dejar registro de qué se hizo, y para explicarlo sin tener que repetir la explicación por escrito cada vez.</p>
+
+<h3>El orden importa: la preventa tiene fecha</h3>
+<p>Hoy es <strong>viernes 31 de julio</strong>. La preventa de puzzles lanza el <strong>jueves 6 de agosto</strong> — quedan 5 días. La sección 2 (Los arreglos urgentes) es la que la preventa necesita sí o sí antes de esa fecha; el resto se puede escalonar en las semanas siguientes según el orden de impacto y esfuerzo de la tabla de abajo.</p>
+
+<div class="timeline">
+  <div class="timeline-item">
+    <div class="timeline-item__date">Viernes 31 de julio — hoy</div>
+    <div class="timeline-item__title">Duplicar el tema y partir por la sección 2</div>
+    <p>Widget de reseñas, recorrido completo del pago, y los 3 avisos de despacho combinado de la preventa.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">Fin de semana 1-2 de agosto</div>
+    <div class="timeline-item__title">Ficha de producto y carrito</div>
+    <p>Secciones 3 y 4: son las que más mueven la conversión y no dependen de que lleguen los puzzles.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">Miércoles 5 de agosto</div>
+    <div class="timeline-item__title">Revisión final antes del lanzamiento</div>
+    <p>Probar todo en el celular, con la copia del tema ya publicada: reseñas visibles, avisos de preventa, barra de envío gratis.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">Jueves 6 de agosto</div>
+    <div class="timeline-item__title">Lanza la preventa</div>
+    <p>De aquí en adelante, la sección 5 (home y colecciones) y la 6 (apps) se pueden seguir aplicando con calma.</p>
+  </div>
+</div>
+
+<h3>Tu avance</h3>
+<p>Marca cada cambio en su ficha a medida que lo vas aplicando en la copia del tema. Queda guardado en este navegador para la próxima visita (no se comparte entre dispositivos).</p>
+<div class="progress">
+  <div class="progress__track"><div class="progress__fill" data-progress-fill></div></div>
+  <span class="progress__label" data-progress-label>0 de 17 cambios (0%)</span>
+</div>
+
+<h3>Los 17 cambios, de un vistazo</h3>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Cambio</th><th>Dónde</th><th>Impacto</th><th>Esfuerzo</th></tr></thead>
+<tbody>
+<tr><td><a href="#chg-activar-widget-resenas">Activar el widget de reseñas</a> <span class="pill pill--danger">antes del 6/8</span></td><td>Ficha de producto</td><td><span class="pill pill--danger">Alto</span></td><td><span class="pill pill--info">Bajo 🟡</span></td></tr>
+<tr><td><a href="#chg-auditar-recorrido-pago">Recorrido completo del pago</a> <span class="pill pill--danger">antes del 6/8</span></td><td>Checkout</td><td><span class="pill pill--danger">Alto</span></td><td><span class="pill pill--warn">Medio 🟡</span></td></tr>
+<tr><td><a href="#chg-aviso-despacho-ficha">Aviso de despacho combinado</a> <span class="pill pill--danger">antes del 6/8</span></td><td>Ficha de producto</td><td><span class="pill pill--danger">Alto</span></td><td><span class="pill pill--info">Bajo 🟡</span></td></tr>
+<tr><td><a href="#chg-aviso-despacho-carrito">Aviso de despacho combinado</a> <span class="pill pill--danger">antes del 6/8</span></td><td>Carrito</td><td><span class="pill pill--danger">Alto</span></td><td><span class="pill pill--info">Bajo 🟡</span></td></tr>
+<tr><td><a href="#chg-aviso-despacho-correo">Aviso de despacho combinado</a> <span class="pill pill--danger">antes del 6/8</span></td><td>Correo de agradecimiento</td><td><span class="pill pill--danger">Alto</span></td><td><span class="pill pill--warn">Medio 🟡</span></td></tr>
+<tr><td><a href="#chg-resenas-arriba">Reseñas arriba, no en pestaña</a></td><td>Ficha de producto</td><td><span class="pill pill--danger">Alto</span></td><td><span class="pill pill--info">Bajo 🟡</span></td></tr>
+<tr><td><a href="#chg-envio-junto-boton">Envío y plazos junto al botón</a></td><td>Ficha de producto</td><td><span class="pill pill--warn">Medio</span></td><td><span class="pill pill--info">Bajo 🟡</span></td></tr>
+<tr><td><a href="#chg-fotos-escala">Fotos de escala</a></td><td>Ficha de producto</td><td><span class="pill pill--warn">Medio</span></td><td><span class="pill pill--warn">Medio 🟡</span></td></tr>
+<tr><td><a href="#chg-texto-origen">Origen de la ilustración</a></td><td>Ficha de producto</td><td><span class="pill pill--warn">Medio</span></td><td><span class="pill pill--info">Bajo 🟡</span></td></tr>
+<tr><td><a href="#chg-estado-stock">Estado de stock claro</a></td><td>Ficha de producto</td><td><span class="pill pill--warn">Medio</span></td><td><span class="pill pill--info">Bajo 🟡</span></td></tr>
+<tr><td><a href="#chg-barra-envio-carrito">Barra de envío gratis</a></td><td>Carrito</td><td><span class="pill pill--danger">Alto</span></td><td><span class="pill pill--info">Bajo 🟡</span></td></tr>
+<tr><td><a href="#chg-bolsa-regalo">Bolsa de regalo agregable</a></td><td>Carrito / ficha</td><td><span class="pill pill--warn">Medio</span></td><td><span class="pill pill--warn">Medio 🟡</span></td></tr>
+<tr><td><a href="#chg-coleccion-packs">Colección "Packs y Más Vendidos" primero</a></td><td>Home / menú</td><td><span class="pill pill--danger">Alto</span></td><td><span class="pill pill--warn">Medio 🟡</span></td></tr>
+<tr><td><a href="#chg-orden-sin-stock">Sacar lo agotado de arriba</a></td><td>Home / colecciones</td><td><span class="pill pill--warn">Medio</span></td><td><span class="pill pill--info">Bajo 🟡</span></td></tr>
+<tr><td><a href="#chg-sacar-naipes-home">Bajar el protagonismo de los naipes solos</a></td><td>Home</td><td><span class="pill pill--warn">Medio</span></td><td><span class="pill pill--info">Bajo 🟡</span></td></tr>
+<tr><td><a href="#chg-app-videos">App de videos cortos</a></td><td>Ficha de producto</td><td><span class="pill pill--info">Bajo</span></td><td><span class="pill pill--info">Bajo 🟡</span></td></tr>
+<tr><td><a href="#chg-app-recomendados">App de productos recomendados</a></td><td>Ficha de producto</td><td><span class="pill pill--warn">Medio</span></td><td><span class="pill pill--warn">Medio 🟡</span></td></tr>
+</tbody>
+</table>
+</div>
+<p class="tie-ficha__where"><span class="pill pill--danger">antes del 6/8</span> marca los cambios que la preventa necesita cerrados antes del jueves 6 de agosto. Impacto y esfuerzo son estimaciones de trabajo <span class="pill pill--warn">🟡</span>, no datos medidos.</p>
+</section>
+
+<section class="sec" id="urgentes">
+<h2>Los arreglos urgentes</h2>
+<p>Estos 5 cambios van primero porque algo ya está roto, o porque la preventa del jueves 6 de agosto los necesita sí o sí.</p>
+
+<div class="card tie-ficha" id="chg-activar-widget-resenas">
+<div class="tie-ficha__meta">
+<span class="pill pill--danger">Impacto alto</span>
+<span class="pill pill--info">Esfuerzo bajo 🟡</span>
+<span class="pill pill--danger">antes del 6/8</span>
+</div>
+<h3>⭐ Activar el widget de reseñas de Judge.me</h3>
+<p class="tie-ficha__where"><strong>Dónde:</strong> ficha de producto, sección de reseñas. Se toca en Shopify → Apps → Judge.me, y en el editor de tema (sección "Reseñas de producto" o el bloque de la app dentro de la plantilla de producto).</p>
+<div class="compare-grid">
+<div class="compare-box compare-box--before"><span class="compare-box__label">🔴 Cómo está hoy</span><p>El producto tiene 75 reseñas y la tienda 215 en total, todas cargadas en Judge.me — pero el widget no las muestra en la ficha. Quien entra a comprar no ve ninguna.</p></div>
+<div class="compare-box compare-box--after"><span class="compare-box__label">🟢 Cómo queda</span><p>Las estrellas y el número de reseñas aparecen junto al nombre del producto, y el listado completo de comentarios más abajo en la misma ficha.</p></div>
+</div>
+<p><strong>Por qué:</strong> ver que otras personas ya compraron y quedaron contentas es una de las razones más fuertes para animarse a comprar algo que nunca se ha tocado con las manos. Esa confianza ya está ganada — hoy simplemente está apagada. 🟢 Reunión del 27 de julio de 2026.</p>
+<p><strong>Cómo se verifica:</strong> entra a la ficha de cualquier producto con reseñas desde el celular, en ventana de incógnito. Las estrellas y el conteo deben verse sin tener que buscar ni hacer clic en ninguna pestaña.</p>
+<ul class="checklist"><li><label><input type="checkbox" data-tienda="activar-widget-resenas"><span>Ya lo apliqué</span></label></li></ul>
+</div>
+
+<div class="card tie-ficha" id="chg-auditar-recorrido-pago">
+<div class="tie-ficha__meta">
+<span class="pill pill--danger">Impacto alto</span>
+<span class="pill pill--warn">Esfuerzo medio 🟡</span>
+<span class="pill pill--danger">antes del 6/8</span>
+</div>
+<h3>💳 Recorrido completo del pago, de principio a fin</h3>
+<p class="tie-ficha__where"><strong>Dónde:</strong> todo el flujo de compra, desde "Añadir al carrito" hasta la página de gracias — carrito, checkout y confirmación.</p>
+<p><strong>Cómo está hoy:</strong> Cote reportó que entra harta gente y se cae justo en el momento de pagar, pero nadie ubicó el paso exacto. Los medios de pago están completos: tarjeta, transferencia, Mercado Pago y Flow. 🟢 Reunión del 27 de julio de 2026.</p>
+<p><strong>Cómo queda:</strong> un mapa exacto de en qué paso se traba una persona real, con el detalle suficiente para corregirlo (o para descartar que sea un problema del sitio y no del medio de pago en sí).</p>
+<p><strong>Se hace así:</strong></p>
+<ol>
+<li>Desde el celular, agrega al carrito un producto con stock (por ejemplo, una libreta o un juego de loza) y avanza hasta "Finalizar compra".</li>
+<li>Completa el formulario como lo haría alguien real, con una dirección y un correo de prueba.</li>
+<li>Prueba cada medio de pago por separado, en compras de prueba distintas: tarjeta, transferencia, Mercado Pago y Flow. Anota en cuál tarda en cargar, muestra un error, o se ve confuso.</li>
+<li>Repite el mismo recorrido en computador, no solo en celular, para saber si el problema es de un dispositivo o de todos.</li>
+<li>Cuando algo se traba, toma una captura de pantalla y anota el paso exacto: un campo confuso, un costo que aparece tarde, una carga lenta, un error de la pasarela de pago.</li>
+</ol>
+<p><strong>Por qué:</strong> quien llega hasta el pago ya decidió comprar. Perderlo justo ahí es la venta más cara de recuperar de todo el camino de compra.</p>
+<p><strong>Cómo se verifica:</strong> queda al menos una compra de prueba completada con cada uno de los 4 medios de pago, en celular y en computador, y una nota escrita con el paso exacto donde se traba (si lo hay).</p>
+<ul class="checklist"><li><label><input type="checkbox" data-tienda="auditar-recorrido-pago"><span>Ya lo apliqué</span></label></li></ul>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>Los 3 avisos de despacho combinado, en un solo bloque.</strong> Si alguien compra un producto en preventa junto con uno que sí tiene stock, <strong>el pedido completo se despacha junto</strong> — recién la primera semana de septiembre. Hay que anunciarlo en 3 lugares: la ficha del producto en preventa, el carrito cuando lo detecta, y el correo de agradecimiento. 🟢 Reunión del 31 de julio de 2026. Los 3 avisos usan la misma idea con el texto adaptado a cada lugar — cópialos tal cual.</p>
+</div>
+
+<div class="card tie-ficha" id="chg-aviso-despacho-ficha">
+<div class="tie-ficha__meta">
+<span class="pill pill--danger">Impacto alto</span>
+<span class="pill pill--info">Esfuerzo bajo 🟡</span>
+<span class="pill pill--danger">antes del 6/8</span>
+</div>
+<h3>📦 Aviso de despacho combinado — ficha de producto</h3>
+<p class="tie-ficha__where"><strong>Dónde:</strong> ficha de cada producto en preventa (los puzzles que entran a la preventa del 6 de agosto), cerca del botón de compra.</p>
+<div class="compare-grid">
+<div class="compare-box compare-box--before"><span class="compare-box__label">🔴 Cómo está hoy</span><p>No existe: la preventa todavía no se lanza, y no hay ningún aviso preparado sobre el despacho combinado.</p></div>
+<div class="compare-box compare-box--after"><span class="compare-box__label">🟢 Cómo queda</span><p>Un aviso corto, visible antes de pagar, que explica cuándo despacha y qué pasa si se combina con productos en stock.</p></div>
+</div>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-aviso-ficha">Copiar</button>
+<div class="copyblock__text" id="copy-aviso-ficha">📦 Este producto es en preventa. Despacha la primera semana de septiembre.
+Si lo compras junto a otro producto que ya tiene stock, todo tu pedido se despacha junto, en esa misma fecha.</div>
+</div>
+<p><strong>Por qué:</strong> es el punto crítico que se acordó comunicar en la reunión — sin este aviso, alguien puede pensar que el producto con stock le llega antes, y se lleva una sorpresa.</p>
+<p><strong>Cómo se verifica:</strong> el aviso aparece en todas las fichas de productos en preventa, visible sin bajar más allá del botón de compra.</p>
+<ul class="checklist"><li><label><input type="checkbox" data-tienda="aviso-despacho-ficha"><span>Ya lo apliqué</span></label></li></ul>
+</div>
+
+<div class="card tie-ficha" id="chg-aviso-despacho-carrito">
+<div class="tie-ficha__meta">
+<span class="pill pill--danger">Impacto alto</span>
+<span class="pill pill--info">Esfuerzo bajo 🟡</span>
+<span class="pill pill--danger">antes del 6/8</span>
+</div>
+<h3>🛒 Aviso de despacho combinado — carrito</h3>
+<p class="tie-ficha__where"><strong>Dónde:</strong> carrito, cuando detecta al menos un producto en preventa junto a cualquier otro producto.</p>
+<div class="compare-grid">
+<div class="compare-box compare-box--before"><span class="compare-box__label">🔴 Cómo está hoy</span><p>El carrito no distingue productos en preventa de productos con stock — no hay ningún aviso.</p></div>
+<div class="compare-box compare-box--after"><span class="compare-box__label">🟢 Cómo queda</span><p>Un mensaje visible en el carrito, apenas se agrega un producto en preventa, recordando la fecha de despacho combinado.</p></div>
+</div>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-aviso-carrito">Copiar</button>
+<div class="copyblock__text" id="copy-aviso-carrito">🕒 Tu pedido incluye un producto en preventa.
+Todo el pedido —incluido lo que ya tiene stock— se despacha junto la primera semana de septiembre.</div>
+</div>
+<p><strong>Por qué:</strong> el carrito es el último lugar donde se puede avisar antes de que la persona pague, con el pedido completo ya armado a la vista.</p>
+<p><strong>Cómo se verifica:</strong> agrega un producto en preventa y uno con stock al mismo carrito de prueba — el aviso debe aparecer solo; si solo hay productos con stock, no debe aparecer.</p>
+<ul class="checklist"><li><label><input type="checkbox" data-tienda="aviso-despacho-carrito"><span>Ya lo apliqué</span></label></li></ul>
+</div>
+
+<div class="card tie-ficha" id="chg-aviso-despacho-correo">
+<div class="tie-ficha__meta">
+<span class="pill pill--danger">Impacto alto</span>
+<span class="pill pill--warn">Esfuerzo medio 🟡</span>
+<span class="pill pill--danger">antes del 6/8</span>
+</div>
+<h3>✉️ Aviso de despacho combinado — correo de agradecimiento</h3>
+<p class="tie-ficha__where"><strong>Dónde:</strong> correo de confirmación de pedido (Shopify → Configuración → Notificaciones → "Confirmación de pedido del cliente"), solo cuando el pedido incluye un producto en preventa.</p>
+<div class="compare-grid">
+<div class="compare-box compare-box--before"><span class="compare-box__label">🔴 Cómo está hoy</span><p>El correo de confirmación no menciona la preventa ni el despacho combinado — todavía no existe esta situación en la tienda.</p></div>
+<div class="compare-box compare-box--after"><span class="compare-box__label">🟢 Cómo queda</span><p>El correo confirma la fecha real de despacho para todo el pedido, sin dejarlo para que la persona lo descubra sola cuando reclame.</p></div>
+</div>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-aviso-correo">Copiar</button>
+<div class="copyblock__text" id="copy-aviso-correo">Gracias por tu compra. Tu pedido incluye un producto en preventa, así que se despacha completo la primera semana de septiembre, junto con el resto de lo que compraste.
+Apenas salga de nuestras manos, te avisamos.</div>
+</div>
+<p><strong>Por qué:</strong> es el momento donde una sorpresa de plazo genera más reclamos — mejor confirmarlo por escrito apenas se hace el pedido, no cuando la persona pregunta por qué no le ha llegado.</p>
+<p><strong>Cómo se verifica:</strong> hacer un pedido de prueba con un producto en preventa y revisar que el correo recibido incluya el aviso, con la fecha correcta.</p>
+<ul class="checklist"><li><label><input type="checkbox" data-tienda="aviso-despacho-correo"><span>Ya lo apliqué</span></label></li></ul>
+</div>
+</section>
+
+<section class="sec" id="ficha-producto">
+<h2>La ficha de producto</h2>
+<p>Los cambios que más mueven la conversión: es la página donde se decide si alguien agrega al carrito o se va.</p>
+
+<div class="card tie-ficha" id="chg-resenas-arriba">
+<div class="tie-ficha__meta">
+<span class="pill pill--danger">Impacto alto</span>
+<span class="pill pill--info">Esfuerzo bajo 🟡</span>
+</div>
+<h3>⭐ Reseñas arriba, no escondidas en una pestaña</h3>
+<p class="tie-ficha__where"><strong>Dónde:</strong> ficha de producto, posición del bloque de reseñas dentro de la plantilla (editor de tema).</p>
+<div class="compare-grid">
+<div class="compare-box compare-box--before"><span class="compare-box__label">🔴 Cómo está hoy</span><p>Una vez encendido el widget (cambio anterior), el lugar típico por defecto de estas apps es abajo de todo, o dentro de una pestaña que hay que abrir.</p></div>
+<div class="compare-box compare-box--after"><span class="compare-box__label">🟢 Cómo queda</span><p>Las estrellas y el conteo de reseñas, junto al nombre del producto y el precio, arriba de todo — sin tener que bajar ni hacer clic en ninguna pestaña.</p></div>
+</div>
+<p><strong>Por qué:</strong> si hay que buscarlas, la mayoría de las personas nunca las ve. La confianza que generan solo funciona si aparece en el momento exacto en que se está decidiendo comprar.</p>
+<p><strong>Cómo se verifica:</strong> en el celular, sin bajar más allá del precio, ya se ve la cantidad de estrellas y el número de reseñas.</p>
+<ul class="checklist"><li><label><input type="checkbox" data-tienda="resenas-arriba"><span>Ya lo apliqué</span></label></li></ul>
+</div>
+
+<div class="card tie-ficha" id="chg-envio-junto-boton">
+<div class="tie-ficha__meta">
+<span class="pill pill--warn">Impacto medio</span>
+<span class="pill pill--info">Esfuerzo bajo 🟡</span>
+</div>
+<h3>🚚 Envío y plazos junto al botón de compra</h3>
+<p class="tie-ficha__where"><strong>Dónde:</strong> ficha de producto, justo debajo del botón "Añadir al carrito".</p>
+<div class="compare-grid">
+<div class="compare-box compare-box--before"><span class="compare-box__label">🔴 Cómo está hoy</span><p>La información de envío no está junto al botón de compra — hay que buscarla en otra página o esperar al checkout.</p></div>
+<div class="compare-box compare-box--after"><span class="compare-box__label">🟢 Cómo queda</span><p>Una línea corta con el envío gratis y el plazo, visible en el mismo momento en que se decide comprar.</p></div>
+</div>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-envio-ficha">Copiar</button>
+<div class="copyblock__text" id="copy-envio-ficha">🚚 Envío gratis en compras sobre $50.000. Envíos a todo Chile: 1 a 3 días hábiles en Santiago; a regiones, el plazo se calcula según tu comuna al pagar.</div>
+</div>
+<p><strong>Por qué:</strong> el envío, los cambios y la garantía son las dudas típicas justo antes de decidir comprar — resolverlas ahí mismo evita que la persona se vaya a buscar la respuesta y no vuelva.</p>
+<p><strong>Cómo se verifica:</strong> la línea de envío aparece en toda ficha de producto, sin tapar el botón de compra ni obligar a hacer scroll extra en el celular.</p>
+<ul class="checklist"><li><label><input type="checkbox" data-tienda="envio-junto-boton"><span>Ya lo apliqué</span></label></li></ul>
+</div>
+
+<div class="card tie-ficha" id="chg-fotos-escala">
+<div class="tie-ficha__meta">
+<span class="pill pill--warn">Impacto medio</span>
+<span class="pill pill--warn">Esfuerzo medio 🟡</span>
+</div>
+<h3>📏 Fotos de escala, para que se entienda el tamaño real</h3>
+<p class="tie-ficha__where"><strong>Dónde:</strong> galería de fotos de la ficha de producto (puzzles y láminas primero).</p>
+<div class="compare-grid">
+<div class="compare-box compare-box--before"><span class="compare-box__label">🔴 Cómo está hoy</span><p>Las fotos muestran el producto solo, sobre fondo blanco o aislado — sin ninguna referencia de tamaño real.</p></div>
+<div class="compare-box compare-box--after"><span class="compare-box__label">🟢 Cómo queda</span><p>Al menos una foto por producto que muestra el tamaño real, comparado con algo cotidiano.</p></div>
+</div>
+<p><strong>Qué fotografiar, por producto:</strong></p>
+<ul>
+<li>Puzzles (arman 50x70 cm): el puzzle armado apoyado en una mesa junto a una silla, o sostenido por una persona, para que se note el tamaño real.</li>
+<li>Láminas (33x50 cm y 42x60 cm): colgada en una pared de una casa real, no aislada sobre fondo blanco — que se vea cómo se ve puesta.</li>
+<li>Loza y accesorios: en uso, sobre una mesa servida o en una mano, no solo en foto de catálogo.</li>
+</ul>
+<p><strong>Por qué:</strong> sin poder tocar el producto, las fotos son la única forma de generar confianza — y el tamaño es una de las dudas más comunes antes de comprar algo para decorar.</p>
+<p><strong>Cómo se verifica:</strong> cada producto de puzzles y láminas tiene al menos una foto de escala en su galería.</p>
+<ul class="checklist"><li><label><input type="checkbox" data-tienda="fotos-escala"><span>Ya lo apliqué</span></label></li></ul>
+</div>
+
+<div class="card tie-ficha" id="chg-texto-origen">
+<div class="tie-ficha__meta">
+<span class="pill pill--warn">Impacto medio</span>
+<span class="pill pill--info">Esfuerzo bajo 🟡</span>
+</div>
+<h3>🎨 De dónde nace la ilustración</h3>
+<p class="tie-ficha__where"><strong>Dónde:</strong> ficha de producto, en la descripción, después de las características técnicas.</p>
+<div class="compare-grid">
+<div class="compare-box compare-box--before"><span class="compare-box__label">🔴 Cómo está hoy</span><p>La descripción se centra en las características (papel, técnica de impresión, medidas), sin contar el origen de la ilustración.</p></div>
+<div class="compare-box compare-box--after"><span class="compare-box__label">🟢 Cómo queda</span><p>Un párrafo corto que cuenta que cada ilustración nace dibujada a mano, con el propósito de mostrar y cuidar la naturaleza de Chile — el diferencial real de la marca.</p></div>
+</div>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-origen">Copiar</button>
+<div class="copyblock__text" id="copy-origen">Cada ilustración nace dibujada y pintada a mano por María José Pedraza. No es solo decoración: es una forma de mostrar la biodiversidad de Chile para que más personas la conozcan y la cuiden. Por eso cada pieza trae el nombre común y el nombre científico de la especie que representa.</div>
+</div>
+<p><span class="pill pill--warn">🟡 VERIFICAR</span> este texto se basa en la página "Quiénes somos" del sitio (<code>docs/research/tienda.md</code>, sección 4), leída de una copia indexada por buscadores, no del sitio en vivo. Confirmar la redacción exacta con Cote antes de publicarlo tal cual.</p>
+<p><strong>Por qué:</strong> "hecho a mano" convence más que "papel Hahnemühle" si no se explica por qué importa — y el propósito de conservación es un diferencial real frente a cualquier lámina genérica de decoración.</p>
+<p><strong>Cómo se verifica:</strong> el párrafo aparece en la descripción de al menos los productos de láminas y puzzles, con la redacción ya confirmada por Cote.</p>
+<ul class="checklist"><li><label><input type="checkbox" data-tienda="texto-origen"><span>Ya lo apliqué</span></label></li></ul>
+</div>
+
+<div class="card tie-ficha" id="chg-estado-stock">
+<div class="tie-ficha__meta">
+<span class="pill pill--warn">Impacto medio</span>
+<span class="pill pill--info">Esfuerzo bajo 🟡</span>
+</div>
+<h3>🏷️ Estado de stock claro y honesto</h3>
+<p class="tie-ficha__where"><strong>Dónde:</strong> ficha de producto, etiqueta junto al botón de compra.</p>
+<div class="compare-grid">
+<div class="compare-box compare-box--before"><span class="compare-box__label">🔴 Cómo está hoy</span><p>No hay una etiqueta clara de stock — quien entra a la ficha de un puzzle hoy no sabe que está agotado hasta intentar comprarlo.</p></div>
+<div class="compare-box compare-box--after"><span class="compare-box__label">🟢 Cómo queda</span><p>Una etiqueta honesta por producto: "En stock", "Agotado" o "En preventa — despacha primera semana de septiembre", según corresponda en cada momento.</p></div>
+</div>
+<p><strong>Calendario de las etiquetas de puzzle</strong> (🟢 fechas de la reunión del 31 de julio): hoy y hasta el 5 de agosto, "Agotado" (los puzzles no tienen stock hasta mediados de agosto). Del 6 de agosto en adelante, "En preventa — despacha primera semana de septiembre". Cuando llegue el contenedor a mediados de agosto y el stock esté disponible en Shopify, se cambia a "En stock".</p>
+<p><strong>Por qué:</strong> avisar que algo está agotado o en preventa, en vez de dejar que la persona lo descubra al intentar pagar, evita frustración y reclamos — y la urgencia honesta (cuando de verdad queda poco) ayuda a decidir ahora.</p>
+<p><strong>Cómo se verifica:</strong> la etiqueta de cada producto coincide con su estado real de inventario en el momento de revisar.</p>
+<ul class="checklist"><li><label><input type="checkbox" data-tienda="estado-stock"><span>Ya lo apliqué</span></label></li></ul>
+</div>
+</section>
+
+<section class="sec" id="carrito">
+<h2>El carrito</h2>
+<p>El último empujón antes de pagar: mientras la persona ya tiene el carrito abierto —el momento de mayor intención de compra de toda la visita—, se le muestra un motivo real para agregar algo más.</p>
+
+<div class="card tie-ficha" id="chg-barra-envio-carrito">
+<div class="tie-ficha__meta">
+<span class="pill pill--danger">Impacto alto</span>
+<span class="pill pill--info">Esfuerzo bajo 🟡</span>
+</div>
+<h3>📊 Barra de envío gratis</h3>
+<p class="tie-ficha__where"><strong>Dónde:</strong> carrito (lateral o página de carrito), arriba del resumen de productos.</p>
+<div class="compare-grid">
+<div class="compare-box compare-box--before"><span class="compare-box__label">🔴 Cómo está hoy</span><p>El envío gratis sobre $50.000 existe, pero el carrito no muestra cuánto falta para alcanzarlo.</p></div>
+<div class="compare-box compare-box--after"><span class="compare-box__label">🟢 Cómo queda</span><p>Una barra de progreso que se llena sola al agregar productos, con dos mensajes según el estado del carrito.</p></div>
+</div>
+<div class="progress">
+  <div class="progress__track"><div class="progress__fill" style="width:64%"></div></div>
+  <span class="progress__label">Ejemplo: carrito en $32.000 de $50.000 (64%)</span>
+</div>
+<p><strong>Estado 1 — cuando todavía falta:</strong></p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-carrito-falta">Copiar</button>
+<div class="copyblock__text" id="copy-carrito-falta">🚚 ¡Ya casi! Te faltan $12.000 para tu envío gratis.
+Agrega un producto más y el despacho corre por nuestra cuenta.</div>
+</div>
+<p class="tie-ficha__where">El monto ($12.000 en este ejemplo) lo calcula la app automáticamente según lo que hay en el carrito — el texto de alrededor se deja fijo, tal como está escrito arriba.</p>
+<p><strong>Estado 2 — cuando ya se logró:</strong></p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-carrito-listo">Copiar</button>
+<div class="copyblock__text" id="copy-carrito-listo">🎉 ¡Tienes envío gratis! Ya superaste los $50.000.
+Gracias por elegir Pedraza — tu pedido va con despacho gratis a todo Chile.</div>
+</div>
+<p><strong>Por qué:</strong> no hace falta convencer a nadie de nada nuevo, solo mostrar un número que ya es cierto. Detalle completo del sistema en <a href="ofertas.html#barra-envio-gratis">ofertas.html</a>.</p>
+<p><strong>Cómo se verifica:</strong> la barra se actualiza sola al agregar o quitar productos, y muestra el mensaje de "logrado" al pasar los $50.000.</p>
+<ul class="checklist"><li><label><input type="checkbox" data-tienda="barra-envio-carrito"><span>Ya lo apliqué</span></label></li></ul>
+</div>
+
+<div class="card tie-ficha" id="chg-bolsa-regalo">
+<div class="tie-ficha__meta">
+<span class="pill pill--warn">Impacto medio</span>
+<span class="pill pill--warn">Esfuerzo medio 🟡</span>
+</div>
+<h3>🎁 Bolsa de papel para regalo, agregable al carrito</h3>
+<p class="tie-ficha__where"><strong>Dónde:</strong> se crea como producto nuevo en Shopify (Productos → Agregar producto) y se ofrece en la ficha de producto y en el carrito, como un agregado con un clic.</p>
+<div class="compare-grid">
+<div class="compare-box compare-box--before"><span class="compare-box__label">🔴 Cómo está hoy</span><p>No existe: mucha gente compra para regalar y hoy no puede pedir que venga envuelto. Partner despacha en bolsas compostables estándar.</p></div>
+<div class="compare-box compare-box--after"><span class="compare-box__label">🟢 Cómo queda</span><p>Una bolsa de papel para regalo, agregable como cualquier producto, que cubre su propio costo más la mano de obra de Partner.</p></div>
+</div>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-bolsa">Copiar</button>
+<div class="copyblock__text" id="copy-bolsa">Nombre: Bolsa de papel para regalo
+Descripción: ¿Es para regalar? Agrega esta bolsa y tu pedido llega listo para entregar. El precio cubre el costo de la bolsa y el trabajo de armarla — no buscamos ganar con esto, solo que tu regalo llegue bien presentado.</div>
+</div>
+<p><span class="pill pill--warn">🟡 A DEFINIR</span> el precio final: costo real de la bolsa más la mano de obra de Partner, sin margen — confirmar la cifra con Felipe antes de publicar el producto. 🟢 Acordado en la reunión del 31 de julio de 2026: no busca margen, busca agregar valor.</p>
+<p><strong>Por qué:</strong> resuelve un problema real de quien compra para regalar, con un costo que la propia bolsa cubre — no es una oferta, es un servicio que faltaba.</p>
+<p><strong>Cómo se verifica:</strong> el producto "Bolsa de papel para regalo" existe en el catálogo, se puede agregar desde la ficha o el carrito, y su precio corresponde al costo real (bolsa + mano de obra), sin margen adicional.</p>
+<ul class="checklist"><li><label><input type="checkbox" data-tienda="bolsa-regalo"><span>Ya lo apliqué</span></label></li></ul>
+</div>
+</section>
+
+<section class="sec" id="home-colecciones">
+<h2>La home y las colecciones</h2>
+<p>Qué mostrar primero, para que la tienda le muestre a cualquiera un camino fácil por dónde partir.</p>
+
+<div class="card tie-ficha" id="chg-coleccion-packs">
+<div class="tie-ficha__meta">
+<span class="pill pill--danger">Impacto alto</span>
+<span class="pill pill--warn">Esfuerzo medio 🟡</span>
+</div>
+<h3>🗂️ Colección "Packs y Más Vendidos", primera opción visible</h3>
+<p class="tie-ficha__where"><strong>Dónde:</strong> menú principal y primera franja de productos en la home, justo después del banner.</p>
+<div class="compare-grid">
+<div class="compare-box compare-box--before"><span class="compare-box__label">🔴 Cómo está hoy</span><p>No existe ninguna colección de packs ni de más vendidos. Quien entra tiene que explorar todo el catálogo para decidir por dónde partir.</p></div>
+<div class="compare-box compare-box--after"><span class="compare-box__label">🟢 Cómo queda</span><p>Una colección "Packs y Más Vendidos", visible primero en el menú y en la home, con los 4 packs fijados arriba y el resto ordenado por más vendidos.</p></div>
+</div>
+<p><strong>Por qué:</strong> el cliente pidió que sea la primera opción visible al entrar a la tienda. Sin esta vitrina se pierden ventas de más de un producto por compra y compras de quien todavía está decidiendo. 🟢 Reunión del 27 de julio de 2026.</p>
+<p>El detalle completo —qué 4 packs armar, con qué nombre, qué orden y cómo enlazarla— ya está resuelto en <a href="ofertas.html#coleccion-packs">ofertas.html</a>. Esta ficha es el recordatorio de aplicarlo: no se repite el diseño acá para no tener dos versiones del mismo plan.</p>
+<p><strong>Cómo se verifica:</strong> la colección aparece en el menú principal y como primera franja de la home, con los 4 packs fijados arriba tal como los describe <a href="ofertas.html#coleccion-packs">ofertas.html</a>.</p>
+<ul class="checklist"><li><label><input type="checkbox" data-tienda="coleccion-packs"><span>Ya lo apliqué</span></label></li></ul>
+</div>
+
+<div class="card tie-ficha" id="chg-orden-sin-stock">
+<div class="tie-ficha__meta">
+<span class="pill pill--warn">Impacto medio</span>
+<span class="pill pill--info">Esfuerzo bajo 🟡</span>
+</div>
+<h3>📉 Sacar lo agotado de arriba</h3>
+<p class="tie-ficha__where"><strong>Dónde:</strong> orden manual de productos en la home y en las colecciones, mientras dure cada quiebre de stock.</p>
+<div class="compare-grid">
+<div class="compare-box compare-box--before"><span class="compare-box__label">🔴 Cómo está hoy</span><p>Los puzzles —el producto estrella— están sin stock hasta mediados de agosto, pero el orden por defecto ("más vendidos") los sigue mostrando primero.</p></div>
+<div class="compare-box compare-box--after"><span class="compare-box__label">🟢 Cómo queda</span><p>Mientras un producto esté agotado, se revisa a mano que no quede como primera opción visible en home ni en su colección — vuelve a su lugar automático apenas hay stock otra vez.</p></div>
+</div>
+<p><strong>Por qué:</strong> un producto agotado como primera opción visible genera frustración, no venta.</p>
+<p><strong>Cómo se verifica:</strong> mientras los puzzles estén sin stock, ningún puzzle aparece como primer producto destacado de la home; al llegar el contenedor (mediados de agosto), se revisa que vuelvan a su posición normal.</p>
+<ul class="checklist"><li><label><input type="checkbox" data-tienda="orden-sin-stock"><span>Ya lo apliqué</span></label></li></ul>
+</div>
+
+<div class="card tie-ficha" id="chg-sacar-naipes-home">
+<div class="tie-ficha__meta">
+<span class="pill pill--warn">Impacto medio</span>
+<span class="pill pill--info">Esfuerzo bajo 🟡</span>
+</div>
+<h3>🃏 Bajar el protagonismo de los naipes solos</h3>
+<p class="tie-ficha__where"><strong>Dónde:</strong> home, franja de productos destacados.</p>
+<div class="compare-grid">
+<div class="compare-box compare-box--before"><span class="compare-box__label">🔴 Cómo está hoy</span><p>Los naipes ilustrados ($22.990) aparecen como producto destacado suelto en la home, compitiendo directo con los puzzles ($24.990-27.290) — quien los ve, compra el naipe y nada más, un ticket más bajo sin que la tienda gane nada extra.</p></div>
+<div class="compare-box compare-box--after"><span class="compare-box__label">🟢 Cómo queda</span><p>Se retira el naipe como tarjeta destacada suelta de la home. Sigue disponible en su colección, y aparece dentro del pack "Domingo en Familia" (puzzle + naipes), donde acompaña en vez de competir.</p></div>
+</div>
+<p><strong>Por qué:</strong> es la causa que se identificó para la baja del ticket promedio de $37.900 a $33.000 — un producto barato sin estrategia detrás canibaliza al producto estrella. Diagnóstico completo en <a href="ofertas.html#diagnostico">ofertas.html</a>.</p>
+<p><strong>Cómo se verifica:</strong> el naipe ya no aparece como tarjeta destacada suelta en la home; sí aparece dentro del pack "Domingo en Familia" en la colección "Packs y Más Vendidos".</p>
+<ul class="checklist"><li><label><input type="checkbox" data-tienda="sacar-naipes-home"><span>Ya lo apliqué</span></label></li></ul>
+</div>
+</section>
+
+<section class="sec" id="apps">
+<h2>Las apps: cuáles dejar y cuáles sacar</h2>
+<p>Cote instaló 2 apps que valen la pena revisar con un criterio honesto: no todo lo que agrega una función suma — a veces resta.</p>
+
+<div class="card tie-ficha" id="chg-app-videos">
+<div class="tie-ficha__meta">
+<span class="pill pill--info">Impacto bajo</span>
+<span class="pill pill--info">Esfuerzo bajo 🟡</span>
+</div>
+<h3>🎬 App de videos cortos</h3>
+<p class="tie-ficha__where"><strong>Dónde:</strong> sección de video en la ficha de producto.</p>
+<div class="callout callout--danger">
+<p><strong>El problema:</strong> está en el plan gratuito, y ese plan se desactiva solo al llegar a cierto número de visualizaciones. Eso significa que la sección de video puede desaparecer de la ficha sin ningún aviso, en cualquier momento. 🟢 Reunión del 31 de julio de 2026.</p>
+</div>
+<p><strong>Por qué importa:</strong> una sección que desaparece sin aviso es peor que no tenerla — genera una ficha que se ve rota o incompleta justo cuando más tráfico puede estar llegando (por ejemplo, en plena preventa), sin que nadie se entere hasta que un cliente lo note.</p>
+<p><strong>Recomendación clara:</strong> <span class="pill pill--danger">Sacar la app ahora</span>. En su lugar, dejar un botón fijo o un enlace a los videos del producto en Instagram (Reels), que no depende de ningún límite de visualizaciones ni de un plan gratuito que se apaga solo. Si más adelante se quiere volver a probar un widget de video, debe ser en un plan pagado con un límite conocido, o con un aviso automático antes de llegar al tope — nunca en un plan que se apaga sin avisar.</p>
+<p><strong>Cómo se verifica:</strong> la app de videos cortos ya no está activa en la ficha de producto; en su lugar hay un enlace o botón a Instagram que funciona siempre.</p>
+<ul class="checklist"><li><label><input type="checkbox" data-tienda="app-videos"><span>Ya lo apliqué</span></label></li></ul>
+</div>
+
+<div class="card tie-ficha" id="chg-app-recomendados">
+<div class="tie-ficha__meta">
+<span class="pill pill--warn">Impacto medio</span>
+<span class="pill pill--warn">Esfuerzo medio 🟡</span>
+</div>
+<h3>🔁 App de productos recomendados</h3>
+<p class="tie-ficha__where"><strong>Dónde:</strong> ficha de producto, bloque de "también te puede interesar" o similar.</p>
+<p><strong>El criterio:</strong> recomendar sirve solo si recomienda bien. Ofrecer otra lámina a quien va a comprar una lámina no aporta nada — es lo mismo que ya está mirando, no una razón para agregar algo más. Lo que sí suma es un <strong>complemento</strong>: un producto distinto que se usa junto al que ya eligió. 🟢 Opinión de Felipe, reunión del 31 de julio de 2026.</p>
+<div class="rec-grid">
+<div class="rec-box rec-box--si">
+<span class="rec-box__label">🟢 Sí recomendar (complementa)</span>
+<ul>
+<li>En un puzzle → los naipes ilustrados (arma el pack "Domingo en Familia") o la bolsa de regalo.</li>
+<li>En una lámina → la libreta de la misma serie (Aves o Flores), o la bolsa de regalo.</li>
+<li>En el juego de loza → la botella térmica de la misma serie (Aves).</li>
+</ul>
+</div>
+<div class="rec-box rec-box--no">
+<span class="rec-box__label">🔴 No recomendar (sustituye)</span>
+<ul>
+<li>En un puzzle → otro puzzle de otra especie. Compite directo por la misma decisión, no la complementa.</li>
+<li>En una lámina → otra lámina de otra serie. Mismo problema: es una alternativa, no un complemento.</li>
+<li>En calcetines → otro par de calcetines de otra serie, sin ninguna ocasión de uso conjunto real.</li>
+</ul>
+</div>
+</div>
+<p><strong>Recomendación clara:</strong> <span class="pill pill--warn">Mantener la app, pero reconfigurarla</span>. Si la app permite fijar recomendaciones a mano por producto (la mayoría lo permite), usarla así, siguiendo la lógica de complemento de arriba, en vez del emparejamiento automático "misma categoría" que hoy probablemente sugiere sustitutos. Si no lo permite, cambiarla por una que sí, o usar la sección nativa de Shopify "también te puede interesar" con selección manual.</p>
+<p><span class="pill pill--warn">🟡 nota</span> esta curación manual es la misma lógica de complemento que ya usa el pop-up 3 de <a href="ofertas.html#sistema-popups">ofertas.html</a> — cuando exista el dato de qué compró cada cliente, ambos sistemas se pueden automatizar con el mismo criterio.</p>
+<p><strong>Cómo se verifica:</strong> al entrar a la ficha de un puzzle, una lámina o el juego de loza, lo recomendado es un complemento real (de la lista de arriba), nunca otro producto del mismo tipo.</p>
+<ul class="checklist"><li><label><input type="checkbox" data-tienda="app-recomendados"><span>Ya lo apliqué</span></label></li></ul>
+</div>
+</section>
+
+<section class="sec" id="medicion">
+<h2>Qué se mide después de aplicar</h2>
+
+<div class="callout callout--info">
+<p><strong>Los cambios se aplican juntos, no uno por uno.</strong> Por eso lo que se mide la primera semana es el <strong>efecto conjunto</strong> de todo lo aplicado, no el de cada cambio por separado — no hay forma limpia de saber, por ejemplo, cuánto aportó solo la barra de envío gratis contra solo la colección de packs. Además, esa misma semana lanza la preventa (jueves 6 de agosto), así que el número también va a reflejar el efecto de la preventa, no solo el de estos 17 cambios. Es una lectura combinada, y así hay que presentarla.</p>
+</div>
+
+<div class="kpi-grid">
+  <div class="kpi">
+    <span class="kpi__label">Conversión — línea base 🟢</span>
+    <span class="kpi__value">0,98%</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Ticket promedio — línea base 🟢</span>
+    <span class="kpi__value">$33.000</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">% de carritos sobre $50.000</span>
+    <span class="kpi__value">sin medir aún 🟡</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Visitas a "Packs y Más Vendidos"</span>
+    <span class="kpi__value">colección nueva</span>
+  </div>
+</div>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Qué medir</th><th>Cómo</th><th>Contra qué se compara</th></tr></thead>
+<tbody>
+<tr><td>Conversión de la tienda</td><td>Shopify Analytics → resumen de tienda online, tasa de conversión de la semana</td><td>0,98% 🟢, dato de la captura de Shopify del 1 al 24 de julio de 2026</td></tr>
+<tr><td>Ticket promedio</td><td>Shopify Analytics → valor promedio de pedido de la semana</td><td>$33.000 🟢, pantalla mostrada en la reunión del 27 de julio de 2026</td></tr>
+<tr><td>% de carritos sobre $50.000</td><td>Si la app de la barra de envío gratis lo reporta, usar ese dato directo; si no, aproximar con el % de pedidos completados sobre $50.000 en Shopify Analytics (más flojo, porque no cuenta los carritos que no llegaron a pagar)</td><td>No hay línea base — se mide por primera vez esta semana</td></tr>
+<tr><td>Visitas a la colección nueva</td><td>Shopify Analytics → páginas de destino, filtrando por la URL de "Packs y Más Vendidos"</td><td>No hay línea base — la colección no existía antes</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Comparar siempre contra la semana inmediatamente anterior a aplicar estos cambios (no contra el mes pasado), ya que es la referencia más parecida en tráfico y mezcla de canales. Con el tiempo, y siguiendo la regla del resto del plan, conviene sumar la comparación contra el mismo periodo del año anterior para descontar estacionalidad — pero esa comparación todavía no existe para una tienda con solo meses de datos reales cargados.</p>
+
+<footer class="tie-footer">
+<p>Este documento continúa <a href="cro.html">el pre-diagnóstico de conversión</a> y no contradice el sistema de ofertas y pop-ups ya propuesto en <a href="ofertas.html">ofertas.html</a> — donde hay una diferencia de referencia de ticket promedio ($33.000 aquí y en ofertas.html, $37.900 en el resto del plan), es porque son capturas de Shopify de fechas distintas; ambas quedan citadas con su fuente.</p>
+</footer>
+</section>
+
+</main>
+
+<script>
+  // Acceso seguro a localStorage (no revienta en navegación privada u otros bloqueos).
+  function pgGet(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+  function pgSet(key, valor) { try { localStorage.setItem(key, valor); } catch (e) { /* sin soporte, se ignora */ } }
+  function pgRemove(key) { try { localStorage.removeItem(key); } catch (e) { /* sin soporte, se ignora */ } }
+</script>
+
+<script>
+  // ===== Checklist de esta página: cambios aplicados, con prefijo propio "tie" =====
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-tienda]').forEach(function (cb) {
+      cb.checked = pgGet('pedraza-plan:tie:' + cb.getAttribute('data-tienda')) === '1';
+    });
+    tieActualizarProgreso();
+  });
+
+  document.addEventListener('change', function (e) {
+    var cb = e.target.closest('[data-tienda]');
+    if (!cb) return;
+    var key = 'pedraza-plan:tie:' + cb.getAttribute('data-tienda');
+    if (cb.checked) { pgSet(key, '1'); } else { pgRemove(key); }
+    tieActualizarProgreso();
+  });
+
+  function tieActualizarProgreso() {
+    var cajas = document.querySelectorAll('[data-tienda]');
+    var total = cajas.length;
+    var done = 0;
+    cajas.forEach(function (cb) { if (cb.checked) done++; });
+    var pct = total ? Math.round((done / total) * 100) : 0;
+
+    document.querySelectorAll('[data-progress-fill]').forEach(function (fill) {
+      fill.style.width = pct + '%';
+    });
+    document.querySelectorAll('[data-progress-label]').forEach(function (label) {
+      label.textContent = done + ' de ' + total + ' cambios (' + pct + '%)';
+    });
+  }
+</script>
+
+<script>
+  // Copiar al portapapeles — delegación de eventos, un solo listener por página.
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-copy-target]');
+    if (!btn) return;
+    var el = document.getElementById(btn.getAttribute('data-copy-target'));
+    if (!el) return;
+    copiarTexto(el.innerText || el.textContent || '', btn);
+  });
+
+  function copiarTexto(texto, btn) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(texto).then(
+        function () { mostrarCopiado(btn); },
+        function () { copiarConFallback(texto, btn); }
+      );
+    } else {
+      copiarConFallback(texto, btn);
+    }
+  }
+
+  function copiarConFallback(texto, btn) {
+    var ta = document.createElement('textarea');
+    ta.value = texto;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.top = '-1000px';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (err) { /* sin soporte, se ignora */ }
+    document.body.removeChild(ta);
+    mostrarCopiado(btn);
+  }
+
+  function mostrarCopiado(btn) {
+    var original = btn.getAttribute('data-label') || btn.textContent;
+    btn.setAttribute('data-label', original);
+    btn.textContent = '✓ ¡Copiado!';
+    btn.classList.add('is-copied');
+    clearTimeout(btn._copyTimeout);
+    btn._copyTimeout = setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('is-copied');
+    }, 2000);
+  }
+</script>
+
+<script>
+  // Navegación global: barra superior + panel completo (15 páginas, 4 grupos).
+  // Prefijo "nav" en todo para no chocar con otros scripts de la página.
+  var NAV_PAGES = [
+    { grupo: 'Seguimiento', id: 'estado', nombre: 'Estado del plan' },
+    { grupo: 'Seguimiento', id: 'bitacora', nombre: 'Bitácora' },
+    { grupo: 'Seguimiento', id: 'finanzas', nombre: 'Los números del negocio' },
+    { grupo: 'Seguimiento', id: 'sincronizar', nombre: 'Conectar con la hoja' },
+    { grupo: 'La estrategia', id: 'index', nombre: 'Plan y estrategia' },
+    { grupo: 'Plan de acción', id: 'plan-90-dias', nombre: 'Plan de 90 días' },
+    { grupo: 'Plan de acción', id: 'stock-navidad', nombre: 'Stock para Navidad' },
+    { grupo: 'Plan de acción', id: 'escenarios', nombre: 'Escenarios' },
+    { grupo: 'Plan de acción', id: 'inventario', nombre: 'Control de stock' },
+    { grupo: 'Plan de acción', id: 'modelo-datos', nombre: 'Ordenar los datos' },
+    { grupo: 'Plan de acción', id: 'ofertas', nombre: 'Ofertas y pop-ups' },
+    { grupo: 'Plan de acción', id: 'email', nombre: 'Correo y campañas' },
+    { grupo: 'Plan de acción', id: 'cro', nombre: 'Conversión' },
+    { grupo: 'Plan de acción', id: 'ads', nombre: 'Google y Meta Ads' },
+    { grupo: 'Plan de acción', id: 'digitales', nombre: 'Productos digitales' },
+    { grupo: 'Herramientas del día a día', id: 'kit-arranque', nombre: 'Kit de arranque' },
+    { grupo: 'Herramientas del día a día', id: 'guion-reels', nombre: 'Guiones de Reels' },
+    { grupo: 'Herramientas del día a día', id: 'sop-dm', nombre: 'Mensajes y DM' },
+    { grupo: 'Herramientas del día a día', id: 'recursos', nombre: 'Recursos' },
+    { grupo: 'Herramientas del día a día', id: 'tablero', nombre: 'Tablero' }
+  ];
+
+  var navPanelEl, navMenuBtn;
+
+  function navInit() {
+    navPanelEl = document.getElementById('nav-panel');
+    navMenuBtn = document.querySelector('[data-nav-open]');
+    if (!navPanelEl || !navMenuBtn) return;
+
+    var actual = document.body.getAttribute('data-nav-actual') || '';
+    var titleEl = document.querySelector('[data-nav-title]');
+    var pagina = null;
+    for (var i = 0; i < NAV_PAGES.length; i++) {
+      if (NAV_PAGES[i].id === actual) { pagina = NAV_PAGES[i]; break; }
+    }
+    if (titleEl && pagina) { titleEl.textContent = pagina.nombre; }
+    else if (titleEl) { titleEl.textContent = 'Cambios en la tienda'; }
+
+    var linkActual = navPanelEl.querySelector('[data-nav-key="' + actual + '"]');
+    if (linkActual) {
+      linkActual.classList.add('navpanel__link--current');
+      linkActual.setAttribute('aria-current', 'page');
+    }
+
+    navMenuBtn.addEventListener('click', navAbrirPanel);
+    navPanelEl.querySelectorAll('[data-nav-close]').forEach(function (el) {
+      el.addEventListener('click', navCerrarPanel);
+    });
+    navPanelEl.querySelectorAll('.navpanel__link').forEach(function (a) {
+      a.addEventListener('click', navCerrarPanel);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (!navPanelEl.classList.contains('is-open')) return;
+      if (e.key === 'Escape') { navCerrarPanel(); }
+      if (e.key === 'Tab') { navAtraparFoco(e); }
+    });
+  }
+
+  function navAbrirPanel() {
+    navPanelEl.hidden = false;
+    document.documentElement.classList.add('nav-lock');
+    document.body.classList.add('nav-lock');
+    navMenuBtn.setAttribute('aria-expanded', 'true');
+    requestAnimationFrame(function () {
+      navPanelEl.classList.add('is-open');
+      var closeBtn = navPanelEl.querySelector('.navpanel__close');
+      if (closeBtn) closeBtn.focus();
+    });
+  }
+
+  function navCerrarPanel() {
+    if (!navPanelEl.classList.contains('is-open')) return;
+    navPanelEl.classList.remove('is-open');
+    document.documentElement.classList.remove('nav-lock');
+    document.body.classList.remove('nav-lock');
+    navMenuBtn.setAttribute('aria-expanded', 'false');
+    navMenuBtn.focus();
+    var ocultarAlTerminar = function () {
+      navPanelEl.hidden = true;
+      navPanelEl.removeEventListener('transitionend', ocultarAlTerminar);
+    };
+    navPanelEl.addEventListener('transitionend', ocultarAlTerminar);
+    setTimeout(ocultarAlTerminar, 300); // respaldo si no hay transición (prefers-reduced-motion)
+  }
+
+  function navAtraparFoco(e) {
+    var focusables = navPanelEl.querySelectorAll('button, a[href]');
+    if (!focusables.length) return;
+    var primero = focusables[0];
+    var ultimo = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === primero) { e.preventDefault(); ultimo.focus(); }
+    else if (!e.shiftKey && document.activeElement === ultimo) { e.preventDefault(); primero.focus(); }
+  }
+
+  document.addEventListener('DOMContentLoaded', navInit);
+</script>
+
+</body>
+</html>
