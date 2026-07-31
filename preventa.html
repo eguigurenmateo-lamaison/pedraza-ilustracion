@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Correo y campañas — Plan Pedraza Ilustración</title>
+<title>Preventa de puzzles — Plan Pedraza Ilustración</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
 <style>
 /* ==========================================================================
@@ -618,13 +618,11 @@ main { counter-reset: sec; }
   a[href]::after { content: " (" attr(href) ")"; font-size: .8em; }
 }
 /* ==========================================================================
-   Extensiones propias de esta página (email.html)
-   email.html no es una de las 6 páginas del sitio (docs/design-system.md,
-   sección 1) y no está en el menú principal — se llega por link desde el
-   plan. El bloque de arriba es el canónico intacto; lo de abajo es el único
-   componente propio de esta página (el link "Volver al plan" del hero),
-   igual al ya usado en cro.html, agregado en la misma hoja de estilos única
-   para no crear un segundo archivo CSS.
+   Extensiones propias de esta página (preventa.html)
+   Componentes puntuales para esta página: link de vuelta, cuenta regresiva
+   grande, lista de canales por día, comparación "sin aviso / con aviso" y
+   pie de página. Se agregan en la misma hoja única, sin crear un segundo
+   archivo CSS, siguiendo el mismo patrón usado en escenarios.html.
    ========================================================================== */
 
 .hero__back {
@@ -640,9 +638,85 @@ main { counter-reset: sec; }
   font-weight: 700;
 }
 .hero__back:hover { color: #fff; }
+
+/* Cuenta regresiva grande: el número más importante de la sección 1 */
+.countdown-box {
+  background: var(--surface);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6) var(--space-5);
+  text-align: center;
+  box-shadow: var(--shadow);
+  margin: var(--space-5) 0;
+}
+.countdown-box__label {
+  display: block;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  margin-bottom: var(--space-3);
+}
+.countdown-box__num {
+  display: block;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: clamp(3.4rem, 2.2rem + 8vw, 6.5rem);
+  line-height: 1;
+  color: var(--accent);
+  letter-spacing: -.03em;
+}
+.countdown-box__num.is-pasado { font-size: clamp(1.7rem, 1.3rem + 3vw, 2.5rem); color: var(--success); }
+.countdown-box__unidad { display: block; font-size: var(--fs-lg); font-weight: 700; color: var(--ink); margin-top: var(--space-2); }
+.countdown-box__sub { display: block; margin-top: var(--space-4); font-size: var(--fs-sm); color: var(--ink-faint); }
+
+/* Lista de canales dentro de una tarjeta de día (sección 3) */
+.channel-list { list-style: none; padding: 0; margin: var(--space-3) 0 0; display: flex; flex-direction: column; gap: var(--space-3); }
+.channel-list li {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--line);
+}
+.channel-list li:first-child { padding-top: 0; border-top: none; }
+.channel-list__icon {
+  flex: 0 0 auto;
+  width: 2.1em;
+  height: 2.1em;
+  border-radius: 50%;
+  background: var(--paper);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1em;
+}
+.channel-list__body { flex: 1 1 auto; min-width: 0; }
+.channel-list__label {
+  display: block;
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  margin-bottom: 2px;
+}
+.day-card__owners { display: flex; flex-wrap: wrap; gap: var(--space-2); margin: var(--space-1) 0 var(--space-4); }
+
+/* Comparación conceptual "sin aviso / con aviso" (sección 2) — ilustrativa, sin datos reales */
+.compare-dots { display: flex; align-items: flex-end; gap: 6px; height: 60px; margin: var(--space-4) 0 var(--space-2); flex-wrap: wrap; }
+.compare-dots span { display: block; width: 9px; height: 9px; border-radius: 50%; background: var(--ink-faint); opacity: .5; }
+.compare-dots--concentrated { align-items: center; }
+.compare-dots__big { width: 52px; height: 52px; border-radius: 50%; background: var(--accent); box-shadow: var(--shadow-sm); }
+.compare-caption { font-size: var(--fs-sm); color: var(--ink-faint); margin: 0; }
+
+.page-footer { margin-top: var(--space-8); padding-top: var(--space-4); border-top: 1px solid var(--line); color: var(--ink-faint); font-size: var(--fs-sm); }
+.page-footer a { color: var(--accent-dark); font-weight: 700; text-decoration: none; }
+.page-footer a:hover { text-decoration: underline; }
 </style>
 </head>
-<body data-nav-actual="email">
+<body data-nav-actual="preventa">
 <nav class="navbar" aria-label="Barra de navegación">
   <div class="navbar__inner">
     <a href="estado.html" class="navbar__home" aria-label="Ir al inicio: Estado del plan">🦋</a>
@@ -853,284 +927,566 @@ main { counter-reset: sec; }
 
 <header class="hero">
   <div class="hero__inner">
-    <a href="index.html#datos-que-faltan" class="hero__back">← Volver al plan</a>
-    <h1>Correo y campañas</h1>
-    <p>Cuánto aporta hoy el correo a las ventas, la respuesta a las dos dudas que quedaron abiertas en la reunión del 27 de julio, y las primeras campañas listas para copiar y enviar. Esta página no está en el menú principal — se comparte por link directo desde el plan.</p>
+    <a href="estado.html" class="hero__back">← Volver al estado del plan</a>
+    <h1>Preventa de puzzles</h1>
+    <p>El jueves 6 de agosto abrimos la preventa de los cuatro modelos de puzzle. Este es el plan día a día, con todos los textos listos para copiar y pegar — el entregable más urgente de todos: quedan pocos días.</p>
   </div>
 </header>
 
 <main class="wrap">
 
-<section class="sec" id="donde-estamos">
-<h2>Dónde estamos y cuánto hay en juego</h2>
-<p>Klaviyo es el programa de correo que ya usa la tienda. Sirve para saber, de todo lo que vende Pedraza Ilustración, cuánto llega gracias a un correo — el resto llega por Instagram, Google, o gente que escribe la dirección directo en el navegador. Esta sección muestra cuánto es esa parte hoy, cuánto podría llegar a ser, y qué significa esa diferencia en plata.</p>
+<section class="sec">
+<h2>El plan en una pantalla</h2>
+<p>Cinco momentos, desde hoy hasta que el primer pedido de la preventa salga despachado. Cada uno tiene su propio dueño y su propio canal — el detalle día a día está en la sección 3.</p>
+
+<div class="countdown-box">
+  <span class="countdown-box__label">Días que faltan para abrir la preventa</span>
+  <span class="countdown-box__num" id="cd-preventa-num">—</span>
+  <span class="countdown-box__unidad" id="cd-preventa-unidad">días</span>
+  <span class="countdown-box__sub">Apertura: jueves 6 de agosto de 2026 · hoy es <span id="cd-preventa-hoy">—</span></span>
+</div>
+
+<div class="timeline">
+  <div class="timeline-item">
+    <span class="timeline-item__date">1-4 de agosto</span>
+    <h3 class="timeline-item__title">Preparación</h3>
+    <p>Se dejan listos los textos, el collage de mensajes, el pop-up de correos y los cambios en Shopify (ver checklist en la sección 5). Nada se publica todavía.</p>
+  </div>
+  <div class="timeline-item">
+    <span class="timeline-item__date">Martes 4 de agosto</span>
+    <h3 class="timeline-item__title">Anuncio de la fecha</h3>
+    <p>Se publica en el feed y en historias que el jueves 6 abre la preventa. Se activa el temporizador de Instagram con esa fecha.</p>
+  </div>
+  <div class="timeline-item">
+    <span class="timeline-item__date">Miércoles 5 de agosto</span>
+    <h3 class="timeline-item__title">Recordatorio</h3>
+    <p>Historias recordando la fecha, para quienes no vieron el anuncio del día anterior. Reunión de revisión interna a las 9:00.</p>
+  </div>
+  <div class="timeline-item">
+    <span class="timeline-item__date">Jueves 6 de agosto</span>
+    <h3 class="timeline-item__title">Apertura de la preventa</h3>
+    <p>Se abre la tienda para pedidos de los cuatro modelos. Es el día grande: toda la demanda que se guardó se concentra aquí.</p>
+  </div>
+  <div class="timeline-item">
+    <span class="timeline-item__date">Primera semana de septiembre</span>
+    <h3 class="timeline-item__title">Cierre y despacho</h3>
+    <p>Los puzzles llegan ~16 de agosto, pero el primer despacho de la preventa se promete recién para la primera semana de septiembre — a propósito, conservador (ver sección 7).</p>
+  </div>
+</div>
 
 <div class="kpi-grid">
-  <div class="kpi"><span class="kpi__label">Aporte de Klaviyo, últimos 30 días 🟢</span><span class="kpi__value">~9%</span></div>
-  <div class="kpi"><span class="kpi__label">Aporte de Klaviyo, últimos 7 días 🟢</span><span class="kpi__value">13,8%</span></div>
-  <div class="kpi"><span class="kpi__label">Meta propuesta 🟡</span><span class="kpi__value">20-25%</span></div>
-  <div class="kpi"><span class="kpi__label">Plata adicional estimada al mes 🟡</span><span class="kpi__value">~$495.000</span></div>
+  <div class="kpi">
+    <span class="kpi__label">Modelos en la preventa</span>
+    <span class="kpi__value">4</span>
+    <span class="kpi__delta kpi__delta--up">🟢 aves · cetáceos · hongos · mariposas</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Unidades en camino</span>
+    <span class="kpi__value">1.000</span>
+    <span class="kpi__delta kpi__delta--up">🟢 500 son del modelo de aves</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Tareas técnicas en la tienda</span>
+    <span class="kpi__value" id="kpi-tareas-pendientes">10 pendientes</span>
+    <span class="kpi__delta kpi__delta--up">ver checklist, sección 5</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Primer despacho prometido</span>
+    <span class="kpi__value">1ª semana sept.</span>
+    <span class="kpi__delta kpi__delta--up">🟢 conservador a propósito</span>
+  </div>
 </div>
-<p><span class="pill pill--success">🟢 dato real</span> Fuente: pantalla de Klaviyo mostrada en la reunión del 27 de julio de 2026 (ver acta).</p>
+</section>
 
-<p>Explicado simple: de cada $100 pesos que vende hoy la tienda, cerca de $9 llegan gracias a un correo. El dato de los últimos 7 días es más alto (13,8 de cada $100) — posiblemente por la Semana Pedraza, la semana de promoción que recién terminó, con más campañas enviadas de lo normal. <span class="pill pill--warn">🟡 lectura razonable, no confirmada campaña por campaña</span></p>
-
-<div class="callout callout--warn">
-<p><strong>La meta de 20-25% no es un estudio publicado.</strong> Es una referencia que sale de la experiencia del operador con otras tiendas que tienen sus flujos y campañas de correo bien trabajados. Sirve como norte hacia dónde apuntar, no como una promesa de resultado.</p>
-</div>
-
-<div class="callout callout--warn">
-<p><strong>Lo que significa en plata (cálculo, no promesa):</strong> usando ~$4.500.000 CLP al mes como referencia del tamaño de la tienda (el orden de magnitud real de la facturación mensual, ver el research de la tienda) — pasar del 9% actual al 20% de meta significa pasar de unos $405.000 a unos $900.000 CLP al mes generados por correo. La diferencia: <strong>cerca de $495.000 CLP al mes</strong>, casi medio millón de pesos adicionales, sin gastar un peso más en publicidad. Es un cálculo aritmético simple sobre datos reales, no una cifra garantizada.</p>
-</div>
-
-<h3>Flujos vs. campañas: dónde está el hueco</h3>
-<p>Dentro de Klaviyo hay dos tipos de correos, y conviene no confundirlos:</p>
+<section class="sec">
+<h2>Por qué se anuncia la fecha y no la preventa</h2>
+<p>La decisión que se tomó en la llamada del 31 de julio 🟢 es simple de explicar con una comparación: <strong>funciona como el anuncio de un concierto.</strong> No se abre la venta de entradas en silencio — primero se anuncia el día en que se van a poder comprar, para que todo el mundo se entere al mismo tiempo y llegue ese día con la decisión ya tomada.</p>
 
 <div class="grid-2">
   <div class="card">
-    <h3>Flujos <span class="pill pill--success">funcionan</span></h3>
-    <p>Correos automáticos. Se arman una vez y después se disparan solos cuando pasa algo: alguien compra por primera vez, deja un carrito sin pagar, o hace tiempo que no compra.</p>
+    <h3>😶 Si se abre sin avisar</h3>
+    <p>Cada persona se entera en un momento distinto: unas ese día, otras a la semana, otras nunca. Sin un momento que concentre la atención, la demanda se reparte en varios días — y repartida, no se nota, no genera comentarios, no convence a nadie de apurarse.</p>
+    <div class="compare-dots" aria-hidden="true">
+      <span style="height:14px"></span><span style="height:22px"></span><span style="height:10px"></span><span style="height:30px"></span><span style="height:16px"></span><span style="height:24px"></span><span style="height:12px"></span><span style="height:28px"></span><span style="height:18px"></span><span style="height:20px"></span>
+    </div>
+    <p class="compare-caption">Ilustración del mecanismo, no un dato medido.</p>
   </div>
   <div class="card">
-    <h3>Campañas <span class="pill pill--danger">el hueco</span></h3>
-    <p>Correos manuales. Se escriben y se envían a mano, semana a semana. Hoy se mandan 1 a 2 por semana — 3 a 4 en semanas de promoción como la Semana Pedraza que recién terminó. 🟢</p>
+    <h3>📣 Si se avisa antes</h3>
+    <p>Todos saben la fecha con anticipación, así que todos llegan el mismo día. Eso concentra los pedidos en una sola jornada — y un día grande genera prueba social (la gente ve que otros están comprando), urgencia real y una señal clara de qué modelo se vende más.</p>
+    <div class="compare-dots compare-dots--concentrated" aria-hidden="true">
+      <span class="compare-dots__big"></span>
+    </div>
+    <p class="compare-caption">Ilustración del mecanismo, no un dato medido.</p>
   </div>
 </div>
 
-<p>Ahí está la oportunidad más grande y más rápida de cerrar: no depende de tráfico nuevo ni de gastar en publicidad, solo de escribir y enviar más seguido a la gente que ya conoce la marca.</p>
-</section>
-
-<section class="sec" id="tres-correos-por-semana">
-<h2>¿Tres correos por semana no es mucho?</h2>
-<p>En la reunión, Cote hizo una pregunta que cualquiera se haría: tres correos a la semana, ¿no es demasiado? Es una duda válida — nadie quiere ser la marca que satura la bandeja de entrada.</p>
-
-<p>La respuesta corta: <strong>no es la cantidad, es a quién le llega y qué le llega.</strong> No todas las personas de la lista reciben los mismos 3 correos — depende de hace cuánto compraron por última vez (la <strong>recencia</strong>, en simple: hace cuánto tiempo fue la última compra de esa persona).</p>
-
-<div class="chart-bar-row"><span class="chart-bar-row__label">Activos (0-30 días)</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:33%"></div></div><span class="chart-bar-row__value">1 correo</span></div>
-<div class="chart-bar-row"><span class="chart-bar-row__label">Recompra (30-60 días)</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:66%"></div></div><span class="chart-bar-row__value">2 correos</span></div>
-<div class="chart-bar-row"><span class="chart-bar-row__label">Reactivación (60+ o nunca)</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div><span class="chart-bar-row__value">3 correos</span></div>
-
-<div class="table-wrap">
-<table>
-<thead><tr><th>Segmento</th><th>Hace cuánto compró</th><th>Correos por semana</th><th>Por qué</th></tr></thead>
-<tbody>
-<tr><td>Activos</td><td>0-30 días</td><td>1</td><td>Ya está comprando. No hay que saturarlo.</td></tr>
-<tr><td>Recompra</td><td>30-60 días</td><td>2</td><td>Es el momento en que suele volver a comprar.</td></tr>
-<tr><td>Reactivación</td><td>Más de 60 días, o nunca compró</td><td>3</td><td>Hay que despertarlo y crear el hábito de abrir.</td></tr>
-</tbody>
-</table>
-</div>
-
-<p>El principio de fondo: <strong>la mayoría de los correos no deben oler a venta.</strong> Sirven para que abrir el correo de Pedraza Ilustración se vuelva un hábito. Así, cuando llega el correo que sí vende algo, la persona ya tiene la costumbre de abrir — no lo siente como spam.</p>
-
 <div class="callout callout--info">
-<p><strong>El efecto reputación, explicado simple.</strong> Es como el cartero: si la gente siempre abre las cartas que le mandas, Gmail y Outlook empiezan a confiar en ti y dejan tus correos en la bandeja principal. Si la gente nunca los abre, o los manda a spam, el cartero empieza a dudar y los deja en la pestaña de promociones — o derecho en spam. Enviar contenido que se abre, aunque no venda nada, mejora que los correos de venta también lleguen bien.</p>
+<p><strong>El temporizador de Instagram, en simple.</strong> Es un adorno (sticker) que se agrega a una historia y muestra una cuenta regresiva hasta una fecha y hora exactas. Quien lo ve puede tocar "Avisarme" y recibe una notificación justo cuando el tiempo llega a cero — así no depende de que se acuerde solo.</p>
 </div>
-</section>
-
-<section class="sec" id="historia-y-producto">
-<h2>La estructura de cada campaña: historia → producto</h2>
-<p>El enfoque ya está definido: cada campaña parte con una historia y después conecta con un producto, nunca al revés. Son 4 pasos.</p>
 
 <div class="timeline">
-<div class="timeline-item"><span class="timeline-item__date">Paso 1</span><h3 class="timeline-item__title">Gancho en el asunto</h3><p>Una frase que da curiosidad, sin sonar a publicidad ni prometer descuento.</p></div>
-<div class="timeline-item"><span class="timeline-item__date">Paso 2</span><h3 class="timeline-item__title">Historia breve</h3><p>La especie, el proceso o la anécdota. Sin mencionar el producto todavía.</p></div>
-<div class="timeline-item"><span class="timeline-item__date">Paso 3</span><h3 class="timeline-item__title">Puente natural</h3><p>La frase que conecta la historia con el producto, sin que se sienta forzado.</p></div>
-<div class="timeline-item"><span class="timeline-item__date">Paso 4</span><h3 class="timeline-item__title">Un solo llamado a la acción</h3><p>Un solo link o botón. Nunca dos ofertas compitiendo por el clic.</p></div>
-</div>
-
-<p>Abajo, 3 campañas completas, listas para copiar y pegar en Klaviyo. Cada una trae su asunto principal y un asunto alternativo, para probar cuál se abre más.</p>
-
-<h3 id="campana-chucao">Campaña 1 — El chucao</h3>
-<p><span class="pill">Producto: pack de láminas Martín Pescador y Chucao</span> <span class="pill pill--warn">🟡 precio del pack por confirmar — no se menciona en el correo</span></p>
-<div class="copyblock">
-<button type="button" class="copyblock__btn" data-copy-target="copy-chucao">Copiar</button>
-<div class="copyblock__text" id="copy-chucao">Asunto: El pájaro que grita antes de que salgas de tu casa
-
-Hola,
-
-Hay un pájaro chileno que casi nadie ve, pero que todos escuchan.
-
-Se llama chucao. Vive escondido entre la maleza de los bosques del sur, tan pegado al suelo que parece más un ratón con plumas que un ave. Pero apenas abre el pico, ese pajarito chico suelta un grito fuerte y seco que se escucha de lejos: "chu-cao, chu-cao".
-
-En Chiloé dicen que el chucao anuncia lo que viene. Si lo escuchas cantar a tu derecha, dicen que trae buena suerte. Si canta a tu izquierda, algunos prefieren devolverse a la casa un rato.
-
-Nosotros no sabemos si eso es cierto. Pero sí sabemos por qué quisimos dibujarlo: pocas aves tienen tanto carácter en un cuerpo tan chico.
-
-Por eso el chucao vive hoy en uno de nuestros packs de láminas, junto al Martín Pescador — otro personaje pequeño con harta personalidad. Dos acuarelas en impresión de calidad, listas para enmarcar y colgar en un lugar donde las veas todos los días.
-
-Ver el pack de láminas → https://pedrazailustracion.com/products/pack-laminas-loica-y-siete-colores-copia
-
-Un abrazo,
-Cote</div>
-</div>
-<p>Asunto alternativo para probar:</p>
-<div class="copyblock">
-<button type="button" class="copyblock__btn" data-copy-target="copy-chucao-alt">Copiar</button>
-<div class="copyblock__text" id="copy-chucao-alt">Por qué el chucao es tan escandaloso (y tan querido en el sur)</div>
-</div>
-
-<h3 id="campana-proceso">Campaña 2 — Del cerro al puzzle</h3>
-<p><span class="pill">Producto: puzzle Aves y Flores de Chile</span> <span class="pill pill--warn">🟡 sin stock hasta fines de agosto — la campaña pide el correo, no vende</span></p>
-<div class="copyblock">
-<button type="button" class="copyblock__btn" data-copy-target="copy-proceso">Copiar</button>
-<div class="copyblock__text" id="copy-proceso">Asunto: Del cerro al rompecabezas: así nace cada ilustración
-
-Hola,
-
-Antes de que una ilustración nuestra llegue a tus manos, pasa por hartos pasos que no se ven.
-
-Todo parte en terreno: fotos, apuntes y horas mirando cómo se posa un ave, cómo se abre una flor, qué color tiene el musgo después de la lluvia. De ahí sale el boceto a lápiz, y después la acuarela, capa por capa, hasta que el papel se llena de esos colores que reconoces al tiro como parte de Pedraza.
-
-Recién ahí la ilustración se convierte en producto: se separa en mil piezas, se calcula cada corte, y se arma la guía con el nombre de cada especie —común y científico— para que armar el puzzle también sea aprender algo de la naturaleza de Chile.
-
-Ahora mismo estamos sin stock de puzzles: viene un cargamento nuevo que llega a fines de agosto. Deja tu correo marcado y te avisamos apenas estén disponibles otra vez, antes de que se agoten como la vez pasada.
-
-Avísame cuando vuelva el puzzle → https://pedrazailustracion.com/products/puzzle-1000-piezas-aves-flores-chilenas
-
-Un abrazo,
-Cote</div>
-</div>
-<p>Asunto alternativo para probar:</p>
-<div class="copyblock">
-<button type="button" class="copyblock__btn" data-copy-target="copy-proceso-alt">Copiar</button>
-<div class="copyblock__text" id="copy-proceso-alt">Lo que nadie ve antes de que exista un puzzle Pedraza</div>
-</div>
-
-<h3 id="campana-hongos">Campaña 3 — Los hongos no son plantas</h3>
-<p><span class="pill">Producto: puzzle de Hongos de Chile</span> <span class="pill pill--warn">🟡 sin stock hasta fines de agosto — la campaña pide el correo, no vende</span></p>
-<div class="copyblock">
-<button type="button" class="copyblock__btn" data-copy-target="copy-hongos">Copiar</button>
-<div class="copyblock__text" id="copy-hongos">Asunto: Los hongos no son plantas (y esto lo cambia todo)
-
-Hola,
-
-Una pregunta simple: ¿los hongos son plantas?
-
-La respuesta corta es no. Ni siquiera están cerca. Los científicos los ponen en su propio grupo, separado de las plantas y de los animales — y, tan curioso como suena, están genéticamente más cerca de los animales que de las plantas.
-
-¿Por qué? Las plantas fabrican su propio alimento con luz del sol. Los hongos no pueden hacer eso. Ellos se alimentan absorbiendo lo que encuentran a su alrededor: hojas caídas, madera vieja, materia en descomposición. Por eso los ves crecer en troncos húmedos y no en las ramas de un árbol.
-
-Lo que vemos como "el hongo" —el sombrerito de colores— es solo la parte visible. Por debajo hay una red enorme, casi invisible, que conecta el bosque entero y lo ayuda a mantenerse sano.
-
-Esa es la razón por la que le dedicamos un puzzle entero a los hongos de Chile: son de los seres más raros y menos entendidos de nuestros bosques, y se merecían su propia ilustración.
-
-Hoy estamos sin stock — vuelven a fines de agosto. Deja tu correo marcado y te avisamos apenas estén de vuelta.
-
-Avísame cuando vuelva el puzzle de hongos → https://pedrazailustracion.com/collections/puzzles
-
-Un abrazo,
-Cote</div>
-</div>
-<p>Asunto alternativo para probar:</p>
-<div class="copyblock">
-<button type="button" class="copyblock__btn" data-copy-target="copy-hongos-alt">Copiar</button>
-<div class="copyblock__text" id="copy-hongos-alt">Lo que la mayoría no sabe de los hongos de Chile</div>
+  <div class="timeline-item">
+    <span class="timeline-item__date">Paso 1</span>
+    <h3 class="timeline-item__title">Abrir una historia nueva</h3>
+    <p>Con cualquier foto o video de fondo — la del anuncio del martes funciona bien.</p>
+  </div>
+  <div class="timeline-item">
+    <span class="timeline-item__date">Paso 2</span>
+    <h3 class="timeline-item__title">Buscar el adorno "Cuenta regresiva"</h3>
+    <p>Está en el menú de adornos (stickers) de historias, junto a las encuestas y las preguntas.</p>
+  </div>
+  <div class="timeline-item">
+    <span class="timeline-item__date">Paso 3</span>
+    <h3 class="timeline-item__title">Fijar la fecha y hora</h3>
+    <p>Jueves 6 de agosto, a la hora en que se planea abrir la tienda. Se le puede poner un nombre corto, como "Vuelven los puzzles".</p>
+  </div>
+  <div class="timeline-item">
+    <span class="timeline-item__date">Paso 4</span>
+    <h3 class="timeline-item__title">Publicar y repetirlo</h3>
+    <p>Se puede volver a agregar el mismo temporizador en varias historias durante la semana — cada vez que alguien lo ve, puede tocar "Avisarme" de nuevo si no lo había hecho.</p>
+  </div>
 </div>
 </section>
 
-<section class="sec" id="diseno-o-texto-plano">
-<h2>Diseño elaborado o texto plano: cómo decidirlo</h2>
-<p>La otra duda que dejó Cote en la reunión: ¿conviene un correo con diseño elaborado —colores, banner, botones— o un texto plano, como una carta personal? No hay que adivinar la respuesta: se prueba.</p>
+<section class="sec">
+<h2>Día a día, canal por canal</h2>
+<p>La pieza central del plan. Para cada día: qué sale en historias, qué sale en el feed, qué correo se manda y qué cambia en la web — y quién lo hace.</p>
+
+<div class="card">
+  <h3>Lunes 3 de agosto — Preparación final</h3>
+  <div class="day-card__owners"><span class="pill pill--warn">Mateo</span><span class="pill pill--info">Cote</span><span class="pill pill--success">Valentina</span></div>
+  <ul class="channel-list">
+    <li><span class="channel-list__icon" aria-hidden="true">📱</span><div class="channel-list__body"><span class="channel-list__label">Historias IG</span>Nada público todavía. Cote y Valentina terminan de grabar y montar el collage de capturas de mensajes en CapCut o Edits.</div></li>
+    <li><span class="channel-list__icon" aria-hidden="true">📰</span><div class="channel-list__body"><span class="channel-list__label">Feed</span>Sin publicación. El anuncio se guarda para mañana.</div></li>
+    <li><span class="channel-list__icon" aria-hidden="true">✉️</span><div class="channel-list__body"><span class="channel-list__label">Correo</span>Sin envío. Se prepara el correo de aviso de la fecha (sección 4) para mañana.</div></li>
+    <li><span class="channel-list__icon" aria-hidden="true">🌐</span><div class="channel-list__body"><span class="channel-list__label">Web</span>Mateo deja lista toda la checklist técnica de la sección 5: productos marcados como preventa, pop-up, aviso en el carrito, correo de agradecimiento y la colección de preventa.</div></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>Martes 4 de agosto — Se anuncia la fecha</h3>
+  <div class="day-card__owners"><span class="pill pill--info">Cote</span></div>
+  <ul class="channel-list">
+    <li><span class="channel-list__icon" aria-hidden="true">📱</span><div class="channel-list__body"><span class="channel-list__label">Historias IG</span>Historia 1: captura de un mensaje real preguntando por el restock. Historia 2: el temporizador de Instagram fijado al jueves 6 de agosto. Historia 3: Cote a cámara, contando en 10 segundos que ya hay fecha.</div></li>
+    <li><span class="channel-list__icon" aria-hidden="true">📰</span><div class="channel-list__body"><span class="channel-list__label">Feed</span>Se publica el Reel del collage de mensajes (guion en sección 4) con el anuncio de la fecha en el texto.</div></li>
+    <li><span class="channel-list__icon" aria-hidden="true">✉️</span><div class="channel-list__body"><span class="channel-list__label">Correo</span>Se manda el correo de aviso de la fecha a toda la lista de Klaviyo.</div></li>
+    <li><span class="channel-list__icon" aria-hidden="true">🌐</span><div class="channel-list__body"><span class="channel-list__label">Web</span>El pop-up de captura de correos ya está activo, invitando a dejar el correo para que avisen el jueves.</div></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>Miércoles 5 de agosto — Recordatorio</h3>
+  <div class="day-card__owners"><span class="pill pill--success">Valentina</span><span class="pill pill--info">Cote</span></div>
+  <ul class="channel-list">
+    <li><span class="channel-list__icon" aria-hidden="true">📱</span><div class="channel-list__body"><span class="channel-list__label">Historias IG</span>Historia 1: "mañana es el día", con el temporizador otra vez. Historia 2: mosaico con los 4 modelos que entran a la preventa. Historia 3: repost del temporizador para quienes todavía no tocaron "Avisarme".</div></li>
+    <li><span class="channel-list__icon" aria-hidden="true">📰</span><div class="channel-list__body"><span class="channel-list__label">Feed</span>Sin publicación nueva — el foco del día son las historias, para no cansar el feed dos días seguidos.</div></li>
+    <li><span class="channel-list__icon" aria-hidden="true">✉️</span><div class="channel-list__body"><span class="channel-list__label">Correo</span>Sin envío nuevo (ya se mandó el aviso el martes).</div></li>
+    <li><span class="channel-list__icon" aria-hidden="true">🌐</span><div class="channel-list__body"><span class="channel-list__label">Web</span>Reunión de revisión a las 9:00 🟢: Mateo repasa junto al equipo que toda la checklist de la sección 5 quedó lista antes del jueves.</div></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>Jueves 6 de agosto — Apertura de la preventa</h3>
+  <div class="day-card__owners"><span class="pill pill--info">Cote</span><span class="pill pill--success">Valentina</span></div>
+  <ul class="channel-list">
+    <li><span class="channel-list__icon" aria-hidden="true">📱</span><div class="channel-list__body"><span class="channel-list__label">Historias IG</span>Historia 1 (mañana): "hoy es el día", link a la tienda. Historia 2 (mediodía): pantallazo de los pedidos entrando. Historia 3 (tarde): el aviso de despacho combinado, para quien compre preventa junto con algo en stock. Historia 4 (noche): recordatorio de que todavía se puede comprar.</div></li>
+    <li><span class="channel-list__icon" aria-hidden="true">📰</span><div class="channel-list__body"><span class="channel-list__label">Feed</span>Post o Reel anunciando que la preventa ya está abierta, con "link en la bio".</div></li>
+    <li><span class="channel-list__icon" aria-hidden="true">✉️</span><div class="channel-list__body"><span class="channel-list__label">Correo</span>Se manda el correo del día de apertura a toda la lista, apenas se activa la preventa en la tienda.</div></li>
+    <li><span class="channel-list__icon" aria-hidden="true">🌐</span><div class="channel-list__body"><span class="channel-list__label">Web</span>La colección de preventa queda visible y comprable. El aviso de despacho combinado se ve en la ficha y en el carrito.</div></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>Viernes 7 de agosto en adelante — la preventa sigue abierta</h3>
+  <div class="day-card__owners"><span class="pill pill--info">Cote</span><span class="pill pill--success">Valentina</span></div>
+  <ul class="channel-list">
+    <li><span class="channel-list__icon" aria-hidden="true">📱</span><div class="channel-list__body"><span class="channel-list__label">Historias IG</span>Se sigue con el ritmo habitual de ~3 publicaciones por semana 🟢: agradecimiento por la respuesta, y más adelante el segundo formato acordado — el mismo collage apilado, pero con testimonios de quienes ya compraron antes.</div></li>
+    <li><span class="channel-list__icon" aria-hidden="true">📰</span><div class="channel-list__body"><span class="channel-list__label">Feed</span>Contenido regular de la marca, incluyendo piezas de alcance para quienes todavía no piensan en comprar (ver "conciencia 1" en <a href="guion-reels.html">Guiones de Reels</a>).</div></li>
+    <li><span class="channel-list__icon" aria-hidden="true">✉️</span><div class="channel-list__body"><span class="channel-list__label">Correo</span>Vuelve el ritmo normal de 3 campañas por semana, storytelling primero y producto después (ver <a href="email.html">Correo y campañas</a>).</div></li>
+    <li><span class="channel-list__icon" aria-hidden="true">🌐</span><div class="channel-list__body"><span class="channel-list__label">Web</span>Se revisan las métricas de la sección 6: correos capturados, pedidos y unidades por modelo. No se anuncia públicamente la llegada del contenedor (~16 de agosto): la fecha de despacho prometida sigue siendo la primera semana de septiembre (ver sección 7).</div></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>Primera semana de septiembre — Cierre y despacho</h3>
+  <div class="day-card__owners"><span class="pill pill--warn">Mateo</span><span class="pill pill--info">Cote</span></div>
+  <ul class="channel-list">
+    <li><span class="channel-list__icon" aria-hidden="true">📱</span><div class="channel-list__body"><span class="channel-list__label">Historias IG</span>Aviso de que los pedidos ya están saliendo, con imágenes reales del empaque si es posible.</div></li>
+    <li><span class="channel-list__icon" aria-hidden="true">📰</span><div class="channel-list__body"><span class="channel-list__label">Feed</span>Publicación de cierre agradeciendo la respuesta de la preventa.</div></li>
+    <li><span class="channel-list__icon" aria-hidden="true">✉️</span><div class="channel-list__body"><span class="channel-list__label">Correo</span>Correo de despacho a cada persona con su pedido en camino (fuera del alcance de esta página: lo arma el flujo de Klaviyo de confirmación de envío).</div></li>
+    <li><span class="channel-list__icon" aria-hidden="true">🌐</span><div class="channel-list__body"><span class="channel-list__label">Web</span>Se cierra la preventa: los productos vuelven a mostrarse con stock normal, o "agotado" si algún modelo se vendió completo.</div></li>
+  </ul>
+</div>
+</section>
+
+<section class="sec">
+<h2>Todos los textos, listos para copiar</h2>
+<p>Copy real de la marca, en primera persona de Cote. Cada bloque tiene su botón para copiar y pegar directo donde corresponda.</p>
+
+<h3>El anuncio de la fecha (feed, martes 4)</h3>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-anuncio-feed">Copiar</button>
+<div class="copyblock__text" id="copy-anuncio-feed">Hace semanas que no paro de leer el mismo mensaje: "¿cuándo llegan los puzzles?" 🧩
+
+Así que aquí va la respuesta, con fecha y todo: el jueves 6 de agosto abrimos la preventa.
+
+Van a entrar los cuatro modelos —aves, cetáceos, hongos y mariposas—, así que puedes asegurar el tuyo antes de que se agote como la última vez.
+
+El primer despacho sale la primera semana de septiembre. Prefiero avisarte esa fecha y sorprenderte antes, que prometerte algo más rápido y hacerte esperar.
+
+Guarda el jueves 6 de agosto. En mis historias vas a encontrar un cronómetro para que no se te olvide 🔔
+
+Con cariño,
+Cote</div>
+</div>
+
+<h3>Historias — martes 4 (anuncio)</h3>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-hist-mar-1">Copiar</button>
+<div class="copyblock__text" id="copy-hist-mar-1">Historia 1 — captura de un mensaje real
+"¿Cuándo llegan los puzzles?" 👀
+Llevo semanas leyendo este mismo mensaje. Hoy por fin tengo la respuesta →</div>
+</div>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-hist-mar-2">Copiar</button>
+<div class="copyblock__text" id="copy-hist-mar-2">Historia 2 — temporizador
+Ya tiene fecha 🎉
+El jueves 6 de agosto abrimos la preventa de los 4 modelos de puzzle.
+[Adorno: Cuenta regresiva → jueves 6 de agosto]</div>
+</div>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-hist-mar-3">Copiar</button>
+<div class="copyblock__text" id="copy-hist-mar-3">Historia 3 — Cote a cámara
+Quería contarte al tiro: el jueves abrimos la preventa de los puzzles. Los cuatro modelos, no solo aves. Te espero 🧩</div>
+</div>
+
+<h3>Historias — miércoles 5 (recordatorio)</h3>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-hist-mie-1">Copiar</button>
+<div class="copyblock__text" id="copy-hist-mie-1">Historia 1 — cuenta regresiva
+Mañana es el día 📅
+El jueves 6 de agosto abrimos la preventa de los 4 modelos de puzzle.</div>
+</div>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-hist-mie-2">Copiar</button>
+<div class="copyblock__text" id="copy-hist-mie-2">Historia 2 — mosaico de modelos
+Estos son los 4 que entran mañana 🧩
+Aves · Cetáceos · Hongos · Mariposas</div>
+</div>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-hist-mie-3">Copiar</button>
+<div class="copyblock__text" id="copy-hist-mie-3">Historia 3 — repost temporizador
+Últimas horas para activar el aviso ⏰
+Toca "Avisarme" para que te llegue apenas abramos mañana.
+[Adorno: Cuenta regresiva → jueves 6 de agosto]</div>
+</div>
+
+<h3>Historias — jueves 6 (apertura)</h3>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-hist-jue-1">Copiar</button>
+<div class="copyblock__text" id="copy-hist-jue-1">Historia 1 — mañana
+Hoy es el día 🎉
+Ya puedes reservar tu puzzle. Link en la bio.</div>
+</div>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-hist-jue-2">Copiar</button>
+<div class="copyblock__text" id="copy-hist-jue-2">Historia 2 — mediodía
+Llevamos varios pedidos desde la mañana. Gracias por tanto cariño 🧡
+Si todavía no reservas el tuyo, el link está en la bio.</div>
+</div>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-hist-jue-3">Copiar</button>
+<div class="copyblock__text" id="copy-hist-jue-3">Historia 3 — tarde
+Un detalle importante: si compras un puzzle en preventa junto con algo que ya tenemos en stock, todo tu pedido se despacha junto, la primera semana de septiembre.</div>
+</div>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-hist-jue-4">Copiar</button>
+<div class="copyblock__text" id="copy-hist-jue-4">Historia 4 — noche
+Todavía estás a tiempo, la preventa sigue abierta 🧩
+Link en la bio.</div>
+</div>
+
+<h3>Correo — aviso de la fecha (martes 4)</h3>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-correo-aviso">Copiar</button>
+<div class="copyblock__text" id="copy-correo-aviso">Asunto: El jueves 6 de agosto vuelven los puzzles (con fecha, esta vez)
+
+Hola,
+
+Llevo semanas respondiendo la misma pregunta: ¿cuándo llegan los puzzles?
+
+Hoy por fin tengo una fecha para darte: el jueves 6 de agosto abrimos la preventa.
+
+Van a entrar los cuatro modelos —aves, cetáceos, hongos y mariposas—, así que vas a poder elegir el tuyo antes de que se agote otra vez.
+
+El primer despacho sale la primera semana de septiembre. Prefiero avisarte esa fecha y sorprenderte antes, que prometerte algo más rápido y no cumplir.
+
+Si compras un puzzle en preventa junto con algún otro producto que ya tenemos en stock, todo tu pedido va a salir junto, en esa misma fecha.
+
+Guarda el jueves 6 en tu calendario. Te voy a avisar apenas abra.
+
+Un abrazo,
+Cote</div>
+</div>
+
+<h3>Correo — día de apertura (jueves 6)</h3>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-correo-apertura">Copiar</button>
+<div class="copyblock__text" id="copy-correo-apertura">Asunto: Ya está abierta la preventa de puzzles 🧩
+
+Hola,
+
+Hoy es el día: ya puedes reservar tu puzzle.
+
+Están los cuatro modelos —aves, cetáceos, hongos y mariposas— al mismo precio de siempre. El primer despacho sale la primera semana de septiembre.
+
+Si en tu pedido va un puzzle en preventa junto con algún otro producto que ya tenemos en stock, todo el pedido se despacha junto, en esa misma fecha.
+
+Después de la última vez que se agotaron, prefiero avisarte apenas se pueda: entra ahora y asegura el tuyo.
+
+Ver los puzzles → https://pedrazailustracion.com/collections/puzzles
+
+Un abrazo,
+Cote</div>
+</div>
+
+<h3>El pop-up de captura de correos</h3>
+<p>Título:</p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-popup-titulo">Copiar</button>
+<div class="copyblock__text" id="copy-popup-titulo">¿Quieres que te avisemos primero?</div>
+</div>
+<p>Bajada (subtítulo):</p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-popup-subtitulo">Copiar</button>
+<div class="copyblock__text" id="copy-popup-subtitulo">El jueves 6 de agosto abrimos la preventa de los 4 modelos de puzzle. Deja tu correo y te avisamos apenas abra.</div>
+</div>
+<p>Botón:</p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-popup-boton">Copiar</button>
+<div class="copyblock__text" id="copy-popup-boton">Avísame el jueves</div>
+</div>
+
+<h3>El aviso de despacho combinado</h3>
+<p>🔴 Punto crítico acordado en la llamada: si alguien compra un producto en preventa junto con uno en stock, todo el pedido se despacha junto. Va en tres lugares.</p>
+<p>Ficha de producto:</p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-aviso-ficha">Copiar</button>
+<div class="copyblock__text" id="copy-aviso-ficha">🧩 Este puzzle está en preventa. Despacha en la primera semana de septiembre. Si lo compras junto con otro producto que ya está en stock, todo tu pedido sale en esa misma fecha.</div>
+</div>
+<p>Carrito:</p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-aviso-carrito">Copiar</button>
+<div class="copyblock__text" id="copy-aviso-carrito">📦 Tu carrito incluye un producto en preventa. Todo el pedido —incluido lo que ya está en stock— se despacha junto, en la primera semana de septiembre.</div>
+</div>
+<p>Correo de agradecimiento:</p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-aviso-correo">Copiar</button>
+<div class="copyblock__text" id="copy-aviso-correo">Gracias por tu compra. Tu pedido incluye un producto en preventa: eso significa que todo el pedido —incluido lo que compraste que ya estaba en stock— sale junto, en la primera semana de septiembre. Apenas se despache, te avisamos con el número de seguimiento.</div>
+</div>
+
+<h3>Guion de Reel — el collage de mensajes</h3>
+<div class="card">
+  <div class="day-card__owners"><span class="pill pill--info">Cote</span><span class="pill pill--success">Valentina</span><span class="pill">⏱️ 15-20 segundos</span></div>
+  <div class="copyblock">
+  <button type="button" class="copyblock__btn" data-copy-target="copy-guion-collage">Copiar</button>
+  <div class="copyblock__text" id="copy-guion-collage">[ESCENA] Capturas de pantalla reales de mensajes preguntando "¿cuándo llegan los puzzles?", montadas una sobre otra en CapCut o Edits, cada vez más rápido, hasta llenar la pantalla completa.
+
+[TEXTO EN PANTALLA]
+- Inicio: "Llevo semanas leyendo esto"
+- Mitad: (las capturas se apilan solas, sin texto encima)
+- Final: "El jueves 6 de agosto, vuelven 🧩"
+
+[VOZ o AUDIO] Sin narración, o con la voz de Cote al final diciendo: "Ya tiene fecha. Nos vemos el jueves."
+
+[CTA]
+Hablado: "Activa el aviso para que no se te pase."
+En texto: "Toca 'Avisarme' en la historia 🔔"</div>
+  </div>
+  <p><strong>Caption sugerido:</strong></p>
+  <div class="copyblock">
+  <button type="button" class="copyblock__btn" data-copy-target="copy-guion-collage-caption">Copiar</button>
+  <div class="copyblock__text" id="copy-guion-collage-caption">No fue uno ni dos: fueron decenas preguntando lo mismo 📩
+Por fin tengo la fecha: el jueves 6 de agosto abrimos la preventa de los 4 modelos de puzzle.
+Activa el aviso en mis historias para no perdértelo ⏰
+
+#pedrazailustracion #puzzleschile #ilustraciónchilena</div>
+  </div>
+</div>
+</section>
+
+<section class="sec">
+<h2>Qué hay que dejar listo en la tienda</h2>
+<p>Checklist técnica de Shopify antes del jueves. Se marca sola al hacer clic y queda guardada en este navegador.</p>
+
+<div class="progress">
+  <div class="progress__track"><div class="progress__fill" data-progress-fill></div></div>
+  <span class="progress__label" data-progress-label>0 de 0 tareas (0%)</span>
+</div>
+
+<ul class="checklist">
+  <li><label><input type="checkbox" data-preventa="marcar-aves"><span>Marcar el puzzle de Aves como preventa, con el texto "Despacha en la primera semana de septiembre"</span></label></li>
+  <li><label><input type="checkbox" data-preventa="marcar-cetaceos"><span>Marcar el puzzle de Cetáceos como preventa, con el mismo texto de fecha de despacho</span></label></li>
+  <li><label><input type="checkbox" data-preventa="marcar-hongos"><span>Marcar el puzzle de Hongos como preventa, con el mismo texto de fecha de despacho</span></label></li>
+  <li><label><input type="checkbox" data-preventa="marcar-mariposas"><span>Marcar el puzzle de Mariposas como preventa, con el mismo texto de fecha de despacho</span></label></li>
+  <li><label><input type="checkbox" data-preventa="crear-coleccion"><span>Crear la colección "Preventa de puzzles" y agregar los 4 modelos</span></label></li>
+  <li><label><input type="checkbox" data-preventa="activar-popup"><span>Activar el pop-up de captura de correos en el sitio</span></label></li>
+  <li><label><input type="checkbox" data-preventa="aviso-carrito"><span>Agregar el aviso de despacho combinado en el carrito</span></label></li>
+  <li><label><input type="checkbox" data-preventa="correo-agradecimiento"><span>Modificar el correo de agradecimiento (confirmación de pedido) con el aviso de despacho combinado</span></label></li>
+  <li><label><input type="checkbox" data-preventa="probar-flujo-mixto"><span>Probar el flujo completo: comprar un puzzle en preventa junto con un producto en stock, y confirmar que el aviso aparece en la ficha, el carrito y el correo</span></label></li>
+  <li><label><input type="checkbox" data-preventa="revisar-consistencia-fechas"><span>Revisar que la fecha de despacho diga lo mismo en toda la tienda: ficha, carrito y correo</span></label></li>
+</ul>
+</section>
+
+<section class="sec">
+<h2>Qué se mide y cómo se lee</h2>
+<p>Qué mirar el jueves y los días siguientes, y qué hacer con cada resultado.</p>
+
+<div class="table-wrap">
+<table style="min-width:640px">
+<thead>
+<tr><th>Qué mirar</th><th>Por qué importa</th><th>Qué hacer según el resultado</th></tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Correos capturados por el pop-up</strong></td>
+<td>Mide cuánta gente quería enterarse antes de que abriera la preventa.</td>
+<td>🟡 Si son pocos, el pop-up necesita más visibilidad o un texto más directo para la próxima vez.</td>
+</tr>
+<tr>
+<td><strong>Pedidos del jueves 6 vs. un día normal</strong></td>
+<td>Muestra si concentrar la demanda en un solo día funcionó. Referencia 🟢: el promedio actual es ~4,6 pedidos al día (datos Shopify, 1-24 jul 2026, todos los canales).</td>
+<td>🟡 Si el jueves multiplica varias veces ese promedio, la estrategia de anunciar la fecha antes funcionó y conviene repetirla en el próximo lanzamiento.</td>
+</tr>
+<tr>
+<td><strong>Unidades vendidas por modelo</strong></td>
+<td>🟢 Es la señal de intención de compra por modelo (acordado en la llamada) para afinar el próximo pedido a China.</td>
+<td>🟡 Si un modelo se dispara más de lo que sugiere su historial, se pide más de ese modelo la próxima vez. Si aves sigue liderando —es el 57% de la venta histórica de puzzles 🟢— confirma que las 500 unidades de aves que llegan 🟢 fueron la proporción correcta.</td>
+</tr>
+<tr>
+<td><strong>Ticket promedio de la preventa</strong></td>
+<td>Se compara contra el ticket promedio general de la tienda: 🟢 ≈ $37.900 CLP (datos Shopify, 1-24 jul 2026, todos los canales).</td>
+<td>🟡 Si el ticket de la preventa es más alto, la gente está combinando puzzles con otros productos o comprando más de un modelo — vale la pena repetir esa combinación en ofertas futuras.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>🟡 Si la preventa se queda corta.</strong> Conviene revisar si el problema fue de alcance (pocas personas vieron el anuncio: mirar cuánta gente vio las historias del martes y miércoles) o de conversión (mucha gente vio pero no compró: revisar el mensaje, o si de verdad se usó bien el temporizador). Ese diagnóstico es lo que hay que ajustar antes de la próxima ventana de preventa.</p>
+</div>
+</section>
+
+<section class="sec">
+<h2>Los riesgos y qué hacer con ellos</h2>
+
+<div class="callout callout--danger">
+<p><strong>Si el contenedor se atrasa.</strong> 🟢 Cote advirtió en la llamada del 31 de julio que el último pedido a China demoró tres meses, no los 60-75 días con los que se habían calculado las fechas. Si eso vuelve a pasar, se comunica antes de que el cliente pregunte, nunca después: un correo o una historia corta avisando el nuevo plazo, apenas se sepa, es siempre mejor que el silencio.</p>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>Si se venden más unidades de las que llegan.</strong> Con solo 500 unidades de aves llegando 🟢 —el modelo que es el 57% de la venta histórica de puzzles 🟢—, es el más expuesto a agotarse durante la preventa. Si un modelo se agota, se avisa al tiro en la ficha y en la comunicación, se ofrece cambiar de modelo o esperar al siguiente pedido, y esa misma señal ya sirve para afinar cuánto pedir la próxima vez (ver sección 6).</p>
+</div>
 
 <div class="callout callout--info">
-<p><strong>Qué es una prueba A/B, en una frase:</strong> se manda el mismo contenido en dos formatos distintos a dos mitades iguales de la lista, y se mira cuál genera más clics y más ventas. Gana el que funciona mejor con esta audiencia, no el que más nos gusta a nosotros.</p>
-</div>
-
-<div class="grid-2">
-<div class="card"><span class="pill pill--info">Mitad A</span><h3>Texto plano, carta de Cote</h3><p>Sin imágenes ni botones grandes. Igual a los 3 ejemplos de la sección anterior: se ve como un correo personal, no como publicidad.</p></div>
-<div class="card"><span class="pill pill--warn">Mitad B</span><h3>Diseño con banner</h3><p>El mismo contenido, con una imagen de cabecera y un botón de color para el llamado a la acción.</p></div>
-</div>
-
-<div class="table-wrap">
-<table>
-<thead><tr><th>Qué</th><th>Detalle</th></tr></thead>
-<tbody>
-<tr><td>Qué se envía</td><td>La misma campaña (por ejemplo, la del chucao) en dos formatos: texto plano vs. diseño con banner</td></tr>
-<tr><td>A quién</td><td>La lista se divide al azar en dos mitades iguales — Klaviyo lo hace automático con su función de prueba A/B. Nadie recibe las dos versiones</td></tr>
-<tr><td>Qué se mide</td><td>Tasa de apertura (de cada 100 que reciben el correo, cuántos lo abren), clics y ventas atribuidas a cada mitad</td></tr>
-<tr><td>Cuánto tiempo</td><td>2 a 3 envíos seguidos (unas 2-3 semanas) antes de decidir. Con un solo envío la muestra es chica y el resultado puede ser casualidad</td></tr>
-</tbody>
-</table>
-</div>
-
-<div class="callout callout--success">
-<p><strong>Recomendación:</strong> partir probando el texto plano tipo carta de Cote, porque el contenido de estas campañas es de historia — más cerca de una carta personal que de un afiche publicitario. Pero la decisión final la dan los números de la prueba, no el gusto de nadie.</p>
+<p><strong>Por qué el despacho es la primera semana de septiembre y no antes.</strong> Los puzzles llegan alrededor del 16 de agosto 🟢, pero entre que llegan y que quedan listos para despachar pasan días de proceso adicionales. Sumado a que el pedido anterior demoró más de lo calculado, la regla acordada es simple 🟢: siempre subestimar antes que sobreprometer. Nunca nadie se enoja porque le entreguen antes.</p>
 </div>
 </section>
 
-<section class="sec" id="flujos-automaticos">
-<h2>Los flujos que hay que revisar</h2>
-<p>Un <strong>flujo</strong> es un correo automático: se arma una vez y después se dispara solo. Estos son los que ya existen en Klaviyo y hoy "funcionan" según la evaluación general de la reunión — pero nadie los ha revisado en detalle todavía. Apenas entren los accesos, esta es la lista de qué mirar en cada uno.</p>
-
-<div class="table-wrap">
-<table>
-<thead><tr><th>Flujo</th><th>Qué revisar</th><th>Qué debería aportar</th></tr></thead>
-<tbody>
-<tr><td>Bienvenida</td><td>¿Entrega automático el 10% de descuento del pop-up? ¿Cuántos correos tiene la secuencia y cada cuánto se envían?</td><td>Que alguien nuevo compre rápido, mientras el interés está fresco</td></tr>
-<tr><td>Carrito abandonado</td><td>¿Cuántos recordatorios manda? ¿Sale el primero rápido — idealmente dentro de la primera hora?</td><td>Recuperar ventas que ya estaban casi cerradas</td></tr>
-<tr><td>Navegación abandonada</td><td>¿Existe? Alguien que miró productos pero no llegó a agregarlos al carrito, ¿recibe algún correo?</td><td>Traer de vuelta a quien mostró interés real, aunque no haya llegado al carrito</td></tr>
-<tr><td>Post-compra</td><td>¿Pide reseña, conectado a Judge.me? ¿Ofrece una segunda compra o un producto relacionado?</td><td>Reseñas nuevas y una segunda compra más rápida</td></tr>
-<tr><td>Reactivación de dormidos</td><td>¿Existe un correo para quien no compra hace mucho tiempo? ¿Qué le ofrece?</td><td>Recuperar clientes que ya conocen la marca, sin gastar en atraer gente nueva</td></tr>
-</tbody>
-</table>
-</div>
-
-<p>En la primera revisión de cada flujo hay que anotar el mismo dato base: cuántos correos tiene, cada cuánto se envían, tasa de apertura, clics y venta atribuida. Esa foto inicial sirve para comparar después de cualquier cambio que se haga.</p>
-
-<div class="callout callout--warn">
-<p><strong>Pregunta abierta de la reunión: ¿conviene el carrito abandonado por WhatsApp?</strong> Sí puede funcionar — WhatsApp se abre mucho más que el correo. Pero hay dos condiciones para hacerlo bien: pedir permiso antes (que la persona haya escrito primero, no contactarla en frío) y mantener el tono de la marca: cercano y personal, como ya lo hace Cote hoy, nunca un bot (Cote cierra prácticamente todas las ventas que llegan por WhatsApp hoy, y la atención personal es parte del valor de la marca). La recomendación: probarlo primero solo con quienes ya escribieron antes por WhatsApp, donde el permiso ya existe, antes de pensar en aplicarlo a toda la base de carritos abandonados.</p>
-</div>
-</section>
-
-<section class="sec" id="calendario-4-semanas">
-<h2>Calendario de las primeras 4 semanas</h2>
-<p>Propuesta de calendario a partir de la semana del 3 de agosto de 2026 — una semana después de esta reunión, con tiempo para que se entreguen los accesos. 3 campañas por semana, siguiendo la lógica de recencia de la sección 2.</p>
-
-<div class="timeline">
-<div class="timeline-item"><span class="timeline-item__date">27 de julio de 2026</span><h3 class="timeline-item__title">Reunión con Felipe y Cote <span class="pill pill--success">🟢 hoy</span></h3></div>
-<div class="timeline-item"><span class="timeline-item__date">3 de agosto de 2026</span><h3 class="timeline-item__title">Arranca el calendario de campañas <span class="pill pill--warn">🟡 propuesto</span></h3></div>
-<div class="timeline-item"><span class="timeline-item__date">9 de agosto de 2026</span><h3 class="timeline-item__title">Día del Niño <span class="pill pill--success">🟢 confirmado</span></h3></div>
-<div class="timeline-item"><span class="timeline-item__date">24-30 de agosto de 2026</span><h3 class="timeline-item__title">Llegan los puzzles a Shopify <span class="pill pill--success">🟢 confirmado</span></h3></div>
-<div class="timeline-item"><span class="timeline-item__date">18-19 de septiembre de 2026</span><h3 class="timeline-item__title">Fiestas Patrias <span class="pill pill--success">🟢 confirmado</span></h3></div>
-</div>
-
-<div class="callout callout--warn">
-<p><strong>Ojo con el Día del Niño (9 de agosto):</strong> los puzzles —el regalo educativo típico para esa fecha— siguen sin stock hasta fines de agosto. La campaña de esa semana no puede prometer un puzzle que no hay: mejor empujar productos que sí están disponibles hoy (loza, calcetines, libretas) y aprovechar el interés para sumar gente a la lista de aviso del puzzle.</p>
-</div>
-
-<div class="table-wrap">
-<table>
-<thead><tr><th>Semana</th><th>Día</th><th>Tema</th><th>Segmento</th><th>Tipo</th></tr></thead>
-<tbody>
-<tr><td rowspan="3">Semana 1<br>3-9 ago</td><td>Lunes 3</td><td><a href="#campana-chucao">El chucao</a> → pack de láminas</td><td>Todos</td><td><span class="pill pill--info">Historia</span></td></tr>
-<tr><td>Miércoles 5</td><td><a href="#campana-proceso">Del cerro al puzzle</a> (avísame cuando vuelva)</td><td>Recompra + Reactivación</td><td><span class="pill pill--info">Historia</span></td></tr>
-<tr><td>Viernes 7</td><td>Regalos para el Día del Niño con lo que sí hay en stock</td><td>Solo Reactivación</td><td><span class="pill pill--warn">Venta</span></td></tr>
-<tr><td rowspan="3">Semana 2<br>10-16 ago</td><td>Lunes 10</td><td><a href="#campana-hongos">Los hongos no son plantas</a> → puzzle de hongos (avísame)</td><td>Todos</td><td><span class="pill pill--info">Historia</span></td></tr>
-<tr><td>Miércoles 12</td><td>Historia de otra especie del catálogo (ej. Siete Colores) → láminas o papelería</td><td>Recompra + Reactivación</td><td><span class="pill pill--info">Historia</span></td></tr>
-<tr><td>Viernes 14</td><td>Loza Aves en preventa (con calcetín de regalo)</td><td>Solo Reactivación</td><td><span class="pill pill--warn">Venta</span></td></tr>
-<tr><td rowspan="3">Semana 3<br>17-23 ago</td><td>Lunes 17</td><td>Por qué las láminas no se destiñen: impresión Giclée y papel Hahnemühle</td><td>Todos</td><td><span class="pill pill--info">Historia</span></td></tr>
-<tr><td>Miércoles 19</td><td>Historia real de una reseña de clienta (215 reseñas en Judge.me) → papelería</td><td>Recompra + Reactivación</td><td><span class="pill pill--info">Historia</span></td></tr>
-<tr><td>Viernes 21</td><td>Bolsos y botellas como idea de regalo</td><td>Solo Reactivación</td><td><span class="pill pill--warn">Venta</span></td></tr>
-<tr><td rowspan="3">Semana 4<br>24-30 ago</td><td>Lunes 24</td><td>"Volvieron los puzzles" — anuncio real, cierra el aviso de las semanas 1 y 2</td><td>Todos</td><td><span class="pill pill--warn">Venta</span></td></tr>
-<tr><td>Miércoles 26</td><td>Historia de cómo armar el puzzle en familia, conectada al recién llegado</td><td>Recompra + Reactivación</td><td><span class="pill pill--info">Historia</span></td></tr>
-<tr><td>Viernes 28</td><td>Recordatorio suave + primer guiño a Fiestas Patrias</td><td>Solo Reactivación</td><td><span class="pill pill--warn">Venta</span></td></tr>
-</tbody>
-</table>
-</div>
-
-<p>Aunque cae fuera de estas primeras 4 semanas, ya vale la pena prepararlo con tiempo: <strong>Fiestas Patrias (18 y 19 de septiembre)</strong> es la siguiente fecha fuerte del calendario chileno, y las campañas de la semana 5 en adelante deberían empezar a construir hacia esa fecha.</p>
-
-<h3>Qué se mide cada semana</h3>
-<div class="grid-2">
-<div class="card"><h3>Tasa de apertura</h3><p>De cada 100 personas que reciben el correo, cuántas lo abren.</p></div>
-<div class="card"><h3>Clics</h3><p>Cuántas personas tocan algún link dentro del correo.</p></div>
-<div class="card"><h3>Ventas atribuidas</h3><p>Cuánta plata en ventas se puede atribuir directamente a ese correo. Klaviyo lo calcula automático.</p></div>
-<div class="card"><h3>Bajas de la lista</h3><p>Cuántas personas se dan de baja después de ese envío — la señal de alerta si un formato o una frecuencia está molestando.</p></div>
-</div>
-</section>
+<footer class="page-footer"><p>Fuente: acta de la reunión del 31 de julio de 2026 y datos reales de Shopify (1-24 jul 2026, todos los canales). Las cifras marcadas 🟢 vienen de esas fuentes; las marcadas 🟡 son propuestas o supuestos de este plan, no mediciones. Ver también <a href="escenarios.html">Escenarios</a>, <a href="email.html">Correo y campañas</a> y la <a href="bitacora.html">bitácora</a> del proyecto.</p></footer>
 
 </main>
+
+<script>
+  // Acceso seguro a localStorage (no revienta en navegación privada u otros bloqueos).
+  function pgGet(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+  function pgSet(key, valor) { try { localStorage.setItem(key, valor); } catch (e) { /* sin soporte, se ignora */ } }
+  function pgRemove(key) { try { localStorage.removeItem(key); } catch (e) { /* sin soporte, se ignora */ } }
+</script>
+
+<script>
+  // Checklist técnica de la preventa: data-preventa + prefijo pedraza-plan:pre:
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-preventa]').forEach(function (cb) {
+      cb.checked = pgGet('pedraza-plan:pre:' + cb.getAttribute('data-preventa')) === '1';
+    });
+    actualizarProgresoPreventa();
+  });
+
+  document.addEventListener('change', function (e) {
+    var cb = e.target.closest('[data-preventa]');
+    if (!cb) return;
+    var key = 'pedraza-plan:pre:' + cb.getAttribute('data-preventa');
+    if (cb.checked) { pgSet(key, '1'); } else { pgRemove(key); }
+    actualizarProgresoPreventa();
+  });
+
+  function actualizarProgresoPreventa() {
+    var cajas = document.querySelectorAll('[data-preventa]');
+    var total = cajas.length;
+    var done = 0;
+    cajas.forEach(function (cb) { if (cb.checked) done++; });
+    var pct = total ? Math.round((done / total) * 100) : 0;
+
+    document.querySelectorAll('[data-progress-fill]').forEach(function (fill) {
+      fill.style.width = pct + '%';
+    });
+    document.querySelectorAll('[data-progress-label]').forEach(function (label) {
+      label.textContent = done + ' de ' + total + ' tareas (' + pct + '%)';
+    });
+
+    var kpiEl = document.getElementById('kpi-tareas-pendientes');
+    if (kpiEl) {
+      var pendientes = total - done;
+      kpiEl.textContent = pendientes + (pendientes === 1 ? ' pendiente' : ' pendientes');
+    }
+  }
+</script>
+
+<script>
+  // Cuenta regresiva hasta la apertura de la preventa (jueves 6 de agosto de 2026).
+  function actualizarCuentaPreventa() {
+    var hoy = new Date();
+    var apertura = new Date(2026, 7, 6); // agosto = mes índice 7
+    var hoySinHora = new Date(hoy.getFullYear(), hoy.getMonth(), hoy.getDate());
+    var dias = Math.round((apertura - hoySinHora) / 86400000);
+
+    var numEl = document.getElementById('cd-preventa-num');
+    var unidadEl = document.getElementById('cd-preventa-unidad');
+
+    if (numEl && unidadEl) {
+      if (dias > 1) {
+        numEl.textContent = dias;
+        unidadEl.textContent = 'días';
+        numEl.classList.remove('is-pasado');
+      } else if (dias === 1) {
+        numEl.textContent = '1';
+        unidadEl.textContent = 'día';
+        numEl.classList.remove('is-pasado');
+      } else if (dias === 0) {
+        numEl.textContent = 'Hoy';
+        unidadEl.textContent = 'se abre la preventa';
+        numEl.classList.add('is-pasado');
+      } else {
+        numEl.textContent = 'Ya abrió';
+        unidadEl.textContent = 'hace ' + Math.abs(dias) + (Math.abs(dias) === 1 ? ' día' : ' días');
+        numEl.classList.add('is-pasado');
+      }
+    }
+
+    var hoyEl = document.getElementById('cd-preventa-hoy');
+    if (hoyEl) {
+      try {
+        hoyEl.textContent = hoy.toLocaleDateString('es-CL', { day: 'numeric', month: 'long', year: 'numeric' });
+      } catch (e) {
+        hoyEl.textContent = hoy.toLocaleDateString();
+      }
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', actualizarCuentaPreventa);
+</script>
 
 <script>
   // Copiar al portapapeles — delegación de eventos, un solo listener por página.
@@ -1178,8 +1534,9 @@ Cote</div>
     }, 2000);
   }
 </script>
+
 <script>
-  // Navegación global: barra superior + panel completo (15 páginas, 4 grupos).
+  // Navegación global: barra superior + panel completo.
   // Prefijo "nav" en todo para no chocar con otros scripts de la página.
   var NAV_PAGES = [
     { grupo: 'Seguimiento', id: 'estado', nombre: 'Estado del plan' },

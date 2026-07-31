@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Ordenar el modelo de datos — Plan Pedraza Ilustración</title>
+<title>Nueva estructura de precios — Plan Pedraza Ilustración</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
 <style>
 /* ==========================================================================
@@ -618,15 +618,83 @@ main { counter-reset: sec; }
   a[href]::after { content: " (" attr(href) ")"; font-size: .8em; }
 }
 
-/* ===== 21. Extensión puntual de esta página: cuadrícula de 18 meses (Corrección 1) ===== */
-.mesgrid { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--space-2); margin: var(--space-4) 0; }
-.mesgrid__cell { padding: var(--space-2) var(--space-1); border-radius: var(--radius-xs); background: var(--line-strong); color: var(--ink-soft); font-size: .68rem; font-weight: 700; text-align: center; line-height: 1.3; }
-.mesgrid__cell--ok { background: var(--success); color: #fff; }
-@media (min-width: 480px) { .mesgrid { grid-template-columns: repeat(9, 1fr); } }
+/* ==========================================================================
+   Extensiones propias de esta página (precios.html)
+   El bloque de arriba es el canónico intacto; lo de abajo son componentes
+   propios de esta página (link de vuelta, campos de la calculadora,
+   tarjetas de tramo, tarjetas de canal, tarjetas de lámina), agregados en
+   la misma hoja de estilos única para no crear un segundo archivo CSS.
+   ========================================================================== */
+
+.hero__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-2) 0 0;
+  margin-bottom: var(--space-3);
+  color: rgba(255, 255, 255, .85);
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+.hero__back:hover { color: #fff; }
+
+/* Campos de formulario (calculadora) */
+.field { display: flex; flex-direction: column; gap: var(--space-2); margin-bottom: var(--space-4); }
+.field label { font-size: var(--fs-sm); font-weight: 600; color: var(--ink-soft); }
+.field input {
+  min-height: var(--tap);
+  padding: 0 var(--space-3);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  font-size: var(--fs-base);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  width: 100%;
+}
+.field input:focus-visible { outline: 3px solid var(--accent); outline-offset: 1px; }
+.field-help { margin: var(--space-1) 0 0; font-size: var(--fs-sm); color: var(--ink-faint); max-width: 62ch; }
+
+/* Cadena de cálculo: transparencia total, un paso por línea */
+.calc-chain { list-style: none; padding: 0; margin: var(--space-4) 0; display: flex; flex-direction: column; gap: var(--space-2); }
+.calc-chain li {
+  padding: var(--space-3) var(--space-4);
+  background: var(--paper);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+  border: 1px solid var(--line);
+}
+.calc-chain__result { border-color: var(--brand-green) !important; background: var(--brand-green-soft) !important; font-weight: 700; }
+
+/* Tarjeta de tramo de precio */
+.tier-card { border-top-width: 6px; border-top-style: solid; }
+.tier-card--bajo { border-top-color: var(--accent); }
+.tier-card--medio { border-top-color: var(--warn); }
+.tier-card--alto { border-top-color: var(--success); }
+.tier-card__pct { font-size: clamp(2rem, 1.6rem + 1.6vw, 2.6rem); font-weight: 800; letter-spacing: -.02em; margin: var(--space-2) 0; }
+.tier-card--bajo .tier-card__pct { color: var(--accent-dark); }
+.tier-card--medio .tier-card__pct { color: var(--warn); }
+.tier-card--alto .tier-card__pct { color: var(--success); }
+.tier-card__range { font-size: var(--fs-sm); color: var(--ink-soft); font-weight: 600; }
+
+/* Tarjeta de canal (tienda propia vs Mercado Libre) */
+.channel-card__icon { font-size: 1.8rem; line-height: 1; margin-bottom: var(--space-2); }
+
+/* Tarjetas de lámina (se queda / se elimina) */
+.lamina-tag { display: inline-flex; align-items: center; gap: 4px; margin-bottom: var(--space-2); }
+
+.calc-line { margin: 0 0 var(--space-1); font-size: var(--fs-base); }
+.calc-line strong { font-family: var(--font-serif); }
+.calc-line--sub { color: var(--ink-faint); font-size: var(--fs-sm); margin: 0 0 var(--space-3); }
+
+.page-footer { margin-top: var(--space-8); padding-top: var(--space-4); border-top: 1px solid var(--line); color: var(--ink-faint); font-size: var(--fs-sm); }
+.page-footer a { color: var(--accent-dark); font-weight: 700; text-decoration: none; }
+.page-footer a:hover { text-decoration: underline; }
 </style>
 </head>
-<body data-nav-actual="modelo-datos">
-
+<body data-nav-actual="precios">
 <nav class="navbar" aria-label="Barra de navegación">
   <div class="navbar__inner">
     <a href="estado.html" class="navbar__home" aria-label="Ir al inicio: Estado del plan">🦋</a>
@@ -837,389 +905,558 @@ main { counter-reset: sec; }
 
 <header class="hero">
   <div class="hero__inner">
-    <h1>Ordenar el modelo de datos</h1>
-    <p>Una revisión del modelo financiero que armó Felipe: qué ya está bien resuelto y qué falta cargar para que los números reflejen lo que de verdad está pasando en el negocio, mes a mes.</p>
+    <a href="index.html#datos-que-faltan" class="hero__back">← Volver al plan</a>
+    <h1>Nueva estructura de precios</h1>
+    <p>Pedraza Ilustración no sube precios hace más de un año 🟢. En ese tiempo los costos no se congelaron, y hoy la marca tiene lo que hace falta para subir sin perder venta: producto diferenciado, más de 200 reseñas y demanda comprobada. Esta página propone cómo, cuánto y en qué orden.</p>
   </div>
 </header>
 
 <main class="wrap">
 
 <section class="sec">
-<h2>Lo que ya está bien resuelto</h2>
+<h2>Por qué subir precios ahora</h2>
 
-<p>Antes de entrar en las correcciones, vale la pena decirlo con claridad: el modelo financiero que armó Felipe está bien construido. No es una planilla improvisada — tiene una arquitectura pensada, reglas claras y decisiones técnicas correctas que no son fáciles de acertar a la primera. Esto es lo que ya está resuelto:</p>
-
-<div class="grid-2">
-  <div class="card">
-    <h3>🏗️ Arquitectura de tres capas</h3>
-    <p>Datos crudos → lógica de cálculo (fórmulas SUMIFS) → reporte final. Cada capa cumple una función distinta, y la regla de no editar a mano una celda con fórmula evita el error más común de cualquier planilla financiera: que alguien pise un cálculo sin darse cuenta.</p>
+<div class="kpi-grid">
+  <div class="kpi">
+    <span class="kpi__label">Última alza de precios 🟢</span>
+    <span class="kpi__value">Hace más de 1 año</span>
   </div>
-  <div class="card">
-    <h3>🗂️ Maestra de SKU con mapeos documentados</h3>
-    <p>Las correcciones de producto ya quedaron registradas por escrito: <strong>CAL-TDP</strong> se reasignó a <strong>CAL-TORR</strong>, y <strong>LAM-IND-PEQ</strong> quedó marcado como inactivo. Ese nivel de detalle es el que evita que un producto discontinuado siga sumando ventas en los reportes.</p>
+  <div class="kpi">
+    <span class="kpi__label">Margen bruto e-commerce 🟢</span>
+    <span class="kpi__value">78,9%</span>
   </div>
-  <div class="card">
-    <h3>🏦 Calendario de los 2 créditos, calibrado contra el banco</h3>
-    <p>Felipe reconstruyó cuota por cuota los dos créditos FOGAPE con la propiedad <strong>Capital(t+1) = Capital(t) × (1 + tasa)</strong>, y la calibró contra las capturas reales del banco. Ese tipo de trabajo casi nunca queda bien armado a la primera.</p>
+  <div class="kpi">
+    <span class="kpi__label">Reseñas de la tienda 🟢</span>
+    <span class="kpi__value">215</span>
   </div>
-  <div class="card">
-    <h3>✂️ Capital e interés, separados correctamente</h3>
-    <p>La cuota del crédito no es un gasto completo: solo el interés lo es, porque el capital es plata que vuelve al banco, no plata que se gasta. Separar bien esos dos conceptos es la base de cualquier estado de resultados que se quiera tomar en serio.</p>
+  <div class="kpi">
+    <span class="kpi__label">Meta de facturación</span>
+    <span class="kpi__value">US$5K → US$10K/mes</span>
   </div>
 </div>
-
-<p>Las correcciones que vienen a continuación <strong>no son de diseño</strong> — la estructura del modelo está bien armada. Son de <strong>completitud de datos</strong>: al modelo le faltan datos, no un rediseño.</p>
+<p class="calc-line--sub">🟢 Fuentes: última alza de precios y prioridad de la semana, confirmado por el operador. Margen bruto e-commerce: <code>datos-financieros-2025-2026.md</code>, sección 1. Reseñas: acta de la reunión del 27-jul-2026. Meta de facturación: <code>CLAUDE.md</code>, contexto comercial.</p>
 
 <div class="callout callout--info">
-  <p>💡 <em>"Si hay una forma que tú crees que es mejor de hacerlo, feliz, voy a recibir cambios y sugerencias."</em><br>— Felipe Robinson, reunión del 29 de julio de 2026.</p>
+<p><strong>Un año sin subir precios, con costos que sí suben, es una baja de margen disfrazada.</strong> El precio en la etiqueta se ve igual que hace un año, pero si el papel, la tinta, el envío o cualquier insumo cuesta más hoy que en julio de 2025, cada venta deja menos utilidad que antes — aunque el número del precio no se haya movido. Subir el precio ahora no es "cobrar más porque sí": es ponerse al día con algo que ya pasó y que hoy no se ve en ningún reporte, porque los reportes solo muestran el precio, no el poder de compra real de ese precio.</p>
 </div>
 
-</section>
-
-<section class="sec">
-<h2>Corrección 1 — cargar los gastos variables de los 18 meses</h2>
-
-<p>Esta es la corrección más importante de las cuatro, porque de ella depende si se puede confiar en cualquier número de utilidad que hoy salga del modelo.</p>
-
-<div class="callout callout--danger">
-  <p>Hoy los gastos variables solo están cargados en <strong>junio de 2026</strong>. En los otros 17 meses del período figuran en cero.</p>
-</div>
-
-<div class="mesgrid" role="img" aria-label="18 meses del período: 17 sin datos de gastos variables, 1 con datos completos (junio de 2026)">
-  <div class="mesgrid__cell">01-25</div>
-  <div class="mesgrid__cell">02-25</div>
-  <div class="mesgrid__cell">03-25</div>
-  <div class="mesgrid__cell">04-25</div>
-  <div class="mesgrid__cell">05-25</div>
-  <div class="mesgrid__cell">06-25</div>
-  <div class="mesgrid__cell">07-25</div>
-  <div class="mesgrid__cell">08-25</div>
-  <div class="mesgrid__cell">09-25</div>
-  <div class="mesgrid__cell">10-25</div>
-  <div class="mesgrid__cell">11-25</div>
-  <div class="mesgrid__cell">12-25</div>
-  <div class="mesgrid__cell">01-26</div>
-  <div class="mesgrid__cell">02-26</div>
-  <div class="mesgrid__cell">03-26</div>
-  <div class="mesgrid__cell">04-26</div>
-  <div class="mesgrid__cell">05-26</div>
-  <div class="mesgrid__cell mesgrid__cell--ok">✓ 06-26</div>
-</div>
-<p style="font-size:var(--fs-sm); color:var(--ink-soft);">Gris = sin gastos variables cargados. Verde = el único mes con datos completos.</p>
-
-<p>Cuando un gasto real queda en cero, la utilidad de ese mes se ve más alta de lo que en verdad es. Por eso <strong>junio de 2026 es, hoy, el único mes del modelo con una utilidad operacional confiable</strong> — los otros 17 meses están sobrestimados.</p>
-
-<div class="kpi-grid">
-  <div class="kpi">
-    <span class="kpi__label">Publicidad, 18 meses</span>
-    <span class="kpi__value">$973.425</span>
-    <span class="kpi__delta kpi__delta--down">🔴 eso es más o menos lo que se gasta en un mes</span>
-  </div>
-  <div class="kpi">
-    <span class="kpi__label">Envíos Packner, 18 meses</span>
-    <span class="kpi__value">$966.537</span>
-    <span class="kpi__delta kpi__delta--down">🔴 imposible para $202M de venta</span>
-  </div>
-  <div class="kpi">
-    <span class="kpi__label">Comisiones de pasarela de pago</span>
-    <span class="kpi__value">$0</span>
-    <span class="kpi__delta kpi__delta--down">🔴 no aparecen en ninguna parte</span>
-  </div>
-</div>
-
-<p>Lo que hay que cargar mes a mes, y de dónde sale cada dato:</p>
-
-<div class="table-wrap">
-  <table>
-    <thead>
-      <tr><th>Gasto a cargar</th><th>De dónde sale el dato</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Publicidad Meta</td><td>Administrador de anuncios de Meta → informe de gasto mensual</td></tr>
-      <tr><td>Publicidad Google</td><td>Panel de Google Ads → informe de gasto mensual</td></tr>
-      <tr><td>Envíos Packner</td><td>Facturas o liquidaciones mensuales de Packner</td></tr>
-      <tr><td>Comisión Shopify Payments</td><td>Liquidaciones de Shopify (Finanzas → Pagos)</td></tr>
-      <tr><td>Comisión Flow</td><td>Panel de Flow</td></tr>
-      <tr><td>Comisión Mercado Pago</td><td>Panel de Mercado Pago</td></tr>
-      <tr><td>Comisión transferencia bancaria</td><td>Cartola bancaria</td></tr>
-      <tr><td>Suscripciones Shopify y apps</td><td>Cartola bancaria o panel de facturación de Shopify</td></tr>
-      <tr><td>Comisiones Mercado Libre</td><td>Panel de Mercado Libre (resumen de ventas)</td></tr>
-    </tbody>
-  </table>
-</div>
-
-</section>
-
-<section class="sec">
-<h2>Corrección 2 — resolver el doble conteo de "Creado en Chile"</h2>
-
-<p>Esto no es un error confirmado. Es una duda que vale la pena resolver, porque el propio Felipe la dejó marcada en su correo:</p>
-
-<div class="callout callout--warn">
-  <p>🟡 <em>"Consolidado Ventas también tiene la venta detallada de Creado en Chile (Cliente B2B), por lo que se repite el número del archivo anterior."</em><br>— Felipe Robinson, correo del 29 de julio de 2026.</p>
-</div>
-
-<p>En el modelo, la venta de Creado en Chile aparece como una <strong>columna separada</strong>, junto a B2B, en la pestaña 30. Si las facturas de BSALE ya incluyen esa venta, se está contando dos veces.</p>
-
-<div class="kpi-grid">
-  <div class="kpi">
-    <span class="kpi__label">Posible doble conteo</span>
-    <span class="kpi__value">$24.065.548</span>
-    <span class="kpi__delta kpi__delta--down">🟡 hasta 12% de la venta de 18 meses</span>
-  </div>
-</div>
-
-<p>La verificación es simple y no toma mucho tiempo:</p>
-
-<div class="timeline">
-  <div class="timeline-item">
-    <div class="timeline-item__date">Paso 1</div>
-    <div class="timeline-item__title">Elegir un mes cualquiera del período</div>
-    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Por ejemplo, abril de 2026.</p>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-item__date">Paso 2</div>
-    <div class="timeline-item__title">Filtrar las facturas de BSALE de ese mes por el cliente Creado en Chile</div>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-item__date">Paso 3</div>
-    <div class="timeline-item__title">Sumar el total facturado a ese cliente en ese mes</div>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-item__date">Paso 4</div>
-    <div class="timeline-item__title">Comparar ese total contra la columna "Creado en Chile" del Consolidado Ventas, mismo mes</div>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-item__date">Paso 5</div>
-    <div class="timeline-item__title">Si coinciden, hay duplicación y se elimina una de las dos fuentes</div>
-    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Si son distintos, cada fuente mide algo diferente y no hay duplicación.</p>
-  </div>
-</div>
-
-<div class="callout callout--info">
-  <p>💡 Felipe puede tener una razón que no vemos para llevarlo separado. Por eso esto se presenta como una pregunta para confirmar con él, no como un error ya encontrado.</p>
-</div>
-
-</section>
-
-<section class="sec">
-<h2>Corrección 3 — sacar los retiros de socios del cálculo de rentabilidad</h2>
-
-<p>En 3 de los 15 meses con datos, la utilidad neta final del modelo quedó en cero o negativa — aunque el negocio había generado millones de utilidad operacional ese mismo mes. La razón: el retiro de los socios se comió toda la utilidad.</p>
-
-<div class="table-wrap">
-  <table>
-    <thead>
-      <tr><th>Mes</th><th>Utilidad antes de retiros</th><th>Retiro de socios</th><th>Utilidad neta final</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>2025-07</td><td>$3.666.615</td><td>−$3.629.497</td><td>$37.118</td></tr>
-      <tr><td>2025-08</td><td>$3.048.300</td><td>−$4.285.000</td><td>−$1.236.700</td></tr>
-      <tr><td>2026-01</td><td>$10.586.173</td><td>−$10.592.000</td><td>−$5.827</td></tr>
-    </tbody>
-  </table>
-</div>
-
-<p style="font-size:var(--fs-sm); color:var(--ink-soft);">Cuánto de la utilidad de cada mes se llevó el retiro de socios:</p>
-<div class="chart-bar-row">
-  <span class="chart-bar-row__label">2025-07</span>
-  <span class="chart-bar-row__track"><span class="chart-bar-row__fill" style="width:99%"></span></span>
-  <span class="chart-bar-row__value">99%</span>
-</div>
-<div class="chart-bar-row">
-  <span class="chart-bar-row__label">2025-08</span>
-  <span class="chart-bar-row__track"><span class="chart-bar-row__fill" style="width:100%"></span></span>
-  <span class="chart-bar-row__value">141%</span>
-</div>
-<div class="chart-bar-row">
-  <span class="chart-bar-row__label">2026-01</span>
-  <span class="chart-bar-row__track"><span class="chart-bar-row__fill" style="width:100%"></span></span>
-  <span class="chart-bar-row__value">100%</span>
-</div>
-<p style="font-size:var(--fs-sm); color:var(--ink-soft);">En agosto de 2025 el retiro fue incluso más grande que toda la utilidad del mes (141%).</p>
-
-<p>El punto de fondo: <strong>el retiro de los dueños es una decisión de reparto, no un costo de operar.</strong> Mezclarlo con los gastos hace imposible saber si el negocio realmente gana plata. Un mes tan bueno como enero de 2026 — con $10,6 millones de utilidad antes de retiros — termina viéndose en la última línea como si casi no hubiera generado nada.</p>
-
-<div class="callout callout--success">
-  <p>✅ <strong>La corrección:</strong> dejar "Utilidad antes de retiros" como la línea que mide la salud del negocio — la que responde "¿el negocio gana plata?". Los retiros pasan a ser una línea informativa después de esa, que responde una pregunta distinta: "¿cuánto se llevaron los socios este mes?".</p>
-</div>
-
-<div class="kpi-grid">
-  <div class="kpi">
-    <span class="kpi__label">Utilidad antes de retiros, 18 meses</span>
-    <span class="kpi__value">$101.856.993</span>
-  </div>
-  <div class="kpi">
-    <span class="kpi__label">Remuneración socios, 18 meses</span>
-    <span class="kpi__value">−$42.924.543</span>
-  </div>
-  <div class="kpi">
-    <span class="kpi__label">Utilidad neta final, 18 meses</span>
-    <span class="kpi__value">$58.932.450</span>
-  </div>
-</div>
-
-</section>
-
-<section class="sec">
-<h2>Corrección 4 — separar gastos por canal</h2>
-
-<p>Esto es algo que Felipe ya dijo que iba a hacer: el cierre de julio viene con las verticales (Shopify, B2B, Mercado Libre) separadas, asignando un peso de gastos por canal según la venta. Esta sección propone el método concreto.</p>
-
-<div class="grid-2">
-  <div class="card">
-    <h3>Gastos directos</h3>
-    <p>Van completos al canal que los generó:</p>
-    <ul style="font-size:var(--fs-sm);">
-      <li>Publicidad (Meta + Google) y Packner → E-commerce</li>
-      <li>Bsale → B2B</li>
-      <li>Comisiones de Mercado Libre → Mercado Libre</li>
-    </ul>
-  </div>
-  <div class="card">
-    <h3>Gastos compartidos</h3>
-    <p>Se reparten según el peso de venta de cada canal — hoy, Shopify 54,9%, Mercado Libre 0,5%, B2B 44,6%:</p>
-    <ul style="font-size:var(--fs-sm);">
-      <li>Bodega, diseñadora, contador</li>
-      <li>Herramientas de software de uso general</li>
-    </ul>
-  </div>
-</div>
-
-<p>Aplicado a las categorías reales de gasto fijo del negocio:</p>
-
-<div class="table-wrap">
-  <table>
-    <thead>
-      <tr><th>Categoría</th><th>Gasto (18 meses)</th><th>Canal sugerido</th><th>Por qué</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Diseñadora</td><td>$4.350.000</td><td><span class="pill pill--warn">🟡 Compartido</span></td><td>Trabaja contenido y catálogo para más de un canal</td></tr>
-      <tr><td>Bodega</td><td>$1.875.146</td><td><span class="pill pill--warn">🟡 Compartido</span></td><td>Guarda inventario de varios canales a la vez</td></tr>
-      <tr><td>Bsale</td><td>$1.687.950</td><td><span class="pill pill--info">Directo B2B</span></td><td>Es el sistema de facturación de esa vertical</td></tr>
-      <tr><td>Klaviyo</td><td>$1.463.940</td><td><span class="pill pill--info">Directo E-commerce</span></td><td>Es la herramienta de correo de la tienda Shopify</td></tr>
-      <tr><td>ChatGPT</td><td>$826.749</td><td><span class="pill pill--warn">🟡 Compartido</span></td><td>Herramienta de uso general del equipo</td></tr>
-      <tr><td>Google Suite</td><td>$786.554</td><td><span class="pill pill--warn">🟡 Compartido</span></td><td>Correo y documentos de todo el equipo</td></tr>
-      <tr><td>Pivot</td><td>$703.688</td><td><span class="pill pill--danger">🟡 Verificar con Felipe</span></td><td>No tenemos claro para qué se usa esta herramienta</td></tr>
-      <tr><td>Adobe</td><td>$570.684</td><td><span class="pill pill--warn">🟡 Compartido</span></td><td>Diseño usado en más de un canal, a confirmar con Felipe</td></tr>
-      <tr><td>Contador</td><td>$360.000</td><td><span class="pill pill--warn">🟡 Compartido</span></td><td>Contabilidad de toda la empresa, no de un canal</td></tr>
-    </tbody>
-  </table>
-</div>
-
-<p>Sin esto, la pregunta que más importa —¿cuál canal gana plata de verdad?— no se puede contestar. Hoy el e-commerce se ve mejor porque tiene mejor margen bruto (79,1% contra 52,5% del B2B), pero eso es <strong>antes</strong> de gastos. Con los gastos separados se sabe si esa ventaja se mantiene después de pagar publicidad, envíos y comisiones — o si el B2B, con menos gasto variable propio, termina dejando más plata líquida.</p>
-
-</section>
-
-<section class="sec">
-<h2>La plantilla de cierre mensual</h2>
-
-<p>Esto es lo más útil de este documento: qué hacer cada mes para que el modelo se mantenga con datos completos, sin que se vuelva a acumular un atraso de 17 meses.</p>
-
-<div class="timeline">
-  <div class="timeline-item">
-    <div class="timeline-item__date">~5 min</div>
-    <div class="timeline-item__title">Descargar el gasto de Meta Ads del mes</div>
-    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Administrador de anuncios de Meta → informes.</p>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-item__date">~5 min</div>
-    <div class="timeline-item__title">Descargar el gasto de Google Ads del mes</div>
-    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Panel de Google Ads → informe de gasto.</p>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-item__date">~5 min</div>
-    <div class="timeline-item__title">Sacar el total de envíos de Packner del mes</div>
-    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Factura o liquidación mensual de Packner.</p>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-item__date">~15 min</div>
-    <div class="timeline-item__title">Sacar las comisiones de las pasarelas de pago</div>
-    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Shopify Payments (liquidaciones de Shopify), Flow y Mercado Pago (paneles respectivos), transferencias (cartola bancaria).</p>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-item__date">~5 min</div>
-    <div class="timeline-item__title">Revisar suscripciones de Shopify y apps del mes</div>
-    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Cartola bancaria o panel de facturación de Shopify.</p>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-item__date">~5 min</div>
-    <div class="timeline-item__title">Sacar las comisiones de Mercado Libre del mes</div>
-    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Panel de Mercado Libre.</p>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-item__date">~15 min</div>
-    <div class="timeline-item__title">Cargar todo en la hoja de gastos variables, marcando el canal</div>
-    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Directo o compartido, según la Corrección 4.</p>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-item__date">~5 min</div>
-    <div class="timeline-item__title">Revisar que "Creado en Chile" no se repita con BSALE ese mes</div>
-    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Mientras se confirma la Corrección 2 con Felipe.</p>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-item__date">~2 min</div>
-    <div class="timeline-item__title">Confirmar que el retiro de socios quedó en la línea informativa</div>
-    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">No dentro de la utilidad operacional del mes.</p>
-  </div>
-</div>
-
-<p style="font-size:var(--fs-sm); color:var(--ink-soft);">Total: cerca de <strong>1 hora al mes</strong>.</p>
-
-<p>Encabezados listos para pegar en una hoja de Google Sheets nueva, dedicada a gastos variables:</p>
-
-<div class="copyblock">
-  <button type="button" class="copyblock__btn" data-copy-target="copy-encabezados-gastos">Copiar</button>
-  <div class="copyblock__text" id="copy-encabezados-gastos">Mes,Publicidad Meta,Publicidad Google,Envíos Packner,Comisión Shopify Payments,Comisión Flow,Comisión Mercado Pago,Comisión transferencia bancaria,Suscripciones Shopify y apps,Comisiones Mercado Libre,Canal,Total gasto variable del mes</div>
-</div>
-
-<p>Orden sugerido de las correcciones, por impacto y esfuerzo:</p>
-
-<div class="table-wrap">
-  <table>
-    <thead>
-      <tr><th>Orden</th><th>Corrección</th><th>Impacto</th><th>Esfuerzo</th><th>Por qué en ese orden</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>1</td><td>Corrección 3 — sacar retiros del cálculo</td><td><span class="pill pill--info">Alto</span></td><td><span class="pill pill--success">Bajo</span></td><td>Es reordenar filas que ya existen, no cargar datos nuevos</td></tr>
-      <tr><td>2</td><td>Corrección 2 — verificar Creado en Chile</td><td><span class="pill pill--info">Alto</span></td><td><span class="pill pill--success">Bajo</span></td><td>Es comparar un mes, no reconstruir nada</td></tr>
-      <tr><td>3</td><td>Corrección 1 — cargar 17 meses de gastos variables</td><td><span class="pill pill--info">Alto</span></td><td><span class="pill pill--danger">Alto</span></td><td>Es la que más trabajo toma, pero la que más cambia los números</td></tr>
-      <tr><td>4</td><td>Corrección 4 — separar por canal</td><td><span class="pill pill--info">Alto</span></td><td><span class="pill pill--warn">Medio</span></td><td>Conviene hacerla al final, cuando los gastos ya estén completos y sin duplicados</td></tr>
-    </tbody>
-  </table>
-</div>
-
-</section>
-
-<section class="sec">
-<h2>Qué se desbloquea con esto</h2>
-
-<p>Con los gastos completos y separados por canal se puede:</p>
+<h3>Por qué la marca puede subir sin perder venta</h3>
+<p>Subir el precio de un producto sin diferenciación reduce la venta, porque el cliente puede irse a un competidor idéntico más barato. Pedraza Ilustración no está en esa situación:</p>
 
 <div class="grid-3">
   <div class="card">
-    <h3>💰 Calcular la utilidad real del e-commerce</h3>
-    <p style="font-size:var(--fs-sm);">La base para saber si el canal principal del negocio realmente gana plata — y también la base del acuerdo variable.</p>
+    <h3>🎨 Producto propio</h3>
+    <p>Las ilustraciones son originales de María José Pedraza. No hay una tienda que venda exactamente lo mismo más barato — comparar precio contra precio no aplica igual que con un producto genérico.</p>
   </div>
   <div class="card">
-    <h3>📦 Decidir el pedido a China con datos</h3>
-    <p style="font-size:var(--fs-sm);">Saber cuánto margen real deja cada producto antes de comprometer capital de trabajo.</p>
+    <h3>⭐ 215 reseñas</h3>
+    <p>215 reseñas en Judge.me, 75 de ellas en un solo producto 🟢 (acta 27-jul-2026). Es prueba social ya ganada — el tipo de confianza que permite cobrar un poco más sin que se note como riesgo.</p>
   </div>
   <div class="card">
-    <h3>🎯 Saber qué producto y qué canal empujar</h3>
-    <p style="font-size:var(--fs-sm);">Con gastos reales por canal, se puede comparar de verdad dónde conviene poner el esfuerzo.</p>
+    <h3>📩 Demanda comprobada</h3>
+    <p>Parte de la campaña de la preventa de puzzles es literalmente un colage de mensajes reales de gente preguntando "¿cuándo llegan los puzzles?" 🟢 (acta 31-jul-2026, sección 3). Eso es demanda que hoy se está yendo sin poder comprar — no hay que inventarla, ya existe.</p>
   </div>
 </div>
 
-<p>Esto conecta directo con dos entregables de este plan:</p>
-<p><a class="btn" href="finanzas.html">Ver finanzas.html</a> <a class="btn btn--ghost" href="stock-navidad.html">Ver Stock para Navidad</a></p>
+<h3>La aritmética: por qué un alza de 7% no sube la utilidad solo un 7%</h3>
+<p>Esta es la idea central de toda la propuesta, así que vale la pena verla con un producto real: el puzzle. Cuesta $7.253 producirlo y puesto en la tienda 🟢, y hoy se vende en un rango de $24.990 a $27.290 🟢 (<code>CLAUDE.md</code>, contexto comercial). Para este ejemplo se usa $26.000 como precio representativo dentro de ese rango.</p>
 
+<ul class="calc-chain">
+<li>Precio actual: <strong>$26.000</strong> · Costo: <strong>$7.253</strong></li>
+<li>Margen actual: $26.000 − $7.253 = <strong>$18.747</strong> (72,1% del precio)</li>
+<li>Alza de ejemplo 🟡 (ilustrativa, no es la propuesta final): <strong>+7%</strong> → precio nuevo = $26.000 × 1,07 = <strong>$27.820</strong></li>
+<li>Sube en pesos: $27.820 − $26.000 = <strong>$1.820</strong></li>
+<li>El costo no cambia: sigue en $7.253 — a la fábrica y a Partner (el operador logístico) se les paga lo mismo que antes</li>
+<li class="calc-chain__result">Margen nuevo: $27.820 − $7.253 = $20.567 → sube $1.820, es decir <strong>9,7%</strong> más margen — más que el 7% que subió el precio</li>
+</ul>
+
+<div class="chart-bar-row"><span class="chart-bar-row__label">Margen actual</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%;background:var(--ink-faint)"></div></div><span class="chart-bar-row__value">$18.747</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Margen con +7%</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:109.7%;max-width:100%;background:var(--success)"></div></div><span class="chart-bar-row__value">$20.567</span></div>
+
+<div class="callout callout--success">
+<p><strong>En simple:</strong> el costo de producir no cambia cuando se sube el precio. Eso significa que casi el 100% de lo que sube el precio se convierte directo en utilidad — no en un poco más de utilidad, sino en el mismo peso completo. Y como el margen es más chico que el precio, ese mismo peso representa un porcentaje más grande sobre el margen que sobre el precio. Por eso un alza de 7% en el precio termina siendo un alza de casi 10% en la utilidad. Esta misma aritmética es la base de la calculadora de la sección 3.</p>
+</div>
 </section>
+
+<section class="sec">
+<h2>La estructura por tramos</h2>
+<p>Felipe lo resumió así en la reunión: <em>"subirle un 10% a un producto que vale 5 lucas no es lo mismo que a uno que vale 30"</em> 🟢 (acta 31-jul-2026, sección 6). Un 10% en un llavero son menos de $1.000 pesos — casi imperceptible para el cliente. Ese mismo 10% en un producto de $70.000 son $7.000, un salto que sí se nota y que además cae en el producto que menos necesita ayuda para vender. La solución: tres tramos, con un porcentaje más alto en lo barato y más bajo en lo caro.</p>
+
+<div class="grid-3">
+  <div class="card tier-card tier-card--bajo">
+    <h3>Tramo bajo</h3>
+    <p class="tier-card__range">Hasta $15.000</p>
+    <p class="tier-card__pct">+10%</p>
+    <p>Llaveros, calcetines, libretas. El alza en pesos es tan chica que casi no se percibe, y hoy son los productos que peor margen relativo dejan.</p>
+  </div>
+  <div class="card tier-card tier-card--medio">
+    <h3>Tramo medio</h3>
+    <p class="tier-card__range">$15.001 – $30.000</p>
+    <p class="tier-card__pct">+7,5%</p>
+    <p>Bolsos, botellas y los 4 puzzles. El grueso del catálogo y del volumen de venta vive en este tramo.</p>
+  </div>
+  <div class="card tier-card tier-card--alto">
+    <h3>Tramo alto</h3>
+    <p class="tier-card__range">Sobre $30.000</p>
+    <p class="tier-card__pct">+5%</p>
+    <p>Loza y, más adelante, las láminas grandes una vez confirmado su precio actual. El porcentaje más bajo, pero en pesos es la mayor alza de todas.</p>
+  </div>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>🟡 Propuesta a validar con Felipe y Cote.</strong> Los tres tramos, sus límites de precio y sus porcentajes (10% / 7,5% / 5%) son la propuesta de este documento, siguiendo el ejemplo que dio Felipe en la reunión. Ninguno de los tres números está decidido todavía.</p>
+</div>
+
+<h3>El catálogo completo, producto por producto</h3>
+<p>Los precios de hoy vienen de <code>docs/research/tienda.md</code> (búsqueda dirigida, julio de 2026) — son el mejor dato disponible hoy, pero ese mismo documento advierte que puede ser caché de buscador y no una lectura en vivo del panel de Shopify. Antes de aplicar cualquier cambio hay que confirmarlos en el admin (ver sección 7). Los precios nuevos están redondeados a números que ya usa la tienda (terminados en 90).</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Producto</th><th>Categoría</th><th>Precio hoy 🟢</th><th>Tramo</th><th>Precio nuevo 🟡</th><th>Sube</th></tr>
+</thead>
+<tbody>
+<tr><td>Llavero Martín Pescador</td><td>Accesorios</td><td>$8.790</td><td><span class="pill">Bajo · 10%</span></td><td>$9.690</td><td>+$900</td></tr>
+<tr><td>Calcetines Aves de Chile</td><td>Accesorios</td><td>$9.390</td><td><span class="pill">Bajo · 10%</span></td><td>$10.290</td><td>+$900</td></tr>
+<tr><td>Libreta Aves</td><td>Papelería</td><td>$13.590</td><td><span class="pill">Bajo · 10%</span></td><td>$14.990</td><td>+$1.400</td></tr>
+<tr><td>Libreta Flores de Chile</td><td>Papelería</td><td>$13.590</td><td><span class="pill">Bajo · 10%</span></td><td>$14.990</td><td>+$1.400</td></tr>
+<tr><td>Bolso Aves de Chile</td><td>Accesorios</td><td>$16.490</td><td><span class="pill pill--warn">Medio · 7,5%</span></td><td>$17.690</td><td>+$1.200</td></tr>
+<tr><td>Bolso Flores de Chile</td><td>Accesorios</td><td>$16.490</td><td><span class="pill pill--warn">Medio · 7,5%</span></td><td>$17.690</td><td>+$1.200</td></tr>
+<tr><td>Puzzle Aves y Flores de Chile</td><td>Puzzles</td><td>$24.990</td><td><span class="pill pill--warn">Medio · 7,5%</span></td><td>$26.890</td><td>+$1.900</td></tr>
+<tr><td>Puzzle Hongos de Chile</td><td>Puzzles</td><td>$24.990</td><td><span class="pill pill--warn">Medio · 7,5%</span></td><td>$26.890</td><td>+$1.900</td></tr>
+<tr><td>Puzzle Cetáceos de Chile</td><td>Puzzles</td><td>$24.990</td><td><span class="pill pill--warn">Medio · 7,5%</span></td><td>$26.890</td><td>+$1.900</td></tr>
+<tr><td>Puzzle Mariposas y Escarabajos de Chile</td><td>Puzzles</td><td>$27.290</td><td><span class="pill pill--warn">Medio · 7,5%</span></td><td>$29.290</td><td>+$2.000</td></tr>
+<tr><td>Botella térmica Aves de Chile</td><td>Accesorios</td><td>$28.990</td><td><span class="pill pill--warn">Medio · 7,5%</span></td><td>$31.190</td><td>+$2.200</td></tr>
+<tr><td>Botella térmica Hongos de Chile</td><td>Accesorios</td><td>$28.990</td><td><span class="pill pill--warn">Medio · 7,5%</span></td><td>$31.190</td><td>+$2.200</td></tr>
+<tr><td>Juego Loza Aves Azul (12 piezas)</td><td>Loza</td><td>$69.990</td><td><span class="pill pill--success">Alto · 5%</span></td><td>$73.490</td><td>+$3.500</td></tr>
+</tbody>
+</table>
+</div>
+<p class="calc-line--sub">🟢 Precio hoy: <code>docs/research/tienda.md</code>, secciones 2. No incluye las láminas (sin precio confirmado, ver sección 5) ni el puzzle Mariposas y Escarabajos de las <em>láminas</em> (ese SKU es distinto al puzzle y sí se elimina, ver sección 5) ni productos sin precio capturado (Loza Aves Rojo, pack de postales).</p>
+
+<div class="callout callout--info">
+<p><strong>Por qué el porcentaje es más alto en lo barato:</strong> en el llavero, $900 de alza el cliente casi ni los nota — pasar de $8.790 a $9.690 no cambia la decisión de compra. Ese mismo producto, además, es uno de los que peor margen relativo deja hoy. En el otro extremo, la loza sube solo 5%, pero en pesos es la mayor alza de la tabla ($3.500): ahí no hace falta subir el porcentaje porque el peso ya pesa.</p>
+</div>
+</section>
+
+<section class="sec">
+<h2>La calculadora de impacto</h2>
+<p>Completa las unidades que se venden al mes y el porcentaje de alza de cada tramo. La calculadora usa el precio promedio real de cada tramo (calculado desde la tabla de la sección 2) y el margen bruto real del e-commerce (78,9% 🟢) como aproximación del margen por producto, porque hoy solo se conoce el costo exacto del puzzle — el resto del catálogo todavía no tiene costo puesto en Chile confirmado (ver sección 7) 🟡.</p>
+
+<div class="card">
+<h3>Tus números</h3>
+<div class="grid-3">
+
+  <div>
+    <h4>Tramo bajo <span class="pill">hasta $15.000</span></h4>
+    <div class="field">
+      <label for="calc-precios-unid-bajo">Unidades vendidas al mes</label>
+      <input type="number" id="calc-precios-unid-bajo" inputmode="numeric" min="0" step="1" value="40">
+    </div>
+    <div class="field">
+      <label for="calc-precios-pct-bajo">Porcentaje de alza</label>
+      <input type="number" id="calc-precios-pct-bajo" inputmode="decimal" min="0" step="0.5" value="10">
+      <p class="field-help">Precio promedio de referencia del tramo: $11.340 🟢 (calculado desde la sección 2).</p>
+    </div>
+  </div>
+
+  <div>
+    <h4>Tramo medio <span class="pill pill--warn">$15.001–$30.000</span></h4>
+    <div class="field">
+      <label for="calc-precios-unid-medio">Unidades vendidas al mes</label>
+      <input type="number" id="calc-precios-unid-medio" inputmode="numeric" min="0" step="1" value="50">
+    </div>
+    <div class="field">
+      <label for="calc-precios-pct-medio">Porcentaje de alza</label>
+      <input type="number" id="calc-precios-pct-medio" inputmode="decimal" min="0" step="0.5" value="7.5">
+      <p class="field-help">Precio promedio de referencia del tramo: $24.153 🟢 (calculado desde la sección 2).</p>
+    </div>
+  </div>
+
+  <div>
+    <h4>Tramo alto <span class="pill pill--success">sobre $30.000</span></h4>
+    <div class="field">
+      <label for="calc-precios-unid-alto">Unidades vendidas al mes</label>
+      <input type="number" id="calc-precios-unid-alto" inputmode="numeric" min="0" step="1" value="5">
+    </div>
+    <div class="field">
+      <label for="calc-precios-pct-alto">Porcentaje de alza</label>
+      <input type="number" id="calc-precios-pct-alto" inputmode="decimal" min="0" step="0.5" value="5">
+      <p class="field-help">Precio promedio de referencia: $69.990 🟡 (un solo producto con precio confirmado hoy).</p>
+    </div>
+  </div>
+
+</div>
+<p class="field-help">🟡 Los valores de partida (40 / 50 / 5 unidades al mes) son solo un ejemplo para probar la calculadora — reemplázalos por la venta mensual real de cada tramo.</p>
+</div>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Tramo</th><th>Sube por unidad</th><th>Utilidad adicional / mes</th><th>Puede caer la venta hasta</th></tr>
+</thead>
+<tbody>
+<tr><td>Bajo</td><td id="out-precios-alza-bajo">—</td><td id="out-precios-util-bajo">—</td><td id="out-precios-tol-bajo">—</td></tr>
+<tr><td>Medio</td><td id="out-precios-alza-medio">—</td><td id="out-precios-util-medio">—</td><td id="out-precios-tol-medio">—</td></tr>
+<tr><td>Alto</td><td id="out-precios-alza-alto">—</td><td id="out-precios-util-alto">—</td><td id="out-precios-tol-alto">—</td></tr>
+<tr><td><strong>Total</strong></td><td>—</td><td id="out-precios-util-total"><strong>—</strong></td><td id="out-precios-tol-total"><strong>—</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="kpi-grid">
+  <div class="kpi">
+    <span class="kpi__label">Utilidad adicional al mes</span>
+    <span class="kpi__value" id="kpi-util-mensual">—</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Utilidad adicional al año</span>
+    <span class="kpi__value" id="kpi-util-anual">—</span>
+  </div>
+</div>
+
+<div class="callout callout--success">
+<p><strong>El punto de equilibrio, en simple:</strong> como el alza va casi entera a la utilidad (sección 1), se puede perder bastante venta y aun así ganar más que hoy. <span id="txt-tolerancia-explicacion">Completa los campos de arriba para ver el resultado.</span></p>
+</div>
+</section>
+
+<section class="sec">
+<h2>Precios por canal: tienda propia contra Mercado Libre</h2>
+<p>Lo acordado en la reunión: la tienda propia compite con más variedad y mejor precio; Mercado Libre compite con velocidad de entrega — permite entrega el mismo día en la Región Metropolitana, algo que Partner (el operador logístico de Shopify) no alcanza a cubrir en la última semana antes de Navidad 🟢 (acta 31-jul-2026, secciones 6 y 7).</p>
+
+<div class="grid-2">
+  <div class="card">
+    <div class="channel-card__icon">🏠</div>
+    <h3>Tienda propia</h3>
+    <p><strong>Gana por:</strong> variedad completa del catálogo y el mejor precio.</p>
+    <p><strong>Precio:</strong> el precio nuevo de la tabla de la sección 2 — sin comisión de marketplace, es donde la marca se queda con más margen por venta.</p>
+  </div>
+  <div class="card">
+    <div class="channel-card__icon">🛒</div>
+    <h3>Mercado Libre</h3>
+    <p><strong>Gana por:</strong> entrega el mismo día en la Región Metropolitana — cubre la última semana antes de Navidad, que en la tienda propia no se alcanza a cubrir.</p>
+    <p><strong>Precio:</strong> el precio nuevo de la tienda, ajustado hacia arriba para cubrir la comisión de Mercado Libre 🟡 (porcentaje exacto pendiente, ver sección 7).</p>
+  </div>
+</div>
+
+<div class="callout callout--info">
+<p><strong>La fórmula para no perder margen en Mercado Libre:</strong> Precio en Mercado Libre = Precio en tienda propia ÷ (1 − comisión de Mercado Libre). Al dividir por (1 − comisión) en vez de solo sumarla, el precio queda ajustado para que, después de que Mercado Libre descuenta su comisión, a la marca le quede el mismo margen (o más) que le deja la tienda propia. No se puede calcular el número final todavía porque falta el porcentaje exacto de la comisión — está marcado como pendiente en la sección 7, no se inventa.</p>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>La regla dura: si el cliente compara, la tienda propia tiene que ganar.</strong> Si alguien encuentra el mismo puzzle en los dos canales, el precio de la tienda propia debe ser igual o más bajo que en Mercado Libre — ahí es donde el margen es mejor para la marca. Mercado Libre existe para capturar al comprador que valora la velocidad de entrega por sobre el precio, no para competir precio contra precio con la propia tienda.</p>
+</div>
+
+<p class="calc-line--sub">🟢 Contexto: Mercado Libre ya está vendiendo bien sin ningún empuje de marketing y todavía no tiene los puzzles activados como canal — hay recorrido antes de tocar el precio (acta 31-jul-2026, sección 8).</p>
+</section>
+
+<section class="sec">
+<h2>La limpieza del catálogo de láminas</h2>
+<p>La impresora ya está reparada. Las láminas grandes y chicas se venden en proporción parecida, pero la grande margina más — el papel y la tinta escalan proporcionalmente con el tamaño, el precio no siempre lo hace 🟢 (acta 31-jul-2026, sección 7). La propuesta de Felipe: consolidar el catálogo de láminas a 4 SKU.</p>
+
+<div class="grid-2">
+  <div class="card" style="border-left:4px solid var(--success)">
+    <span class="pill lamina-tag pill--success">✅ Se queda</span>
+    <h3>4 SKU de lámina</h3>
+    <p><strong>Aves · Flores · Cetáceos · Hongos.</strong> Formatos confirmados: 33x50 cm y 42x60 cm, impresión FineArt/Giclée sobre papel Hahnemühle 🟢 (<code>docs/research/tienda.md</code>, sección 2). Precio de venta actual sin confirmar todavía — pendiente antes de aplicarles el tramo de precio (sección 7).</p>
+  </div>
+  <div class="card" style="border-left:4px solid var(--danger)">
+    <span class="pill lamina-tag pill--danger">🗑️ Se elimina</span>
+    <h3>2 SKU de lámina</h3>
+    <p><strong>Mariposas · Escarabajos.</strong> Cote: <em>"la colección de escarabajos es la que menos pica"</em> — y a mucha gente los insectos le dan aprensión 🟢 (acta 31-jul-2026, sección 7). Menos SKU, más volumen por cada uno que queda.</p>
+  </div>
+</div>
+
+<div class="callout callout--info">
+<p><strong>El beneficio, en simple:</strong> con 4 diseños en vez de 6, cada uno vende más unidades. Eso hace más fácil optimizar una campaña de publicidad (más datos por producto, más rápido para aprender qué funciona) y aprovecha mejor la impresora recién reparada, que ahora puede concentrarse en imprimir los 4 diseños que sí enganchan en vez de repartirse entre 6.</p>
+</div>
+
+<h3>Qué pasa con el stock que sale</h3>
+<p>Las láminas A3 chicas de aves salen con precio de liquidación, para rotarlas rápido mientras se termina la consolidación 🟢 (acta 31-jul-2026, sección 7). El precio exacto de liquidación lo define Felipe — mientras tanto, este es el copy listo para la ficha de producto o el post de anuncio:</p>
+
+<div class="copyblock">
+  <button type="button" class="copyblock__btn" data-copy-target="copy-oferta-a3-aves">Copiar</button>
+  <div class="copyblock__text" id="copy-oferta-a3-aves">Quedan pocas láminas A3 de Aves de Chile — así que las dejamos a precio de liquidación mientras se acaban.
+
+Mismo diseño, mismo papel Hahnemühle, la oportunidad de sumar una lámina de aves chilenas a tu colección antes de que se agote el stock.
+
+Disponible solo hasta agotar unidades.</div>
+</div>
+</section>
+
+<section class="sec">
+<h2>Cómo se comunica el alza</h2>
+<p>La parte que más miedo da es también la más fácil de resolver: <strong>no se comunica.</strong> No hay ningún post, banner ni anuncio diciendo que los precios subieron. Lo que sí se hace es aplicar el alza junto con mejoras que se notan, para que el cliente vea una tienda mejor, no una tienda más cara.</p>
+
+<div class="timeline">
+  <div class="timeline-item">
+    <span class="timeline-item__date">Paso 1</span>
+    <h3 class="timeline-item__title">Se cambian los precios en la tienda</h3>
+    <p>Sin ningún aviso público. Nadie publica que los precios subieron.</p>
+  </div>
+  <div class="timeline-item">
+    <span class="timeline-item__date">Paso 2</span>
+    <h3 class="timeline-item__title">Se suben las mejoras visibles, al mismo tiempo</h3>
+    <p>Fotos nuevas, la información de envío más clara, y las 215 reseñas visibles en la ficha de producto (hoy el widget de Judge.me no las muestra — arreglo ya identificado en la auditoría de conversión).</p>
+  </div>
+  <div class="timeline-item">
+    <span class="timeline-item__date">Paso 3</span>
+    <h3 class="timeline-item__title">Se avisa solo a la lista de correo</h3>
+    <p>Un único correo, solo para quienes ya dejaron su correo: "última semana con los precios actuales". Este tipo de aviso suele generar un alza de venta previa, porque crea una razón real para comprar ahora.</p>
+  </div>
+  <div class="timeline-item">
+    <span class="timeline-item__date">Y nada más</span>
+    <h3 class="timeline-item__title">No hay comunicado en Instagram ni en la tienda</h3>
+    <p>El correo a la lista es la única señal que se manda. El resto de la audiencia simplemente ve la tienda con precios nuevos, fotos nuevas y reseñas visibles — una tienda que mejoró, no una tienda que subió los precios.</p>
+  </div>
+</div>
+
+<h3>El correo de "última semana con los precios actuales"</h3>
+<p>Listo para pegar en Klaviyo. Usa la misma historia de la marca (crecimiento, reseñas, la demanda que no se alcanza a cubrir) para llegar al aviso sin sonar a promoción agresiva.</p>
+
+<div class="copyblock">
+  <button type="button" class="copyblock__btn" data-copy-target="copy-correo-ultima-semana">Copiar</button>
+  <div class="copyblock__text" id="copy-correo-ultima-semana">Asunto: Antes de que cambien los precios de Pedraza Ilustración
+
+Hola,
+
+Hace más de un año que no tocamos los precios de Pedraza Ilustración.
+
+En ese tiempo pasaron varias cosas: ya son más de 200 personas las que dejaron su reseña, algunos diseños se agotaron más de una vez, y todavía nos llegan mensajes preguntando cuándo vuelven los puzzles.
+
+Esta semana actualizamos los precios de toda la tienda.
+
+Si tenías el ojo puesto en una lámina, un puzzle o cualquier otra pieza del catálogo, esta es tu última semana para comprarla al precio actual.
+
+Entra a pedrazailustracion.com y elige lo que más te guste.
+
+Un abrazo grande y gracias por acompañar este proyecto,
+Cote y el equipo de Pedraza Ilustración</div>
+</div>
+</section>
+
+<section class="sec">
+<h2>Los datos que faltan y el orden de aplicación</h2>
+
+<div class="callout callout--warn">
+<p><strong>Antes de aplicar cualquier precio nuevo, faltan tres datos:</strong></p>
+<ul>
+<li><strong>Precios de la competencia</strong> (lista mayorista y de página web) — Cote ya los consiguió, todavía no llegan 🟡.</li>
+<li><strong>Comisión exacta de Mercado Libre</strong> — necesaria para fijar el precio de ese canal sin perder margen (sección 4) 🟡.</li>
+<li><strong>Costo unitario puesto en Chile, por producto</strong> — hoy solo se conoce con exactitud el costo del puzzle ($7.253 🟢). Para el resto del catálogo (llaveros, calcetines, bolsos, botellas, libretas, loza, láminas) falta el costo real para confirmar que ningún alza quedó subestimada 🟡.</li>
+</ul>
+</div>
+
+<h3>Orden para aplicar los cambios</h3>
+<p>Marca cada paso a medida que se completa.</p>
+
+<div class="progress">
+  <div class="progress__track">
+    <div class="progress__fill" data-progress-fill></div>
+  </div>
+  <span class="progress__label" data-progress-label>0 de 0 pasos (0%)</span>
+</div>
+
+<ul class="checklist">
+  <li><label><input type="checkbox" id="chk-precios-1" data-precios="validar-tramos-porcentajes"><span>Validar con Felipe y Cote los tres tramos y sus porcentajes (10% / 7,5% / 5%)</span></label></li>
+  <li><label><input type="checkbox" id="chk-precios-2" data-precios="conseguir-precios-competencia"><span>Recibir de Cote los precios de la competencia (lista mayorista y de página)</span></label></li>
+  <li><label><input type="checkbox" id="chk-precios-3" data-precios="conseguir-comision-meli"><span>Conseguir el porcentaje exacto de la comisión de Mercado Libre</span></label></li>
+  <li><label><input type="checkbox" id="chk-precios-4" data-precios="conseguir-costos-unitarios"><span>Conseguir el costo unitario puesto en Chile del resto del catálogo (no solo el puzzle)</span></label></li>
+  <li><label><input type="checkbox" id="chk-precios-5" data-precios="confirmar-precios-shopify-admin"><span>Confirmar los precios actuales directamente en el admin de Shopify (los de esta página vienen de caché de buscador)</span></label></li>
+  <li><label><input type="checkbox" id="chk-precios-6" data-precios="ajustar-tabla-final"><span>Ajustar la tabla de precios nuevos con los datos anteriores, si algo cambia el número</span></label></li>
+  <li><label><input type="checkbox" id="chk-precios-7" data-precios="aplicar-precios-shopify-meli"><span>Aplicar los precios nuevos en Shopify y en Mercado Libre (con el ajuste de comisión)</span></label></li>
+  <li><label><input type="checkbox" id="chk-precios-8" data-precios="aplicar-mejoras-visibles"><span>Subir al mismo tiempo las mejoras visibles: fotos nuevas, envío más claro, reseñas visibles</span></label></li>
+  <li><label><input type="checkbox" id="chk-precios-9" data-precios="aplicar-limpieza-laminas"><span>Aplicar la limpieza del catálogo de láminas: eliminar mariposas y escarabajos, activar la liquidación de A3 aves</span></label></li>
+  <li><label><input type="checkbox" id="chk-precios-10" data-precios="enviar-correo-ultima-semana"><span>Enviar el correo de "última semana con los precios actuales" a la lista, y nada más</span></label></li>
+</ul>
+</section>
+
+<footer class="page-footer"><p>Datos: acta de la reunión del 31 de julio de 2026, <code>datos-financieros-2025-2026.md</code>, <code>docs/research/tienda.md</code> y <code>CLAUDE.md</code>. Las cifras marcadas 🟡 son propuestas a validar o datos pendientes, no precios ni comisiones confirmados. Ver también <a href="cro.html">Conversión</a>, <a href="ofertas.html">Ofertas y pop-ups</a> y la <a href="bitacora.html">bitácora</a> del proyecto.</p></footer>
 
 </main>
 
 <script>
-  // Navegación global: barra superior + panel completo (16 páginas, 4 grupos).
+  // Acceso seguro a localStorage (no revienta en navegación privada u otros bloqueos).
+  function pgGet(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+  function pgSet(key, valor) { try { localStorage.setItem(key, valor); } catch (e) { /* sin soporte, se ignora */ } }
+  function pgRemove(key) { try { localStorage.removeItem(key); } catch (e) { /* sin soporte, se ignora */ } }
+</script>
+
+<script>
+  // ===== Checklist de la sección 7: prefijo pedraza-plan:pcs: =====
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-precios]').forEach(function (cb) {
+      cb.checked = pgGet('pedraza-plan:pcs:' + cb.getAttribute('data-precios')) === '1';
+    });
+    actualizarProgresoPrecios();
+  });
+
+  document.addEventListener('change', function (e) {
+    var cb = e.target.closest('[data-precios]');
+    if (!cb) return;
+    var key = 'pedraza-plan:pcs:' + cb.getAttribute('data-precios');
+    if (cb.checked) { pgSet(key, '1'); } else { pgRemove(key); }
+    actualizarProgresoPrecios();
+  });
+
+  function actualizarProgresoPrecios() {
+    var cajas = document.querySelectorAll('[data-precios]');
+    var total = cajas.length;
+    var done = 0;
+    cajas.forEach(function (cb) { if (cb.checked) done++; });
+    var pct = total ? Math.round((done / total) * 100) : 0;
+
+    document.querySelectorAll('[data-progress-fill]').forEach(function (fill) {
+      fill.style.width = pct + '%';
+    });
+    document.querySelectorAll('[data-progress-label]').forEach(function (label) {
+      label.textContent = done + ' de ' + total + ' pasos (' + pct + '%)';
+    });
+  }
+</script>
+
+<script>
+  // ===== Calculadora de impacto (sección 3) =====
+  // Precio promedio de referencia por tramo, calculado desde la tabla de la sección 2.
+  var PCS_TIERS = {
+    bajo: 11340,
+    medio: 24152.5,
+    alto: 69990
+  };
+  // Margen bruto real del e-commerce (dato de referencia, datos-financieros-2025-2026.md sección 1),
+  // usado como aproximación pareja del margen por producto: hoy solo se conoce el costo exacto del puzzle.
+  var PCS_MARGEN_PCT = 0.789;
+
+  function pcsNum(id) {
+    var el = document.getElementById(id);
+    if (!el) return NaN;
+    return parseFloat(el.value);
+  }
+
+  function pcsSetTxt(id, val) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = val;
+  }
+
+  function pcsFmtCLP(n) {
+    try { return '$' + Math.round(n).toLocaleString('es-CL'); }
+    catch (e) { return '$' + Math.round(n); }
+  }
+
+  function calcularPrecios() {
+    var tramos = ['bajo', 'medio', 'alto'];
+    var totalUtilidad = 0;
+    var totalMargenNuevoPeso = 0;
+    var totalAlzaPeso = 0;
+    var algunoValido = false;
+
+    tramos.forEach(function (t) {
+      var unidades = pcsNum('calc-precios-unid-' + t);
+      var pct = pcsNum('calc-precios-pct-' + t);
+      var precioProm = PCS_TIERS[t];
+
+      var valido = !isNaN(unidades) && !isNaN(pct) && unidades >= 0 && pct >= 0;
+
+      if (!valido) {
+        pcsSetTxt('out-precios-alza-' + t, '—');
+        pcsSetTxt('out-precios-util-' + t, '—');
+        pcsSetTxt('out-precios-tol-' + t, '—');
+        return;
+      }
+
+      algunoValido = true;
+      var alzaPesos = precioProm * (pct / 100);
+      var margenViejo = precioProm * PCS_MARGEN_PCT;
+      var margenNuevo = margenViejo + alzaPesos;
+      var utilidadMensual = unidades * alzaPesos;
+      var toleranciaPct = margenNuevo > 0 ? (alzaPesos / margenNuevo) * 100 : 0;
+
+      pcsSetTxt('out-precios-alza-' + t, pcsFmtCLP(alzaPesos));
+      pcsSetTxt('out-precios-util-' + t, pcsFmtCLP(utilidadMensual) + '/mes');
+      pcsSetTxt('out-precios-tol-' + t, toleranciaPct.toFixed(1) + '%');
+
+      totalUtilidad += utilidadMensual;
+      totalMargenNuevoPeso += margenNuevo * unidades;
+      totalAlzaPeso += alzaPesos * unidades;
+    });
+
+    if (!algunoValido) {
+      pcsSetTxt('out-precios-util-total', '—');
+      pcsSetTxt('out-precios-tol-total', '—');
+      pcsSetTxt('kpi-util-mensual', '—');
+      pcsSetTxt('kpi-util-anual', '—');
+      pcsSetTxt('txt-tolerancia-explicacion', 'Completa los campos de arriba para ver el resultado.');
+      return;
+    }
+
+    pcsSetTxt('out-precios-util-total', pcsFmtCLP(totalUtilidad) + '/mes');
+    var toleranciaTotal = totalMargenNuevoPeso > 0 ? (totalAlzaPeso / totalMargenNuevoPeso) * 100 : 0;
+    pcsSetTxt('out-precios-tol-total', toleranciaTotal.toFixed(1) + '%');
+    pcsSetTxt('kpi-util-mensual', pcsFmtCLP(totalUtilidad));
+    pcsSetTxt('kpi-util-anual', pcsFmtCLP(totalUtilidad * 12));
+    pcsSetTxt('txt-tolerancia-explicacion',
+      'Con estos números, la venta podría caer hasta ' + toleranciaTotal.toFixed(1) +
+      '% y el alza todavía conviene: la utilidad total seguiría siendo igual o mayor que la de hoy.');
+  }
+
+  document.addEventListener('input', function (e) {
+    if (e.target && e.target.id && e.target.id.indexOf('calc-precios-') === 0) {
+      calcularPrecios();
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', calcularPrecios);
+</script>
+
+<script>
+  // Copiar al portapapeles — delegación de eventos, un solo listener por página.
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-copy-target]');
+    if (!btn) return;
+    var el = document.getElementById(btn.getAttribute('data-copy-target'));
+    if (!el) return;
+    copiarTexto(el.innerText || el.textContent || '', btn);
+  });
+
+  function copiarTexto(texto, btn) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(texto).then(
+        function () { mostrarCopiado(btn); },
+        function () { copiarConFallback(texto, btn); }
+      );
+    } else {
+      copiarConFallback(texto, btn);
+    }
+  }
+
+  function copiarConFallback(texto, btn) {
+    var ta = document.createElement('textarea');
+    ta.value = texto;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.top = '-1000px';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (err) { /* sin soporte, se ignora */ }
+    document.body.removeChild(ta);
+    mostrarCopiado(btn);
+  }
+
+  function mostrarCopiado(btn) {
+    var original = btn.getAttribute('data-label') || btn.textContent;
+    btn.setAttribute('data-label', original);
+    btn.textContent = '✓ ¡Copiado!';
+    btn.classList.add('is-copied');
+    clearTimeout(btn._copyTimeout);
+    btn._copyTimeout = setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('is-copied');
+    }, 2000);
+  }
+</script>
+
+<script>
+  // Navegación global: barra superior + panel completo.
   // Prefijo "nav" en todo para no chocar con otros scripts de la página.
   var NAV_PAGES = [
     { grupo: 'Seguimiento', id: 'estado', nombre: 'Estado del plan' },
@@ -1321,53 +1558,6 @@ main { counter-reset: sec; }
   }
 
   document.addEventListener('DOMContentLoaded', navInit);
-</script>
-
-<script>
-  // Copiar al portapapeles — delegación de eventos, un solo listener por página.
-  document.addEventListener('click', function (e) {
-    var btn = e.target.closest('[data-copy-target]');
-    if (!btn) return;
-    var el = document.getElementById(btn.getAttribute('data-copy-target'));
-    if (!el) return;
-    copiarTexto(el.innerText || el.textContent || '', btn);
-  });
-
-  function copiarTexto(texto, btn) {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(texto).then(
-        function () { mostrarCopiado(btn); },
-        function () { copiarConFallback(texto, btn); }
-      );
-    } else {
-      copiarConFallback(texto, btn);
-    }
-  }
-
-  function copiarConFallback(texto, btn) {
-    var ta = document.createElement('textarea');
-    ta.value = texto;
-    ta.setAttribute('readonly', '');
-    ta.style.position = 'fixed';
-    ta.style.top = '-1000px';
-    document.body.appendChild(ta);
-    ta.select();
-    try { document.execCommand('copy'); } catch (err) { /* sin soporte, se ignora */ }
-    document.body.removeChild(ta);
-    mostrarCopiado(btn);
-  }
-
-  function mostrarCopiado(btn) {
-    var original = btn.getAttribute('data-label') || btn.textContent;
-    btn.setAttribute('data-label', original);
-    btn.textContent = '✓ ¡Copiado!';
-    btn.classList.add('is-copied');
-    clearTimeout(btn._copyTimeout);
-    btn._copyTimeout = setTimeout(function () {
-      btn.textContent = original;
-      btn.classList.remove('is-copied');
-    }, 2000);
-  }
 </script>
 
 </body>

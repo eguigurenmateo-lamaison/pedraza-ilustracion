@@ -790,6 +790,13 @@ main { counter-reset: sec; }
           </span>
           <span class="navpanel__check" aria-hidden="true">✓</span>
         </a>
+        <a href="preventa.html" class="navpanel__link" data-nav-key="preventa">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Preventa de puzzles</span>
+            <span class="navpanel__link-desc">Plan día a día del lanzamiento</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
         <a href="inventario.html" class="navpanel__link" data-nav-key="inventario">
           <span class="navpanel__link-text">
             <span class="navpanel__link-name">Control de stock</span>
@@ -811,6 +818,13 @@ main { counter-reset: sec; }
           </span>
           <span class="navpanel__check" aria-hidden="true">✓</span>
         </a>
+        <a href="precios.html" class="navpanel__link" data-nav-key="precios">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Nueva estructura de precios</span>
+            <span class="navpanel__link-desc">Subida por tramos</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
         <a href="email.html" class="navpanel__link" data-nav-key="email">
           <span class="navpanel__link-text">
             <span class="navpanel__link-name">Correo y campañas</span>
@@ -818,10 +832,24 @@ main { counter-reset: sec; }
           </span>
           <span class="navpanel__check" aria-hidden="true">✓</span>
         </a>
+        <a href="clientes.html" class="navpanel__link" data-nav-key="clientes">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Clientes que vuelven</span>
+            <span class="navpanel__link-desc">Del 10% al 20% de recompra</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
         <a href="cro.html" class="navpanel__link" data-nav-key="cro">
           <span class="navpanel__link-text">
             <span class="navpanel__link-name">Conversión</span>
             <span class="navpanel__link-desc">Auditoría de la tienda</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="tienda-cambios.html" class="navpanel__link" data-nav-key="tienda-cambios">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Cambios en la tienda</span>
+            <span class="navpanel__link-desc">Qué tocar y en qué orden</span>
           </span>
           <span class="navpanel__check" aria-hidden="true">✓</span>
         </a>
@@ -896,54 +924,71 @@ main { counter-reset: sec; }
 
 <section class="sec">
 <h2>La cuenta regresiva</h2>
-<p>Esta es la parte más importante de toda la página. El pedido a China tiene una fecha límite real, y esa fecha ya está encima.</p>
-
-<div class="countdown-box">
-  <span class="countdown-box__label">Días que quedan para pedir a tiempo y tener stock todo noviembre (peor caso de tránsito)</span>
-  <span class="countdown-box__num" id="cd-hero-num">—</span>
-  <span class="countdown-box__unidad" id="cd-hero-unidad">días</span>
-  <span class="countdown-box__sub">Fecha límite: 11 de agosto de 2026 · hoy es <span id="cd-hoy-fecha">—</span></span>
-</div>
+<p>Esta es la parte más importante de toda la página. El pedido a China tiene una fecha límite real, y esa fecha acaba de cambiar.</p>
 
 <div class="callout callout--danger">
-<p><strong>El barco no negocia el tiempo.</strong> Desde que sale el pedido de China hasta que está disponible para vender pasan entre 67 y 82 días 🟡: entre 60 y 75 días de tránsito marítimo, más unos 7 días de proceso en Partner (el operador logístico que despacha Shopify) — el mismo proceso que ya vivió el contenedor actual, que llegó el 15 de agosto pero solo quedó disponible para vender la última semana de agosto. Ese tiempo no se acorta pagando más ni apurando a nadie: el barco demora lo que demora. Si el pedido sale después de la fecha límite, no existe forma de recuperar los días perdidos — se pierde toda la ventana, no una parte de ella.</p>
+<p><strong>El dato que cambia todo:</strong> en la reunión del 31 de julio, Cote contó que <strong>el último pedido a China demoró tres meses</strong> 🟢 — no los 60-75 días de tránsito con los que se habían calculado todas las fechas límite de esta página. Felipe matizó que la fábrica reportó un problema puntual, pero reconoció el riesgo de que se repita. Cote además advirtió que la fábrica está con harta carga por el fin de año 🟢 — otra razón para esperar demoras, no una excepción. Por eso esta página ahora muestra <strong>dos fechas límite en paralelo</strong> para cada meta, no una sola.</p>
 </div>
 
-<p>Hay tres fechas límite, una por cada meta. Cada una tiene un rango: el "peor caso" asume que el tránsito demora los 75 días completos (lo que ya ha pasado antes, según el acta de la reunión del 29 de julio); el "mejor caso" asume que demora los 60 días mínimos. Los días que quedan se actualizan solos cada vez que se abre esta página.</p>
+<div class="countdown-box">
+  <span class="countdown-box__label">Días que quedan para pedir a tiempo y tener stock todo noviembre — escenario realista (el más exigente)</span>
+  <span class="countdown-box__num" id="cd-hero-num">—</span>
+  <span class="countdown-box__unidad" id="cd-hero-unidad">días</span>
+  <span class="countdown-box__sub">Fecha límite escenario realista: 27 de julio de 2026 · hoy es <span id="cd-hoy-fecha">—</span></span>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>Por qué hay dos escenarios y no uno.</strong> El tiempo total, desde que sale el pedido de China hasta que está disponible para vender, se arma con el tránsito marítimo más el proceso en Partner (el operador logístico que despacha Shopify, unos 7 días — el mismo proceso que ya vivió el contenedor actual, que llegó el 15 de agosto pero quedó disponible para vender recién la última semana de agosto).</p>
+<ul>
+<li><strong>Escenario optimista — 82 días (75 de tránsito + 7 de Partner).</strong> Es lo que la fábrica promete.</li>
+<li><strong>Escenario realista — 97 días (90 de tránsito + 7 de Partner).</strong> Es lo que efectivamente pasó la última vez, según Cote — no una hipótesis pesimista, un hecho que ya ocurrió.</li>
+</ul>
+<p>El barco no negocia el tiempo: no se acorta pagando más ni apurando a nadie. Si el pedido sale después de la fecha límite, no existe forma de recuperar los días perdidos — se pierde toda la ventana, no una parte de ella.</p>
+</div>
+
+<p>Hay tres fechas límite, una por cada meta, cada una calculada con los dos escenarios. Los días que quedan se actualizan solos cada vez que se abre esta página.</p>
 
 <div class="table-wrap">
 <table style="min-width:640px">
 <thead>
-<tr><th>Meta</th><th>Fecha límite — peor caso</th><th>Días que quedan</th><th>Fecha límite — mejor caso</th><th>Días que quedan</th></tr>
+<tr><th>Meta</th><th>Fecha límite — optimista (82 días)</th><th>Días que quedan</th><th>Fecha límite — realista (97 días)</th><th>Días que quedan</th></tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Stock disponible todo noviembre</strong></td>
+<td><strong>Stock disponible todo noviembre</strong><br>objetivo: 1 de noviembre</td>
 <td>11 de agosto de 2026</td>
-<td id="cd-nov-peor">—</td>
-<td>26 de agosto de 2026</td>
-<td id="cd-nov-mejor">—</td>
+<td id="cd-nov-opt">—</td>
+<td>27 de julio de 2026</td>
+<td id="cd-nov-real">—</td>
 </tr>
 <tr>
 <td><strong>Black Friday</strong> 🟢 27 de noviembre</td>
 <td>6 de septiembre de 2026</td>
-<td id="cd-bf-peor">—</td>
-<td>21 de septiembre de 2026</td>
-<td id="cd-bf-mejor">—</td>
+<td id="cd-bf-opt">—</td>
+<td>22 de agosto de 2026</td>
+<td id="cd-bf-real">—</td>
 </tr>
 <tr>
 <td><strong>Navidad</strong> 🟢 último despacho 20 de diciembre</td>
 <td>29 de septiembre de 2026</td>
-<td id="cd-nav-peor">—</td>
-<td>14 de octubre de 2026</td>
-<td id="cd-nav-mejor">—</td>
+<td id="cd-nav-opt">—</td>
+<td>14 de septiembre de 2026</td>
+<td id="cd-nav-real">—</td>
 </tr>
 </tbody>
 </table>
 </div>
 
+<div class="callout callout--danger">
+<p><strong>La fecha límite del escenario realista para cubrir todo noviembre ya venció: era el 27 de julio de 2026.</strong> Esto no significa que noviembre esté descartado — el escenario optimista (11 de agosto) todavía sigue abierto, y la fecha definitiva depende de lo que se acuerde con la fábrica el domingo. Pero es información que no se puede esconder: si el próximo pedido demora lo mismo que el último (tres meses), ya no alcanza a llegar stock nuevo a tiempo para todo noviembre. Es exactamente la munición que Felipe necesita para negociar plazos con la fábrica.</p>
+</div>
+
 <div class="callout callout--warn">
-<p><strong>Leer la tabla al revés: cada fecha que se pasa, elimina una meta.</strong> Si se pasa el 11 de agosto (peor caso) o el 26 de agosto (mejor caso), ya no hay stock nuevo para todo noviembre — solo para lo que quede después de Black Friday. Si se pasa el 6-21 de septiembre, se pierde la posibilidad de tener stock a tiempo para Black Friday. Si se pasa el 29 de septiembre al 14 de octubre, se pierde Navidad — la fecha más importante del año 🟢 (diciembre de 2025 vendió 2,9 veces el mes promedio, según los archivos de Felipe de 18 meses).</p>
+<p><strong>Leer la tabla al revés: cada fecha que se pasa, elimina una meta.</strong> Si se pasan las dos fechas de "todo noviembre" (11 de agosto optimista, 27 de julio realista — esta última ya vencida), solo queda stock nuevo disponible después de Black Friday. Si se pasan las de Black Friday (6 de septiembre optimista, 22 de agosto realista), se pierde esa fecha. Si se pasan las de Navidad (29 de septiembre optimista, 14 de septiembre realista), se pierde la fecha más importante del año 🟢 (diciembre de 2025 vendió 2,9 veces el mes promedio, según los archivos de Felipe de 18 meses).</p>
+</div>
+
+<div class="callout callout--info">
+<p><strong>El domingo 2 de agosto, Felipe y Cote se reúnen con Tina, de la fábrica en China, para negociar tres puntos</strong> 🟢 (acta de la reunión del 31 de julio, sección 9): el plazo real de producción y tránsito, el pago contra la llegada del pedido a Chile (en vez de pagar todo por adelantado), y el reclamo por las piezas que faltaron en el pedido anterior. <strong>La fecha límite definitiva depende de lo que se acuerde en esa reunión</strong> — los dos escenarios de esta página son el mejor y el peor caso conocidos hoy, no la última palabra.</p>
 </div>
 </section>
 
@@ -1188,12 +1233,12 @@ main { counter-reset: sec; }
     var hoy = new Date();
 
     var fechas = {
-      'nov-peor': new Date(2026, 7, 11),
-      'nov-mejor': new Date(2026, 7, 26),
-      'bf-peor': new Date(2026, 8, 6),
-      'bf-mejor': new Date(2026, 8, 21),
-      'nav-peor': new Date(2026, 8, 29),
-      'nav-mejor': new Date(2026, 9, 14)
+      'nov-opt': new Date(2026, 7, 11),
+      'nov-real': new Date(2026, 6, 27),
+      'bf-opt': new Date(2026, 8, 6),
+      'bf-real': new Date(2026, 7, 22),
+      'nav-opt': new Date(2026, 8, 29),
+      'nav-real': new Date(2026, 8, 14)
     };
 
     for (var clave in fechas) {
@@ -1201,7 +1246,9 @@ main { counter-reset: sec; }
       setTexto('cd-' + clave, textoDiasCelda(diasEntre(hoy, fechas[clave])));
     }
 
-    var dPrincipal = diasEntre(hoy, fechas['nov-peor']);
+    // El contador principal sigue la fecha del escenario realista (la más exigente),
+    // no la optimista: es la que de verdad hay que vigilar.
+    var dPrincipal = diasEntre(hoy, fechas['nov-real']);
     var numEl = document.getElementById('cd-hero-num');
     var unidadEl = document.getElementById('cd-hero-unidad');
 
@@ -1216,11 +1263,11 @@ main { counter-reset: sec; }
         numEl.classList.remove('is-pasado');
       } else if (dPrincipal === 0) {
         numEl.textContent = 'Hoy';
-        unidadEl.textContent = 'es el último día para pedir';
+        unidadEl.textContent = 'es el último día del escenario realista para pedir';
         numEl.classList.add('is-pasado');
       } else {
-        numEl.textContent = 'Fecha vencida';
-        unidadEl.textContent = 'venció hace ' + Math.abs(dPrincipal) + (Math.abs(dPrincipal) === 1 ? ' día' : ' días');
+        numEl.textContent = 'Ya venció';
+        unidadEl.textContent = 'la fecha del escenario realista ya venció, hace ' + Math.abs(dPrincipal) + (Math.abs(dPrincipal) === 1 ? ' día' : ' días');
         numEl.classList.add('is-pasado');
       }
     }
@@ -1250,11 +1297,15 @@ main { counter-reset: sec; }
     { grupo: 'Plan de acción', id: 'plan-90-dias', nombre: 'Plan de 90 días' },
     { grupo: 'Plan de acción', id: 'stock-navidad', nombre: 'Stock para Navidad' },
     { grupo: 'Plan de acción', id: 'escenarios', nombre: 'Escenarios' },
+    { grupo: 'Plan de acción', id: 'preventa', nombre: 'Preventa de puzzles' },
     { grupo: 'Plan de acción', id: 'inventario', nombre: 'Control de stock' },
     { grupo: 'Plan de acción', id: 'modelo-datos', nombre: 'Ordenar los datos' },
     { grupo: 'Plan de acción', id: 'ofertas', nombre: 'Ofertas y pop-ups' },
+    { grupo: 'Plan de acción', id: 'precios', nombre: 'Nueva estructura de precios' },
     { grupo: 'Plan de acción', id: 'email', nombre: 'Correo y campañas' },
+    { grupo: 'Plan de acción', id: 'clientes', nombre: 'Clientes que vuelven' },
     { grupo: 'Plan de acción', id: 'cro', nombre: 'Conversión' },
+    { grupo: 'Plan de acción', id: 'tienda-cambios', nombre: 'Cambios en la tienda' },
     { grupo: 'Plan de acción', id: 'ads', nombre: 'Google y Meta Ads' },
     { grupo: 'Plan de acción', id: 'digitales', nombre: 'Productos digitales' },
     { grupo: 'Herramientas del día a día', id: 'kit-arranque', nombre: 'Kit de arranque' },

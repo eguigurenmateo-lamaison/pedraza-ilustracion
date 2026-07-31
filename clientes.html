@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Ordenar el modelo de datos — Plan Pedraza Ilustración</title>
+<title>Clientes que vuelven — Plan Pedraza Ilustración</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
 <style>
 /* ==========================================================================
@@ -617,16 +617,38 @@ main { counter-reset: sec; }
   .callout { border-left: 4px solid #999; }
   a[href]::after { content: " (" attr(href) ")"; font-size: .8em; }
 }
+/* ==========================================================================
+   Extensiones propias de esta página (clientes.html)
+   clientes.html no es una de las 6 páginas del sitio (docs/design-system.md,
+   sección 1) y no está en el menú principal — se llega por link desde el
+   plan. El bloque de arriba es el canónico intacto; lo de abajo son
+   componentes propios de esta página (link "Volver al plan" del hero, pie de
+   página con la fuente), agregados en la misma hoja de estilos única para no
+   crear un segundo archivo CSS.
+   ========================================================================== */
 
-/* ===== 21. Extensión puntual de esta página: cuadrícula de 18 meses (Corrección 1) ===== */
-.mesgrid { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--space-2); margin: var(--space-4) 0; }
-.mesgrid__cell { padding: var(--space-2) var(--space-1); border-radius: var(--radius-xs); background: var(--line-strong); color: var(--ink-soft); font-size: .68rem; font-weight: 700; text-align: center; line-height: 1.3; }
-.mesgrid__cell--ok { background: var(--success); color: #fff; }
-@media (min-width: 480px) { .mesgrid { grid-template-columns: repeat(9, 1fr); } }
+.hero__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-2) 0 0;
+  margin-bottom: var(--space-3);
+  color: rgba(255, 255, 255, .85);
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+.hero__back:hover { color: #fff; }
+
+.page-footer { margin-top: var(--space-8); padding-top: var(--space-4); border-top: 1px solid var(--line); color: var(--ink-faint); font-size: var(--fs-sm); }
+.page-footer a { color: var(--accent-dark); font-weight: 700; text-decoration: none; }
+.page-footer a:hover { text-decoration: underline; }
+
+code { font-family: var(--font-mono); font-size: .92em; background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: .1em .4em; }
 </style>
 </head>
-<body data-nav-actual="modelo-datos">
-
+<body data-nav-actual="clientes">
 <nav class="navbar" aria-label="Barra de navegación">
   <div class="navbar__inner">
     <a href="estado.html" class="navbar__home" aria-label="Ir al inicio: Estado del plan">🦋</a>
@@ -837,389 +859,363 @@ main { counter-reset: sec; }
 
 <header class="hero">
   <div class="hero__inner">
-    <h1>Ordenar el modelo de datos</h1>
-    <p>Una revisión del modelo financiero que armó Felipe: qué ya está bien resuelto y qué falta cargar para que los números reflejen lo que de verdad está pasando en el negocio, mes a mes.</p>
+    <a href="index.html#datos-que-faltan" class="hero__back">← Volver al plan</a>
+    <h1>Clientes que vuelven</h1>
+    <p>Hoy solo 1 de cada 10 personas que compra en Pedraza Ilustración vuelve a comprar. Esta página explica por qué ese número importa más que cualquier campaña de publicidad, dónde se corta exactamente, y qué hacer con cada tipo de cliente. Esta página no está en el menú principal — se comparte por link directo desde el plan.</p>
   </div>
 </header>
 
 <main class="wrap">
 
-<section class="sec">
-<h2>Lo que ya está bien resuelto</h2>
+<section class="sec" id="agujero-numeros">
+<h2>El agujero, en números</h2>
 
-<p>Antes de entrar en las correcciones, vale la pena decirlo con claridad: el modelo financiero que armó Felipe está bien construido. No es una planilla improvisada — tiene una arquitectura pensada, reglas claras y decisiones técnicas correctas que no son fáciles de acertar a la primera. Esto es lo que ya está resuelto:</p>
+<p>Un <strong>cliente que repite</strong> es alguien que ya compró una vez en Pedraza Ilustración y vuelve a comprar de nuevo, en cualquier producto. Importa más que sumar un cliente nuevo por una razón simple: esa persona ya conoce la marca, ya confió en pagar, y ya sabe que el pedido llega bien. Convencerla de comprar otra vez cuesta mucho menos que convencer a alguien que nunca ha oído hablar de Pedraza — la aritmética completa está en la próxima sección.</p>
 
-<div class="grid-2">
-  <div class="card">
-    <h3>🏗️ Arquitectura de tres capas</h3>
-    <p>Datos crudos → lógica de cálculo (fórmulas SUMIFS) → reporte final. Cada capa cumple una función distinta, y la regla de no editar a mano una celda con fórmula evita el error más común de cualquier planilla financiera: que alguien pise un cálculo sin darse cuenta.</p>
-  </div>
-  <div class="card">
-    <h3>🗂️ Maestra de SKU con mapeos documentados</h3>
-    <p>Las correcciones de producto ya quedaron registradas por escrito: <strong>CAL-TDP</strong> se reasignó a <strong>CAL-TORR</strong>, y <strong>LAM-IND-PEQ</strong> quedó marcado como inactivo. Ese nivel de detalle es el que evita que un producto discontinuado siga sumando ventas en los reportes.</p>
-  </div>
-  <div class="card">
-    <h3>🏦 Calendario de los 2 créditos, calibrado contra el banco</h3>
-    <p>Felipe reconstruyó cuota por cuota los dos créditos FOGAPE con la propiedad <strong>Capital(t+1) = Capital(t) × (1 + tasa)</strong>, y la calibró contra las capturas reales del banco. Ese tipo de trabajo casi nunca queda bien armado a la primera.</p>
-  </div>
-  <div class="card">
-    <h3>✂️ Capital e interés, separados correctamente</h3>
-    <p>La cuota del crédito no es un gasto completo: solo el interés lo es, porque el capital es plata que vuelve al banco, no plata que se gasta. Separar bien esos dos conceptos es la base de cualquier estado de resultados que se quiera tomar en serio.</p>
-  </div>
+<div class="kpi-grid">
+  <div class="kpi"><span class="kpi__label">Clientes que repiten hoy (30 días) 🟢</span><span class="kpi__value">10%</span></div>
+  <div class="kpi"><span class="kpi__label">Referencia sana 🟡</span><span class="kpi__value">20-30%</span></div>
+  <div class="kpi"><span class="kpi__label">Clientes con 2 pedidos o más 🟢</span><span class="kpi__value">412</span></div>
+  <div class="kpi"><span class="kpi__label">Clientes con más de 2 pedidos 🟢</span><span class="kpi__value">82</span></div>
 </div>
 
-<p>Las correcciones que vienen a continuación <strong>no son de diseño</strong> — la estructura del modelo está bien armada. Son de <strong>completitud de datos</strong>: al modelo le faltan datos, no un rediseño.</p>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Tasa actual</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:33%"></div></div><span class="chart-bar-row__value">10%</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Referencia sana</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div><span class="chart-bar-row__value">20-30%</span></div>
 
-<div class="callout callout--info">
-  <p>💡 <em>"Si hay una forma que tú crees que es mejor de hacerlo, feliz, voy a recibir cambios y sugerencias."</em><br>— Felipe Robinson, reunión del 29 de julio de 2026.</p>
-</div>
-
-</section>
-
-<section class="sec">
-<h2>Corrección 1 — cargar los gastos variables de los 18 meses</h2>
-
-<p>Esta es la corrección más importante de las cuatro, porque de ella depende si se puede confiar en cualquier número de utilidad que hoy salga del modelo.</p>
+<p><span class="pill pill--success">🟢 dato real</span> Fuente: pantalla de Shopify mostrada en la reunión del 31 de julio de 2026 (ver acta, sección 5). La referencia de 20-30% <span class="pill pill--warn">🟡 criterio del operador</span> no es un estudio publicado — es lo que el operador considera una tasa sana según su experiencia con otras tiendas, no una promesa de resultado ni un número de la industria.</p>
 
 <div class="callout callout--danger">
-  <p>Hoy los gastos variables solo están cargados en <strong>junio de 2026</strong>. En los otros 17 meses del período figuran en cero.</p>
+<p><strong>El dato más importante de este documento:</strong> ese 10% no mejora aunque se mire un periodo más largo (60 o 90 días). Eso significa que no es un problema de tiempo — es un problema estructural. Cada mes la tienda gasta en traer clientes nuevos, los vende una vez, y la enorme mayoría no vuelve nunca más. El negocio corre con una fuga permanente justo en la base de clientes.</p>
 </div>
 
-<div class="mesgrid" role="img" aria-label="18 meses del período: 17 sin datos de gastos variables, 1 con datos completos (junio de 2026)">
-  <div class="mesgrid__cell">01-25</div>
-  <div class="mesgrid__cell">02-25</div>
-  <div class="mesgrid__cell">03-25</div>
-  <div class="mesgrid__cell">04-25</div>
-  <div class="mesgrid__cell">05-25</div>
-  <div class="mesgrid__cell">06-25</div>
-  <div class="mesgrid__cell">07-25</div>
-  <div class="mesgrid__cell">08-25</div>
-  <div class="mesgrid__cell">09-25</div>
-  <div class="mesgrid__cell">10-25</div>
-  <div class="mesgrid__cell">11-25</div>
-  <div class="mesgrid__cell">12-25</div>
-  <div class="mesgrid__cell">01-26</div>
-  <div class="mesgrid__cell">02-26</div>
-  <div class="mesgrid__cell">03-26</div>
-  <div class="mesgrid__cell">04-26</div>
-  <div class="mesgrid__cell">05-26</div>
-  <div class="mesgrid__cell mesgrid__cell--ok">✓ 06-26</div>
-</div>
-<p style="font-size:var(--fs-sm); color:var(--ink-soft);">Gris = sin gastos variables cargados. Verde = el único mes con datos completos.</p>
+<h3>Dónde se corta: la segunda compra</h3>
+<p>De los clientes de Pedraza Ilustración, 412 ya llegaron a comprar dos veces o más. Pero solo 82 pasaron de ahí — hicieron una tercera compra, o más. La diferencia entre esos dos números cuenta toda la historia:</p>
 
-<p>Cuando un gasto real queda en cero, la utilidad de ese mes se ve más alta de lo que en verdad es. Por eso <strong>junio de 2026 es, hoy, el único mes del modelo con una utilidad operacional confiable</strong> — los otros 17 meses están sobrestimados.</p>
+<div class="chart-bar-row"><span class="chart-bar-row__label">2 pedidos o más</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div><span class="chart-bar-row__value">412</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Más de 2 pedidos</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:20%"></div></div><span class="chart-bar-row__value">82</span></div>
 
-<div class="kpi-grid">
-  <div class="kpi">
-    <span class="kpi__label">Publicidad, 18 meses</span>
-    <span class="kpi__value">$973.425</span>
-    <span class="kpi__delta kpi__delta--down">🔴 eso es más o menos lo que se gasta en un mes</span>
-  </div>
-  <div class="kpi">
-    <span class="kpi__label">Envíos Packner, 18 meses</span>
-    <span class="kpi__value">$966.537</span>
-    <span class="kpi__delta kpi__delta--down">🔴 imposible para $202M de venta</span>
-  </div>
-  <div class="kpi">
-    <span class="kpi__label">Comisiones de pasarela de pago</span>
-    <span class="kpi__value">$0</span>
-    <span class="kpi__delta kpi__delta--down">🔴 no aparecen en ninguna parte</span>
-  </div>
-</div>
+<p>412 menos 82 son <strong>330 personas</strong> que compraron dos veces y ahí se quedaron — nunca hicieron una tercera compra. Dicho de otra forma: solo <strong>1 de cada 5 personas (20%)</strong> que llega a la segunda compra sigue comprando después. Cuatro de cada cinco se detienen justo ahí. Esto se desarrolla en la sección 3.</p>
 
-<p>Lo que hay que cargar mes a mes, y de dónde sale cada dato:</p>
-
-<div class="table-wrap">
-  <table>
-    <thead>
-      <tr><th>Gasto a cargar</th><th>De dónde sale el dato</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Publicidad Meta</td><td>Administrador de anuncios de Meta → informe de gasto mensual</td></tr>
-      <tr><td>Publicidad Google</td><td>Panel de Google Ads → informe de gasto mensual</td></tr>
-      <tr><td>Envíos Packner</td><td>Facturas o liquidaciones mensuales de Packner</td></tr>
-      <tr><td>Comisión Shopify Payments</td><td>Liquidaciones de Shopify (Finanzas → Pagos)</td></tr>
-      <tr><td>Comisión Flow</td><td>Panel de Flow</td></tr>
-      <tr><td>Comisión Mercado Pago</td><td>Panel de Mercado Pago</td></tr>
-      <tr><td>Comisión transferencia bancaria</td><td>Cartola bancaria</td></tr>
-      <tr><td>Suscripciones Shopify y apps</td><td>Cartola bancaria o panel de facturación de Shopify</td></tr>
-      <tr><td>Comisiones Mercado Libre</td><td>Panel de Mercado Libre (resumen de ventas)</td></tr>
-    </tbody>
-  </table>
-</div>
-
-</section>
-
-<section class="sec">
-<h2>Corrección 2 — resolver el doble conteo de "Creado en Chile"</h2>
-
-<p>Esto no es un error confirmado. Es una duda que vale la pena resolver, porque el propio Felipe la dejó marcada en su correo:</p>
+<h3>Qué significa esto en plata</h3>
+<p>En la reunión se calculó que pasar del 10% actual a la meta de 20% significaría del orden de <strong>$500.000 adicionales al mes</strong>, sin gastar un peso más en publicidad. <span class="pill pill--warn">🟡 estimación</span> Así se reconstruye ese cálculo con los datos reales del plan, para mostrar de dónde sale:</p>
 
 <div class="callout callout--warn">
-  <p>🟡 <em>"Consolidado Ventas también tiene la venta detallada de Creado en Chile (Cliente B2B), por lo que se repite el número del archivo anterior."</em><br>— Felipe Robinson, correo del 29 de julio de 2026.</p>
+<p><strong>La aritmética completa:</strong></p>
+<ul>
+<li>Pedidos proyectados al mes: <strong>~140</strong> — según la captura de Shopify del 1 al 24 de julio: 110 pedidos en 24 días, unos 4,6 pedidos por día, proyectados a 30 días.</li>
+<li>Con 10% de repetición (hoy): ~14 de esos 140 pedidos son de alguien que ya había comprado antes (10% × 140).</li>
+<li>Con 20% de repetición (meta): serían ~28 pedidos de clientes que repiten (20% × 140).</li>
+<li>Diferencia: <strong>14 pedidos adicionales al mes</strong>, gracias a gente que ya es clienta — no a publicidad nueva.</li>
+<li>14 pedidos × ticket promedio real de $37.900 ≈ <strong>$530.600 al mes</strong>.</li>
+</ul>
+<p style="font-size:var(--fs-sm);color:var(--ink-faint);margin:0">Ese resultado cae en el mismo orden de magnitud que los "$500.000 adicionales al mes" que se calcularon en la llamada — la diferencia de unos $30.000 es solo redondeo entre los datos usados. No es una promesa de resultado: es el tamaño de la oportunidad si la tasa de repetición mejora.</p>
 </div>
+</section>
 
-<p>En el modelo, la venta de Creado en Chile aparece como una <strong>columna separada</strong>, junto a B2B, en la pestaña 30. Si las facturas de BSALE ya incluyen esa venta, se está contando dos veces.</p>
+<section class="sec" id="mas-barato-publicidad">
+<h2>Por qué es más barato que la publicidad</h2>
 
-<div class="kpi-grid">
-  <div class="kpi">
-    <span class="kpi__label">Posible doble conteo</span>
-    <span class="kpi__value">$24.065.548</span>
-    <span class="kpi__delta kpi__delta--down">🟡 hasta 12% de la venta de 18 meses</span>
-  </div>
-</div>
+<p>La idea que planteó el operador en la llamada es simple: hoy la tienda le paga a Meta y a Google cada vez que un anuncio logra una venta nueva. Ese mismo monto, puesto como incentivo para alguien que ya compró, debería rendir más — porque a esa persona no hay que convencerla de cero: ya confía en la marca, ya compró antes y ya sabe que el pedido llega bien.</p>
 
-<p>La verificación es simple y no toma mucho tiempo:</p>
-
-<div class="timeline">
-  <div class="timeline-item">
-    <div class="timeline-item__date">Paso 1</div>
-    <div class="timeline-item__title">Elegir un mes cualquiera del período</div>
-    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Por ejemplo, abril de 2026.</p>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-item__date">Paso 2</div>
-    <div class="timeline-item__title">Filtrar las facturas de BSALE de ese mes por el cliente Creado en Chile</div>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-item__date">Paso 3</div>
-    <div class="timeline-item__title">Sumar el total facturado a ese cliente en ese mes</div>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-item__date">Paso 4</div>
-    <div class="timeline-item__title">Comparar ese total contra la columna "Creado en Chile" del Consolidado Ventas, mismo mes</div>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-item__date">Paso 5</div>
-    <div class="timeline-item__title">Si coinciden, hay duplicación y se elimina una de las dos fuentes</div>
-    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Si son distintos, cada fuente mide algo diferente y no hay duplicación.</p>
-  </div>
-</div>
+<p><strong>Costo de adquisición</strong> (a veces se le dice "CAC"), en una frase: es lo que cuesta, en promedio, conseguir una venta a través de publicidad. Se calcula dividiendo lo que se gastó en anuncios por la cantidad de pedidos que llegaron en ese mismo periodo.</p>
 
 <div class="callout callout--info">
-  <p>💡 Felipe puede tener una razón que no vemos para llevarlo separado. Por eso esto se presenta como una pregunta para confirmar con él, no como un error ya encontrado.</p>
+<p><strong>El cálculo, con los datos reales de la reunión del 31 de julio (últimos 30 días, ver acta sección 4):</strong></p>
+<ul>
+<li>Inversión en publicidad: <strong>$914.000</strong> 🟢 ($752.000 en Meta + $162.000 en Google).</li>
+<li>Pedidos proyectados en el mismo periodo: <strong>~140</strong> 🟡 (misma proyección de la sección 1, sobre la captura de Shopify del 1-24 de julio).</li>
+<li>Costo de adquisición: $914.000 ÷ 140 ≈ <strong>$6.530 por pedido</strong> 🟡.</li>
+</ul>
 </div>
 
-</section>
+<p>$6.530 no dice mucho solo. Comparado con el ticket promedio real de <strong>$37.900</strong> 🟢, ese costo de adquisición equivale a cerca de un <strong>17% de descuento</strong> sobre una compra típica. Dicho de otra forma: hoy, en promedio, la tienda ya está dispuesta a "gastar" cerca de un 17% del valor de una venta con tal de conseguirla — solo que ese 17% se lo lleva Meta o Google, no el cliente.</p>
 
-<section class="sec">
-<h2>Corrección 3 — sacar los retiros de socios del cálculo de rentabilidad</h2>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Traer venta nueva (ads)</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div><span class="chart-bar-row__value">$6.530</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">15% a quien ya compró</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:87%"></div></div><span class="chart-bar-row__value">$5.685</span></div>
 
-<p>En 3 de los 15 meses con datos, la utilidad neta final del modelo quedó en cero o negativa — aunque el negocio había generado millones de utilidad operacional ese mismo mes. La razón: el retiro de los socios se comió toda la utilidad.</p>
-
-<div class="table-wrap">
-  <table>
-    <thead>
-      <tr><th>Mes</th><th>Utilidad antes de retiros</th><th>Retiro de socios</th><th>Utilidad neta final</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>2025-07</td><td>$3.666.615</td><td>−$3.629.497</td><td>$37.118</td></tr>
-      <tr><td>2025-08</td><td>$3.048.300</td><td>−$4.285.000</td><td>−$1.236.700</td></tr>
-      <tr><td>2026-01</td><td>$10.586.173</td><td>−$10.592.000</td><td>−$5.827</td></tr>
-    </tbody>
-  </table>
-</div>
-
-<p style="font-size:var(--fs-sm); color:var(--ink-soft);">Cuánto de la utilidad de cada mes se llevó el retiro de socios:</p>
-<div class="chart-bar-row">
-  <span class="chart-bar-row__label">2025-07</span>
-  <span class="chart-bar-row__track"><span class="chart-bar-row__fill" style="width:99%"></span></span>
-  <span class="chart-bar-row__value">99%</span>
-</div>
-<div class="chart-bar-row">
-  <span class="chart-bar-row__label">2025-08</span>
-  <span class="chart-bar-row__track"><span class="chart-bar-row__fill" style="width:100%"></span></span>
-  <span class="chart-bar-row__value">141%</span>
-</div>
-<div class="chart-bar-row">
-  <span class="chart-bar-row__label">2026-01</span>
-  <span class="chart-bar-row__track"><span class="chart-bar-row__fill" style="width:100%"></span></span>
-  <span class="chart-bar-row__value">100%</span>
-</div>
-<p style="font-size:var(--fs-sm); color:var(--ink-soft);">En agosto de 2025 el retiro fue incluso más grande que toda la utilidad del mes (141%).</p>
-
-<p>El punto de fondo: <strong>el retiro de los dueños es una decisión de reparto, no un costo de operar.</strong> Mezclarlo con los gastos hace imposible saber si el negocio realmente gana plata. Un mes tan bueno como enero de 2026 — con $10,6 millones de utilidad antes de retiros — termina viéndose en la última línea como si casi no hubiera generado nada.</p>
+<p>Un incentivo de 15% de descuento sobre el ticket promedio ($5.685) ya cuesta menos que el costo de adquisición actual ($6.530) — y eso sin contar que alguien que ya compró probablemente necesita mucho menos empuje para decidirse que un desconocido que ve un anuncio por primera vez.</p>
 
 <div class="callout callout--success">
-  <p>✅ <strong>La corrección:</strong> dejar "Utilidad antes de retiros" como la línea que mide la salud del negocio — la que responde "¿el negocio gana plata?". Los retiros pasan a ser una línea informativa después de esa, que responde una pregunta distinta: "¿cuánto se llevaron los socios este mes?".</p>
+<p><strong>La conclusión que debe quedar clara:</strong> el margen bruto real del negocio de e-commerce es de <strong>78,9%</strong> 🟢 (18 meses de datos, ver <code>docs/datos-financieros-2025-2026.md</code>). Hay espacio de sobra para ofrecerle a alguien que ya compró un incentivo generoso — 15%, incluso más — y seguir gastando menos que lo que hoy cuesta convencer a un desconocido. <strong>El cliente que ya compró es el activo más barato que tiene el negocio, y hoy está sin usar.</strong></p>
 </div>
 
-<div class="kpi-grid">
-  <div class="kpi">
-    <span class="kpi__label">Utilidad antes de retiros, 18 meses</span>
-    <span class="kpi__value">$101.856.993</span>
-  </div>
-  <div class="kpi">
-    <span class="kpi__label">Remuneración socios, 18 meses</span>
-    <span class="kpi__value">−$42.924.543</span>
-  </div>
-  <div class="kpi">
-    <span class="kpi__label">Utilidad neta final, 18 meses</span>
-    <span class="kpi__value">$58.932.450</span>
-  </div>
+<div class="callout callout--warn">
+<p>Todavía no existe en Pedraza Ilustración una prueba real que compare cuánto mejor convierte una oferta a alguien que ya compró frente a un anuncio a alguien nuevo. Es razonable esperar que sea bastante mejor — ya conoce la marca — pero eso hay que medirlo, no darlo por hecho de entrada. La sección 7 de esta página deja listo qué medir para comprobarlo.</p>
 </div>
-
 </section>
 
-<section class="sec">
-<h2>Corrección 4 — separar gastos por canal</h2>
+<section class="sec" id="segundo-pedido">
+<h2>Dónde se cae la gente: el segundo pedido</h2>
 
-<p>Esto es algo que Felipe ya dijo que iba a hacer: el cierre de julio viene con las verticales (Shopify, B2B, Mercado Libre) separadas, asignando un peso de gastos por canal según la venta. Esta sección propone el método concreto.</p>
+<p>El dato de 412 contra 82 dice algo preciso: el problema no es que la gente nunca repita — 412 personas ya demostraron que sí vuelven. El problema es que casi nadie pasa de ahí. Compran dos veces, y ahí se quedan.</p>
 
-<div class="grid-2">
-  <div class="card">
-    <h3>Gastos directos</h3>
-    <p>Van completos al canal que los generó:</p>
-    <ul style="font-size:var(--fs-sm);">
-      <li>Publicidad (Meta + Google) y Packner → E-commerce</li>
-      <li>Bsale → B2B</li>
-      <li>Comisiones de Mercado Libre → Mercado Libre</li>
-    </ul>
-  </div>
-  <div class="card">
-    <h3>Gastos compartidos</h3>
-    <p>Se reparten según el peso de venta de cada canal — hoy, Shopify 54,9%, Mercado Libre 0,5%, B2B 44,6%:</p>
-    <ul style="font-size:var(--fs-sm);">
-      <li>Bodega, diseñadora, contador</li>
-      <li>Herramientas de software de uso general</li>
-    </ul>
-  </div>
-</div>
-
-<p>Aplicado a las categorías reales de gasto fijo del negocio:</p>
-
-<div class="table-wrap">
-  <table>
-    <thead>
-      <tr><th>Categoría</th><th>Gasto (18 meses)</th><th>Canal sugerido</th><th>Por qué</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Diseñadora</td><td>$4.350.000</td><td><span class="pill pill--warn">🟡 Compartido</span></td><td>Trabaja contenido y catálogo para más de un canal</td></tr>
-      <tr><td>Bodega</td><td>$1.875.146</td><td><span class="pill pill--warn">🟡 Compartido</span></td><td>Guarda inventario de varios canales a la vez</td></tr>
-      <tr><td>Bsale</td><td>$1.687.950</td><td><span class="pill pill--info">Directo B2B</span></td><td>Es el sistema de facturación de esa vertical</td></tr>
-      <tr><td>Klaviyo</td><td>$1.463.940</td><td><span class="pill pill--info">Directo E-commerce</span></td><td>Es la herramienta de correo de la tienda Shopify</td></tr>
-      <tr><td>ChatGPT</td><td>$826.749</td><td><span class="pill pill--warn">🟡 Compartido</span></td><td>Herramienta de uso general del equipo</td></tr>
-      <tr><td>Google Suite</td><td>$786.554</td><td><span class="pill pill--warn">🟡 Compartido</span></td><td>Correo y documentos de todo el equipo</td></tr>
-      <tr><td>Pivot</td><td>$703.688</td><td><span class="pill pill--danger">🟡 Verificar con Felipe</span></td><td>No tenemos claro para qué se usa esta herramienta</td></tr>
-      <tr><td>Adobe</td><td>$570.684</td><td><span class="pill pill--warn">🟡 Compartido</span></td><td>Diseño usado en más de un canal, a confirmar con Felipe</td></tr>
-      <tr><td>Contador</td><td>$360.000</td><td><span class="pill pill--warn">🟡 Compartido</span></td><td>Contabilidad de toda la empresa, no de un canal</td></tr>
-    </tbody>
-  </table>
-</div>
-
-<p>Sin esto, la pregunta que más importa —¿cuál canal gana plata de verdad?— no se puede contestar. Hoy el e-commerce se ve mejor porque tiene mejor margen bruto (79,1% contra 52,5% del B2B), pero eso es <strong>antes</strong> de gastos. Con los gastos separados se sabe si esa ventaja se mantiene después de pagar publicidad, envíos y comisiones — o si el B2B, con menos gasto variable propio, termina dejando más plata líquida.</p>
-
-</section>
-
-<section class="sec">
-<h2>La plantilla de cierre mensual</h2>
-
-<p>Esto es lo más útil de este documento: qué hacer cada mes para que el modelo se mantenga con datos completos, sin que se vuelva a acumular un atraso de 17 meses.</p>
-
-<div class="timeline">
-  <div class="timeline-item">
-    <div class="timeline-item__date">~5 min</div>
-    <div class="timeline-item__title">Descargar el gasto de Meta Ads del mes</div>
-    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Administrador de anuncios de Meta → informes.</p>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-item__date">~5 min</div>
-    <div class="timeline-item__title">Descargar el gasto de Google Ads del mes</div>
-    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Panel de Google Ads → informe de gasto.</p>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-item__date">~5 min</div>
-    <div class="timeline-item__title">Sacar el total de envíos de Packner del mes</div>
-    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Factura o liquidación mensual de Packner.</p>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-item__date">~15 min</div>
-    <div class="timeline-item__title">Sacar las comisiones de las pasarelas de pago</div>
-    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Shopify Payments (liquidaciones de Shopify), Flow y Mercado Pago (paneles respectivos), transferencias (cartola bancaria).</p>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-item__date">~5 min</div>
-    <div class="timeline-item__title">Revisar suscripciones de Shopify y apps del mes</div>
-    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Cartola bancaria o panel de facturación de Shopify.</p>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-item__date">~5 min</div>
-    <div class="timeline-item__title">Sacar las comisiones de Mercado Libre del mes</div>
-    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Panel de Mercado Libre.</p>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-item__date">~15 min</div>
-    <div class="timeline-item__title">Cargar todo en la hoja de gastos variables, marcando el canal</div>
-    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Directo o compartido, según la Corrección 4.</p>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-item__date">~5 min</div>
-    <div class="timeline-item__title">Revisar que "Creado en Chile" no se repita con BSALE ese mes</div>
-    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">Mientras se confirma la Corrección 2 con Felipe.</p>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-item__date">~2 min</div>
-    <div class="timeline-item__title">Confirmar que el retiro de socios quedó en la línea informativa</div>
-    <p style="font-size:var(--fs-sm); color:var(--ink-soft);">No dentro de la utilidad operacional del mes.</p>
-  </div>
-</div>
-
-<p style="font-size:var(--fs-sm); color:var(--ink-soft);">Total: cerca de <strong>1 hora al mes</strong>.</p>
-
-<p>Encabezados listos para pegar en una hoja de Google Sheets nueva, dedicada a gastos variables:</p>
-
-<div class="copyblock">
-  <button type="button" class="copyblock__btn" data-copy-target="copy-encabezados-gastos">Copiar</button>
-  <div class="copyblock__text" id="copy-encabezados-gastos">Mes,Publicidad Meta,Publicidad Google,Envíos Packner,Comisión Shopify Payments,Comisión Flow,Comisión Mercado Pago,Comisión transferencia bancaria,Suscripciones Shopify y apps,Comisiones Mercado Libre,Canal,Total gasto variable del mes</div>
-</div>
-
-<p>Orden sugerido de las correcciones, por impacto y esfuerzo:</p>
-
-<div class="table-wrap">
-  <table>
-    <thead>
-      <tr><th>Orden</th><th>Corrección</th><th>Impacto</th><th>Esfuerzo</th><th>Por qué en ese orden</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>1</td><td>Corrección 3 — sacar retiros del cálculo</td><td><span class="pill pill--info">Alto</span></td><td><span class="pill pill--success">Bajo</span></td><td>Es reordenar filas que ya existen, no cargar datos nuevos</td></tr>
-      <tr><td>2</td><td>Corrección 2 — verificar Creado en Chile</td><td><span class="pill pill--info">Alto</span></td><td><span class="pill pill--success">Bajo</span></td><td>Es comparar un mes, no reconstruir nada</td></tr>
-      <tr><td>3</td><td>Corrección 1 — cargar 17 meses de gastos variables</td><td><span class="pill pill--info">Alto</span></td><td><span class="pill pill--danger">Alto</span></td><td>Es la que más trabajo toma, pero la que más cambia los números</td></tr>
-      <tr><td>4</td><td>Corrección 4 — separar por canal</td><td><span class="pill pill--info">Alto</span></td><td><span class="pill pill--warn">Medio</span></td><td>Conviene hacerla al final, cuando los gastos ya estén completos y sin duplicados</td></tr>
-    </tbody>
-  </table>
-</div>
-
-</section>
-
-<section class="sec">
-<h2>Qué se desbloquea con esto</h2>
-
-<p>Con los gastos completos y separados por canal se puede:</p>
+<p>¿Por qué se corta justo en la segunda compra? No hay un dato cerrado que lo explique con certeza <span class="pill pill--warn">🟡 hipótesis</span>, pero hay tres razones que probablemente se están sumando:</p>
 
 <div class="grid-3">
-  <div class="card">
-    <h3>💰 Calcular la utilidad real del e-commerce</h3>
-    <p style="font-size:var(--fs-sm);">La base para saber si el canal principal del negocio realmente gana plata — y también la base del acuerdo variable.</p>
-  </div>
-  <div class="card">
-    <h3>📦 Decidir el pedido a China con datos</h3>
-    <p style="font-size:var(--fs-sm);">Saber cuánto margen real deja cada producto antes de comprometer capital de trabajo.</p>
-  </div>
-  <div class="card">
-    <h3>🎯 Saber qué producto y qué canal empujar</h3>
-    <p style="font-size:var(--fs-sm);">Con gastos reales por canal, se puede comparar de verdad dónde conviene poner el esfuerzo.</p>
-  </div>
+<div class="card"><h3>No hay motivo para volver</h3><p>A nadie se le avisa que existe algo más para él o ella. Sin un mensaje concreto, "volver a comprar" simplemente no está en su cabeza.</p></div>
+<div class="card"><h3>No hay novedad</h3><p>Hasta ahora, lanzar productos nuevos dependía de los tiempos de Cote. Sin nada nuevo que mostrar, no hay razón para volver a mirar la tienda.</p></div>
+<div class="card"><h3>El producto dura mucho</h3><p>Un puzzle o una lámina no se gastan como un café o una crema — no hay una necesidad natural que traiga de vuelta a comprar lo mismo otra vez.</p></div>
 </div>
 
-<p>Esto conecta directo con dos entregables de este plan:</p>
-<p><a class="btn" href="finanzas.html">Ver finanzas.html</a> <a class="btn btn--ghost" href="stock-navidad.html">Ver Stock para Navidad</a></p>
+<p>La salida para esta marca es concreta: el catálogo ya tiene productos complementarios reales, no hace falta inventar nada. Alguien que se llevó un puzzle puede llevarse después unos naipes ilustrados, una botella térmica, unos calcetines o una libreta — todo con la misma mirada de flora y fauna de Chile. Hay un camino natural de segunda y tercera compra dentro del catálogo actual; hoy simplemente no se le muestra a nadie.</p>
 
+<div class="callout callout--info">
+<p>Esto conecta con algo que recién cambió: los <strong>lanzamientos de producto</strong> ahora son posibles — antes estaban limitados por los tiempos de Cote. La preventa del 6 de agosto (sección 6 de esta página) es la primera prueba real de usar una novedad para traer de vuelta a quien ya compró.</p>
+</div>
+</section>
+
+<section class="sec" id="tres-segmentos">
+<h2>Los tres segmentos y qué se le ofrece a cada uno</h2>
+
+<p>Un <strong>segmento</strong>, en simple, es un grupo de clientes que se define con una regla clara, para poder hablarle a cada grupo de forma distinta en vez de mandarle lo mismo a todo el mundo. Estos son los tres segmentos que hay que crear en Shopify (Clientes → Segmentos), con el filtro exacto y la oferta que le corresponde a cada uno.</p>
+
+<div class="card">
+<h3>1. Nunca ha comprado <span class="pill pill--info">La puerta de entrada</span></h3>
+<p><strong>Filtro en Shopify:</strong> <code>number_of_orders = 0</code> — personas que ya dejaron su correo (por un pop-up o el flujo de bienvenida) pero todavía no compran nada. <span class="pill pill--warn">🟡</span> verificar el nombre exacto del campo al crear el segmento en Shopify; el criterio es "cero pedidos".</p>
+<p><strong>Qué recibe:</strong> la oferta de primera compra que ya existe — no hay que inventar nada nuevo, ya está definida en <a href="ofertas.html#sistema-popups">ofertas.html</a> (pop-up "Interesado sin decidir").</p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-seg1">Copiar</button>
+<div class="copyblock__text" id="copy-seg1">Título: ¿Necesitas un empujón?
+Subtítulo: Déjanos tu correo y llévate 10% de descuento en tu primera compra.
+Botón: Quiero mi 10%</div>
+</div>
+</div>
+
+<div class="card">
+<h3>2. Compró una vez <span class="pill pill--danger">Aquí está el 100% de la oportunidad</span></h3>
+<p><strong>Filtro en Shopify:</strong> <code>number_of_orders = 1</code>.</p>
+<p>Es el segmento más importante de los tres. Ahí están los 330 clientes que se detuvieron justo después de su primera compra (sección 3), más todos los que todavía no llegan a ese punto. La oferta no puede ser "más de lo mismo" — tiene que ser un producto que complemente lo que ya se llevó: si compró un puzzle, mostrarle naipes, botella o calcetines de la misma serie, no otro puzzle.</p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-seg2">Copiar</button>
+<div class="copyblock__text" id="copy-seg2">Asunto: Lo que le falta a lo que ya tienes (y no es otro puzzle)
+
+Hola,
+
+Hace un tiempo te llevaste algo de Pedraza a tu casa — ojalá ya tenga un lugar especial ahí.
+
+Hoy te mostramos lo que mejor lo acompaña: naipes ilustrados para esos ratos sin mesa libre, una botella térmica para el día a día, o unos calcetines con la misma flora y fauna de siempre. Nada de otro puzzle — algo distinto, de la misma familia.
+
+Como ya compraste antes, tienes 15% de descuento en tu próxima compra, válido por 7 días.
+
+Ver los complementos → https://pedrazailustracion.com/collections/accesorios
+
+Un abrazo,
+Cote</div>
+</div>
+<p style="font-size:var(--fs-sm);color:var(--ink-faint)"><span class="pill pill--warn">🟡</span> El 15% de descuento es una propuesta, en línea con el descuento de pack ya usado en <a href="ofertas.html#packs">ofertas.html</a> — igual queda por debajo del costo de adquisición calculado en la sección 2 (~17%). Idealmente, con el tiempo, este correo se personaliza según el producto exacto que compró cada persona (Klaviyo puede cruzar eso con el historial de compra); mientras no esté armado ese cruce, sirve esta versión genérica con productos complementarios que funcionan para casi cualquier primera compra.</p>
+</div>
+
+<div class="card">
+<h3>3. Compró dos o más veces <span class="pill pill--success">Los 82</span></h3>
+<p><strong>Filtro en Shopify:</strong> <code>number_of_orders >= 2</code>.</p>
+<p>Esta persona no necesita un descuento: ya compra seguido, sin que nadie se lo pida. Ofrecerle un 10% o un 15% no genera una venta que no fuera a pasar de todas formas — solo reduce lo que gana la tienda en una compra que iba a ocurrir igual. Es regalar margen sin conseguir nada nuevo a cambio.</p>
+<p>Lo que sí funciona con este grupo: <strong>acceso anticipado</strong>, ser los primeros en enterarse de las novedades, y sentir que la marca los reconoce. Es el mismo principio que se prueba con la preventa del 6 de agosto (sección 6).</p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="copy-seg3">Copiar</button>
+<div class="copyblock__text" id="copy-seg3">Asunto: Antes que nadie: la preventa de puzzles abre para ti primero
+
+Hola,
+
+Llevas más de dos compras con nosotros, así que sabes que esto no es cualquier lanzamiento: vuelven los puzzles, todos los modelos.
+
+La preventa abre al público este jueves 6 de agosto. Pero como ya eres parte de quienes más confían en Pedraza, tú entras unas horas antes — sin tener que competir por stock con el resto.
+
+Guarda la fecha: el jueves 6 de agosto revisa tu correo temprano.
+
+Un abrazo,
+Cote</div>
+</div>
+</div>
+
+<h3>Para partir</h3>
+<p>Marca cada paso a medida que se completa. El progreso queda guardado en este navegador.</p>
+<div class="progress">
+  <div class="progress__track">
+    <div class="progress__fill" data-progress-fill-cli></div>
+  </div>
+  <span class="progress__label" data-progress-label-cli>0 de 0 tareas (0%)</span>
+</div>
+<ul class="checklist">
+<li><label><input type="checkbox" data-clientes="crear-segmento-nunca-compro"><span>Crear en Shopify el segmento "Nunca ha comprado" (<code>number_of_orders = 0</code>)</span></label></li>
+<li><label><input type="checkbox" data-clientes="crear-segmento-compro-una-vez"><span>Crear en Shopify el segmento "Compró una vez" (<code>number_of_orders = 1</code>)</span></label></li>
+<li><label><input type="checkbox" data-clientes="crear-segmento-compro-dos-mas"><span>Crear en Shopify el segmento "Compró dos o más veces" (<code>number_of_orders >= 2</code>)</span></label></li>
+<li><label><input type="checkbox" data-clientes="activar-oferta-segunda-compra"><span>Activar en Klaviyo la campaña de producto complementario para "Compró una vez"</span></label></li>
+<li><label><input type="checkbox" data-clientes="activar-acceso-anticipado"><span>Activar el acceso anticipado del 6 de agosto para "Compró dos o más veces"</span></label></li>
+<li><label><input type="checkbox" data-clientes="revisar-tasa-mensual"><span>Agendar la revisión mensual de la tasa de clientes que repiten (sección 7)</span></label></li>
+</ul>
+</section>
+
+<section class="sec" id="calendario-contacto">
+<h2>El calendario de contacto</h2>
+
+<p>Qué recibe cada segmento y cuándo, contado en días desde la compra. Esta tabla no repite lo que ya está definido en <a href="email.html">email.html</a> (los flujos y campañas de correo) ni en <a href="ofertas.html">ofertas.html</a> (los pop-ups del sitio) — conecta los dos con los tres segmentos de esta página.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Cuándo</th><th>A quién</th><th>Qué recibe</th><th>Dónde está definido</th></tr></thead>
+<tbody>
+<tr><td>Inmediato</td><td>Nunca ha comprado, dejó su correo</td><td>Flujo de bienvenida, con el 10% de primera compra</td><td>Flujo Bienvenida — ver <a href="email.html#flujos-automaticos">email.html</a></td></tr>
+<tr><td>Día 0-1 (justo después de pagar)</td><td>Todos los que acaban de comprar</td><td>Correo de agradecimiento; si compró algo en preventa junto con algo en stock, aviso de que el pedido se despacha junto</td><td>Flujo Post-compra — ver <a href="email.html#flujos-automaticos">email.html</a></td></tr>
+<tr><td>Día 7</td><td>Compró 1 vez</td><td>Sigue en el segmento "Activos" del correo: 1 envío semanal, contenido, no venta</td><td><a href="email.html#tres-correos-por-semana">email.html</a>, segmento Activos</td></tr>
+<tr><td>Día 30</td><td>Compró 1 vez, sin repetir</td><td>Pasa a "Recompra" (2 correos/semana); si vuelve al sitio, ve el pop-up con el producto complementario</td><td><a href="email.html#tres-correos-por-semana">email.html</a> (Recompra) + <a href="ofertas.html#sistema-popups">ofertas.html</a> (pop-up 3)</td></tr>
+<tr><td>Día 60</td><td>Sigue sin repetir</td><td>Pasa a "Reactivación" (3 correos/semana)</td><td><a href="email.html#tres-correos-por-semana">email.html</a>, segmento Reactivación</td></tr>
+<tr><td>Día 90</td><td>Sigue sin repetir</td><td>Se revisa en la métrica mensual si conviene un incentivo mayor</td><td>Sección 7 de esta página</td></tr>
+<tr><td>Continuo</td><td>Compró 2+ veces (los 82)</td><td>Acceso anticipado a lanzamientos y novedades primero, nunca un descuento genérico</td><td>Sección 4 y 6 de esta página</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="sec" id="preventa-primera-prueba">
+<h2>La preventa como primera prueba</h2>
+
+<p>El jueves 6 de agosto se lanza la preventa de puzzles (ver acta de la reunión, sección 3). Es la primera oportunidad real de tratar distinto a quien ya compró: darle acceso a la preventa unas horas antes que al resto.</p>
+
+<p>¿Por qué funciona? No es plata — es <strong>reconocimiento</strong>. A los segmentos "Compró una vez" y "Compró dos o más veces" no se les regala nada extra: se les avisa, antes que a nadie, que algo que esperaban ya está disponible. La campaña creativa de la preventa se arma justo con capturas de mensajes reales preguntando "¿cuándo llegan los puzzles?" — para esa misma gente, llegar primero es el premio.</p>
+
+<h3>Cómo se implementa</h3>
+<div class="timeline">
+<div class="timeline-item"><span class="timeline-item__date">Jueves 6 de agosto, mañana</span><h3 class="timeline-item__title">Acceso anticipado</h3><p>Correo (y WhatsApp, para quien ya escribió antes) a todos los que ya compraron al menos una vez (<code>number_of_orders >= 1</code>), con el link de la preventa unas horas antes del anuncio público.</p></div>
+<div class="timeline-item"><span class="timeline-item__date">Jueves 6 de agosto</span><h3 class="timeline-item__title">Lanzamiento público</h3><p>Anuncio en Instagram y en el sitio para todo el mundo, con la campaña del collage de mensajes reales.</p></div>
+<div class="timeline-item"><span class="timeline-item__date">Primera semana de septiembre</span><h3 class="timeline-item__title">Primer despacho</h3><p>Se cumple lo prometido — fecha deliberadamente conservadora frente a la llegada real del contenedor a mediados de agosto.</p></div>
+</div>
+
+<p>El detalle completo de la preventa — precios, productos, mecánica del sitio — vive en <a href="preventa.html">preventa.html</a>.</p>
+</section>
+
+<section class="sec" id="que-se-mide">
+<h2>Qué se mide</h2>
+
+<p>Una métrica principal, y tres de apoyo. Cada una en una frase, y dónde se mira en Shopify.</p>
+
+<div class="card">
+<h3>📌 Métrica principal: % de clientes que repiten</h3>
+<p>De todos los clientes que compraron, cuántos volvieron a comprar dentro de un periodo (hoy: 30 días). Se revisa una vez al mes, el mismo día fijo que ya se usa para el resto de los números del plan.</p>
+<p style="font-size:var(--fs-sm);color:var(--ink-faint)">Dónde se mira: Shopify → Analíticas → Informes → sección de clientes (busca el reporte de clientes recurrentes o de cohortes de clientes).</p>
+</div>
+
+<div class="grid-3">
+<div class="card">
+<h3>Pedidos por cliente</h3>
+<p>Cuántas veces compra en promedio cada persona. Se calcula dividiendo el total de pedidos por el total de clientes únicos, en un periodo.</p>
+<p style="font-size:var(--fs-sm);color:var(--ink-faint)">Dónde: lista de clientes de Shopify, columna de número de pedidos.</p>
+</div>
+<div class="card">
+<h3>Tiempo entre 1ª y 2ª compra</h3>
+<p>Cuántos días pasan, en promedio, entre el primer y el segundo pedido de un mismo cliente. Dice si la ventana para ofrecer el producto complementario (sección 4) está bien calibrada.</p>
+<p style="font-size:var(--fs-sm);color:var(--ink-faint)">Dónde: no sale directo en un reporte estándar — se revisa la fecha de los pedidos de cada cliente con 2 o más compras.</p>
+</div>
+<div class="card">
+<h3>Valor total por cliente</h3>
+<p>Cuánto ha gastado en total, en toda su historia, cada persona. Sube solo con que más gente pase de 1 a 2 compras, o de 2 a 3.</p>
+<p style="font-size:var(--fs-sm);color:var(--ink-faint)">Dónde: aparece directo en el perfil de cada cliente en Shopify, como "total gastado".</p>
+</div>
+</div>
+
+<div class="callout callout--success">
+<p>Si el % de clientes que repiten sube mes a mes, todo lo demás de este documento está funcionando. Si se queda plano en 10%, es la señal de que hay que revisar la oferta del segmento "Compró una vez" (sección 4) antes que cualquier otra cosa — ahí vive el 100% de la oportunidad.</p>
+</div>
 </section>
 
 </main>
 
+<footer class="page-footer">
+<div class="wrap" style="padding-top:0;padding-bottom:0">
+<p>Fuente principal: acta de la reunión del 31 de julio de 2026 con Felipe Robinson y María José Pedraza (Cote), sección 5. Datos financieros: <code>docs/datos-financieros-2025-2026.md</code>. <a href="index.html">← Volver al plan</a></p>
+</div>
+</footer>
+
 <script>
-  // Navegación global: barra superior + panel completo (16 páginas, 4 grupos).
+  // Copiar al portapapeles — delegación de eventos, un solo listener por página.
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-copy-target]');
+    if (!btn) return;
+    var el = document.getElementById(btn.getAttribute('data-copy-target'));
+    if (!el) return;
+    copiarTexto(el.innerText || el.textContent || '', btn);
+  });
+
+  function copiarTexto(texto, btn) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(texto).then(
+        function () { mostrarCopiado(btn); },
+        function () { copiarConFallback(texto, btn); }
+      );
+    } else {
+      copiarConFallback(texto, btn);
+    }
+  }
+
+  function copiarConFallback(texto, btn) {
+    var ta = document.createElement('textarea');
+    ta.value = texto;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.top = '-1000px';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (err) { /* sin soporte, se ignora */ }
+    document.body.removeChild(ta);
+    mostrarCopiado(btn);
+  }
+
+  function mostrarCopiado(btn) {
+    var original = btn.getAttribute('data-label') || btn.textContent;
+    btn.setAttribute('data-label', original);
+    btn.textContent = '✓ ¡Copiado!';
+    btn.classList.add('is-copied');
+    clearTimeout(btn._copyTimeout);
+    btn._copyTimeout = setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('is-copied');
+    }, 2000);
+  }
+</script>
+
+<script>
+  // Acceso seguro a localStorage (no revienta en navegación privada u otros bloqueos).
+  function pgGet(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+  function pgSet(key, valor) { try { localStorage.setItem(key, valor); } catch (e) { /* sin soporte, se ignora */ } }
+  function pgRemove(key) { try { localStorage.removeItem(key); } catch (e) { /* sin soporte, se ignora */ } }
+</script>
+
+<script>
+  // Checklist de esta página — usa data-clientes (data-task, data-cro, data-plan90,
+  // data-bitacora, data-estado, data-preventa y data-tienda ya están tomados por otras
+  // páginas) y localStorage con prefijo pedraza-plan:cli:<id>.
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-clientes]').forEach(function (cb) {
+      cb.checked = pgGet('pedraza-plan:cli:' + cb.getAttribute('data-clientes')) === '1';
+    });
+    actualizarProgresoCli();
+  });
+
+  document.addEventListener('change', function (e) {
+    var cb = e.target.closest('[data-clientes]');
+    if (!cb) return;
+    var key = 'pedraza-plan:cli:' + cb.getAttribute('data-clientes');
+    if (cb.checked) { pgSet(key, '1'); } else { pgRemove(key); }
+    actualizarProgresoCli();
+  });
+
+  function actualizarProgresoCli() {
+    var cajas = document.querySelectorAll('[data-clientes]');
+    var total = cajas.length;
+    var done = 0;
+    cajas.forEach(function (cb) { if (cb.checked) done++; });
+    var pct = total ? Math.round((done / total) * 100) : 0;
+
+    document.querySelectorAll('[data-progress-fill-cli]').forEach(function (fill) {
+      fill.style.width = pct + '%';
+    });
+    document.querySelectorAll('[data-progress-label-cli]').forEach(function (label) {
+      label.textContent = done + ' de ' + total + ' tareas (' + pct + '%)';
+    });
+  }
+</script>
+
+<script>
+  // Navegación global: barra superior + panel completo (páginas del plan, 4 grupos).
   // Prefijo "nav" en todo para no chocar con otros scripts de la página.
   var NAV_PAGES = [
     { grupo: 'Seguimiento', id: 'estado', nombre: 'Estado del plan' },
@@ -1321,53 +1317,6 @@ main { counter-reset: sec; }
   }
 
   document.addEventListener('DOMContentLoaded', navInit);
-</script>
-
-<script>
-  // Copiar al portapapeles — delegación de eventos, un solo listener por página.
-  document.addEventListener('click', function (e) {
-    var btn = e.target.closest('[data-copy-target]');
-    if (!btn) return;
-    var el = document.getElementById(btn.getAttribute('data-copy-target'));
-    if (!el) return;
-    copiarTexto(el.innerText || el.textContent || '', btn);
-  });
-
-  function copiarTexto(texto, btn) {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(texto).then(
-        function () { mostrarCopiado(btn); },
-        function () { copiarConFallback(texto, btn); }
-      );
-    } else {
-      copiarConFallback(texto, btn);
-    }
-  }
-
-  function copiarConFallback(texto, btn) {
-    var ta = document.createElement('textarea');
-    ta.value = texto;
-    ta.setAttribute('readonly', '');
-    ta.style.position = 'fixed';
-    ta.style.top = '-1000px';
-    document.body.appendChild(ta);
-    ta.select();
-    try { document.execCommand('copy'); } catch (err) { /* sin soporte, se ignora */ }
-    document.body.removeChild(ta);
-    mostrarCopiado(btn);
-  }
-
-  function mostrarCopiado(btn) {
-    var original = btn.getAttribute('data-label') || btn.textContent;
-    btn.setAttribute('data-label', original);
-    btn.textContent = '✓ ¡Copiado!';
-    btn.classList.add('is-copied');
-    clearTimeout(btn._copyTimeout);
-    btn._copyTimeout = setTimeout(function () {
-      btn.textContent = original;
-      btn.classList.remove('is-copied');
-    }, 2000);
-  }
 </script>
 
 </body>
