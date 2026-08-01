@@ -875,27 +875,31 @@ main { counter-reset: sec; }
 
 <p style="margin-top:var(--space-6)"><span class="pill pill--success">🟢 Datos reales</span> Todos los números de esta página salen de los archivos financieros que Felipe compartió el 29 de julio de 2026: 18 meses completos, de enero de 2025 a junio de 2026. Las lecturas marcadas con <span class="pill pill--warn">🟡 Lectura</span> son análisis del operador sobre esos datos, no cifras nuevas.</p>
 
+<div class="callout callout--danger">
+<p><strong>Corrección del 1 de agosto de 2026: la venta de Shopify estaba inflada 26%.</strong> Felipe confirmó que la venta de Shopify del modelo incluía IVA y envío, no solo el producto. Verificado de forma independiente sobre la base corregida (mismo periodo, 2.950 pedidos pagados): del total cobrado al cliente ($110.572.581) se resta el envío (−$12.812.550) y se divide por 1,19 para sacar el IVA — el resultado es <strong>$82.548.371 netos</strong> 🟢, coincidente con la propia estimación de Felipe (~$82M). El modelo anterior registraba $111.013.953: una sobrestimación de <strong>$28.465.582 (26%)</strong>. Esta corrección arrastra a todos los números de venta y margen de esta página que dependen de Shopify — quedan marcados 🟡 donde corresponde.</p>
+</div>
+
 <section class="sec" id="foto-18-meses">
 <h2>La foto de 18 meses</h2>
-<p>Estos son los números grandes del negocio completo: la tienda (Shopify y Mercado Libre) más el mayorista, o "B2B" (venta a otras empresas, como tiendas y librerías que revenden el producto). Fuente: archivos de Felipe, 18 meses ene-2025 a jun-2026.</p>
+<p>Estos son los números grandes del negocio completo: la tienda (Shopify y Mercado Libre) más el mayorista, o "B2B" (venta a otras empresas, como tiendas y librerías que revenden el producto). Fuente: archivos de Felipe, 18 meses ene-2025 a jun-2026, con la venta de Shopify ya corregida (ver nota arriba).</p>
 
 <div class="kpi-grid">
   <div class="kpi">
-    <span class="kpi__label">Venta total, 18 meses</span>
-    <span class="kpi__value">$202.150.825</span>
+    <span class="kpi__label">Venta total, 18 meses 🟡</span>
+    <span class="kpi__value">~$173.526.000</span>
   </div>
   <div class="kpi">
-    <span class="kpi__label">Margen bruto consolidado</span>
-    <span class="kpi__value">67,1%</span>
+    <span class="kpi__label">Margen bruto consolidado 🟡</span>
+    <span class="kpi__value">~61,7%</span>
   </div>
   <div class="kpi">
-    <span class="kpi__label">Venta en la tienda (e-commerce)</span>
-    <span class="kpi__value">55,4%</span>
-    <span class="kpi__delta kpi__delta--up">Margen 78,9%</span>
+    <span class="kpi__label">Venta en la tienda (e-commerce) 🟡</span>
+    <span class="kpi__value">~48,1%</span>
+    <span class="kpi__delta kpi__delta--up">Margen ~71,7%</span>
   </div>
   <div class="kpi">
     <span class="kpi__label">Venta al mayoreo (B2B)</span>
-    <span class="kpi__value">44,6%</span>
+    <span class="kpi__value">~51,9%</span>
     <span class="kpi__delta kpi__delta--warn">Margen 52,5%</span>
   </div>
 </div>
@@ -905,13 +909,13 @@ main { counter-reset: sec; }
 <p>Es distinto de la <strong>utilidad</strong>, que es lo que queda después de restar además esos otros gastos. Esta página usa margen bruto como referencia principal porque es el dato más confiable hoy — la sección 5 explica qué falta para poder confiar también en la utilidad final de cada canal.</p>
 </div>
 
-<p>El dato que más importa de esta foto: la tienda es poco más de la mitad de la venta — <strong>55,4%</strong> — pero deja <strong>78,9%</strong> de margen. El mayorista es el 44,6% restante, con <strong>52,5%</strong> de margen. <span class="pill pill--warn">🟡 Lectura</span> Con casi la misma venta, la tienda deja bastante más plata en el bolsillo. La siguiente sección muestra por qué eso importa para decidir dónde poner el esfuerzo.</p>
+<p>El dato que más importa de esta foto, con la venta de Shopify ya corregida: el mayorista (B2B) pasa a ser algo más de la mitad de la venta — <strong>~51,9%</strong> — y la tienda queda en <strong>~48,1%</strong>. Pero la tienda sigue dejando bastante más margen por peso vendido: <strong>~71,7%</strong> contra <strong>52,5%</strong> del mayorista. <span class="pill pill--warn">🟡 Lectura</span> Aunque el mayorista ahora vende más en pesos, cada peso de venta en la tienda deja más plata en el bolsillo. La siguiente sección muestra por qué eso importa para decidir dónde poner el esfuerzo.</p>
 
 <h3>Margen bruto por canal</h3>
 <div class="chart-bar-row">
   <span class="chart-bar-row__label">Tienda (e-commerce)</span>
-  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:78.9%;background:var(--brand-green)"></div></div>
-  <span class="chart-bar-row__value">78,9%</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:71.7%;background:var(--brand-green)"></div></div>
+  <span class="chart-bar-row__value">71,7% 🟡</span>
 </div>
 <div class="chart-bar-row">
   <span class="chart-bar-row__label">Mayorista (B2B)</span>
@@ -928,34 +932,35 @@ main { counter-reset: sec; }
 <table>
 <thead><tr><th>Canal</th><th>Ventas</th><th>% del total</th><th>Margen bruto</th></tr></thead>
 <tbody>
-<tr><td>Shopify</td><td>$111.013.953</td><td>54,9%</td><td>79,1%</td></tr>
-<tr><td>Mercado Libre</td><td>$993.961</td><td>0,5%</td><td>60,7%</td></tr>
-<tr><td><strong>E-commerce (Shopify + Mercado Libre)</strong></td><td><strong>$112.007.914</strong></td><td><strong>55,4%</strong></td><td><strong>78,9%</strong></td></tr>
-<tr><td>B2B (Bsale)</td><td>$66.077.363</td><td>32,7%</td><td>52,4%</td></tr>
-<tr><td>Creado en Chile (cliente B2B)</td><td>$24.065.548</td><td>11,9%</td><td>52,8%</td></tr>
-<tr><td><strong>B2B total</strong></td><td><strong>$90.142.911</strong></td><td><strong>44,6%</strong></td><td><strong>52,5%</strong></td></tr>
-<tr><td><strong>TOTAL</strong></td><td><strong>$202.150.825</strong></td><td><strong>100%</strong></td><td><strong>67,1%</strong></td></tr>
+<tr><td>Shopify 🟢</td><td>$82.548.371</td><td>47,6%</td><td>~72% 🟡</td></tr>
+<tr><td>Mercado Libre 🟡</td><td>~$835.262</td><td>0,5%</td><td>~53,2% 🟡</td></tr>
+<tr><td><strong>E-commerce (Shopify + Mercado Libre)</strong></td><td><strong>~$83.383.633</strong></td><td><strong>~48,1%</strong></td><td><strong>~71,7%</strong></td></tr>
+<tr><td>B2B (Bsale)</td><td>$66.077.363</td><td>38,1%</td><td>52,4%</td></tr>
+<tr><td>Creado en Chile (cliente B2B)</td><td>$24.065.548</td><td>13,9%</td><td>52,8%</td></tr>
+<tr><td><strong>B2B total</strong></td><td><strong>$90.142.911</strong></td><td><strong>51,9%</strong></td><td><strong>52,5%</strong></td></tr>
+<tr><td><strong>TOTAL</strong></td><td><strong>~$173.526.000</strong></td><td><strong>100%</strong></td><td><strong>~61,7%</strong></td></tr>
 </tbody>
 </table>
 </div>
+<p class="calc-line--sub">🟢 Shopify: corregido y confirmado por Felipe (nota al inicio de la página). 🟡 Mercado Libre: mismo ajuste de IVA aplicado por aproximación (no hay desglose de envío específico para ese canal). Los márgenes de e-commerce y del total son estimaciones que aplican el mismo costo en pesos de antes sobre la venta ya corregida.</p>
 
 <h3>Cuánto vende cada canal</h3>
 <div class="chart-bar-row">
   <span class="chart-bar-row__label">E-commerce</span>
-  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%;background:var(--brand-green)"></div></div>
-  <span class="chart-bar-row__value">$112,0 M</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:92.5%;background:var(--brand-green)"></div></div>
+  <span class="chart-bar-row__value">~$83,4 M</span>
 </div>
 <div class="chart-bar-row">
   <span class="chart-bar-row__label">B2B</span>
-  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:80.5%"></div></div>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div>
   <span class="chart-bar-row__value">$90,1 M</span>
 </div>
 
 <div class="callout callout--success">
-<p><strong>La cuenta que importa:</strong> una venta de $100 en la tienda deja $79 después de pagar el producto. La misma venta de $100 en el mayorista deja $52. <span class="pill pill--warn">🟡 Lectura</span> Por eso, subir la venta de la tienda vale más que subir la venta del mayorista — peso por peso, deja más plata en el negocio.</p>
+<p><strong>La cuenta que importa:</strong> una venta de $100 en la tienda deja ~$72 después de pagar el producto. La misma venta de $100 en el mayorista deja $52. <span class="pill pill--warn">🟡 Lectura</span> Por eso, subir la venta de la tienda sigue valiendo más que subir la venta del mayorista — peso por peso, deja más plata en el negocio, aunque la diferencia entre canales es menor de lo que decía el modelo antes de la corrección.</p>
 </div>
 
-<p><span class="pill pill--warn">🟡 Lectura</span> Esto no quiere decir que haya que abandonar el B2B: es el canal que mueve los volúmenes grandes de una sola vez, y es gran parte de lo que explica el crecimiento del negocio este último año. La idea no es dejar de atenderlo — es que la tienda reciba la prioridad que su margen se merece.</p>
+<p><span class="pill pill--warn">🟡 Lectura</span> Esto no quiere decir que haya que abandonar el B2B: hoy es más de la mitad de la venta, es el canal que mueve los volúmenes grandes de una sola vez, y es gran parte de lo que explica el crecimiento del negocio este último año. La idea no es dejar de atenderlo — es que la tienda reciba la prioridad que su margen se merece.</p>
 </section>
 
 <section class="sec" id="estacionalidad">
@@ -1053,8 +1058,12 @@ main { counter-reset: sec; }
   <span class="chart-bar-row__value">$6,9 M</span>
 </div>
 
+<div class="callout callout--warn">
+<p><strong>🟡 Ojo: estos montos mensuales son anteriores a la corrección de IVA y envío</strong> (ver la nota al inicio de la página). El total de 18 meses de Shopify se corrigió de $111.013.953 a $82.548.371 (−26%) — un ajuste similar probablemente afecta a cada uno de estos meses, pero todavía no hay un desglose mes a mes para recalcularlos uno por uno. Para dimensionar el pedido de Navidad conviene mirar la estacionalidad en <strong>unidades</strong>, no en pesos: ver la sección "Los puzzles, en unidades" más abajo y la estacionalidad de toda la tienda (diciembre 3,3 veces un mes normal, noviembre 1,6 veces) — esos datos no llevan el sesgo de IVA y envío.</p>
+</div>
+
 <div class="callout callout--success">
-<p><strong>Diciembre 2025: $18.256.474</strong> — 2,9 veces el mes promedio ($6.222.662). Es el mes que define el año.</p>
+<p><strong>Diciembre 2025: $18.256.474 🟡</strong> — 2,9 veces el mes promedio ($6.222.662). Es el mes que define el año. Esta cifra en pesos es anterior a la corrección de IVA y envío (ver el callout de arriba) — la proporción (2,9x) probablemente se mantiene parecida, pero para el pedido de stock conviene mirar la estacionalidad en unidades, no en pesos.</p>
 </div>
 
 <p><span class="pill pill--warn">🟡 Lectura</span> El año se juega, sobre todo, en dos meses: noviembre y diciembre. La consecuencia práctica es de calendario: el stock para esos dos meses no se puede pedir en octubre o noviembre — para cuando llega desde China, ya pasó la fecha. Se pide en agosto, con tiempo de sobra para que esté en la bodega antes de que empiece la temporada (ver el detalle en <a href="stock-navidad.html">Stock para Navidad</a>).</p>
@@ -1101,6 +1110,10 @@ main { counter-reset: sec; }
 
 <div class="callout callout--info">
 <p><strong>La estacionalidad también se ve en unidades:</strong> noviembre y diciembre de 2025 promediaron 298 puzzles al mes — 2,3 veces el promedio normal (131). Diciembre solo vendió 367 unidades, el mes más alto de toda la serie.</p>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>La demanda de unidades, mirada desde toda la tienda, estaba 64% subestimada.</strong> La base de Shopify corregida (3.101 pedidos pagados, 5.097 unidades, todos los productos) muestra <strong>1,64 unidades por pedido</strong> 🟢, no 1. Ticket promedio: $37.450 bruto, ~$27.980 neto de IVA y envío. La estacionalidad medida en esa base: diciembre 2025 vendió 3,3 veces un mes normal (889 contra ~270), noviembre 1,6 veces (439), con la curva subiendo desde octubre (297). Es un dato de toda la tienda, no solo de puzzles, y confirma que diciembre concentra la demanda todavía más de lo que sugiere el 2,3× combinado de arriba. El detalle de cómo esto ajusta el pedido de agosto está en <a href="stock-navidad.html">Stock para Navidad</a>.</p>
 </div>
 
 <h3>Puzzles vendidos en Shopify, por modelo</h3>
