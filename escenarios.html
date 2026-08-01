@@ -821,7 +821,7 @@ main { counter-reset: sec; }
         <a href="precios.html" class="navpanel__link" data-nav-key="precios">
           <span class="navpanel__link-text">
             <span class="navpanel__link-name">Nueva estructura de precios</span>
-            <span class="navpanel__link-desc">Subida por tramos</span>
+            <span class="navpanel__link-desc">Lista final por competencia</span>
           </span>
           <span class="navpanel__check" aria-hidden="true">✓</span>
         </a>
@@ -835,7 +835,7 @@ main { counter-reset: sec; }
         <a href="clientes.html" class="navpanel__link" data-nav-key="clientes">
           <span class="navpanel__link-text">
             <span class="navpanel__link-name">Clientes que vuelven</span>
-            <span class="navpanel__link-desc">Del 10% al 20% de recompra</span>
+            <span class="navpanel__link-desc">Del 7,2% al 20% de recompra</span>
           </span>
           <span class="navpanel__check" aria-hidden="true">✓</span>
         </a>
@@ -927,21 +927,21 @@ main { counter-reset: sec; }
 <p>Esta es la parte más importante de toda la página. El pedido a China tiene una fecha límite real, y esa fecha acaba de cambiar.</p>
 
 <div class="callout callout--danger">
-<p><strong>El dato que cambia todo:</strong> en la reunión del 31 de julio, Cote contó que <strong>el último pedido a China demoró tres meses</strong> 🟢 — no los 60-75 días de tránsito con los que se habían calculado todas las fechas límite de esta página. Felipe matizó que la fábrica reportó un problema puntual, pero reconoció el riesgo de que se repita. Cote además advirtió que la fábrica está con harta carga por el fin de año 🟢 — otra razón para esperar demoras, no una excepción. Por eso esta página ahora muestra <strong>dos fechas límite en paralelo</strong> para cada meta, no una sola.</p>
+<p><strong>El dato que cambia todo — ahora con el número exacto:</strong> Felipe confirmó el plazo real del último pedido a China: se pagó el 22 de mayo y llegó el 15 de agosto de 2026, <strong>85 días exactos</strong> 🟢. En sus palabras: <em>"Es la compra que más se nos ha demorado."</em> Es más preciso que los "tres meses" que se habían usado como referencia, y bastante más que los 60-75 días de tránsito con los que se calculaban las fechas límite de esta página. El riesgo de que se repita sigue — la fábrica está con harta carga por el fin de año 🟢. Por eso esta página muestra <strong>dos fechas límite en paralelo</strong> para cada meta, no una sola.</p>
 </div>
 
 <div class="countdown-box">
-  <span class="countdown-box__label">Días que quedan para pedir a tiempo y tener stock todo noviembre — escenario realista (el más exigente)</span>
+  <span class="countdown-box__label">Días que quedan para pedir a tiempo y tener stock todo noviembre — escenario realista, con el plazo medido de 85 días (el más exigente)</span>
   <span class="countdown-box__num" id="cd-hero-num">—</span>
   <span class="countdown-box__unidad" id="cd-hero-unidad">días</span>
-  <span class="countdown-box__sub">Fecha límite escenario realista: 27 de julio de 2026 · hoy es <span id="cd-hoy-fecha">—</span></span>
+  <span class="countdown-box__sub">Fecha límite escenario realista: 1 de agosto de 2026 · hoy es <span id="cd-hoy-fecha">—</span></span>
 </div>
 
 <div class="callout callout--warn">
 <p><strong>Por qué hay dos escenarios y no uno.</strong> El tiempo total, desde que sale el pedido de China hasta que está disponible para vender, se arma con el tránsito marítimo más el proceso en Partner (el operador logístico que despacha Shopify, unos 7 días — el mismo proceso que ya vivió el contenedor actual, que llegó el 15 de agosto pero quedó disponible para vender recién la última semana de agosto).</p>
 <ul>
 <li><strong>Escenario optimista — 82 días (75 de tránsito + 7 de Partner).</strong> Es lo que la fábrica promete.</li>
-<li><strong>Escenario realista — 97 días (90 de tránsito + 7 de Partner).</strong> Es lo que efectivamente pasó la última vez, según Cote — no una hipótesis pesimista, un hecho que ya ocurrió.</li>
+<li><strong>Escenario realista — 92 días (85 de tránsito + 7 de Partner).</strong> Es lo que efectivamente pasó la última vez: la orden se pagó el 22 de mayo de 2026 y llegó el 15 de agosto — 85 días exactos, confirmados por Felipe. No es una hipótesis pesimista, es un hecho medido.</li>
 </ul>
 <p>El barco no negocia el tiempo: no se acorta pagando más ni apurando a nadie. Si el pedido sale después de la fecha límite, no existe forma de recuperar los días perdidos — se pierde toda la ventana, no una parte de ella.</p>
 </div>
@@ -951,28 +951,28 @@ main { counter-reset: sec; }
 <div class="table-wrap">
 <table style="min-width:640px">
 <thead>
-<tr><th>Meta</th><th>Fecha límite — optimista (82 días)</th><th>Días que quedan</th><th>Fecha límite — realista (97 días)</th><th>Días que quedan</th></tr>
+<tr><th>Meta</th><th>Fecha límite — optimista (82 días)</th><th>Días que quedan</th><th>Fecha límite — realista (92 días)</th><th>Días que quedan</th></tr>
 </thead>
 <tbody>
 <tr>
 <td><strong>Stock disponible todo noviembre</strong><br>objetivo: 1 de noviembre</td>
 <td>11 de agosto de 2026</td>
 <td id="cd-nov-opt">—</td>
-<td>27 de julio de 2026</td>
+<td>1 de agosto de 2026</td>
 <td id="cd-nov-real">—</td>
 </tr>
 <tr>
 <td><strong>Black Friday</strong> 🟢 27 de noviembre</td>
 <td>6 de septiembre de 2026</td>
 <td id="cd-bf-opt">—</td>
-<td>22 de agosto de 2026</td>
+<td>27 de agosto de 2026</td>
 <td id="cd-bf-real">—</td>
 </tr>
 <tr>
 <td><strong>Navidad</strong> 🟢 último despacho 20 de diciembre</td>
 <td>29 de septiembre de 2026</td>
 <td id="cd-nav-opt">—</td>
-<td>14 de septiembre de 2026</td>
+<td>19 de septiembre de 2026</td>
 <td id="cd-nav-real">—</td>
 </tr>
 </tbody>
@@ -980,11 +980,11 @@ main { counter-reset: sec; }
 </div>
 
 <div class="callout callout--danger">
-<p><strong>La fecha límite del escenario realista para cubrir todo noviembre ya venció: era el 27 de julio de 2026.</strong> Esto no significa que noviembre esté descartado — el escenario optimista (11 de agosto) todavía sigue abierto, y la fecha definitiva depende de lo que se acuerde con la fábrica el domingo. Pero es información que no se puede esconder: si el próximo pedido demora lo mismo que el último (tres meses), ya no alcanza a llegar stock nuevo a tiempo para todo noviembre. Es exactamente la munición que Felipe necesita para negociar plazos con la fábrica.</p>
+<p><strong>La fecha límite del escenario realista para cubrir todo noviembre es HOY, 1 de agosto de 2026 — no venció.</strong> Con el dato exacto de Felipe (85 días, no "tres meses" como se estimaba antes), la fecha se corrió hacia adelante y todavía está abierta, pero al límite: si el pedido no sale hoy o mañana, se pierde la opción de tener stock para todo noviembre. El escenario optimista (11 de agosto) da unos días más de margen si la fábrica cumple lo que promete. Es información que no se puede esconder: es la munición que Felipe necesita para cerrar el pedido esta semana.</p>
 </div>
 
 <div class="callout callout--warn">
-<p><strong>Leer la tabla al revés: cada fecha que se pasa, elimina una meta.</strong> Si se pasan las dos fechas de "todo noviembre" (11 de agosto optimista, 27 de julio realista — esta última ya vencida), solo queda stock nuevo disponible después de Black Friday. Si se pasan las de Black Friday (6 de septiembre optimista, 22 de agosto realista), se pierde esa fecha. Si se pasan las de Navidad (29 de septiembre optimista, 14 de septiembre realista), se pierde la fecha más importante del año 🟢 (diciembre de 2025 vendió 2,9 veces el mes promedio, según los archivos de Felipe de 18 meses).</p>
+<p><strong>Leer la tabla al revés: cada fecha que se pasa, elimina una meta.</strong> Si se pasan las dos fechas de "todo noviembre" (11 de agosto optimista, 1 de agosto realista — hoy mismo), solo queda stock nuevo disponible después de Black Friday. Si se pasan las de Black Friday (6 de septiembre optimista, 27 de agosto realista), se pierde esa fecha. Si se pasan las de Navidad (29 de septiembre optimista, 19 de septiembre realista), se pierde la fecha más importante del año 🟢 (diciembre de 2025 vendió 2,9 veces el mes promedio, según los archivos de Felipe de 18 meses).</p>
 </div>
 
 <div class="callout callout--info">
@@ -1020,6 +1020,10 @@ main { counter-reset: sec; }
 <span><span class="chart-legend__dot" style="background:var(--warn)"></span>🟡 Proyectado jul-sep: $15.000.000 (afectado por el quiebre de stock de puzzles)</span>
 </div>
 <p>$34.709.555 + $15.000.000 = <strong>$49.709.555</strong> — es el número que cada escenario multiplica por su ratio en la sección siguiente. En puzzles pasa lo mismo: 922 unidades reales entre enero y junio 🟢, más ~300 proyectadas entre julio y septiembre 🟡, dan 1.222 puzzles estimados para los primeros nueve meses de 2026.</p>
+
+<div class="callout callout--warn">
+<p><strong>La demanda de unidades estaba 64% subestimada.</strong> La base de Shopify corregida (3.101 pedidos pagados, 5.097 unidades, todos los productos) muestra <strong>1,64 unidades por pedido</strong> 🟢, no 1. Cualquier cálculo que asuma "un pedido = una unidad" queda corto en 64%. La estacionalidad medida en esa misma base confirma el patrón y lo afina: diciembre 2025 vendió 889 unidades — <strong>3,3 veces</strong> un mes normal (~270) — y noviembre 439 — <strong>1,6 veces</strong>. La curva empieza a subir en octubre (297). Los 1.222 puzzles de esta página ya son unidades reales medidas, no estimadas a partir de pedidos, así que no cambian por esta corrección — pero confirman que diciembre concentra la demanda todavía más de lo que sugiere cualquier factor combinado nov-dic.</p>
+</div>
 </section>
 
 <section class="sec">
@@ -1032,8 +1036,9 @@ main { counter-reset: sec; }
   <div class="kpi"><span class="kpi__label">Margen por puzzle (precio − costo)</span><span class="kpi__value">$29.048</span></div>
   <div class="kpi"><span class="kpi__label">Margen, en porcentaje</span><span class="kpi__value">80%</span></div>
 </div>
+<p class="calc-line--sub">🟢 El costo de $7.253 es el costo puesto en bodega en Santiago (incluye FOB, provisión, seguro de carga, forwarder, desconsolidación y flete) — no es el precio de fábrica.</p>
 
-<p>Hoy hay <strong>0 puzzles en stock</strong> 🟢 — es el quiebre que motivó este pedido. Llegan 1.000 unidades el 15 de agosto (disponibles recién la última semana de agosto) 🟢, ya en camino desde antes de este pedido. Las cantidades "a pedir" de la tabla son las unidades netas de este nuevo pedido, después de considerar ese despacho y dejar un colchón (margen extra) para no repetir el quiebre.</p>
+<p>Hoy hay <strong>0 puzzles en stock</strong> 🟢 — es el quiebre que motivó este pedido. El pedido que llega el 15 de agosto no son 1.000 unidades: son <strong>2.290</strong> 🟢 (factura de la fábrica, confirmada por Felipe), de las cuales <strong>1.050 son puzzles de adulto</strong> (500 aves, 350 cetáceos, 200 hongos), 240 son puzzles de niños nuevos (sin costo) y 1.000 son juegos de cartas. Para el cálculo de puzzles de esta sección se usan los 1.050 de adulto, ya en camino desde antes de este pedido. Las cantidades "a pedir" de la tabla son las unidades netas de este nuevo pedido, después de considerar ese despacho y dejar un colchón (margen extra) para no repetir el quiebre.</p>
 
 <div class="table-wrap">
 <table style="min-width:760px">
@@ -1234,11 +1239,11 @@ main { counter-reset: sec; }
 
     var fechas = {
       'nov-opt': new Date(2026, 7, 11),
-      'nov-real': new Date(2026, 6, 27),
+      'nov-real': new Date(2026, 7, 1),
       'bf-opt': new Date(2026, 8, 6),
-      'bf-real': new Date(2026, 7, 22),
+      'bf-real': new Date(2026, 7, 27),
       'nav-opt': new Date(2026, 8, 29),
-      'nav-real': new Date(2026, 8, 14)
+      'nav-real': new Date(2026, 8, 19)
     };
 
     for (var clave in fechas) {
