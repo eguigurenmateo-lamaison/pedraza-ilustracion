@@ -13,16 +13,24 @@ Material interno. **Este documento reemplaza los datos equivalentes de `datos-fi
 
 | Concepto | Monto |
 |---|---:|
-| Total cobrado al cliente | $110.572.581 |
-| menos envío | −$12.812.550 |
-| = producto con IVA | $98.232.561 |
-| **÷ 1,19 = producto NETO** | **$82.548.371** |
+| Producto vendido (con IVA) | $98.232.561 |
+| más envío cobrado | +$12.812.550 |
+| **= subtotal + envío** | **$111.045.111** |
+| | |
+| Lo que registraba el modelo | $111.013.953 |
+| Diferencia | $31.158 (0,03%) |
 
-El modelo registraba **$111.013.953**, que es prácticamente el total cobrado al cliente. Es decir, contabilizaba como venta el IVA y el envío.
+**El diagnóstico exacto:** el modelo registraba como venta la suma de **producto + envío, con IVA incluido**. La coincidencia es de 0,03%, así que no hay duda del origen del error.
+
+La cifra correcta se obtiene tomando solo el producto y sacándole el IVA:
+
+$98.232.561 ÷ 1,19 = **$82.548.371**
 
 🟢 **Cifra correcta de Shopify: $82.548.371 netos** (18 meses). Coincide con el $82M que estimó Felipe.
 
-**Sobrestimación: $28.465.582 (26%).**
+**El modelo tenía $28.465.582 de más**, que es un cuarto de la cifra que reportaba (o dicho al revés: la cifra reportada estaba un 34% por encima de la real).
+
+> Nota metodológica: una versión anterior de este documento presentaba el cálculo como "total cobrado menos envío". Esa resta no cuadra, porque el total cobrado ya viene neto de descuentos. La cadena correcta es la de arriba: se parte del subtotal de producto, que es un dato directo de la base.
 
 ### Qué arrastra esta corrección
 

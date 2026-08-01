@@ -772,7 +772,7 @@ main { counter-reset: sec; }
         <a href="precios.html" class="navpanel__link" data-nav-key="precios">
           <span class="navpanel__link-text">
             <span class="navpanel__link-name">Nueva estructura de precios</span>
-            <span class="navpanel__link-desc">Subida por tramos</span>
+            <span class="navpanel__link-desc">Lista final por competencia</span>
           </span>
           <span class="navpanel__check" aria-hidden="true">✓</span>
         </a>
@@ -786,7 +786,7 @@ main { counter-reset: sec; }
         <a href="clientes.html" class="navpanel__link" data-nav-key="clientes">
           <span class="navpanel__link-text">
             <span class="navpanel__link-name">Clientes que vuelven</span>
-            <span class="navpanel__link-desc">Del 10% al 20% de recompra</span>
+            <span class="navpanel__link-desc">Del 7,2% al 20% de recompra</span>
           </span>
           <span class="navpanel__check" aria-hidden="true">✓</span>
         </a>
@@ -905,7 +905,7 @@ main { counter-reset: sec; }
 </div>
 
 <div class="callout callout--info">
-<p><strong>Qué es el margen bruto:</strong> de cada $100 que entran por una venta, cuánto queda después de pagar solo el producto (lo que costó fabricarlo o comprarlo) — sin restar todavía arriendo, sueldos, publicidad ni el resto de los gastos del negocio. Un margen bruto de 67,1% quiere decir que, en promedio, de cada $100 vendidos quedan $67 después de pagar la mercadería.</p>
+<p><strong>Qué es el margen bruto:</strong> de cada $100 que entran por una venta, cuánto queda después de pagar solo el producto (lo que costó fabricarlo o comprarlo) — sin restar todavía arriendo, sueldos, publicidad ni el resto de los gastos del negocio. Un margen bruto de ~61,7% quiere decir que, en promedio, de cada $100 vendidos quedan $62 después de pagar la mercadería.</p>
 <p>Es distinto de la <strong>utilidad</strong>, que es lo que queda después de restar además esos otros gastos. Esta página usa margen bruto como referencia principal porque es el dato más confiable hoy — la sección 5 explica qué falta para poder confiar también en la utilidad final de cada canal.</p>
 </div>
 
@@ -1146,24 +1146,33 @@ main { counter-reset: sec; }
 
 <section class="sec" id="lo-que-falta">
 <h2>Lo que falta para que estos números sirvan para decidir</h2>
-<p>El modelo financiero de Felipe está bien armado: tiene tres capas de datos, una maestra de productos, y el calendario de los dos créditos reconstruido y validado contra el banco. <span class="pill pill--warn">🟡 Lectura</span> Lo que sigue no son errores de diseño — son piezas de información que todavía faltan para que la última línea (la utilidad final) sea 100% confiable. Se listan acá con la solución al lado.</p>
+<p>El modelo financiero de Felipe está bien armado: tiene tres capas de datos, una maestra de productos, y el calendario de los dos créditos reconstruido y validado contra el banco. <span class="pill pill--warn">🟡 Lectura</span> Lo que sigue no son errores de diseño — son piezas de información que se estaban aclarando para que la última línea (la utilidad final) sea 100% confiable. El 1 de agosto de 2026, Felipe resolvió 3 de estos puntos 🟢 — quedan marcados como resueltos abajo. Se listan todos acá con la solución al lado.</p>
 
 <div class="callout callout--warn">
 <p><strong>1. Los gastos variables solo están cargados en un mes</strong></p>
 <p><strong>Qué pasa:</strong> en los 18 meses de registro, la publicidad ($973.425 en total) y los envíos ($966.537 en total) aparecen casi enteros en un solo mes — junio de 2026. En los otros 17 meses figuran en cero. Además, la comisión de la pasarela de pago (el porcentaje que se descuenta de cada venta pagada con tarjeta o Webpay) no aparece registrada en ningún mes.</p>
 <p><strong>Por qué importa:</strong> la utilidad operacional que muestra hoy el modelo ($104.371.491 en 18 meses) queda inflada, porque a 17 de los 18 meses no se les está descontando un gasto que sí ocurrió. Junio de 2026 es, por ahora, el único mes con el cuadro completo.</p>
-<p><strong>Qué se hace:</strong> reconstruir el gasto variable mes a mes junto con Felipe y sumar las comisiones de pasarela que faltan. El detalle completo, con las correcciones propuestas, está en <a href="modelo-datos.html">Corrigiendo el modelo</a>.</p>
+<p><strong>Qué se hace:</strong> reconstruir el gasto variable mes a mes junto con Felipe y sumar las comisiones de pasarela que faltan — Felipe confirmó el 1 de agosto que las va a buscar 🟡, sigue pendiente. El detalle completo, con las correcciones propuestas, está en <a href="modelo-datos.html">Corrigiendo el modelo</a>.</p>
+</div>
+
+<div class="callout callout--success">
+<p><strong>2. Resuelto: "Creado en Chile" NO está contado dos veces</strong></p>
+<p><strong>Qué pasaba:</strong> "Creado en Chile" es un cliente B2B que compró $24.065.548 en 18 meses. El propio Felipe había advertido, en el correo donde compartió los archivos, que el archivo de ventas consolidadas "tiene la venta detallada de Creado en Chile, por lo que se repite el número del archivo anterior" (el de ventas B2B) — lo que sonaba a doble conteo.</p>
+<p><strong>Aclarado por Felipe (1 de agosto de 2026) 🟢:</strong> no se cuenta dos veces. El consolidado de ventas tiene el detalle por tienda; el consolidado B2B tiene la factura hecha a partir de ese mismo detalle. La venta de "Creado en Chile" son $24.065.548 netos, contados una sola vez.</p>
+</div>
+
+<div class="callout callout--success">
+<p><strong>3. Resuelto: qué es "Pivot" ($703.688)</strong></p>
+<p>Es la plataforma que integra Bsale (el sistema de facturación B2B) con Shopify 🟢 — un gasto fijo legítimo del negocio, no un gasto a revisar.</p>
+</div>
+
+<div class="callout callout--success">
+<p><strong>4. Resuelto: la asesoría de Amazon ($471.000) va aparte del margen</strong></p>
+<p>Es otra unidad de negocio 🟢, por eso se excluye de los márgenes de esta página — pero su caja sale de la empresa, así que sí se incluye en el flujo de caja general del negocio. No es un gasto mal clasificado, es un gasto de un negocio distinto.</p>
 </div>
 
 <div class="callout callout--warn">
-<p><strong>2. La venta de "Creado en Chile" podría estar contada dos veces</strong></p>
-<p><strong>Qué pasa:</strong> "Creado en Chile" es un cliente B2B que compró $24.065.548 en 18 meses — el 12% de toda la venta. El propio Felipe advirtió, en el correo donde compartió los archivos, que el archivo de ventas consolidadas "tiene la venta detallada de Creado en Chile, por lo que se repite el número del archivo anterior" (el de ventas B2B).</p>
-<p><strong>Por qué importa:</strong> si esa venta efectivamente se sumó dos veces, tanto la venta total como la utilidad bruta están un poco más altas de lo real. Sobre $202 millones no cambia la conclusión general, pero conviene confirmarlo antes de fijar una meta con ese número.</p>
-<p><strong>Qué se hace:</strong> cruzar los dos archivos fila por fila para confirmar si se repite o no, y corregir el total si corresponde. También en <a href="modelo-datos.html">Corrigiendo el modelo</a>.</p>
-</div>
-
-<div class="callout callout--warn">
-<p><strong>3. Los retiros de los socios distorsionan la última línea</strong></p>
+<p><strong>5. Los retiros de los socios distorsionan la última línea</strong></p>
 <p><strong>Qué pasa:</strong> en 3 de los 15 meses con este dato, la utilidad final quedó en cero o en negativo — pese a que esos mismos meses tuvieron utilidad operacional de varios millones antes de que los socios se pagaran:</p>
 <div class="table-wrap">
 <table>
@@ -1180,7 +1189,7 @@ main { counter-reset: sec; }
 </div>
 
 <div class="callout callout--warn">
-<p><strong>4. Los gastos no están separados por canal</strong></p>
+<p><strong>6. Los gastos no están separados por canal</strong></p>
 <p><strong>Qué pasa:</strong> hoy los gastos operativos ($21.016.956 en los 15 meses con este dato) están juntos, sin dividir entre Shopify, B2B y Mercado Libre. Felipe ya identificó este pendiente.</p>
 <p><strong>Por qué importa:</strong> sin esa separación, todavía no se puede calcular la utilidad real de cada canal — solo el margen bruto (sección 1 de esta página), que es lo que queda después de pagar el producto, pero antes de pagar arriendo, sueldos, publicidad y el resto de los gastos del negocio.</p>
 <p><strong>Qué se hace:</strong> esto ya está en marcha — en la reunión del 29 de julio, Felipe se comprometió a hacer el cierre de julio separando las tres verticales (Shopify, B2B, Mercado Libre) y asignando un peso de gastos por canal según venta. Ese será el primer corte de utilidad real por canal.</p>
@@ -1209,7 +1218,7 @@ main { counter-reset: sec; }
 
 <section class="sec" id="que-haria-yo">
 <h2>Qué haría yo con esta información</h2>
-<p>Con estos 18 meses medidos, hay tres decisiones que estos números ya respaldan hoy — sin necesidad de esperar a que se resuelvan los cuatro puntos pendientes de la sección anterior:</p>
+<p>Con estos 18 meses medidos, hay tres decisiones que estos números ya respaldan hoy — sin necesidad de esperar a que se resuelvan los puntos que siguen abiertos en la sección anterior:</p>
 
 <div class="grid-3">
   <div class="card">
@@ -1218,7 +1227,7 @@ main { counter-reset: sec; }
   </div>
   <div class="card">
     <h3>2. Pedir el stock de Navidad con los números, no a ojo</h3>
-    <p>La estacionalidad ya está medida: diciembre vende 2,9 veces el mes promedio, y el stock para esos dos meses se pide en agosto. El detalle de cuánto pedir está en <a href="stock-navidad.html">Stock para Navidad</a>.</p>
+    <p>La estacionalidad ya está medida: diciembre vende cerca de 3 veces un mes normal (2,9x en pesos sobre la venta antes de corregir; 3,3x en unidades, sobre la base corregida), y el stock para esos dos meses se pide en agosto. El detalle de cuánto pedir está en <a href="stock-navidad.html">Stock para Navidad</a>.</p>
   </div>
   <div class="card">
     <h3>3. Concentrar el esfuerzo en la tienda</h3>
@@ -1228,7 +1237,7 @@ main { counter-reset: sec; }
 
 </section>
 
-<footer class="page-footer"><p>Datos: archivos financieros de Felipe, 18 meses (enero 2025 a junio 2026). Las lecturas marcadas <span class="pill pill--warn">🟡</span> son análisis del operador sobre esos datos. Ver también <a href="modelo-datos.html">Corrigiendo el modelo</a> y la <a href="bitacora.html">bitácora</a> del proyecto.</p></footer>
+<footer class="page-footer"><p>Datos: archivos financieros de Felipe, 18 meses (enero 2025 a junio 2026), corregidos el 1 de agosto de 2026 (IVA y envío en la venta de Shopify, base de unidades). Las lecturas marcadas <span class="pill pill--warn">🟡</span> son análisis del operador sobre esos datos. Ver también <a href="modelo-datos.html">Corrigiendo el modelo</a> y la <a href="bitacora.html">bitácora</a> del proyecto.</p></footer>
 
 </main>
 
