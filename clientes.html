@@ -780,7 +780,7 @@ code { font-family: var(--font-mono); font-size: .92em; background: var(--paper)
         <a href="clientes.html" class="navpanel__link" data-nav-key="clientes">
           <span class="navpanel__link-text">
             <span class="navpanel__link-name">Clientes que vuelven</span>
-            <span class="navpanel__link-desc">Del 10% al 20% de recompra</span>
+            <span class="navpanel__link-desc">Del 7% al 20% de recompra</span>
           </span>
           <span class="navpanel__check" aria-hidden="true">✓</span>
         </a>
@@ -861,7 +861,7 @@ code { font-family: var(--font-mono); font-size: .92em; background: var(--paper)
   <div class="hero__inner">
     <a href="index.html#datos-que-faltan" class="hero__back">← Volver al plan</a>
     <h1>Clientes que vuelven</h1>
-    <p>Hoy solo 1 de cada 10 personas que compra en Pedraza Ilustración vuelve a comprar. Esta página explica por qué ese número importa más que cualquier campaña de publicidad, dónde se corta exactamente, y qué hacer con cada tipo de cliente. Esta página no está en el menú principal — se comparte por link directo desde el plan.</p>
+    <p>Hoy 93 de cada 100 personas que compran en Pedraza Ilustración compran una sola vez y no vuelven nunca. Esta página explica por qué ese número importa más que cualquier campaña de publicidad, dónde se corta exactamente, y qué hacer con cada tipo de cliente. Esta página no está en el menú principal — se comparte por link directo desde el plan.</p>
   </div>
 </header>
 
@@ -873,42 +873,47 @@ code { font-family: var(--font-mono); font-size: .92em; background: var(--paper)
 <p>Un <strong>cliente que repite</strong> es alguien que ya compró una vez en Pedraza Ilustración y vuelve a comprar de nuevo, en cualquier producto. Importa más que sumar un cliente nuevo por una razón simple: esa persona ya conoce la marca, ya confió en pagar, y ya sabe que el pedido llega bien. Convencerla de comprar otra vez cuesta mucho menos que convencer a alguien que nunca ha oído hablar de Pedraza — la aritmética completa está en la próxima sección.</p>
 
 <div class="kpi-grid">
-  <div class="kpi"><span class="kpi__label">Clientes que repiten hoy (30 días) 🟢</span><span class="kpi__value">10%</span></div>
+  <div class="kpi"><span class="kpi__label">Tasa real de recompra (toda la historia) 🟢</span><span class="kpi__value">7,2%</span></div>
   <div class="kpi"><span class="kpi__label">Referencia sana 🟡</span><span class="kpi__value">20-30%</span></div>
-  <div class="kpi"><span class="kpi__label">Clientes con 2 pedidos o más 🟢</span><span class="kpi__value">412</span></div>
-  <div class="kpi"><span class="kpi__label">Clientes con más de 2 pedidos 🟢</span><span class="kpi__value">82</span></div>
+  <div class="kpi"><span class="kpi__label">Compraron 1 sola vez 🟢</span><span class="kpi__value">2.643</span></div>
+  <div class="kpi"><span class="kpi__label">Compraron 2 veces o más 🟢</span><span class="kpi__value">205</span></div>
 </div>
 
-<div class="chart-bar-row"><span class="chart-bar-row__label">Tasa actual</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:33%"></div></div><span class="chart-bar-row__value">10%</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Tasa actual</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:24%"></div></div><span class="chart-bar-row__value">7,2%</span></div>
 <div class="chart-bar-row"><span class="chart-bar-row__label">Referencia sana</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div><span class="chart-bar-row__value">20-30%</span></div>
 
-<p><span class="pill pill--success">🟢 dato real</span> Fuente: pantalla de Shopify mostrada en la reunión del 31 de julio de 2026 (ver acta, sección 5). La referencia de 20-30% <span class="pill pill--warn">🟡 criterio del operador</span> no es un estudio publicado — es lo que el operador considera una tasa sana según su experiencia con otras tiendas, no una promesa de resultado ni un número de la industria.</p>
+<p><span class="pill pill--success">🟢 dato real</span> Fuente: base completa de pedidos de Shopify — 2.848 clientes únicos y 3.101 pedidos pagados — medida y verificada el 1 de agosto de 2026 (ver <code>docs/correcciones-felipe-2026-08-01.md</code>, sección 2). La referencia de 20-30% <span class="pill pill--warn">🟡 criterio del operador</span> no es un estudio publicado — es lo que el operador considera una tasa sana según su experiencia con otras tiendas, no una promesa de resultado ni un número de la industria.</p>
 
-<div class="callout callout--danger">
-<p><strong>El dato más importante de este documento:</strong> ese 10% no mejora aunque se mire un periodo más largo (60 o 90 días). Eso significa que no es un problema de tiempo — es un problema estructural. Cada mes la tienda gasta en traer clientes nuevos, los vende una vez, y la enorme mayoría no vuelve nunca más. El negocio corre con una fuga permanente justo en la base de clientes.</p>
+<div class="callout callout--info">
+<p><strong>¿Por qué este número cambió de 10% a 7,2%?</strong> No es que el negocio haya empeorado — es que ahora se está midiendo bien. El 10% salía del panel de Shopify, que solo mira los últimos 30 días. El 7,2% sale de revisar los 2.848 clientes y los 3.101 pedidos pagados de toda la historia de la tienda. Es una fotografía más completa, no una caída real del negocio.</p>
 </div>
 
-<h3>Dónde se corta: la segunda compra</h3>
-<p>De los clientes de Pedraza Ilustración, 412 ya llegaron a comprar dos veces o más. Pero solo 82 pasaron de ahí — hicieron una tercera compra, o más. La diferencia entre esos dos números cuenta toda la historia:</p>
+<div class="callout callout--danger">
+<p><strong>El dato más importante de este documento:</strong> 93 de cada 100 clientes de Pedraza Ilustración compran una sola vez y no vuelven jamás. No es un problema de tiempo — es un problema estructural. Cada mes la tienda gasta en traer clientes nuevos, los vende una vez, y la enorme mayoría no vuelve nunca más. El negocio corre con una fuga permanente justo en la base de clientes.</p>
+</div>
 
-<div class="chart-bar-row"><span class="chart-bar-row__label">2 pedidos o más</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div><span class="chart-bar-row__value">412</span></div>
-<div class="chart-bar-row"><span class="chart-bar-row__label">Más de 2 pedidos</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:20%"></div></div><span class="chart-bar-row__value">82</span></div>
+<h3>La distribución real, de punta a punta</h3>
+<p>De los 2.848 clientes que alguna vez le compraron a Pedraza Ilustración, la enorme mayoría compra una sola vez y desaparece. El salto entre "compró una vez" y "compró otra vez" es enorme — mucho más grande de lo que mostraba el panel de 30 días:</p>
 
-<p>412 menos 82 son <strong>330 personas</strong> que compraron dos veces y ahí se quedaron — nunca hicieron una tercera compra. Dicho de otra forma: solo <strong>1 de cada 5 personas (20%)</strong> que llega a la segunda compra sigue comprando después. Cuatro de cada cinco se detienen justo ahí. Esto se desarrolla en la sección 3.</p>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Compraron 1 vez</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div><span class="chart-bar-row__value">2.643</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Compraron 2 veces</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:6%"></div></div><span class="chart-bar-row__value">168</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Compraron 3 o más</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:1%"></div></div><span class="chart-bar-row__value">37</span></div>
+
+<p>2.643 personas (92,8% de toda la base) compran una vez y no vuelven. Solo 205 (7,2%) alguna vez repiten, y de esas 205, apenas 37 llegan a una tercera compra o más. La caída más grande no está entre la segunda y la tercera compra — está entre la primera y la segunda. Ahí está el 100% de la oportunidad, y se desarrolla en la sección 3.</p>
 
 <h3>Qué significa esto en plata</h3>
-<p>En la reunión se calculó que pasar del 10% actual a la meta de 20% significaría del orden de <strong>$500.000 adicionales al mes</strong>, sin gastar un peso más en publicidad. <span class="pill pill--warn">🟡 estimación</span> Así se reconstruye ese cálculo con los datos reales del plan, para mostrar de dónde sale:</p>
+<p>Como el punto de partida real (7,2%) es más bajo que el 10% que se pensaba, <strong>la oportunidad de mejorar es mayor de lo calculado</strong>, no menor. Esta es la aritmética completa, partiendo del dato correcto:</p>
 
 <div class="callout callout--warn">
 <p><strong>La aritmética completa:</strong></p>
 <ul>
 <li>Pedidos proyectados al mes: <strong>~140</strong> — según la captura de Shopify del 1 al 24 de julio: 110 pedidos en 24 días, unos 4,6 pedidos por día, proyectados a 30 días.</li>
-<li>Con 10% de repetición (hoy): ~14 de esos 140 pedidos son de alguien que ya había comprado antes (10% × 140).</li>
+<li>Con 7,2% de repetición (real, medida sobre toda la historia): ~10 de esos 140 pedidos son de alguien que ya había comprado antes (7,2% × 140).</li>
 <li>Con 20% de repetición (meta): serían ~28 pedidos de clientes que repiten (20% × 140).</li>
-<li>Diferencia: <strong>14 pedidos adicionales al mes</strong>, gracias a gente que ya es clienta — no a publicidad nueva.</li>
-<li>14 pedidos × ticket promedio real de $37.900 ≈ <strong>$530.600 al mes</strong>.</li>
+<li>Diferencia: <strong>18 pedidos adicionales al mes</strong>, gracias a gente que ya es clienta — no a publicidad nueva. Son 4 pedidos más que con el cálculo anterior (10% → 20%), porque el punto de partida real es más bajo.</li>
+<li>18 pedidos × ticket promedio neto de $27.980 ≈ <strong>$503.640 al mes</strong>.</li>
 </ul>
-<p style="font-size:var(--fs-sm);color:var(--ink-faint);margin:0">Ese resultado cae en el mismo orden de magnitud que los "$500.000 adicionales al mes" que se calcularon en la llamada — la diferencia de unos $30.000 es solo redondeo entre los datos usados. No es una promesa de resultado: es el tamaño de la oportunidad si la tasa de repetición mejora.</p>
+<p style="font-size:var(--fs-sm);color:var(--ink-faint);margin:0">🟡 Estimación, no una promesa de resultado: es el tamaño de la oportunidad si la tasa de repetición pasa de 7,2% a 20%. Sigue cayendo cerca de los "$500.000 adicionales al mes" que se calcularon en la llamada del 31 de julio — la diferencia (~$3.640) es solo redondeo entre los datos usados.</p>
 </div>
 </section>
 
@@ -924,19 +929,19 @@ code { font-family: var(--font-mono); font-size: .92em; background: var(--paper)
 <ul>
 <li>Inversión en publicidad: <strong>$914.000</strong> 🟢 ($752.000 en Meta + $162.000 en Google).</li>
 <li>Pedidos proyectados en el mismo periodo: <strong>~140</strong> 🟡 (misma proyección de la sección 1, sobre la captura de Shopify del 1-24 de julio).</li>
-<li>Costo de adquisición: $914.000 ÷ 140 ≈ <strong>$6.530 por pedido</strong> 🟡.</li>
+<li>Costo de adquisición: $914.000 ÷ 140 ≈ <strong>$6.529 por pedido</strong> 🟡.</li>
 </ul>
 </div>
 
-<p>$6.530 no dice mucho solo. Comparado con el ticket promedio real de <strong>$37.900</strong> 🟢, ese costo de adquisición equivale a cerca de un <strong>17% de descuento</strong> sobre una compra típica. Dicho de otra forma: hoy, en promedio, la tienda ya está dispuesta a "gastar" cerca de un 17% del valor de una venta con tal de conseguirla — solo que ese 17% se lo lleva Meta o Google, no el cliente.</p>
+<p>$6.529 no dice mucho solo. Comparado con el ticket promedio neto de <strong>$27.980</strong> 🟢 (sin IVA ni envío — así se calcula el margen del negocio), ese costo de adquisición equivale a cerca de un <strong>23% de descuento</strong> sobre una compra típica. Dicho de otra forma: hoy, en promedio, la tienda ya está dispuesta a "gastar" cerca de un 23% del valor neto de una venta con tal de conseguirla — solo que ese 23% se lo lleva Meta o Google, no el cliente.</p>
 
-<div class="chart-bar-row"><span class="chart-bar-row__label">Traer venta nueva (ads)</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div><span class="chart-bar-row__value">$6.530</span></div>
-<div class="chart-bar-row"><span class="chart-bar-row__label">15% a quien ya compró</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:87%"></div></div><span class="chart-bar-row__value">$5.685</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Traer venta nueva (ads)</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div><span class="chart-bar-row__value">$6.529</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">15% a quien ya compró</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:64%"></div></div><span class="chart-bar-row__value">$4.197</span></div>
 
-<p>Un incentivo de 15% de descuento sobre el ticket promedio ($5.685) ya cuesta menos que el costo de adquisición actual ($6.530) — y eso sin contar que alguien que ya compró probablemente necesita mucho menos empuje para decidirse que un desconocido que ve un anuncio por primera vez.</p>
+<p>Un incentivo de 15% de descuento sobre el ticket promedio neto ($4.197) cuesta un 36% menos que el costo de adquisición actual ($6.529) — y eso sin contar que alguien que ya compró probablemente necesita mucho menos empuje para decidirse que un desconocido que ve un anuncio por primera vez.</p>
 
 <div class="callout callout--success">
-<p><strong>La conclusión que debe quedar clara:</strong> el margen bruto real del negocio de e-commerce es de <strong>78,9%</strong> 🟢 (18 meses de datos, ver <code>docs/datos-financieros-2025-2026.md</code>). Hay espacio de sobra para ofrecerle a alguien que ya compró un incentivo generoso — 15%, incluso más — y seguir gastando menos que lo que hoy cuesta convencer a un desconocido. <strong>El cliente que ya compró es el activo más barato que tiene el negocio, y hoy está sin usar.</strong></p>
+<p><strong>La conclusión que debe quedar clara:</strong> el margen bruto real del negocio de e-commerce es de <strong>~72%</strong> 🟢 (18 meses de datos, corregido el 1 de agosto de 2026 — ver <code>docs/correcciones-felipe-2026-08-01.md</code>). Con ese margen, dar un incentivo de 15% deja igual un margen de ~57% — sigue siendo un negocio sano. Hay espacio de sobra para ofrecerle a alguien que ya compró un incentivo generoso — 15%, incluso más — y seguir gastando menos que lo que hoy cuesta convencer a un desconocido. <strong>El cliente que ya compró es el activo más barato que tiene el negocio, y hoy está sin usar.</strong></p>
 </div>
 
 <div class="callout callout--warn">
@@ -947,9 +952,14 @@ code { font-family: var(--font-mono); font-size: .92em; background: var(--paper)
 <section class="sec" id="segundo-pedido">
 <h2>Dónde se cae la gente: el segundo pedido</h2>
 
-<p>El dato de 412 contra 82 dice algo preciso: el problema no es que la gente nunca repita — 412 personas ya demostraron que sí vuelven. El problema es que casi nadie pasa de ahí. Compran dos veces, y ahí se quedan.</p>
+<p>El dato real cambia el foco: el problema más grande no es que casi nadie pase de la segunda a la tercera compra — aunque eso también pasa. El problema más grande es que casi nadie llega siquiera a una segunda compra: solo 205 personas de 2.848 (7,2%) alguna vez repiten. Y de esas 205, la mayoría (168) se queda ahí, en dos compras, y nunca hace una tercera.</p>
 
-<p>¿Por qué se corta justo en la segunda compra? No hay un dato cerrado que lo explique con certeza <span class="pill pill--warn">🟡 hipótesis</span>, pero hay tres razones que probablemente se están sumando:</p>
+<div class="chart-bar-row"><span class="chart-bar-row__label">2 pedidos o más</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div><span class="chart-bar-row__value">205</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Más de 2 pedidos</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:18%"></div></div><span class="chart-bar-row__value">37</span></div>
+
+<p>205 menos 37 son <strong>168 personas</strong> que compraron dos veces y ahí se quedaron — nunca hicieron una tercera compra. Dicho de otra forma: menos de <strong>1 de cada 5 personas (18%)</strong> que llega a la segunda compra sigue comprando después. Pero el problema más grande sigue siendo el anterior: solo 1 de cada 14 personas (7,2%) llega siquiera a esa segunda compra.</p>
+
+<p>¿Por qué tan pocos vuelven, ni siquiera una segunda vez? No hay un dato cerrado que lo explique con certeza <span class="pill pill--warn">🟡 hipótesis</span>, pero hay tres razones que probablemente se están sumando:</p>
 
 <div class="grid-3">
 <div class="card"><h3>No hay motivo para volver</h3><p>A nadie se le avisa que existe algo más para él o ella. Sin un mensaje concreto, "volver a comprar" simplemente no está en su cabeza.</p></div>
@@ -984,7 +994,7 @@ Botón: Quiero mi 10%</div>
 <div class="card">
 <h3>2. Compró una vez <span class="pill pill--danger">Aquí está el 100% de la oportunidad</span></h3>
 <p><strong>Filtro en Shopify:</strong> <code>number_of_orders = 1</code>.</p>
-<p>Es el segmento más importante de los tres. Ahí están los 330 clientes que se detuvieron justo después de su primera compra (sección 3), más todos los que todavía no llegan a ese punto. La oferta no puede ser "más de lo mismo" — tiene que ser un producto que complemente lo que ya se llevó: si compró un puzzle, mostrarle naipes, botella o calcetines de la misma serie, no otro puzzle.</p>
+<p>Es el segmento más importante de los tres, y por lejos el más grande: 2.643 personas — 92,8% de toda la base de clientes — están hoy exactamente en este punto. La oferta no puede ser "más de lo mismo" — tiene que ser un producto que complemente lo que ya se llevó: si compró un puzzle, mostrarle naipes, botella o calcetines de la misma serie, no otro puzzle.</p>
 <div class="copyblock">
 <button type="button" class="copyblock__btn" data-copy-target="copy-seg2">Copiar</button>
 <div class="copyblock__text" id="copy-seg2">Asunto: Lo que le falta a lo que ya tienes (y no es otro puzzle)
@@ -1002,11 +1012,11 @@ Ver los complementos → https://pedrazailustracion.com/collections/accesorios
 Un abrazo,
 Cote</div>
 </div>
-<p style="font-size:var(--fs-sm);color:var(--ink-faint)"><span class="pill pill--warn">🟡</span> El 15% de descuento es una propuesta, en línea con el descuento de pack ya usado en <a href="ofertas.html#packs">ofertas.html</a> — igual queda por debajo del costo de adquisición calculado en la sección 2 (~17%). Idealmente, con el tiempo, este correo se personaliza según el producto exacto que compró cada persona (Klaviyo puede cruzar eso con el historial de compra); mientras no esté armado ese cruce, sirve esta versión genérica con productos complementarios que funcionan para casi cualquier primera compra.</p>
+<p style="font-size:var(--fs-sm);color:var(--ink-faint)"><span class="pill pill--warn">🟡</span> El 15% de descuento es una propuesta, en línea con el descuento de pack ya usado en <a href="ofertas.html#packs">ofertas.html</a> — igual queda por debajo del costo de adquisición calculado en la sección 2 (~23%). Idealmente, con el tiempo, este correo se personaliza según el producto exacto que compró cada persona (Klaviyo puede cruzar eso con el historial de compra); mientras no esté armado ese cruce, sirve esta versión genérica con productos complementarios que funcionan para casi cualquier primera compra.</p>
 </div>
 
 <div class="card">
-<h3>3. Compró dos o más veces <span class="pill pill--success">Los 82</span></h3>
+<h3>3. Compró dos o más veces <span class="pill pill--success">Los 205</span></h3>
 <p><strong>Filtro en Shopify:</strong> <code>number_of_orders >= 2</code>.</p>
 <p>Esta persona no necesita un descuento: ya compra seguido, sin que nadie se lo pida. Ofrecerle un 10% o un 15% no genera una venta que no fuera a pasar de todas formas — solo reduce lo que gana la tienda en una compra que iba a ocurrir igual. Es regalar margen sin conseguir nada nuevo a cambio.</p>
 <p>Lo que sí funciona con este grupo: <strong>acceso anticipado</strong>, ser los primeros en enterarse de las novedades, y sentir que la marca los reconoce. Es el mismo principio que se prueba con la preventa del 6 de agosto (sección 6).</p>
@@ -1050,6 +1060,10 @@ Cote</div>
 
 <p>Qué recibe cada segmento y cuándo, contado en días desde la compra. Esta tabla no repite lo que ya está definido en <a href="email.html">email.html</a> (los flujos y campañas de correo) ni en <a href="ofertas.html">ofertas.html</a> (los pop-ups del sitio) — conecta los dos con los tres segmentos de esta página.</p>
 
+<div class="callout callout--warn">
+<p><strong>Por qué enero es el mes clave:</strong> diciembre vende 3,3 veces más que un mes normal — 889 unidades contra ~270 🟢 (ver <code>docs/correcciones-felipe-2026-08-01.md</code>, sección 2). Eso significa que en diciembre entra una ola grande de clientes nuevos, y con una tasa de recompra real de 7,2%, la enorme mayoría de esa gente no vuelve a comprar. Ese ciclo hoy no se trabaja: nadie los contacta cuando más frescos están. Mirando la tabla de abajo, el "Día 30" después de una compra de diciembre cae justo en enero — es el mejor momento del año para activar la recompra, y es exactamente cuando hoy no se hace nada.</p>
+</div>
+
 <div class="table-wrap">
 <table>
 <thead><tr><th>Cuándo</th><th>A quién</th><th>Qué recibe</th><th>Dónde está definido</th></tr></thead>
@@ -1060,7 +1074,7 @@ Cote</div>
 <tr><td>Día 30</td><td>Compró 1 vez, sin repetir</td><td>Pasa a "Recompra" (2 correos/semana); si vuelve al sitio, ve el pop-up con el producto complementario</td><td><a href="email.html#tres-correos-por-semana">email.html</a> (Recompra) + <a href="ofertas.html#sistema-popups">ofertas.html</a> (pop-up 3)</td></tr>
 <tr><td>Día 60</td><td>Sigue sin repetir</td><td>Pasa a "Reactivación" (3 correos/semana)</td><td><a href="email.html#tres-correos-por-semana">email.html</a>, segmento Reactivación</td></tr>
 <tr><td>Día 90</td><td>Sigue sin repetir</td><td>Se revisa en la métrica mensual si conviene un incentivo mayor</td><td>Sección 7 de esta página</td></tr>
-<tr><td>Continuo</td><td>Compró 2+ veces (los 82)</td><td>Acceso anticipado a lanzamientos y novedades primero, nunca un descuento genérico</td><td>Sección 4 y 6 de esta página</td></tr>
+<tr><td>Continuo</td><td>Compró 2+ veces (los 205)</td><td>Acceso anticipado a lanzamientos y novedades primero, nunca un descuento genérico</td><td>Sección 4 y 6 de esta página</td></tr>
 </tbody>
 </table>
 </div>
@@ -1091,6 +1105,7 @@ Cote</div>
 <div class="card">
 <h3>📌 Métrica principal: % de clientes que repiten</h3>
 <p>De todos los clientes que compraron, cuántos volvieron a comprar dentro de un periodo (hoy: 30 días). Se revisa una vez al mes, el mismo día fijo que ya se usa para el resto de los números del plan.</p>
+<p style="font-size:var(--fs-sm);color:var(--ink-faint)">El panel de Shopify muestra una foto de los últimos 30 días — hoy marca alrededor de 10%. La base real, medida sobre toda la historia el 1 de agosto de 2026, es 7,2%. Para seguir el progreso mes a mes sirve comparar la lectura del panel contra sí misma en el tiempo, sabiendo que el número de fondo — sobre toda la historia de la tienda — hoy es 7,2%.</p>
 <p style="font-size:var(--fs-sm);color:var(--ink-faint)">Dónde se mira: Shopify → Analíticas → Informes → sección de clientes (busca el reporte de clientes recurrentes o de cohortes de clientes).</p>
 </div>
 
@@ -1113,7 +1128,7 @@ Cote</div>
 </div>
 
 <div class="callout callout--success">
-<p>Si el % de clientes que repiten sube mes a mes, todo lo demás de este documento está funcionando. Si se queda plano en 10%, es la señal de que hay que revisar la oferta del segmento "Compró una vez" (sección 4) antes que cualquier otra cosa — ahí vive el 100% de la oportunidad.</p>
+<p>Si el % de clientes que repiten sube mes a mes, todo lo demás de este documento está funcionando. Si se queda plano en 7,2%, es la señal de que hay que revisar la oferta del segmento "Compró una vez" (sección 4) antes que cualquier otra cosa — ahí vive el 100% de la oportunidad.</p>
 </div>
 </section>
 
@@ -1121,7 +1136,7 @@ Cote</div>
 
 <footer class="page-footer">
 <div class="wrap" style="padding-top:0;padding-bottom:0">
-<p>Fuente principal: acta de la reunión del 31 de julio de 2026 con Felipe Robinson y María José Pedraza (Cote), sección 5. Datos financieros: <code>docs/datos-financieros-2025-2026.md</code>. <a href="index.html">← Volver al plan</a></p>
+<p>Fuente principal: acta de la reunión del 31 de julio de 2026 con Felipe Robinson y María José Pedraza (Cote), sección 5. Datos financieros corregidos el 1 de agosto de 2026: <code>docs/correcciones-felipe-2026-08-01.md</code>. <a href="index.html">← Volver al plan</a></p>
 </div>
 </footer>
 
