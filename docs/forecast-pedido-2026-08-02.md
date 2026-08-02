@@ -73,7 +73,9 @@ Esto contradice el supuesto con el que se venía trabajando. El escenario C que 
 
 ### Pero hay tres razones legítimas para pedir igual
 
-**1. Los arreglos pueden subir la demanda por encima del forecast.** El forecast proyecta el pasado hacia adelante y no incorpora las correcciones que están en marcha:
+**1. Los arreglos pueden subir la demanda por encima del forecast.** El forecast proyecta el pasado hacia adelante y no incorpora las correcciones que están en marcha.
+
+> ⚠️ **Las dos bases de cálculo no son intercambiables.** Las tablas de consumo de la sección 3 cuentan agosto a la mitad, porque el stock llega el día 15: por eso el consumo va de **907 a 1.058 puzzles**. La tabla de sensibilidad de abajo usa meses completos, así que su línea base es **1.110**. Las dos son correctas; simplemente no se comparan entre sí.
 
 | Escenario | Puzzles necesarios | Contra 1.290 que llegan |
 |---|---:|---|
