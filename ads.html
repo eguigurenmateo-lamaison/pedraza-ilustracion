@@ -883,282 +883,521 @@ main { counter-reset: sec; }
 <header class="hero">
   <div class="hero__inner">
     <a href="index.html#datos-que-faltan" class="hero__back">← Volver al plan</a>
-    <h1>Google y Meta Ads: auditoría y plan de publicidad pagada</h1>
-    <p>Esta página es el plan de auditoría listo para ejecutar apenas lleguen los accesos a las dos cuentas — no es un informe de resultados. El operador todavía no tiene accesos: llegan cuando se cierre la salida de la persona que hoy lleva Meta, Google, Klaviyo y la tienda. Esta página no está en el menú principal — se comparte por link directo desde el plan.</p>
+    <h1>Google y Meta Ads: la foto real después de la auditoría</h1>
+    <p>El 1 de agosto de 2026 se auditaron a fondo las dos cuentas de publicidad —Google Ads y Meta Ads— y se cruzaron los números contra las ventas reales de Shopify. Esta página reemplaza la versión anterior, que era un plan especulativo antes de tener acceso a las cuentas. Ahora hay datos duros.</p>
   </div>
 </header>
 
 <main class="wrap">
 
-<section class="sec" id="donde-estamos">
-<h2>Dónde estamos hoy</h2>
+<section class="sec" id="la-foto-real">
+<h2>La foto real, en una pantalla</h2>
 
-<p>Todo lo de esta sección se vio en pantalla durante la reunión del 27 de julio de 2026, directo desde Google Ads. Es la única fuente de datos reales de publicidad pagada que existe hasta ahora — no hay cifras de Meta Ads todavía, porque esa cuenta no se compartió en pantalla.</p>
+<p><span class="pill pill--success">🟢 auditoría 1-ago-2026</span> Esto es lo que dice la caja después de cruzar la auditoría de las dos cuentas con la venta real de julio en Shopify.</p>
 
 <div class="kpi-grid">
   <div class="kpi">
-    <span class="kpi__label">Invertido (1-27 jul) 🟢</span>
-    <span class="kpi__value">$150.000</span>
+    <span class="kpi__label">Inversión total (30 días) 🟢</span>
+    <span class="kpi__value">$919.649</span>
   </div>
   <div class="kpi">
-    <span class="kpi__label">Ventas atribuidas 🟢</span>
-    <span class="kpi__value">$425.000</span>
+    <span class="kpi__label">Venta neta real 🟢</span>
+    <span class="kpi__value">$4.214.684</span>
   </div>
   <div class="kpi">
-    <span class="kpi__label">ROAS 🟢</span>
-    <span class="kpi__value">2,85</span>
+    <span class="kpi__label">Retorno sobre venta neta 🟢</span>
+    <span class="kpi__value">4,58</span>
   </div>
   <div class="kpi">
-    <span class="kpi__label">Conversiones 🟢</span>
-    <span class="kpi__value">15</span>
+    <span class="kpi__label">Queda después de publicidad 🟢</span>
+    <span class="kpi__value">$2.114.924</span>
   </div>
 </div>
 
-<p><strong>ROAS</strong> (retorno de la inversión publicitaria) es simple: por cada peso que se invierte en un anuncio, cuántos pesos vuelven en ventas. Un ROAS de <strong>2,85</strong> quiere decir que por cada $1.000 invertidos en Google Ads, volvieron $2.850 en ventas.</p>
+<p><strong>Venta neta</strong> es la venta sin el IVA (el 19% que se paga al Estado en cada boleta) y sin el costo de envío. Es el número más honesto: lo que de verdad entra al negocio por vender, sin los pesos que solo pasan de largo hacia otro lado.</p>
 
-<div class="chart-bar-row"><span class="chart-bar-row__label">Invertido</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:35%"></div></div><span class="chart-bar-row__value">$150.000</span></div>
-<div class="chart-bar-row"><span class="chart-bar-row__label">Ventas</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div><span class="chart-bar-row__value">$425.000</span></div>
-
-<div class="callout callout--info">
-<p><strong>Lectura honesta del número.</strong> <span class="pill pill--success">🟢 dato del acta</span> Google Ads recién se activó este mes (13 de julio) con una campaña <strong>Performance Max</strong> (más abajo se explica qué es) de ~$7.000 CLP al día. Con menos de dos semanas activa y solo 15 conversiones, un ROAS de 2,85 no es malo para un arranque. <span class="pill pill--warn">🟡 criterio del operador, no estudio publicado</span> Pero en búsqueda —donde la persona ya está escribiendo lo que quiere comprar— lo habitual es apuntar más alto que eso. La búsqueda no tiene que convencer a nadie de nada: solo tiene que estar primera cuando alguien ya decidió.</p>
-</div>
-
-<p>Ese matiz es clave para leer bien los números de las próximas semanas, y para comparar Google con Meta más adelante:</p>
-
-<div class="grid-2">
-<div class="card">
-<h3>🔍 Google (búsqueda)</h3>
-<p>Capta una <strong>intención que ya existe</strong>. La persona escribe en el buscador lo que quiere comprar; el anuncio solo tiene que aparecer en el momento justo. Google no crea las ganas de comprar — las encuentra.</p>
-</div>
-<div class="card">
-<h3>📱 Meta (Instagram / Facebook)</h3>
-<p>Tiene que <strong>generar una intención nueva</strong>. La persona está mirando fotos, no buscando comprar; el anuncio tiene que detenerla y despertarle las ganas ahí mismo, sin que las estuviera buscando.</p>
-</div>
-</div>
-
-<p>Por eso el mismo ROAS no significa lo mismo en las dos plataformas, y por eso este documento audita cada una con una vara distinta.</p>
-</section>
-
-<section class="sec" id="confiar-en-los-numeros">
-<h2>Lo primero: confiar en los números</h2>
-
-<p>Antes de tocar presupuestos, estructuras o públicos, hay que verificar algo más básico: que lo que Google llama <strong>"conversión"</strong> (una acción que la plataforma cuenta como resultado, en este caso una compra) sea de verdad una compra real y completa. Si el conteo está mal, cualquier decisión que se tome sobre esos números después también va a estar mal.</p>
-
-<div class="grid-2">
-<div class="card">
-<h3>Ya confirmado en la reunión</h3>
-<ul>
-<li><span class="pill pill--success">🟢 confirmado</span> El objetivo de "compra" está bien instalado en Google Ads.</li>
-<li><span class="pill pill--success">🟢 confirmado</span> "Carrito abandonado" está como objetivo <strong>secundario</strong>, no principal — está correcto así.</li>
-</ul>
-<p style="margin-bottom:0">Si "carrito abandonado" estuviera como objetivo principal, Google contaría como resultado a cualquiera que dejó productos en el carrito sin pagar, mezclado con las compras reales. Eso inflaría los números de conversión sin que haya una venta real detrás.</p>
-</div>
-<div class="card">
-<h3>Falta revisar con accesos</h3>
-<ul class="checklist">
-<li><label><input type="checkbox"><span>¿Hay conversiones duplicadas? (la misma compra contada dos veces, por ejemplo por dos herramientas de medición a la vez)</span></label></li>
-<li><label><input type="checkbox"><span>¿El valor de conversión que muestra Google coincide con lo que dice Shopify?</span></label></li>
-<li><label><input type="checkbox"><span>¿La campaña está contando conversiones de marca — gente que buscaba "Pedraza Ilustración" directamente?</span></label></li>
-</ul>
-</div>
-</div>
-
-<div class="callout callout--warn">
-<p><strong>Por qué importa lo de las conversiones de marca.</strong> Si alguien busca "Pedraza Ilustración" en Google, ya conoce la marca. Esa persona iba a comprar de todas formas, con o sin anuncio — probablemente hasta la habría encontrado igual en el resultado gratis, justo debajo del anuncio. Si el sistema le muestra un anuncio y la persona hace clic ahí en vez del resultado gratis, la plataforma igual cuenta esa venta como si el anuncio la hubiera generado. Eso infla el ROAS artificialmente y hace parecer que la publicidad está trayendo ventas que en realidad ya venían solas.</p>
-</div>
-</section>
-
-<section class="sec" id="auditoria-google">
-<h2>Auditoría de Google Ads: el recorrido del día 1</h2>
-
-<p>Cinco puntos, en orden, con el porqué de cada uno y qué se hace si algo está mal.</p>
-
-<div class="card audit-card">
-<h3><span class="step-badge">a</span> Separar la búsqueda de marca del resto</h3>
-<span class="audit-card__label">Por qué importa</span>
-<p>Conecta directo con la sección anterior: para saber si Google realmente está trayendo ventas nuevas, hay que poder ver el rendimiento de la búsqueda de marca por separado del resto de las campañas. Mezcladas, una campaña de marca (que casi siempre convierte muy bien, porque ya es gente decidida) puede estar tapando un rendimiento más flojo en el resto.</p>
-<span class="audit-card__label">Si está mal</span>
-<p style="margin-bottom:0">Si la marca hoy está mezclada dentro de Performance Max o de otra campaña, se separa en una campaña de búsqueda propia, exclusiva para "Pedraza Ilustración" y variantes, con presupuesto bajo (ver la estructura propuesta en el punto e).</p>
-</div>
-
-<div class="card audit-card">
-<h3><span class="step-badge">b</span> Revisar qué está comiendo el presupuesto dentro de Performance Max</h3>
-<p><strong>Performance Max (PMax)</strong> es un tipo de campaña de Google que reparte sola la plata entre buscador, YouTube, Gmail y la red de display (banners en otras páginas web), sin que se pueda elegir a mano cuánto va a cada canal.</p>
-<span class="audit-card__label">Por qué importa</span>
-<p>Sin mirar el detalle, no se sabe si la plata se está yendo a búsqueda (donde la gente ya tiene intención de comprar) o a canales de menor intención como display, donde el anuncio solo se muestra de paso.</p>
-<span class="audit-card__label">Si está mal</span>
-<p style="margin-bottom:0">Revisar los informes de canal dentro de PMax. Si mucho presupuesto se va a canales de baja intención, ajustar las señales de audiencia que alimentan la campaña o mover ese presupuesto hacia la campaña de shopping/búsqueda del punto e.</p>
-</div>
-
-<div class="card audit-card">
-<h3><span class="step-badge">c</span> Revisar términos de búsqueda y negativos</h3>
-<p>Los <strong>términos de búsqueda</strong> son las palabras exactas que alguien escribió en Google antes de que le apareciera el anuncio. Las <strong>negativas</strong> son palabras que se excluyen a propósito para que el anuncio no se muestre en búsquedas que no sirven (por ejemplo, "puzzle gratis" o "dibujos para descargar").</p>
-<span class="audit-card__label">Por qué importa</span>
-<p>Sin una lista de negativas, se gasta presupuesto mostrando el anuncio a gente que busca algo parecido pero que no tiene intención de comprar.</p>
-<span class="audit-card__label">Si está mal</span>
-<p style="margin-bottom:0">Revisar el informe de términos de búsqueda de las últimas semanas y armar una lista de negativas con lo que no calza con el negocio.</p>
-</div>
-
-<div class="card audit-card">
-<h3><span class="step-badge">d</span> Revisar el feed de productos</h3>
-<p>El <strong>feed de productos</strong> es la lista que se le entrega a Google con el catálogo completo: título, imagen, precio y disponibilidad de cada producto. Google arma los anuncios de compras a partir de esa lista, no mirando la tienda en vivo.</p>
-<span class="audit-card__label">Por qué importa</span>
-<p>Títulos poco claros, imágenes viejas o precios desactualizados hacen que el anuncio rinda peor. Y esto es clave con los quiebres de stock: <strong>no se puede pagar por mostrar productos agotados</strong> — como los puzzles hasta la última semana de agosto (ver la sección siguiente).</p>
-<span class="audit-card__label">Si está mal</span>
-<p style="margin-bottom:0">Actualizar títulos, imágenes y precios, y marcar como sin stock cada producto agotado para que Google deje de anunciarlo automáticamente.</p>
-</div>
-
-<div class="card audit-card">
-<h3><span class="step-badge">e</span> Estructura de campañas propuesta</h3>
-<p><span class="pill pill--warn">🟡 propuesta</span> Para una tienda de este tamaño, una estructura simple de tres campañas:</p>
-<div class="grid-3">
-<div class="card" style="margin:0">
-<h3 style="font-size:var(--fs-base)">Marca</h3>
-<p style="margin-bottom:0">Presupuesto bajo. Protege el nombre "Pedraza Ilustración" y deja ver el rendimiento real del resto de las campañas, sin mezclarse con él.</p>
-</div>
-<div class="card" style="margin:0">
-<h3 style="font-size:var(--fs-base)">Performance Max</h3>
-<p style="margin-bottom:0">El catálogo principal. El motor grande de venta — se revisa seguido qué canales le están comiendo el presupuesto (punto b).</p>
-</div>
-<div class="card" style="margin:0">
-<h3 style="font-size:var(--fs-base)">Shopping / búsqueda</h3>
-<p style="margin-bottom:0">Solo los productos ganadores (los que más venden o mejor margen dejan), con control fino de palabras clave y negativas.</p>
-</div>
-</div>
-</div>
-</section>
-
-<section class="sec" id="stock-y-publicidad">
-<h2>El problema del stock y la publicidad</h2>
-
-<div class="callout callout--danger">
-<p><strong>Los puzzles —el producto estrella— están agotados hasta la última semana de agosto.</strong> <span class="pill pill--success">🟢 dato del acta</span> El contenedor llega el 15 de agosto y debe pasar por Partner (el operador logístico) antes de estar disponible en Shopify. Pagar publicidad que lleva a un producto sin stock es quemar plata: se paga por el clic, y la persona llega a una ficha donde no puede comprar.</p>
-</div>
-
-<p>Mientras tanto, tres acciones simples:</p>
-
-<div class="grid-3">
-<div class="card">
-<h3>Pausar</h3>
-<p style="margin-bottom:0">Pausar los anuncios de cualquier producto agotado, en Google y en Meta.</p>
-</div>
-<div class="card">
-<h3>Mover</h3>
-<p style="margin-bottom:0">Mover ese presupuesto a los productos que sí tienen stock hoy.</p>
-</div>
-<div class="card">
-<h3>Redirigir</h3>
-<p style="margin-bottom:0">Si se activa una preventa de puzzles, usarla como destino del anuncio en vez de una ficha sin stock.</p>
-</div>
-</div>
-
-<h3>Antes de subir presupuesto, revisar stock</h3>
-<ul class="checklist">
-<li><label><input type="checkbox"><span>¿El producto que promociona el anuncio tiene stock real hoy? (recordar que el stock vive repartido en 4 lugares: Partner, bodega propia, consignación B2B y Mercado Libre — no solo lo que muestra Shopify)</span></label></li>
-<li><label><input type="checkbox"><span>¿Está marcado como agotado en el feed de productos, para que Google deje de mostrarlo solo?</span></label></li>
-<li><label><input type="checkbox"><span>¿Hay un producto alternativo con stock al que mover ese presupuesto?</span></label></li>
-<li><label><input type="checkbox"><span>¿Existe una preventa activa que pueda recibir el tráfico mientras el contenedor llega?</span></label></li>
-</ul>
-</section>
-
-<section class="sec" id="meta-ads">
-<h2>Meta Ads: qué revisar y cómo se estructura hoy</h2>
-
-<p><span class="pill pill--success">🟢 dato del acta</span> Antes, Cote llevaba las campañas de Meta de forma intuitiva. Hoy las lleva la persona externa que está saliendo, y ella misma dijo en la reunión que no tiene claro si conviene una campaña o dos, ni si conviene segmentar o no. Es una pregunta válida — y tiene una respuesta bastante concreta hoy.</p>
-
-<div class="callout callout--info">
-<p><strong>Lo que cambió en Meta.</strong> <span class="pill pill--success">🟢 dato del acta</span> Meta cambió a campañas automáticas con inteligencia artificial. En la práctica, eso significa que el sistema rinde mejor cuando recibe <strong>poca estructura y mucho material creativo</strong> (variedad de imágenes, videos y textos de anuncio), en vez de muchas segmentaciones armadas a mano. Dividir el público en muchos grupos chicos reparte los datos entre tantos grupos que a cada uno le cuesta más aprender solo; el sistema de Meta aprende más rápido y mejor cuando tiene un público amplio y varias piezas creativas para probar entre sí.</p>
-</div>
-
-<h3>Estructura de partida propuesta</h3>
-<div class="grid-2">
-<div class="card">
-<h3>1. Campaña de venta</h3>
-<p style="margin-bottom:0">Públicos amplios, sin segmentar a mano. El trabajo fuerte va a los creativos —probar varias imágenes, videos y textos— no a armar audiencias.</p>
-</div>
-<div class="card">
-<h3>2. Campaña de retorno</h3>
-<p style="margin-bottom:0">Para quienes ya visitaron la tienda o ya compraron. Es la única segmentación que sí vale la pena mantener, porque usa datos reales de comportamiento, no una suposición sobre quién podría interesarse.</p>
-</div>
-</div>
-
-<h3>Checklist de auditoría del día 1</h3>
-<p><span class="pill pill--warn">🟡 se confirma al entrar a la cuenta</span> Todo esto se termina de verificar apenas haya acceso — hoy no se sabe en qué estado exacto está la cuenta.</p>
-<ul class="checklist">
-<li><label><input type="checkbox"><span>Verificar el <strong>píxel</strong> (el código instalado en la tienda que le avisa a Meta cuando alguien compra) y que el evento de compra esté bien configurado</span></label></li>
-<li><label><input type="checkbox"><span>Revisar el catálogo de productos conectado — que esté actualizado y sin productos agotados</span></label></li>
-<li><label><input type="checkbox"><span>Ver qué creativos (imágenes, videos y textos de anuncio) existen hoy y cuáles vienen funcionando mejor</span></label></li>
-<li><label><input type="checkbox"><span>Revisar si hay <strong>públicos personalizados</strong> creados (listas de gente armadas con datos propios, como quienes visitaron la tienda o ya compraron) y si siguen sirviendo</span></label></li>
-</ul>
-</section>
-
-<section class="sec" id="que-se-mide">
-<h2>Qué se mide y cada cuánto</h2>
-
-<p>La <strong>atribución</strong> es cómo cada plataforma decide a quién "darle el crédito" de una venta. El problema es que Google, Meta y las ventas orgánicas pueden atribuirse la misma venta al mismo tiempo, si el sistema de cada una registra que estuvo en algún punto del camino de esa persona hacia la compra. Por eso Shopify —no Google Ads ni Meta Ads Manager— es la fuente de verdad de las ventas: una venta solo pasa una vez por la caja, y ahí queda registrada una sola vez, sin que dos plataformas se la disputen.</p>
+<p>Se manejan tres cifras de retorno distintas para la publicidad, y solo una sirve para decidir algo. <strong>Retorno</strong> (también llamado ROAS) es simple: por cada peso invertido en anuncios, cuántos pesos vuelven en venta.</p>
 
 <div class="table-wrap">
 <table>
 <thead>
-<tr><th>Métrica</th><th>Dónde se mira</th><th>Cada cuánto</th><th>Qué decisión gatilla</th></tr>
+<tr><th>Cifra</th><th>Valor</th><th>Qué es</th><th>¿Sirve para decidir?</th></tr>
 </thead>
 <tbody>
-<tr><td>ROAS por canal (Google y Meta por separado)</td><td>Google Ads + Meta Ads Manager</td><td>Semanal</td><td>Si un canal cae mucho, pausar o ajustar esa campaña antes de seguir invirtiendo</td></tr>
-<tr><td>Costo por compra</td><td>Google Ads + Meta Ads Manager</td><td>Semanal</td><td>Si sube sin control, revisar orientación, creativos o feed de productos</td></tr>
-<tr><td>Ventas atribuidas por plataforma</td><td>Google Ads + Meta Ads Manager</td><td>Semanal</td><td>Comparar contra las ventas reales de Shopify (fila siguiente)</td></tr>
-<tr><td>Ventas reales</td><td>Shopify</td><td>Semanal — cruce obligatorio contra lo que reporta cada plataforma</td><td>Si hay una diferencia grande, ajustar cuánto confiar en el número que muestra cada plataforma</td></tr>
-<tr><td>Pesos por visita (ingreso ÷ sesiones)</td><td>Shopify Analytics</td><td>Semanal</td><td>Ver si el conjunto —orgánico y pagado juntos— está mejorando; es la métrica transversal de todo el plan</td></tr>
+<tr><td>Lo que reporta Meta</td><td>5,93</td><td>Lo que Meta se atribuye a sí misma, sin cruzar con nada más</td><td>❌ No</td></tr>
+<tr><td>El "ROAS" que se vio en la reunión</td><td>~5,5</td><td>Venta total ÷ inversión total, sin sacar IVA ni envío</td><td>❌ No</td></tr>
+<tr><td><strong>Retorno sobre venta neta real</strong></td><td><strong>4,58</strong></td><td><strong>Venta neta de Shopify ÷ inversión publicitaria total</strong></td><td>✅ Sí</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>El 5,93 de Meta es <strong>atribución</strong> de una sola plataforma: lo que Meta cree que generó, sin comparar con nada más (se explica por qué está inflado en la sección 3). El ~5,5 de la reunión es venta total dividida por inversión total, sin filtrar qué parte de esa venta es real ni sacar el IVA. El único que manda es el de caja: <strong>venta neta real de Shopify dividida por toda la inversión publicitaria</strong>, sin adornos.</p>
+
+<div class="callout callout--success">
+<p>🟢 <strong>El negocio publicitario es rentable y con holgura.</strong> Por cada peso invertido en publicidad, vuelven 4,58 pesos en venta neta. El problema no es que la publicidad no funcione: es que está mal configurada y mal medida — eso es lo que arreglan las siguientes secciones.</p>
+</div>
+
+<h3>Lo que queda, pedido por pedido</h3>
+<p>Con 151 pedidos reales en julio y un <strong>margen bruto</strong> (lo que queda de la venta después de pagar el costo del producto, antes de cualquier otro gasto) del 72%:</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Concepto</th><th>Monto</th></tr>
+</thead>
+<tbody>
+<tr><td>Costo publicitario por pedido</td><td>$6.090</td></tr>
+<tr><td>Utilidad bruta por pedido</td><td>$20.097</td></tr>
+<tr><td><strong>Queda por pedido</strong></td><td><strong>$14.006</strong></td></tr>
 </tbody>
 </table>
 </div>
 </section>
 
-<section class="sec" id="primeros-7-dias">
-<h2>Los primeros 7 días con accesos</h2>
+<section class="sec" id="atribucion-se-solapa">
+<h2>Las cuentas no cierran: la atribución se solapa</h2>
 
-<p>Un día, un foco. Al cierre de la semana, todo lo auditado ya quedó decidido u ordenado para decidir en la reunión de mitad de mes.</p>
+<p>La <strong>atribución</strong> es cómo cada plataforma de publicidad decide de qué venta se lleva el mérito. El problema es que dos plataformas distintas pueden atribuirse la misma venta al mismo tiempo, sin que ninguna de las dos sepa que la otra también se la está anotando.</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Fuente</th><th>Compras</th><th>Valor</th></tr>
+</thead>
+<tbody>
+<tr><td>Meta dice</td><td>105</td><td>$3.816.810</td></tr>
+<tr><td>Google dice</td><td>17</td><td>$482.054</td></tr>
+<tr><td><strong>Suman</strong></td><td><strong>122</strong></td><td><strong>$4.298.864</strong></td></tr>
+<tr><td><strong>Shopify real (julio)</strong></td><td><strong>151</strong></td><td><strong>$5.559.034</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="chart-bar-row"><span class="chart-bar-row__label">Se atribuye la publicidad</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:81%"></div></div><span class="chart-bar-row__value">122 (81%)</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Pedidos reales (Shopify)</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div><span class="chart-bar-row__value">151 (100%)</span></div>
+
+<p>La publicidad se atribuye el <strong>81% de los pedidos</strong> y el <strong>77% de la venta</strong>. Eso deja solo <strong>29 pedidos (19%)</strong> para todo lo demás: gente que llega por Instagram orgánico, por correo, o escribiendo la dirección de la tienda directo en el navegador.</p>
+
+<div class="callout callout--danger">
+<p>🔴 <strong>Eso es imposible.</strong> El correo por sí solo aporta cerca del 9% de los pedidos (~14 de 151) <span class="pill pill--warn">🟡 estimado</span>, y la marca tiene <strong>62.500 seguidores</strong> en Instagram que generan venta directa todos los meses. No pueden quedar solo 29 pedidos repartidos entre correo, orgánico y directo.</p>
+</div>
+
+<h3>Cómo una misma venta la cuentan dos plataformas</h3>
+<p>Un ejemplo simple de lo que está pasando de verdad:</p>
 
 <div class="timeline">
 <div class="timeline-item">
-<div class="timeline-item__date">Día 1</div>
-<div class="timeline-item__title">Acceso y confirmación de números</div>
-<p style="margin-bottom:0">Entrar a las dos cuentas. Revisar el objetivo de "compra" en Google y comparar el valor de conversión contra Shopify. Verificar el píxel y el evento de compra en Meta.</p>
+<div class="timeline-item__date">Paso 1</div>
+<div class="timeline-item__title">Ve un anuncio en Instagram</div>
+<p style="margin-bottom:0">Una persona ve un anuncio de Pedraza Ilustración mientras mira su feed. No compra al tiro.</p>
 </div>
 <div class="timeline-item">
-<div class="timeline-item__date">Día 2</div>
-<div class="timeline-item__title">Auditoría de Google Ads</div>
-<p style="margin-bottom:0">Separar la búsqueda de marca, revisar el reparto de canales dentro de Performance Max, y armar la primera lista de negativas a partir de los términos de búsqueda.</p>
+<div class="timeline-item__date">Paso 2</div>
+<div class="timeline-item__title">Busca la marca en Google</div>
+<p style="margin-bottom:0">Más tarde, esa misma persona busca "Pedraza Ilustración" en Google —porque ya la vio en Instagram, no porque la haya descubierto ahí.</p>
 </div>
 <div class="timeline-item">
-<div class="timeline-item__date">Día 3</div>
-<div class="timeline-item__title">Feed de productos y stock</div>
-<p style="margin-bottom:0">Revisar títulos, imágenes y precios del feed de Google Shopping. Cruzar contra el estado real del stock de puzzles y marcar como agotado lo que corresponda.</p>
+<div class="timeline-item__date">Paso 3</div>
+<div class="timeline-item__title">Hace clic y compra</div>
+<p style="margin-bottom:0">Hace clic en el resultado (a veces es un anuncio de marca) y compra en la tienda.</p>
 </div>
 <div class="timeline-item">
-<div class="timeline-item__date">Día 4</div>
-<div class="timeline-item__title">Auditoría de Meta Ads</div>
-<p style="margin-bottom:0">Revisar catálogo conectado, creativos existentes y públicos personalizados ya creados.</p>
-</div>
-<div class="timeline-item">
-<div class="timeline-item__date">Día 5</div>
-<div class="timeline-item__title">Armar la estructura propuesta</div>
-<p style="margin-bottom:0">Separar (o crear) la campaña de marca en Google. Ajustar Meta a una campaña de venta con públicos amplios más una de retorno.</p>
-</div>
-<div class="timeline-item">
-<div class="timeline-item__date">Día 6</div>
-<div class="timeline-item__title">Pausar y mover presupuesto</div>
-<p style="margin-bottom:0">Pausar anuncios de productos agotados en ambas plataformas y mover ese presupuesto a lo que sí tiene stock, o a la preventa si está activa.</p>
-</div>
-<div class="timeline-item">
-<div class="timeline-item__date">Día 7</div>
-<div class="timeline-item__title">Calendario de medición y reporte de cierre</div>
-<p style="margin-bottom:0">Armar el calendario de la tabla de medición con fechas reales. Entregable de la semana: un reporte con la foto real de ambas cuentas —qué estructura había, qué se encontró, qué se cambió— y las decisiones tomadas, listo para la reunión de mitad de mes.</p>
+<div class="timeline-item__date">Resultado</div>
+<div class="timeline-item__title">Las dos plataformas se anotan la misma venta</div>
+<p style="margin-bottom:0"><strong>Meta se la atribuye</strong> porque la persona vio el anuncio. <strong>Google se la atribuye</strong> porque la persona hizo clic. Es una sola venta, contada dos veces.</p>
 </div>
 </div>
 
+<p>La evidencia está en los propios números de Google: de las 17 conversiones que reporta, <strong>7 vienen de gente que buscó la marca por su nombre</strong>. Esa demanda no la creó Google — la creó Meta, antes.</p>
+
+<div class="callout callout--success">
+<p>🟢 <strong>Conclusión práctica: no se pueden sumar los retornos de las plataformas.</strong> Si se suman el 5,93 de Meta y el 2,78 de Google, el resultado no significa nada — las dos se están anotando parte de la misma venta. La única medición limpia es venta real de Shopify dividida por inversión total (se retoma en la sección 9).</p>
+</div>
+</section>
+
+<section class="sec" id="pixel-cuenta-de-mas">
+<h2>El píxel está contando compras de más</h2>
+
+<p>El <strong>píxel</strong> es el código instalado en la tienda que le avisa a Meta cada vez que alguien compra. Ese aviso puede llegar por dos caminos: desde el navegador de quien compra, o desde el servidor de la tienda directamente (una vía más confiable, llamada <strong>API de Conversiones</strong>).</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Dato</th><th>Valor</th></tr>
+</thead>
+<tbody>
+<tr><td>Eventos de compra del píxel (28 días)</td><td>239</td></tr>
+<tr><td>— por navegador</td><td>99</td></tr>
+<tr><td>— por servidor (API de Conversiones)</td><td>144</td></tr>
+<tr><td>Pedidos reales de Shopify (28 días)</td><td>~136</td></tr>
+<tr><td><strong>Ratio eventos ÷ pedidos reales</strong></td><td><strong>1,75×</strong></td></tr>
+<tr><td>Ratio solo del servidor</td><td>1,06×</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="chart-bar-row"><span class="chart-bar-row__label">Eventos totales</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div><span class="chart-bar-row__value">239</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Solo servidor</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:60%"></div></div><span class="chart-bar-row__value">144</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Pedidos reales</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:57%"></div></div><span class="chart-bar-row__value">~136</span></div>
+
+<p>🟢 <strong>El canal de servidor por sí solo cuadra casi exacto con la realidad</strong> (1,06 veces). El problema son los 99 eventos que llegan por el navegador: se están sumando <em>encima</em> de los del servidor en vez de reconocerse como la misma compra.</p>
+
+<p>Eso es un problema de <strong>deduplicación</strong>. Deduplicar significa reconocer que dos avisos distintos son, en realidad, la misma compra, y contarla una sola vez. Cuando el navegador y el servidor avisan por separado de la misma compra y el sistema no los junta, Meta la cuenta dos veces.</p>
+
+<div class="callout callout--danger">
+<p>🔴 Meta tiene una <strong>advertencia activa</strong> en el Administrador de Eventos: <em>"No se configuró la deduplicación para este evento".</em> No es una sospecha — la propia plataforma lo está señalando.</p>
+</div>
+
+<p><strong>Por qué importa:</strong> si el sistema cree que hubo más ventas de las que hubo en realidad, aprende a buscar al público que genera esos eventos duplicados —no al que compra de verdad— y encima infla el retorno que reporta. Es la causa más probable de que Meta muestre 5,93 en vez de un número más realista.</p>
+
+<p style="font-size:var(--fs-sm);color:var(--ink-faint)">🟢 También hay un píxel viejo sin actividad ("María José Pedraza - Píxel de Facebook", 0 eventos) que conviene eliminar para no confundir los reportes.</p>
+</section>
+
+<section class="sec" id="donde-rinde-cada-peso">
+<h2>Dónde rinde cada peso</h2>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Plataforma</th><th>Inversión</th><th>% del presupuesto</th><th>Retorno atribuido</th></tr>
+</thead>
+<tbody>
+<tr><td>Meta (campaña activa)</td><td>$643.255</td><td>79%</td><td>5,93</td></tr>
+<tr><td>Google</td><td>$173.147</td><td>21%</td><td>2,78</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="chart-bar-row"><span class="chart-bar-row__label">Meta</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:79%"></div></div><span class="chart-bar-row__value">79%</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Google</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:21%"></div></div><span class="chart-bar-row__value">21%</span></div>
+
+<div class="kpi-grid" style="grid-template-columns:minmax(0,1fr)">
+  <div class="kpi">
+    <span class="kpi__label">Cada peso en Meta rinde, comparado con Google 🟢</span>
+    <span class="kpi__value">2,1 veces</span>
+  </div>
+</div>
+
+<p>A primera vista, Meta parece la plataforma claramente más rentable. Pero hay dos matices importantes que cambian esa lectura:</p>
+
+<div class="grid-2">
+<div class="card">
+<h3>⚠️ El 5,93 de Meta está inflado</h3>
+<p style="margin-bottom:0">Por el problema de deduplicación de la sección anterior: el sistema está contando compras de más, y eso hincha el retorno que reporta.</p>
+</div>
+<div class="card">
+<h3>💡 Google tiene un crédito por venir</h3>
+<p style="margin-bottom:0">El crédito del 5 de septiembre le duplica el rendimiento efectivo a Google (se explica en la sección siguiente) — el 2,78 no es la foto completa.</p>
+</div>
+</div>
+</section>
+
+<section class="sec" id="hallazgo-agotados">
+<h2>El hallazgo de Google que parece un error y no lo es</h2>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th></th><th>Gasto</th><th>Conversiones</th><th>Valor</th><th>Retorno</th></tr>
+</thead>
+<tbody>
+<tr><td>Productos marcados "agotado" (7)</td><td>$30.897</td><td>6,17</td><td>$197.618</td><td><strong>6,40</strong></td></tr>
+<tr><td>Todo el resto</td><td>$142.250</td><td>10,83</td><td>$284.436</td><td><strong>2,00</strong></td></tr>
+<tr><td><strong>Cuenta completa</strong></td><td><strong>$173.147</strong></td><td><strong>17,00</strong></td><td><strong>$482.054</strong></td><td><strong>2,78</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="chart-bar-row"><span class="chart-bar-row__label">% del gasto</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:18%"></div></div><span class="chart-bar-row__value">18%</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">% del valor</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:41%"></div></div><span class="chart-bar-row__value">41%</span></div>
+
+<p>🟢 <strong>Los productos agotados son el 18% del gasto pero el 41% del valor generado, y convierten 3,2 veces mejor que el resto de la cuenta.</strong></p>
+
+<p><strong>Por qué pasa esto:</strong> la gente busca el puzzle específico en Google, hace clic, llega a la ficha del producto... y lo encuentra agotado. Pero en vez de irse, <strong>compra otra cosa igual</strong> de la marca. El puzzle agotado funciona como imán: trae al comprador aunque no sea lo que termina llevándose a casa.</p>
+
+<div class="callout callout--success">
+<p>🟢 <strong>No hay que cortar ese gasto.</strong> La auditoría automática de Google lo recomendaba — es un error: sería cortar la mejor parte de toda la cuenta. Lo correcto es arreglar el <strong>feed de productos</strong> (la lista que Google usa para saber qué mostrar y a qué precio) para que se sincronice con el stock real, sin dejar de anunciar la categoría de puzzles.</p>
+</div>
+
+<p>Este hallazgo valida toda la apuesta de la <a href="preventa.html">preventa de puzzles</a>: hay demanda real empujando el catálogo completo incluso sin producto disponible. Vale la pena capturarla con una preventa en vez de dejarla perdida en una ficha agotada.</p>
+
+<h3>Otros problemas de Google, en breve</h3>
+<div class="card">
+<ul style="margin-bottom:0">
+<li><strong>25 de 28 productos excluidos</strong> del grupo de anuncios (89% del catálogo). Solo el puzzle de aves y flores recibe impresiones — todo lo demás (láminas, llaveros, pines, botellas, calcetines, libretas, bolsos, naipes, postales) está fuera.</li>
+<li><strong>No existe ninguna lista de palabras clave negativas</strong>: $6.035 al mes se van en búsquedas con cero ventas (djeco chile, funky zoo, puzzleshop cl, entre otras).</li>
+<li><strong>Marca contra no-marca:</strong> una conversión de marca cuesta $426; una sin marca cuesta $12.290 — <strong>29 veces más</strong>.</li>
+<li><strong>70% de las impresiones</strong> caen en sitios de la red de display de bajo valor.</li>
+</ul>
+</div>
+</section>
+
+<section class="sec" id="remarketing-que-no-existe">
+<h2>El remarketing que no existe</h2>
+
+<p><strong>Remarketing</strong> es mostrarle anuncios a gente que ya tiene algún tipo de relación con la marca: ya visitó la tienda, ya agregó algo al carrito, o ya compró antes. Cuesta menos y rinde mejor que buscar gente nueva, porque esa persona ya conoce y confía en la marca.</p>
+
+<div class="kpi-grid">
+  <div class="kpi">
+    <span class="kpi__label">Va a gente que ya conoce la marca 🟢</span>
+    <span class="kpi__value">0,10%</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Lo acordado en la reunión 🟢</span>
+    <span class="kpi__value">20%</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Diferencia sin usar, al mes 🟢</span>
+    <span class="kpi__value">$128.007</span>
+  </div>
+</div>
+
+<div class="chart-bar-row"><span class="chart-bar-row__label">Va hoy a remarketing</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:1%"></div></div><span class="chart-bar-row__value">$644</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Lo acordado (20%)</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div><span class="chart-bar-row__value">$128.651</span></div>
+
+<p>De los $643.255 que gasta Meta al mes, solo $644 van a gente que ya conoce la marca. Lo acordado en la reunión era 20% ($128.651). La diferencia —<strong>$128.007 al mes</strong>— hoy va entera a público frío, pudiendo ir a gente que ya mostró interés real.</p>
+
+<div class="callout callout--info">
+<p>💡 <strong>Y no es que falte trabajo por hacer.</strong> Ya existen <strong>9 públicos personalizados</strong> (listas armadas con datos propios de la marca: quién visitó la tienda, quién agregó algo al carrito, quién ya compró) y <strong>19 públicos similares</strong> — también llamados <em>lookalike</em>, listas que arma Meta buscando gente parecida a los compradores actuales. Incluyen uno de <strong>compradores de los últimos 730 días</strong>. Están construidos y prácticamente sin usar.</p>
+</div>
+
+<div class="callout callout--danger">
+<p>🔴 <strong>Uno de los públicos similares vence el mismo día de la auditoría</strong> (1 de agosto) — puede que ya haya caducado, hay que revisarlo de inmediato. Otro vence en unos 62 días más <span class="pill pill--warn">🟡 estimado, cerca del 2 de octubre</span>.</p>
+</div>
+
+<p>Esto conecta directo con otro problema del negocio: hoy solo el <strong>7,2% de los clientes vuelve a comprar</strong> (ver el detalle completo en <a href="clientes.html#agujero-numeros">Clientes que vuelven</a>). El público para atacar exactamente eso —gente que ya compró— ya está construido dentro de Meta. Simplemente no se está usando.</p>
+</section>
+
+<section class="sec" id="anuncios-ganadores">
+<h2>Los anuncios ganadores que hay que revivir</h2>
+
+<p>El historial de la cuenta de Meta tiene anuncios que ya demostraron ser rentables, con volumen real de compras — no son casos aislados de dos o tres ventas. Reactivarlos es más rápido y más seguro que empezar de cero con creativos nuevos.</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>#</th><th>Anuncio</th><th>Formato</th><th>Retorno</th><th>Compras</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Campaña de compra Advantage+</td><td>Catálogo</td><td>4,59</td><td>412</td></tr>
+<tr><td>2</td><td>catalogo productos invierno</td><td>Carrusel/Catálogo</td><td>7,37</td><td>263</td></tr>
+<tr><td>3</td><td>Puzzle aves video cayendo</td><td>Video</td><td><strong>7,03</strong></td><td>214</td></tr>
+<tr><td>4</td><td>naipes video</td><td>Video</td><td><strong>6,77</strong></td><td>211</td></tr>
+<tr><td>5</td><td>catalogo 1 público personalizado 30 días</td><td>Catálogo</td><td>4,62</td><td>135</td></tr>
+<tr><td>6</td><td><strong>Preventa cetáceos</strong></td><td>Imagen estática</td><td><strong>7,73</strong></td><td>56</td></tr>
+<tr><td>7</td><td>Nuevo anuncio de Ventas</td><td>Video</td><td>6,18</td><td>57</td></tr>
+<tr><td>8</td><td>REEL | CARTAS AVES</td><td>Video (Reel)</td><td><strong>5,68</strong></td><td>44</td></tr>
+<tr><td>9</td><td>naipes video BOSQUE</td><td>Video</td><td><strong>7,06</strong></td><td>50</td></tr>
+<tr><td>10</td><td>STATIC | BOTELLA HONGOS AVES</td><td>Imagen</td><td>4,76</td><td>38</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="callout callout--success">
+<p>🟢 <strong>"Preventa cetáceos" tiene el mejor retorno de todo el top 10 (7,73)</strong>, con 56 compras — nada de ruido estadístico. Ya hicieron una preventa antes, en marzo de 2025, y fue <strong>el anuncio más rentable de toda la historia de la cuenta</strong>. Es el precedente directo de la <a href="preventa.html">preventa del 6 de agosto</a>: ya se probó y funcionó.</p>
+</div>
+
+<div class="callout callout--success">
+<p>🟢 <strong>Los naipes aparecen tres veces entre los ganadores</strong> (retornos 6,77 / 7,06 / 5,68). Llegan 1.000 unidades el 15 de agosto y son el único producto que Felipe dejó <a href="precios.html">sin subir de precio</a>. Anuncio ya probado, más stock entrando, más precio sin cambio: las tres condiciones para revivirlo primero.</p>
+</div>
+
+<div class="callout callout--success">
+<p>🟢 <strong>"Puzzle aves video cayendo": retorno 7,03 con 214 compras</strong> — el volumen más alto entre los formatos de video. Coincide con que el puzzle de aves es el 47% de toda la venta de puzzles, y llegan 500 unidades el 15 de agosto.</p>
+</div>
+
+<p><strong>Sobre el formato:</strong> video es el <strong>65,9% del gasto</strong> de la cuenta y sostiene el mejor retorno con volumen real (el Reel del puzzle de aves cayendo llegó a 11,42 en su mejor momento). El catálogo rinde parejo, cerca de 7,4. Las imágenes estáticas muestran retornos altos, pero con muy pocas compras —son ruido estadístico, salvo el caso de la preventa, que sí tiene volumen real detrás.</p>
+</section>
+
+<section class="sec" id="plan-en-orden">
+<h2>El plan, en orden</h2>
+
+<div class="callout callout--warn">
+<p>🟡 <strong>Por qué el orden importa:</strong> subir presupuesto sobre una cuenta mal configurada es echarle más plata a una cañería rota. Primero se arregla lo estructural —no cuesta plata extra, solo tiempo—, y recién después se sube el presupuesto sobre una base que ya mide bien y gasta bien.</p>
+</div>
+
+<h3>Fase 1 — Lo estructural, sin costo extra</h3>
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>#</th><th>Qué</th><th>Dónde</th><th>Por qué ahora</th><th>Quién</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Configurar la deduplicación del evento Compra</td><td>Meta</td><td>Todo lo demás se mide mal hasta que esto se arregle</td><td>Operador</td></tr>
+<tr><td>2</td><td>Revivir los públicos antes de que caduquen</td><td>Meta</td><td>Uno vence el mismo día de la auditoría</td><td>Operador</td></tr>
+<tr><td>3</td><td>Desbloquear los 25 productos excluidos</td><td>Google</td><td>89% del catálogo sin una sola impresión</td><td>Operador</td></tr>
+<tr><td>4</td><td>Arreglar el stock del feed (no cortar el gasto)</td><td>Google</td><td>Son las fichas que mejor convierten</td><td>Operador</td></tr>
+<tr><td>5</td><td>Crear la lista de palabras negativas</td><td>Google</td><td>$6.035 al mes con cero ventas</td><td>Operador</td></tr>
+<tr><td>6</td><td>Separar el grupo de recursos por categoría</td><td>Google</td><td>Hoy hay uno solo, no se puede saber qué funciona</td><td>Operador</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Fase 2 — Con presupuesto, desde el 6 de agosto (preventa andando)</h3>
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>#</th><th>Qué</th><th>Monto</th><th>Quién</th></tr>
+</thead>
+<tbody>
+<tr><td>7</td><td>Llevar el remarketing al 20%</td><td>$128.651/mes</td><td>Operador</td></tr>
+<tr><td>8</td><td>Revivir los tres anuncios ganadores</td><td>—</td><td>Operador</td></tr>
+<tr><td>9</td><td>Subir Google a $9.247/día</td><td>para llegar a $323.656 antes del 5 de septiembre</td><td>Operador</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Marca cada paso a medida que se completa. El progreso queda guardado en este navegador.</p>
+<div class="progress">
+  <div class="progress__track">
+    <div class="progress__fill" data-progress-fill-ads></div>
+  </div>
+  <span class="progress__label" data-progress-label-ads>0 de 9 tareas (0%)</span>
+</div>
+<ul class="checklist">
+<li><label><input type="checkbox" data-ads="dedup-compra-meta"><span>Configurar la deduplicación del evento Compra en Meta</span></label></li>
+<li><label><input type="checkbox" data-ads="revivir-publicos-meta"><span>Revivir los públicos personalizados y similares antes de que caduquen</span></label></li>
+<li><label><input type="checkbox" data-ads="desbloquear-productos-google"><span>Desbloquear los 25 productos excluidos en Google</span></label></li>
+<li><label><input type="checkbox" data-ads="arreglar-stock-feed-google"><span>Arreglar el stock del feed en Google (sin cortar el gasto de agotados)</span></label></li>
+<li><label><input type="checkbox" data-ads="lista-negativas-google"><span>Crear la lista de palabras clave negativas en Google</span></label></li>
+<li><label><input type="checkbox" data-ads="separar-grupos-google"><span>Separar el grupo de recursos por categoría en Google</span></label></li>
+<li><label><input type="checkbox" data-ads="remarketing-20"><span>Llevar el remarketing de Meta al 20% acordado ($128.651/mes)</span></label></li>
+<li><label><input type="checkbox" data-ads="revivir-anuncios"><span>Revivir los tres anuncios ganadores (preventa cetáceos, naipes, puzzle aves)</span></label></li>
+<li><label><input type="checkbox" data-ads="subir-presupuesto-google"><span>Subir el presupuesto de Google a $9.247/día para el crédito del 5 de septiembre</span></label></li>
+</ul>
+</section>
+
+<section class="sec" id="que-se-mide">
+<h2>Qué se mide de aquí en adelante</h2>
+
+<p>La métrica que manda <strong>no es el retorno que reporta cada plataforma</strong>, porque —como se vio en las secciones 2 y 3— se solapan entre sí y el píxel está inflado. La única medición limpia se calcula desde Shopify, no desde Google Ads ni Meta Ads Manager:</p>
+
+<div class="callout callout--info">
+<p>💡 <strong>venta neta real de Shopify (sin IVA ni envío) ÷ inversión publicitaria total (Meta + Google)</strong></p>
+</div>
+
+<p>Hoy: $4.214.684 ÷ $919.649 = <strong>4,58</strong>. Se calcula <strong>una vez por semana</strong>, con los datos de Shopify —nunca con el número que muestra cada plataforma por separado—. Es la única cifra que no se puede inflar, porque una venta solo pasa una vez por la caja.</p>
+
+<div class="copyblock">
+<div class="copyblock__text" id="copy-seguimiento-semanal">Seguimiento semanal — Google y Meta Ads
+
+Semana del ___ al ___
+
+Inversión Meta: $______
+Inversión Google: $______
+Inversión total: $______
+
+Venta neta real (Shopify, sin IVA ni envío): $______
+
+Retorno real = venta neta ÷ inversión total: ______
+
+Referencia (no usar para decidir sola): Meta reporta ______ | Google reporta ______</div>
+<button type="button" class="copyblock__btn" data-copy-target="copy-seguimiento-semanal">Copiar</button>
+</div>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Métrica</th><th>Dónde se mira</th><th>Cada cuánto</th></tr>
+</thead>
+<tbody>
+<tr><td>Venta neta real ÷ inversión total (la que manda)</td><td>Shopify</td><td>Semanal</td></tr>
+<tr><td>Retorno por plataforma (referencia, no para decidir sola)</td><td>Google Ads + Meta Ads Manager</td><td>Semanal</td></tr>
+<tr><td>Ratio eventos de compra ÷ pedidos reales (que la deduplicación siga funcionando)</td><td>Meta Administrador de Eventos + Shopify</td><td>Mensual</td></tr>
+</tbody>
+</table>
+</div>
 </section>
 
 </main>
+
+<script>
+  // Copiar al portapapeles — delegación de eventos, un solo listener por página.
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-copy-target]');
+    if (!btn) return;
+    var el = document.getElementById(btn.getAttribute('data-copy-target'));
+    if (!el) return;
+    copiarTexto(el.innerText || el.textContent || '', btn);
+  });
+
+  function copiarTexto(texto, btn) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(texto).then(
+        function () { mostrarCopiado(btn); },
+        function () { copiarConFallback(texto, btn); }
+      );
+    } else {
+      copiarConFallback(texto, btn);
+    }
+  }
+
+  function copiarConFallback(texto, btn) {
+    var ta = document.createElement('textarea');
+    ta.value = texto;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.top = '-1000px';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (err) { /* sin soporte, se ignora */ }
+    document.body.removeChild(ta);
+    mostrarCopiado(btn);
+  }
+
+  function mostrarCopiado(btn) {
+    var original = btn.getAttribute('data-label') || btn.textContent;
+    btn.setAttribute('data-label', original);
+    btn.textContent = '✓ ¡Copiado!';
+    btn.classList.add('is-copied');
+    clearTimeout(btn._copyTimeout);
+    btn._copyTimeout = setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('is-copied');
+    }, 2000);
+  }
+</script>
+
+<script>
+  // Acceso seguro a localStorage (no revienta en navegación privada u otros bloqueos).
+  function pgGet(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+  function pgSet(key, valor) { try { localStorage.setItem(key, valor); } catch (e) { /* sin soporte, se ignora */ } }
+  function pgRemove(key) { try { localStorage.removeItem(key); } catch (e) { /* sin soporte, se ignora */ } }
+</script>
+
+<script>
+  // Checklist de esta página — usa data-ads (data-task, data-cro, data-plan90, data-bitacora,
+  // data-estado, data-preventa, data-tienda, data-clientes y data-precios ya están tomados por
+  // otras páginas) y localStorage con prefijo pedraza-plan:ads:<id>.
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-ads]').forEach(function (cb) {
+      cb.checked = pgGet('pedraza-plan:ads:' + cb.getAttribute('data-ads')) === '1';
+    });
+    actualizarProgresoAds();
+  });
+
+  document.addEventListener('change', function (e) {
+    var cb = e.target.closest('[data-ads]');
+    if (!cb) return;
+    var key = 'pedraza-plan:ads:' + cb.getAttribute('data-ads');
+    if (cb.checked) { pgSet(key, '1'); } else { pgRemove(key); }
+    actualizarProgresoAds();
+  });
+
+  function actualizarProgresoAds() {
+    var cajas = document.querySelectorAll('[data-ads]');
+    var total = cajas.length;
+    var done = 0;
+    cajas.forEach(function (cb) { if (cb.checked) done++; });
+    var pct = total ? Math.round((done / total) * 100) : 0;
+
+    document.querySelectorAll('[data-progress-fill-ads]').forEach(function (fill) {
+      fill.style.width = pct + '%';
+    });
+    document.querySelectorAll('[data-progress-label-ads]').forEach(function (label) {
+      label.textContent = done + ' de ' + total + ' tareas (' + pct + '%)';
+    });
+  }
+</script>
 
 <script>
   // Navegación global: barra superior + panel completo (15 páginas, 4 grupos).
