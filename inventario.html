@@ -914,357 +914,256 @@ main { counter-reset: sec; }
   <div class="hero__inner">
     <a href="estado.html" class="hero__back">← Volver al estado del plan</a>
     <h1>Control de stock y alertas</h1>
-    <p>El puzzle, el producto estrella de la tienda, está agotado hoy 🟢. Esta página explica por qué se agota el stock, corrige el umbral de alerta que llegaba tarde, y deja lista una calculadora y una hoja de control para que no vuelva a pasar. No está en el menú principal — se comparte por link directo desde el plan.</p>
+    <p>Seis productos activos están en cero hoy, incluido el más visto y más vendido de toda la tienda. Esta página muestra cuánta venta se está perdiendo mientras tanto, qué llega el 15 de agosto, y qué alertas hay que dejar configuradas para que esto no se repita en diciembre. Datos reales de Shopify y Klaviyo, medidos el 2 de agosto de 2026. No está en el menú principal — se comparte por link directo desde el plan.</p>
   </div>
 </header>
 
 <main class="wrap">
 
-<section class="sec">
-<h2>Por qué se agota el stock</h2>
-
-<p>Hoy los puzzles están en cero en los cuatro lugares donde vive el stock de Pedraza Ilustración: <strong>Packner</strong> (el operador logístico que administra la bodega y despacha los pedidos de Shopify), la <strong>bodega propia</strong>, <strong>Mercado Libre</strong> y la <strong>consignación B2B</strong> (cuando se le entrega producto a un cliente mayorista para que lo venda, y se le cobra recién cuando efectivamente se vende — el producto sigue siendo de Pedraza Ilustración hasta ese momento) 🟢. No es la primera vez que pasa esto — el patrón se repite. Esta sección explica el mecanismo que lo provoca.</p>
+<section class="sec" id="semaforo-hoy">
+<h2>El semáforo de hoy</h2>
+<p>Seis productos activos tienen <strong>0 unidades</strong> y la venta sin stock desactivada: hoy literalmente no se pueden comprar. Tres son puzzles, y siguen recibiendo tráfico todos los días.</p>
 
 <div class="kpi-grid">
   <div class="kpi">
-    <span class="kpi__label">Tránsito desde China 🟢</span>
-    <span class="kpi__value">60-75 días</span>
+    <span class="kpi__label">Llega el pedido en 🟢</span>
+    <span class="kpi__value" id="cd-llegada">—</span>
   </div>
   <div class="kpi">
-    <span class="kpi__label">Venta promedio de puzzles 🟢</span>
-    <span class="kpi__value">131/mes</span>
+    <span class="kpi__label">Tráfico de la tienda que va al Puzzle Aves 🟢</span>
+    <span class="kpi__value">23%</span>
   </div>
   <div class="kpi">
-    <span class="kpi__label">Factor temporada alta (nov-dic) 🟢</span>
-    <span class="kpi__value">×2,3</span>
+    <span class="kpi__label">Productos activos en cero 🟢</span>
+    <span class="kpi__value">6</span>
   </div>
   <div class="kpi">
-    <span class="kpi__label">Lugares donde vive el stock 🟢</span>
-    <span class="kpi__value">4</span>
+    <span class="kpi__label">Venta perdida estimada, por día 🟡</span>
+    <span class="kpi__value">~$42.447</span>
   </div>
 </div>
 
-<h3>El mecanismo, paso a paso</h3>
-<div class="timeline">
-  <div class="timeline-item">
-    <div class="timeline-item__date">Día 0</div>
-    <div class="timeline-item__title">El stock empieza a bajar</div>
-    <p>La venta sigue con normalidad. Si se espera a "ver cómo van las ventas" antes de decidir, ya se perdió tiempo — el reloj del tránsito no empieza a correr hasta que el pedido efectivamente sale.</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Producto</th><th>Vistas (90 días)</th><th>Unidades vendidas (90 días)</th><th>Venta (90 días)</th></tr></thead>
+<tbody>
+<tr style="background:var(--danger-soft)"><td><strong>🥇 Puzzle Aves y Flores de Chile</strong></td><td><strong>8.558</strong></td><td><strong>132</strong></td><td><strong>$3.108.644</strong></td></tr>
+<tr><td>Puzzle Cetáceos de Chile</td><td>1.757</td><td>46</td><td>—</td></tr>
+<tr><td>Puzzle Mariposas y Escarabajos</td><td>1.633</td><td>46</td><td>—</td></tr>
+<tr><td>Calcetines Aves de Chile Azul</td><td>373</td><td>36</td><td>—</td></tr>
+<tr><td>Lámina Hongos de Chile</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>Libro para Colorear Aves de Chile</td><td>—</td><td>—</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+<p style="font-size:var(--fs-sm);color:var(--ink-faint)">🟢 Ordenados por tráfico (vistas en 90 días). Fuente: auditoría de Shopify, 4 de mayo al 2 de agosto de 2026.</p>
+
+<div class="callout callout--danger">
+<p>🔴 <strong>El Puzzle Aves y Flores de Chile es el producto más visto y más vendido de toda la tienda, y no se puede comprar.</strong> Sus 8.558 vistas son el <strong>23% de las 37.747 sesiones</strong> de los últimos 90 días. Se paga por llevar gente ahí — la auditoría de Google mostró que los productos agotados son el 18% del gasto publicitario — y esa gente llega, no puede comprar, y una parte se va a otra ficha o se va de la tienda.</p>
+</div>
+
+<h3>Cuánto se está perdiendo hoy</h3>
+<p>Con las vistas de cada producto y la conversión promedio de la tienda (1,11%, medida sobre los mismos 90 días) se puede estimar cuánta venta se pierde cada día que un producto sigue en cero. Así se calcula para el Puzzle Aves, con su propio precio real:</p>
+
+<div class="sum-row">
+  <div class="sum-box" style="background:var(--brand-green-soft)">
+    <div class="sum-box__num" style="color:var(--brand-green-dark)">95</div>
+    <div class="sum-box__label">vistas al día 🟢<br>(8.558 ÷ 90 días)</div>
   </div>
-  <div class="timeline-item">
-    <div class="timeline-item__date">Día 0 (si se decide pedir)</div>
-    <div class="timeline-item__title">Sale el pedido a la fábrica en China</div>
-    <p>Desde acá empieza a contar el <strong>tránsito</strong> — el tiempo que el producto pasa viajando desde que sale de la fábrica hasta que llega a Chile.</p>
+  <div class="sum-op">×</div>
+  <div class="sum-box" style="background:var(--warn-soft)">
+    <div class="sum-box__num" style="color:var(--warn)">1,11%</div>
+    <div class="sum-box__label">conversión promedio de la tienda 🟢<br>(sesiones que terminan en compra)</div>
   </div>
-  <div class="timeline-item">
-    <div class="timeline-item__date">Entre el día 60 y el día 75</div>
-    <div class="timeline-item__title">El contenedor llega a Chile</div>
-    <p>El tránsito dura entre 60 y 75 días 🟢, y ya ha tenido atrasos (acta de la reunión del 29 de julio de 2026, sección 4). Ese es el mínimo tiempo que hay que cubrir con el stock que va quedando.</p>
+  <div class="sum-op">×</div>
+  <div class="sum-box" style="background:var(--accent-soft)">
+    <div class="sum-box__num" style="color:var(--accent-dark)">$23.550</div>
+    <div class="sum-box__label">precio real de este producto 🟢<br>($3.108.644 ÷ 132 unidades)</div>
   </div>
-  <div class="timeline-item">
-    <div class="timeline-item__date">Unos días más</div>
-    <div class="timeline-item__title">Pasa por Packner</div>
-    <p>Antes de estar disponible para vender, el producto se revisa, se etiqueta y se prepara en Packner 🟡. Recién ahí se puede volver a vender.</p>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-item__date">Todo ese tiempo</div>
-    <div class="timeline-item__title">El producto se sigue vendiendo</div>
-    <p>Con el stock que quedaba el día 0. Si ese stock no alcanza para cubrir todos esos días, se agota antes de que llegue el repuesto — y eso es exactamente lo que pasó con los puzzles.</p>
+  <div class="sum-op">=</div>
+  <div class="sum-box" style="background:var(--ink); flex:1 1 150px;">
+    <div class="sum-box__num" style="color:#fff">$24.857</div>
+    <div class="sum-box__label" style="color:rgba(255,255,255,.75)">pesos perdidos por día, solo en el Puzzle Aves 🟡</div>
   </div>
 </div>
 
-<h3>El caso real de los puzzles</h3>
-<div class="timeline">
-  <div class="timeline-item">
-    <div class="timeline-item__date">30 de julio de 2026 🟢</div>
-    <div class="timeline-item__title">Los puzzles están en 0 en los 4 lugares</div>
-    <p>Stock total: 0 unidades (datos-financieros-2025-2026.md, sección 8). Se venden en promedio 131 al mes entre todos los canales (misma fuente, sección 3) — cada día sin stock es venta perdida del producto que sostiene mejor margen.</p>
+<div class="callout callout--warn">
+<p>🟡 <strong>Sumando los cuatro productos agotados con datos de tráfico</strong> (Puzzle Aves, Puzzle Cetáceos, Puzzle Mariposas y Escarabajos, Calcetines Aves Azul — Lámina Hongos y Libro para Colorear no registran vistas en el período), la tienda está perdiendo cerca de <strong>$42.447 al día</strong>. Entre hoy y el 15 de agosto, cuando llega el pedido, son <strong>13 días</strong>: unos <strong>$551.806</strong> en venta que no se puede recuperar después, porque cada día sin stock es venta que se fue a otra parte o no se hizo. Es una estimación 🟡 — asume que el tráfico de hoy convertiría igual que el promedio de la tienda si el producto estuviera disponible.</p>
+</div>
+</section>
+
+<section class="sec" id="que-llega">
+<h2>Qué llega y cuándo</h2>
+<p>El 15 de agosto llega el pedido que ya venía en camino desde antes del quiebre de stock — no es una respuesta al problema actual, es el pedido anterior llegando justo cuando ya no queda nada que vender.</p>
+
+<div class="callout callout--info">
+<p>💡 <strong>Corrección a lo publicado antes:</strong> se decía "1.000 unidades, 500 de aves". La factura real de la fábrica dice <strong>2.290 unidades en total</strong>, de las cuales 500 son de aves.</p>
+</div>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Producto</th><th>Unidades</th><th>¿Es uno de los 6 agotados?</th></tr></thead>
+<tbody>
+<tr><td>Puzzle aves</td><td>500</td><td>Sí — repone el Puzzle Aves y Flores</td></tr>
+<tr><td>Puzzle cetáceos</td><td>350</td><td>Sí — repone el Puzzle Cetáceos</td></tr>
+<tr><td>Puzzle hongos</td><td>200</td><td>No — producto distinto de la Lámina Hongos</td></tr>
+<tr><td>Puzzle niños 60 piezas</td><td>240</td><td>No</td></tr>
+<tr><td>Juego de cartas</td><td>1.000</td><td>No</td></tr>
+<tr style="background:var(--brand-green-soft)"><td><strong>Total</strong></td><td><strong>2.290</strong></td><td></td></tr>
+</tbody>
+</table>
+</div>
+<p style="font-size:var(--fs-sm);color:var(--ink-faint)">🟢 Fuente: factura de la fábrica, confirmada por Felipe el 1 de agosto de 2026. 1.290 unidades son puzzles (500 + 350 + 200 + 240), 1.000 son juegos de cartas.</p>
+
+<div class="callout callout--warn">
+<p>🟡 <strong>De los 6 productos agotados, este pedido repone directamente 2: Puzzle Aves y Puzzle Cetáceos.</strong> Los otros 4 no aparecen en la factura, pero <strong>tres de ellos no dependen de China</strong>:</p>
+<ul>
+<li><strong>Lámina Hongos de Chile</strong> 🟢 — las láminas se imprimen acá y <strong>la impresora ya está reparada</strong>. Hongos además es uno de los 4 diseños que Felipe decidió mantener, así que se puede reponer esta misma semana sin pedirle nada a nadie.</li>
+<li><strong>Puzzle Mariposas y Escarabajos</strong> 🟢 — que esté agotado es coherente con la decisión ya tomada: Felipe propuso eliminar la línea y Cote confirmó que <em>"la colección de escarabajos es la que menos pica"</em>. No hay que reponerlo: hay que darlo de baja para que deje de recibir visitas que no convierten.</li>
+<li><strong>Calcetines Aves Azul</strong> y <strong>Libro para Colorear</strong> 🟡 — proveedores locales, no vienen de China. <strong>VERIFICAR con Felipe</strong> el plazo de reposición de cada uno.</li>
+</ul>
+<p>🟢 <strong>Lo importante: de los 6 agotados, 5 tienen salida en cuestión de días</strong> — dos por el pedido que llega, uno imprimiéndolo acá y uno dándolo de baja. Solo quedan dos por confirmar.</p>
+</div>
+
+<p>El detalle completo del forecast — cuánto alcanza este stock hasta diciembre, y si hace falta pedir más — vive en <a href="escenarios.html">Escenarios</a>, para no repetirlo acá.</p>
+<a href="escenarios.html" class="btn">Ver el forecast completo →</a>
+</section>
+
+<section class="sec" id="curva-diciembre">
+<h2>La curva de diciembre</h2>
+<p>Es lo que hay que tener en la cabeza cada vez que se mira el stock: la demanda no es pareja en el año, y diciembre no se parece a ningún otro mes.</p>
+
+<div class="chart-bar-row"><span class="chart-bar-row__label">Agosto</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:21%"></div></div><span class="chart-bar-row__value">246</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Septiembre</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:23%"></div></div><span class="chart-bar-row__value">267</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Octubre</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:33%"></div></div><span class="chart-bar-row__value">389</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Noviembre</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:49%"></div></div><span class="chart-bar-row__value">575</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Diciembre</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div><span class="chart-bar-row__value">1.165</span></div>
+<p style="font-size:var(--fs-sm);color:var(--ink-faint)">🟢 Barras a escala entre sí (100% = diciembre). Unidades proyectadas, todos los productos de la tienda — no solo puzzles.</p>
+
+<div class="callout callout--danger">
+<p>🔴 <strong>Diciembre vende 4,3 veces lo que vende un mes normal</strong>, y concentra el 44% de toda la demanda del período agosto-diciembre (1.165 de 2.637 unidades). No es solo el mes más fuerte: es el mes que decide si el año fue bueno o no. Cualquier alerta de stock que no aguante hasta ahí llega tarde.</p>
+</div>
+<p>Fuente: forecast del pedido a China, 2 de agosto de 2026 — el detalle completo, con los dos escenarios de cuántos puzzles hacen falta, está en <a href="escenarios.html">Escenarios</a>.</p>
+</section>
+
+<section class="sec" id="alertas-config">
+<h2>Las alertas que hay que configurar</h2>
+<p>El punto de alerta se calcula igual para todos los productos: la venta esperada de un mes, dividida en 30 días, multiplicada por los días reales que tarda un pedido nuevo desde que sale de la fábrica hasta que está listo para vender — <strong>92 días</strong> (85 de tránsito, confirmados por Felipe, más 7 de preparación en Packner). Si el stock cae bajo ese número, un pedido nuevo ya no llegaría a tiempo.</p>
+
+<p>Así se calcula para el Puzzle Aves, usando la venta esperada de noviembre:</p>
+<div class="sum-row">
+  <div class="sum-box" style="background:var(--brand-green-soft)">
+    <div class="sum-box__num" style="color:var(--brand-green-dark)">97</div>
+    <div class="sum-box__label">unidades/mes esperadas en noviembre 🟡</div>
   </div>
-  <div class="timeline-item">
-    <div class="timeline-item__date">15 de agosto de 2026 🟢</div>
-    <div class="timeline-item__title">Llega el contenedor que ya estaba en camino</div>
-    <p>Este contenedor se pidió antes de que el stock llegara a cero — no es una respuesta al quiebre actual, es el pedido anterior llegando justo cuando ya no queda nada que vender.</p>
+  <div class="sum-op">÷</div>
+  <div class="sum-box" style="background:var(--warn-soft)">
+    <div class="sum-box__num" style="color:var(--warn)">30</div>
+    <div class="sum-box__label">días del mes</div>
   </div>
-  <div class="timeline-item">
-    <div class="timeline-item__date">Última semana de agosto de 2026 🟢</div>
-    <div class="timeline-item__title">Recién ahí está disponible para vender</div>
-    <p>Después de pasar por Packner. En total: cerca de un mes completo sin poder vender el producto estrella — "quedan aproximadamente un mes sin stock de puzzles" (acta de la reunión del 29 de julio de 2026, sección 4).</p>
+  <div class="sum-op">×</div>
+  <div class="sum-box" style="background:var(--accent-soft)">
+    <div class="sum-box__num" style="color:var(--accent-dark)">92</div>
+    <div class="sum-box__label">días reales de un pedido nuevo 🟢<br>(85 tránsito + 7 Packner)</div>
+  </div>
+  <div class="sum-op">=</div>
+  <div class="sum-box" style="background:var(--ink); flex:1 1 140px;">
+    <div class="sum-box__num" style="color:#fff">297</div>
+    <div class="sum-box__label" style="color:rgba(255,255,255,.75)">unidades — el punto de alerta del Puzzle Aves</div>
+  </div>
+</div>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Producto</th><th>Venta mensual esperada</th><th>Punto de alerta</th><th>Qué hacer al llegar ahí</th></tr></thead>
+<tbody>
+<tr><td>Puzzle Aves y Flores</td><td>sep 45 → oct 66 → nov 97 → dic 197 🟡</td><td>Bajo <strong>297 unidades</strong></td><td>Decidir de inmediato si se amplía el pedido — después del 19 de septiembre ya no llega a tiempo para Navidad</td></tr>
+<tr><td>Puzzle Cetáceos</td><td>sep 36 → oct 52 → nov 77 → dic 155 🟡</td><td>Bajo <strong>236 unidades</strong></td><td>Revisar junto con Puzzle Aves, la misma semana</td></tr>
+<tr><td>Puzzle Mariposas y Escarabajos</td><td>~15/mes 🟡 (ritmo histórico, sin ajuste de temporada — no está en el forecast oficial)</td><td>Ya está en 🔴 — 0 unidades</td><td>Confirmar con Felipe si entra en el próximo pedido a China o se resuelve aparte</td></tr>
+<tr><td>Calcetines Aves de Chile Azul</td><td>~12/mes 🟡 (ritmo histórico)</td><td>Ya está en 🔴 — 0 unidades</td><td>No viene en este pedido — confirmar con Felipe</td></tr>
+<tr><td>Lámina Hongos de Chile</td><td>Sin datos de venta ni de vistas</td><td>Ya está en 🔴 — 0 unidades</td><td>Confirmar si hay demanda real antes de pedir stock nuevo</td></tr>
+<tr><td>Libro para Colorear Aves de Chile</td><td>Sin datos de venta ni de vistas</td><td>Ya está en 🔴 — 0 unidades</td><td>Confirmar si hay demanda real antes de pedir stock nuevo</td></tr>
+</tbody>
+</table>
+</div>
+<p style="font-size:var(--fs-sm);color:var(--ink-faint)">🟡 Venta mensual de Puzzle Aves y Cetáceos: demanda total de la tienda × 36% (participación histórica del puzzle) × la mezcla aves 47% / cetáceos 37% que usa Felipe para armar los pedidos. Ver el detalle en <a href="escenarios.html">Escenarios</a>.</p>
+</section>
+
+<section class="sec" id="flujo-klaviyo-apagado">
+<h2>El flujo de aviso de stock está apagado</h2>
+<p>En Klaviyo —el programa de correo de la tienda— existe un flujo armado para avisar automáticamente cuando un producto vuelve a tener stock. <strong>Nunca se activó.</strong></p>
+
+<div class="kpi-grid">
+  <div class="kpi">
+    <span class="kpi__label">Estado del flujo 🟢</span>
+    <span class="kpi__value" style="color:var(--danger)">Apagado</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Entradas en 90 días 🟢</span>
+    <span class="kpi__value">0</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Ingreso generado 🟢</span>
+    <span class="kpi__value">$0</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Costo de activarlo</span>
+    <span class="kpi__value">Gratis</span>
   </div>
 </div>
 
 <div class="callout callout--danger">
-<p><strong>Por qué avisar a los 60 días de cobertura llega tarde.</strong> El tránsito solo, sin sumar nada más, ya dura entre 60 y 75 días. Si la alerta se dispara cuando quedan 60 días de stock, el mejor caso posible es llegar justo a tiempo — y el caso típico es quedar entre 0 y 15 días sin producto, y eso sin contar los días en Packner ni el tiempo que toma cotizar, negociar y fabricar.</p>
+<p>🔴 <strong>Con el producto estrella agotado y el stock llegando el 15 de agosto, hoy nadie recibe aviso cuando vuelva.</strong> Los otros cuatro flujos que sí están activos (bienvenida, carrito abandonado, ficha abandonada, agradecimiento post-compra) generan el 56% de todo el ingreso atribuido a correo, con solo cuatro flujos funcionando. Este quinto flujo ya está armado — falta apretar un botón.</p>
 </div>
 
-<div class="callout callout--info">
-<p style="font-size:var(--fs-h3); font-weight:800; margin-bottom:var(--space-2);">No es un problema de comprar poco. Es un problema de avisar tarde.</p>
-<p>Con el umbral correcto — sección siguiente — la alerta suena con tiempo de sobra para cotizar, negociar y producir antes de que el stock llegue a cero.</p>
-</div>
+<p>Es la corrección más urgente de todo el diagnóstico de correo, y no cuesta nada. El detalle completo de Klaviyo — la lista, los flujos, los segmentos sin usar — está en <a href="email.html#flujos-rinden-mas">Correo y campañas</a>.</p>
+<a href="email.html#flujos-rinden-mas" class="btn">Ver el detalle en Correo y campañas →</a>
 </section>
 
-<section class="sec">
-<h2>El semáforo: cuándo hay que pedir</h2>
-
-<p>La idea central de este sistema es una sola: medir los <strong>días de cobertura</strong> de cada producto, y avisar con la anticipación suficiente para que la reposición llegue antes de que se acabe.</p>
-
-<div class="callout callout--info">
-<p><strong>Días de cobertura:</strong> cuántos días más alcanza el stock que tienes, al ritmo al que se está vendiendo hoy. Se calcula así: stock total ÷ venta diaria promedio.</p>
-</div>
-
-<div class="grid-3">
-  <div class="card" style="border-left:4px solid var(--success)">
-    <span class="pill pill--success">🟢 VERDE — más de 105 días</span>
-    <h3>Todo bien</h3>
-    <p>No se hace nada. El stock alcanza con margen de sobra.</p>
-  </div>
-  <div class="card" style="border-left:4px solid var(--warn)">
-    <span class="pill pill--warn">🟡 AMARILLO — entre 90 y 105 días</span>
-    <h3>Hay que empezar a moverse</h3>
-    <p>Cotizar y negociar con el proveedor. Todavía no hay que pagar ni pedir en firme, pero el reloj ya está corriendo.</p>
-  </div>
-  <div class="card" style="border-left:4px solid var(--danger)">
-    <span class="pill pill--danger">🔴 ROJO — menos de 90 días</span>
-    <h3>El pedido tiene que salir ya</h3>
-    <p>Cada día de atraso, desde acá, es venta perdida directa. No hay margen para esperar.</p>
-  </div>
-</div>
-
-<h3>La aritmética detrás del umbral</h3>
-<p>El umbral no es un número inventado — sale de sumar cada tramo del proceso completo, desde que sale el pedido hasta que el producto está listo para venderse de nuevo:</p>
-
-<div class="sum-row">
-  <div class="sum-box" style="background:var(--brand-green-soft)">
-    <div class="sum-box__num" style="color:var(--brand-green-dark)">75</div>
-    <div class="sum-box__label">días de tránsito 🟢<br>(el extremo más largo del rango medido)</div>
-  </div>
-  <div class="sum-op">+</div>
-  <div class="sum-box" style="background:var(--warn-soft)">
-    <div class="sum-box__num" style="color:var(--warn)">7</div>
-    <div class="sum-box__label">días de proceso en Packner 🟡</div>
-  </div>
-  <div class="sum-op">+</div>
-  <div class="sum-box" style="background:var(--accent-soft)">
-    <div class="sum-box__num" style="color:var(--accent-dark)">15</div>
-    <div class="sum-box__label">días de margen 🟡<br>para cotizar, negociar y producir</div>
-  </div>
-  <div class="sum-op">=</div>
-  <div class="sum-box" style="background:var(--ink); flex:1 1 130px;">
-    <div class="sum-box__num" style="color:#fff">97</div>
-    <div class="sum-box__label" style="color:rgba(255,255,255,.75)">días → se redondea al rango 90-105 para dejar algo de aire en ambas direcciones</div>
-  </div>
-</div>
-
-<div class="threshold-bar">
-  <div class="threshold-bar__seg" style="flex:0 0 60%; background:var(--danger);">🔴 Rojo</div>
-  <div class="threshold-bar__seg" style="flex:0 0 10%; background:var(--warn);">🟡</div>
-  <div class="threshold-bar__seg" style="flex:1; background:var(--success);">🟢 Verde</div>
-</div>
-<div class="threshold-bar__labels"><span>0 días</span><span>90</span><span>105</span><span>150+ días</span></div>
-
-<div class="callout callout--warn">
-<p><strong>En temporada alta el umbral efectivo sube.</strong> Entre noviembre y diciembre se vende 2,3 veces más rápido que el resto del año 🟢 (datos-financieros-2025-2026.md, sección 3). Los mismos días de cobertura representan mucho menos tiempo real cuando el ritmo de venta se acelera así de fuerte. Por eso, desde octubre en adelante conviene calcular los días de cobertura con el ritmo de venta de temporada alta — no con el promedio del año — para que la alerta siga llegando con el mismo margen real de seguridad. La calculadora de la siguiente sección ya tiene ese ajuste incorporado.</p>
-</div>
-</section>
-
-<section class="sec" id="calculadora">
-<h2>La calculadora de días de cobertura</h2>
-<p>Cambia cualquiera de estos números y los resultados de abajo se actualizan solos. Viene precargada con los datos reales de los puzzles — por eso arranca en rojo.</p>
-
-<div class="card" id="calculadora-stock">
-<h3>Tus datos</h3>
-<div class="grid-2">
-
-  <div class="field">
-    <label for="calc-stock-packner"><span class="pill pill--success field__tag">🟢 dato real (agotado)</span><br>Stock en Packner (unidades)</label>
-    <input type="number" id="calc-stock-packner" inputmode="numeric" min="0" step="1" value="0">
-  </div>
-
-  <div class="field">
-    <label for="calc-stock-bodega"><span class="pill pill--success field__tag">🟢 dato real (agotado)</span><br>Stock en bodega propia (unidades)</label>
-    <input type="number" id="calc-stock-bodega" inputmode="numeric" min="0" step="1" value="0">
-  </div>
-
-  <div class="field">
-    <label for="calc-stock-meli"><span class="pill pill--success field__tag">🟢 dato real (agotado)</span><br>Stock en Mercado Libre (unidades)</label>
-    <input type="number" id="calc-stock-meli" inputmode="numeric" min="0" step="1" value="0">
-  </div>
-
-  <div class="field">
-    <label for="calc-stock-b2b"><span class="pill pill--success field__tag">🟢 dato real (agotado)</span><br>Stock en consignación B2B (unidades)</label>
-    <input type="number" id="calc-stock-b2b" inputmode="numeric" min="0" step="1" value="0">
-    <p class="field-help">Consignación: el producto que está en manos de un cliente mayorista para vender, pero que sigue siendo de Pedraza Ilustración hasta que se vende.</p>
-  </div>
-
-</div>
-
-<div class="field">
-  <label for="calc-ventas-30"><span class="pill pill--success field__tag">🟢 dato real (promedio 18 meses)</span><br>Ventas de los últimos 30 días, todos los canales (unidades)</label>
-  <input type="number" id="calc-ventas-30" inputmode="numeric" min="0" step="1" value="131">
-</div>
-
-<div class="field">
-  <label for="calc-temporada"><span class="pill pill--warn field__tag">🟡 tu elección</span><br>Temporada</label>
-  <select id="calc-temporada">
-    <option value="normal" selected>Normal</option>
-    <option value="alta">Alta (noviembre-diciembre, ×2,3)</option>
-  </select>
-  <p class="field-help">En temporada alta la venta diaria se multiplica por 2,3 — el factor medido en noviembre-diciembre de 2025 (datos-financieros-2025-2026.md, sección 3).</p>
-</div>
-</div>
-
-<div class="card">
-<p class="calc-line">Stock total: <strong id="out-stock-total">—</strong></p>
-<p class="calc-line">Venta diaria: <strong id="out-venta-diaria">—</strong></p>
-
-<span class="pill" id="pill-semaforo">SEMÁFORO</span>
-<h3>Días de cobertura</h3>
-<p class="resultado-cobertura" id="out-dias-cobertura">—</p>
-<p class="calc-line--sub" id="out-mensaje-semaforo">Completa los datos de arriba para ver el resultado.</p>
-<p class="calc-line">Fecha estimada de quiebre: <strong id="out-fecha-quiebre">—</strong></p>
-</div>
-</section>
-
-<section class="sec">
-<h2>La hoja de control que hay que montar</h2>
-
-<p>Hoy no existe una vista única del stock: cada lugar vive por separado y Felipe lo junta a mano cada 15 días (acta de la reunión del 29 de julio de 2026, sección 4). Esta es la estructura que hay que montar en un Google Sheet para tener, por primera vez, todos los productos con su semáforo al día.</p>
-
-<ul>
-  <li><strong>SKU</strong> (el código único que identifica cada producto y variante, por ejemplo el puzzle de aves de 1.000 piezas) y <strong>Descripción</strong>.</li>
-  <li><strong>Stock en cada uno de los 4 lugares:</strong> Packner, bodega propia, Mercado Libre y consignación B2B.</li>
-  <li><strong>Stock total:</strong> la suma de los 4 lugares.</li>
-  <li><strong>Ventas de los últimos 30, 60 y 90 días</strong>, todos los canales sumados.</li>
-  <li><strong>Venta diaria:</strong> el promedio de ventas por día, calculado sobre los últimos 30 días.</li>
-  <li><strong>Días de cobertura:</strong> cuánto alcanza el stock total al ritmo de venta actual.</li>
-  <li><strong>Punto de re-pedido (unidades):</strong> el nivel de stock, en unidades, en el que hay que hacer un nuevo pedido — venta diaria × 97 días (el umbral calculado en la sección anterior, antes de redondear a 90-105).</li>
-  <li><strong>Estado:</strong> el semáforo — 🟢, 🟡 o 🔴 — calculado automáticamente a partir de los días de cobertura.</li>
-</ul>
+<section class="sec" id="fechas-limite">
+<h2>Las fechas límite para pedir</h2>
+<p>Un pedido nuevo a China tarda 92 días en estar listo para vender (85 de tránsito + 7 de Packner). Contando desde hoy, hay dos ventanas que importan:</p>
 
 <div class="table-wrap">
 <table>
-<thead>
-<tr><th>SKU</th><th>Descripción</th><th>Packner</th><th>Bodega</th><th>Mercado Libre</th><th>Consig. B2B</th><th>Stock total</th><th>V. 30d</th><th>V. 60d</th><th>V. 90d</th><th>Venta diaria</th><th>Días cobertura</th><th>Punto re-pedido</th><th>Estado</th><th>Actualizado</th></tr>
-</thead>
+<thead><tr><th>Ventana</th><th>Fecha límite para pedir</th><th>Días desde hoy</th></tr></thead>
 <tbody>
-<tr><td>PUZ</td><td>Puzzles (todos los diseños) 🟢</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>131</td><td>🟡 falta</td><td>🟡 falta</td><td>4,37</td><td>0</td><td>424</td><td>🔴 Rojo — pedir ya</td><td>30-07-2026</td></tr>
-<tr><td>NAI-AVES (ejemplo)</td><td>Naipes Aves (ejemplo)</td><td>35</td><td>35</td><td>6</td><td>5</td><td>81</td><td>25</td><td>48</td><td>70</td><td>0,83</td><td>97</td><td>81</td><td>🟡 Amarillo — cotizar</td><td>—</td></tr>
-<tr><td>CAL-AVES (ejemplo)</td><td>Calcetín Aves (ejemplo)</td><td>80</td><td>60</td><td>10</td><td>20</td><td>170</td><td>20</td><td>38</td><td>55</td><td>0,67</td><td>255</td><td>65</td><td>🟢 Verde — todo bien</td><td>—</td></tr>
+<tr><td>Black Friday (27 de noviembre)</td><td>27 de agosto de 2026</td><td id="cd-bf">—</td></tr>
+<tr><td>Navidad (20 de diciembre)</td><td>19 de septiembre de 2026</td><td id="cd-nav">—</td></tr>
 </tbody>
 </table>
-</div>
-<p class="calc-line--sub">Fila 1: dato real — stock (agotado) y venta mensual promedio de los puzzles, todos los diseños juntos (datos-financieros-2025-2026.md, secciones 3 y 8). Filas 2 y 3: ejemplos ilustrativos, marcados como tal, solo para mostrar cómo se ve un producto en amarillo y uno en verde — no son datos cargados.</p>
-
-<h3>Encabezados listos para pegar</h3>
-<div class="copyblock">
-  <button type="button" class="copyblock__btn" data-copy-target="copy-headers-hoja-stock">Copiar</button>
-  <div class="copyblock__text" id="copy-headers-hoja-stock">SKU, Descripción, Stock Packner, Stock bodega, Stock Mercado Libre, Stock consignación B2B, Stock total, Ventas 30 días, Ventas 60 días, Ventas 90 días, Venta diaria, Días de cobertura, Punto de re-pedido (unidades), Estado, Fecha de actualización</div>
-</div>
-
-<h3>Fórmulas de Google Sheets para las columnas calculadas</h3>
-<p>Encabezados en la fila 1, datos desde la fila 2. Pega cada fórmula en la celda de la fila 2 que corresponde a su columna, y luego arrastra hacia abajo (selecciona la celda, toma la esquina inferior derecha y arrastra) para copiarla al resto de las filas.</p>
-<div class="copyblock">
-  <button type="button" class="copyblock__btn" data-copy-target="copy-formulas-hoja-stock">Copiar</button>
-  <div class="copyblock__text" id="copy-formulas-hoja-stock">G2 (Stock total): =SUM(C2:F2)
-
-K2 (Venta diaria): =IF(H2="","",ROUND(H2/30,2))
-
-L2 (Días de cobertura): =IF(OR(K2="",K2=0),"—",ROUND(G2/K2,0))
-
-M2 (Punto de re-pedido, unidades): =IF(K2="","",ROUND(K2*97,0))
-
-N2 (Estado): =IF(G2="","",IF(L2="—","⚪ Sin ventas registradas",IF(L2<90,"🔴 Rojo — pedir ya",IF(L2<=105,"🟡 Amarillo — cotizar y negociar","🟢 Verde — todo bien"))))</div>
-</div>
-<p class="calc-line--sub">El 97 en la fórmula del punto de re-pedido es el umbral calculado en la sección anterior (75 + 7 + 15, antes de redondear a 90-105). Si algún producto tiene un proveedor con plazos distintos, ese número se puede ajustar fila por fila.</p>
-</section>
-
-<section class="sec">
-<h2>De dónde sale cada dato</h2>
-<p>La pregunta práctica: quién carga cada número, y qué cambia cuando lleguen los accesos a Shopify.</p>
-
-<div class="table-wrap">
-<table>
-<thead>
-<tr><th>Dato</th><th>Fuente</th><th>Fase 1 — hoy</th><th>Fase 2 — con Shopify conectado</th></tr>
-</thead>
-<tbody>
-<tr><td>Stock en Packner</td><td>Shopify, una vez lleguen los accesos (viernes 31 de julio de 2026 🟢)</td><td>A mano, del archivo que Felipe actualiza cada 15 días</td><td>Automático, directo desde Shopify</td></tr>
-<tr><td>Stock en Mercado Libre</td><td>Shopify / Mercado Libre Full</td><td>A mano</td><td>Automático, directo desde Shopify</td></tr>
-<tr><td>Stock en bodega propia</td><td>Conteo físico de Felipe (Ciudad Empresarial)</td><td>A mano</td><td>A mano — no cambia, no pasa por Shopify</td></tr>
-<tr><td>Stock en consignación B2B</td><td>Felipe y los clientes B2B</td><td>A mano</td><td>A mano — no cambia, el B2B es cerca del 45% de la demanda 🟢 y no pasa por Shopify</td></tr>
-<tr><td>Ventas (30/60/90 días)</td><td>Shopify (online) + Bsale (B2B y venta presencial)</td><td>A mano, exportando y sumando los dos reportes</td><td>Automático para el canal online (Shopify); Bsale sigue a mano</td></tr>
-</tbody>
-</table>
-</div>
-
-<div class="grid-2">
-  <div class="card">
-    <h3>Fase 1 — todo a mano</h3>
-    <p>Funciona desde el día uno, con la misma cadencia quincenal que Felipe ya usa hoy para consolidar el stock. No depende de que lleguen accesos ni de ninguna integración — basta con completar la hoja cada 15 días.</p>
-  </div>
-  <div class="card">
-    <h3>Fase 2 — Shopify conectado</h3>
-    <p>Una vez que lleguen los accesos, el stock de Packner y Mercado Libre, más las ventas del canal online, se pueden traer automáticos desde Shopify. Solo quedan a mano el stock de bodega propia y el de consignación B2B — los dos que nunca pasan por Shopify.</p>
-  </div>
-</div>
-</section>
-
-<section class="sec">
-<h2>Por qué construimos esto en vez de comprar una app</h2>
-<p>Es una decisión que vale la pena justificar, en corto.</p>
-
-<div class="grid-2">
-  <div class="card">
-    <h3>Lo que asumen las apps del rubro</h3>
-    <p>Apps como Inventory Planner, Prediko o Cogsy son buenas herramientas 🟡 (reputación general del rubro, a verificar caso a caso), pero todas parten de la misma base: <strong>Shopify es la fuente de verdad</strong>. Todo el inventario y todas las ventas pasan por ahí, y el pronóstico se arma sobre esos datos.</p>
-  </div>
-  <div class="card">
-    <h3>La realidad de Pedraza hoy</h3>
-    <p>El B2B es cerca del 45% de la demanda 🟢 (datos-financieros-2025-2026.md, sección 1) y no pasa por Shopify. El stock vive en 4 lugares distintos 🟢, y hoy no hay ninguna integración que los junte automáticamente. Para este negocio, Shopify no es la fuente de verdad — es una de cuatro.</p>
-  </div>
-</div>
-
-<div class="callout callout--warn">
-<p><strong>El costo también pesa.</strong> Estas apps cuestan, en general, del orden de USD 200 a 250 al mes 🟡 (referencia de rubro a verificar — varía según plan y volumen de pedidos). Es un gasto fijo más para un negocio que ya paga cerca de $1.167.128 CLP al mes solo en cuotas de crédito (datos-financieros-2025-2026.md, sección 6), y que hoy tiene la caja apretada.</p>
 </div>
 
 <div class="callout callout--success">
-<p><strong>La recomendación:</strong> partir con esta hoja y esta calculadora, que no agregan ningún gasto fijo y ya resuelven el problema real — la vista única y el aviso a tiempo. Reevaluar una app pagada después de diciembre, con la temporada alta ya pasada y los datos ordenados: ahí va a quedar claro si hace falta más automatización de la que esta hoja puede dar.</p>
+<p>✅ <strong>La preventa del 6 de agosto y la llegada del 15 entregan datos antes de las dos fechas.</strong> La preventa dice cuánta gente quiere cada modelo, con dinero real, no con estimaciones. La llegada del 15 muestra cómo se vende con stock disponible, después de meses de quiebre. No hay que decidir a ciegas: para cuando haya que definir el pedido de Black Friday (27 de agosto), ya van a existir 12 días de venta real con el nuevo stock.</p>
 </div>
-
-<p>Ninguna de estas apps es mala — simplemente no calzan hoy, porque están pensadas para un negocio donde Shopify ve todo el inventario, y ese no es el caso de Pedraza Ilustración mientras el B2B siga siendo casi la mitad de la venta.</p>
 </section>
 
-<section class="sec">
-<h2>Las alertas</h2>
-<p>Cómo se entera el equipo cuando un producto entra en amarillo o rojo, sin depender de que alguien se acuerde de revisar todos los días.</p>
+<section class="sec" id="rutina-control">
+<h2>La rutina de control</h2>
+<p>Qué revisar, y cada cuánto, para que el stock no vuelva a agotarse sin aviso.</p>
 
-<div class="grid-2">
-  <div class="card">
-    <h3>Revisión quincenal</h3>
-    <p>Cuando Felipe actualiza la hoja cada 15 días — lo que ya hace hoy — revisa la columna Estado de cada producto. Cualquier fila en amarillo o rojo queda marcada como pendiente esa misma semana.</p>
-  </div>
-  <div class="card">
-    <h3>Resumen en la reunión semanal</h3>
-    <p>Un vistazo rápido: cuántos productos están en 🟢, cuántos en 🟡 y cuántos en 🔴, como parte fija de la agenda. No hace falta revisar fila por fila en la reunión — el semáforo ya hace ese trabajo.</p>
-  </div>
+<div class="progress">
+  <div class="progress__track"><div class="progress__fill" data-progress-fill-inv></div></div>
+  <span class="progress__label" data-progress-label-inv>0 de 9 tareas (0%)</span>
 </div>
 
-<div class="callout callout--info">
-<p><strong>La alerta automática por correo se puede agregar después</strong>, con la misma mecánica de Apps Script (el código que ejecuta Google detrás de la hoja) que ya usa este sitio para sincronizar los checklists del equipo — ver el detalle técnico en <a href="sincronizar.html">Conectar con la hoja</a>. La idea sería la misma: un script que revisa la columna Estado y manda un correo cuando algún producto pasa a amarillo o rojo. La fase 1 no la necesita para funcionar: alcanza con la revisión quincenal y el resumen semanal de arriba.</p>
-</div>
+<ul class="checklist">
+<li><label><input type="checkbox" data-inventario="revisar-semaforo-diario"><span>Revisar el semáforo de los 6 productos agotados — todos los días hasta el 15 de agosto</span></label></li>
+<li><label><input type="checkbox" data-inventario="confirmar-llegada-pedido"><span>Confirmar que llegaron las 2.290 unidades completas de la fábrica — 15 de agosto</span></label></li>
+<li><label><input type="checkbox" data-inventario="activar-flujo-klaviyo"><span>Activar el flujo de aviso de stock en Klaviyo — antes del 15 de agosto, idealmente hoy</span></label></li>
+<li><label><input type="checkbox" data-inventario="registrar-preventa-modelos"><span>Anotar cuántas unidades pide la gente de cada modelo en la preventa — del 6 al 14 de agosto</span></label></li>
+<li><label><input type="checkbox" data-inventario="confirmar-reposicion-otros-4"><span>Confirmar con Felipe si Mariposas y Escarabajos, Calcetines Aves Azul, Lámina Hongos y Libro para Colorear tienen reposición prevista — antes del 15 de agosto</span></label></li>
+<li><label><input type="checkbox" data-inventario="revisar-alerta-aves-cetaceos"><span>Revisar el ritmo de venta de Puzzle Aves y Puzzle Cetáceos contra su punto de alerta — cada semana desde el 15 de agosto</span></label></li>
+<li><label><input type="checkbox" data-inventario="decidir-pedido-black-friday"><span>Decidir el pedido de seguridad para Black Friday, con los datos de la preventa y la primera semana de venta con stock — antes del 27 de agosto</span></label></li>
+<li><label><input type="checkbox" data-inventario="decidir-ampliacion-navidad"><span>Decidir si se amplía el pedido para Navidad, con seis semanas más de venta real — antes del 19 de septiembre</span></label></li>
+<li><label><input type="checkbox" data-inventario="pausar-ads-agotados"><span>Pausar el gasto publicitario de cualquier producto que vuelva a quedar en cero — cada vez que un producto pase a 🔴</span></label></li>
+</ul>
 
-<p>Esta página se enfoca en el día a día: cuándo pedir para no quebrar. Para la pregunta de cuánto pedir de cara a la Navidad, con los tres escenarios de forecast de Felipe (conservador, medio y agresivo), revisa las siguientes páginas:</p>
-
-<div class="grid-2">
-  <a href="stock-navidad.html" class="btn">Ver Stock para Navidad →</a>
-  <a href="escenarios.html" class="btn btn--ghost">Ver Escenarios →</a>
-</div>
-
-<p class="page-footer">🟢 = dato medido, con fuente citada. 🟡 = estimación, supuesto o referencia a verificar. Fuentes principales: <code>datos-financieros-2025-2026.md</code> (secciones 1, 3, 6 y 8) y <code>reunion-2026-07-29.md</code> (sección 4), julio de 2026.</p>
+<p class="page-footer">🟢 = dato medido, con fuente citada. 🟡 = estimación, supuesto o dato a verificar. Fuentes principales: <code>auditoria-tienda-correo-2026-08-02.md</code> (secciones 1 y 5), <code>correcciones-felipe-2026-08-01.md</code> (sección 3) y <code>forecast-pedido-2026-08-02.md</code>, todos del 1-2 de agosto de 2026. Ver también <a href="escenarios.html">Escenarios</a>, <a href="email.html">Correo y campañas</a> y <a href="preventa.html">Preventa de puzzles</a>.</p>
 </section>
 
 </main>
-
 <script>
   // Copiar al portapapeles — delegación de eventos, un solo listener por página.
   document.addEventListener('click', function (e) {
@@ -1313,99 +1212,83 @@ N2 (Estado): =IF(G2="","",IF(L2="—","⚪ Sin ventas registradas",IF(L2<90,"�
 </script>
 
 <script>
-  // ===== Calculadora de días de cobertura (sección 3) =====
-  function setTexto(id, valor) {
-    var el = document.getElementById(id);
-    if (el) el.textContent = valor;
+  // ===== Contadores en vivo (secciones 1 y 6): llegada del pedido y fechas límite =====
+  function invDiasEntre(desde, hasta) {
+    var d1 = new Date(desde.getFullYear(), desde.getMonth(), desde.getDate());
+    var d2 = new Date(hasta.getFullYear(), hasta.getMonth(), hasta.getDate());
+    return Math.round((d2 - d1) / 86400000);
   }
 
-  function leerNumero(id) {
+  function invPintarContador(id, dias) {
     var el = document.getElementById(id);
-    if (!el) return null;
-    var v = el.value;
-    if (v === null || v === undefined || v === '') return null;
-    var n = parseFloat(v);
-    if (isNaN(n)) return null;
-    return n;
-  }
-
-  function calcularCobertura() {
-    var P = leerNumero('calc-stock-packner');
-    var Bo = leerNumero('calc-stock-bodega');
-    var Me = leerNumero('calc-stock-meli');
-    var B2 = leerNumero('calc-stock-b2b');
-    var V30 = leerNumero('calc-ventas-30');
-    var temporadaEl = document.getElementById('calc-temporada');
-    var temporada = temporadaEl ? temporadaEl.value : 'normal';
-    var factor = (temporada === 'alta') ? 2.3 : 1;
-
-    var stockTotal = (P || 0) + (Bo || 0) + (Me || 0) + (B2 || 0);
-    setTexto('out-stock-total', stockTotal.toLocaleString('es-CL') + ' unidades');
-
-    var pill = document.getElementById('pill-semaforo');
-    var mensaje = document.getElementById('out-mensaje-semaforo');
-    var diasEl = document.getElementById('out-dias-cobertura');
-
-    if (V30 === null) {
-      setTexto('out-venta-diaria', '—');
-      if (diasEl) { diasEl.textContent = '—'; diasEl.style.color = ''; }
-      setTexto('out-fecha-quiebre', '—');
-      if (pill) { pill.className = 'pill'; pill.textContent = 'SEMÁFORO'; }
-      if (mensaje) mensaje.textContent = 'Completa las ventas de los últimos 30 días para ver el resultado.';
-      return;
-    }
-
-    var ventaDiaria = (V30 / 30) * factor;
-    setTexto('out-venta-diaria', ventaDiaria.toLocaleString('es-CL', { maximumFractionDigits: 2 }) + ' unidades/día');
-
-    if (ventaDiaria <= 0) {
-      if (diasEl) { diasEl.textContent = '∞'; diasEl.style.color = 'var(--success)'; }
-      setTexto('out-fecha-quiebre', 'no se agota (sin ventas registradas)');
-      if (pill) { pill.className = 'pill pill--success'; pill.textContent = '🟢 VERDE'; }
-      if (mensaje) mensaje.textContent = 'Sin ventas en los últimos 30 días no hay riesgo de quiebre — pero conviene revisar si el dato está bien cargado.';
-      return;
-    }
-
-    var diasCobertura = stockTotal / ventaDiaria;
-    var diasRedondeado = Math.round(diasCobertura);
-
-    var hoy = new Date();
-    var fechaQuiebre = new Date(hoy.getTime() + diasCobertura * 86400000);
-    var fechaTexto = fechaQuiebre.toLocaleDateString('es-CL', { day: 'numeric', month: 'long', year: 'numeric' });
-
-    if (diasRedondeado <= 0) {
-      if (diasEl) { diasEl.textContent = '0 días'; diasEl.style.color = 'var(--danger)'; }
-      setTexto('out-fecha-quiebre', 'ya se agotó (hoy)');
-      if (pill) { pill.className = 'pill pill--danger'; pill.textContent = '🔴 ROJO'; }
-      if (mensaje) mensaje.textContent = 'El stock ya está en cero. El pedido debería haber salido hace tiempo — cada día que pasa es venta perdida.';
-    } else if (diasRedondeado < 90) {
-      if (diasEl) { diasEl.textContent = diasRedondeado + ' días'; diasEl.style.color = 'var(--danger)'; }
-      setTexto('out-fecha-quiebre', fechaTexto);
-      if (pill) { pill.className = 'pill pill--danger'; pill.textContent = '🔴 ROJO'; }
-      if (mensaje) mensaje.textContent = 'El pedido tiene que salir ya. Cada día de atraso es venta perdida.';
-    } else if (diasRedondeado <= 105) {
-      if (diasEl) { diasEl.textContent = diasRedondeado + ' días'; diasEl.style.color = 'var(--warn)'; }
-      setTexto('out-fecha-quiebre', fechaTexto);
-      if (pill) { pill.className = 'pill pill--warn'; pill.textContent = '🟡 AMARILLO'; }
-      if (mensaje) mensaje.textContent = 'Hay que empezar a cotizar y negociar con el proveedor.';
+    if (!el) return;
+    if (dias > 1) {
+      el.textContent = dias + ' días';
+      el.style.color = dias <= 7 ? 'var(--danger)' : (dias <= 21 ? 'var(--warn)' : 'var(--success)');
+    } else if (dias === 1) {
+      el.textContent = '1 día';
+      el.style.color = 'var(--danger)';
+    } else if (dias === 0) {
+      el.textContent = 'Hoy';
+      el.style.color = 'var(--danger)';
     } else {
-      if (diasEl) { diasEl.textContent = diasRedondeado + ' días'; diasEl.style.color = 'var(--success)'; }
-      setTexto('out-fecha-quiebre', fechaTexto);
-      if (pill) { pill.className = 'pill pill--success'; pill.textContent = '🟢 VERDE'; }
-      if (mensaje) mensaje.textContent = 'Todo bien. No hace falta hacer nada todavía.';
+      el.textContent = 'Venció hace ' + Math.abs(dias) + (Math.abs(dias) === 1 ? ' día' : ' días');
+      el.style.color = 'var(--ink-faint)';
     }
   }
 
-  document.addEventListener('DOMContentLoaded', function () {
-    calcularCobertura();
-    var calc = document.getElementById('calculadora-stock');
-    if (calc) {
-      calc.addEventListener('input', calcularCobertura);
-      calc.addEventListener('change', calcularCobertura);
-    }
-  });
+  function invActualizarContadores() {
+    var hoy = new Date();
+    invPintarContador('cd-llegada', invDiasEntre(hoy, new Date(2026, 7, 15)));
+    invPintarContador('cd-bf', invDiasEntre(hoy, new Date(2026, 7, 27)));
+    invPintarContador('cd-nav', invDiasEntre(hoy, new Date(2026, 8, 19)));
+  }
+
+  document.addEventListener('DOMContentLoaded', invActualizarContadores);
 </script>
 
+<script>
+  // Acceso seguro a localStorage (no revienta en navegación privada u otros bloqueos).
+  function pgGet(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+  function pgSet(key, valor) { try { localStorage.setItem(key, valor); } catch (e) { /* sin soporte, se ignora */ } }
+  function pgRemove(key) { try { localStorage.removeItem(key); } catch (e) { /* sin soporte, se ignora */ } }
+</script>
+
+<script>
+  // Checklist de esta página — usa data-inventario (data-task, data-cro, data-plan90, data-bitacora,
+  // data-estado, data-preventa, data-tienda, data-clientes, data-precios, data-ads, data-correo,
+  // data-ofertas y data-tablero ya están tomados por otras páginas) y localStorage con prefijo
+  // pedraza-plan:inv:<id>.
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-inventario]').forEach(function (cb) {
+      cb.checked = pgGet('pedraza-plan:inv:' + cb.getAttribute('data-inventario')) === '1';
+    });
+    actualizarProgresoInventario();
+  });
+
+  document.addEventListener('change', function (e) {
+    var cb = e.target.closest('[data-inventario]');
+    if (!cb) return;
+    var key = 'pedraza-plan:inv:' + cb.getAttribute('data-inventario');
+    if (cb.checked) { pgSet(key, '1'); } else { pgRemove(key); }
+    actualizarProgresoInventario();
+  });
+
+  function actualizarProgresoInventario() {
+    var cajas = document.querySelectorAll('[data-inventario]');
+    var total = cajas.length;
+    var done = 0;
+    cajas.forEach(function (cb) { if (cb.checked) done++; });
+    var pct = total ? Math.round((done / total) * 100) : 0;
+
+    document.querySelectorAll('[data-progress-fill-inv]').forEach(function (fill) {
+      fill.style.width = pct + '%';
+    });
+    document.querySelectorAll('[data-progress-label-inv]').forEach(function (label) {
+      label.textContent = done + ' de ' + total + ' tareas (' + pct + '%)';
+    });
+  }
+</script>
 <script>
   // Navegación global: barra superior + panel completo (15 páginas, 4 grupos).
   // Prefijo "nav" en todo para no chocar con otros scripts de la página.
