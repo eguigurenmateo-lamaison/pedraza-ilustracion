@@ -131,7 +131,11 @@ Y convierte mejor que cualquier otra fuente: **5,21%**, contra 3,27% de Google o
 
 9.836 perfiles totales: 5.810 activos, 3.939 suprimidos (2.845 bajas voluntarias, 882 suprimidos en una limpieza masiva del 6 de febrero de 2025, 191 rebotes).
 
-La lista operativa es "Newsletter" con **5.439 miembros**, creciendo de forma sostenida: de 2.918 en agosto de 2025 a 5.437 hoy. **Neto de 12 meses: +4.146 suscriptores.**
+La lista operativa es "Newsletter" con **5.439 miembros**, creciendo de forma sostenida: de 2.918 en agosto de 2025 a 5.437 hoy.
+
+⚠️ **Cuidado con la cifra de crecimiento.** La auditoría declara "+4.146 netos (4.560 altas − 414 bajas)", pero la lista solo pasó de 2.918 a 5.437: **el crecimiento real es +2.519**. La diferencia de 1.627 son salidas que no entraron en el conteo de bajas (rebotes, marcados como spam y la limpieza masiva de febrero de 2025).
+
+🟢 **La cifra que sirve para planificar es +2.519 en 12 meses, o unos 210 suscriptores netos al mes.**
 
 Origen de las altas: Shopify/checkout 52%, pop-up móvil 25%, pop-up escritorio 7%, importación manual 15%. **Todo el crecimiento orgánico viene de dos pop-ups**; no hay formulario embebido en la web que aporte.
 

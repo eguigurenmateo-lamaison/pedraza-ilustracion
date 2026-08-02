@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Pre-diagnóstico de conversión — Plan Pedraza Ilustración</title>
+<title>Auditoría de conversión — Plan Pedraza Ilustración</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
 <style>
 /* ==========================================================================
@@ -984,335 +984,367 @@ main { counter-reset: sec; }
 
 <header class="hero">
   <div class="hero__inner">
-    <a href="index.html#datos-que-faltan" class="hero__back">← Volver al plan</a>
-    <h1>Pre-diagnóstico de conversión</h1>
-    <p>Una revisión visual de las 6 etapas del camino de compra en pedrazailustracion.com, para ver dónde se están perdiendo ventas antes de tocar nada de la tienda. Esta página no está en el menú principal — se comparte por link directo desde el plan.</p>
+    <a href="index.html" class="hero__back">← Volver al plan</a>
+    <h1>Auditoría de conversión: por qué se pierde venta</h1>
+    <p>Esto ya no es una hipótesis. Es la auditoría completa de Shopify sobre el embudo real de compra: 37.747 sesiones de los últimos 90 días, paso por paso, hasta encontrar dónde se cae la venta. Esta página no está en el menú principal — se comparte por link directo desde el plan.</p>
   </div>
 </header>
 
 <main class="wrap">
 
-<section class="sec">
-<h2>Dónde está Pedraza hoy</h2>
-<p>La <strong>conversión</strong> es el porcentaje de personas que visitan la tienda y terminan comprando. Es el número central de esta página: subirla, aunque sea un poco, significa más ventas con la misma cantidad de visitas — sin gastar un peso más en atraer gente nueva.</p>
+<section class="sec" id="hallazgo-principal">
+<h2>El hallazgo que explica todo</h2>
+<p>Esta auditoría revisó los últimos 90 días de datos reales de Shopify (4 de mayo al 2 de agosto de 2026). Antes de mostrar el resto de los números, hay un solo hallazgo que explica la mayoría de ellos.</p>
+
+<div class="callout callout--danger">
+<p><strong>🔴 El 23% del tráfico de la tienda va a un producto que no se puede comprar.</strong> El <strong>Puzzle Aves y Flores de Chile</strong> es el producto más visto y el más vendido de toda la tienda: 8.558 vistas y $3.108.644 en ventas en 90 días. Hoy tiene <strong>0 unidades</strong> y la venta sin stock está desactivada — literalmente no se puede comprar.</p>
+</div>
 
 <div class="kpi-grid">
   <div class="kpi">
-    <span class="kpi__label">Conversión de la tienda 🟢</span>
-    <span class="kpi__value">0,98%</span>
+    <span class="kpi__label">Vistas del Puzzle Aves y Flores (90 días) 🟢</span>
+    <span class="kpi__value">8.558</span>
   </div>
   <div class="kpi">
-    <span class="kpi__label">Ticket promedio 🟢</span>
-    <span class="kpi__value">$37.900</span>
+    <span class="kpi__label">% del tráfico total de la tienda 🟢</span>
+    <span class="kpi__value">23%</span>
   </div>
   <div class="kpi">
-    <span class="kpi__label">Visitas a la tienda al día 🟢</span>
-    <span class="kpi__value">~450</span>
+    <span class="kpi__label">Venta del producto en 90 días 🟢</span>
+    <span class="kpi__value">$3.108.644</span>
   </div>
   <div class="kpi">
-    <span class="kpi__label">Pedidos al mes (proyectado) 🟢</span>
-    <span class="kpi__value">~140</span>
+    <span class="kpi__label">Unidades disponibles hoy 🟢</span>
+    <span class="kpi__value">0</span>
   </div>
 </div>
 
-<p><span class="pill pill--success">🟢 dato real</span> Fuente: captura de Shopify Analytics aportada por Felipe (1-24 de julio de 2026, todos los canales) — el mismo dato que ya usa el plan en "Dónde está Pedraza hoy" y "El camino aritmético a la meta".</p>
-
-<div class="callout callout--info">
-<p><strong>Lectura honesta, sin drama.</strong> 0,98% queda por debajo del rango que el marco de esta auditoría considera sano para una tienda de venta directa: entre 1,5% y 3% <span class="pill pill--warn">🟡 benchmark, verificar fuente</span> (según el research de Baymard Institute y Shopify que cita el marco de 1337 Corp). La buena noticia: tampoco está en zona crítica (menos de 0,8%, mismo benchmark). Hay espacio grande para mejorar, sin ninguna urgencia. Subir la conversión con el mismo tráfico que ya llega es una de las palancas más grandes que tiene la tienda para acercarse a la meta de USD 10.000 al mes — el resto de esta página ayuda a encontrar por dónde empezar.</p>
-</div>
-</section>
-
-<section class="sec" id="hallazgos-reunion">
-<h2>Lo que ya sabemos que hay que arreglar</h2>
-<p>Antes de recorrer el checklist completo, hay 4 hallazgos concretos que salieron directo de la reunión del 27 de julio de 2026. Nadie los está suponiendo: alguien los vio en pantalla o los contó en la llamada. Van primero porque ya se puede empezar a actuar sobre ellos, ordenados de mayor a menor impacto.</p>
-
-<div class="callout callout--success">
-<p><strong>🟢 El arreglo más rentable y más rápido que existe hoy en la tienda (reunión del 27 de julio).</strong> El producto tiene 75 reseñas y la tienda 215 en total, todas en la aplicación Judge.me — pero el widget (el bloque que las muestra) no las está desplegando en la ficha de producto. <span class="pill pill--danger">Impacto alto</span> <span class="pill pill--info">Esfuerzo bajo 🟡</span></p>
-<p><strong>Por qué cuesta plata:</strong> ver que otras personas ya compraron y quedaron contentas es una de las razones más fuertes para animarse a comprar algo que nunca se ha tocado con las manos. Esa confianza ya está ganada — hoy simplemente está apagada.</p>
-<p><strong>Qué se hace:</strong> revisar la instalación de Judge.me en la plantilla de producto de Shopify y activar que el widget se muestre. No hace falta generar reseñas nuevas ni pedirle nada al cliente: las 75 ya existen, solo falta encenderlas. Este mismo punto queda marcado en la etapa <a href="#etapa-ficha">📦 Ficha de producto</a> de la auditoría, más abajo.</p>
-</div>
-
-<div class="grid-2">
-  <div class="card">
-  <h3>💳 Fricción de pago sin ubicar</h3>
-  <p><span class="pill pill--danger">Impacto alto</span> <span class="pill pill--info">Esfuerzo 🟡 por definir</span></p>
-  <p><strong>Qué pasa:</strong> 🟢 Cote contó en la reunión que entra harta gente y se cae justo en el momento de pagar. Consultó una inteligencia artificial (IA) que señaló el checkout (el proceso final de pago) como sospechoso, pero no lo pudo confirmar — puede ser un dato de una versión antigua guardada en caché del sitio. Los medios de pago sí están completos: tarjeta, transferencia, Mercado Pago y Flow.</p>
-  <p><strong>Por qué cuesta plata:</strong> quien llega hasta el pago ya decidió comprar. Perderlo justo ahí es la venta más cara de recuperar de todo el camino de compra.</p>
-  <p><strong>Qué se hace:</strong> simular una compra real de principio a fin apenas haya accesos, para ubicar el paso exacto donde se cae. Es la tarea prioritaria de la etapa <a href="#etapa-checkout">💳 Checkout</a> de esta auditoría.</p>
-  </div>
-
-  <div class="card">
-  <h3>🗂️ No existe una colección de packs ni de más vendidos</h3>
-  <p><span class="pill pill--warn">Impacto medio</span> <span class="pill pill--warn">Esfuerzo 🟡 medio</span></p>
-  <p><strong>Qué pasa:</strong> 🟢 Hoy la tienda no tiene armada una colección de packs ni de productos más vendidos. El cliente pidió en la reunión que sea la primera opción visible al entrar a la tienda.</p>
-  <p><strong>Por qué cuesta plata:</strong> quien no sabe por dónde partir necesita que la tienda le muestre un camino fácil. Sin esa vitrina se pierden ventas de más de un producto por compra (lo que sube el ticket promedio: lo que gasta una persona por compra) y compras de quien todavía está decidiendo.</p>
-  <p><strong>Qué se hace:</strong> crear la colección y dejarla primera en el menú y la portada. La propuesta completa — qué packs armar y con qué textos — ya está lista en <a href="ofertas.html#coleccion-packs">ofertas.html</a>.</p>
-  </div>
-
-  <div class="card">
-  <h3>🔔 Solo hay un pop-up, igual para todos</h3>
-  <p><span class="pill pill--warn">Impacto medio</span> <span class="pill pill--info">Esfuerzo bajo 🟡</span></p>
-  <p><strong>Qué pasa:</strong> 🟢 Hoy la tienda muestra un solo pop-up (ventana emergente) a todas las personas por igual: 10% de descuento.</p>
-  <p><strong>Por qué cuesta plata:</strong> alguien que ya compró antes ve el mismo mensaje que alguien que nunca había entrado a la tienda. No es el mensaje más efectivo para ninguno de los dos casos.</p>
-  <p><strong>Qué se hace:</strong> pasar a pop-ups segmentados (visitante nuevo, cliente que ya compró, y según el tiempo en el sitio). En la reunión se estimó que se instala en ~48 horas. Propuesta completa en <a href="ofertas.html#sistema-popups">ofertas.html</a>.</p>
-  </div>
-</div>
+<p>No es un caso aislado: hay <strong>6 productos activos con el stock en cero</strong>, y 3 de ellos son puzzles que siguen recibiendo tráfico — Aves y Flores, Cetáceos, y Mariposas y Escarabajos.</p>
 
 <div class="callout callout--warn">
-<p><strong>Para tener en cuenta mientras se audita.</strong> 🟢 Los puzzles — el producto estrella — están sin stock hasta la última semana de agosto: el contenedor llega el 15 de agosto y debe pasar por el operador logístico antes de estar disponible en Shopify. Mientras dure el quiebre, no tiene sentido invertir esfuerzo en optimizar la ficha o la colección de puzzles: conviene priorizar lo que sí se puede vender hoy.</p>
-</div>
-</section>
-
-<section class="sec">
-<h2>La calculadora de impacto</h2>
-<p>Cambia cualquiera de estos 3 números y las 3 tarjetas de abajo se actualizan solas. Vienen precargadas con los datos reales de la tienda, pero puedes probar otros escenarios.</p>
-
-<div class="grid-3">
-  <div class="field">
-    <label for="calc-visitas">Visitas a la tienda al mes</label>
-    <input type="number" id="calc-visitas" inputmode="numeric" min="0" step="1" value="14000">
-  </div>
-  <div class="field">
-    <label for="calc-conversion">Conversión actual (%)</label>
-    <input type="number" id="calc-conversion" inputmode="decimal" min="0" step="0.01" value="0.98">
-  </div>
-  <div class="field">
-    <label for="calc-ticket">Ticket promedio (CLP)</label>
-    <input type="number" id="calc-ticket" inputmode="numeric" min="0" step="100" value="37900">
-  </div>
+<p><strong>🟢 Y se está pagando por ese tráfico.</strong> La auditoría de Google Ads muestra que los productos marcados "agotado" (sin stock) son el <strong>18% del gasto publicitario</strong> de esa cuenta. Se está pagando por llevar gente a fichas de producto que no pueden convertir en esa misma visita. Detalle completo en <a href="ads.html">Google y Meta Ads</a>.</p>
 </div>
 
-<div class="grid-3">
-  <div class="card">
-    <span class="pill calc-card__tag">HOY</span>
-    <h3>Con tu conversión actual</h3>
-    <p class="calc-line">Pedidos al mes: <strong data-calc="hoy-pedidos">137</strong></p>
-    <p class="calc-line">Ventas al mes: <strong data-calc="hoy-ventas-clp">$5.192.300 CLP</strong></p>
-    <p class="calc-line--sub" data-calc="hoy-ventas-usd">≈ US$ 5.613</p>
-    <p class="calc-line--sub">Este es el punto de partida.</p>
-  </div>
-  <div class="card">
-    <span class="pill pill--warn calc-card__tag">CONSERVADOR · 1,5%</span>
-    <h3>Si la conversión sube a 1,5%</h3>
-    <p class="calc-line">Pedidos al mes: <strong data-calc="conservador-pedidos">210</strong></p>
-    <p class="calc-line">Ventas al mes: <strong data-calc="conservador-ventas-clp">$7.959.000 CLP</strong></p>
-    <p class="calc-line--sub" data-calc="conservador-ventas-usd">≈ US$ 8.604</p>
-    <p class="calc-line">Mejora vs. hoy: <strong data-calc="conservador-mejora">+53%</strong></p>
-  </div>
-  <div class="card" style="border-color: var(--success);">
-    <span class="pill pill--success calc-card__tag">ÓPTIMO · 2,0%</span>
-    <h3>Si la conversión sube a 2,0%</h3>
-    <p class="calc-line">Pedidos al mes: <strong data-calc="optimo-pedidos">280</strong></p>
-    <p class="calc-line">Ventas al mes: <strong data-calc="optimo-ventas-clp">$10.612.000 CLP</strong></p>
-    <p class="calc-line--sub" data-calc="optimo-ventas-usd">≈ US$ 11.472</p>
-    <p class="calc-line">Mejora vs. hoy: <strong data-calc="optimo-mejora">+104%</strong></p>
-  </div>
-</div>
+<p>Este solo hallazgo explica de una vez tres cosas que hasta ahora estaban sueltas:</p>
+<ul>
+<li><strong>Por qué la conversión general de la tienda es de apenas 1,11%</strong> (sección siguiente): casi un cuarto del tráfico llega a un producto que no puede comprar.</li>
+<li><strong>Por qué la tasa de agregar al carrito en el celular es tan baja</strong> (sección 3): buena parte de ese tráfico frustrado entra desde el celular, que es el 92% de las visitas.</li>
+<li><strong>Por qué en Google los productos agotados igual "convierten" con un retorno de 6,40.</strong> La gente busca el puzzle, hace clic, llega al sitio, lo encuentra agotado — y compra otra cosa igual. El puzzle funciona como imán para todo el catálogo aunque no sea lo que se termina comprando.</li>
+</ul>
 
 <div class="callout callout--success">
-<p><strong>Con las cifras de referencia de arriba:</strong> pasar la conversión de 0,98% a 1,5% (escenario conservador) ya significa cerca de +53% más ventas, sin necesitar ni una visita adicional. Subir a ~1,7% acerca la venta mensual a la meta de USD 10.000 al mes — el escenario óptimo (2,0%) la deja por sobre esa meta.</p>
+<p><strong>✅ Esto ya tiene fecha de arreglo.</strong> El stock llega el <strong>15 de agosto</strong> y la preventa abre el <strong>6 de agosto</strong>. Es la corrección de mayor impacto de todo este diagnóstico, y ya está en marcha: el plan día a día está en <a href="preventa.html">Preventa de puzzles</a>.</p>
 </div>
 </section>
 
-<section class="sec">
-<h2>La auditoría de las 6 etapas</h2>
-<p>Seis etapas del camino de compra, cada una con su propio checklist. Cada punto tiene una prioridad: <span class="pill pill--danger">alta</span> vale 3 puntos, <span class="pill pill--warn">media</span> vale 2 y <span class="pill pill--info">baja</span> vale 1. Marca lo que ya cumple la tienda — el puntaje de arriba y el de cada etapa se actualizan solos, y quedan guardados en este navegador para la próxima visita.</p>
+<section class="sec" id="embudo-real">
+<h2>El embudo real</h2>
+<p>Así se ve el camino completo de compra en los últimos 90 días, con las 37.747 sesiones (visitas) que entraron a la tienda. Cuatro pasos, cada uno más angosto que el anterior — es normal que un embudo se achique, la pregunta es dónde se achica de más.</p>
+
+<div class="funnel">
+  <div class="funnel-step" style="--w:100%">1. Sesiones · 37.747 (100%)</div>
+  <div class="funnel-step" style="--w:74%">2. Agregaron al carrito · 1.358 (3,59%)</div>
+  <div class="funnel-step" style="--w:58%">3. Llegaron al pago · 1.004 (2,65%)</div>
+  <div class="funnel-step" style="--w:42%">4. Compraron · 420 (1,11%)</div>
+</div>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Paso</th><th>Cantidad</th><th>% del total</th><th>% del paso anterior</th><th>Caída en este tramo</th></tr>
+</thead>
+<tbody>
+<tr><td>Sesiones</td><td>37.747</td><td>100%</td><td>—</td><td>—</td></tr>
+<tr><td>Agregaron al carrito</td><td>1.358</td><td>3,59%</td><td>3,59%</td><td>96,4% no puso nada en el carrito</td></tr>
+<tr><td>Llegaron al pago</td><td>1.004</td><td>2,65%</td><td>73,9%</td><td>26,1% dejó el carrito sin avanzar a pagar</td></tr>
+<tr><td><strong>Compraron</strong></td><td><strong>420</strong></td><td><strong>1,11%</strong></td><td>41,8%</td><td>58,2% llegó a pagar y no terminó</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>En simple: <strong>sesiones</strong> es cada vez que alguien entra a la tienda. <strong>Agregar al carrito</strong> es el primer "sí" — poner algo en el carrito. <strong>Llegar al pago</strong> es avanzar hasta la pantalla donde se ingresan los datos y se paga. <strong>Comprar</strong> es terminar la compra completa, con el pago aprobado.</p>
+
+<div class="callout callout--info">
+<p>🟢 <strong>420 compras en 90 días son 140 pedidos al mes</strong> — coincide exacto con la cifra que ya se venía usando en el resto del plan (420 ÷ 3 meses = 140).</p>
+</div>
+</section>
+
+<section class="sec" id="movil-vs-escritorio">
+<h2>Móvil contra escritorio: la brecha está en el primer paso</h2>
+<p>Esta es la pieza central de toda la auditoría. El embudo completo se separa por dispositivo, y la diferencia aparece de inmediato — en un solo paso, no en varios.</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th></th><th>Sesiones</th><th>Agregan al carrito</th><th>Llegan al pago</th><th>Compran</th><th>Conversión</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Móvil</strong></td><td>34.396 (92%)</td><td>1.095 (3,18%)</td><td>789 (72,1%)</td><td>324 (41,1%)</td><td><strong>0,94%</strong></td></tr>
+<tr><td><strong>Escritorio</strong></td><td>3.152 (8%)</td><td>259 (8,22%)</td><td>211 (81,5%)</td><td>94 (44,5%)</td><td><strong>2,98%</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="callout callout--danger">
+<p><strong>🔴 El dato que manda:</strong> el móvil agrega al carrito al <strong>3,18%</strong> y el escritorio al <strong>8,22%</strong> — el escritorio convierte a carrito <strong>2,6 veces mejor</strong>. Y el móvil es el <strong>92% del tráfico</strong> de la tienda: casi toda la gente entra por el dispositivo que peor convierte en ese primer paso.</p>
+</div>
 
 <div class="card">
-<div class="cro-score-row">
-  <span class="cro-score-number" id="cro-score-number">0</span>
-  <span class="pill pill--danger" id="cro-score-level">Base — mucho por ganar</span>
+<h3>Agregan al carrito</h3>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">Móvil</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:3.18%"></div></div>
+  <span class="chart-bar-row__value">3,18%</span>
 </div>
-<div class="progress">
-  <div class="progress__track"><div class="progress__fill" id="cro-score-fill"></div></div>
-  <span class="progress__label" id="cro-score-label">0 de 137 puntos marcados (0%)</span>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">Escritorio</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:8.22%; background:var(--brand-green)"></div></div>
+  <span class="chart-bar-row__value">8,22%</span>
 </div>
 </div>
 
 <div class="card">
-<h3>Corrige esto primero</h3>
-<p>Los puntos sin marcar que más pesan en el puntaje total, ordenados de mayor a menor peso. Esta lista se actualiza sola a medida que marcas la auditoría.</p>
-<ol class="cro-fix-list" id="cro-fix-first-list"></ol>
-<p id="cro-fix-first-vacio" style="display:none;">🎉 No queda nada de alta prioridad sin marcar. Sigue revisando el resto de la auditoría para seguir subiendo el puntaje.</p>
+<h3>Llegan al pago (de quienes agregaron al carrito)</h3>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">Móvil</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:72.1%"></div></div>
+  <span class="chart-bar-row__value">72,1%</span>
 </div>
-
-<div class="card cro-stage" id="etapa-inicio">
-<h3>🏠 Página de inicio</h3>
-<p class="cro-stage__sub">La primera impresión: aquí se decide si alguien se queda a mirar o se va.</p>
-<div class="progress">
-  <div class="progress__track"><div class="progress__fill" data-stage-fill="inicio"></div></div>
-  <span class="progress__label" data-stage-label="inicio">0 de 28 puntos (0%)</span>
-</div>
-<ul class="checklist">
-<li><label><input type="checkbox" data-cro="inicio-propuesta-valor" data-weight="3" data-stage="inicio" data-texto="Propuesta de valor visible sin bajar"><span>Propuesta de valor visible sin bajar <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: si en los primeros segundos no se entiende qué vende la tienda, la persona se va antes de mirar el resto.</p></li>
-<li><label><input type="checkbox" data-cro="inicio-foto-boton-unico" data-weight="3" data-stage="inicio" data-texto="Foto o video principal con un solo botón claro"><span>Foto o video principal con un solo botón claro <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: mientras más botones compiten arriba, menos clics recibe cada uno.</p></li>
-<li><label><input type="checkbox" data-cro="inicio-menu-simple" data-weight="3" data-stage="inicio" data-texto="Menú simple, de 4 a 8 opciones"><span>Menú simple, de 4 a 8 opciones <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: un menú con demasiadas opciones hace dudar en vez de guiar.</p></li>
-<li><label><input type="checkbox" data-cro="inicio-buscador-visible" data-weight="3" data-stage="inicio" data-texto="Buscador visible"><span>Buscador visible <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: quien ya sabe lo que busca no debería tener que navegar para encontrarlo.</p></li>
-<li><label><input type="checkbox" data-cro="inicio-resenas-vista" data-weight="3" data-stage="inicio" data-texto="Reseñas o testimonios a la vista"><span>Reseñas o testimonios a la vista <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: ver que otras personas ya compraron y quedaron contentas baja la desconfianza inicial.</p></li>
-<li><label><input type="checkbox" data-cro="inicio-carga-rapida" data-weight="3" data-stage="inicio" data-texto="Carga rápida en el celular"><span>Carga rápida en el celular <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: la mayoría entra desde el celular; una página lenta pierde visitas antes de mostrar nada.</p></li>
-<li><label><input type="checkbox" data-cro="inicio-colecciones-destacadas" data-weight="2" data-stage="inicio" data-texto="Colecciones destacadas"><span>Colecciones destacadas <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: ayuda a decidir por dónde partir sin tener que explorar todo el catálogo.</p></li>
-<li><label><input type="checkbox" data-cro="inicio-mas-vendidos" data-weight="2" data-stage="inicio" data-texto="Más vendidos destacados"><span>Más vendidos destacados <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: mostrar lo que otras personas ya eligieron ayuda a decidir más rápido.</p></li>
-<li><label><input type="checkbox" data-cro="inicio-senales-confianza" data-weight="2" data-stage="inicio" data-texto="Señales de confianza: envío gratis sobre $50.000, pago seguro, cambios"><span>Señales de confianza: envío gratis sobre $50.000, pago seguro, cambios <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: son los datos que reducen la duda de comprar en un sitio que recién se conoce.</p></li>
-<li><label><input type="checkbox" data-cro="inicio-captura-correo" data-weight="2" data-stage="inicio" data-texto="Captura de correo"><span>Captura de correo <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: quien no compra hoy puede volver mañana si dejó su correo.</p></li>
-<li><label><input type="checkbox" data-cro="inicio-mobile-first" data-weight="2" data-stage="inicio" data-texto="Diseño pensado primero para el celular"><span>Diseño pensado primero para el celular <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: un sitio diseñado primero para el computador se siente incómodo en el celular, aunque "funcione".</p></li>
-</ul>
-</div>
-
-<div class="card cro-stage" id="etapa-coleccion">
-<h3>🗂️ Página de colección</h3>
-<p class="cro-stage__sub">La vitrina: aquí decide si sigue explorando o abre un producto.</p>
-<div class="progress">
-  <div class="progress__track"><div class="progress__fill" data-stage-fill="coleccion"></div></div>
-  <span class="progress__label" data-stage-label="coleccion">0 de 25 puntos (0%)</span>
-</div>
-<ul class="checklist">
-<li><label><input type="checkbox" data-cro="coleccion-titulo-productos-visibles" data-weight="3" data-stage="coleccion" data-texto="Título de la colección y productos visibles al llegar"><span>Título de la colección y productos visibles al llegar <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: confirma que la persona llegó al lugar correcto, sin tener que adivinar.</p></li>
-<li><label><input type="checkbox" data-cro="coleccion-filtros-utiles" data-weight="3" data-stage="coleccion" data-texto="Filtros útiles"><span>Filtros útiles <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: sin filtros, encontrar un producto puntual entre muchos se vuelve una tarea larga.</p></li>
-<li><label><input type="checkbox" data-cro="coleccion-tarjetas-completas" data-weight="3" data-stage="coleccion" data-texto="Tarjetas de producto con foto, nombre y precio"><span>Tarjetas de producto con foto, nombre y precio <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: son los tres datos mínimos para decidir si vale la pena entrar a mirar más.</p></li>
-<li><label><input type="checkbox" data-cro="coleccion-opciones-ordenar" data-weight="2" data-stage="coleccion" data-texto="Opciones para ordenar los productos"><span>Opciones para ordenar los productos <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: ordenar por precio o novedad ayuda a encontrar algo más rápido que revisar todo uno por uno.</p></li>
-<li><label><input type="checkbox" data-cro="coleccion-orden-mas-vendidos-defecto" data-weight="2" data-stage="coleccion" data-texto="Orden por más vendidos, por defecto"><span>Orden por más vendidos, por defecto <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: mostrar primero lo que ya funciona ayuda a decidir con menos esfuerzo.</p></li>
-<li><label><input type="checkbox" data-cro="coleccion-quitar-filtros-facil" data-weight="2" data-stage="coleccion" data-texto="Filtros aplicados, fáciles de quitar"><span>Filtros aplicados, fáciles de quitar <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: si es difícil sacar un filtro, la persona se queda atascada en una vista muy acotada.</p></li>
-<li><label><input type="checkbox" data-cro="coleccion-descripcion" data-weight="2" data-stage="coleccion" data-texto="Descripción de la colección"><span>Descripción de la colección <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: da contexto de qué reúne esa colección y por qué puede interesarle.</p></li>
-<li><label><input type="checkbox" data-cro="coleccion-etiquetas-estado" data-weight="2" data-stage="coleccion" data-texto="Etiquetas de oferta, nuevo o agotado"><span>Etiquetas de oferta, nuevo o agotado <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: evita la frustración de elegir algo que después resulta no estar disponible.</p></li>
-<li><label><input type="checkbox" data-cro="coleccion-anadir-desde-lista" data-weight="2" data-stage="coleccion" data-texto="Añadir al carrito directo desde la lista"><span>Añadir al carrito directo desde la lista <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: ahorra el paso de entrar a cada ficha para productos que ya se conocen.</p></li>
-<li><label><input type="checkbox" data-cro="coleccion-carga-rapida-grid" data-weight="2" data-stage="coleccion" data-texto="Carga rápida de la lista de productos en el celular"><span>Carga rápida de la lista de productos en el celular <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: una lista lenta en el celular hace que la persona cierre antes de ver todo.</p></li>
-<li><label><input type="checkbox" data-cro="coleccion-fotos-consistentes" data-weight="1" data-stage="coleccion" data-texto="Fotos de producto consistentes entre sí"><span>Fotos de producto consistentes entre sí <span class="pill pill--info">baja</span></span></label><p class="cro-item-why">Por qué: fotos parejas dan una sensación de catálogo prolijo y confiable.</p></li>
-<li><label><input type="checkbox" data-cro="coleccion-productos-por-pagina" data-weight="1" data-stage="coleccion" data-texto="Entre 24 y 48 productos por página"><span>Entre 24 y 48 productos por página <span class="pill pill--info">baja</span></span></label><p class="cro-item-why">Por qué: ni tan pocos que obligan a cambiar de página todo el rato, ni tantos que la página carga lento.</p></li>
-</ul>
-<div class="callout callout--warn">
-<p><strong>Hoy no existe esta colección.</strong> 🟢 En la reunión del 27 de julio se confirmó que la tienda no tiene armada una colección de packs ni de productos más vendidos — y el cliente pidió que sea la primera opción visible al entrar a la tienda. La propuesta completa (qué packs armar, con qué nombres y textos) está en <a href="ofertas.html#coleccion-packs">ofertas.html</a>.</p>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">Escritorio</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:81.5%; background:var(--brand-green)"></div></div>
+  <span class="chart-bar-row__value">81,5%</span>
 </div>
 </div>
 
-<div class="card cro-stage" id="etapa-ficha">
-<h3>📦 Ficha de producto</h3>
-<p class="cro-stage__sub">El momento de la decisión: aquí se juega si agrega al carrito o no.</p>
-<div class="progress">
-  <div class="progress__track"><div class="progress__fill" data-stage-fill="ficha"></div></div>
-  <span class="progress__label" data-stage-label="ficha">0 de 24 puntos (0%)</span>
+<div class="card">
+<h3>Compran (de quienes llegaron al pago)</h3>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">Móvil</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:41.1%"></div></div>
+  <span class="chart-bar-row__value">41,1%</span>
 </div>
-<ul class="checklist">
-<li><label><input type="checkbox" data-cro="ficha-boton-dominante" data-weight="3" data-stage="ficha" data-texto="Botón &quot;Añadir al carrito&quot; dominante"><span>Botón "Añadir al carrito" dominante <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: es la acción más importante de toda la página; tiene que ser imposible no verla.</p></li>
-<li><label><input type="checkbox" data-cro="ficha-galeria-zoom" data-weight="3" data-stage="ficha" data-texto="Galería con 6 o más fotos, con zoom"><span>Galería con 6 o más fotos, con zoom <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: sin poder tocar el producto, las fotos son la única forma de generar confianza.</p></li>
-<li><label><input type="checkbox" data-cro="ficha-resenas-visibles" data-weight="3" data-stage="ficha" data-texto="Reseñas con estrellas arriba, no escondidas en pestañas"><span>Reseñas con estrellas arriba, no escondidas en pestañas <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: si hay que buscarlas, la mayoría nunca las ve.</p><p class="cro-item-why"><span class="pill pill--danger">🔴 falla confirmada</span> Reunión del 27 de julio: el widget de Judge.me no está mostrando las 75 reseñas que ya tiene este producto (215 en total en la tienda). Detalle en <a href="#hallazgos-reunion">el primer hallazgo de esta página</a>.</p></li>
-<li><label><input type="checkbox" data-cro="ficha-mobile-sin-bajar" data-weight="3" data-stage="ficha" data-texto="En celular: foto, nombre, precio y botón, sin tener que bajar"><span>En celular: foto, nombre, precio y botón, sin tener que bajar <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: son los datos que definen si la persona sigue mirando o cierra la página.</p></li>
-<li><label><input type="checkbox" data-cro="ficha-descripcion-beneficios" data-weight="2" data-stage="ficha" data-texto="Descripción de beneficios, no solo características"><span>Descripción de beneficios, no solo características <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: "hecho a mano" convence más que "papel Hahnemühle" si no se explica por qué importa.</p></li>
-<li><label><input type="checkbox" data-cro="ficha-variantes-claras" data-weight="2" data-stage="ficha" data-texto="Variantes claras que cambian la foto"><span>Variantes claras que cambian la foto <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: evita comprar el color o modelo equivocado por no verlo bien.</p></li>
-<li><label><input type="checkbox" data-cro="ficha-info-cerca-precio" data-weight="2" data-stage="ficha" data-texto="Envío, cambios y garantía cerca del precio"><span>Envío, cambios y garantía cerca del precio <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: son las dudas típicas justo antes de decidir comprar.</p></li>
-<li><label><input type="checkbox" data-cro="ficha-sellos-confianza" data-weight="2" data-stage="ficha" data-texto="Sellos de confianza junto al botón"><span>Sellos de confianza junto al botón <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: refuerzan la decisión justo en el momento en que se toma.</p></li>
-<li><label><input type="checkbox" data-cro="ficha-urgencia-honesta" data-weight="2" data-stage="ficha" data-texto="Urgencia honesta si queda poco stock"><span>Urgencia honesta si queda poco stock <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: avisar que queda poco ayuda a decidir ahora, siempre que sea verdad.</p></li>
-<li><label><input type="checkbox" data-cro="ficha-precio-descuento-claro" data-weight="2" data-stage="ficha" data-texto="Precio y descuento claros"><span>Precio y descuento claros <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: un precio confuso genera duda justo antes de comprar.</p></li>
-</ul>
-<div class="callout callout--info">
-<p><strong>Activo único de Pedraza.</strong> La ficha de producto ya trae algo que casi ninguna tienda de decoración tiene: el nombre común y el nombre científico de cada especie. Al revisar esta etapa, no evalúes solo el checklist general — fíjate en que ese dato se vea bien (no quede escondido) y que tampoco estorbe para leer rápido el producto.</p>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">Escritorio</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:44.5%; background:var(--brand-green)"></div></div>
+  <span class="chart-bar-row__value">44,5%</span>
 </div>
 </div>
 
-<div class="card cro-stage" id="etapa-carrito">
-<h3>🛒 Carrito</h3>
-<p class="cro-stage__sub">El último empujón antes de pagar.</p>
-<div class="progress">
-  <div class="progress__track"><div class="progress__fill" data-stage-fill="carrito"></div></div>
-  <span class="progress__label" data-stage-label="carrito">0 de 21 puntos (0%)</span>
-</div>
-<ul class="checklist">
-<li><label><input type="checkbox" data-cro="carrito-lateral-sin-recargar" data-weight="3" data-stage="carrito" data-texto="Carrito lateral, sin recargar la página"><span>Carrito lateral, sin recargar la página <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: recargar la página es un paso extra que puede hacer perder a quien ya decidió comprar.</p></li>
-<li><label><input type="checkbox" data-cro="carrito-barra-envio-gratis" data-weight="3" data-stage="carrito" data-texto="Barra de avance hacia el envío gratis de $50.000"><span>Barra de avance hacia el envío gratis de $50.000 <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: para Pedraza este umbral ya existe; mostrarlo empuja a agregar un producto más para alcanzarlo.</p></li>
-<li><label><input type="checkbox" data-cro="carrito-sugeridos-1-2" data-weight="3" data-stage="carrito" data-texto="1 o 2 productos sugeridos, no más"><span>1 o 2 productos sugeridos, no más <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: demasiadas sugerencias distraen justo antes de pagar.</p></li>
-<li><label><input type="checkbox" data-cro="carrito-boton-finalizar-visible" data-weight="3" data-stage="carrito" data-texto="Botón &quot;Finalizar compra&quot; siempre visible"><span>Botón "Finalizar compra" siempre visible <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: si hay que buscarlo, se pierde el impulso de compra.</p></li>
-<li><label><input type="checkbox" data-cro="carrito-editar-cantidades" data-weight="2" data-stage="carrito" data-texto="Editar cantidades sin salir del carrito"><span>Editar cantidades sin salir del carrito <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: tener que salir del carrito para cambiar una cantidad es fricción innecesaria.</p></li>
-<li><label><input type="checkbox" data-cro="carrito-sugerencias-relevantes" data-weight="2" data-stage="carrito" data-texto="Sugerencias relevantes a lo que ya está en el carrito"><span>Sugerencias relevantes a lo que ya está en el carrito <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: una sugerencia que no tiene sentido con lo que ya hay en el carrito no suma venta, solo ruido.</p></li>
-<li><label><input type="checkbox" data-cro="carrito-costos-claros" data-weight="2" data-stage="carrito" data-texto="Costos claros antes de pasar al checkout"><span>Costos claros antes de pasar al checkout <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: una sorpresa de costo al final es la razón número uno para abandonar el carrito.</p></li>
-<li><label><input type="checkbox" data-cro="carrito-sellos-pago" data-weight="1" data-stage="carrito" data-texto="Sellos de pago visibles"><span>Sellos de pago visibles <span class="pill pill--info">baja</span></span></label><p class="cro-item-why">Por qué: suman una señal más de confianza, sin ser decisivos por sí solos.</p></li>
-<li><label><input type="checkbox" data-cro="carrito-regalo-por-monto" data-weight="1" data-stage="carrito" data-texto="Regalo por monto de compra"><span>Regalo por monto de compra <span class="pill pill--info">baja</span></span></label><p class="cro-item-why">Por qué: puede empujar el ticket promedio hacia arriba con poco esfuerzo.</p></li>
-<li><label><input type="checkbox" data-cro="carrito-nota-envolver" data-weight="1" data-stage="carrito" data-texto="Nota de pedido o envolver para regalo"><span>Nota de pedido o envolver para regalo <span class="pill pill--info">baja</span></span></label><p class="cro-item-why">Por qué: calza directo con una marca que se compra para regalar.</p></li>
-</ul>
+<p>Del paso al pago en adelante, los dos dispositivos se comportan casi igual: 72,1% contra 81,5% para llegar al pago, y 41,1% contra 44,5% para terminar de comprar — diferencias chicas, nada dramático. <strong>Todo el problema real está concentrado en el primer paso: pasar de mirar a poner algo en el carrito.</strong></p>
+</section>
+
+<section class="sec" id="valor-brecha">
+<h2>Cuánto vale cerrar esa brecha</h2>
+<p><span class="pill pill--warn">🟡 proyección</span> Dos escenarios, manteniendo fijas las tasas de móvil que ya funcionan bien (72,1% de carrito a pago, 41,1% de pago a compra) y moviendo solo la tasa de agregar al carrito.</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Escenario</th><th>Tasa de carrito</th><th>Compras en 90 días</th><th>Diferencia</th><th>Venta neta adicional</th></tr>
+</thead>
+<tbody>
+<tr><td>Hoy</td><td>3,18%</td><td>324</td><td>—</td><td>—</td></tr>
+<tr><td>Cerrar la mitad de la brecha</td><td>5,7%</td><td>580</td><td><strong>+85/mes</strong></td><td><strong>+$2.388.938/mes</strong></td></tr>
+<tr><td>Igualar al escritorio</td><td>8,22%</td><td>836</td><td>+171/mes</td><td>+$4.777.877/mes</td></tr>
+</tbody>
+</table>
 </div>
 
-<div class="card cro-stage" id="etapa-checkout">
-<h3>💳 Checkout</h3>
-<p class="cro-stage__sub">El proceso de pago, los últimos pasos antes de pagar — el paso más frágil: cualquier fricción de más puede perder la venta.</p>
-<div class="progress">
-  <div class="progress__track"><div class="progress__fill" data-stage-fill="checkout"></div></div>
-  <span class="progress__label" data-stage-label="checkout">0 de 23 puntos (0%)</span>
-</div>
-<ul class="checklist">
-<li><label><input type="checkbox" data-cro="checkout-sin-cuenta" data-weight="3" data-stage="checkout" data-texto="Comprar sin crear una cuenta"><span>Comprar sin crear una cuenta <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: pedir una cuenta antes de pagar es una de las razones más comunes para abandonar la compra.</p></li>
-<li><label><input type="checkbox" data-cro="checkout-pagos-expres" data-weight="3" data-stage="checkout" data-texto="Pagos exprés tipo Shop Pay o billeteras digitales"><span>Pagos exprés tipo Shop Pay o billeteras digitales <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: pagar en un clic, sin escribir la tarjeta de nuevo, reduce el abandono en el paso final.</p></li>
-<li><label><input type="checkbox" data-cro="checkout-envio-visible-temprano" data-weight="3" data-stage="checkout" data-texto="Costo de envío visible desde temprano"><span>Costo de envío visible desde temprano <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: si el envío aparece recién al final, se siente como una sorpresa desagradable.</p></li>
-<li><label><input type="checkbox" data-cro="checkout-formulario-corto" data-weight="3" data-stage="checkout" data-texto="Formulario corto, de 7 a 8 campos"><span>Formulario corto, de 7 a 8 campos <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: cada campo de más es una oportunidad para que la persona se rinda antes de terminar.</p></li>
-<li><label><input type="checkbox" data-cro="checkout-impecable-celular" data-weight="3" data-stage="checkout" data-texto="Impecable en el celular"><span>Impecable en el celular <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: si el pago es el paso final, no puede ser el momento donde el sitio falla.</p></li>
-<li><label><input type="checkbox" data-cro="checkout-barra-pasos" data-weight="2" data-stage="checkout" data-texto="Barra que muestra los pasos del checkout"><span>Barra que muestra los pasos del checkout <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: saber cuánto falta para terminar reduce la ansiedad de completar un formulario largo.</p></li>
-<li><label><input type="checkbox" data-cro="checkout-senales-seguridad" data-weight="2" data-stage="checkout" data-texto="Señales de seguridad visibles"><span>Señales de seguridad visibles <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: es el momento donde se pide más información sensible; conviene reforzar la confianza ahí.</p></li>
-<li><label><input type="checkbox" data-cro="checkout-autocompletar-direccion" data-weight="2" data-stage="checkout" data-texto="Autocompletar la dirección"><span>Autocompletar la dirección <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: escribir la dirección a mano en el celular es lento y con errores.</p></li>
-<li><label><input type="checkbox" data-cro="checkout-metodos-pago-chile" data-weight="2" data-stage="checkout" data-texto="Métodos de pago que usa la gente en Chile"><span>Métodos de pago que usa la gente en Chile <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: si falta el medio de pago habitual de alguien, esa venta se pierde en el último paso.</p></li>
-</ul>
-<div class="callout callout--warn">
-<p><strong>Caída reportada, todavía sin ubicar.</strong> 🟢 En la reunión del 27 de julio, Cote contó que entra mucha gente y se cae justo en el momento de pagar. Consultó una IA (inteligencia artificial) que señaló el checkout como sospechoso, pero no se pudo confirmar — puede ser un dato de una versión antigua guardada en caché del sitio. Los medios de pago sí están completos: tarjeta, transferencia, Mercado Pago y Flow. Por eso esta etapa es prioritaria de auditar apenas haya accesos: simular una compra real de principio a fin, paso por paso, hasta encontrar dónde se cae.</p>
-</div>
+<div class="card">
+<h3>La aritmética completa (escenario "cerrar la mitad")</h3>
+<p class="calc-line--sub">1. Punto medio entre 3,18% y 8,22% = <strong>5,7%</strong>.</p>
+<p class="calc-line--sub">2. 34.396 sesiones móviles × 5,7% = <strong>1.961</strong> agregan al carrito.</p>
+<p class="calc-line--sub">3. × 72,1% (tasa que ya llega al pago) = <strong>1.414</strong> llegan al pago.</p>
+<p class="calc-line--sub">4. × 41,1% (tasa que ya compra) = <strong>581</strong> compran en 90 días — la tabla redondea a 580.</p>
+<p class="calc-line--sub">5. 581 − 324 (las de hoy) = <strong>257</strong> compras extra en 90 días → ÷ 3 meses = <strong>+85 pedidos al mes</strong>.</p>
+<p class="calc-line--sub">6. 85 pedidos × $27.980 (ticket promedio neto de IVA y envío, mismo dato de <a href="finanzas.html">Los números del negocio</a>) ≈ <strong>+$2.388.938 al mes</strong>.</p>
 </div>
 
-<div class="card cro-stage" id="etapa-gracias">
-<h3>🎉 Página de gracias</h3>
-<p class="cro-stage__sub">La compra ya está hecha — aquí empieza la próxima.</p>
-<div class="progress">
-  <div class="progress__track"><div class="progress__fill" data-stage-fill="gracias"></div></div>
-  <span class="progress__label" data-stage-label="gracias">0 de 16 puntos (0%)</span>
-</div>
-<ul class="checklist">
-<li><label><input type="checkbox" data-cro="gracias-confirmacion-clara" data-weight="3" data-stage="gracias" data-texto="Confirmación clara del pedido"><span>Confirmación clara del pedido <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: confirma que la compra sí se hizo, y evita mensajes de duda o reclamos innecesarios.</p></li>
-<li><label><input type="checkbox" data-cro="gracias-oferta-post-compra" data-weight="3" data-stage="gracias" data-texto="Oferta post-compra en 1 clic"><span>Oferta post-compra en 1 clic (un upsell: una oferta extra que aparece justo después de pagar) <span class="pill pill--danger">alta</span></span></label><p class="cro-item-why">Por qué: es el momento de mayor confianza con la marca; sumar un producto más ahí es fácil y barato.</p></li>
-<li><label><input type="checkbox" data-cro="gracias-seguimiento-pedido" data-weight="2" data-stage="gracias" data-texto="Seguimiento del pedido"><span>Seguimiento del pedido <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: saber cuándo llega el pedido reduce la ansiedad después de pagar.</p></li>
-<li><label><input type="checkbox" data-cro="gracias-descuento-segunda-compra" data-weight="2" data-stage="gracias" data-texto="Descuento para la segunda compra"><span>Descuento para la segunda compra <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: siembra la próxima venta mientras la marca todavía está fresca en la memoria.</p></li>
-<li><label><input type="checkbox" data-cro="gracias-invitacion-comunidad" data-weight="2" data-stage="gracias" data-texto="Invitación al correo o a seguir en Instagram"><span>Invitación al correo o a seguir en Instagram <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: es la forma de seguir en contacto con alguien que ya demostró que confía en la marca.</p></li>
-<li><label><input type="checkbox" data-cro="gracias-productos-relacionados" data-weight="2" data-stage="gracias" data-texto="Productos relacionados"><span>Productos relacionados <span class="pill pill--warn">media</span></span></label><p class="cro-item-why">Por qué: alguien que compró para regalar puede necesitar otro regalo pronto.</p></li>
-<li><label><input type="checkbox" data-cro="gracias-saludo-nombre" data-weight="1" data-stage="gracias" data-texto="Saludo con el nombre de la persona"><span>Saludo con el nombre de la persona <span class="pill pill--info">baja</span></span></label><p class="cro-item-why">Por qué: un detalle pequeño que hace sentir la compra más personal.</p></li>
-<li><label><input type="checkbox" data-cro="gracias-contacto-a-mano" data-weight="1" data-stage="gracias" data-texto="Contacto a mano por si algo sale mal"><span>Contacto a mano por si algo sale mal <span class="pill pill--info">baja</span></span></label><p class="cro-item-why">Por qué: si algo sale mal con el pedido, encontrar cómo escribir tiene que ser fácil.</p></li>
-</ul>
+<div class="callout callout--success">
+<p><strong>Es la oportunidad más grande de las cuatro auditorías corridas hasta ahora</strong> (tienda, correo, Google y Meta Ads). Y a diferencia de otras palancas, las tres causas probables ya están identificadas: el producto estrella agotado (sección 1), las reseñas invisibles (sección 7) y la carga de la ficha de producto en el celular.</p>
 </div>
 </section>
 
-<section class="sec">
-<h2>Cómo usar esta auditoría (y cuándo)</h2>
-<p>No todas las etapas se pueden revisar hoy. Las primeras 3 se marcan navegando la tienda como cualquier persona, y eso no cambió. Las últimas 3 necesitan simular una compra real, y eso todavía no es posible: falta cerrar el acuerdo de salida con quien administra la tienda hoy y que entregue los accesos. 🟢 La reunión del lunes 27 de julio ya se hizo — sirvió para confirmar los hallazgos de esta página — y la próxima es el <strong>miércoles 29 de julio de 2026, a las 10:00 (hora de Chile)</strong>.</p>
+<section class="sec" id="fuentes-trafico">
+<h2>De dónde viene la gente y cuál convierte</h2>
+<p>Atribución de último clic de Shopify, 90 días. No todas las fuentes convierten igual — y las que menos se pagan son de las que mejor convierten.</p>
 
-<div class="timeline">
-  <div class="timeline-item">
-    <div class="timeline-item__date">Desde ahora — semana del 27 de julio de 2026</div>
-    <div class="timeline-item__title">Hoy, sin necesitar accesos</div>
-    <p>Entra a pedrazailustracion.com desde el celular, como si fueras a comprar un regalo. Con eso ya se puede marcar completo: <a href="#etapa-inicio">🏠 Página de inicio</a>, <a href="#etapa-coleccion">🗂️ Página de colección</a> y <a href="#etapa-ficha">📦 Ficha de producto</a>.</p>
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Fuente</th><th>Sesiones</th><th>Conversión</th><th>Pedidos</th><th>% del total</th></tr>
+</thead>
+<tbody>
+<tr><td>Instagram</td><td>22.536</td><td>0,78%</td><td>~176</td><td>42%</td></tr>
+<tr><td>Directo</td><td>4.388</td><td>1,93%</td><td>~85</td><td>20%</td></tr>
+<tr><td>Google orgánico</td><td>2.535</td><td><strong>3,27%</strong></td><td>~83</td><td>20%</td></tr>
+<tr><td>Facebook</td><td>6.059</td><td>0,52%</td><td>~32</td><td>8%</td></tr>
+<tr><td>Meta Ads (etiquetado)</td><td>756</td><td>2,51%</td><td>~19</td><td>5%</td></tr>
+<tr><td>Klaviyo (correo)</td><td>326</td><td><strong>5,21%</strong></td><td>~17</td><td>4%</td></tr>
+<tr><td><strong>Suman</strong></td><td></td><td></td><td><strong>~411</strong></td><td>98% (reales: 420)</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="callout callout--info">
+<p>🟢 <strong>Como mínimo el 40% de los pedidos llega por canales que nadie está pagando</strong> (Google orgánico 20% + directo 20%). Sumando el tráfico orgánico de Instagram, la cifra es bastante mayor.</p>
+</div>
+
+<div class="callout callout--success">
+<p><strong>El contraste que más enseña:</strong> Klaviyo (correo) convierte al <strong>5,21%</strong>, Google orgánico al <strong>3,27%</strong>, Instagram al <strong>0,78%</strong>. El correo convierte 6,7 veces mejor que Instagram, trayendo apenas el 0,9% del tráfico. El detalle completo está en <a href="email.html">Correo y campañas</a>.</p>
+</div>
+
+<p><span class="pill pill--warn">🟡 nota de medición</span> El etiquetado de campañas está roto: solo 756 sesiones llegan marcadas como Meta Ads contra 22.536 de Instagram. Buena parte de ese tráfico "orgánico" de Instagram probablemente viene de publicidad paga que no quedó etiquetada — lo pagado se está contando como si fuera gratis.</p>
+</section>
+
+<section class="sec" id="quiebre-pago">
+<h2>Dónde exactamente se rompe el pago</h2>
+<p>En reuniones anteriores se reportó que "se cae gente justo al pagar", sin poder ubicar el punto exacto. Con los datos de Shopify, ahora sí se puede ubicar.</p>
+
+<div class="kpi-grid">
+  <div class="kpi">
+    <span class="kpi__label">Checkouts abandonados registrados 🟢</span>
+    <span class="kpi__value">185</span>
   </div>
-  <div class="timeline-item">
-    <div class="timeline-item__date">Miércoles 29 de julio de 2026, 10:00 (hora de Chile)</div>
-    <div class="timeline-item__title">Próxima reunión: cierre y entrega de accesos</div>
-    <p>🟢 En la reunión del 27 de julio se confirmaron los 4 hallazgos de más arriba, pero todavía falta cerrar el acuerdo de salida con la persona que hoy administra la tienda para poder recibir los accesos. Apenas estén entregados, se simula una compra de prueba real (agregar productos, avanzar hasta el pago) para marcar <a href="#etapa-carrito">🛒 Carrito</a>, <a href="#etapa-checkout">💳 Checkout</a> y <a href="#etapa-gracias">🎉 Página de gracias</a>. Con acceso al panel de administración de Shopify, ese es también el momento de revisar velocidad de carga y configuración general de la tienda.</p>
+  <div class="kpi">
+    <span class="kpi__label">Monto de esos checkouts 🟢</span>
+    <span class="kpi__value">$6.362.945</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Recuperación automática 🟢</span>
+    <span class="kpi__value">0</span>
   </div>
 </div>
 
-<h3>Sigue revisando el resto del plan</h3>
-<p>Esta página se enfoca solo en conversión (CRO). El resto del plan vive en estas páginas hermanas:</p>
+<div class="callout callout--warn">
+<p><strong>El matiz importante.</strong> Del embudo (sección 2): 1.004 personas llegaron al pago y 420 compraron — eso son <strong>584</strong> que no completaron. Pero solo <strong>185</strong> quedan registradas como "checkout abandonado", porque Shopify solo lo anota cuando la persona alcanzó a dejar su correo. En los casos revisados aparece la dirección de envío completa pero sin ningún intento de pago: <strong>el quiebre está en el paso del pago</strong>, no antes.</p>
+</div>
+
+<p>Hallazgos de configuración del checkout, revisados en la misma auditoría:</p>
+<ul>
+<li><strong>El teléfono es obligatorio</strong> en la dirección de envío — una fricción evitable, ese campo se puede volver opcional.</li>
+<li><strong>No hay pago exprés</strong> (tipo Shop Pay o billeteras en un clic) porque la tienda no usa Shopify Payments: van en paralelo Mercado Pago Tarjetas, Checkout Flow y Mercado Pago Checkout Pro.</li>
+<li><span class="pill pill--success">✅</span> <strong>Se permite comprar sin crear una cuenta.</strong> Esto ya está bien — no hay que tocarlo.</li>
+</ul>
+</section>
+
+<section class="sec" id="demanda-apagada">
+<h2>Lo que está apagado y ya tiene demanda esperando</h2>
+<p>Tres arreglos que no cuestan nada y ya tienen tráfico esperando del otro lado.</p>
+
 <div class="grid-3">
   <div class="card">
-    <h3>💥 Ofertas y pop-ups</h3>
-    <p>Pop-ups segmentados, cómo armar los packs y la barra de envío gratis en el carrito.</p>
-    <a class="btn btn--ghost" href="ofertas.html">Abrir ofertas.html →</a>
+    <h3>🗂️ Los packs están en borrador</h3>
+    <p>6 productos "Pack" con <strong>más de 9.000 vistas combinadas y cero ventas</strong>, porque no se pueden comprar todavía. Pack Naturaleza Chilena: 4.476 vistas. Pack Coleccionista: 2.195. Pack Tarde de Naturaleza: 530.</p>
+    <p>🟢 En <a href="ofertas.html#coleccion-packs">ofertas.html</a> se propuso crear esta colección de packs — ya existen, solo falta publicarlos.</p>
   </div>
   <div class="card">
-    <h3>✉️ Correo y campañas</h3>
-    <p>El plan de campañas de correo: 3 por semana, siempre con una historia primero y un producto después.</p>
-    <a class="btn btn--ghost" href="email.html">Abrir email.html →</a>
+    <h3>⭐ El widget de reseñas nunca se instaló</h3>
+    <p>227 reseñas (222 de producto) en Judge.me, la app de reseñas. En Configuraciones → Widgets, el "Widget de reseñas" figura como <strong>"Instalar"</strong>: nunca se agregó a la plantilla de producto. Solo se ven la insignia de estrellas y el formulario para dejar una reseña nueva.</p>
+    <p>227 reseñas ya ganadas, invisibles para quien está por comprar.</p>
   </div>
   <div class="card">
-    <h3>🗓️ Plan de 90 días</h3>
-    <p>El plan completo, con roles, tareas y cómo se mide cada mes.</p>
-    <a class="btn btn--ghost" href="plan-90-dias.html">Abrir plan-90-dias.html →</a>
+    <h3>🧩 El producto estrella, agotado</h3>
+    <p>El Puzzle Aves y Flores — 8.558 vistas, el más vendido de la tienda — está sin stock. Ver el hallazgo completo en la <a href="#hallazgo-principal">sección 1</a> de esta página.</p>
   </div>
 </div>
-
-<footer class="cro-footer">
-  <p>Marco de auditoría adaptado del proceso de 1337 Corp, basado en research de Baymard Institute y Shopify.</p>
-</footer>
 </section>
+
+<section class="sec" id="busquedas-sitio">
+<h2>Lo que la gente busca y no encuentra</h2>
+<p>209 búsquedas dentro del sitio en 90 días. Cerca del <strong>15% no arroja ningún resultado</strong> — ahí hay demanda documentada, útil para decidir qué catálogo sumar más adelante.</p>
+
+<div class="card">
+<h3>Lo más buscado, y sí existe en la tienda</h3>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">Puzzle</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div>
+  <span class="chart-bar-row__value">16</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">Pin</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:81%"></div></div>
+  <span class="chart-bar-row__value">13</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">Naipes</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:69%"></div></div>
+  <span class="chart-bar-row__value">11</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">Hongos</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:69%"></div></div>
+  <span class="chart-bar-row__value">11</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">Calcetines</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:63%"></div></div>
+  <span class="chart-bar-row__value">10</span>
+</div>
+<div class="chart-bar-row">
+  <span class="chart-bar-row__label">Postales</span>
+  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:63%"></div></div>
+  <span class="chart-bar-row__value">10</span>
+</div>
+</div>
+
+<div class="card">
+<h3>Lo que se busca y no existe</h3>
+<p>Productos que la gente pidió por el buscador y no están en catálogo:</p>
+<p><span class="pill pill--warn">tazas y vajilla</span> <span class="pill pill--warn">manta</span> <span class="pill pill--warn">memorice</span> <span class="pill pill--warn">reloj</span> <span class="pill pill--warn">funda</span></p>
+<p>Y especies sin producto propio todavía:</p>
+<p><span class="pill pill--warn">picaflor</span> <span class="pill pill--warn">bandurria</span> <span class="pill pill--warn">chincol</span></p>
+</div>
+</section>
+
+<section class="sec" id="plan-en-orden">
+<h2>El plan, en orden</h2>
+<p>14 correcciones, priorizadas: primero las que no cuestan nada y no dependen de nadie más, después las que se activan con la preventa y el stock del 15 de agosto. Marca lo que ya está hecho — queda guardado en este navegador para la próxima visita. El detalle de ejecución de cada punto está en <a href="tienda-cambios.html">Cambios en la tienda</a>.</p>
+
+<div class="card">
+<div class="progress">
+  <div class="progress__track"><div class="progress__fill" id="cro-progress-fill"></div></div>
+  <span class="progress__label" id="cro-progress-label">0 de 14 arreglos marcados (0%)</span>
+</div>
+</div>
+
+<div class="card">
+<h3>Gratis y con demanda ya esperando</h3>
+<div class="progress">
+  <div class="progress__track"><div class="progress__fill" data-progress-fill-grupo="gratis"></div></div>
+  <span class="progress__label" data-progress-label-grupo="gratis">0 de 10 (0%)</span>
+</div>
+<ul class="checklist">
+<li><label><input type="checkbox" data-cro="packs-publicar-borrador" data-grupo="gratis"><span>Publicar los packs que están en borrador</span></label><p class="cro-item-why">Dónde: Shopify · Impacto: +9.000 vistas que hoy rebotan sin poder comprar.</p></li>
+<li><label><input type="checkbox" data-cro="resenas-widget-instalar" data-grupo="gratis"><span>Instalar el widget de reseñas en la plantilla de producto</span></label><p class="cro-item-why">Dónde: Shopify (Judge.me) · Impacto: 227 reseñas hoy invisibles.</p></li>
+<li><label><input type="checkbox" data-cro="klaviyo-flujo-reposicion" data-grupo="gratis"><span>Activar el flujo de reposición de stock</span></label><p class="cro-item-why">Dónde: Klaviyo · Impacto: crítico — el stock llega el 15 de agosto y hoy nadie recibe aviso.</p></li>
+<li><label><input type="checkbox" data-cro="codigo-egratis-quitar" data-grupo="gratis"><span>Quitar el código de descuento "egratis"</span></label><p class="cro-item-why">Dónde: Shopify · Impacto: hoy rompe la regla de envío gratis sobre $50.000.</p></li>
+<li><label><input type="checkbox" data-cro="codigo-secreto-restringir" data-grupo="gratis"><span>Restringir o rotar el código "SECRETO"</span></label><p class="cro-item-why">Dónde: Shopify · Impacto: usado 389 veces sin ninguna restricción de cliente.</p></li>
+<li><label><input type="checkbox" data-cro="klaviyo-segmentos-usar" data-grupo="gratis"><span>Usar los 8 segmentos de Klaviyo ya construidos</span></label><p class="cro-item-why">Dónde: Klaviyo · Impacto: <span class="pill pill--warn">🟡</span> $200.000-400.000/mes estimado.</p></li>
+<li><label><input type="checkbox" data-cro="bienvenida-correo-reescribir" data-grupo="gratis"><span>Reescribir el correo de bienvenida para quien nunca compró</span></label><p class="cro-item-why">Dónde: Klaviyo · Impacto: hoy es una copia sin trabajar del correo para clientes existentes.</p></li>
+<li><label><input type="checkbox" data-cro="carrito-cuarto-correo-quitar" data-grupo="gratis"><span>Quitar el cuarto correo del flujo de carrito abandonado</span></label><p class="cro-item-why">Dónde: Klaviyo · Impacto: hoy convierte $0 de los $246.971 que genera el flujo completo.</p></li>
+<li><label><input type="checkbox" data-cro="apps-desinstalar" data-grupo="gratis"><span>Desinstalar las 4 apps que no aportan</span></label><p class="cro-item-why">Dónde: Shopify · Impacto: menos scripts cargando, celular más rápido.</p></li>
+<li><label><input type="checkbox" data-cro="checkout-telefono-opcional" data-grupo="gratis"><span>Sacar el teléfono obligatorio del checkout</span></label><p class="cro-item-why">Dónde: Shopify · Impacto: fricción evitable en el paso donde se rompe el pago.</p></li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Con la preventa y el stock (6 y 15 de agosto)</h3>
+<div class="progress">
+  <div class="progress__track"><div class="progress__fill" data-progress-fill-grupo="stock"></div></div>
+  <span class="progress__label" data-progress-label-grupo="stock">0 de 4 (0%)</span>
+</div>
+<ul class="checklist">
+<li><label><input type="checkbox" data-cro="puzzle-reponer-stock" data-grupo="stock"><span>Reponer el Puzzle Aves y Flores</span></label><p class="cro-item-why">Impacto: el 23% del tráfico de la tienda deja de rebotar.</p></li>
+<li><label><input type="checkbox" data-cro="movil-carrito-atacar" data-grupo="stock"><span>Atacar el paso de sesión a carrito en móvil</span></label><p class="cro-item-why">Impacto: es donde está la mayor oportunidad de venta de las cuatro auditorías (sección 4).</p></li>
+<li><label><input type="checkbox" data-cro="klaviyo-reactivacion-dormidos" data-grupo="stock"><span>Activar el flujo de reactivación con los 2.175 dormidos</span></label><p class="cro-item-why">Dónde: Klaviyo · Impacto: segmento "Comprador 1 vez · Dormido +180 días" ya construido, sin usar.</p></li>
+<li><label><input type="checkbox" data-cro="ads-etiquetado-arreglar" data-grupo="stock"><span>Arreglar el etiquetado de campañas</span></label><p class="cro-item-why">Impacto: hoy lo pagado se mide como si fuera orgánico (sección 5).</p></li>
+</ul>
+</div>
+</section>
+
+<footer class="page-footer"><p>Fuente: auditoría de Shopify y Klaviyo del operador (90 días, 4 de mayo al 2 de agosto de 2026) y auditoría de Google Ads y Meta (30 días, 2 al 31 de julio de 2026). Las cifras marcadas 🟢 son datos medidos; las marcadas 🟡 son proyecciones o supuestos, no mediciones. Sigue con <a href="preventa.html">Preventa de puzzles</a>, <a href="email.html">Correo y campañas</a>, <a href="tienda-cambios.html">Cambios en la tienda</a> y <a href="ads.html">Google y Meta Ads</a>.</p></footer>
 
 </main>
 
@@ -1324,189 +1356,51 @@ main { counter-reset: sec; }
 </script>
 
 <script>
-  // ===== Auditoría de las 6 etapas: checklist con puntaje ponderado =====
-
-  var CRO_LEVELS = [
-    { min: 85, label: 'Excelente — lista para escalar', cls: 'pill--success' },
-    { min: 65, label: 'Buena — pulir detalles', cls: 'pill--info' },
-    { min: 40, label: 'En camino — hay oportunidad', cls: 'pill--warn' },
-    { min: 0,  label: 'Base — mucho por ganar', cls: 'pill--danger' }
-  ];
-
-  var ETAPA_NOMBRES = {
-    inicio: 'Inicio',
-    coleccion: 'Colección',
-    ficha: 'Ficha de producto',
-    carrito: 'Carrito',
-    checkout: 'Checkout',
-    gracias: 'Gracias'
-  };
-
-  var PESO_A_TEXTO = { 3: 'alta', 2: 'media', 1: 'baja' };
-  var PESO_A_PILL = { 3: 'pill--danger', 2: 'pill--warn', 1: 'pill--info' };
-
-  function nivelPorScore(pct) {
-    for (var i = 0; i < CRO_LEVELS.length; i++) {
-      if (pct >= CRO_LEVELS[i].min) return CRO_LEVELS[i];
-    }
-    return CRO_LEVELS[CRO_LEVELS.length - 1];
-  }
-
-  function escapeHtml(str) {
-    var div = document.createElement('div');
-    div.textContent = str || '';
-    return div.innerHTML;
-  }
+  // ===== "El plan, en orden": checklist priorizada con barra de progreso =====
 
   function cargarChecklistCro() {
     document.querySelectorAll('[data-cro]').forEach(function (cb) {
       cb.checked = pgGet('pedraza-plan:cro:' + cb.getAttribute('data-cro')) === '1';
     });
-    actualizarAuditoria();
+    actualizarProgresoCro();
   }
 
-  // Delegación: un solo listener de cambio para toda la auditoría.
+  // Delegación: un solo listener de cambio para toda la checklist.
   document.addEventListener('change', function (e) {
     var cb = e.target.closest('[data-cro]');
     if (!cb) return;
     var key = 'pedraza-plan:cro:' + cb.getAttribute('data-cro');
     if (cb.checked) { pgSet(key, '1'); } else { pgRemove(key); }
-    actualizarAuditoria();
+    actualizarProgresoCro();
   });
 
-  function actualizarAuditoria() {
-    var items = Array.prototype.slice.call(document.querySelectorAll('[data-cro]'));
+  function actualizarProgresoCro() {
+    var cajas = document.querySelectorAll('[data-cro]');
+    var total = cajas.length;
+    var done = 0;
+    cajas.forEach(function (cb) { if (cb.checked) done++; });
+    var pct = total ? Math.round((done / total) * 100) : 0;
 
-    // Puntaje total 0-100
-    var totalPeso = 0, hechoPeso = 0;
-    items.forEach(function (cb) {
-      var w = parseInt(cb.getAttribute('data-weight'), 10) || 0;
-      totalPeso += w;
-      if (cb.checked) hechoPeso += w;
-    });
-    var pct = totalPeso ? Math.round((hechoPeso / totalPeso) * 100) : 0;
-    var nivel = nivelPorScore(pct);
+    var fillEl = document.getElementById('cro-progress-fill');
+    var labelEl = document.getElementById('cro-progress-label');
+    if (fillEl) fillEl.style.width = pct + '%';
+    if (labelEl) labelEl.textContent = done + ' de ' + total + ' arreglos marcados (' + pct + '%)';
 
-    var scoreNumberEl = document.getElementById('cro-score-number');
-    var scoreLevelEl = document.getElementById('cro-score-level');
-    var scoreFillEl = document.getElementById('cro-score-fill');
-    var scoreLabelEl = document.getElementById('cro-score-label');
-    if (scoreNumberEl) scoreNumberEl.textContent = pct;
-    if (scoreLevelEl) { scoreLevelEl.textContent = nivel.label; scoreLevelEl.className = 'pill ' + nivel.cls; }
-    if (scoreFillEl) scoreFillEl.style.width = pct + '%';
-    if (scoreLabelEl) scoreLabelEl.textContent = hechoPeso + ' de ' + totalPeso + ' puntos marcados (' + pct + '%)';
-
-    // Puntaje por etapa
-    var etapas = {};
-    items.forEach(function (cb) {
-      var etapa = cb.getAttribute('data-stage');
-      var w = parseInt(cb.getAttribute('data-weight'), 10) || 0;
-      if (!etapas[etapa]) etapas[etapa] = { total: 0, hecho: 0 };
-      etapas[etapa].total += w;
-      if (cb.checked) etapas[etapa].hecho += w;
-    });
-    Object.keys(etapas).forEach(function (etapa) {
-      var e = etapas[etapa];
-      var p = e.total ? Math.round((e.hecho / e.total) * 100) : 0;
-      var fill = document.querySelector('[data-stage-fill="' + etapa + '"]');
-      var label = document.querySelector('[data-stage-label="' + etapa + '"]');
-      if (fill) fill.style.width = p + '%';
-      if (label) label.textContent = e.hecho + ' de ' + e.total + ' puntos (' + p + '%)';
-    });
-
-    // Corrige esto primero: los 6 ítems sin marcar de mayor peso
-    var pendientes = items.filter(function (cb) { return !cb.checked; });
-    pendientes.sort(function (a, b) {
-      return (parseInt(b.getAttribute('data-weight'), 10) || 0) - (parseInt(a.getAttribute('data-weight'), 10) || 0);
-    });
-    var top6 = pendientes.slice(0, 6);
-    var listaEl = document.getElementById('cro-fix-first-list');
-    var vacioEl = document.getElementById('cro-fix-first-vacio');
-    if (listaEl) {
-      listaEl.innerHTML = '';
-      top6.forEach(function (cb) {
-        var w = parseInt(cb.getAttribute('data-weight'), 10) || 0;
-        var etapaNombre = ETAPA_NOMBRES[cb.getAttribute('data-stage')] || cb.getAttribute('data-stage');
-        var li = document.createElement('li');
-        li.innerHTML = '<strong>' + escapeHtml(cb.getAttribute('data-texto')) + '</strong> ' +
-          '<span class="pill ' + PESO_A_PILL[w] + '">' + PESO_A_TEXTO[w] + '</span> ' +
-          '<span class="pill">' + escapeHtml(etapaNombre) + '</span>';
-        listaEl.appendChild(li);
-      });
-      listaEl.style.display = top6.length ? '' : 'none';
-    }
-    if (vacioEl) vacioEl.style.display = top6.length ? 'none' : '';
-  }
-
-  // ===== Calculadora de impacto =====
-
-  function formatMiles(n) {
-    try { return Math.round(n).toLocaleString('es-CL'); } catch (e) { return String(Math.round(n)); }
-  }
-
-  function pintarCampo(id, valor) {
-    var el = document.querySelector('[data-calc="' + id + '"]');
-    if (el) el.textContent = valor;
-  }
-
-  function calcularEscenarios() {
-    var visitasEl = document.getElementById('calc-visitas');
-    var conversionEl = document.getElementById('calc-conversion');
-    var ticketEl = document.getElementById('calc-ticket');
-    if (!visitasEl || !conversionEl || !ticketEl) return;
-
-    var visitas = parseFloat(visitasEl.value);
-    var conversionHoy = parseFloat(conversionEl.value);
-    var ticket = parseFloat(ticketEl.value);
-
-    var valido = !isNaN(visitas) && !isNaN(conversionHoy) && !isNaN(ticket) &&
-      visitas >= 0 && conversionHoy >= 0 && ticket >= 0;
-
-    var escenarios = [
-      { id: 'hoy', conv: conversionHoy },
-      { id: 'conservador', conv: 1.5 },
-      { id: 'optimo', conv: 2.0 }
-    ];
-
-    if (!valido) {
-      escenarios.forEach(function (esc) {
-        pintarCampo(esc.id + '-pedidos', '—');
-        pintarCampo(esc.id + '-ventas-clp', '—');
-        pintarCampo(esc.id + '-ventas-usd', '—');
-        pintarCampo(esc.id + '-mejora', '—');
-      });
-      return;
-    }
-
-    var pedidosHoy = Math.round(visitas * (conversionHoy / 100));
-    var ventasHoy = pedidosHoy * ticket;
-
-    escenarios.forEach(function (esc) {
-      var pedidos = Math.round(visitas * (esc.conv / 100));
-      var ventas = pedidos * ticket;
-      var ventasUsd = Math.round(ventas / 925);
-
-      pintarCampo(esc.id + '-pedidos', formatMiles(pedidos));
-      pintarCampo(esc.id + '-ventas-clp', '$' + formatMiles(ventas) + ' CLP');
-      pintarCampo(esc.id + '-ventas-usd', '≈ US$ ' + formatMiles(ventasUsd));
-
-      if (esc.id !== 'hoy') {
-        var mejora = (ventasHoy > 0) ? Math.round(((ventas - ventasHoy) / ventasHoy) * 100) : null;
-        pintarCampo(esc.id + '-mejora', (mejora === null) ? '—' : (mejora >= 0 ? '+' : '') + mejora + '%');
-      }
+    // Progreso por grupo: "gratis" (correcciones sin costo) y "stock" (dependen de la preventa/stock).
+    ['gratis', 'stock'].forEach(function (grupo) {
+      var cajasGrupo = document.querySelectorAll('[data-cro][data-grupo="' + grupo + '"]');
+      var totalGrupo = cajasGrupo.length;
+      var doneGrupo = 0;
+      cajasGrupo.forEach(function (cb) { if (cb.checked) doneGrupo++; });
+      var pctGrupo = totalGrupo ? Math.round((doneGrupo / totalGrupo) * 100) : 0;
+      var fillGrupo = document.querySelector('[data-progress-fill-grupo="' + grupo + '"]');
+      var labelGrupo = document.querySelector('[data-progress-label-grupo="' + grupo + '"]');
+      if (fillGrupo) fillGrupo.style.width = pctGrupo + '%';
+      if (labelGrupo) labelGrupo.textContent = doneGrupo + ' de ' + totalGrupo + ' (' + pctGrupo + '%)';
     });
   }
 
-  document.addEventListener('input', function (e) {
-    if (e.target && (e.target.id === 'calc-visitas' || e.target.id === 'calc-conversion' || e.target.id === 'calc-ticket')) {
-      calcularEscenarios();
-    }
-  });
-
-  document.addEventListener('DOMContentLoaded', function () {
-    cargarChecklistCro();
-    calcularEscenarios();
-  });
+  document.addEventListener('DOMContentLoaded', cargarChecklistCro);
 </script>
 <script>
   // Navegación global: barra superior + panel completo (15 páginas, 4 grupos).
