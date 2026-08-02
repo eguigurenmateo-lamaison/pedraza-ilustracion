@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Tablero de KPIs — Plan Pedraza Ilustración</title>
+<title>Tablero de métricas — Plan Pedraza Ilustración</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
 <style>
 /* ==========================================================================
@@ -874,162 +874,296 @@ main { counter-reset: sec; }
 
 <header class="hero">
   <div class="hero__inner">
-    <h1>Tablero de KPIs</h1>
-    <p>Los números de Instagram y de la tienda, semana a semana, en un solo lugar. Tú controlas los datos: viven en tu propio Google Sheet, no en ningún servidor.</p>
+    <h1>Tablero de métricas semanales</h1>
+    <p>Las líneas base reales de la tienda, los clientes, el correo y la publicidad — medidas el 2 de agosto de 2026 sobre datos de Shopify y Klaviyo, no sobre estimaciones. Esto es lo que se revisa cada lunes.</p>
   </div>
 </header>
 
 <main class="wrap">
 
   <section class="sec">
-    <h2>Configurar el tablero (se hace una sola vez)</h2>
-    <p>Esta configuración toma unos 10 minutos y solo se hace una vez. Después de esto, cada semana solo hay que agregar una fila nueva al Sheet y el tablero se actualiza solo.</p>
+    <h2>La regla que manda</h2>
+    <p>Antes de mirar cualquier tabla, dos reglas que valen para todo este tablero, sin excepción.</p>
+
+    <div class="callout callout--info">
+      <p><strong>Regla 1 — se mide con datos de Shopify, no de las plataformas.</strong> Meta, Google y Klaviyo, sumados, se atribuyen el 81% de los pedidos de julio. Eso es imposible: el correo aporta un 11,8% medido y la marca tiene 62.500 seguidores que compran directo, sin pasar por un anuncio. Lo que pasa es que la misma venta la cuentan dos veces — alguien ve un aviso en Instagram, después busca "Pedraza Ilustración" en Google y compra ahí: Meta se la atribuye por la vista, Google por el clic. La única cifra limpia sale de la caja de Shopify, nunca de lo que reporta cada plataforma por separado. El detalle completo está en <a href="ads.html">la auditoría de Google y Meta Ads</a>.</p>
+    </div>
+
+    <div class="callout callout--warn">
+      <p><strong>Regla 2 — se mide margen, no venta.</strong> Una oferta puede subir la venta y bajar la utilidad al mismo tiempo: un descuento agresivo trae más pedidos, pero deja menos plata en cada uno. Perder así "con estilo" sigue siendo perder. Por eso este tablero muestra el margen junto a la venta cada vez que hace la diferencia.</p>
+    </div>
+
+    <div class="chart-bar-row">
+      <span class="chart-bar-row__label">Dicen Meta+Google+Klaviyo</span>
+      <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:81%"></div></div>
+      <span class="chart-bar-row__value">81%</span>
+    </div>
+    <div class="chart-bar-row">
+      <span class="chart-bar-row__label">Pasó por la caja</span>
+      <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%;background:var(--brand-green)"></div></div>
+      <span class="chart-bar-row__value">100%</span>
+    </div>
+    <p style="font-size:var(--fs-sm);color:var(--ink-soft)">Meta dice 105 pedidos, Google dice 17: suman 122. Shopify registró 151 pedidos reales en julio. Esa diferencia (81% contra 100%) es la prueba de que las plataformas se solapan entre sí. Fuente: <a href="ads.html">auditoría de Google y Meta Ads</a>, 1 de agosto de 2026.</p>
+  </section>
+
+  <section class="sec">
+    <h2>El tablero de la semana</h2>
+    <p>Las líneas base reales, medidas el 2 de agosto de 2026 sobre 90 días de datos de Shopify y Klaviyo. Todo lo marcado 🟢 está medido, no calculado a ojo. Lo marcado 🟡 es una apuesta a futuro, todavía no un hecho.</p>
+
+    <h3>La tienda</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Métrica</th><th>Qué es</th><th>Línea base 🟢</th><th>Meta 🟡</th><th>Dónde se mira</th></tr></thead>
+        <tbody>
+          <tr><td>Conversión general</td><td>De cada 100 personas que entran a la tienda, cuántas compran</td><td>1,11%</td><td>~1,7%</td><td>Shopify → Analytics, resumen de tienda online, tasa de conversión</td></tr>
+          <tr><td>Conversión en móvil</td><td>Lo mismo, solo desde el celular — el 92% del tráfico</td><td>0,94%</td><td>~1,7%</td><td>Shopify → Analytics, resumen de tienda online, filtrado por móvil</td></tr>
+          <tr><td>Conversión en escritorio</td><td>Lo mismo, desde computador — el 8% del tráfico</td><td>2,98%</td><td>— (referencia)</td><td>Shopify → Analytics, filtrado por escritorio</td></tr>
+          <tr><td>Agregar al carrito, móvil</td><td>De cada 100 visitas móviles, cuántas ponen algo en el carrito</td><td>3,18%</td><td>5,7%</td><td>Shopify → Analytics, embudo de conversión, filtrado por móvil</td></tr>
+          <tr><td>Agregar al carrito, escritorio</td><td>Lo mismo, desde computador</td><td>8,22%</td><td>— (referencia)</td><td>Shopify → Analytics, embudo, filtrado por escritorio</td></tr>
+          <tr><td>Ticket promedio bruto</td><td>Lo que paga cada persona por pedido, con IVA y envío</td><td>$37.450</td><td>$42.000</td><td>Shopify → Analytics, valor promedio de pedido</td></tr>
+          <tr><td>Ticket promedio neto</td><td>Lo mismo sin IVA ni envío — el que sirve para calcular margen</td><td>$27.980</td><td>— (sube junto al bruto)</td><td>Se calcula: producto vendido ÷ 1,19</td></tr>
+          <tr><td>Unidades por pedido</td><td>Cuántos productos lleva, en promedio, cada compra</td><td>1,64</td><td>— (referencia para stock)</td><td>Reporte de ventas por producto ÷ pedidos pagados</td></tr>
+          <tr><td>Pedidos al mes</td><td>Cuántas compras se cierran en un mes típico</td><td>140</td><td>— (sube con conversión y ticket)</td><td>Shopify → Analytics, reporte de ventas</td></tr>
+          <tr><td>Margen bruto e-commerce</td><td>De cada $100 vendidos netos, cuánto queda antes de gastos fijos</td><td>~72%</td><td>— (se mantiene estable)</td><td>Se calcula: margen ÷ venta neta</td></tr>
+          <tr><td>Margen por pedido</td><td>La utilidad bruta de un pedido promedio</td><td>$20.146</td><td>— (sube junto al ticket)</td><td>Se calcula: ticket neto × 72%</td></tr>
+          <tr><td>Pedidos sobre $50.000</td><td>Cuántos pedidos ya alcanzan el envío gratis</td><td>37%</td><td>45%</td><td>Shopify → Analytics, pedidos ≥ $50.000 ÷ total de pedidos</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="chart-bar-row">
+      <span class="chart-bar-row__label">Carrito, móvil</span>
+      <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:38.7%"></div></div>
+      <span class="chart-bar-row__value">3,18%</span>
+    </div>
+    <div class="chart-bar-row">
+      <span class="chart-bar-row__label">Carrito, escritorio</span>
+      <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%;background:var(--brand-green)"></div></div>
+      <span class="chart-bar-row__value">8,22%</span>
+    </div>
+    <p style="font-size:var(--fs-sm);color:var(--ink-soft)">El móvil agrega al carrito 2,6 veces peor que el escritorio, y es el 92% del tráfico: ahí está la oportunidad más grande de las cuatro auditorías. Fuente: <a href="cro.html">auditoría de Shopify y Klaviyo</a>, 2 de agosto de 2026.</p>
+
+    <h3>Los clientes</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Métrica</th><th>Qué es</th><th>Línea base 🟢</th><th>Meta 🟡</th><th>Dónde se mira</th></tr></thead>
+        <tbody>
+          <tr><td>Tasa de recompra</td><td>De cada 100 clientes, cuántos vuelven a comprar alguna vez</td><td>7,2%</td><td>20% (12% a los 6 meses)</td><td>Shopify → Analíticas → Informes, clientes recurrentes o cohortes (toda la base, no el panel de 30 días)</td></tr>
+          <tr><td>Clientes con 2+ compras</td><td>La cantidad real de personas que ya volvieron</td><td>205 de 2.848</td><td>300</td><td>No hay reporte directo: se revisa la fecha de pedidos de cada cliente con 2 o más compras</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>El correo</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Métrica</th><th>Qué es</th><th>Línea base 🟢</th><th>Meta 🟡</th><th>Dónde se mira</th></tr></thead>
+        <tbody>
+          <tr><td>Correo: % de la venta</td><td>De cada $100 que vende la tienda, cuántos vienen de un correo</td><td>11,8%</td><td>20-25%</td><td>Klaviyo → Analytics, ingreso atribuido; o Shopify, atribución de último clic filtrando Klaviyo</td></tr>
+          <tr><td>Correo: conversión</td><td>De la gente que entra desde un correo, cuántos compran — la mejor de toda la tienda</td><td>5,21%</td><td>— (que no baje)</td><td>Shopify, atribución de último clic filtrando Klaviyo</td></tr>
+          <tr><td>Lista de Klaviyo</td><td>Cuánta gente puede recibir un correo hoy</td><td>5.439</td><td>+210 netos al mes</td><td>Klaviyo → Lists & Segments → Newsletter</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>La publicidad</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Métrica</th><th>Qué es</th><th>Línea base 🟢</th><th>Meta 🟡</th><th>Dónde se mira</th></tr></thead>
+        <tbody>
+          <tr><td>Retorno publicitario real</td><td>Por cada peso invertido en anuncios, cuántos vuelven en venta neta</td><td>4,58</td><td>Sostenerlo o subirlo (nunca contra el 5,93 de Meta)</td><td>Se calcula — ver la sección siguiente</td></tr>
+          <tr><td>Inversión publicitaria</td><td>Cuánto se gasta en Meta y Google juntos</td><td>$919.649/mes</td><td>Sube solo después de arreglar lo estructural</td><td>Meta Ads Manager + Google Ads, gasto del mes</td></tr>
+          <tr><td>Costo por pedido nuevo</td><td>Cuánto cuesta conseguir un pedido a través de publicidad</td><td>$6.529</td><td>Que no supere el margen por pedido ($20.146)</td><td>Inversión publicitaria ÷ pedidos del mes</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Las tres métricas que deciden</h2>
+    <p>Si solo hubiera tiempo para mirar tres números cada semana, son estos. No son los más grandes ni los más fáciles de mover: son los que, cuando cambian, dicen algo real sobre el negocio.</p>
+
+    <div class="kpi-grid">
+      <div class="kpi">
+        <span class="kpi__label">Conversión en móvil 🟢</span>
+        <span class="kpi__value">0,94%</span>
+      </div>
+      <div class="kpi">
+        <span class="kpi__label">Tasa de recompra 🟢</span>
+        <span class="kpi__value">7,2%</span>
+      </div>
+      <div class="kpi">
+        <span class="kpi__label">Retorno real sobre venta neta 🟢</span>
+        <span class="kpi__value">4,58</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>1. Conversión en móvil (0,94%)</h3>
+      <p><strong>Por qué esta y no otra:</strong> el 92% del tráfico entra por el celular, y ahí la conversión es tres veces peor que en escritorio (0,94% contra 2,98%). Es el tráfico más grande de la tienda con el peor resultado — moverla mueve más plata que cualquier otro número de este tablero.</p>
+      <p><strong>Si se mueve:</strong> si sube, revisar si fue el stock del puzzle de aves, el widget de reseñas o la velocidad de carga móvil — las tres causas ya identificadas. Si baja, revisar primero si algún producto top volvió a quedar sin stock.</p>
+    </div>
+
+    <div class="card">
+      <h3>2. Tasa de recompra (7,2%)</h3>
+      <p><strong>Por qué esta y no otra:</strong> 93 de cada 100 clientes compran una sola vez y no vuelven nunca. Es más barato venderle otra vez a alguien que ya confía en la marca que conseguir un cliente nuevo con publicidad ($6.529 por pedido nuevo contra un correo casi gratis).</p>
+      <p><strong>Si se mueve:</strong> si no sube, revisar si los flujos de Klaviyo de reposición de stock y reactivación siguen apagados, y si el pop-up para quien ya compró una vez (el "gracias 10") está encendido.</p>
+    </div>
+
+    <div class="card">
+      <h3>3. Retorno real sobre venta neta (4,58)</h3>
+      <p><strong>Por qué esta y no otra:</strong> es la única cifra de publicidad que no se puede inflar, porque sale de la caja de Shopify y no de lo que cada plataforma se atribuye a sí misma. El 5,93 que reporta Meta está inflado por un problema de deduplicación del píxel.</p>
+      <p><strong>Si se mueve:</strong> si baja, revisar primero si subió la inversión sin que subiera la venta real — nunca comparar contra el número que reporta Meta o Google por separado.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Cómo se calcula el retorno real</h2>
+    <p>La fórmula que no se puede inflar, porque una venta solo pasa una vez por la caja de Shopify.</p>
+
+    <div class="callout callout--info">
+      <p>💡 <strong>venta neta real de Shopify (sin IVA ni envío) ÷ inversión publicitaria total (Meta + Google)</strong></p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Paso</th><th>Cálculo</th><th>Resultado</th></tr></thead>
+        <tbody>
+          <tr><td>1. Venta neta de Shopify (sin IVA ni envío)</td><td>—</td><td>$4.214.684</td></tr>
+          <tr><td>2. Inversión en Meta</td><td>—</td><td>$746.502</td></tr>
+          <tr><td>3. Inversión en Google</td><td>—</td><td>$173.147</td></tr>
+          <tr><td>4. Inversión total</td><td>$746.502 + $173.147</td><td>$919.649</td></tr>
+          <tr><td>5. Retorno real</td><td>$4.214.684 ÷ $919.649</td><td><strong>4,58</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p><strong>Por qué el 5,93 de Meta no sirve:</strong> es lo que Meta se atribuye a sí misma, sin cruzar con nada más. El píxel de Meta cuenta 1,75 veces más compras de las que realmente pasaron por Shopify — hay un problema de deduplicación activo (el navegador y el servidor cuentan la misma compra dos veces). Eso optimiza hacia el público equivocado y muestra un retorno más alto del real.</p>
+
+    <p><strong>Por qué el ~5,5 de la reunión no sirve:</strong> es venta total dividida por inversión total, pero "venta total" incluye IVA y envío — plata que nunca fue utilidad, solo pasó de largo hacia el Estado o hacia el courier. Sin sacar esos dos componentes, el número queda inflado.</p>
+
+    <div class="callout callout--success">
+      <p>🟢 El negocio publicitario es rentable y con holgura: por cada peso invertido, vuelven 4,58 pesos en venta neta. El problema no es que la publicidad no funcione — es que está mal configurada y mal medida. El detalle de los arreglos está en <a href="ads.html">Google y Meta Ads</a>.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>La rutina del lunes</h2>
+    <p>Ocho pasos, en orden, para hacer al tiro los lunes en la mañana — unos 20 minutos en total. Cada uno indica exactamente dónde se saca el dato.</p>
+
+    <div class="progress">
+      <div class="progress__track"><div class="progress__fill" data-progress-fill></div></div>
+      <span class="progress__label" data-progress-label>0 de 8 pasos (0%)</span>
+    </div>
 
     <ol class="pasos-config">
       <li>
-        <h3>Crea el Google Sheet</h3>
-        <p>Ve a <strong>sheets.google.com</strong> y crea una hoja de cálculo nueva y vacía. Ponle un nombre fácil de reconocer, por ejemplo "Tablero Pedraza Ilustración".</p>
+        <h3>Conversión de la tienda (5 min)</h3>
+        <p>Shopify → Analytics → resumen de tienda online. Anota la conversión general, la de móvil y la de escritorio de la semana.</p>
+        <ul class="checklist"><li><label><input type="checkbox" data-tablero="conversion-tienda"><span>Hecho</span></label></li></ul>
       </li>
-
       <li>
-        <h3>Pega la fila de encabezados</h3>
-        <p>Haz clic en la primera celda (arriba a la izquierda, la celda <strong>A1</strong>) y pega este texto tal cual, sin modificarlo:</p>
-        <div class="copyblock">
-          <button type="button" class="copyblock__btn" data-copy-target="copy-encabezados">Copiar</button>
-          <div class="copyblock__text" id="copy-encabezados">Semana,Alcance,Alcance no-seguidores,Reproducciones de Reels,Guardados,Compartidos,Comentarios,Seguidores nuevos,DMs iniciados,Clics al link de bio,Sesiones de la tienda desde IG,Pedidos,Ingresos</div>
-        </div>
-        <p>Puede pasar una de estas dos cosas al pegar, y las dos están bien:</p>
-        <ul>
-          <li><strong>El texto se separa solo en columnas.</strong> Google Sheets suele reconocer las comas automáticamente y cada palabra cae en su propia celda (A1, B1, C1…). Si ves 13 encabezados distintos, uno por celda, ya quedó listo.</li>
-          <li><strong>El texto queda todo junto en la celda A1.</strong> En ese caso: con la celda A1 seleccionada, ve al menú <strong>Datos → Dividir texto en columnas</strong>. Google Sheets debería detectar la coma sola; si te pregunta el separador, elige <strong>"Coma"</strong>. Al confirmar, el texto se reparte en las 13 columnas.</li>
-        </ul>
+        <h3>Ticket y umbral de envío gratis (2 min)</h3>
+        <p>Mismo reporte: anota el ticket promedio y qué porcentaje de los pedidos de la semana superó los $50.000.</p>
+        <ul class="checklist"><li><label><input type="checkbox" data-tablero="ticket-umbral"><span>Hecho</span></label></li></ul>
       </li>
-
       <li>
-        <h3>Llena una fila por semana</h3>
-        <p>Cada semana agrega una fila nueva debajo de la anterior (fila 2, luego fila 3, y así). En "Semana" escribe una fecha o nombre que la identifique, por ejemplo <strong>"20 jul"</strong> o <strong>"Semana 1"</strong>. Los otros 12 datos salen de dos lugares:</p>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th>Columna</th><th>Fuente</th><th>Dónde encontrarla</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Alcance</td><td><span class="pill pill--info">Instagram</span></td><td>Insights → Resumen → cuentas alcanzadas.</td></tr>
-              <tr><td>Alcance no-seguidores</td><td><span class="pill pill--info">Instagram</span></td><td>Insights → mismo reporte de alcance, filtro "No seguidores".</td></tr>
-              <tr><td>Reproducciones de Reels</td><td><span class="pill pill--info">Instagram</span></td><td>Insights → Contenido → Reels → reproducciones.</td></tr>
-              <tr><td>Guardados</td><td><span class="pill pill--info">Instagram</span></td><td>Insights → Contenido → interacciones → guardados.</td></tr>
-              <tr><td>Compartidos</td><td><span class="pill pill--info">Instagram</span></td><td>Insights → Contenido → interacciones → enviados (compartidos por DM).</td></tr>
-              <tr><td>Comentarios</td><td><span class="pill pill--info">Instagram</span></td><td>Insights → Contenido → interacciones → comentarios.</td></tr>
-              <tr><td>Seguidores nuevos</td><td><span class="pill pill--info">Instagram</span></td><td>Insights → Total de seguidores → nuevos seguidores de la semana.</td></tr>
-              <tr><td>DMs iniciados</td><td><span class="pill pill--info">Instagram</span></td><td>Cuenta manual: mensajes directos nuevos pidiendo info o el link.</td></tr>
-              <tr><td>Clics al link de bio</td><td><span class="pill pill--info">Instagram</span></td><td>Insights → Actividad → toques en el enlace del perfil.</td></tr>
-              <tr><td>Sesiones de la tienda desde IG</td><td><span class="pill pill--success">Shopify</span></td><td>Analytics → Reportes → sesiones por referente, filtra "Instagram".</td></tr>
-              <tr><td>Pedidos</td><td><span class="pill pill--success">Shopify</span></td><td>Analytics → Reporte de ventas → pedidos de la semana.</td></tr>
-              <tr><td>Ingresos</td><td><span class="pill pill--success">Shopify</span></td><td>Analytics → Reporte de ventas → total vendido en la semana (en USD).</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="callout callout--info">
-          <p>Si un dato no lo tienes esa semana, deja la celda vacía. El tablero muestra "—" en vez de inventar un cero.</p>
-        </div>
+        <h3>Clientes que repiten (3 min)</h3>
+        <p>Shopify → Analíticas → Informes → clientes. Anota cuántos clientes de la semana ya habían comprado antes.</p>
+        <ul class="checklist"><li><label><input type="checkbox" data-tablero="clientes-repiten"><span>Hecho</span></label></li></ul>
       </li>
-
       <li>
-        <h3>Comparte el Sheet</h3>
-        <p>Arriba a la derecha del Sheet, toca <strong>Compartir</strong>. Cambia el acceso a <strong>"Cualquiera con el enlace"</strong> y el rol a <strong>"Lector"</strong>. Así el tablero puede leer los datos sin pedirte iniciar sesión cada vez.</p>
+        <h3>Correo (3 min)</h3>
+        <p>Klaviyo → Analytics. Anota el ingreso atribuido de la semana y el tamaño actual de la lista Newsletter.</p>
+        <ul class="checklist"><li><label><input type="checkbox" data-tablero="revisar-klaviyo"><span>Hecho</span></label></li></ul>
       </li>
-
       <li>
-        <h3>Arma la URL para conectar el Sheet</h3>
-        <p>El tablero no lee el link normal del Sheet: necesita una versión especial (se llama "gviz") que entrega los datos en un formato que el navegador puede leer. La plantilla es esta:</p>
-        <div class="copyblock">
-          <button type="button" class="copyblock__btn" data-copy-target="copy-gviz">Copiar</button>
-          <div class="copyblock__text" id="copy-gviz">https://docs.google.com/spreadsheets/d/ID_DE_LA_HOJA/gviz/tq?tqx=out:csv&sheet=NOMBRE_DE_LA_PESTAÑA</div>
-        </div>
-        <p>Hay que reemplazar dos partes. Por ejemplo, si al abrir tu Sheet la URL en el navegador se ve así:</p>
-        <div class="url-ejemplo">https://docs.google.com/spreadsheets/d/<mark>1a2B3c4D5e6F7g8H9i0J</mark>/edit#gid=<mark class="info-mark">0</mark></div>
-        <p>
-          <span class="pill">ID_DE_LA_HOJA</span> es el tramo largo entre <strong>/d/</strong> y la siguiente <strong>/</strong> — en el ejemplo, <code>1a2B3c4D5e6F7g8H9i0J</code>.<br>
-          <span class="pill pill--info">Pestaña</span> se puede indicar de dos formas: con el <strong>nombre exacto</strong> de la pestaña (la solapa de abajo, ej. "Semanas") usando <code>&sheet=Semanas</code>, o con el <strong>número que aparece después de <code>#gid=</code></strong> en la URL (en el ejemplo, <code>0</code>) usando <code>&gid=0</code> — esta segunda forma suele ser más simple porque no hay que preocuparse de tildes ni espacios.
-        </p>
-        <p>La URL final para este ejemplo quedaría así (usando el nombre de pestaña):</p>
-        <div class="url-ejemplo">https://docs.google.com/spreadsheets/d/<mark>1a2B3c4D5e6F7g8H9i0J</mark>/gviz/tq?tqx=out:csv&sheet=<mark class="info-mark">Semanas</mark></div>
+        <h3>Inversión publicitaria (2 min)</h3>
+        <p>Suma lo gastado en la semana en Meta Ads Manager y en Google Ads.</p>
+        <ul class="checklist"><li><label><input type="checkbox" data-tablero="sumar-inversion"><span>Hecho</span></label></li></ul>
       </li>
-
       <li>
-        <h3>Pega la URL abajo y guarda</h3>
-        <p>Pega la URL que armaste en el campo de abajo y toca "Guardar y cargar". El tablero se conecta a tu Sheet automáticamente cada vez que abras esta página.</p>
+        <h3>Calcular el retorno real (2 min)</h3>
+        <p>Venta neta de Shopify de la semana ÷ inversión total de la semana (la fórmula completa está arriba, en esta misma página).</p>
+        <ul class="checklist"><li><label><input type="checkbox" data-tablero="calcular-retorno"><span>Hecho</span></label></li></ul>
+      </li>
+      <li>
+        <h3>Comparar las tres métricas que deciden (2 min)</h3>
+        <p>Conversión móvil, tasa de recompra y retorno real: ¿subieron o bajaron contra la semana pasada?</p>
+        <ul class="checklist"><li><label><input type="checkbox" data-tablero="comparar-tres"><span>Hecho</span></label></li></ul>
+      </li>
+      <li>
+        <h3>Llenar y enviar el reporte semanal (3 min)</h3>
+        <p>Copiar la plantilla de la última sección de esta página, llenarla y enviarla al grupo.</p>
+        <ul class="checklist"><li><label><input type="checkbox" data-tablero="enviar-reporte"><span>Hecho</span></label></li></ul>
       </li>
     </ol>
+  </section>
 
-    <div class="card">
-      <h3>¿Prefieres que el Sheet se llene solo?</h3>
-      <p>Todo lo de arriba es manual: cada semana entras a Instagram y a Shopify, copias los números y los pegas en el Sheet. Existen herramientas que pueden hacer esa copia por ti. Estas son las dos que se están evaluando:</p>
-      <ul>
-        <li><strong>SyncWith</strong> — un complemento (una extensión que se instala dentro de Google Sheets) que trae métricas de Instagram y de otras fuentes directo a la hoja, sin copiar y pegar nada a mano.</li>
-        <li><strong>Apify</strong> — una plataforma que recolecta datos públicos de Instagram de forma programada, por ejemplo una vez por semana, sin que nadie tenga que entrar a mirar manualmente.</li>
-      </ul>
-      <div class="callout callout--warn">
-        <p>Las dos tienen costo o planes pagados que todavía hay que revisar 🟡 VERIFICAR. Por ahora no hay precios confirmados ni una elegida.</p>
-      </div>
-      <p>El camino manual de esta página sigue siendo la base: funciona hoy mismo y no depende de nadie más. La automatización es un paso opcional para más adelante, no algo que haya que resolver ahora.</p>
+  <section class="sec">
+    <h2>Las metas y qué valen</h2>
+    <p>Tres metas del plan, con la aritmética completa detrás de cada una.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Meta</th><th>De</th><th>A</th><th>Vale al mes</th></tr></thead>
+        <tbody>
+          <tr><td>Recompra</td><td>7,2%</td><td>20%</td><td><strong>+$361.009</strong> de margen</td></tr>
+          <tr><td>Móvil (cerrar la mitad de la brecha)</td><td>3,18%</td><td>5,7%</td><td><strong>+$2.388.938</strong> de venta neta</td></tr>
+          <tr><td>Pedidos sobre $50.000</td><td>37%</td><td>45%</td><td><strong>+$61.737</strong> netos 🟡</td></tr>
+        </tbody>
+      </table>
     </div>
 
     <div class="card">
-      <h3>Campo de configuración</h3>
-      <label for="sheet-url-input" style="display:block;font-size:var(--fs-sm);color:var(--ink-soft);margin-bottom:var(--space-2)">URL del Sheet (formato gviz):</label>
-      <input type="url" id="sheet-url-input" class="sheet-url-input" placeholder="https://docs.google.com/spreadsheets/d/.../gviz/tq?tqx=out:csv&sheet=...">
-      <div style="display:flex;flex-wrap:wrap;gap:var(--space-3)">
-        <button type="button" class="btn" id="btn-guardar-url">Guardar y cargar</button>
-        <button type="button" class="btn btn--ghost" id="btn-borrar-url">Borrar configuración</button>
-      </div>
-      <p id="sheet-url-actual" style="display:none;font-size:var(--fs-sm);color:var(--ink-soft);margin:var(--space-3) 0 0;word-break:break-all"></p>
+      <h3>Recompra: 7,2% → 20%</h3>
+      <p>Hoy 205 de 2.848 clientes (7,2%) han comprado 2 veces o más. Si la recompra sube a 20%, se generan <strong>+18 pedidos extra al mes</strong> de clientes que vuelven → <strong>+$501.402</strong> de venta neta → al 72% de margen → <strong>+$361.009</strong> de margen extra al mes.</p>
+      <p style="font-size:var(--fs-sm);color:var(--ink-soft)">🟡 Proyección. Fuente: <a href="ofertas.html">modelo de ofertas</a>, 2 de agosto de 2026. El plan de medición marca 12% a los 6 meses como el primer piso a cumplir en el camino al 20%.</p>
+    </div>
+
+    <div class="card">
+      <h3>Móvil: cerrar la mitad de la brecha</h3>
+      <p>Hoy el móvil agrega al carrito al 3,18%; el escritorio, al 8,22%. Cerrar la mitad de esa brecha lleva el móvil a 5,7%, lo que en 90 días suma <strong>+256 compras</strong> (580 contra 324 de hoy) — <strong>+85 pedidos al mes</strong> → <strong>+$2.388.938</strong> de venta neta al mes.</p>
+      <p style="font-size:var(--fs-sm);color:var(--ink-soft)">🟡 Proyección. Fuente: <a href="cro.html">auditoría de Shopify y Klaviyo</a>, 2 de agosto de 2026.</p>
+    </div>
+
+    <div class="card">
+      <h3>Pedidos sobre $50.000: 37% → 45%</h3>
+      <p>140 pedidos al mes; 8 puntos porcentuales de diferencia entre 37% y 45% son <strong>~11 pedidos al mes</strong> que hoy quedan justo debajo del umbral. Si cada uno sube hasta los $50.000 (+$12.550 brutos, +$10.546 netos sin IVA), son <strong>+$118.118</strong> de venta neta — menos <strong>$56.381</strong> del envío que se regala al cruzar el umbral (11 pedidos × $5.034 netos) — <strong>= +$61.737</strong> netos al mes.</p>
+      <p style="font-size:var(--fs-sm);color:var(--ink-soft)">🟡 Proyección propia, calculada con la misma metodología del upsell de <a href="ofertas.html">ofertas.html</a> (ahí se calcula para el 63% completo bajo el umbral; aquí, solo para los 8 puntos porcentuales de esta meta).</p>
     </div>
   </section>
 
   <section class="sec">
-    <h2>Tu tablero</h2>
+    <h2>Reporte semanal para copiar y pegar</h2>
+    <p>La plantilla del paso 8 de la rutina del lunes. Se llena con los datos de la semana y se envía al grupo.</p>
 
-    <div id="tablero-estado"></div>
+    <div class="copyblock">
+      <button type="button" class="copyblock__btn" data-copy-target="copy-reporte-semanal">Copiar</button>
+      <div class="copyblock__text" id="copy-reporte-semanal">📊 Reporte semanal — Pedraza Ilustración
+Semana del ___ al ___
 
-    <div id="tablero-datos" style="display:none">
-      <h3>KPIs de la última semana</h3>
-      <p>El valor de cada número en la semana más reciente con datos, comparado con la semana anterior.</p>
-      <div class="callout callout--info">
-        <p><strong>Cómo leer estos números:</strong> para el contenido del feed (Reels, carruseles y publicaciones) la métrica que manda es <strong>Compartidos</strong> — es la que Instagram más toma en cuenta hoy para decidir a cuánta gente mostrarlo. Las historias se evalúan aparte, con <strong>interacciones ÷ visualizaciones</strong> (respuestas y toques en stickers, divididos por cuánta gente vio la historia). Ese dato no está entre las 12 columnas de abajo: se revisa directo en Instagram, en Insights de Historias.</p>
-      </div>
-      <div class="kpi-grid" id="kpi-grid"></div>
+LA TIENDA
+Conversión general: ___% (línea base 1,11%)
+Conversión móvil: ___% (línea base 0,94%)
+Ticket promedio bruto: $___ (línea base $37.450)
+Pedidos sobre $50.000: ___% (línea base 37%)
 
-      <h3>Métricas derivadas</h3>
-      <p>Estas 4 combinan dos KPIs entre sí para contar una historia más completa, calculadas con los datos de la última semana.</p>
-      <div class="grid-2" id="kpi-derivadas"></div>
+LOS CLIENTES
+Clientes con 2+ compras: ___ (línea base 205)
+Tasa de recompra: ___% (línea base 7,2%)
 
-      <h3>Evolución semanal</h3>
-      <p>Cómo se han movido semana a semana los 4 números que más importan para llegar a la meta.</p>
-      <div id="kpi-evolucion"></div>
+EL CORREO
+% de la venta desde correo: ___% (línea base 11,8%)
+Tamaño de la lista Klaviyo: ___ (línea base 5.439)
 
-      <h3>Historial completo</h3>
-      <p>Todas las semanas cargadas, con las 13 columnas del Sheet. Se puede desplazar hacia los lados en el celular.</p>
-      <div class="table-wrap"><table id="kpi-tabla"></table></div>
-    </div>
-  </section>
+LA PUBLICIDAD
+Inversión de la semana: $___
+Venta neta de la semana: $___
+Retorno real (venta neta ÷ inversión): ___ (línea base 4,58)
 
-  <section class="sec">
-    <h2>Progreso y meta</h2>
-    <div class="grid-2">
-      <div class="card">
-        <h3>Avance del plan</h3>
-        <div id="avance-plan-contenido"><p>Cargando…</p></div>
-      </div>
-      <div class="card">
-        <h3>Meta: de USD 5.000 a USD 10.000 al mes</h3>
-        <p>Hoy la tienda factura cerca de <strong>USD 5.000 al mes</strong>. La meta de este plan es llegar a <strong>USD 10.000 al mes</strong>.</p>
-        <div class="progress">
-          <div class="progress__track"><div class="progress__fill" id="meta-fill" style="width:50%"></div></div>
-          <span class="progress__label" id="meta-label">Hoy: USD 5.000 de 10.000 al mes (referencia)</span>
-        </div>
-        <p id="meta-nota" style="font-size:var(--fs-sm);color:var(--ink-soft);margin-top:var(--space-2)">Este número se actualiza solo cuando cargues Ingresos en el Sheet.</p>
-      </div>
+Lo que cambió esta semana: ___
+Lo que se hace la próxima semana: ___</div>
     </div>
   </section>
 
@@ -1041,344 +1175,6 @@ main { counter-reset: sec; }
   function pgGet(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
   function pgSet(key, valor) { try { localStorage.setItem(key, valor); } catch (e) { /* sin soporte, se ignora */ } }
   function pgRemove(key) { try { localStorage.removeItem(key); } catch (e) { /* sin soporte, se ignora */ } }
-</script>
-
-<script>
-  // Parser CSV mínimo: maneja comillas, comas dentro de comillas y saltos de línea dentro de comillas.
-  function parseCSV(texto) {
-    var filas = [];
-    var fila = [];
-    var campo = '';
-    var entreComillas = false;
-
-    for (var i = 0; i < texto.length; i++) {
-      var c = texto[i];
-      if (entreComillas) {
-        if (c === '"') {
-          if (texto[i + 1] === '"') { campo += '"'; i++; } // comilla escapada ""
-          else { entreComillas = false; }
-        } else {
-          campo += c;
-        }
-      } else if (c === '"') {
-        entreComillas = true;
-      } else if (c === ',') {
-        fila.push(campo); campo = '';
-      } else if (c === '\r') {
-        // se ignora, el salto de fila real lo maneja \n
-      } else if (c === '\n') {
-        fila.push(campo); campo = '';
-        filas.push(fila); fila = [];
-      } else {
-        campo += c;
-      }
-    }
-    if (campo.length > 0 || fila.length > 0) { fila.push(campo); filas.push(fila); }
-
-    // descarta filas totalmente vacías (líneas en blanco al final del archivo)
-    return filas.filter(function (f) { return f.length > 1 || f[0] !== ''; });
-  }
-
-  // Convierte filas crudas en objetos { NombreColumna: valor } usando la primera fila como encabezado.
-  function csvAFilasKpi(filas) {
-    if (!filas.length) return { headers: [], semanas: [] };
-    var headers = filas[0].map(function (h) { return h.trim(); });
-    var semanas = filas.slice(1)
-      .filter(function (f) { return f.some(function (v) { return v.trim() !== ''; }); })
-      .map(function (f) {
-        var obj = {};
-        headers.forEach(function (h, i) { obj[h] = (f[i] || '').trim(); });
-        return obj;
-      });
-    return { headers: headers, semanas: semanas };
-  }
-</script>
-
-<script>
-  function guardarSheetUrl(url) {
-    pgSet('pedraza-plan:sheet-url', url.trim());
-    cargarTablero();
-  }
-</script>
-
-<script>
-  var KPI_HEADERS = [
-    'Semana', 'Alcance', 'Alcance no-seguidores', 'Reproducciones de Reels',
-    'Guardados', 'Compartidos', 'Comentarios', 'Seguidores nuevos',
-    'DMs iniciados', 'Clics al link de bio', 'Sesiones de la tienda desde IG',
-    'Pedidos', 'Ingresos'
-  ];
-
-  async function cargarTablero() {
-    var estado = document.getElementById('tablero-estado');
-    var url = pgGet('pedraza-plan:sheet-url');
-
-    if (!url) {
-      estado.innerHTML =
-        '<div class="callout callout--warn"><p><strong>Falta configurar el Google Sheet.</strong> ' +
-        'Pega el link de exportación CSV en el campo de configuración de esta página para ver el tablero. ' +
-        'Recuerda compartir el Sheet como "Cualquiera con el enlace: Lector".</p></div>';
-      document.getElementById('tablero-datos').style.display = 'none';
-      renderMeta(null);
-      return;
-    }
-
-    estado.innerHTML = '<div class="callout callout--info"><p>Cargando datos del Sheet…</p></div>';
-
-    var texto;
-    try {
-      var res = await fetch(url, { cache: 'no-store' });
-      if (!res.ok) throw new Error('HTTP ' + res.status);
-      texto = await res.text();
-    } catch (err) {
-      estado.innerHTML =
-        '<div class="callout callout--danger"><p><strong>No se pudo cargar el Sheet.</strong> ' +
-        'Revisa tu conexión y que el link esté compartido como "Cualquiera con el enlace: Lector". ' +
-        '<button type="button" class="btn" onclick="cargarTablero()">Reintentar</button></p></div>';
-      document.getElementById('tablero-datos').style.display = 'none';
-      return;
-    }
-
-    var filas = parseCSV(texto);
-    if (filas.length < 2) {
-      estado.innerHTML =
-        '<div class="callout callout--danger"><p><strong>El Sheet está vacío o no se pudo leer.</strong> ' +
-        'Verifica que la primera fila tenga los encabezados y que haya al menos una semana de datos cargada.</p></div>';
-      document.getElementById('tablero-datos').style.display = 'none';
-      return;
-    }
-
-    var datos = csvAFilasKpi(filas);
-    var faltantes = KPI_HEADERS.filter(function (h) { return datos.headers.indexOf(h) === -1; });
-
-    if (faltantes.length) {
-      estado.innerHTML =
-        '<div class="callout callout--warn"><p><strong>Faltan columnas en el Sheet:</strong> ' +
-        faltantes.join(', ') + '. Se muestra lo que sí está disponible.</p></div>';
-    } else {
-      estado.innerHTML = '';
-    }
-
-    renderTablero(datos.semanas); // función propia de tablero.html
-  }
-</script>
-
-<script>
-  // ---------- renderTablero() y funciones propias de tablero.html ----------
-
-  var KPI_DEFS = [
-    { key: 'Alcance', formato: 'entero' },
-    { key: 'Alcance no-seguidores', formato: 'entero' },
-    { key: 'Reproducciones de Reels', formato: 'entero' },
-    { key: 'Guardados', formato: 'entero' },
-    { key: 'Compartidos', formato: 'entero' },
-    { key: 'Comentarios', formato: 'entero' },
-    { key: 'Seguidores nuevos', formato: 'entero' },
-    { key: 'DMs iniciados', formato: 'entero' },
-    { key: 'Clics al link de bio', formato: 'entero' },
-    { key: 'Sesiones de la tienda desde IG', formato: 'entero' },
-    { key: 'Pedidos', formato: 'entero' },
-    { key: 'Ingresos', formato: 'money' }
-  ];
-
-  var EVOLUCION_KPIS = ['Ingresos', 'Pedidos', 'Alcance no-seguidores', 'Clics al link de bio'];
-
-  function escapeHtml(s) {
-    return String(s).replace(/[&<>"']/g, function (c) {
-      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
-    });
-  }
-
-  // Celda vacía = dato faltante (null), nunca cero.
-  function parseNum(v) {
-    if (v === undefined || v === null) return null;
-    var s = String(v).trim();
-    if (s === '') return null;
-    var n = parseFloat(s.replace(/,/g, ''));
-    return isNaN(n) ? null : n;
-  }
-
-  function formatEntero(n) {
-    if (n === null || n === undefined || isNaN(n)) return '—';
-    return Math.round(n).toLocaleString('es-CL');
-  }
-
-  function formatMoney(n) {
-    if (n === null || n === undefined || isNaN(n)) return '—';
-    return 'US$ ' + Math.round(n).toLocaleString('es-CL');
-  }
-
-  function formatPct(n) {
-    if (n === null || n === undefined || isNaN(n)) return '—';
-    return n.toFixed(1).replace('.', ',') + '%';
-  }
-
-  function calcularDelta(actual, anterior) {
-    if (actual === null || anterior === null) return null;
-    var diff = actual - anterior;
-    var up = diff >= 0;
-    var arrow = up ? '▲' : '▼';
-    if (anterior === 0) {
-      return { html: arrow + ' ' + (up ? '+' : '') + formatEntero(diff), up: up };
-    }
-    var pct = (diff / Math.abs(anterior)) * 100;
-    return { html: arrow + ' ' + Math.abs(pct).toFixed(0) + '%', up: up };
-  }
-
-  function renderKpiGrid(semanas) {
-    var actual = semanas[semanas.length - 1];
-    var anterior = semanas.length > 1 ? semanas[semanas.length - 2] : null;
-    var html = '';
-    KPI_DEFS.forEach(function (def) {
-      var valActual = parseNum(actual[def.key]);
-      var valAnterior = anterior ? parseNum(anterior[def.key]) : null;
-      var valorTexto = valActual === null ? '—' : (def.formato === 'money' ? formatMoney(valActual) : formatEntero(valActual));
-
-      var deltaHtml = '';
-      if (valActual !== null && valAnterior !== null) {
-        var d = calcularDelta(valActual, valAnterior);
-        if (d) {
-          deltaHtml = '<span class="kpi__delta kpi__delta--' + (d.up ? 'up' : 'down') + '">' + d.html + '</span>';
-        }
-      }
-
-      html += '<div class="kpi"><span class="kpi__label">' + escapeHtml(def.key) + '</span>' +
-        '<span class="kpi__value">' + valorTexto + '</span>' + deltaHtml + '</div>';
-    });
-    document.getElementById('kpi-grid').innerHTML = html;
-    return { actual: actual, anterior: anterior };
-  }
-
-  function renderDerivadas(actual) {
-    var alcance = parseNum(actual['Alcance']);
-    var alcanceNoSeg = parseNum(actual['Alcance no-seguidores']);
-    var guardados = parseNum(actual['Guardados']);
-    var clics = parseNum(actual['Clics al link de bio']);
-    var pedidos = parseNum(actual['Pedidos']);
-    var ingresos = parseNum(actual['Ingresos']);
-
-    var tasaGuardado = (guardados !== null && alcance) ? (guardados / alcance * 100) : null;
-    var tasaDescubrimiento = (alcanceNoSeg !== null && alcance) ? (alcanceNoSeg / alcance * 100) : null;
-    var clicPedido = (pedidos !== null && clics) ? (pedidos / clics * 100) : null;
-    var aov = (ingresos !== null && pedidos) ? (ingresos / pedidos) : null;
-
-    var items = [
-      { label: 'Tasa de guardado', explicacion: 'Guardados ÷ Alcance', valor: tasaGuardado, formato: 'pct' },
-      { label: 'Tasa de descubrimiento', explicacion: 'Alcance no-seguidores ÷ Alcance', valor: tasaDescubrimiento, formato: 'pct' },
-      { label: 'Clic → pedido', explicacion: 'Pedidos ÷ Clics al link de bio', valor: clicPedido, formato: 'pct' },
-      { label: 'AOV (ticket promedio)', explicacion: 'Ingresos ÷ Pedidos', valor: aov, formato: 'money' }
-    ];
-
-    var html = items.map(function (it) {
-      var texto = it.valor === null ? '—' : (it.formato === 'pct' ? formatPct(it.valor) : formatMoney(it.valor));
-      return '<div class="card"><h3>' + it.label + '</h3>' +
-        '<span class="kpi__value">' + texto + '</span>' +
-        '<p style="font-size:var(--fs-sm);color:var(--ink-soft);margin:var(--space-2) 0 0">' + it.explicacion + '</p></div>';
-    }).join('');
-    document.getElementById('kpi-derivadas').innerHTML = html;
-  }
-
-  function renderEvolucion(semanas) {
-    var html = '';
-    EVOLUCION_KPIS.forEach(function (kpi) {
-      var valores = semanas.map(function (s, i) {
-        var etiqueta = (s['Semana'] && s['Semana'].trim() !== '') ? s['Semana'].trim() : ('Semana ' + (i + 1));
-        return { label: etiqueta, valor: parseNum(s[kpi]) };
-      });
-      var max = 0;
-      valores.forEach(function (v) { if (v.valor !== null && v.valor > max) max = v.valor; });
-
-      var filas = valores.map(function (v) {
-        var pct = (max > 0 && v.valor !== null) ? Math.round((v.valor / max) * 100) : 0;
-        var valorTexto = v.valor === null ? '—' : (kpi === 'Ingresos' ? formatMoney(v.valor) : formatEntero(v.valor));
-        return '<div class="chart-bar-row">' +
-          '<span class="chart-bar-row__label">' + escapeHtml(v.label) + '</span>' +
-          '<div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:' + pct + '%"></div></div>' +
-          '<span class="chart-bar-row__value">' + valorTexto + '</span>' +
-          '</div>';
-      }).join('');
-
-      html += '<div class="card"><h3>' + escapeHtml(kpi) + '</h3>' + filas + '</div>';
-    });
-    document.getElementById('kpi-evolucion').innerHTML = html;
-  }
-
-  function renderTabla(semanas) {
-    var thead = '<thead><tr>' + KPI_HEADERS.map(function (h) { return '<th>' + escapeHtml(h) + '</th>'; }).join('') + '</tr></thead>';
-    var tbody = '<tbody>' + semanas.map(function (s) {
-      return '<tr>' + KPI_HEADERS.map(function (h) {
-        if (h === 'Semana') {
-          var v = s[h];
-          return '<td>' + ((v && v.trim() !== '') ? escapeHtml(v.trim()) : '—') + '</td>';
-        }
-        var n = parseNum(s[h]);
-        var texto = n === null ? '—' : (h === 'Ingresos' ? formatMoney(n) : formatEntero(n));
-        return '<td>' + texto + '</td>';
-      }).join('') + '</tr>';
-    }).join('') + '</tbody>';
-    document.getElementById('kpi-tabla').innerHTML = thead + tbody;
-  }
-
-  function renderMeta(actual) {
-    var fill = document.getElementById('meta-fill');
-    var label = document.getElementById('meta-label');
-    var nota = document.getElementById('meta-nota');
-    var ingresos = actual ? parseNum(actual['Ingresos']) : null;
-
-    if (ingresos === null) {
-      fill.style.width = '50%';
-      label.textContent = 'Hoy: USD 5.000 de 10.000 al mes (referencia)';
-      nota.textContent = 'Este número se actualiza solo cuando cargues Ingresos en el Sheet.';
-      return;
-    }
-
-    var estimadoMes = ingresos * 4;
-    var pct = Math.max(0, Math.min(100, Math.round((estimadoMes / 10000) * 100)));
-    fill.style.width = pct + '%';
-    label.textContent = 'Estimado: ' + formatMoney(estimadoMes) + ' de US$ 10.000 al mes (' + pct + '%)';
-    nota.textContent = 'Estimación simple: ingresos de la última semana cargada × 4, para aproximar el mes. No reemplaza el número real de Shopify.';
-  }
-
-  function renderAvancePlan() {
-    var el = document.getElementById('avance-plan-contenido');
-    var raw = pgGet('pedraza-plan:__progress');
-    var data = null;
-    if (raw) {
-      try { data = JSON.parse(raw); } catch (e) { data = null; }
-    }
-
-    if (!data || typeof data.total !== 'number' || typeof data.done !== 'number' || data.total <= 0) {
-      el.innerHTML = '<p>Abre la página <a href="index.html">Plan</a> y marca tu primera tarea para ver el avance aquí.</p>';
-      return;
-    }
-
-    var pct = typeof data.pct === 'number' ? data.pct : Math.round((data.done / data.total) * 100);
-    el.innerHTML =
-      '<div class="progress">' +
-      '<div class="progress__track"><div class="progress__fill" style="width:' + pct + '%"></div></div>' +
-      '<span class="progress__label">' + data.done + ' de ' + data.total + ' tareas (' + pct + '%)</span>' +
-      '</div>';
-  }
-
-  function renderTablero(semanas) {
-    var estado = document.getElementById('tablero-estado');
-    var contenedor = document.getElementById('tablero-datos');
-
-    if (!semanas || semanas.length === 0) {
-      contenedor.style.display = 'none';
-      estado.innerHTML += '<div class="callout callout--danger"><p><strong>No hay semanas con datos todavía.</strong> ' +
-        'Agrega al menos una fila con información en el Sheet, aparte de la fila de encabezados.</p></div>';
-      renderMeta(null);
-      return;
-    }
-
-    contenedor.style.display = '';
-    var res = renderKpiGrid(semanas);
-    renderDerivadas(res.actual);
-    renderEvolucion(semanas);
-    renderTabla(semanas);
-    renderMeta(res.actual);
-  }
 </script>
 
 <script>
@@ -1429,41 +1225,36 @@ main { counter-reset: sec; }
 </script>
 
 <script>
-  function actualizarUrlActualUI(url) {
-    var p = document.getElementById('sheet-url-actual');
-    if (url) {
-      p.style.display = '';
-      p.textContent = 'URL guardada actualmente: ' + url;
-    } else {
-      p.style.display = 'none';
-      p.textContent = '';
-    }
-  }
-
+  // Checklist de la rutina del lunes — contrato propio de tablero.html: data-tablero, prefijo pedraza-plan:tab:
   document.addEventListener('DOMContentLoaded', function () {
-    var input = document.getElementById('sheet-url-input');
-    var urlGuardada = pgGet('pedraza-plan:sheet-url') || '';
-    input.value = urlGuardada;
-    actualizarUrlActualUI(urlGuardada);
-
-    document.getElementById('btn-guardar-url').addEventListener('click', function () {
-      var val = input.value.trim();
-      if (!val) { input.focus(); return; }
-      guardarSheetUrl(val);
-      actualizarUrlActualUI(val);
+    document.querySelectorAll('[data-tablero]').forEach(function (cb) {
+      cb.checked = pgGet('pedraza-plan:tab:' + cb.getAttribute('data-tablero')) === '1';
     });
-
-    document.getElementById('btn-borrar-url').addEventListener('click', function () {
-      pgRemove('pedraza-plan:sheet-url');
-      input.value = '';
-      actualizarUrlActualUI('');
-      cargarTablero();
-    });
-
-    renderMeta(null);
-    renderAvancePlan();
-    cargarTablero();
+    actualizarProgresoTablero();
   });
+
+  document.addEventListener('change', function (e) {
+    var cb = e.target.closest('[data-tablero]');
+    if (!cb) return;
+    var key = 'pedraza-plan:tab:' + cb.getAttribute('data-tablero');
+    if (cb.checked) { pgSet(key, '1'); } else { pgRemove(key); }
+    actualizarProgresoTablero();
+  });
+
+  function actualizarProgresoTablero() {
+    var cajas = document.querySelectorAll('[data-tablero]');
+    var total = cajas.length;
+    var done = 0;
+    cajas.forEach(function (cb) { if (cb.checked) done++; });
+    var pct = total ? Math.round((done / total) * 100) : 0;
+
+    document.querySelectorAll('[data-progress-fill]').forEach(function (fill) {
+      fill.style.width = pct + '%';
+    });
+    document.querySelectorAll('[data-progress-label]').forEach(function (label) {
+      label.textContent = done + ' de ' + total + ' pasos (' + pct + '%)';
+    });
+  }
 </script>
 
 <script>
