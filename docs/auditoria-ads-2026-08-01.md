@@ -72,6 +72,8 @@ La publicidad se atribuye el **81% de los pedidos** y el **77% de la venta**. Qu
 
 🟢 **El canal de servidor por sí solo cuadra casi exacto con la realidad.** Los 99 eventos del navegador se están sumando encima en vez de deduplicarse.
 
+> Nota: 99 + 144 = 243, pero Meta reporta 239 en total. Esa diferencia de 4 eventos sugiere que la deduplicación está funcionando de forma parcial —resuelve unos pocos casos y deja pasar el resto—, que es peor que si no funcionara: da la apariencia de estar configurada. El dato queda tal como lo entrega Meta, sin ajustarlo.
+
 Meta tiene una **advertencia activa** en el Administrador de Eventos: *"No se configuró la deduplicación para este evento"*.
 
 **Por qué importa:** si el sistema cree que hay más ventas de las que hay, optimiza hacia el público equivocado y el retorno reportado queda inflado. Es la causa más probable de que Meta muestre 5,93.
