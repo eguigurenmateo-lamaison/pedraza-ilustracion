@@ -916,378 +916,454 @@ main { counter-reset: sec; }
   <div class="hero__inner">
     <a href="estado.html" class="hero__back">← Volver al estado del plan</a>
     <h1>Escenarios de crecimiento y stock</h1>
-    <p>Esta página existe para una sola decisión: cuánto pedirle a China para el último trimestre de 2026, antes de que se cierre la ventana de tiempo. Cada cifra de aquí abajo muestra de dónde sale, para que la decisión se tome con los números a la vista, no a ojo.</p>
+    <p>El forecast del pedido a China se rehizo completo: ahora usa la estacionalidad real (no un promedio parejo) y 1,64 unidades por pedido, no 1. La buena noticia va primero: con lo que ya viene en camino, la Navidad queda cubierta.</p>
   </div>
 </header>
 
 <main class="wrap">
 
-<section class="sec">
-<h2>La cuenta regresiva</h2>
-<p>Esta es la parte más importante de toda la página. El pedido a China tiene una fecha límite real, y esa fecha acaba de cambiar.</p>
-
-<div class="callout callout--danger">
-<p><strong>El dato que cambia todo — ahora con el número exacto:</strong> Felipe confirmó el plazo real del último pedido a China: se pagó el 22 de mayo y llegó el 15 de agosto de 2026, <strong>85 días exactos</strong> 🟢. En sus palabras: <em>"Es la compra que más se nos ha demorado."</em> Es más preciso que los "tres meses" que se habían usado como referencia, y bastante más que los 60-75 días de tránsito con los que se calculaban las fechas límite de esta página. El riesgo de que se repita sigue — la fábrica está con harta carga por el fin de año 🟢. Por eso esta página muestra <strong>dos fechas límite en paralelo</strong> para cada meta, no una sola.</p>
-</div>
-
-<div class="countdown-box">
-  <span class="countdown-box__label">Días que quedan para pedir a tiempo y tener stock todo noviembre — escenario realista, con el plazo medido de 85 días (el más exigente)</span>
-  <span class="countdown-box__num" id="cd-hero-num">—</span>
-  <span class="countdown-box__unidad" id="cd-hero-unidad">días</span>
-  <span class="countdown-box__sub">Fecha límite escenario realista: 1 de agosto de 2026 · hoy es <span id="cd-hoy-fecha">—</span></span>
-</div>
-
-<div class="callout callout--warn">
-<p><strong>Por qué hay dos escenarios y no uno.</strong> El tiempo total, desde que sale el pedido de China hasta que está disponible para vender, se arma con el tránsito marítimo más el proceso en Partner (el operador logístico que despacha Shopify, unos 7 días — el mismo proceso que ya vivió el contenedor actual, que llegó el 15 de agosto pero quedó disponible para vender recién la última semana de agosto).</p>
-<ul>
-<li><strong>Escenario optimista — 82 días (75 de tránsito + 7 de Partner).</strong> Es lo que la fábrica promete.</li>
-<li><strong>Escenario realista — 92 días (85 de tránsito + 7 de Partner).</strong> Es lo que efectivamente pasó la última vez: la orden se pagó el 22 de mayo de 2026 y llegó el 15 de agosto — 85 días exactos, confirmados por Felipe. No es una hipótesis pesimista, es un hecho medido.</li>
-</ul>
-<p>El barco no negocia el tiempo: no se acorta pagando más ni apurando a nadie. Si el pedido sale después de la fecha límite, no existe forma de recuperar los días perdidos — se pierde toda la ventana, no una parte de ella.</p>
-</div>
-
-<p>Hay tres fechas límite, una por cada meta, cada una calculada con los dos escenarios. Los días que quedan se actualizan solos cada vez que se abre esta página.</p>
-
-<div class="table-wrap">
-<table style="min-width:640px">
-<thead>
-<tr><th>Meta</th><th>Fecha límite — optimista (82 días)</th><th>Días que quedan</th><th>Fecha límite — realista (92 días)</th><th>Días que quedan</th></tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Stock disponible todo noviembre</strong><br>objetivo: 1 de noviembre</td>
-<td>11 de agosto de 2026</td>
-<td id="cd-nov-opt">—</td>
-<td>1 de agosto de 2026</td>
-<td id="cd-nov-real">—</td>
-</tr>
-<tr>
-<td><strong>Black Friday</strong> 🟢 27 de noviembre</td>
-<td>6 de septiembre de 2026</td>
-<td id="cd-bf-opt">—</td>
-<td>27 de agosto de 2026</td>
-<td id="cd-bf-real">—</td>
-</tr>
-<tr>
-<td><strong>Navidad</strong> 🟢 último despacho 20 de diciembre</td>
-<td>29 de septiembre de 2026</td>
-<td id="cd-nav-opt">—</td>
-<td>19 de septiembre de 2026</td>
-<td id="cd-nav-real">—</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<div class="callout callout--danger">
-<p><strong>La fecha límite del escenario realista para cubrir todo noviembre es HOY, 1 de agosto de 2026 — no venció.</strong> Con el dato exacto de Felipe (85 días, no "tres meses" como se estimaba antes), la fecha se corrió hacia adelante y todavía está abierta, pero al límite: si el pedido no sale hoy o mañana, se pierde la opción de tener stock para todo noviembre. El escenario optimista (11 de agosto) da unos días más de margen si la fábrica cumple lo que promete. Es información que no se puede esconder: es la munición que Felipe necesita para cerrar el pedido esta semana.</p>
-</div>
-
-<div class="callout callout--warn">
-<p><strong>Leer la tabla al revés: cada fecha que se pasa, elimina una meta.</strong> Si se pasan las dos fechas de "todo noviembre" (11 de agosto optimista, 1 de agosto realista — hoy mismo), solo queda stock nuevo disponible después de Black Friday. Si se pasan las de Black Friday (6 de septiembre optimista, 27 de agosto realista), se pierde esa fecha. Si se pasan las de Navidad (29 de septiembre optimista, 19 de septiembre realista), se pierde la fecha más importante del año 🟢 (diciembre de 2025 vendió 2,9 veces el mes promedio, según los archivos de Felipe de 18 meses).</p>
-</div>
+<section class="sec" id="la-respuesta">
+<h2>La respuesta, arriba de todo</h2>
 
 <div class="callout callout--info">
-<p><strong>El domingo 2 de agosto, Felipe y Cote se reúnen con Tina, de la fábrica en China, para negociar tres puntos</strong> 🟢 (acta de la reunión del 31 de julio, sección 9): el plazo real de producción y tránsito, el pago contra la llegada del pedido a Chile (en vez de pagar todo por adelantado), y el reclamo por las piezas que faltaron en el pedido anterior. <strong>La fecha límite definitiva depende de lo que se acuerde en esa reunión</strong> — los dos escenarios de esta página son el mejor y el peor caso conocidos hoy, no la última palabra.</p>
+<p><strong>Este forecast cubre solo la tienda propia (Shopify).</strong> No incluye Mercado Libre ni B2B — esos dos canales se suman aparte, con sus propios datos (ver sección 10). Es el piso de la demanda, no el total.</p>
 </div>
-</section>
-
-<section class="sec">
-<h2>De dónde partimos</h2>
-<p>Antes de mirar los tres escenarios, hay que entender la vara con la que se miden. En 2025, el último trimestre (octubre a diciembre) vendió una fracción de lo que se vendió entre enero y septiembre. Esa fracción es un número medido, no una opinión.</p>
-
-<div class="chart-bar-row" style="--accent:var(--ink-faint)"><span class="chart-bar-row__label">Ene-sep 2025</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div><span class="chart-bar-row__value">$43,4M</span></div>
-<div class="chart-bar-row" style="--accent:var(--brand-green)"><span class="chart-bar-row__label">Oct-dic 2025 (Q4)</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:78%"></div></div><span class="chart-bar-row__value">$33,9M</span></div>
-<p class="calc-line--sub" style="font-size:var(--fs-sm);color:var(--ink-faint);margin-top:calc(-1 * var(--space-2))">🟢 Medido — archivos de Felipe, 18 meses. $43.372.684 entre enero y septiembre de 2025; $33.925.675 entre octubre y diciembre. $33.925.675 ÷ $43.372.684 = <strong>0,78</strong>.</p>
-
-<div class="callout callout--info">
-<p><strong>Qué significa el 0,78, en simple:</strong> por cada $100 vendidos entre enero y septiembre, en el último trimestre se vendieron $78. No es que el negocio venda poco en Q4 — el trimestre son tres meses y los primeros nueve meses son nueve, así que $78 contra $100 significa que en Q4 se vende casi el triple por mes que en el resto del año. Este mismo patrón se repite en unidades de puzzle: 736 vendidos entre enero y septiembre de 2025, 703 entre octubre y diciembre — un ratio de 0,96, casi idéntico. No es una coincidencia de la plata: es cómo compra la gente durante el año.</p>
-</div>
-
-<p>Los tres escenarios de la siguiente sección son, literalmente, tres apuestas sobre este número:</p>
-<div style="display:flex;flex-wrap:wrap;gap:var(--space-3);margin:var(--space-2) 0 var(--space-5)">
-<span class="pill pill--success">A: ratio 0,78 — repite 2025, tal cual</span>
-<span class="pill pill--info">B: ratio 1,00 — el trimestre iguala a los 9 meses</span>
-<span class="pill pill--danger">C: ratio 2,00 — el trimestre dobla a los 9 meses</span>
-</div>
-
-<h3>El punto de partida para 2026: enero-septiembre estimado</h3>
-<p>Los tres escenarios multiplican su ratio por la venta de enero-septiembre de 2026. Esa cifra tiene una parte medida y una parte proyectada — se marcan por separado para que quede claro cuál es cuál.</p>
-
-<div class="chart-bar-row"><span class="chart-bar-row__label">Ene-sep 2026 est.</span><div class="chart-bar-row__track" style="display:flex"><div style="width:69.8%;background:var(--success)"></div><div style="width:30.2%;background:var(--warn)"></div></div><span class="chart-bar-row__value">$49,7M</span></div>
-<div class="chart-legend">
-<span><span class="chart-legend__dot" style="background:var(--success)"></span>🟢 Real ene-jun: $34.709.555 (1,18 veces el mismo semestre de 2025)</span>
-<span><span class="chart-legend__dot" style="background:var(--warn)"></span>🟡 Proyectado jul-sep: $15.000.000 (afectado por el quiebre de stock de puzzles)</span>
-</div>
-<p>$34.709.555 + $15.000.000 = <strong>$49.709.555</strong> — es el número que cada escenario multiplica por su ratio en la sección siguiente. En puzzles pasa lo mismo: 922 unidades reales entre enero y junio 🟢, más ~300 proyectadas entre julio y septiembre 🟡, dan 1.222 puzzles estimados para los primeros nueve meses de 2026.</p>
-
-<div class="callout callout--warn">
-<p><strong>La demanda de unidades estaba 64% subestimada.</strong> La base de Shopify corregida (3.101 pedidos pagados, 5.097 unidades, todos los productos) muestra <strong>1,64 unidades por pedido</strong> 🟢, no 1. Cualquier cálculo que asuma "un pedido = una unidad" queda corto en 64%. La estacionalidad medida en esa misma base confirma el patrón y lo afina: diciembre 2025 vendió 889 unidades — <strong>3,3 veces</strong> un mes normal (~270) — y noviembre 439 — <strong>1,6 veces</strong>. La curva empieza a subir en octubre (297). Los 1.222 puzzles de esta página ya son unidades reales medidas, no estimadas a partir de pedidos, así que no cambian por esta corrección — pero confirman que diciembre concentra la demanda todavía más de lo que sugiere cualquier factor combinado nov-dic.</p>
-</div>
-</section>
-
-<section class="sec">
-<h2>Los tres escenarios</h2>
-<p>Cada escenario multiplica el punto de partida ($49.709.555 en venta, 1.222 puzzles) por su propio ratio. De ahí sale cuánto pedir, cuánto cuesta y cuánto margen deja. Dos números no cambian entre escenarios — son el costo y el precio del puzzle, medidos 🟢 (archivos de Felipe, 18 meses):</p>
 
 <div class="kpi-grid">
-  <div class="kpi"><span class="kpi__label">Costo por puzzle 🟢</span><span class="kpi__value">$7.253</span></div>
-  <div class="kpi"><span class="kpi__label">Precio promedio de venta 🟢</span><span class="kpi__value">$36.301</span></div>
-  <div class="kpi"><span class="kpi__label">Margen por puzzle (precio − costo)</span><span class="kpi__value">$29.048</span></div>
-  <div class="kpi"><span class="kpi__label">Margen, en porcentaje</span><span class="kpi__value">80%</span></div>
+  <div class="kpi"><span class="kpi__label">Demanda proyectada, agosto-diciembre 2026 🟢</span><span class="kpi__value">2.637</span><span class="kpi__delta kpi__delta--up">unidades, todos los productos</span></div>
+  <div class="kpi"><span class="kpi__label">Puzzles necesarios para cubrirla 🟢</span><span class="kpi__value">907–1.058</span><span class="kpi__delta">según el escenario — ver sección 4</span></div>
+  <div class="kpi"><span class="kpi__label">Puzzles que llegan el 15 de agosto 🟢</span><span class="kpi__value">1.290</span><span class="kpi__delta">1.050 de adulto + 240 de niños</span></div>
+  <div class="kpi"><span class="kpi__label">Veredicto</span><span class="kpi__value" style="color:var(--success)">Alcanza</span><span class="kpi__delta kpi__delta--up">en el caso base</span></div>
 </div>
-<p class="calc-line--sub">🟢 El costo de $7.253 es el costo puesto en bodega en Santiago (incluye FOB, provisión, seguro de carga, forwarder, desconsolidación y flete) — no es el precio de fábrica.</p>
 
-<p>Hoy hay <strong>0 puzzles en stock</strong> 🟢 — es el quiebre que motivó este pedido. El pedido que llega el 15 de agosto no son 1.000 unidades: son <strong>2.290</strong> 🟢 (factura de la fábrica, confirmada por Felipe), de las cuales <strong>1.050 son puzzles de adulto</strong> (500 aves, 350 cetáceos, 200 hongos), 240 son puzzles de niños nuevos (sin costo) y 1.000 son juegos de cartas. Para el cálculo de puzzles de esta sección se usan los 1.050 de adulto, ya en camino desde antes de este pedido. Las cantidades "a pedir" de la tabla son las unidades netas de este nuevo pedido, después de considerar ese despacho y dejar un colchón (margen extra) para no repetir el quiebre.</p>
+<div class="callout callout--success">
+<p><strong>Con los 1.290 puzzles que llegan el 15 de agosto, la Navidad está cubierta en los dos escenarios de esta página.</strong> Esto contradice el supuesto con el que se venía trabajando. No es un llamado a no pedir más — es el punto de partida real, con los números al frente. La sección 5 explica, con la misma honestidad, tres razones legítimas para pedir igual.</p>
+</div>
+
+<h3>Cuánto falta para las dos fechas límite</h3>
+<p>Los días se recalculan solos cada vez que se abre esta página.</p>
+
+<div class="grid-2">
+  <div class="countdown-box">
+    <span class="countdown-box__label">Para pedir a tiempo y llegar a Black Friday</span>
+    <span class="countdown-box__num" id="cd-bf-num">—</span>
+    <span class="countdown-box__unidad" id="cd-bf-unidad">días</span>
+    <span class="countdown-box__sub">Fecha límite: 27 de agosto de 2026 · hoy es <span id="cd-hoy-fecha-1">—</span></span>
+  </div>
+  <div class="countdown-box">
+    <span class="countdown-box__label">Para pedir a tiempo y llegar a Navidad</span>
+    <span class="countdown-box__num" id="cd-nav-num">—</span>
+    <span class="countdown-box__unidad" id="cd-nav-unidad">días</span>
+    <span class="countdown-box__sub">Fecha límite: 19 de septiembre de 2026 · hoy es <span id="cd-hoy-fecha-2">—</span></span>
+  </div>
+</div>
+
+<p style="font-size:var(--fs-sm);color:var(--ink-faint)">🟢 Un pedido hecho hoy tarda 92 días en llegar (85 de tránsito + 7 del operador logístico Partner) — llegaría recién el 2 de noviembre de 2026. Por eso estas dos fechas son límite: después de ellas ya no hay forma de tener stock nuevo a tiempo.</p>
+</section>
+
+<section class="sec" id="de-donde-sale-el-numero">
+<h2>De dónde sale el número</h2>
+<p>Antes de mirar la curva del año, vale la pena explicar el 1,31× que multiplica todo. No es un número inventado: se llegó a él por dos caminos separados, y los dos coinciden.</p>
+
+<div class="grid-2">
+<div class="card">
+<h3>Camino 1: unidades de meses comparables</h3>
+<p>Se compararon las unidades vendidas en junio y julio de 2025 contra junio y julio de 2026 — el mismo par de meses, un año después. El resultado: <strong>1,31 veces más unidades</strong>.</p>
+</div>
+<div class="card">
+<h3>Camino 2: lo que reportó Felipe en Shopify</h3>
+<p>En julio de 2026, todos los canales de Shopify: <strong>+32% de venta</strong> y <strong>+34% de pedidos</strong>, comparado con julio de 2025. Un crecimiento del mismo tamaño, medido de una forma completamente distinta.</p>
+</div>
+</div>
+
+<div class="callout callout--info">
+<p>🟢 <strong>Los dos caminos coinciden.</strong> Cuando dos mediciones independientes llegan casi al mismo número, es una señal fuerte de que el número es real y no un accidente de cómo se calculó. Por eso esta página usa <strong>1,31× de crecimiento</strong>, año contra año, para proyectar cada mes.</p>
+</div>
+
+<h3>Qué es "proyectar con estacionalidad", en simple</h3>
+<p>Proyectar con estacionalidad es tomar lo que vendió un mes específico el año pasado — por ejemplo, diciembre de 2025 — y multiplicarlo por el crecimiento del negocio, para estimar ese mismo mes este año. No se compara diciembre contra noviembre: se compara <strong>diciembre contra diciembre</strong>.</p>
+<p>La razón es simple: la gente no compra parejo durante el año. En diciembre se compra mucho más que en cualquier otro mes, todos los años — es Navidad. Si se comparara diciembre contra el mes anterior, la proyección mezclaría dos cosas distintas: cuánto creció el negocio y cuánto pesa la temporada. Comparar contra el mismo mes del año pasado las separa.</p>
+</section>
+
+<section class="sec" id="la-curva-del-ano">
+<h2>La curva del año</h2>
+<p>Con el 1,31× aplicado mes a mes sobre lo que vendió cada mes en 2025, esta es la demanda proyectada para lo que queda de 2026 — todos los productos, no solo puzzles.</p>
+
+<div class="chart-bar-row"><span class="chart-bar-row__label">Agosto</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:21%"></div></div><span class="chart-bar-row__value">246</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Septiembre</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:23%"></div></div><span class="chart-bar-row__value">267</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Octubre</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:33%"></div></div><span class="chart-bar-row__value">389</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Noviembre</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:49%"></div></div><span class="chart-bar-row__value">575</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Diciembre</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div><span class="chart-bar-row__value">1.165</span></div>
+<p style="font-size:var(--fs-sm);color:var(--ink-faint)">🟢 Barras a escala entre sí (100% = diciembre, el mes más grande). Unidades proyectadas, todos los productos.</p>
 
 <div class="table-wrap">
-<table style="min-width:760px">
-<thead>
-<tr><th>Escenario</th><th>Ratio</th><th>Venta Q4</th><th>vs Q4-2025</th><th>Puzzles Q4</th><th>A pedir en agosto</th><th>Inversión</th><th>Margen que genera</th></tr>
-</thead>
+<table>
+<thead><tr><th>Mes</th><th>Unidades proyectadas</th><th>Veces un mes normal (~270 unidades)</th></tr></thead>
 <tbody>
-<tr><td><strong>A. Conservador</strong></td><td>0,78</td><td>$38,8M</td><td>1,1x</td><td>953</td><td>~450</td><td>$3,3M</td><td>$13,0M</td></tr>
-<tr><td><strong>B. El año se duplica</strong></td><td>1,00</td><td>$49,7M</td><td>1,5x</td><td>1.222</td><td>~800</td><td>$5,8M</td><td>$23,2M</td></tr>
-<tr><td><strong>C. Ambicioso</strong></td><td>2,00</td><td>$99,4M</td><td>2,9x</td><td>2.444</td><td>~2.500</td><td>$18,1M</td><td>$72,6M</td></tr>
+<tr><td>Agosto</td><td>246</td><td>0,9×</td></tr>
+<tr><td>Septiembre</td><td>267</td><td>1,0×</td></tr>
+<tr><td>Octubre</td><td>389</td><td>1,4×</td></tr>
+<tr><td>Noviembre</td><td>575</td><td>2,1×</td></tr>
+<tr><td><strong>Diciembre</strong></td><td><strong>1.165</strong></td><td><strong>4,3×</strong></td></tr>
 </tbody>
 </table>
 </div>
 
-<h3>Cómo se ven las tres ventas de Q4, una al lado de la otra</h3>
-<div class="chart-bar-row" style="--accent:var(--ink-faint)"><span class="chart-bar-row__label">Q4-2025 real</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:34%"></div></div><span class="chart-bar-row__value">$33,9M</span></div>
-<div class="chart-bar-row" style="--accent:var(--success)"><span class="chart-bar-row__label">A. Conservador</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:39%"></div></div><span class="chart-bar-row__value">$38,8M</span></div>
-<div class="chart-bar-row" style="--accent:var(--accent)"><span class="chart-bar-row__label">B. Se duplica</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:50%"></div></div><span class="chart-bar-row__value">$49,7M</span></div>
-<div class="chart-bar-row" style="--accent:var(--danger)"><span class="chart-bar-row__label">C. Ambicioso</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div><span class="chart-bar-row__value">$99,4M</span></div>
-<p style="font-size:var(--fs-sm);color:var(--ink-faint)">Barras a escala entre sí (el 100% es el escenario C, el más grande). Los colores se repiten en las tres tarjetas de abajo: gris = lo que ya pasó, verde = bajo riesgo, rojo = la recomendación, terracota = alto riesgo.</p>
+<div class="callout callout--danger">
+<p>🟢 <strong>Diciembre concentra el 44% de toda la demanda del período</strong> (1.165 de 2.637 unidades). Vende 4,3 veces lo que vende un mes normal. No es solo el mes más fuerte: es, literalmente, el mes que decide si el año fue bueno o no. Todo lo que sigue en esta página existe para que en diciembre haya puzzles en la bodega.</p>
+</div>
+</section>
+
+<section class="sec" id="dos-escenarios">
+<h2>Los dos escenarios de consumo de stock</h2>
+<p>El puzzle históricamente es el 36% de las unidades vendidas. Pero ese número está deprimido: el producto estrella lleva meses agotado, así que una parte de esa demanda nunca se pudo expresar — la gente quería comprar puzzle y no pudo. Con stock disponible, el share razonable sube a 42% 🟡. Por eso se modelan los dos escenarios completos, mes a mes, sobre los 1.290 puzzles que llegan el 15 de agosto.</p>
 
 <div class="card scenario-card scenario-card--a">
-<h3>A. Conservador <span class="pill pill--success">Menor riesgo financiero</span></h3>
-<p><strong>Qué supone:</strong> el último trimestre de 2026 se comporta exactamente igual que el de 2025 — la razón entre Q4 y los primeros nueve meses vuelve a ser 0,78. No exige que pase nada distinto de lo que ya pasó una vez.</p>
-<ul class="calc-chain">
-<li>Venta ene-sep 2026 estimada: <strong>$49.709.555</strong> × ratio <strong>0,78</strong></li>
-<li class="calc-chain__result">= Venta Q4 estimada: <strong>$38.773.453</strong> ≈ $38,8M — 1,1 veces la venta real de Q4-2025 ($33.925.675)</li>
-<li>Puzzles: 1.222 × 0,78 = <strong>953 puzzles</strong> necesarios en el trimestre</li>
-<li>Unidades netas a pedir en agosto: <strong>~450</strong></li>
-<li>Inversión: 450 × $7.253 (costo unitario) = <strong>$3.263.850</strong> ≈ $3,3M</li>
-<li class="calc-chain__result">Margen que genera: 450 × $29.048 (margen unitario) = <strong>$13.071.600</strong> ≈ $13,0M</li>
-</ul>
-<p><strong>Riesgo:</strong> es el escenario de menor riesgo de caja — la inversión es la más baja de los tres y el patrón ya ocurrió una vez, en 2025. El riesgo no es de plata, es de oportunidad: si la demanda termina siendo mayor (como en B o C), vuelve a faltar stock, tal como ya pasó este año con los puzzles.</p>
+<h3>Escenario A — share histórico, 36% <span class="pill pill--success">Más conservador</span></h3>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Mes</th><th>Demanda total</th><th>Puzzles</th><th>Stock al cierre</th></tr></thead>
+<tbody>
+<tr><td>Agosto (desde el 15)</td><td>246</td><td>44</td><td>1.246</td></tr>
+<tr><td>Septiembre</td><td>267</td><td>96</td><td>1.149</td></tr>
+<tr><td>Octubre</td><td>389</td><td>140</td><td>1.009</td></tr>
+<tr><td>Noviembre</td><td>575</td><td>207</td><td>802</td></tr>
+<tr><td><strong>Diciembre</strong></td><td><strong>1.165</strong></td><td><strong>419</strong></td><td><strong>383</strong></td></tr>
+</tbody>
+</table>
+</div>
+<p>🟢 <strong>Sobran 383 puzzles</strong> al cierre de diciembre.</p>
 </div>
 
 <div class="card scenario-card scenario-card--b">
-<h3>B. El año se duplica <span class="pill pill--danger">Recomendado</span></h3>
-<p><strong>Qué supone:</strong> la razón sube a 1,00 — el último trimestre vende tanto como los primeros nueve meses juntos. Es una aceleración fuerte, pero no aislada: se apoya en palancas concretas que ya están en marcha (precios, correo, publicidad y productos nuevos — ver la sección 5).</p>
-<ul class="calc-chain">
-<li>Venta ene-sep 2026 estimada: <strong>$49.709.555</strong> × ratio <strong>1,00</strong></li>
-<li class="calc-chain__result">= Venta Q4 estimada: <strong>$49.709.555</strong> ≈ $49,7M — 1,5 veces la venta real de Q4-2025 ($33.925.675)</li>
-<li>Puzzles: 1.222 × 1,00 = <strong>1.222 puzzles</strong> necesarios en el trimestre</li>
-<li>Unidades netas a pedir en agosto: <strong>~800</strong></li>
-<li>Inversión: 800 × $7.253 (costo unitario) = <strong>$5.802.400</strong> ≈ $5,8M</li>
-<li class="calc-chain__result">Margen que genera: 800 × $29.048 (margen unitario) = <strong>$23.238.400</strong> ≈ $23,2M</li>
-</ul>
-<p><strong>Riesgo:</strong> exige $2,5M más de inversión que el escenario conservador ($5,8M contra $3,3M), pero casi duplica el margen posible ($23,2M contra $13,0M). Si el trimestre resulta más parecido al escenario conservador, el sobrante de puzzles no es plata perdida: es inventario que igual se vende, más lento, en enero y febrero. Es el punto medio entre no arriesgar nada y arriesgar $18,1M — por eso es la recomendación de la sección siguiente.</p>
+<h3>Escenario B — share normalizado, 42% <span class="pill pill--info">Con stock disponible</span></h3>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Mes</th><th>Demanda total</th><th>Puzzles</th><th>Stock al cierre</th></tr></thead>
+<tbody>
+<tr><td>Agosto (desde el 15)</td><td>246</td><td>52</td><td>1.238</td></tr>
+<tr><td>Septiembre</td><td>267</td><td>112</td><td>1.126</td></tr>
+<tr><td>Octubre</td><td>389</td><td>163</td><td>963</td></tr>
+<tr><td>Noviembre</td><td>575</td><td>242</td><td>721</td></tr>
+<tr><td><strong>Diciembre</strong></td><td><strong>1.165</strong></td><td><strong>489</strong></td><td><strong>232</strong></td></tr>
+</tbody>
+</table>
 </div>
-
-<div class="card scenario-card scenario-card--c">
-<h3>C. Ambicioso <span class="pill pill--warn">Alto riesgo financiero</span></h3>
-<p><strong>Qué supone:</strong> la razón se dobla a 2,00 — el último trimestre vende el doble de lo que vendieron los primeros nueve meses juntos. Es un salto, no una mejora.</p>
-<ul class="calc-chain">
-<li>Venta ene-sep 2026 estimada: <strong>$49.709.555</strong> × ratio <strong>2,00</strong></li>
-<li class="calc-chain__result">= Venta Q4 estimada: <strong>$99.419.110</strong> ≈ $99,4M — 2,9 veces la venta real de Q4-2025 ($33.925.675)</li>
-<li>Puzzles: 1.222 × 2,00 = <strong>2.444 puzzles</strong> necesarios en el trimestre</li>
-<li>Unidades netas a pedir en agosto: <strong>~2.500</strong></li>
-<li>Inversión: 2.500 × $7.253 (costo unitario) = <strong>$18.132.500</strong> ≈ $18,1M</li>
-<li class="calc-chain__result">Margen que genera: 2.500 × $29.048 (margen unitario) = <strong>$72.620.000</strong> ≈ $72,6M</li>
-</ul>
-<div class="callout callout--danger" style="margin:var(--space-4) 0 0">
-<p><strong>Este es el escenario que hay que mirar con más cuidado.</strong> Son 2,9 veces lo que vendió el mismo trimestre el año pasado — no una mejora, un salto. Exige $18,1 millones inmovilizados en inventario, en un negocio que ya paga <strong>$1.167.128 al mes</strong> solo en cuotas de los dos créditos vigentes. Si el trimestre no llega a este nivel — si termina pareciéndose más al escenario conservador (953 puzzles vendidos en vez de 2.444) — quedan 2.500 − 953 = <strong>del orden de 1.500 puzzles sin vender</strong>, unos <strong>$11 millones congelados</strong> en bodega (1.547 × $7.253 ≈ $11,2M), mientras las cuotas de los créditos se siguen pagando igual. No es un escenario imposible, pero solo tiene sentido si <strong>todas</strong> las palancas de la sección 5 están funcionando a la vez — no alcanza con pedir más stock.</p>
+<p>🟢 <strong>Sobran 232 puzzles</strong> al cierre de diciembre.</p>
 </div>
-</div>
-</section>
-
-<section class="sec">
-<h2>La recomendación</h2>
 
 <div class="callout callout--success">
-<p><strong>Pedir para el escenario B, con opción de ampliar.</strong> Comprar las ~800 unidades netas de B ahora (antes del 11 de agosto), y dejar la puerta abierta a un segundo despacho parcial en septiembre si octubre confirma que la demanda va más allá de B.</p>
-</div>
-
-<p>Es la mejor relación entre ambición y riesgo de caja: casi duplica el margen posible del escenario conservador ($23,2M contra $13,0M) con una inversión que sigue siendo manejable ($5,8M) para un negocio que ya paga $1.167.128 al mes en créditos. El escenario C multiplica esa exposición por más de tres ($18,1M) apostando todo de una vez, sin esperar ninguna señal real de octubre.</p>
-
-<h3>Cómo funciona la opción de ampliar</h3>
-<div class="timeline">
-  <div class="timeline-item">
-    <div class="timeline-item__date">Antes del 11 de agosto de 2026</div>
-    <div class="timeline-item__title">Se pide el escenario B: ~800 unidades netas</div>
-    <p>Cubre la fecha límite más urgente (todo noviembre) sin esperar más señales.</p>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-item__date">Octubre de 2026</div>
-    <div class="timeline-item__title">Se revisan las ventas reales de las primeras semanas del trimestre</div>
-    <p>Con datos reales del propio trimestre, no solo con el forecast de julio.</p>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-item__date">Antes del 21 de septiembre (Black Friday) o del 14 de octubre (Navidad)</div>
-    <div class="timeline-item__title">Si octubre confirma más demanda, se negocia un segundo despacho parcial</div>
-    <p>Se suma stock adicional con el proveedor sin haber comprometido los $18,1M completos del escenario C desde el principio.</p>
-  </div>
-</div>
-
-<div class="callout callout--info">
-<p>La decisión final es de Felipe y Cote. Los tres escenarios son financieramente viables si se financian bien — esta página no descarta ninguno, solo muestra el costo, el margen y el riesgo de cada uno con la misma vara.</p>
+<p><strong>En los dos escenarios sobra stock.</strong> Ninguno de los dos se queda sin puzzles antes de terminar diciembre. La diferencia entre 383 y 232 no es un problema — es el rango real entre "el share se queda igual de bajo que ahora" y "el share vuelve a lo normal apenas hay stock para comprar".</p>
 </div>
 </section>
 
-<section class="sec">
-<h2>Qué tiene que pasar para llegar a cada escenario</h2>
-<p>Los escenarios no se cumplen solos por tener más stock en la bodega. Cada uno necesita que otras palancas del negocio empujen al mismo tiempo. Esta tabla muestra cuánto se necesita cada palanca según el escenario.</p>
+<section class="sec" id="tres-razones">
+<h2>Las tres razones para pedir igual</h2>
+<p>Si el forecast alcanza en los dos escenarios, ¿por qué convendría pedir más de todos modos? Esta es la sección más importante de la página para tomar la decisión — con los argumentos a favor, sin dramatizar.</p>
+
+<h3>1. Los arreglos pueden subir la demanda por encima del forecast</h3>
+<p>El forecast de arriba proyecta el pasado hacia adelante. No incorpora el efecto de las correcciones que ya están en marcha: la <a href="preventa.html">preventa de puzzles</a> y el <a href="ads.html#hallazgo-agotados">catálogo de Google, hoy con 25 de 28 productos excluidos</a> por el quiebre de stock.</p>
 
 <div class="table-wrap">
-<table style="min-width:680px">
-<thead>
-<tr><th>Palanca</th><th>Qué significa</th><th>A. Conservador</th><th>B. Recomendado</th><th>C. Ambicioso</th></tr>
-</thead>
+<table>
+<thead><tr><th>Escenario</th><th>Puzzles necesarios</th><th>Contra 1.290 que llegan</th></tr></thead>
 <tbody>
-<tr>
-<td><strong>Precios más altos</strong></td>
-<td>No se tocan hace un año — ya es la prioridad número uno de esta semana, según el acta del 29 de julio.</td>
-<td><span class="pill pill--success">Recomendable</span></td>
-<td><span class="pill pill--warn">Necesario</span></td>
-<td><span class="pill pill--danger">Imprescindible</span></td>
-</tr>
-<tr>
-<td><strong>Packs y anclaje de precio</strong></td>
-<td>Mostrar un precio tachado más alto al lado del precio real, para que el precio final se vea como una oferta. Detalle en <a href="ofertas.html">Ofertas y pop-ups</a>.</td>
-<td><span class="pill pill--success">Recomendable</span></td>
-<td><span class="pill pill--warn">Necesario</span></td>
-<td><span class="pill pill--danger">Imprescindible</span></td>
-</tr>
-<tr>
-<td><strong>Correo: del 9% al 20-25% del ingreso</strong></td>
-<td>Que las campañas de correo pasen de aportar 9% de las ventas a aportar 20-25%. Detalle en <a href="email.html">Correo y campañas</a>.</td>
-<td><span class="pill pill--success">Recomendable</span></td>
-<td><span class="pill pill--warn">Necesario</span></td>
-<td><span class="pill pill--danger">Imprescindible</span></td>
-</tr>
-<tr>
-<td><strong>Publicidad con mejor ROAS</strong></td>
-<td>ROAS (retorno de la inversión publicitaria: por cada $1.000 invertidos, cuánta plata vuelve en ventas) subiendo desde 2,85 hoy. Detalle en <a href="ads.html">Google y Meta Ads</a>.</td>
-<td><span class="pill pill--success">Recomendable</span></td>
-<td><span class="pill pill--warn">Necesario</span></td>
-<td><span class="pill pill--danger">Imprescindible</span></td>
-</tr>
-<tr>
-<td><strong>Productos nuevos vendiendo</strong></td>
-<td>Puzzle de niños (agosto), calcetines y bandanas nuevas (septiembre) y botella térmica de ballena (fines de septiembre) aportando ventas desde que salen.</td>
-<td><span class="pill pill--success">Recomendable</span></td>
-<td><span class="pill pill--warn">Necesario</span></td>
-<td><span class="pill pill--danger">Imprescindible</span></td>
-</tr>
-<tr>
-<td><strong>Ejecución completa del plan</strong></td>
-<td>Todo lo anterior, coordinado. Detalle en <a href="plan-90-dias.html">Plan de 90 días</a>.</td>
-<td><span class="pill pill--success">Recomendable</span></td>
-<td><span class="pill pill--warn">Necesario</span></td>
-<td><span class="pill pill--danger">Imprescindible</span></td>
-</tr>
+<tr><td>Sin cambios</td><td>1.110</td><td><span class="pill pill--success">Alcanza</span></td></tr>
+<tr><td><strong>+25%</strong> (preventa + catálogo de Google desbloqueado)</td><td>1.387</td><td><span class="pill pill--warn">Faltan 97</span></td></tr>
+<tr><td><strong>+50%</strong> (además <a href="ads.html#remarketing-que-no-existe">remarketing</a> y <a href="cro.html#movil-vs-escritorio">móvil arreglado</a>)</td><td>1.665</td><td><span class="pill pill--danger">Faltan 375</span></td></tr>
+</tbody>
+</table>
+</div>
+<p style="font-size:var(--fs-sm);color:var(--ink-faint)">🟢 Esta tabla usa la demanda completa de cada mes, sin descontar la primera quincena de agosto — por eso el número base (1.110) es distinto de los 907 a 1.058 de la sección 4. Las dos formas de calcular son válidas: esta es más exigente porque no resta los días en que el stock todavía no llega.</p>
+
+<h3>2. Faltan Mercado Libre y B2B en este número</h3>
+<p>Mercado Libre vende sin que nadie lo empuje activamente, y todavía no tiene los puzzles activados como producto. En B2B no hay nada firmado todavía, pero Felipe da por hecho que van a llegar compras de hoteles en temporada alta y compras corporativas, como ha pasado antes. Ninguno de los dos está contado en las 2.637 unidades de esta página.</p>
+
+<h3>3. Quedarse sin stock en diciembre cuesta más que sobrar</h3>
+<p>Si sobra stock, se vende igual — más lento, en enero y febrero, con algo de descuento si hace falta. Si falta stock en diciembre, esa venta no se recupera nunca: el cliente compró en otro lado, o no compró. Perder una venta de diciembre y sobrar en marzo no cuestan lo mismo. Esa asimetría es la que justifica pecar un poco de más, aunque el forecast diga que alcanza.</p>
+</section>
+
+<section class="sec" id="no-decidir-el-martes">
+<h2>Por qué no hay que decidir el martes</h2>
+<p>Un pedido hecho hoy tarda 92 días en llegar (85 de tránsito + 7 del operador logístico) — llega recién el <strong>2 de noviembre de 2026</strong> 🟢. Las dos fechas límite reales son el <strong>27 de agosto</strong> (Black Friday) y el <strong>19 de septiembre</strong> (Navidad). Decidir la cantidad ahora, sin esperar nada más, es decidir a ciegas — teniendo la respuesta a solo días de distancia.</p>
+
+<div class="timeline">
+  <div class="timeline-item">
+    <div class="timeline-item__date">Hoy — 2 de agosto</div>
+    <div class="timeline-item__title">Punto de partida</div>
+    <p>El forecast con el que se puede decidir hoy: dos escenarios, los dos alcanzan.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">Jueves 6 de agosto</div>
+    <div class="timeline-item__title">Abre la <a href="preventa.html">preventa de puzzles</a></div>
+    <p>Entrega el dato que falta: cuántas unidades pide la gente de cada modelo, con dinero real — no con estimaciones.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">Sábado 15 de agosto</div>
+    <div class="timeline-item__title">Llegan los 1.290 puzzles</div>
+    <p>Se ve cómo se comporta la venta con stock disponible, después de meses de quiebre.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">Antes del 27 de agosto</div>
+    <div class="timeline-item__title">Fecha límite: Black Friday</div>
+    <p>Con los datos de la preventa y de los primeros días de venta con stock ya disponibles.</p>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-item__date">Antes del 19 de septiembre</div>
+    <div class="timeline-item__title">Fecha límite: Navidad</div>
+    <p>Seis semanas más de datos reales para decidir si conviene ampliar el pedido.</p>
+  </div>
+</div>
+
+<div class="callout callout--success">
+<p>🟢 <strong>La preventa y la llegada del stock ocurren antes de las dos fechas límite.</strong> No hace falta decidir la cantidad exacta hoy: en cuatro días hay datos reales de cuánto pide la gente, y en trece días se ve cómo vende con stock disponible. Las dos cosas llegan con tiempo de sobra para pedir antes del 27 de agosto y del 19 de septiembre.</p>
+</div>
+</section>
+
+<section class="sec" id="recomendacion">
+<h2>La recomendación: partir la decisión en dos</h2>
+<p>En vez de jugarse una sola cifra grande hoy, dividir la decisión en dos ventanas, cada una con más información que la anterior.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Cuándo</th><th>Qué</th><th>Con qué información</th></tr></thead>
+<tbody>
+<tr><td><strong>Antes del 27 de agosto</strong></td><td>Pedido de seguridad, dimensionado con lo que muestre la preventa</td><td>Unidades reales pedidas por modelo, con dinero de por medio</td></tr>
+<tr><td><strong>Antes del 19 de septiembre</strong></td><td>Ampliación, si la venta con stock disponible confirma el repunte</td><td>Seis semanas de venta real con los 1.290 puzzles ya en la tienda</td></tr>
 </tbody>
 </table>
 </div>
 
-<div class="callout callout--danger">
-<p><strong>El escenario C no se logra solo con más stock.</strong> Exige que las seis palancas de la tabla funcionen a la vez, sin excepción: más stock <strong>y</strong> precios más altos <strong>y</strong> correo rindiendo <strong>y</strong> publicidad rindiendo <strong>y</strong> productos nuevos vendiendo. Si una sola falla, el trimestre no llega a 2,9 veces y el pedido C queda con inventario sin vender, como muestra la sección anterior.</p>
+<h3>La caja de cada tamaño</h3>
+<p>🟢 Mezcla proporcional a la venta histórica de cada modelo (aves 47%, cetáceos 37%, hongos 16%), al tipo de cambio de $950 por dólar.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Tamaño</th><th>FOB (precio de fábrica)</th><th>Costo puesto en Chile</th><th>Anticipo (30%)</th></tr></thead>
+<tbody>
+<tr><td>600 unidades</td><td>$3.263 USD</td><td>$4.351.800</td><td>$930.035</td></tr>
+<tr><td>1.000 unidades</td><td>$5.439 USD</td><td>$7.253.000</td><td>$1.550.058</td></tr>
+<tr><td>1.500 unidades</td><td>$8.158 USD</td><td>$10.879.500</td><td>$2.325.087</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="callout callout--warn">
+<p>🟢 <strong>Contexto de caja:</strong> hoy hay <strong>$1,17 millones mensuales</strong> ya comprometidos en cuotas de créditos vigentes. El anticipo de un pedido de 1.000 unidades ($1.550.058) equivale a poco más de un mes de esa carga.</p>
+</div>
+
+<div class="callout callout--success">
+<p>💡 <strong>Y aquí está el punto que puede cambiar todo:</strong> si Tina, de la fábrica en China, acepta el pago contra la llegada del pedido a Chile —en vez del anticipo del 30% por adelantado—, el anticipo deja de ser una restricción de caja. Ahí se puede pedir según lo que muestre la demanda real, no según lo que la caja disponible permita.</p>
 </div>
 </section>
 
-<section class="sec">
-<h2>El riesgo de no decidir</h2>
-<p>Ya pasó una vez: el producto estrella de la tienda quedó sin stock, y hoy, mientras se toma esta decisión, sigue en cero 🟢. Fue lo que gatilló este pedido a China.</p>
+<section class="sec" id="calculadora">
+<h2>Calculadora de cobertura</h2>
+<p>Cambia los números y la tabla se recalcula sola. Sirve para probar supuestos propios, no solo los dos escenarios de la sección 4. Los valores por defecto reproducen el escenario B (share normalizado, 42%).</p>
 
-<div class="callout callout--danger">
-<p><strong>No decidir es decidir el escenario más conservador, pero por omisión.</strong> Cada día que pasa sin confirmar el pedido acerca la fecha del 11 de agosto — y una vez que esa fecha se cierra, se pierde la opción de tener stock para todo noviembre, sin vuelta atrás. El costo de no decidir no es cero: es el mismo quiebre de stock de este año, repetido justo en la temporada que más vende.</p>
+<div class="card">
+<div class="grid-2">
+<div>
+<label for="calc-stock" style="display:block;font-weight:700;font-size:var(--fs-sm);margin-bottom:var(--space-2)">Puzzles disponibles desde el 15 de agosto</label>
+<input type="number" id="calc-stock" value="1290" min="0" step="1" inputmode="numeric" style="width:100%;min-height:var(--tap);padding:0 var(--space-3);border:1px solid var(--line-strong);border-radius:var(--radius-sm);font-size:var(--fs-base);font-family:var(--font-sans);background:var(--surface);color:var(--ink)">
+</div>
+<div>
+<label for="calc-share" style="display:block;font-weight:700;font-size:var(--fs-sm);margin-bottom:var(--space-2)">Share de puzzles sobre el total de unidades (%)</label>
+<input type="number" id="calc-share" value="42" min="0" max="100" step="0.1" inputmode="decimal" style="width:100%;min-height:var(--tap);padding:0 var(--space-3);border:1px solid var(--line-strong);border-radius:var(--radius-sm);font-size:var(--fs-base);font-family:var(--font-sans);background:var(--surface);color:var(--ink)">
+</div>
+<div>
+<label for="calc-factor" style="display:block;font-weight:700;font-size:var(--fs-sm);margin-bottom:var(--space-2)">Factor de crecimiento (año contra año)</label>
+<input type="number" id="calc-factor" value="1.31" min="0" step="0.01" inputmode="decimal" style="width:100%;min-height:var(--tap);padding:0 var(--space-3);border:1px solid var(--line-strong);border-radius:var(--radius-sm);font-size:var(--fs-base);font-family:var(--font-sans);background:var(--surface);color:var(--ink)">
+</div>
+<div>
+<label for="calc-ajuste" style="display:block;font-weight:700;font-size:var(--fs-sm);margin-bottom:var(--space-2)">Ajuste de demanda por los arreglos (%)</label>
+<input type="number" id="calc-ajuste" value="0" step="1" inputmode="decimal" style="width:100%;min-height:var(--tap);padding:0 var(--space-3);border:1px solid var(--line-strong);border-radius:var(--radius-sm);font-size:var(--fs-base);font-family:var(--font-sans);background:var(--surface);color:var(--ink)">
+</div>
 </div>
 
-<p>Para calcular exactamente cuánto pedir con una calculadora interactiva, ver <a href="stock-navidad.html">Stock para Navidad</a>. Para revisar los 18 meses de datos financieros detrás de estos números, ver <a href="finanzas.html">Los números del negocio</a>.</p>
+<button type="button" class="btn" id="calc-btn" style="margin-top:var(--space-4)">Calcular cobertura</button>
+
+<div style="margin-top:var(--space-5)">
+<div class="table-wrap">
+<table>
+<thead><tr><th>Mes</th><th>Puzzles necesarios</th><th>Stock al cierre</th></tr></thead>
+<tbody id="calc-tbody">
+<tr><td colspan="3">—</td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout callout--info" id="calc-veredicto" style="margin-top:var(--space-4)">
+<p id="calc-veredicto-texto" aria-live="polite">Completa los campos y presiona "Calcular cobertura".</p>
+</div>
+</div>
+</div>
 </section>
 
-<footer class="page-footer"><p>Datos: archivos financieros de Felipe, 18 meses (enero 2025 a junio 2026), y acta de la reunión del 29 de julio de 2026. Las cifras marcadas 🟡 son proyecciones o supuestos explícitos del encargo, no mediciones. Ver también <a href="stock-navidad.html">Stock para Navidad</a>, <a href="finanzas.html">Los números del negocio</a> y la <a href="bitacora.html">bitácora</a> del proyecto.</p></footer>
+<section class="sec" id="las-cartas">
+<h2>Las cartas: el caso aparte</h2>
+<p>Llegan <strong>1.000 juegos de cartas</strong> el 15 de agosto. La demanda proyectada para agosto-diciembre es de <strong>344 unidades</strong> 🟡 (2.637 unidades totales × 13% de participación histórica de las cartas), así que sobran unas <strong>650</strong> — 656 exactas.</p>
+
+<p>A primera vista parece un problema de sobrestock. Pero hay tres datos que cambian la lectura:</p>
+
+<div class="kpi-grid">
+  <div class="kpi"><span class="kpi__label">Anuncios ganadores 🟢</span><span class="kpi__value">3 de 10</span><span class="kpi__delta kpi__delta--up">retornos 6,77 / 7,06 / 5,68</span></div>
+  <div class="kpi"><span class="kpi__label">Cambio de precio 🟢</span><span class="kpi__value">0%</span><span class="kpi__delta">único producto sin alza</span></div>
+  <div class="kpi"><span class="kpi__label">Participación en unidades 🟢</span><span class="kpi__value">13%</span><span class="kpi__delta">de todo lo que se vende</span></div>
+</div>
+
+<div class="callout callout--success">
+<p><strong>No es un problema de inventario: es el candidato más claro para empujar en Black Friday y en Navidad sin necesidad de pedir nada.</strong> Ya tiene tres anuncios probados entre los ganadores históricos (ver <a href="ads.html#anuncios-ganadores">Google y Meta Ads</a>), es el único producto que <a href="precios.html">no sube de precio</a>, y sobra stock de sobra para empujarlo con publicidad sin miedo a quedarse corto.</p>
+</div>
+</section>
+
+<section class="sec" id="no-incluye">
+<h2>Lo que este forecast no incluye</h2>
+<p>Para que quede explícito, y Felipe lo pueda completar con sus propios datos:</p>
+
+<div class="grid-2">
+<div class="card"><h3>🛒 Mercado Libre</h3><p>Vende sin que nadie lo empuje activamente, y todavía no tiene los puzzles activados como producto.</p></div>
+<div class="card"><h3>🏨 B2B</h3><p>Sin compromisos firmados aún, pero con demanda esperable de hoteles en temporada alta y compras corporativas.</p></div>
+<div class="card"><h3>📈 El efecto de las correcciones</h3><p>Publicidad y tienda: está modelado como sensibilidad (+25% / +50%, sección 5), no como parte del número base de 2.637 unidades.</p></div>
+<div class="card"><h3>🖼️ Las láminas</h3><p>Este forecast se centra en puzzles y cartas, que es lo que se pide a China. El resto del catálogo queda fuera.</p></div>
+</div>
+</section>
+
+<footer class="page-footer"><p>Datos: forecast del pedido a China (2 de agosto de 2026) y correcciones de Felipe (1 de agosto de 2026), sobre la base corregida de Shopify (3.101 pedidos pagados, 5.097 unidades). Las cifras marcadas 🟡 son proyecciones o supuestos explícitos, no mediciones directas. Ver también <a href="stock-navidad.html">Stock para Navidad</a>, <a href="preventa.html">Preventa de puzzles</a> y la <a href="bitacora.html">bitácora</a> del proyecto.</p></footer>
 
 </main>
 
 <script>
-  // ===== Cuenta regresiva (sección 1) =====
+  // ===== Cuenta regresiva (sección 1): dos fechas límite =====
   function diasEntre(desde, hasta) {
     var d1 = new Date(desde.getFullYear(), desde.getMonth(), desde.getDate());
     var d2 = new Date(hasta.getFullYear(), hasta.getMonth(), hasta.getDate());
     return Math.round((d2 - d1) / 86400000);
   }
 
-  function textoDiasCelda(dias) {
-    if (dias > 1) return dias + ' días';
-    if (dias === 1) return '1 día';
-    if (dias === 0) return 'Hoy';
-    return 'Venció hace ' + Math.abs(dias) + (Math.abs(dias) === 1 ? ' día' : ' días');
-  }
-
-  function setTexto(id, valor) {
-    var el = document.getElementById(id);
-    if (el) el.textContent = valor;
+  function setCountdown(numId, unidadId, dias) {
+    var numEl = document.getElementById(numId);
+    var unidadEl = document.getElementById(unidadId);
+    if (!numEl || !unidadEl) return;
+    if (dias > 1) {
+      numEl.textContent = dias;
+      unidadEl.textContent = 'días';
+      numEl.classList.remove('is-pasado');
+    } else if (dias === 1) {
+      numEl.textContent = '1';
+      unidadEl.textContent = 'día';
+      numEl.classList.remove('is-pasado');
+    } else if (dias === 0) {
+      numEl.textContent = 'Hoy';
+      unidadEl.textContent = 'es el último día';
+      numEl.classList.add('is-pasado');
+    } else {
+      numEl.textContent = 'Venció';
+      unidadEl.textContent = 'hace ' + Math.abs(dias) + (Math.abs(dias) === 1 ? ' día' : ' días');
+      numEl.classList.add('is-pasado');
+    }
   }
 
   function actualizarCuentaRegresiva() {
     var hoy = new Date();
+    setCountdown('cd-bf-num', 'cd-bf-unidad', diasEntre(hoy, new Date(2026, 7, 27)));
+    setCountdown('cd-nav-num', 'cd-nav-unidad', diasEntre(hoy, new Date(2026, 8, 19)));
 
-    var fechas = {
-      'nov-opt': new Date(2026, 7, 11),
-      'nov-real': new Date(2026, 7, 1),
-      'bf-opt': new Date(2026, 8, 6),
-      'bf-real': new Date(2026, 7, 27),
-      'nav-opt': new Date(2026, 8, 29),
-      'nav-real': new Date(2026, 8, 19)
-    };
-
-    for (var clave in fechas) {
-      if (!fechas.hasOwnProperty(clave)) continue;
-      setTexto('cd-' + clave, textoDiasCelda(diasEntre(hoy, fechas[clave])));
+    var fechaTexto;
+    try {
+      fechaTexto = hoy.toLocaleDateString('es-CL', { day: 'numeric', month: 'long', year: 'numeric' });
+    } catch (e) {
+      fechaTexto = hoy.toLocaleDateString();
     }
-
-    // El contador principal sigue la fecha del escenario realista (la más exigente),
-    // no la optimista: es la que de verdad hay que vigilar.
-    var dPrincipal = diasEntre(hoy, fechas['nov-real']);
-    var numEl = document.getElementById('cd-hero-num');
-    var unidadEl = document.getElementById('cd-hero-unidad');
-
-    if (numEl && unidadEl) {
-      if (dPrincipal > 1) {
-        numEl.textContent = dPrincipal;
-        unidadEl.textContent = 'días';
-        numEl.classList.remove('is-pasado');
-      } else if (dPrincipal === 1) {
-        numEl.textContent = '1';
-        unidadEl.textContent = 'día';
-        numEl.classList.remove('is-pasado');
-      } else if (dPrincipal === 0) {
-        numEl.textContent = 'Hoy';
-        unidadEl.textContent = 'es el último día del escenario realista para pedir';
-        numEl.classList.add('is-pasado');
-      } else {
-        numEl.textContent = 'Ya venció';
-        unidadEl.textContent = 'la fecha del escenario realista ya venció, hace ' + Math.abs(dPrincipal) + (Math.abs(dPrincipal) === 1 ? ' día' : ' días');
-        numEl.classList.add('is-pasado');
-      }
-    }
-
-    var hoyEl = document.getElementById('cd-hoy-fecha');
-    if (hoyEl) {
-      try {
-        hoyEl.textContent = hoy.toLocaleDateString('es-CL', { day: 'numeric', month: 'long', year: 'numeric' });
-      } catch (e) {
-        hoyEl.textContent = hoy.toLocaleDateString();
-      }
-    }
+    ['cd-hoy-fecha-1', 'cd-hoy-fecha-2'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.textContent = fechaTexto;
+    });
   }
 
   document.addEventListener('DOMContentLoaded', actualizarCuentaRegresiva);
+</script>
+
+<script>
+  // ===== Calculadora de cobertura (sección 8) =====
+  // Modela el consumo de stock de puzzles mes a mes, agosto-diciembre,
+  // descontando la primera quincena de agosto (el stock llega el día 15).
+  var CALC_BASE_2025 = [
+    { mes: 'Agosto (desde el 15)', unidades: 188, parcial: 0.5 },
+    { mes: 'Septiembre', unidades: 204, parcial: 1 },
+    { mes: 'Octubre', unidades: 297, parcial: 1 },
+    { mes: 'Noviembre', unidades: 439, parcial: 1 },
+    { mes: 'Diciembre', unidades: 889, parcial: 1 }
+  ];
+
+  function calcParseNum(id) {
+    var el = document.getElementById(id);
+    if (!el) return NaN;
+    var v = (el.value || '').trim();
+    if (v === '') return NaN;
+    var n = parseFloat(v.replace(',', '.'));
+    return n;
+  }
+
+  function calcFormato(n) {
+    try {
+      return Math.round(n).toLocaleString('es-CL');
+    } catch (e) {
+      return String(Math.round(n));
+    }
+  }
+
+  function calcularCobertura() {
+    var tbody = document.getElementById('calc-tbody');
+    var veredictoBox = document.getElementById('calc-veredicto');
+    var veredictoTexto = document.getElementById('calc-veredicto-texto');
+    if (!tbody || !veredictoTexto) return;
+
+    var stockInicial = calcParseNum('calc-stock');
+    var share = calcParseNum('calc-share');
+    var factor = calcParseNum('calc-factor');
+    var ajuste = calcParseNum('calc-ajuste');
+
+    var valores = [stockInicial, share, factor, ajuste];
+    var todosValidos = valores.every(function (n) { return typeof n === 'number' && !isNaN(n); });
+    var enRango = todosValidos && stockInicial >= 0 && share >= 0 && factor >= 0;
+
+    if (!enRango) {
+      tbody.innerHTML = '<tr><td colspan="3">—</td></tr>';
+      veredictoTexto.textContent = 'Revisa los campos: falta un valor o no es un número válido (no puede ser negativo).';
+      if (veredictoBox) veredictoBox.className = 'callout callout--warn';
+      return;
+    }
+
+    var stock = stockInicial;
+    var quiebreMes = null;
+    var filasHtml = '';
+
+    for (var i = 0; i < CALC_BASE_2025.length; i++) {
+      var m = CALC_BASE_2025[i];
+      var demanda = m.unidades * factor * (1 + ajuste / 100);
+      var necesarios = Math.round(demanda * (share / 100) * m.parcial);
+      stock -= necesarios;
+      if (stock < 0 && quiebreMes === null) quiebreMes = m.mes;
+      var estiloStock = stock < 0 ? ' style="color:var(--danger);font-weight:700"' : '';
+      filasHtml += '<tr><td>' + m.mes + '</td><td>' + calcFormato(necesarios) + '</td><td' + estiloStock + '>' + calcFormato(stock) + '</td></tr>';
+    }
+
+    tbody.innerHTML = filasHtml;
+
+    if (quiebreMes === null) {
+      veredictoTexto.textContent = 'Alcanza para todo el período agosto-diciembre. Sobran ' + calcFormato(stock) + ' puzzles al cierre de diciembre.';
+      if (veredictoBox) veredictoBox.className = 'callout callout--success';
+    } else {
+      veredictoTexto.textContent = 'Se produce quiebre de stock en ' + quiebreMes + '.';
+      if (veredictoBox) veredictoBox.className = 'callout callout--danger';
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    calcularCobertura();
+    var btn = document.getElementById('calc-btn');
+    if (btn) btn.addEventListener('click', calcularCobertura);
+  });
 </script>
 
 <script>
