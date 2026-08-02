@@ -886,7 +886,7 @@ main { counter-reset: sec; }
   <div class="hero__inner">
     <a href="cro.html" class="hero__back">← Volver a la auditoría de conversión</a>
     <h1>Cambios en la tienda</h1>
-    <p>El siguiente paso después del pre-diagnóstico: 17 cambios concretos, listos para aplicar en Shopify. Cada uno explica dónde se aplica, cómo está hoy, cómo queda, y cómo se verifica que funcionó. Esta página no está en el menú principal — se comparte por link directo desde el plan.</p>
+    <p>El siguiente paso después de la auditoría: 23 cambios concretos, listos para aplicar en Shopify. Cada uno explica dónde se aplica, cómo está hoy, cómo queda, y cómo se verifica que funcionó. Esta página no está en el menú principal — se comparte por link directo desde el plan.</p>
   </div>
 </header>
 
@@ -895,7 +895,11 @@ main { counter-reset: sec; }
 <section class="sec">
 <h2>Cómo usar este documento</h2>
 
-<p>Este documento no repite el diagnóstico de <a href="cro.html">la auditoría de conversión</a> — parte de ahí y baja al detalle de qué tocar, dónde y con qué texto. Son <strong>17 cambios</strong>, cada uno en una ficha con la misma estructura: qué se cambia, cómo está hoy, cómo queda, por qué, esfuerzo e impacto esperado, y cómo se verifica que quedó bien.</p>
+<p>Este documento no repite el diagnóstico de <a href="cro.html">la auditoría de conversión</a> — parte de ahí y baja al detalle de qué tocar, dónde y con qué texto. Son <strong>23 cambios</strong>, cada uno en una ficha con la misma estructura: qué se cambia, cómo está hoy, cómo queda, por qué, esfuerzo e impacto esperado, y cómo se verifica que quedó bien.</p>
+
+<div class="callout callout--success">
+<p><strong>La auditoría de Shopify del 2 de agosto ya confirmó las causas exactas</strong> de los tres problemas más grandes que antes eran hipótesis: el widget de reseñas apagado, dónde exactamente se rompe el pago, y que los packs no hay que crearlos —ya existen, solo falta publicarlos—. Esas fichas están marcadas con 🟢 y aparecen primero. También se suman 6 cambios nuevos que aparecieron en la misma auditoría.</p>
+</div>
 
 <div class="callout callout--warn">
 <p><strong>Nunca se edita el tema publicado directo.</strong> Antes de tocar cualquier cosa: en Shopify, ve a <strong>Tienda online → Temas</strong>, busca el tema que está publicado y haz clic en los tres puntos (⋮) → <strong>Duplicar</strong>. Todos los cambios de este documento se aplican sobre esa copia (aparece como "Copia de [nombre del tema]"), nunca sobre el tema en vivo. Se revisa cada cambio con el botón <strong>Vista previa</strong> de la copia, y solo cuando todo se ve bien —incluido en el celular—, se publica la copia como tema activo (⋮ → Publicar). Si algo sale mal, el tema anterior sigue guardado y se puede volver a publicar en segundos.</p>
@@ -910,7 +914,7 @@ main { counter-reset: sec; }
   <div class="timeline-item">
     <div class="timeline-item__date">Viernes 31 de julio — hoy</div>
     <div class="timeline-item__title">Duplicar el tema y partir por la sección 2</div>
-    <p>Widget de reseñas, recorrido completo del pago, y los 3 avisos de despacho combinado de la preventa.</p>
+    <p>Widget de reseñas, publicar los packs, la fricción del pago ya identificada (teléfono obligatorio y los códigos de descuento sueltos), y los 3 avisos de despacho combinado de la preventa.</p>
   </div>
   <div class="timeline-item">
     <div class="timeline-item__date">Fin de semana 1-2 de agosto</div>
@@ -933,16 +937,22 @@ main { counter-reset: sec; }
 <p>Marca cada cambio en su ficha a medida que lo vas aplicando en la copia del tema. Queda guardado en este navegador para la próxima visita (no se comparte entre dispositivos).</p>
 <div class="progress">
   <div class="progress__track"><div class="progress__fill" data-progress-fill></div></div>
-  <span class="progress__label" data-progress-label>0 de 17 cambios (0%)</span>
+  <span class="progress__label" data-progress-label>0 de 23 cambios (0%)</span>
 </div>
 
-<h3>Los 17 cambios, de un vistazo</h3>
+<h3>Los 23 cambios, de un vistazo</h3>
+<p>Primero lo que es gratis y ya tiene demanda esperando: no cuesta nada aplicarlo y el retorno es inmediato.</p>
 <div class="table-wrap">
 <table>
 <thead><tr><th>Cambio</th><th>Dónde</th><th>Impacto</th><th>Esfuerzo</th></tr></thead>
 <tbody>
+<tr><td><a href="#chg-puzzle-reponer-stock">Reponer el Puzzle Aves y Flores</a> <span class="pill pill--danger">llega el 15/8</span></td><td>Ficha de producto</td><td><span class="pill pill--danger">Alto</span></td><td><span class="pill pill--info">Bajo 🟡</span></td></tr>
+<tr><td><a href="#chg-coleccion-packs">Publicar los packs (ya existen)</a></td><td>Home / menú</td><td><span class="pill pill--danger">Alto</span></td><td><span class="pill pill--info">Bajo 🟡</span></td></tr>
 <tr><td><a href="#chg-activar-widget-resenas">Activar el widget de reseñas</a> <span class="pill pill--danger">antes del 6/8</span></td><td>Ficha de producto</td><td><span class="pill pill--danger">Alto</span></td><td><span class="pill pill--info">Bajo 🟡</span></td></tr>
-<tr><td><a href="#chg-auditar-recorrido-pago">Recorrido completo del pago</a> <span class="pill pill--danger">antes del 6/8</span></td><td>Checkout</td><td><span class="pill pill--danger">Alto</span></td><td><span class="pill pill--warn">Medio 🟡</span></td></tr>
+<tr><td><a href="#chg-auditar-recorrido-pago">La fricción del pago, ya ubicada</a> <span class="pill pill--danger">antes del 6/8</span></td><td>Checkout</td><td><span class="pill pill--danger">Alto</span></td><td><span class="pill pill--warn">Medio 🟡</span></td></tr>
+<tr><td><a href="#chg-checkout-telefono-opcional">Sacar el teléfono obligatorio</a></td><td>Checkout</td><td><span class="pill pill--warn">Medio</span></td><td><span class="pill pill--info">Bajo 🟡</span></td></tr>
+<tr><td><a href="#chg-codigo-egratis">Eliminar el código "egratis"</a></td><td>Descuentos</td><td><span class="pill pill--warn">Medio</span></td><td><span class="pill pill--info">Bajo 🟡</span></td></tr>
+<tr><td><a href="#chg-codigo-secreto">Restringir o rotar "SECRETO"</a></td><td>Descuentos</td><td><span class="pill pill--warn">Medio</span></td><td><span class="pill pill--info">Bajo 🟡</span></td></tr>
 <tr><td><a href="#chg-aviso-despacho-ficha">Aviso de despacho combinado</a> <span class="pill pill--danger">antes del 6/8</span></td><td>Ficha de producto</td><td><span class="pill pill--danger">Alto</span></td><td><span class="pill pill--info">Bajo 🟡</span></td></tr>
 <tr><td><a href="#chg-aviso-despacho-carrito">Aviso de despacho combinado</a> <span class="pill pill--danger">antes del 6/8</span></td><td>Carrito</td><td><span class="pill pill--danger">Alto</span></td><td><span class="pill pill--info">Bajo 🟡</span></td></tr>
 <tr><td><a href="#chg-aviso-despacho-correo">Aviso de despacho combinado</a> <span class="pill pill--danger">antes del 6/8</span></td><td>Correo de agradecimiento</td><td><span class="pill pill--danger">Alto</span></td><td><span class="pill pill--warn">Medio 🟡</span></td></tr>
@@ -953,11 +963,12 @@ main { counter-reset: sec; }
 <tr><td><a href="#chg-estado-stock">Estado de stock claro</a></td><td>Ficha de producto</td><td><span class="pill pill--warn">Medio</span></td><td><span class="pill pill--info">Bajo 🟡</span></td></tr>
 <tr><td><a href="#chg-barra-envio-carrito">Barra de envío gratis</a></td><td>Carrito</td><td><span class="pill pill--danger">Alto</span></td><td><span class="pill pill--info">Bajo 🟡</span></td></tr>
 <tr><td><a href="#chg-bolsa-regalo">Bolsa de regalo agregable</a></td><td>Carrito / ficha</td><td><span class="pill pill--warn">Medio</span></td><td><span class="pill pill--warn">Medio 🟡</span></td></tr>
-<tr><td><a href="#chg-coleccion-packs">Colección "Packs y Más Vendidos" primero</a></td><td>Home / menú</td><td><span class="pill pill--danger">Alto</span></td><td><span class="pill pill--warn">Medio 🟡</span></td></tr>
 <tr><td><a href="#chg-orden-sin-stock">Sacar lo agotado de arriba</a></td><td>Home / colecciones</td><td><span class="pill pill--warn">Medio</span></td><td><span class="pill pill--info">Bajo 🟡</span></td></tr>
 <tr><td><a href="#chg-sacar-naipes-home">Bajar el protagonismo de los naipes solos</a></td><td>Home</td><td><span class="pill pill--warn">Medio</span></td><td><span class="pill pill--info">Bajo 🟡</span></td></tr>
+<tr><td><a href="#chg-apps-desinstalar">Desinstalar 4 apps que no aportan</a></td><td>Apps</td><td><span class="pill pill--warn">Medio</span></td><td><span class="pill pill--info">Bajo 🟡</span></td></tr>
 <tr><td><a href="#chg-app-videos">App de videos cortos</a></td><td>Ficha de producto</td><td><span class="pill pill--info">Bajo</span></td><td><span class="pill pill--info">Bajo 🟡</span></td></tr>
 <tr><td><a href="#chg-app-recomendados">App de productos recomendados</a></td><td>Ficha de producto</td><td><span class="pill pill--warn">Medio</span></td><td><span class="pill pill--warn">Medio 🟡</span></td></tr>
+<tr><td><a href="#chg-demanda-busquedas">Cubrir la demanda que se busca y no existe</a> <span class="pill pill--info">plazo largo</span></td><td>Catálogo</td><td><span class="pill pill--warn">Medio</span></td><td><span class="pill pill--danger">Alto 🟡</span></td></tr>
 </tbody>
 </table>
 </div>
@@ -966,7 +977,26 @@ main { counter-reset: sec; }
 
 <section class="sec" id="urgentes">
 <h2>Los arreglos urgentes</h2>
-<p>Estos 5 cambios van primero porque algo ya está roto, o porque la preventa del jueves 6 de agosto los necesita sí o sí.</p>
+<p>Estos 9 cambios van primero porque algo ya está roto, porque cuestan poco o nada aplicarlos, o porque la preventa del jueves 6 de agosto los necesita sí o sí.</p>
+
+<div class="card tie-ficha" id="chg-puzzle-reponer-stock">
+<div class="tie-ficha__meta">
+<span class="pill pill--danger">Impacto alto</span>
+<span class="pill pill--info">Esfuerzo bajo 🟡</span>
+<span class="pill pill--danger">llega el 15/8</span>
+</div>
+<h3>🧩 Reponer el Puzzle Aves y Flores de Chile</h3>
+<p class="tie-ficha__where"><strong>Dónde:</strong> ficha de producto e inventario en Shopify. Se corrige solo cuando llegue el contenedor con stock nuevo — mientras tanto, lo cubre la preventa.</p>
+<div class="compare-grid">
+<div class="compare-box compare-box--before"><span class="compare-box__label">🔴 Cómo está hoy</span><p>El Puzzle Aves y Flores es el producto más visto y más vendido de toda la tienda: 8.558 vistas y $3.108.644 en ventas en 90 días. Hoy tiene 0 unidades y la venta sin stock está desactivada — literalmente no se puede comprar.</p></div>
+<div class="compare-box compare-box--after"><span class="compare-box__label">🟢 Cómo queda</span><p>Con el contenedor que llega el 15 de agosto, se carga el stock en Shopify y el producto vuelve a estar disponible para comprar de inmediato.</p></div>
+</div>
+<p>🟢 Es el <strong>23% del tráfico total</strong> de la tienda (8.558 de 37.747 sesiones en 90 días) llegando hoy a una ficha que no puede convertir. Hay 6 productos activos en la misma situación —stock en cero, venta sin stock desactivada—, 3 de ellos puzzles con tráfico activo: Aves y Flores, Cetáceos, y Mariposas y Escarabajos. Auditoría de Shopify, 2 de agosto de 2026.</p>
+<p><strong>Mientras tanto:</strong> la preventa de puzzles abre el jueves 6 de agosto y cubre la demanda hasta que llegue el stock — el plan día a día está en <a href="preventa.html">Preventa de puzzles</a>.</p>
+<p><strong>Por qué:</strong> este solo hallazgo explica de una vez por qué la conversión general es tan baja y por qué la tasa de agregar al carrito en el celular es tan floja — casi un cuarto del tráfico llega a un producto que no puede comprar. Diagnóstico completo en <a href="cro.html#hallazgo-principal">la auditoría de conversión</a>.</p>
+<p><strong>Cómo se verifica:</strong> la ficha del Puzzle Aves y Flores muestra "Añadir al carrito" habilitado (no "Agotado"), con unidades reales cargadas en el inventario de Shopify.</p>
+<ul class="checklist"><li><label><input type="checkbox" data-tienda="puzzle-reponer-stock"><span>Ya lo apliqué</span></label></li></ul>
+</div>
 
 <div class="card tie-ficha" id="chg-activar-widget-resenas">
 <div class="tie-ficha__meta">
@@ -975,12 +1005,14 @@ main { counter-reset: sec; }
 <span class="pill pill--danger">antes del 6/8</span>
 </div>
 <h3>⭐ Activar el widget de reseñas de Judge.me</h3>
-<p class="tie-ficha__where"><strong>Dónde:</strong> ficha de producto, sección de reseñas. Se toca en Shopify → Apps → Judge.me, y en el editor de tema (sección "Reseñas de producto" o el bloque de la app dentro de la plantilla de producto).</p>
+<p class="tie-ficha__where"><strong>Dónde:</strong> ficha de producto, sección de reseñas. Se toca en Shopify → Apps → Judge.me → Configuraciones → Widgets, y en el editor de tema (plantilla de producto).</p>
 <div class="compare-grid">
-<div class="compare-box compare-box--before"><span class="compare-box__label">🔴 Cómo está hoy</span><p>El producto tiene 75 reseñas y la tienda 215 en total, todas cargadas en Judge.me — pero el widget no las muestra en la ficha. Quien entra a comprar no ve ninguna.</p></div>
+<div class="compare-box compare-box--before"><span class="compare-box__label">🔴 Cómo está hoy</span><p>🟢 Causa exacta, confirmada: en Shopify → Configuraciones → Widgets de Judge.me, el "Widget de reseñas" —el que lista las reseñas en la ficha— figura como "Instalar": nunca se agregó a la plantilla del tema. Solo están instalados la insignia de estrellas y el formulario para escribir una reseña. Hay 227 reseñas guardadas (222 de producto, 5 de tienda) que nadie ve.</p></div>
 <div class="compare-box compare-box--after"><span class="compare-box__label">🟢 Cómo queda</span><p>Las estrellas y el número de reseñas aparecen junto al nombre del producto, y el listado completo de comentarios más abajo en la misma ficha.</p></div>
 </div>
-<p><strong>Por qué:</strong> ver que otras personas ya compraron y quedaron contentas es una de las razones más fuertes para animarse a comprar algo que nunca se ha tocado con las manos. Esa confianza ya está ganada — hoy simplemente está apagada. 🟢 Reunión del 27 de julio de 2026.</p>
+<p><strong>Se hace así:</strong> en Shopify → Apps → Judge.me → Configuraciones → Widgets, busca "Widget de reseñas" (hoy dice "Instalar") y actívalo — Judge.me lo agrega a la plantilla de producto del tema. Si no se ve al toque, entra al editor de tema (sobre la copia duplicada, nunca sobre el tema publicado) y agrega el bloque de la app en la sección de producto.</p>
+<p>🟢 De las 227 reseñas: 0 están pendientes de moderar y 11 quedan ocultas a mano (la mayoría de 1-2 estrellas) — esas 11 se dejan ocultas tal como están, no hay que activarlas. Auditoría de Shopify, 2 de agosto de 2026.</p>
+<p><strong>Por qué:</strong> ver que otras personas ya compraron y quedaron contentas es una de las razones más fuertes para animarse a comprar algo que nunca se ha tocado con las manos. Esa confianza ya está ganada — hoy simplemente está apagada.</p>
 <p><strong>Cómo se verifica:</strong> entra a la ficha de cualquier producto con reseñas desde el celular, en ventana de incógnito. Las estrellas y el conteo deben verse sin tener que buscar ni hacer clic en ninguna pestaña.</p>
 <ul class="checklist"><li><label><input type="checkbox" data-tienda="activar-widget-resenas"><span>Ya lo apliqué</span></label></li></ul>
 </div>
@@ -991,21 +1023,66 @@ main { counter-reset: sec; }
 <span class="pill pill--warn">Esfuerzo medio 🟡</span>
 <span class="pill pill--danger">antes del 6/8</span>
 </div>
-<h3>💳 Recorrido completo del pago, de principio a fin</h3>
+<h3>💳 La fricción del pago, ya ubicada</h3>
 <p class="tie-ficha__where"><strong>Dónde:</strong> todo el flujo de compra, desde "Añadir al carrito" hasta la página de gracias — carrito, checkout y confirmación.</p>
-<p><strong>Cómo está hoy:</strong> Cote reportó que entra harta gente y se cae justo en el momento de pagar, pero nadie ubicó el paso exacto. Los medios de pago están completos: tarjeta, transferencia, Mercado Pago y Flow. 🟢 Reunión del 27 de julio de 2026.</p>
-<p><strong>Cómo queda:</strong> un mapa exacto de en qué paso se traba una persona real, con el detalle suficiente para corregirlo (o para descartar que sea un problema del sitio y no del medio de pago en sí).</p>
-<p><strong>Se hace así:</strong></p>
-<ol>
-<li>Desde el celular, agrega al carrito un producto con stock (por ejemplo, una libreta o un juego de loza) y avanza hasta "Finalizar compra".</li>
-<li>Completa el formulario como lo haría alguien real, con una dirección y un correo de prueba.</li>
-<li>Prueba cada medio de pago por separado, en compras de prueba distintas: tarjeta, transferencia, Mercado Pago y Flow. Anota en cuál tarda en cargar, muestra un error, o se ve confuso.</li>
-<li>Repite el mismo recorrido en computador, no solo en celular, para saber si el problema es de un dispositivo o de todos.</li>
-<li>Cuando algo se traba, toma una captura de pantalla y anota el paso exacto: un campo confuso, un costo que aparece tarde, una carga lenta, un error de la pasarela de pago.</li>
-</ol>
-<p><strong>Por qué:</strong> quien llega hasta el pago ya decidió comprar. Perderlo justo ahí es la venta más cara de recuperar de todo el camino de compra.</p>
-<p><strong>Cómo se verifica:</strong> queda al menos una compra de prueba completada con cada uno de los 4 medios de pago, en celular y en computador, y una nota escrita con el paso exacto donde se traba (si lo hay).</p>
+<p><strong>Cómo está hoy:</strong> 🟢 Cote reportó que entra harta gente y se cae justo en el momento de pagar. La auditoría de Shopify ya ubicó el punto exacto: 185 checkouts abandonados registrados en 90 días, por $6.362.945, todos sin recuperación automática. El matiz: 584 sesiones llegaron al pago sin completar la compra, pero Shopify solo registra 185 como "checkout abandonado", porque solo lo anota cuando la persona alcanzó a dejar su correo. En los casos revisados aparece la dirección de despacho completa pero sin ningún intento de pago: <strong>el quiebre está en el paso del pago mismo</strong>, no antes.</p>
+<p><strong>Las causas concretas, ya confirmadas:</strong></p>
+<ul>
+<li><strong>El teléfono es obligatorio</strong> en la dirección de envío — fricción evitable, se corrige en la ficha siguiente.</li>
+<li><strong>No hay pago exprés</strong> (tipo Shop Pay o billeteras en un clic), porque la tienda no usa Shopify Payments: van en paralelo Mercado Pago Tarjetas, Checkout Flow y Mercado Pago Checkout Pro — cada uno agrega un paso extra frente a un pago con un solo clic.</li>
+<li><span class="pill pill--success">✅</span> <strong>La compra como invitado sí está permitida.</strong> Esto ya está bien — no hay que tocarlo.</li>
+</ul>
+<p><strong>Cómo queda:</strong> con la causa ya identificada, el trabajo pasa de investigar a corregir lo que sí se puede corregir ahora (teléfono opcional, ficha siguiente) y dejar registrado lo que requiere una decisión más grande (sumar un medio de pago exprés).</p>
+<p><strong>Cómo se verifica:</strong> después de aplicar el cambio de teléfono opcional, hacer una compra de prueba completa con cada uno de los medios de pago (tarjeta, transferencia, Mercado Pago, Flow), en celular y en computador, y confirmar que ningún paso pide de más ni se cae.</p>
 <ul class="checklist"><li><label><input type="checkbox" data-tienda="auditar-recorrido-pago"><span>Ya lo apliqué</span></label></li></ul>
+</div>
+
+<div class="card tie-ficha" id="chg-checkout-telefono-opcional">
+<div class="tie-ficha__meta">
+<span class="pill pill--warn">Impacto medio</span>
+<span class="pill pill--info">Esfuerzo bajo 🟡</span>
+</div>
+<h3>📵 Sacar el teléfono obligatorio del pago</h3>
+<p class="tie-ficha__where"><strong>Dónde:</strong> Shopify → Configuraciones → Checkout, campo teléfono de la dirección de envío.</p>
+<div class="compare-grid">
+<div class="compare-box compare-box--before"><span class="compare-box__label">🔴 Cómo está hoy</span><p>El teléfono es obligatorio en la dirección de envío — un campo extra que puede frenar a alguien que solo quiere pagar rápido, sobre todo desde el celular. Confirmado en la ficha anterior como una de las causas concretas de la fricción del pago.</p></div>
+<div class="compare-box compare-box--after"><span class="compare-box__label">🟢 Cómo queda</span><p>El teléfono pasa a opcional. Quien quiera dejarlo lo deja igual —sirve para avisar del despacho—; quien no, sigue sin ese paso extra.</p></div>
+</div>
+<p><strong>Por qué:</strong> es una de las dos causas concretas que la auditoría de Shopify identificó en el paso exacto donde hoy se rompe el pago.</p>
+<p><strong>Cómo se verifica:</strong> al llegar al paso de dirección de envío en una compra de prueba, el campo teléfono ya no impide avanzar si se deja vacío.</p>
+<ul class="checklist"><li><label><input type="checkbox" data-tienda="checkout-telefono-opcional"><span>Ya lo apliqué</span></label></li></ul>
+</div>
+
+<div class="card tie-ficha" id="chg-codigo-egratis">
+<div class="tie-ficha__meta">
+<span class="pill pill--warn">Impacto medio</span>
+<span class="pill pill--info">Esfuerzo bajo 🟡</span>
+</div>
+<h3>🚫 Eliminar el código "egratis"</h3>
+<p class="tie-ficha__where"><strong>Dónde:</strong> Shopify → Descuentos.</p>
+<div class="compare-grid">
+<div class="compare-box compare-box--before"><span class="compare-box__label">🔴 Cómo está hoy</span><p>Existe un código activo "egratis", sin monto mínimo y válido para todos los países. Se usó 16 veces. Contradice la política de envío gratis sobre $50.000: con este código cualquiera se salta ese umbral.</p></div>
+<div class="compare-box compare-box--after"><span class="compare-box__label">🟢 Cómo queda</span><p>El código se elimina o se desactiva. El envío gratis queda solo donde debe estar: sobre $50.000, la política que ya usaron 157 pedidos —el 37% de los pedidos alcanza el umbral—.</p></div>
+</div>
+<p><strong>Por qué:</strong> un código sin restricciones que regala el envío siempre compite contra la razón real por la que alguien agrega un producto más al carrito para llegar a los $50.000.</p>
+<p><strong>Cómo se verifica:</strong> el código "egratis" ya no existe (o aparece desactivado) en Shopify → Descuentos.</p>
+<ul class="checklist"><li><label><input type="checkbox" data-tienda="codigo-egratis-quitar"><span>Ya lo apliqué</span></label></li></ul>
+</div>
+
+<div class="card tie-ficha" id="chg-codigo-secreto">
+<div class="tie-ficha__meta">
+<span class="pill pill--warn">Impacto medio</span>
+<span class="pill pill--info">Esfuerzo bajo 🟡</span>
+</div>
+<h3>🔓 Restringir o rotar el código "SECRETO"</h3>
+<p class="tie-ficha__where"><strong>Dónde:</strong> Shopify → Descuentos.</p>
+<div class="compare-grid">
+<div class="compare-box compare-box--before"><span class="compare-box__label">🔴 Cómo está hoy</span><p>El código "SECRETO" se usó 389 veces sin ninguna restricción de cliente — más que el resto de los códigos juntos (BIENVENIDO10: 136, DESCUENTO65K: 43, SECRETOAGOSTO: 39). Con ese volumen, dejó de ser secreto: probablemente circula de forma pública.</p></div>
+<div class="compare-box compare-box--after"><span class="compare-box__label">🟢 Cómo queda</span><p>Dos caminos: restringirlo a un uso por cliente o a una lista específica (por ejemplo, solo quien lo recibe por DM o correo), o retirarlo y reemplazarlo por un código nuevo con las mismas condiciones, sin el historial de uso masivo.</p></div>
+</div>
+<p><strong>Por qué:</strong> un código "secreto" usado 389 veces sin restricción ya no cumple su función — probablemente está regalando margen en compras que hubieran pasado igual sin el descuento.</p>
+<p><strong>Cómo se verifica:</strong> "SECRETO" aparece con un límite de uso por cliente activado en Shopify → Descuentos, o ya no existe y fue reemplazado por un código nuevo.</p>
+<ul class="checklist"><li><label><input type="checkbox" data-tienda="codigo-secreto-restringir"><span>Ya lo apliqué</span></label></li></ul>
 </div>
 
 <div class="callout callout--warn">
@@ -1247,17 +1324,21 @@ Descripción: ¿Es para regalar? Agrega esta bolsa y tu pedido llega listo para 
 <div class="card tie-ficha" id="chg-coleccion-packs">
 <div class="tie-ficha__meta">
 <span class="pill pill--danger">Impacto alto</span>
-<span class="pill pill--warn">Esfuerzo medio 🟡</span>
+<span class="pill pill--info">Esfuerzo bajo 🟡</span>
 </div>
-<h3>🗂️ Colección "Packs y Más Vendidos", primera opción visible</h3>
-<p class="tie-ficha__where"><strong>Dónde:</strong> menú principal y primera franja de productos en la home, justo después del banner.</p>
+<h3>🗂️ Publicar los packs (ya existen, no hay que crearlos)</h3>
+<p class="tie-ficha__where"><strong>Dónde:</strong> Shopify → Productos (cambiar el estado de cada pack), y después el menú principal y la primera franja de la home.</p>
+<div class="callout callout--success">
+<p><strong>🟢 Corrección importante sobre el plan original:</strong> acá se proponía <em>crear</em> una colección de packs. La auditoría de Shopify confirmó que los packs <strong>ya existen como productos</strong>, cargados con fotos y precio — están en estado <strong>Borrador</strong>, así que nadie los puede comprar. El trabajo no es crear, es <strong>publicar</strong>.</p>
+</div>
 <div class="compare-grid">
-<div class="compare-box compare-box--before"><span class="compare-box__label">🔴 Cómo está hoy</span><p>No existe ninguna colección de packs ni de más vendidos. Quien entra tiene que explorar todo el catálogo para decidir por dónde partir.</p></div>
-<div class="compare-box compare-box--after"><span class="compare-box__label">🟢 Cómo queda</span><p>Una colección "Packs y Más Vendidos", visible primero en el menú y en la home, con los 4 packs fijados arriba y el resto ordenado por más vendidos.</p></div>
+<div class="compare-box compare-box--before"><span class="compare-box__label">🔴 Cómo está hoy</span><p>6 productos "Pack" en Borrador, con más de <strong>9.000 vistas combinadas y cero ventas</strong>: Pack Naturaleza Chilena (4.476 vistas), Pack Coleccionista (2.195), Pack Tarde de Naturaleza (530), y otros tres packs más. Gente entra a mirarlos y no puede comprarlos.</p></div>
+<div class="compare-box compare-box--after"><span class="compare-box__label">🟢 Cómo queda</span><p>Los 6 productos pasan a estado Activo, visibles y comprables, reunidos en una colección "Packs y Más Vendidos" visible primero en el menú y en la home.</p></div>
 </div>
-<p><strong>Por qué:</strong> el cliente pidió que sea la primera opción visible al entrar a la tienda. Sin esta vitrina se pierden ventas de más de un producto por compra y compras de quien todavía está decidiendo. 🟢 Reunión del 27 de julio de 2026.</p>
-<p>El detalle completo —qué 4 packs armar, con qué nombre, qué orden y cómo enlazarla— ya está resuelto en <a href="ofertas.html#coleccion-packs">ofertas.html</a>. Esta ficha es el recordatorio de aplicarlo: no se repite el diseño acá para no tener dos versiones del mismo plan.</p>
-<p><strong>Cómo se verifica:</strong> la colección aparece en el menú principal y como primera franja de la home, con los 4 packs fijados arriba tal como los describe <a href="ofertas.html#coleccion-packs">ofertas.html</a>.</p>
+<p><strong>Se hace así:</strong> en Shopify → Productos, filtra por "Borrador", ubica los 6 productos "Pack" y cambia su estado a "Activo" uno por uno. Después, arma o revisa la colección y ordénala como primera franja del menú y de la home.</p>
+<p><strong>Por qué:</strong> 9.000 vistas combinadas sin una sola venta es demanda que ya está tocando la puerta. El costo de este cambio es casi cero: es cambiar un estado en Shopify, no diseñar ni fotografiar nada nuevo. El cliente además pidió que sea la primera opción visible al entrar a la tienda. 🟢 Reunión del 27 de julio de 2026 y auditoría de Shopify del 2 de agosto de 2026.</p>
+<p>El detalle completo —qué packs destacar, con qué nombre, qué orden y cómo enlazarla— ya está resuelto en <a href="ofertas.html#coleccion-packs">ofertas.html</a>. Esta ficha es el recordatorio de aplicarlo: no se repite el diseño acá para no tener dos versiones del mismo plan.</p>
+<p><strong>Cómo se verifica:</strong> los 6 productos Pack aparecen como "Activo" en Shopify → Productos y se pueden agregar al carrito desde su ficha; la colección aparece en el menú principal y como primera franja de la home.</p>
 <ul class="checklist"><li><label><input type="checkbox" data-tienda="coleccion-packs"><span>Ya lo apliqué</span></label></li></ul>
 </div>
 
@@ -1296,7 +1377,30 @@ Descripción: ¿Es para regalar? Agrega esta bolsa y tu pedido llega listo para 
 
 <section class="sec" id="apps">
 <h2>Las apps: cuáles dejar y cuáles sacar</h2>
-<p>Cote instaló 2 apps que valen la pena revisar con un criterio honesto: no todo lo que agrega una función suma — a veces resta.</p>
+<p>La tienda tiene 15 apps instaladas. Cote instaló 2 que valen la pena revisar con un criterio honesto: no todo lo que agrega una función suma — a veces resta. La auditoría de Shopify encontró, además, 4 apps que no están aportando nada.</p>
+
+<div class="card tie-ficha" id="chg-apps-desinstalar">
+<div class="tie-ficha__meta">
+<span class="pill pill--warn">Impacto medio</span>
+<span class="pill pill--info">Esfuerzo bajo 🟡</span>
+</div>
+<h3>🧹 Desinstalar las 4 apps que no aportan</h3>
+<p class="tie-ficha__where"><strong>Dónde:</strong> Shopify → Apps.</p>
+<p><strong>🟢 De las 15 apps instaladas, 4 no están aportando nada y sí suman peso a cada página:</strong></p>
+<ul>
+<li><strong>Instafeed</strong> — instalada hace 4 años, 0 extensiones activas, sin actividad en los últimos 30 días.</li>
+<li><strong>Tarificador</strong> — 0 extensiones activas, pese a tener acceso a los pedidos de la tienda.</li>
+<li><strong>AMP Bundles</strong> — instalada hace apenas una semana, 0 extensiones activas, y duplica a la app nativa "Bundles" que ya existe desde 2024.</li>
+<li><strong>Ezy WhatsApp</strong> — sin actividad, duplica a CK WhatsApp, que sí funciona y además recupera carritos abandonados.</li>
+</ul>
+<p>Con costo visible quedan solo dos apps después de este cambio: Judge.me ($15/mes, la de reseñas) y DECO Labels ($9/mes).</p>
+<div class="callout callout--warn">
+<p><strong>🟡 Se conecta con la velocidad del sitio.</strong> El celular carga un 23% más lento que el escritorio (1.517ms contra 1.228ms), y el INP —qué tan rápido responde la página cuando alguien la toca— empeoró un 9%. Es consistente con la acumulación de scripts de 15 apps corriendo a la vez. Desinstalar las que no aportan es el primer paso, no el único.</p>
+</div>
+<p><strong>Por qué:</strong> cada app instalada carga su propio script en cada página, aunque nadie la use. Sacar las que no sirven es la forma más simple de aliviar la carga sin tocar ni una línea de diseño.</p>
+<p><strong>Cómo se verifica:</strong> Shopify → Apps ya no muestra Instafeed, Tarificador, AMP Bundles ni Ezy WhatsApp instaladas.</p>
+<ul class="checklist"><li><label><input type="checkbox" data-tienda="apps-desinstalar"><span>Ya lo apliqué</span></label></li></ul>
+</div>
 
 <div class="card tie-ficha" id="chg-app-videos">
 <div class="tie-ficha__meta">
@@ -1347,29 +1451,63 @@ Descripción: ¿Es para regalar? Agrega esta bolsa y tu pedido llega listo para 
 </div>
 </section>
 
+<section class="sec" id="demanda-catalogo">
+<h2>La demanda que se busca y no existe</h2>
+<p>Esta ficha es de plazo más largo: no es un ajuste de configuración, es una decisión de catálogo. Se deja documentada para cuando toque decidir qué sumar.</p>
+
+<div class="card tie-ficha" id="chg-demanda-busquedas">
+<div class="tie-ficha__meta">
+<span class="pill pill--warn">Impacto medio</span>
+<span class="pill pill--danger">Esfuerzo alto 🟡</span>
+<span class="pill pill--info">plazo largo</span>
+</div>
+<h3>🔍 Cubrir la demanda que se busca y no existe</h3>
+<p class="tie-ficha__where"><strong>Dónde:</strong> catálogo de productos — una decisión de qué sumar, no un cambio dentro de Shopify.</p>
+<div class="compare-grid">
+<div class="compare-box compare-box--before"><span class="compare-box__label">🔴 Cómo está hoy</span><p>🟢 209 búsquedas dentro del sitio en 90 días. Cerca del 15% no encuentra ningún resultado: tazas y vajilla, manta, memorice, reloj, funda. Y especies de aves que la gente busca y todavía no tienen producto propio: picaflor, bandurria, chincol.</p></div>
+<div class="compare-box compare-box--after"><span class="compare-box__label">🟢 Cómo queda</span><p>Un catálogo que responde a lo que la propia gente ya está pidiendo, en vez de adivinar qué sumar.</p></div>
+</div>
+<p><strong>Por qué:</strong> no es una hipótesis de qué le podría gustar a alguien — es gente que entró al buscador de la tienda y escribió exactamente lo que quería comprar, y no lo encontró. Es demanda ya documentada, útil para decidir el catálogo de los próximos meses.</p>
+<p><strong>Cómo se verifica:</strong> al menos uno de estos productos (o una especie nueva) entra al catálogo, y la búsqueda que antes no encontraba nada ahora sí muestra un resultado.</p>
+<ul class="checklist"><li><label><input type="checkbox" data-tienda="demanda-busquedas-catalogo"><span>Ya lo apliqué</span></label></li></ul>
+</div>
+</section>
+
 <section class="sec" id="medicion">
 <h2>Qué se mide después de aplicar</h2>
 
 <div class="callout callout--info">
-<p><strong>Los cambios se aplican juntos, no uno por uno.</strong> Por eso lo que se mide la primera semana es el <strong>efecto conjunto</strong> de todo lo aplicado, no el de cada cambio por separado — no hay forma limpia de saber, por ejemplo, cuánto aportó solo la barra de envío gratis contra solo la colección de packs. Además, esa misma semana lanza la preventa (jueves 6 de agosto), así que el número también va a reflejar el efecto de la preventa, no solo el de estos 17 cambios. Es una lectura combinada, y así hay que presentarla.</p>
+<p><strong>Los cambios se aplican juntos, no uno por uno.</strong> Por eso lo que se mide la primera semana es el <strong>efecto conjunto</strong> de todo lo aplicado, no el de cada cambio por separado — no hay forma limpia de saber, por ejemplo, cuánto aportó solo la barra de envío gratis contra solo la colección de packs. Además, esa misma semana lanza la preventa (jueves 6 de agosto), así que el número también va a reflejar el efecto de la preventa, no solo el de estos 23 cambios. Es una lectura combinada, y así hay que presentarla.</p>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>🟢 El celular es el 92% del tráfico de la tienda y agrega al carrito 2,6 veces peor que el escritorio</strong> (3,18% contra 8,22%). Del paso al pago en adelante los dos dispositivos se comportan casi igual — todo el problema está concentrado en ese primer paso, pasar de mirar a poner algo en el carrito. Es la brecha más grande de todo el diagnóstico. El análisis completo, con la aritmética de cuánto vale cerrarla, está en <a href="cro.html#movil-vs-escritorio">la auditoría de conversión</a> — no se repite acá.</p>
 </div>
 
 <div class="kpi-grid">
   <div class="kpi">
-    <span class="kpi__label">Conversión — línea base 🟢</span>
-    <span class="kpi__value">0,98%</span>
+    <span class="kpi__label">Conversión general — línea base 🟢</span>
+    <span class="kpi__value">1,11%</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Conversión en móvil — línea base 🟢</span>
+    <span class="kpi__value">0,94%</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Conversión en escritorio — línea base 🟢</span>
+    <span class="kpi__value">2,98%</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Sesiones en 90 días — línea base 🟢</span>
+    <span class="kpi__value">37.747</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Pedidos en 90 días — línea base 🟢</span>
+    <span class="kpi__value">420</span>
   </div>
   <div class="kpi">
     <span class="kpi__label">Ticket promedio — línea base 🟢</span>
     <span class="kpi__value">$33.000</span>
-  </div>
-  <div class="kpi">
-    <span class="kpi__label">% de carritos sobre $50.000</span>
-    <span class="kpi__value">sin medir aún 🟡</span>
-  </div>
-  <div class="kpi">
-    <span class="kpi__label">Visitas a "Packs y Más Vendidos"</span>
-    <span class="kpi__value">colección nueva</span>
   </div>
 </div>
 
@@ -1377,10 +1515,12 @@ Descripción: ¿Es para regalar? Agrega esta bolsa y tu pedido llega listo para 
 <table>
 <thead><tr><th>Qué medir</th><th>Cómo</th><th>Contra qué se compara</th></tr></thead>
 <tbody>
-<tr><td>Conversión de la tienda</td><td>Shopify Analytics → resumen de tienda online, tasa de conversión de la semana</td><td>0,98% 🟢, dato de la captura de Shopify del 1 al 24 de julio de 2026</td></tr>
+<tr><td>Conversión general</td><td>Shopify Analytics → resumen de tienda online, tasa de conversión de la semana</td><td>1,11% 🟢, auditoría de Shopify, 90 días (4 de mayo al 2 de agosto de 2026): 37.747 sesiones y 420 pedidos</td></tr>
+<tr><td>Conversión en móvil</td><td>Shopify Analytics → resumen de tienda online, filtrado por dispositivo móvil</td><td>0,94% 🟢, mismo periodo (34.396 sesiones, 92% del tráfico)</td></tr>
+<tr><td>Conversión en escritorio</td><td>Shopify Analytics → resumen de tienda online, filtrado por dispositivo de escritorio</td><td>2,98% 🟢, mismo periodo (3.152 sesiones, 8% del tráfico)</td></tr>
 <tr><td>Ticket promedio</td><td>Shopify Analytics → valor promedio de pedido de la semana</td><td>$33.000 🟢, pantalla mostrada en la reunión del 27 de julio de 2026</td></tr>
-<tr><td>% de carritos sobre $50.000</td><td>Si la app de la barra de envío gratis lo reporta, usar ese dato directo; si no, aproximar con el % de pedidos completados sobre $50.000 en Shopify Analytics (más flojo, porque no cuenta los carritos que no llegaron a pagar)</td><td>No hay línea base — se mide por primera vez esta semana</td></tr>
-<tr><td>Visitas a la colección nueva</td><td>Shopify Analytics → páginas de destino, filtrando por la URL de "Packs y Más Vendidos"</td><td>No hay línea base — la colección no existía antes</td></tr>
+<tr><td>% de carritos sobre $50.000</td><td>Si la app de la barra de envío gratis lo reporta, usar ese dato directo; si no, aproximar con el % de pedidos completados sobre $50.000 en Shopify Analytics (más flojo, porque no cuenta los carritos que no llegaron a pagar)</td><td>Referencia: 157 de ~420 pedidos (37%) ya superan el umbral 🟢</td></tr>
+<tr><td>Visitas a la colección nueva</td><td>Shopify Analytics → páginas de destino, filtrando por la URL de "Packs y Más Vendidos"</td><td>No hay línea base directa — pero los 6 productos ya suman más de 9.000 vistas combinadas en Borrador 🟢</td></tr>
 </tbody>
 </table>
 </div>
@@ -1388,7 +1528,7 @@ Descripción: ¿Es para regalar? Agrega esta bolsa y tu pedido llega listo para 
 <p>Comparar siempre contra la semana inmediatamente anterior a aplicar estos cambios (no contra el mes pasado), ya que es la referencia más parecida en tráfico y mezcla de canales. Con el tiempo, y siguiendo la regla del resto del plan, conviene sumar la comparación contra el mismo periodo del año anterior para descontar estacionalidad — pero esa comparación todavía no existe para una tienda con solo meses de datos reales cargados.</p>
 
 <footer class="tie-footer">
-<p>Este documento continúa <a href="cro.html">el pre-diagnóstico de conversión</a> y no contradice el sistema de ofertas y pop-ups ya propuesto en <a href="ofertas.html">ofertas.html</a> — donde hay una diferencia de referencia de ticket promedio ($33.000 aquí y en ofertas.html, $37.900 en el resto del plan), es porque son capturas de Shopify de fechas distintas; ambas quedan citadas con su fuente.</p>
+<p>Este documento continúa <a href="cro.html">la auditoría de conversión</a> y no contradice el sistema de ofertas y pop-ups ya propuesto en <a href="ofertas.html">ofertas.html</a> — donde hay una diferencia de referencia de ticket promedio ($33.000 aquí y en ofertas.html, $37.900 en el resto del plan), es porque son capturas de Shopify de fechas distintas; ambas quedan citadas con su fuente.</p>
 </footer>
 </section>
 
