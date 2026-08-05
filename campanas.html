@@ -1,0 +1,1418 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Campañas: Google y Meta — Plan Pedraza Ilustración</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
+<style>
+/* ==========================================================================
+   Sistema de diseño v2 — Plan Pedraza Ilustración
+   Estética limpia, curada y serena, tipo iOS. Mismo contrato de clases
+   que el sistema v1: solo cambia el aspecto (espacio, tipografía,
+   superficies, radios, sombras), nunca la estructura de marcado.
+   Bloque único y canónico. No editar por página: solo usar estas clases.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* --- tinta y superficies: fondo agrupado gris cálido, tarjetas blanco puro --- */
+  --ink: #1c2420;
+  --ink-soft: #4c5850;
+  --ink-faint: #7c887f;
+  --paper: #f4f2ed;
+  --surface: #ffffff;
+  --line: rgba(28, 36, 32, .08);
+  --line-strong: rgba(28, 36, 32, .16);
+
+  /* --- acento: rojo copihue (color de acción, se mantiene) --- */
+  --accent: #b0223f;
+  --accent-dark: #7c1830;
+  --accent-soft: #f8dfe4;
+
+  /* --- verde naturaleza del sitio web de la marca (identidad y estructura, se mantiene) --- */
+  --brand-green: #3b5751;
+  --brand-green-soft: #e3eae8;
+  --brand-green-dark: #2a403c;
+
+  /* --- apoyo semántico (valores de marca sin cambios) --- */
+  --success: #2f6b4a;
+  --success-soft: #dcece1;
+  --warn: #a8720a;
+  --warn-soft: #f8ecd2;
+  --danger: #ae3d17;
+  --danger-soft: #f7ddd0;
+  --info: var(--brand-green);
+  --info-soft: var(--brand-green-soft);
+
+  /* --- forma: radios generosos y consistentes --- */
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius: 20px;
+  --radius-lg: 28px;
+  --radius-full: 999px;
+
+  /* --- sombras suaves y en capas, nunca marcadas --- */
+  --shadow-xs: 0 1px 2px rgba(24, 32, 28, .04);
+  --shadow-sm: 0 1px 3px rgba(24, 32, 28, .05), 0 4px 10px rgba(24, 32, 28, .05);
+  --shadow: 0 6px 16px rgba(24, 32, 28, .07), 0 16px 32px -12px rgba(24, 32, 28, .14);
+
+  /* --- espaciado: escala amplia; los saltos grandes son fluidos (más aire en desktop, proporcional en móvil) --- */
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .875rem;
+  --space-4: 1.25rem;
+  --space-5: 1.75rem;
+  --space-6: clamp(2rem, 1.6rem + 1.6vw, 2.75rem);
+  --space-7: clamp(2.75rem, 2rem + 3vw, 4.5rem);
+  --space-8: clamp(3.5rem, 2.3rem + 5vw, 6rem);
+
+  /* --- tipografía: una sola voz, pila de sistema (ver sección 1 del documento) --- */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: var(--font-sans); /* alias de compatibilidad: el sistema v2 unifica todo en la pila sans, ver sección 1 */
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --fs-sm: clamp(.85rem, .81rem + .2vw, .92rem);
+  --fs-base: clamp(1rem, .95rem + .25vw, 1.0625rem);
+  --fs-lg: clamp(1.1rem, 1.02rem + .4vw, 1.25rem);
+  --fs-h3: clamp(1.2rem, 1.1rem + .5vw, 1.4rem);
+  --fs-h2: clamp(1.5rem, 1.3rem + 1vw, 1.9rem);
+  --fs-h1: clamp(2rem, 1.6rem + 2.4vw, 3rem);
+
+  /* --- área táctil mínima (regla mobile-first del proyecto) --- */
+  --tap: 44px;
+
+  /* --- movimiento discreto --- */
+  --ease: cubic-bezier(.4, 0, .2, 1);
+  --dur: 200ms;
+}
+
+/* ===== 1. Reset mínimo ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; }
+img, svg { max-width: 100%; display: block; }
+h1, h2, h3, h4, p, ul, ol, dl, figure { margin: 0 0 var(--space-4); }
+ul, ol { padding-left: 1.2em; }
+a { color: inherit; }
+button { font: inherit; }
+table { border-collapse: collapse; width: 100%; }
+
+/* ===== 2. Tipografía base ===== */
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+h1, h2, h3 { font-family: var(--font-sans); font-weight: 700; line-height: 1.15; letter-spacing: -.02em; color: var(--ink); }
+h1 { font-size: var(--fs-h1); font-weight: 800; letter-spacing: -.03em; }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -.01em; }
+p { max-width: 68ch; color: var(--ink); }
+strong { color: var(--ink); font-weight: 700; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+/* ===== 3. Layout ===== */
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 var(--space-4) var(--space-8); }
+
+/* ===== 4. Barra superior (.navbar) — translúcida, con fallback sólido ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--brand-green);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .navbar {
+    background: rgba(59, 87, 81, .72);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+  }
+}
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--space-1) var(--space-3);
+}
+.navbar__home {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap);
+  height: var(--tap);
+  border-radius: var(--radius-full);
+  font-size: 1.3rem;
+  line-height: 1;
+  text-decoration: none;
+  color: #fff;
+  transition: background var(--dur) var(--ease);
+}
+.navbar__home:hover, .navbar__home:active { background: rgba(255, 255, 255, .14); }
+.navbar__title {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+.navbar__menu-btn {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-width: var(--tap);
+  min-height: var(--tap);
+  padding: 0 var(--space-3);
+  border: none;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, .14);
+  color: #fff;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease);
+}
+.navbar__menu-btn:hover { background: rgba(255, 255, 255, .22); }
+.navbar__menu-icon { display: inline-flex; flex-direction: column; justify-content: center; gap: 4px; width: 18px; flex: 0 0 auto; }
+.navbar__menu-icon span { display: block; height: 2px; width: 100%; background: #fff; border-radius: 2px; }
+.navbar__menu-label { font-size: var(--fs-sm); font-weight: 600; white-space: nowrap; }
+@media (max-width: 420px) { .navbar__menu-label { display: none; } }
+
+/* ===== 4b. Panel de navegación completo (.navpanel) — 15 páginas en 4 grupos ===== */
+html.nav-lock, body.nav-lock { overflow: hidden; }
+.navpanel {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.navpanel[hidden] { display: none; }
+.navpanel__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 20, 18, .5);
+  opacity: 0;
+  transition: opacity var(--dur) var(--ease);
+}
+.navpanel__sheet {
+  position: relative;
+  width: 100%;
+  max-height: 92vh;
+  background: var(--paper);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  transform: translateY(100%);
+  transition: transform var(--dur) var(--ease);
+}
+.navpanel.is-open .navpanel__backdrop { opacity: 1; }
+.navpanel.is-open .navpanel__sheet { transform: translateY(0); }
+.navpanel__header {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-4) var(--space-3);
+  border-bottom: 1px solid var(--line);
+}
+.navpanel__headtitle { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -.01em; color: var(--ink); }
+.navpanel__close {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap);
+  height: var(--tap);
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--line-strong);
+  color: var(--ink);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.navpanel__close:hover { background: var(--accent-soft); color: var(--accent-dark); }
+.navpanel__body {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: var(--space-4) var(--space-4) var(--space-7);
+}
+.navpanel__group + .navpanel__group { margin-top: var(--space-5); }
+.navpanel__group-title {
+  margin: 0 0 var(--space-2);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--ink-faint);
+}
+.navpanel__link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: calc(var(--tap) + 12px);
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-xs);
+  text-decoration: none;
+  color: var(--ink);
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+.navpanel__link:hover { border-color: var(--line-strong); box-shadow: var(--shadow-sm); }
+.navpanel__link:last-child { margin-bottom: 0; }
+.navpanel__link-text { flex: 1 1 auto; min-width: 0; }
+.navpanel__link-name { display: block; font-weight: 700; font-size: var(--fs-base); letter-spacing: -.01em; color: var(--ink); }
+.navpanel__link-desc { display: block; margin-top: 2px; font-size: var(--fs-sm); color: var(--ink-soft); }
+.navpanel__check {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .8rem;
+  color: #fff;
+  background: var(--brand-green);
+  opacity: 0;
+  transform: scale(.6);
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.navpanel__link--current { background: var(--brand-green-soft); border-color: transparent; }
+.navpanel__link--current .navpanel__link-name { color: var(--brand-green-dark); }
+.navpanel__link--current .navpanel__check { opacity: 1; transform: scale(1); }
+@media (min-width: 640px) {
+  .navpanel { align-items: center; padding: var(--space-5); }
+  .navpanel__sheet {
+    max-width: 560px;
+    max-height: 84vh;
+    border-radius: var(--radius-lg);
+    transform: translateY(16px) scale(.98);
+    opacity: 0;
+    transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease);
+  }
+  .navpanel.is-open .navpanel__sheet { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* ===== 5. Hero ===== */
+.hero {
+  padding: var(--space-8) var(--space-4);
+  background:
+    radial-gradient(120% 160% at 12% -20%, rgba(255, 255, 255, .14), transparent 55%),
+    linear-gradient(160deg, var(--brand-green) 0%, var(--brand-green-dark) 100%);
+  color: #fff;
+}
+.hero__inner { max-width: 960px; margin: 0 auto; }
+.hero h1 { color: #fff; margin-bottom: var(--space-3); }
+.hero p { color: rgba(255, 255, 255, .86); font-size: var(--fs-lg); font-weight: 400; max-width: 60ch; margin: 0; line-height: 1.55; }
+
+/* ===== 6. Secciones numeradas (.sec) ===== */
+main { counter-reset: sec; }
+.sec { counter-increment: sec; margin-top: var(--space-7); }
+.sec:first-of-type { margin-top: var(--space-6); }
+.sec > h2 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding-bottom: var(--space-3);
+  margin-bottom: var(--space-5);
+  border-bottom: 1px solid var(--line-strong);
+}
+.sec > h2::before {
+  content: counter(sec);
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9em;
+  height: 1.9em;
+  border-radius: var(--radius-full);
+  background: var(--brand-green);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: .5em;
+  font-weight: 700;
+  box-shadow: var(--shadow-xs);
+}
+
+/* ===== 7. Callouts: superficies sobrias con un detalle de color ===== */
+.callout {
+  display: block;
+  position: relative;
+  padding: var(--space-5) var(--space-5) var(--space-5) calc(var(--space-5) + 2.1em + var(--space-4));
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--ink-faint);
+  background: var(--surface);
+  box-shadow: var(--shadow-xs);
+  margin: var(--space-5) 0;
+}
+.callout::before {
+  position: absolute;
+  left: var(--space-5);
+  top: var(--space-5);
+  width: 2.1em;
+  height: 2.1em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--paper);
+  font-size: 1.1em;
+  line-height: 1;
+}
+.callout p:last-child { margin-bottom: 0; }
+.callout--info { border-left-color: var(--info); }
+.callout--info::before { content: "💡"; background: var(--info-soft); }
+.callout--success { border-left-color: var(--success); }
+.callout--success::before { content: "✅"; background: var(--success-soft); }
+.callout--warn { border-left-color: var(--warn); }
+.callout--warn::before { content: "🟡"; background: var(--warn-soft); }
+.callout--danger { border-left-color: var(--danger); }
+.callout--danger::before { content: "🔴"; background: var(--danger-soft); }
+
+/* ===== 8. Bloque copiable (.copyblock) ===== */
+.copyblock {
+  position: relative;
+  margin: var(--space-5) 0;
+  padding: calc(var(--tap) + var(--space-3)) var(--space-5) var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.copyblock__text {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--ink);
+}
+.copyblock__btn {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  min-height: var(--tap);
+  padding: 0 var(--space-4);
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.copyblock__btn:hover { background: var(--accent-dark); }
+.copyblock__btn:active { transform: scale(.96); }
+.copyblock__btn.is-copied { background: var(--success); }
+
+/* ===== 9. KPIs (.kpi) ===== */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+  margin: var(--space-5) 0;
+}
+.kpi {
+  padding: var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.kpi__label { display: block; font-size: var(--fs-sm); font-weight: 600; color: var(--ink-soft); margin-bottom: var(--space-2); overflow-wrap: break-word; }
+.kpi__value { display: block; font-family: var(--font-sans); font-size: clamp(1.35rem, 1.05rem + 1.4vw, 2.25rem); font-weight: 800; letter-spacing: -.02em; color: var(--ink); overflow-wrap: break-word; hyphens: none; }
+.kpi__delta { display: inline-block; margin-top: var(--space-2); font-size: var(--fs-sm); font-weight: 700; padding: 3px var(--space-3); border-radius: var(--radius-full); }
+.kpi__delta--up { color: var(--success); background: var(--success-soft); }
+.kpi__delta--down { color: var(--danger); background: var(--danger-soft); }
+
+/* ===== 10. Tarjeta genérica (.card) ===== */
+.card {
+  padding: var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  margin: var(--space-4) 0;
+}
+.card h3 { margin-top: 0; }
+
+/* ===== 11. Tablas responsive ===== */
+.table-wrap { overflow-x: auto; margin: var(--space-5) 0; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-xs); }
+.table-wrap table { min-width: 480px; }
+.table-wrap th, .table-wrap td { padding: var(--space-4); text-align: left; border-bottom: 1px solid var(--line); font-size: var(--fs-sm); }
+.table-wrap thead th { background: var(--brand-green); color: #fff; position: sticky; top: 0; font-weight: 700; }
+.table-wrap tbody tr:last-child td { border-bottom: none; }
+.table-wrap tbody tr:nth-child(even) { background: transparent; } /* sin cebrado: la separación es por hairline, no por color */
+
+/* ===== 12. Barra de progreso (.progress) — píldora fina ===== */
+.progress { margin: var(--space-4) 0; }
+.progress__track { height: 10px; background: var(--line-strong); border-radius: var(--radius-full); overflow: hidden; }
+.progress__fill { height: 100%; background: var(--brand-green); border-radius: var(--radius-full); transition: width .4s var(--ease); width: 0%; }
+.progress__label { display: block; margin-top: var(--space-3); font-size: var(--fs-sm); color: var(--ink-soft); }
+
+/* ===== 13. Checklist táctil (.checklist) ===== */
+.checklist { list-style: none; padding-left: 0; margin: var(--space-4) 0; }
+.checklist li { margin-bottom: var(--space-3); }
+.checklist label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  min-height: var(--tap);
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-xs);
+  cursor: pointer;
+  transition: box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.checklist label:hover { border-color: var(--line-strong); box-shadow: var(--shadow-sm); }
+.checklist input[type="checkbox"] { width: 26px; height: 26px; flex: 0 0 auto; accent-color: var(--brand-green); margin-top: 2px; }
+.checklist input[type="checkbox"]:checked + span { text-decoration: line-through; color: var(--ink-soft); }
+
+/* ===== 14. Etiquetas (.pill) ===== */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+.pill--success { background: var(--success-soft); color: var(--success); }
+.pill--warn { background: var(--warn-soft); color: var(--warn); }
+.pill--danger { background: var(--danger-soft); color: var(--danger); }
+.pill--info { background: var(--info-soft); color: var(--info); }
+
+/* ===== 15. Grillas responsive ===== */
+.grid-2, .grid-3 { display: grid; gap: var(--space-5); margin: var(--space-5) 0; grid-template-columns: minmax(0, 1fr); }
+
+/* ===== 16. Gráficos SVG/CSS hechos a mano ===== */
+/* Barras horizontales */
+.chart-bar-row { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-3); }
+.chart-bar-row__label { flex: 0 0 9rem; font-size: var(--fs-sm); color: var(--ink-soft); }
+.chart-bar-row__track { flex: 1 1 auto; height: 16px; background: var(--line-strong); border-radius: var(--radius-full); overflow: hidden; }
+.chart-bar-row__fill { height: 100%; background: var(--accent); border-radius: var(--radius-full); transition: width .5s var(--ease); }
+.chart-bar-row__value { flex: 0 0 auto; font-size: var(--fs-sm); font-weight: 700; min-width: 3.5rem; text-align: right; }
+
+/* Embudo: cada .funnel-step define su ancho con --w inline, ej. style="--w:70%" */
+.funnel { display: flex; flex-direction: column; align-items: center; gap: var(--space-1); margin: var(--space-5) 0; }
+.funnel-step {
+  width: var(--w, 100%);
+  max-width: 100%;
+  padding: var(--space-4);
+  text-align: center;
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  background: var(--accent);
+  border-radius: var(--radius-sm);
+  transition: opacity var(--dur) var(--ease);
+}
+.funnel-step:nth-child(2) { opacity: .85; }
+.funnel-step:nth-child(3) { opacity: .7; }
+.funnel-step:nth-child(4) { opacity: .55; }
+.funnel-step:nth-child(5) { opacity: .4; }
+
+/* Línea de tiempo vertical: línea hairline y puntos pequeños */
+.timeline { position: relative; margin: var(--space-6) 0; padding-left: var(--space-6); border-left: 1px solid var(--line-strong); }
+.timeline-item { position: relative; margin-bottom: var(--space-5); }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--space-6) - 6px);
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--brand-green);
+  border: 3px solid var(--paper);
+  box-shadow: var(--shadow-xs);
+}
+.timeline-item__date { font-size: var(--fs-sm); font-weight: 700; color: var(--accent-dark); }
+.timeline-item__title { font-family: var(--font-sans); font-weight: 700; font-size: var(--fs-lg); letter-spacing: -.01em; margin: var(--space-1) 0; }
+
+/* ===== 17. Botones: cápsula, con estados sutiles ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-5);
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-base);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-xs);
+  transition: background var(--dur) var(--ease), transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.btn:hover { background: var(--accent-dark); box-shadow: var(--shadow-sm); }
+.btn:active { transform: scale(.97); }
+.btn--ghost { background: transparent; border: 2px solid var(--line-strong); color: var(--ink); box-shadow: none; }
+.btn--ghost:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+
+/* ===== 18. Media queries (mobile-first: base = ~375px) ===== */
+@media (min-width: 480px) {
+  .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 640px) {
+  .kpi-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero { padding: var(--space-8) var(--space-6); }
+}
+@media (min-width: 960px) {
+  .kpi-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* ===== 19. Movimiento discreto: respeta preferencia de menos movimiento ===== */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===== 20. Impresión ===== */
+@media print {
+  .navbar, .navpanel, .copyblock__btn, .btn { display: none !important; }
+  body { background: #fff; color: #000; }
+  .hero { background: #fff !important; color: #000 !important; }
+  .hero h1, .hero p { color: #000 !important; }
+  .card, .callout, .kpi, .copyblock { box-shadow: none; border: 1px solid #999; }
+  .callout { border-left: 4px solid #999; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: .8em; }
+}
+/* ==========================================================================
+   Extensiones propias de esta página (campanas.html)
+   campanas.html es la página de ejecución de la auditoría de ads.html —
+   se llega por link directo desde ahí. El bloque de arriba es el canónico
+   intacto; lo de abajo es el único componente propio de esta página
+   (link de vuelta en el hero), agregado en la misma hoja de estilos única
+   para no crear un segundo archivo CSS.
+   ========================================================================== */
+
+.hero__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-2) 0 0;
+  margin-bottom: var(--space-3);
+  color: rgba(255, 255, 255, .85);
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+.hero__back:hover { color: #fff; }
+</style>
+</head>
+<body data-nav-actual="campanas">
+<nav class="navbar" aria-label="Barra de navegación">
+  <div class="navbar__inner">
+    <a href="estado.html" class="navbar__home" aria-label="Ir al inicio: Estado del plan">🦋</a>
+    <span class="navbar__title" data-nav-title>Plan Pedraza Ilustración</span>
+    <button type="button" class="navbar__menu-btn" data-nav-open aria-expanded="false" aria-controls="nav-panel">
+      <span class="navbar__menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span class="navbar__menu-label">Menú</span>
+    </button>
+  </div>
+</nav>
+
+<div class="navpanel" id="nav-panel" role="dialog" aria-modal="true" aria-label="Menú de navegación" hidden>
+  <div class="navpanel__backdrop" data-nav-close></div>
+  <div class="navpanel__sheet">
+    <div class="navpanel__header">
+      <span class="navpanel__headtitle">Menú</span>
+      <button type="button" class="navpanel__close" data-nav-close aria-label="Cerrar menú">✕</button>
+    </div>
+    <nav class="navpanel__body" aria-label="Todas las páginas del plan">
+
+      <div class="navpanel__group">
+        <h3 class="navpanel__group-title">Seguimiento</h3>
+        <a href="estado.html" class="navpanel__link" data-nav-key="estado">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Estado del plan</span>
+            <span class="navpanel__link-desc">En qué punto vamos hoy</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="bitacora.html" class="navpanel__link" data-nav-key="bitacora">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Bitácora</span>
+            <span class="navpanel__link-desc">Reuniones, pendientes y entregables</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="finanzas.html" class="navpanel__link" data-nav-key="finanzas">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Los números del negocio</span>
+            <span class="navpanel__link-desc">Qué dicen 18 meses de datos</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="sincronizar.html" class="navpanel__link" data-nav-key="sincronizar">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Conectar con la hoja</span>
+            <span class="navpanel__link-desc">Compartir el avance con el equipo</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+      </div>
+
+      <div class="navpanel__group">
+        <h3 class="navpanel__group-title">La estrategia</h3>
+        <a href="index.html" class="navpanel__link" data-nav-key="index">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Plan y estrategia</span>
+            <span class="navpanel__link-desc">El mapa completo</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+      </div>
+
+      <div class="navpanel__group">
+        <h3 class="navpanel__group-title">Plan de acción</h3>
+        <a href="plan-90-dias.html" class="navpanel__link" data-nav-key="plan-90-dias">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Plan de 90 días</span>
+            <span class="navpanel__link-desc">Roles, objetivos y checklist</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="stock-navidad.html" class="navpanel__link" data-nav-key="stock-navidad">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Stock para Navidad</span>
+            <span class="navpanel__link-desc">Cuánto pedir y cuándo</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="escenarios.html" class="navpanel__link" data-nav-key="escenarios">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Escenarios</span>
+            <span class="navpanel__link-desc">Cuánto podemos crecer y qué pedir</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="preventa.html" class="navpanel__link" data-nav-key="preventa">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Preventa de puzzles</span>
+            <span class="navpanel__link-desc">Plan día a día del lanzamiento</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="inventario.html" class="navpanel__link" data-nav-key="inventario">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Control de stock</span>
+            <span class="navpanel__link-desc">Semáforo y alertas de quiebre</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="modelo-datos.html" class="navpanel__link" data-nav-key="modelo-datos">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Ordenar los datos</span>
+            <span class="navpanel__link-desc">Correcciones al modelo financiero</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="ofertas.html" class="navpanel__link" data-nav-key="ofertas">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Ofertas y pop-ups</span>
+            <span class="navpanel__link-desc">Subir el ticket promedio</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="precios.html" class="navpanel__link" data-nav-key="precios">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Nueva estructura de precios</span>
+            <span class="navpanel__link-desc">Lista final por competencia</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="email.html" class="navpanel__link" data-nav-key="email">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Correo y campañas</span>
+            <span class="navpanel__link-desc">Del 11,8% al 20-25%</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="clientes.html" class="navpanel__link" data-nav-key="clientes">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Clientes que vuelven</span>
+            <span class="navpanel__link-desc">Del 7,2% al 20% de recompra</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="cro.html" class="navpanel__link" data-nav-key="cro">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Conversión</span>
+            <span class="navpanel__link-desc">Auditoría de la tienda</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="tienda-cambios.html" class="navpanel__link" data-nav-key="tienda-cambios">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Cambios en la tienda</span>
+            <span class="navpanel__link-desc">Qué tocar y en qué orden</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="ads.html" class="navpanel__link" data-nav-key="ads">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Google y Meta Ads</span>
+            <span class="navpanel__link-desc">Auditoría de las cuentas</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="campanas.html" class="navpanel__link" data-nav-key="campanas">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Campañas: Google y Meta</span>
+            <span class="navpanel__link-desc">La estructura nueva, lista para ejecutar</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="digitales.html" class="navpanel__link" data-nav-key="digitales">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Productos digitales</span>
+            <span class="navpanel__link-desc">Margen sin stock</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+      </div>
+
+      <div class="navpanel__group">
+        <h3 class="navpanel__group-title">Herramientas del día a día</h3>
+        <a href="kit-arranque.html" class="navpanel__link" data-nav-key="kit-arranque">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Kit de arranque</span>
+            <span class="navpanel__link-desc">Lo primero que se hace</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="guion-reels.html" class="navpanel__link" data-nav-key="guion-reels">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Guiones de Reels</span>
+            <span class="navpanel__link-desc">Qué grabar y cómo</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="sop-dm.html" class="navpanel__link" data-nav-key="sop-dm">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Mensajes y DM</span>
+            <span class="navpanel__link-desc">Qué responder</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="recursos.html" class="navpanel__link" data-nav-key="recursos">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Recursos</span>
+            <span class="navpanel__link-desc">Herramientas y enlaces</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="tablero.html" class="navpanel__link" data-nav-key="tablero">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Tablero</span>
+            <span class="navpanel__link-desc">Métricas semanales</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+      </div>
+
+    </nav>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="hero__inner">
+    <a href="ads.html" class="hero__back">← Volver a la auditoría</a>
+    <h1>Campañas: la estructura nueva de Google y la limpieza de Meta</h1>
+    <p>La auditoría del 1 de agosto (<a href="ads.html" style="color:#fff;text-decoration:underline">ads.html</a>) mostró qué estaba mal. Esta página es la ejecución: la estructura nueva de Google Ads, el checklist de limpieza de Meta, y el ajuste acordado en la llamada del 5 de agosto — mover el presupuesto de puzzles a láminas y botellas mientras dura el quiebre de stock.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section class="sec" id="que-cambia">
+<h2>Qué cambia y por qué</h2>
+
+<p><span class="pill pill--success">🟢 acuerdo de la llamada, 5-ago-2026</span> Los puzzles están agotados hasta el 15 o 16 de agosto. Mientras dure el quiebre, el presupuesto de publicidad se mueve a <strong>láminas y botellas</strong> — son los tickets más altos que sí se pueden vender hoy. Cuando llegue el stock de puzzles, el presupuesto vuelve a repartirse como antes.</p>
+
+<p>Los accesorios (bolsos, llaveros, pines, calcetines) tienen un ticket más bajo. No compiten por el presupuesto principal: van en una campaña de Google aparte, más chica, pensada para que gente nueva descubra la marca — no para llevarse el grueso de la inversión.</p>
+
+<div class="kpi-grid">
+  <div class="kpi">
+    <span class="kpi__label">Retorno real de la publicidad 🟢</span>
+    <span class="kpi__value">4,58</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Inversión publicitaria total 🟢</span>
+    <span class="kpi__value">$919.649<span style="font-size:var(--fs-sm);font-weight:600"> /mes</span></span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Lo que necesita Google para el 5-sep 🟢</span>
+    <span class="kpi__value">$10.441<span style="font-size:var(--fs-sm);font-weight:600"> /día</span></span>
+  </div>
+</div>
+
+<p style="font-size:var(--fs-sm);color:var(--ink-faint)">Retorno real = venta neta de Shopify (sin IVA ni envío) ÷ toda la inversión publicitaria. Detalle completo en <a href="ads.html#la-foto-real">la sección 1 de la auditoría</a>.</p>
+
+<div class="grid-2">
+<div class="card">
+<h3>💰 Precios nuevos de láminas</h3>
+<div class="table-wrap" style="margin:var(--space-3) 0">
+<table>
+<thead><tr><th>Formato</th><th>Precio nuevo</th><th>Antes</th><th>Descuento</th></tr></thead>
+<tbody>
+<tr><td>Grande (42×60)</td><td><strong>$42.990</strong></td><td>$52.990</td><td>-19%</td></tr>
+<tr><td>Mediana (33×50)</td><td><strong>$32.990</strong></td><td>$49.990</td><td>-34%</td></tr>
+</tbody>
+</table>
+</div>
+<p style="margin-bottom:0;font-size:var(--fs-sm)">🟢 Ambas con precio de comparación visible (el precio tachado). Se hace para compensar la venta que se pierde por el quiebre de puzzles. Detalle completo en <a href="precios.html">precios.html</a>.</p>
+</div>
+<div class="card">
+<h3>📦 Stock de láminas esta semana</h3>
+<p>🔴 Hoy (5-ago) solo quedan <strong>3 láminas de aves</strong> en stock.</p>
+<p style="margin-bottom:0">🟢 El viernes 7 de agosto entra stock nuevo: <strong>láminas grandes de todos los diseños</strong>, y <strong>A3 chica solo del diseño de aves</strong> (formato nuevo, sin precio confirmado aquí <span class="pill pill--warn">🟡 verificar precio A3</span>).</p>
+</div>
+</div>
+
+<div class="callout callout--info">
+<p>💡 <strong>La lámina de aves es la que más reseñas tiene.</strong> Ojo: hoy esas reseñas no se ven en la ficha del producto porque el widget de reseñas de Judge.me nunca se instaló en la plantilla (se explica en <a href="cro.html">la auditoría de tienda</a>). Mientras no se instale, esa prueba social sirve como argumento dentro del anuncio, pero no aparece todavía en el sitio.</p>
+</div>
+
+<div class="timeline">
+<div class="timeline-item">
+<div class="timeline-item__date">Ahora (5 al 14 de agosto)</div>
+<div class="timeline-item__title">Presupuesto en láminas y botellas</div>
+<p style="margin-bottom:0">Puzzles agotados. El grueso de la inversión empuja láminas (precio nuevo, -19% y -34%) y botellas.</p>
+</div>
+<div class="timeline-item">
+<div class="timeline-item__date">15-16 de agosto</div>
+<div class="timeline-item__title">Llega el stock de puzzles</div>
+<p style="margin-bottom:0">500 unidades del puzzle de aves y otros diseños. El presupuesto vuelve a repartirse como antes de este ajuste.</p>
+</div>
+</div>
+</section>
+
+<section class="sec" id="estructura-google">
+<h2>La estructura nueva de Google Ads</h2>
+
+<p>Hoy Google Ads tiene <strong>una sola campaña</strong>, con un solo grupo de recursos llamado "General", sin separación por categoría. La estructura nueva usa <strong>tres campañas separadas</strong>, cada una con un objetivo distinto:</p>
+
+<div class="card">
+<h3>1. Láminas y botellas <span class="pill pill--success">el grueso del presupuesto</span></h3>
+<div class="table-wrap" style="margin:var(--space-3) 0">
+<table>
+<tbody>
+<tr><td><strong>Tipo</strong></td><td>Shopping / Performance Max 🟡</td></tr>
+<tr><td><strong>Objetivo</strong></td><td>Ventas — maximizar valor de conversión</td></tr>
+<tr><td><strong>Presupuesto diario sugerido</strong></td><td><strong>$8.352</strong> (80% del total) 🟡</td></tr>
+<tr><td><strong>Productos</strong></td><td>Lámina grande 42×60 ($42.990), lámina mediana 33×50 ($32.990), lámina A3 chica de aves, y todas las botellas</td></tr>
+</tbody>
+</table>
+</div>
+<p style="margin-bottom:0;font-size:var(--fs-sm)">Son los tickets más altos disponibles mientras dura el quiebre de puzzles. Dar prioridad al diseño de aves: es el que más reseñas tiene.</p>
+</div>
+
+<div class="card">
+<h3>2. Accesorios <span class="pill pill--info">descubrimiento</span></h3>
+<div class="table-wrap" style="margin:var(--space-3) 0">
+<table>
+<tbody>
+<tr><td><strong>Tipo</strong></td><td>Shopping / Performance Max 🟡</td></tr>
+<tr><td><strong>Objetivo</strong></td><td>Primera interacción — que gente nueva descubra la marca con un precio de entrada bajo</td></tr>
+<tr><td><strong>Presupuesto diario sugerido</strong></td><td><strong>$1.775</strong> (17% del total) 🟡</td></tr>
+<tr><td><strong>Productos</strong></td><td>Bolsos, llaveros, pines, calcetines</td></tr>
+</tbody>
+</table>
+</div>
+<p style="margin-bottom:0;font-size:var(--fs-sm)">Ticket bajo: no debe competir por presupuesto con la campaña principal. Su trabajo es traer gente nueva, no maximizar venta inmediata.</p>
+</div>
+
+<div class="card">
+<h3>3. Marca <span class="pill pill--warn">separada, para medir limpio</span></h3>
+<div class="table-wrap" style="margin:var(--space-3) 0">
+<table>
+<tbody>
+<tr><td><strong>Tipo</strong></td><td>Búsqueda (Search), solo términos de marca</td></tr>
+<tr><td><strong>Objetivo</strong></td><td>Capturar la demanda que ya busca "Pedraza Ilustración" por su nombre</td></tr>
+<tr><td><strong>Presupuesto diario sugerido</strong></td><td><strong>$313</strong> (3% del total) 🟡</td></tr>
+<tr><td><strong>Palabras clave</strong></td><td>"pedraza ilustración" y variantes de marca 🟡</td></tr>
+</tbody>
+</table>
+</div>
+<p style="margin-bottom:0;font-size:var(--fs-sm)">🟢 Hoy una conversión de marca cuesta <strong>$426</strong> y una sin marca cuesta <strong>$12.290</strong> — 29 veces más. Mezcladas en la misma campaña es imposible saber cuál de las dos está funcionando de verdad.</p>
+</div>
+
+<h3>Reparto del presupuesto</h3>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Láminas y botellas</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:80%"></div></div><span class="chart-bar-row__value">80%</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Accesorios</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:17%"></div></div><span class="chart-bar-row__value">17%</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Marca</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:3%"></div></div><span class="chart-bar-row__value">3%</span></div>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Campaña</th><th>Presupuesto diario 🟡</th><th>% del total</th><th>Por qué</th></tr>
+</thead>
+<tbody>
+<tr><td>Láminas y botellas</td><td>$8.352</td><td>80%</td><td>Son los tickets más altos disponibles hoy; reemplazan la venta de puzzles mientras dura el quiebre</td></tr>
+<tr><td>Accesorios</td><td>$1.775</td><td>17%</td><td>Ticket bajo, pensada para descubrimiento — no debe restarle presupuesto a lo prioritario</td></tr>
+<tr><td>Marca</td><td>$313</td><td>3%</td><td>Demanda barata ($426 por conversión) que hay que medir separada de la venta real generada por publicidad</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>$10.441</strong></td><td><strong>100%</strong></td><td>El monto que necesita la promoción de Google para llegar a los $323.656 antes del 5 de septiembre</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="callout callout--warn">
+<p>🟡 <strong>El reparto (75/15/10) es una propuesta a validar, no un dato de la auditoría.</strong> Lo que sí viene confirmado de la auditoría es el total: $10.441 diarios para alcanzar el crédito del 5 de septiembre. Hoy Google gasta $7.000 diarios en una sola campaña sin separar.</p>
+</div>
+
+<div class="callout callout--info">
+<p>💡 <strong>Los puzzles no desaparecen de Google.</strong> Aunque el presupuesto nuevo se enfoca en láminas y botellas, los productos de puzzle marcados "agotado" siguen corriendo donde ya están — no se tocan ni se pausan (se explica por qué en la sección siguiente).</p>
+</div>
+</section>
+
+<section class="sec" id="pasos-google">
+<h2>Los pasos en Google, en orden</h2>
+
+<div class="callout callout--warn">
+<p>🟡 <strong>El orden importa.</strong> Subir presupuesto sobre una cuenta mal configurada es como echarle más plata a una cañería rota. Primero se ordena la cuenta, recién después se sube el presupuesto.</p>
+</div>
+
+<p>Marca cada paso a medida que se completa. El progreso queda guardado en este navegador.</p>
+<div class="progress">
+  <div class="progress__track">
+    <div class="progress__fill" data-progress-fill-cmp-google></div>
+  </div>
+  <span class="progress__label" data-progress-label-cmp-google>0 de 4 tareas (0%)</span>
+</div>
+<ul class="checklist" id="checklist-google">
+<li><label><input type="checkbox" data-campanas="desbloquear-productos-excluidos"><span>1. Desbloquear los 25 productos excluidos del grupo de recursos "General" — hoy el 89% del catálogo no tiene ni una sola impresión</span></label></li>
+<li><label><input type="checkbox" data-campanas="separar-grupos-categoria"><span>2. Separar los grupos por categoría: Láminas y botellas, Accesorios, Marca</span></label></li>
+<li><label><input type="checkbox" data-campanas="crear-lista-negativas"><span>3. Crear la lista de palabras clave negativas</span></label></li>
+<li><label><input type="checkbox" data-campanas="subir-presupuesto-10441"><span>4. Subir el presupuesto a $10.441 diarios — solo después de completar los tres pasos anteriores</span></label></li>
+</ul>
+
+<h3>La lista de palabras negativas</h3>
+<p>Estos términos concretos salieron de la auditoría: se gastan $6.035 al mes en búsquedas que nunca terminan en una venta.</p>
+<div class="copyblock">
+<div class="copyblock__text" id="copy-lista-negativas">djeco chile
+funky zoo
+toyng puzzle
+puzzleshop cl
+la puzzleria chile
+puzzle la joven de la perla
+puzzle a sheep</div>
+<button type="button" class="copyblock__btn" data-copy-target="copy-lista-negativas">Copiar</button>
+</div>
+
+<div class="callout callout--success">
+<p>✅ <strong>No hay que cortar el gasto en los productos marcados "agotado".</strong> Son el 18% del gasto de Google pero el 41% del valor generado, y convierten 3,2 veces mejor que el resto de la cuenta (retorno 6,40 contra 2,00). La gente busca el puzzle, lo encuentra agotado y compra otra cosa igual — es el imán que trae al comprador. Cortar ese gasto sería cortar la mejor parte de toda la cuenta. Lo correcto es arreglar el sincronizado de stock del feed, no pausar los productos.</p>
+</div>
+</section>
+
+<section class="sec" id="limpieza-meta">
+<h2>La limpieza de Meta, paso a paso</h2>
+
+<div class="callout callout--danger">
+<p>🔴 <strong>Lo que Cote reportó:</strong> un anuncio con imagen de puzzle que, al hacer clic, llevaba a una página vacía. Debajo de esa página aparecían colecciones que ya no existen (losas y platos, que están en borrador). Además, las mejoras automáticas con inteligencia artificial —brillo y contraste— están distorsionando los videos, y Cote quiere sacarlas de todos los anuncios.</p>
+</div>
+
+<div class="card">
+<h3>🎨 Dónde están las mejoras automáticas con IA</h3>
+<p style="margin-bottom:0">Dentro de cada anuncio, en el Administrador de anuncios de Meta: <strong>editar el anuncio → Configuración avanzada → "Mejoras esenciales"</strong> (a veces aparece como "Mejoras creativas"). Ahí están los interruptores de <strong>Brillo y contraste</strong> automáticos y el resto de los ajustes con IA. Se apagan uno por uno, en todos los anuncios activos — no solo en los nuevos.</p>
+</div>
+
+<p>Marca cada paso a medida que se completa. El progreso queda guardado en este navegador.</p>
+<div class="progress">
+  <div class="progress__track">
+    <div class="progress__fill" data-progress-fill-cmp-meta></div>
+  </div>
+  <span class="progress__label" data-progress-label-cmp-meta>0 de 6 tareas (0%)</span>
+</div>
+<ul class="checklist" id="checklist-meta">
+<li><label><input type="checkbox" data-campanas="quitar-mejoras-ia"><span>1. Quitar las mejoras automáticas con IA (brillo y contraste) de todos los anuncios activos</span></label></li>
+<li><label><input type="checkbox" data-campanas="revisar-destinos-anuncios"><span>2. Revisar anuncio por anuncio a qué página llega cada uno, y arreglar los que caen en páginas vacías</span></label></li>
+<li><label><input type="checkbox" data-campanas="pausar-colecciones-descontinuadas"><span>3. Pausar todo lo que apunte a colecciones descontinuadas (ej. losas y platos, en borrador)</span></label></li>
+<li><label><input type="checkbox" data-campanas="configurar-dedup-compra"><span>4. Configurar la deduplicación del evento de compra en el Administrador de Eventos</span></label></li>
+<li><label><input type="checkbox" data-campanas="rescatar-publicos-similares"><span>5. Rescatar los públicos similares antes de que caduquen del todo</span></label></li>
+<li><label><input type="checkbox" data-campanas="crear-remarketing-20"><span>6. Crear el conjunto de remarketing al 20% acordado ($128.651/mes)</span></label></li>
+</ul>
+
+<div class="grid-2">
+<div class="card">
+<h3>📊 La deduplicación que falta</h3>
+<p style="margin-bottom:0">🔴 Meta tiene una advertencia activa: <em>"No se configuró la deduplicación para este evento"</em>. Los eventos de compra por navegador se están sumando encima de los del servidor en vez de reconocerse como la misma venta. Detalle completo en <a href="ads.html#pixel-cuenta-de-mas">la sección 3 de la auditoría</a>.</p>
+</div>
+<div class="card">
+<h3>⏳ Los públicos por caducar</h3>
+<p style="margin-bottom:0">Uno de los públicos similares venció el mismo día de la auditoría (1 de agosto) — probablemente ya expiró y hay que recuperarlo o recrearlo cuanto antes. Otro vence unos 62 días después de la auditoría, cerca del 2 de octubre.</p>
+</div>
+</div>
+
+<h3>El remarketing que casi no existe</h3>
+<div class="kpi-grid">
+  <div class="kpi">
+    <span class="kpi__label">Va hoy a gente que ya conoce la marca 🟢</span>
+    <span class="kpi__value">0,10%</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Lo acordado en la reunión 🟢</span>
+    <span class="kpi__value">20%</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Diferencia sin usar, al mes 🟢</span>
+    <span class="kpi__value">$128.007</span>
+  </div>
+</div>
+<p>Ya existen <strong>9 públicos personalizados</strong> y <strong>19 públicos similares</strong> — incluido uno de compradores de los últimos 730 días. Están construidos y prácticamente sin usar: solo hay que armar el conjunto de anuncios que los use, con el 20% del presupuesto acordado.</p>
+</section>
+
+<section class="sec" id="anuncios-revivir">
+<h2>Los anuncios que hay que revivir ahora</h2>
+
+<p>Del historial de anuncios ganadores de Meta, algunos aplican con el catálogo disponible hoy y otros no. El criterio es simple: <strong>los de puzzles no sirven mientras estén agotados.</strong> Se prioriza lo que empuja láminas y botellas.</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>#</th><th>Anuncio</th><th>Formato</th><th>Retorno</th><th>¿Aplica hoy?</th></tr>
+</thead>
+<tbody>
+<tr><td>10</td><td><strong>STATIC | BOTELLA HONGOS AVES</strong></td><td>Imagen</td><td>4,76</td><td><span class="pill pill--success">✅ Sí — empuja botellas directamente</span></td></tr>
+<tr><td>2</td><td>catalogo productos invierno</td><td>Carrusel/Catálogo</td><td>7,37</td><td><span class="pill pill--success">✅ Sí — dar prioridad a láminas y botellas</span></td></tr>
+<tr><td>1</td><td>Campaña de compra Advantage+</td><td>Catálogo</td><td>4,59</td><td><span class="pill pill--success">✅ Sí — catálogo completo</span></td></tr>
+<tr><td>5</td><td>catalogo 1 público personalizado 30 días</td><td>Catálogo</td><td>4,62</td><td><span class="pill pill--success">✅ Sí — catálogo completo</span></td></tr>
+<tr><td>7</td><td>Nuevo anuncio de Ventas</td><td>Video</td><td>6,18</td><td><span class="pill pill--warn">🟡 Verificar que el video no sea de puzzle</span></td></tr>
+<tr><td>4</td><td>naipes video</td><td>Video</td><td>6,77</td><td><span class="pill pill--warn">🟡 Verificar stock actual de naipes</span></td></tr>
+<tr><td>9</td><td>naipes video BOSQUE</td><td>Video</td><td>7,06</td><td><span class="pill pill--warn">🟡 Verificar stock actual de naipes</span></td></tr>
+<tr><td>8</td><td>REEL | CARTAS AVES</td><td>Video (Reel)</td><td>5,68</td><td><span class="pill pill--warn">🟡 Verificar stock de naipes/cartas</span></td></tr>
+<tr><td>3</td><td>Puzzle aves video cayendo</td><td>Video</td><td>7,03</td><td><span class="pill pill--danger">⏳ Espera stock (15-16 ago)</span></td></tr>
+<tr><td>6</td><td>Preventa cetáceos</td><td>Imagen estática</td><td>7,73</td><td><span class="pill pill--info">📌 Precedente, no se relanza tal cual</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="callout callout--success">
+<p>✅ <strong>"STATIC | BOTELLA HONGOS AVES" es el mejor encaje con el cambio de estrategia.</strong> Empuja botellas directamente, con creativo ya probado y 38 compras reales detrás. Es el primer anuncio a reactivar.</p>
+</div>
+
+<div class="callout callout--info">
+<p>💡 <strong>"Preventa cetáceos" tiene el mejor retorno de toda la historia de la cuenta (7,73).</strong> No se relanza igual — el puzzle de cetáceos sigue agotado — pero es el precedente directo de la <a href="preventa.html">preventa de puzzles de mañana, 6 de agosto</a>: la misma fórmula de imagen estática y preventa ya funcionó una vez, y es la razón para confiar en el lanzamiento de mañana.</p>
+</div>
+
+<div class="callout callout--warn">
+<p>🟡 <strong>Los tres anuncios de puzzle de aves y naipes esperan stock.</strong> El puzzle de aves llega el 15 de agosto (500 unidades) y los naipes el 15 de agosto (1.000 unidades, único producto que no subió de precio). Revisar stock real antes de reactivar los de naipes — la auditoría no confirma si hoy hay unidades disponibles.</p>
+</div>
+</section>
+
+<section class="sec" id="antes-de-ejecutar">
+<h2>Lo que hace falta antes de poder ejecutar</h2>
+
+<p>Con toda honestidad: la estructura de arriba está diseñada, pero no se puede lanzar todavía. Faltan tres cosas.</p>
+
+<div class="progress">
+  <div class="progress__track">
+    <div class="progress__fill" data-progress-fill-cmp-prereq></div>
+  </div>
+  <span class="progress__label" data-progress-label-cmp-prereq>0 de 3 pendientes (0%)</span>
+</div>
+<ul class="checklist" id="checklist-prereq">
+<li><label><input type="checkbox" data-campanas="recibir-creativos-drive"><span><strong>El Drive con los creativos que tiene que compartir Cote.</strong> Bloquea directamente las campañas de láminas y botellas — sin fotos y videos nuevos no hay con qué anunciar el precio y el stock nuevos.</span></label></li>
+<li><label><input type="checkbox" data-campanas="recibir-infografia-papel"><span><strong>La infografía de calidad del papel.</strong> Refuerza por qué vale la pena pagar el precio de la lámina.</span></label></li>
+<li><label><input type="checkbox" data-campanas="aplicar-precios-nuevos-tienda"><span><strong>Los precios nuevos aplicados en la tienda.</strong> $42.990 y $32.990 con precio de comparación visible, antes de que cualquier anuncio apunte a esas fichas.</span></label></li>
+</ul>
+
+<div class="callout callout--warn">
+<p>🟡 Sin estas tres cosas, la campaña de láminas y botellas queda diseñada en el papel, pero no se puede encender.</p>
+</div>
+</section>
+
+<section class="sec" id="como-se-mide">
+<h2>Cómo se mide</h2>
+
+<p>La primera semana, lo que hay que mirar no es el retorno que reporta cada plataforma por separado. Entre Meta y Google se atribuyen el <strong>81% de los pedidos</strong> — se solapan entre sí, así que sumar sus números no sirve para decidir nada. La única medición limpia sale de Shopify.</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Qué mirar</th><th>Dónde</th><th>Cada cuánto</th></tr>
+</thead>
+<tbody>
+<tr><td>Venta neta real de Shopify ÷ inversión total (la que manda)</td><td>Shopify</td><td>Semanal</td></tr>
+<tr><td>Cuánto de esa venta es láminas y botellas (¿el pivot está funcionando?)</td><td>Shopify</td><td>Semanal</td></tr>
+<tr><td>Gasto real por campaña contra el presupuesto sugerido</td><td>Google Ads + Meta Ads Manager</td><td>Semanal</td></tr>
+<tr><td>Retorno por plataforma (referencia, nunca para decidir sola)</td><td>Google Ads + Meta Ads Manager</td><td>Semanal</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="copyblock">
+<div class="copyblock__text" id="copy-seguimiento-campanas">Seguimiento semanal — Campañas de Google y Meta
+
+Semana del ___ al ___
+
+Inversión Meta: $______
+Inversión Google (Láminas/botellas + Accesorios + Marca): $______
+Inversión total: $______
+
+Venta neta real (Shopify, sin IVA ni envío): $______
+De esa venta, cuánto es láminas y botellas: $______
+
+Retorno real = venta neta ÷ inversión total: ______
+
+Referencia (no usar para decidir sola): Meta reporta ______ | Google reporta ______</div>
+<button type="button" class="copyblock__btn" data-copy-target="copy-seguimiento-campanas">Copiar</button>
+</div>
+
+<p>El detalle completo de por qué no se puede confiar en el número de cada plataforma por separado está en <a href="ads.html#que-se-mide">la sección 9 de la auditoría</a>. El seguimiento semana a semana se centraliza en el tablero:</p>
+
+<a href="tablero.html" class="btn">Ir al tablero de KPIs</a>
+</section>
+
+</main>
+
+<script>
+  // Copiar al portapapeles — delegación de eventos, un solo listener por página.
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-copy-target]');
+    if (!btn) return;
+    var el = document.getElementById(btn.getAttribute('data-copy-target'));
+    if (!el) return;
+    copiarTexto(el.innerText || el.textContent || '', btn);
+  });
+
+  function copiarTexto(texto, btn) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(texto).then(
+        function () { mostrarCopiado(btn); },
+        function () { copiarConFallback(texto, btn); }
+      );
+    } else {
+      copiarConFallback(texto, btn);
+    }
+  }
+
+  function copiarConFallback(texto, btn) {
+    var ta = document.createElement('textarea');
+    ta.value = texto;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.top = '-1000px';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (err) { /* sin soporte, se ignora */ }
+    document.body.removeChild(ta);
+    mostrarCopiado(btn);
+  }
+
+  function mostrarCopiado(btn) {
+    var original = btn.getAttribute('data-label') || btn.textContent;
+    btn.setAttribute('data-label', original);
+    btn.textContent = '✓ ¡Copiado!';
+    btn.classList.add('is-copied');
+    clearTimeout(btn._copyTimeout);
+    btn._copyTimeout = setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('is-copied');
+    }, 2000);
+  }
+</script>
+
+<script>
+  // Acceso seguro a localStorage (no revienta en navegación privada u otros bloqueos).
+  function pgGet(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+  function pgSet(key, valor) { try { localStorage.setItem(key, valor); } catch (e) { /* sin soporte, se ignora */ } }
+  function pgRemove(key) { try { localStorage.removeItem(key); } catch (e) { /* sin soporte, se ignora */ } }
+</script>
+
+<script>
+  // Checklist de esta página — usa data-campanas (data-task, data-cro, data-plan90, data-bitacora,
+  // data-estado, data-preventa, data-tienda, data-clientes, data-precios, data-ads, data-correo,
+  // data-ofertas, data-tablero, data-inventario y data-correosp ya están tomados por otras páginas)
+  // y localStorage con prefijo pedraza-plan:cmp:<id>. Hay tres grupos independientes en la misma
+  // página (pasos de Google, limpieza de Meta, pendientes antes de ejecutar), cada uno con su
+  // propia barra de progreso.
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-campanas]').forEach(function (cb) {
+      cb.checked = pgGet('pedraza-plan:cmp:' + cb.getAttribute('data-campanas')) === '1';
+    });
+    actualizarTodoElProgresoCampanas();
+  });
+
+  document.addEventListener('change', function (e) {
+    var cb = e.target.closest('[data-campanas]');
+    if (!cb) return;
+    var key = 'pedraza-plan:cmp:' + cb.getAttribute('data-campanas');
+    if (cb.checked) { pgSet(key, '1'); } else { pgRemove(key); }
+    actualizarTodoElProgresoCampanas();
+  });
+
+  function actualizarTodoElProgresoCampanas() {
+    actualizarProgresoGrupoCampanas('checklist-google', 'data-progress-fill-cmp-google', 'data-progress-label-cmp-google');
+    actualizarProgresoGrupoCampanas('checklist-meta', 'data-progress-fill-cmp-meta', 'data-progress-label-cmp-meta');
+    actualizarProgresoGrupoCampanas('checklist-prereq', 'data-progress-fill-cmp-prereq', 'data-progress-label-cmp-prereq');
+  }
+
+  function actualizarProgresoGrupoCampanas(ulId, fillAttr, labelAttr) {
+    var contenedor = document.getElementById(ulId);
+    if (!contenedor) return;
+    var cajas = contenedor.querySelectorAll('[data-campanas]');
+    var total = cajas.length;
+    var done = 0;
+    cajas.forEach(function (cb) { if (cb.checked) done++; });
+    var pct = total ? Math.round((done / total) * 100) : 0;
+
+    document.querySelectorAll('[' + fillAttr + ']').forEach(function (fill) {
+      fill.style.width = pct + '%';
+    });
+    document.querySelectorAll('[' + labelAttr + ']').forEach(function (label) {
+      label.textContent = done + ' de ' + total + (ulId === 'checklist-prereq' ? ' pendientes (' : ' tareas (') + pct + '%)';
+    });
+  }
+</script>
+
+<script>
+  // Navegación global: barra superior + panel completo.
+  // Prefijo "nav" en todo para no chocar con otros scripts de la página.
+  var NAV_PAGES = [
+    { grupo: 'Seguimiento', id: 'estado', nombre: 'Estado del plan' },
+    { grupo: 'Seguimiento', id: 'bitacora', nombre: 'Bitácora' },
+    { grupo: 'Seguimiento', id: 'finanzas', nombre: 'Los números del negocio' },
+    { grupo: 'Seguimiento', id: 'sincronizar', nombre: 'Conectar con la hoja' },
+    { grupo: 'La estrategia', id: 'index', nombre: 'Plan y estrategia' },
+    { grupo: 'Plan de acción', id: 'plan-90-dias', nombre: 'Plan de 90 días' },
+    { grupo: 'Plan de acción', id: 'stock-navidad', nombre: 'Stock para Navidad' },
+    { grupo: 'Plan de acción', id: 'escenarios', nombre: 'Escenarios' },
+    { grupo: 'Plan de acción', id: 'preventa', nombre: 'Preventa de puzzles' },
+    { grupo: 'Plan de acción', id: 'inventario', nombre: 'Control de stock' },
+    { grupo: 'Plan de acción', id: 'modelo-datos', nombre: 'Ordenar los datos' },
+    { grupo: 'Plan de acción', id: 'ofertas', nombre: 'Ofertas y pop-ups' },
+    { grupo: 'Plan de acción', id: 'precios', nombre: 'Nueva estructura de precios' },
+    { grupo: 'Plan de acción', id: 'email', nombre: 'Correo y campañas' },
+    { grupo: 'Plan de acción', id: 'clientes', nombre: 'Clientes que vuelven' },
+    { grupo: 'Plan de acción', id: 'cro', nombre: 'Conversión' },
+    { grupo: 'Plan de acción', id: 'tienda-cambios', nombre: 'Cambios en la tienda' },
+    { grupo: 'Plan de acción', id: 'ads', nombre: 'Google y Meta Ads' },
+    { grupo: 'Plan de acción', id: 'campanas', nombre: 'Campañas: Google y Meta' },
+    { grupo: 'Plan de acción', id: 'digitales', nombre: 'Productos digitales' },
+    { grupo: 'Herramientas del día a día', id: 'kit-arranque', nombre: 'Kit de arranque' },
+    { grupo: 'Herramientas del día a día', id: 'guion-reels', nombre: 'Guiones de Reels' },
+    { grupo: 'Herramientas del día a día', id: 'sop-dm', nombre: 'Mensajes y DM' },
+    { grupo: 'Herramientas del día a día', id: 'recursos', nombre: 'Recursos' },
+    { grupo: 'Herramientas del día a día', id: 'tablero', nombre: 'Tablero' }
+  ];
+
+  var navPanelEl, navMenuBtn;
+
+  function navInit() {
+    navPanelEl = document.getElementById('nav-panel');
+    navMenuBtn = document.querySelector('[data-nav-open]');
+    if (!navPanelEl || !navMenuBtn) return;
+
+    var actual = document.body.getAttribute('data-nav-actual') || '';
+    var titleEl = document.querySelector('[data-nav-title]');
+    var pagina = null;
+    for (var i = 0; i < NAV_PAGES.length; i++) {
+      if (NAV_PAGES[i].id === actual) { pagina = NAV_PAGES[i]; break; }
+    }
+    if (titleEl && pagina) { titleEl.textContent = pagina.nombre; }
+
+    var linkActual = navPanelEl.querySelector('[data-nav-key="' + actual + '"]');
+    if (linkActual) {
+      linkActual.classList.add('navpanel__link--current');
+      linkActual.setAttribute('aria-current', 'page');
+    }
+
+    navMenuBtn.addEventListener('click', navAbrirPanel);
+    navPanelEl.querySelectorAll('[data-nav-close]').forEach(function (el) {
+      el.addEventListener('click', navCerrarPanel);
+    });
+    navPanelEl.querySelectorAll('.navpanel__link').forEach(function (a) {
+      a.addEventListener('click', navCerrarPanel);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (!navPanelEl.classList.contains('is-open')) return;
+      if (e.key === 'Escape') { navCerrarPanel(); }
+      if (e.key === 'Tab') { navAtraparFoco(e); }
+    });
+  }
+
+  function navAbrirPanel() {
+    navPanelEl.hidden = false;
+    document.documentElement.classList.add('nav-lock');
+    document.body.classList.add('nav-lock');
+    navMenuBtn.setAttribute('aria-expanded', 'true');
+    requestAnimationFrame(function () {
+      navPanelEl.classList.add('is-open');
+      var closeBtn = navPanelEl.querySelector('.navpanel__close');
+      if (closeBtn) closeBtn.focus();
+    });
+  }
+
+  function navCerrarPanel() {
+    if (!navPanelEl.classList.contains('is-open')) return;
+    navPanelEl.classList.remove('is-open');
+    document.documentElement.classList.remove('nav-lock');
+    document.body.classList.remove('nav-lock');
+    navMenuBtn.setAttribute('aria-expanded', 'false');
+    navMenuBtn.focus();
+    var ocultarAlTerminar = function () {
+      navPanelEl.hidden = true;
+      navPanelEl.removeEventListener('transitionend', ocultarAlTerminar);
+    };
+    navPanelEl.addEventListener('transitionend', ocultarAlTerminar);
+    setTimeout(ocultarAlTerminar, 300); // respaldo si no hay transición (prefers-reduced-motion)
+  }
+
+  function navAtraparFoco(e) {
+    var focusables = navPanelEl.querySelectorAll('button, a[href]');
+    if (!focusables.length) return;
+    var primero = focusables[0];
+    var ultimo = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === primero) { e.preventDefault(); ultimo.focus(); }
+    else if (!e.shiftKey && document.activeElement === ultimo) { e.preventDefault(); primero.focus(); }
+  }
+
+  document.addEventListener('DOMContentLoaded', navInit);
+</script>
+
+</body>
+</html>
