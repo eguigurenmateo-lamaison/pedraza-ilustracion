@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Productos digitales — Plan Pedraza Ilustración</title>
+<title>El pedido a China — Plan Pedraza Ilustración</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
 <style>
 /* ==========================================================================
@@ -618,14 +618,11 @@ main { counter-reset: sec; }
   a[href]::after { content: " (" attr(href) ")"; font-size: .8em; }
 }
 /* ==========================================================================
-   Extensiones propias de esta página (digitales.html)
-   digitales.html no es una de las 6 páginas del sitio (docs/design-system.md,
-   sección 1) y no está en el menú principal — se llega por link directo desde
-   el plan. El bloque de arriba es el canónico intacto; lo de abajo son
-   componentes propios de esta página (link de vuelta en el hero, fila de
-   etiquetas sobre cada tarjeta de producto, lista de "qué incluye" con
-   marca de check), agregados en la misma hoja de estilos única para no
-   crear un segundo archivo CSS.
+   Extensiones propias de esta página (pedido.html)
+   El bloque de arriba es el canónico intacto; lo de abajo son componentes
+   propios de esta página (link de vuelta en el hero, pie con fuentes de
+   datos, cuenta regresiva grande de Escenarios/Preventa), agregados en la
+   misma hoja de estilos única para no crear un segundo archivo CSS.
    ========================================================================== */
 
 .hero__back {
@@ -642,14 +639,53 @@ main { counter-reset: sec; }
 }
 .hero__back:hover { color: #fff; }
 
-.card__pill-row { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-3); }
+.page-footer { margin-top: var(--space-8); padding-top: var(--space-4); border-top: 1px solid var(--line); color: var(--ink-faint); font-size: var(--fs-sm); }
+.page-footer a { color: var(--accent-dark); font-weight: 700; text-decoration: none; }
+.page-footer a:hover { text-decoration: underline; }
 
-.includes-list { list-style: none; padding-left: 0; margin: var(--space-3) 0; }
-.includes-list li { display: flex; gap: var(--space-2); align-items: flex-start; margin-bottom: var(--space-2); font-size: var(--fs-base); }
-.includes-list li::before { content: "✓"; flex: 0 0 auto; color: var(--success); font-weight: 700; }
+/* Cuenta regresiva grande: mismo componente que escenarios.html y preventa.html */
+.countdown-box {
+  background: var(--surface);
+  border: 2px solid var(--brand-green);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6) var(--space-5);
+  text-align: center;
+  box-shadow: var(--shadow);
+  margin: var(--space-5) 0;
+}
+.countdown-box__label {
+  display: block;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  margin-bottom: var(--space-3);
+}
+.countdown-box__num {
+  display: block;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: clamp(3rem, 2rem + 6vw, 5rem);
+  line-height: 1;
+  color: var(--brand-green);
+  letter-spacing: -.03em;
+}
+.countdown-box__num.is-pasado { font-size: clamp(1.7rem, 1.3rem + 3vw, 2.5rem); color: var(--warn); }
+.countdown-box__unidad { display: block; font-size: var(--fs-lg); font-weight: 700; color: var(--ink); margin-top: var(--space-2); }
+.countdown-box__sub { display: block; margin-top: var(--space-4); font-size: var(--fs-sm); color: var(--ink-faint); }
+.countdown-grid { display: grid; gap: var(--space-4); grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 640px) { .countdown-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.countdown-grid .countdown-box { margin: 0; }
+
+/* Mini KPI dentro de una tarjeta (resumen FOB/anticipo por tamaño de pedido) */
+.mini-kpi-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); margin-top: var(--space-4); }
+.mini-kpi { padding: var(--space-3) var(--space-4); background: var(--paper); border-radius: var(--radius-sm); }
+.mini-kpi__label { display: block; font-size: var(--fs-sm); color: var(--ink-soft); margin-bottom: 2px; }
+.mini-kpi__value { display: block; font-weight: 800; font-size: var(--fs-lg); letter-spacing: -.01em; color: var(--ink); }
 </style>
 </head>
-<body data-nav-actual="digitales">
+<body data-nav-actual="pedido">
 <nav class="navbar" aria-label="Barra de navegación">
   <div class="navbar__inner">
     <a href="estado.html" class="navbar__home" aria-label="Ir al inicio: Estado del plan">🦋</a>
@@ -881,261 +917,285 @@ main { counter-reset: sec; }
 
 <header class="hero">
   <div class="hero__inner">
-    <a href="index.html#datos-que-faltan" class="hero__back">← Volver al plan</a>
-    <h1>Productos digitales</h1>
-    <p>Vender algo que no ocupa espacio en la bodega, no se agota nunca y sube el ticket promedio (lo que gasta una persona en cada compra) sin gastar en producir una unidad más. Esta página no está en el menú principal — se comparte por link directo desde el plan.</p>
+    <a href="escenarios.html" class="hero__back">← Volver a Escenarios</a>
+    <h1>El pedido a China: cuánto pedir y por qué</h1>
+    <p>En la llamada del 5 de agosto de 2026, Felipe y Tina cerraron los números gruesos del próximo pedido a la fábrica. Esta página junta esos acuerdos con el cruce de demanda de los tres canales (tienda propia, Mercado Libre y B2B) para que la cantidad final quede lista antes de la reunión del viernes 7.</p>
   </div>
 </header>
 
 <main class="wrap">
 
-<section class="sec" id="por-que-importa">
-<h2>Por qué esto importa ahora</h2>
+<section class="sec" id="la-calculadora">
+<h2>La calculadora que pediste</h2>
+<p>El archivo consolidado en Excel, editable, con las seis pestañas: escala de valor producto por producto, simulador de descuento que avisa cuando el margen baja del 60%, forecast por producto y canal, la calculadora del pedido, y rotación de inventario.</p>
+<div class="callout callout--ok">
+<p>📥 <strong><a href="descargas/calculadora-pedraza.xlsx" download>Descargar calculadora-pedraza.xlsx</a></strong></p>
+<p>Las celdas de costo unitario están vacías a propósito, para que cargues los costos reales de tinta, papel y packaging. Todo lo demás se recalcula solo: son fórmulas de Excel, no números pegados.</p>
+</div>
+<p>🟡 Mientras no cargues los costos, la columna de margen muestra <em>"Falta costo"</em> en vez de un número inventado.</p>
+</section>
 
-<p>Hoy la tienda tiene dos problemas al mismo tiempo, y los productos digitales ayudan con los dos.</p>
+<section class="sec" id="la-recomendacion">
+<h2>La recomendación en una pantalla</h2>
+
+<p><span class="pill pill--success">🟢 decidido en la llamada del 5 de agosto</span> Pedir <strong>entre 2.000 y 2.500 puzzles</strong> con el mismo proveedor, más <strong>300 mini-puzzles</strong> en tres diseños (sección 3). Es la cantidad que cubre los cuatro escenarios de demanda cruzando los tres canales — incluso el más agresivo — y cumple el mínimo de 1.000 unidades que pidió Tina para que el flete salga a cuenta.</p>
 
 <div class="kpi-grid">
   <div class="kpi">
-    <span class="kpi__label">Ticket promedio hoy <span class="pill pill--success">🟢 dato real</span></span>
-    <span class="kpi__value">$37.450</span>
+    <span class="kpi__label">Demanda total ago-dic (escenario Base) 🟢</span>
+    <span class="kpi__value">2.519</span>
   </div>
   <div class="kpi">
-    <span class="kpi__label">Créditos activos financiando stock</span>
-    <span class="kpi__value">2</span>
-    <span class="pill pill--warn">🟡 uno más por pedir</span>
+    <span class="kpi__label">Ya viene en camino (llega 15-ago) 🟢</span>
+    <span class="kpi__value">1.290</span>
   </div>
   <div class="kpi">
-    <span class="kpi__label">Puzzles (producto estrella)</span>
-    <span class="kpi__value">Sin stock</span>
-    <span class="pill pill--info">llegan 15 de agosto</span>
+    <span class="kpi__label">Falta para cubrir el escenario Base 🟢</span>
+    <span class="kpi__value">1.229</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Se propone pedir ahora 🟢</span>
+    <span class="kpi__value">2.000–2.500</span>
   </div>
 </div>
 
-<p><strong>Problema 1 — el ticket promedio bajó.</strong> Hoy una persona gasta en promedio $37.450 por compra ($27.980 netos, sin IVA ni despacho) <span class="pill pill--success">🟢 dicho en la reunión del 27-jul</span>. Un producto digital se puede ofrecer al lado de cualquier compra para subir ese número, sin depender de que la persona compre un segundo producto físico.</p>
+<h3>Los cuatro escenarios, con los tres canales cruzados</h3>
+<p>Antes solo se miraba la tienda propia. Esta tabla suma también Mercado Libre (que vende sin empuje y todavía no tiene los puzzles activados) y B2B (hoteles y compras corporativas que Felipe da por hecho que van a llegar).</p>
 
-<p><strong>Problema 2 — el stock se agota y demora en volver.</strong> El puzzle, el producto que más vende, está sin stock. El contenedor nuevo llega recién el 15 de agosto, y el producto va a estar disponible en la tienda recién la última semana de agosto, después de pasar por el operador logístico. El ciclo de compra a China toma entre 2 y 3 meses, ya ha tenido atrasos, y los 1.000 puzzles ya pedidos no alcanzan para Navidad — hay que hacer un pedido nuevo en agosto <span class="pill pill--success">🟢 dicho en la reunión del 27-jul</span>.</p>
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Escenario</th><th>Shopify</th><th>Mercado Libre</th><th>B2B</th><th>Total</th><th>Llegan</th><th>Faltan</th></tr>
+</thead>
+<tbody>
+<tr><td>Mínimo</td><td>907</td><td>454</td><td>317</td><td><strong>1.678</strong></td><td>1.290</td><td>−388</td></tr>
+<tr><td>Conservador</td><td>907</td><td>454</td><td>796</td><td><strong>2.157</strong></td><td>1.290</td><td>−867</td></tr>
+<tr><td>Base</td><td>1.058</td><td>665</td><td>796</td><td><strong>2.519</strong></td><td>1.290</td><td>−1.229</td></tr>
+<tr><td>Agresivo</td><td>1.058</td><td>1.005</td><td>796</td><td><strong>2.859</strong></td><td>1.290</td><td>−1.569</td></tr>
+</tbody>
+</table>
+</div>
 
-<p>Un producto digital no tiene ese problema: no hay que fabricarlo, no hay que esperar un contenedor, y se puede seguir vendiendo aunque la bodega esté vacía.</p>
+<p>Visto de otro modo: cuánto falta pedir en cada escenario, ya descontando lo que llega el 15 de agosto.</p>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Mínimo</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:24.7%"></div></div><span class="chart-bar-row__value">−388</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Conservador</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:55.3%"></div></div><span class="chart-bar-row__value">−867</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Base</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:78.3%"></div></div><span class="chart-bar-row__value">−1.229</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Agresivo</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div><span class="chart-bar-row__value">−1.569</span></div>
+
+<div class="callout callout--success">
+<p>🟢 <strong>Por qué 2.000–2.500 y no otro número.</strong> Pedir 2.000 cubre completo el escenario Agresivo (faltan 1.569) y deja un colchón de 431 puzzles. Pedir 2.500 sube ese colchón a 931. En el escenario Base —el más probable— el colchón es de 771 a 1.271 puzzles. Los dos extremos del rango superan por lejos el mínimo de 1.000 unidades que puso Tina como condición para que el flete salga a cuenta.</p>
+</div>
 
 <div class="callout callout--info">
-<p><strong>El otro problema que resuelve: la plata.</strong> Hoy hay dos créditos activos financiando el stock, y se está por pedir uno más — antes la empresa financiaba todo el stock con caja propia. Cada puzzle nuevo hay que pagarlo antes de venderlo. Un producto digital es al revés: no hay que comprar nada antes de venderlo, así que no le pide plata a la caja en ningún momento <span class="pill pill--success">🟢 dicho en la reunión del 27-jul</span>.</p>
+<p>💡 Este número es para los <strong>puzzles grandes</strong> (los mismos de 1.000 piezas que ya vende la tienda). Los 300 mini-puzzles de la sección 3 son un producto nuevo, sin historial de venta: se piden aparte y no están contados en esta demanda.</p>
 </div>
-
-<h3>El contraste en el margen (cifras ilustrativas, no reales)</h3>
-<p><span class="pill pill--warn">🟡 ilustración</span> No tenemos todavía el costo exacto de fabricar y despachar un puzzle, así que estos dos números de abajo no son el margen real de la empresa — son solo un ejemplo para mostrar la idea: agregar un producto digital al lado de un producto físico sube el margen (lo que queda de ganancia después de descontar los costos) del pedido completo, porque el digital casi no tiene costo adicional.</p>
-
-<div class="chart-bar-row">
-  <span class="chart-bar-row__label">Puzzle solo</span>
-  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:35%"></div></div>
-  <span class="chart-bar-row__value">~35%</span>
-</div>
-<div class="chart-bar-row">
-  <span class="chart-bar-row__label">Puzzle + digital</span>
-  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:60%"></div></div>
-  <span class="chart-bar-row__value">~60%</span>
-</div>
-
 </section>
 
-<section class="sec" id="los-tres-productos">
-<h2>Los tres productos, ordenados por facilidad</h2>
+<section class="sec" id="reparto-por-modelo">
+<h2>El reparto por modelo</h2>
 
-<p>Cote ya compra este tipo de producto para sí misma: clases digitales de patrones para tejer. Su lectura desde la reunión fue clara: <span class="pill pill--success">🟢 dicho en la reunión del 27-jul</span> ese tipo de producto vende, y ella misma es clienta habitual. Es su experiencia personal, no una estadística de mercado — pero es un buen indicio de que la idea le hace sentido a alguien que también compra este tipo de cosas.</p>
+<p>Los puzzles grandes se reparten <strong>según la venta histórica: aves 47%, cetáceos 37%, hongos 16%</strong>. No es un reparto parejo a propósito: aves es el modelo que más rota (representa el 47,3% de la venta histórica de puzzles), así que recibe casi la mitad del pedido. Hongos es el que menos rota, así que recibe la porción más chica — pedir parejo dejaría sobrando el modelo lento y corto el modelo que más se vende.</p>
 
-<p>Para poner los precios de referencia en contexto: el puzzle físico más vendido cuesta $24.990 CLP. Un producto digital entre $9.000 y $15.000 se percibe como accesible al lado de ese precio, sin sentirse "barato" ni fuera de lugar <span class="pill pill--warn">🟡 propuesta</span>.</p>
+<p>La tabla usa el término <strong>FOB</strong> (el precio que cobra la fábrica en China por el producto, antes de sumar el flete, el seguro y los trámites para traerlo a Chile):</p>
 
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Modelo</th><th>Reparto</th><th>Unidades (2.000)</th><th>FOB unitario</th><th>FOB total (2.000)</th><th>Unidades (2.500)</th><th>FOB total (2.500)</th></tr>
+</thead>
+<tbody>
+<tr><td>Aves</td><td>47%</td><td>940</td><td>USD 4,80</td><td>USD 4.512</td><td>1.175</td><td>USD 5.640</td></tr>
+<tr><td>Cetáceos</td><td>37%</td><td>740</td><td>USD 5,80</td><td>USD 4.292</td><td>925</td><td>USD 5.365</td></tr>
+<tr><td>Hongos</td><td>16%</td><td>320</td><td>USD 6,48</td><td>USD 2.074</td><td>400</td><td>USD 2.592</td></tr>
+<tr><td><strong>Total</strong></td><td>100%</td><td><strong>2.000</strong></td><td>—</td><td><strong>USD 10.878</strong></td><td><strong>2.500</strong></td><td><strong>USD 13.597</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Con el dólar de referencia de la llamada ($950 CLP/USD) y el costo puesto en bodega en Santiago que confirmó Felipe ($7.253 por puzzle, promedio del mismo reparto 47/37/16 — incluye el FOB más todo lo que cuesta traerlo: seguro de la carga, el agente que coordina el transporte internacional, separar el pedido cuando llega a Chile y el flete):</p>
+
+<div class="grid-2">
+<div class="card">
+<h3>Pedido de 2.000 unidades</h3>
+<div class="mini-kpi-grid">
+  <div class="mini-kpi"><span class="mini-kpi__label">FOB total (USD)</span><span class="mini-kpi__value">$10.878</span></div>
+  <div class="mini-kpi"><span class="mini-kpi__label">FOB total (CLP)</span><span class="mini-kpi__value">$10.333.720</span></div>
+  <div class="mini-kpi"><span class="mini-kpi__label">Anticipo 30% (a la fábrica, ahora)</span><span class="mini-kpi__value">$3.100.116</span></div>
+  <div class="mini-kpi"><span class="mini-kpi__label">Saldo 70% (contra entrega)</span><span class="mini-kpi__value">$7.233.604</span></div>
+</div>
+<p style="margin:var(--space-4) 0 0"><strong>Costo puesto en bodega en Chile (total): $14.506.000.</strong> La diferencia entre este monto y el FOB en CLP ($4.172.280) es la logística local — seguro, forwarder, desconsolidación y flete — que se paga aparte del anticipo a la fábrica.</p>
+</div>
+<div class="card">
+<h3>Pedido de 2.500 unidades</h3>
+<div class="mini-kpi-grid">
+  <div class="mini-kpi"><span class="mini-kpi__label">FOB total (USD)</span><span class="mini-kpi__value">$13.597</span></div>
+  <div class="mini-kpi"><span class="mini-kpi__label">FOB total (CLP)</span><span class="mini-kpi__value">$12.917.150</span></div>
+  <div class="mini-kpi"><span class="mini-kpi__label">Anticipo 30% (a la fábrica, ahora)</span><span class="mini-kpi__value">$3.875.145</span></div>
+  <div class="mini-kpi"><span class="mini-kpi__label">Saldo 70% (contra entrega)</span><span class="mini-kpi__value">$9.042.005</span></div>
+</div>
+<p style="margin:var(--space-4) 0 0"><strong>Costo puesto en bodega en Chile (total): $18.132.500.</strong> Mismo criterio: FOB en CLP $12.917.150 más $5.215.350 de logística local.</p>
+</div>
+</div>
+
+<div class="callout callout--info">
+<p>💡 <strong>El anticipo es el 30% solo del FOB</strong> (lo que se le paga a la fábrica), no del costo total puesto en Chile. La logística local (seguro, forwarder, desconsolidación, flete) se paga aparte, a otros proveedores, no como anticipo del pedido. Por eso el anticipo de $3,1–3,9 millones es más chico que el 30% de los $14,5–18,1 millones del costo total.</p>
+</div>
+</section>
+
+<section class="sec" id="mini-puzzles">
+<h2>Los mini-puzzles</h2>
+
+<p><strong>300 unidades en tres diseños</strong>, en cajas de 20×15 cm de 100 piezas — mucho más chicas que el puzzle grande de 1.000 piezas:</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Diseño</th><th>Unidades</th></tr>
+</thead>
+<tbody>
+<tr><td>Martín Pescador (el que más rota)</td><td>150</td></tr>
+<tr><td>Segundo diseño <span class="pill pill--warn">🟡 a definir</span></td><td>75</td></tr>
+<tr><td>Tercer diseño <span class="pill pill--warn">🟡 a definir</span></td><td>75</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>300</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Para qué sirven</h3>
 <div class="grid-3">
-
 <div class="card">
-<div class="card__pill-row">
-  <span class="pill pill--success">El más rápido</span>
+<h3>💵 Otra punta de precio</h3>
+<p>Con 100 piezas, el mini-puzzle sale a un precio bastante más bajo que el puzzle grande de 1.000 piezas. Abre la puerta a quien hoy encuentra el puzzle grande caro, o lo quiere de regalo chico.</p>
 </div>
-<h3>1. Libro para pintar</h3>
-<p><strong>Qué es:</strong> el libro para pintar en acuarela que Cote ya tiene — lo vendía a través de un distribuidor y lo recuperó para venderlo directo <span class="pill pill--success">🟢 dicho en la reunión</span>.</p>
-<p><strong>Qué se necesita:</strong> preparar el archivo digital (un PDF listo para descargar e imprimir en casa) y publicarlo en la tienda. No hay que crear contenido nuevo, el libro ya existe.</p>
-<p><strong>Trabajo de Cote:</strong> <span class="pill pill--warn">🟡 estimado — bajo</span> revisar el archivo y aprobar la versión final para vender, una a dos horas.</p>
-<p><strong>Cómo se vende:</strong> como producto digital descargable en la tienda. También se puede ofrecer en versión física, impresa, además de la digital.</p>
-<p><strong>Precio de referencia:</strong> <span class="pill pill--warn">🟡 $9.990 CLP propuesto</span></p>
-</div>
-
 <div class="card">
-<div class="card__pill-row">
-  <span class="pill">El de más valor</span>
+<h3>🛒 Sube el ticket promedio</h3>
+<p>Es un agregado natural de un clic en el carrito: alguien que ya compra un puzzle grande, una lámina o un pack, suma el mini-puzzle sin pensarlo mucho porque es barato y liviano.</p>
 </div>
-<h3>2. Libro + clase grabada</h3>
-<p><strong>Qué es:</strong> el mismo libro para pintar, más un video de 15 minutos de Cote explicando cómo pinta cada ilustración <span class="pill pill--success">🟢 dicho en la reunión</span>.</p>
-<p><strong>Qué se necesita:</strong> grabar el video con el celular — una toma, sin guion elaborado — y cortar los silencios antes de subirlo. Cote insistió en que no hace falta producción: lo que vale es que es ella enseñando, no la calidad del video <span class="pill pill--success">🟢 dicho en la reunión</span>.</p>
-<p><strong>Trabajo de Cote:</strong> <span class="pill pill--warn">🟡 estimado — medio</span> grabar los 15 minutos, probablemente en dos o tres intentos, sin edición de su parte.</p>
-<p><strong>Cómo se vende:</strong> como paquete libro + clase, un solo producto digital.</p>
-<p><strong>Precio de referencia:</strong> <span class="pill pill--warn">🟡 $14.990 CLP propuesto</span></p>
-</div>
-
 <div class="card">
-<div class="card__pill-row">
-  <span class="pill pill--warn">El más ambicioso</span>
+<h3>✈️ Abre una vía para B2B</h3>
+<p>Los hoteles y compradores corporativos casi nunca piden puzzles de 1.000 piezas: son grandes y pesados, y el viajero no tiene espacio en la maleta. El mini-puzzle sí cabe — es la versión "para llevar" del catálogo.</p>
 </div>
-<h3>3. Audiolibro de aves de Chile</h3>
-<p><strong>Qué es:</strong> historias y cantos de las especies que Cote ya ilustra — una guía sonora de aves o zonas de Chile <span class="pill pill--success">🟢 dicho en la reunión</span>.</p>
-<p><strong>Qué se necesita:</strong> escribir el contenido, grabar el audio con buena calidad y conseguir los cantos de cada ave. Requiere más trabajo que los otros dos — se deja para después de Navidad <span class="pill pill--success">🟢 dicho en la reunión</span>.</p>
-<p><strong>Trabajo de Cote:</strong> <span class="pill pill--warn">🟡 estimado — alto</span> escribir el guion y grabar; probablemente necesita apoyo externo para editar el audio.</p>
-<p><strong>Cómo se vende:</strong> como producto digital descargable, o como complemento del libro para pintar.</p>
-<p><strong>Precio de referencia:</strong> <span class="pill pill--warn">🟡 $12.990 CLP propuesto</span></p>
 </div>
 
+<div class="callout callout--warn">
+<p>🟡 <strong>Falta el precio FOB de este formato.</strong> La fábrica todavía no cotiza el mini-puzzle — es el primer punto pendiente antes de cerrar el pedido completo (sección 5).</p>
 </div>
-
 </section>
 
-<section class="sec" id="como-se-venden">
-<h2>Cómo se venden: tres caminos a la vez</h2>
+<section class="sec" id="calendario-y-caja">
+<h2>El calendario y la caja</h2>
 
-<p>No hay que elegir uno solo. Los tres caminos se pueden activar en paralelo, apenas el primer producto esté listo.</p>
+<p>Un pedido hecho hoy demora <strong>92 días</strong> en estar listo para vender (85 de tránsito, confirmados por Felipe, más 7 días del operador logístico Partner, que arma y despacha los pedidos). Estas son las dos fechas límite para llegar a tiempo a las dos fechas fuertes del año:</p>
 
-<h3>a) Solo, para quien nunca compraría un puzzle</h3>
-<p>Entre los 62.500 seguidores <span class="pill pill--success">🟢 dato confirmado</span> de la cuenta hay personas a las que les gusta la ilustración pero nunca van a comprar un puzzle o una lámina — solo quieren aprender a pintar. Para ese grupo, el libro digital se vende solo, como su propia oferta.</p>
-
-<div class="copyblock">
-  <button type="button" class="copyblock__btn" data-copy-target="copy-digital-solo">Copiar</button>
-  <div class="copyblock__text" id="copy-digital-solo">🎨 ¿Te encantaría pintar la naturaleza de Chile pero nunca te animaste?
-
-Nuestro libro digital para pintar en acuarela trae las ilustraciones de Pedraza más una clase grabada de Cote, paso a paso, explicando cómo se pinta cada una.
-
-Se descarga al toque, lo imprimes las veces que quieras y pintas cuando tengas ganas. No necesitas experiencia previa.
-
-📥 Disponible ahora en el link de la bio.</div>
+<div class="countdown-grid">
+  <div class="countdown-box">
+    <span class="countdown-box__label">Para pedir a tiempo y llegar a Black Friday (27-nov)</span>
+    <span class="countdown-box__num" id="cd-bf-num">—</span>
+    <span class="countdown-box__unidad" id="cd-bf-unidad">días</span>
+    <span class="countdown-box__sub">Fecha límite: 27 de agosto de 2026 · hoy es <span id="cd-hoy-fecha-1">—</span></span>
+  </div>
+  <div class="countdown-box">
+    <span class="countdown-box__label">Para pedir a tiempo y llegar a Navidad (20-dic)</span>
+    <span class="countdown-box__num" id="cd-nav-num">—</span>
+    <span class="countdown-box__unidad" id="cd-nav-unidad">días</span>
+    <span class="countdown-box__sub">Fecha límite: 19 de septiembre de 2026 · hoy es <span id="cd-hoy-fecha-2">—</span></span>
+  </div>
 </div>
-
-<h3>b) De regalo, para empujar el ticket sobre $50.000</h3>
-<p>El envío es gratis sobre $50.000 CLP en compras. Regalar el libro digital a quien llegue a ese monto da una razón concreta para agregar un producto más al carrito, en vez de solo empujar "compra más" sin nada a cambio.</p>
-
-<div class="copyblock">
-  <button type="button" class="copyblock__btn" data-copy-target="copy-digital-regalo">Copiar</button>
-  <div class="copyblock__text" id="copy-digital-regalo">🎁 Sobre $50.000 en tu compra, te llevas de regalo nuestro libro digital para pintar en acuarela (valor $9.990). Se agrega solo a tu pedido, no necesitas código ni hacer nada extra.</div>
-</div>
-
-<h3>c) Como complemento, en un clic</h3>
-<p>En el carrito o en la página de gracias (la que aparece justo después de pagar), se ofrece el libro digital a un precio especial, en un solo clic, sin tener que buscarlo en la tienda.</p>
-
-<div class="copyblock">
-  <button type="button" class="copyblock__btn" data-copy-target="copy-digital-complemento">Copiar</button>
-  <div class="copyblock__text" id="copy-digital-complemento">¿Seguimos pintando en casa? Agrega el libro digital para pintar en acuarela por $6.990 (precio especial solo en este paso). Se descarga al instante, no cambia tu envío.</div>
-</div>
-
-<p>Ver también: <a href="ofertas.html">la barra de envío gratis y los pop-ups</a>, donde vive la lógica del umbral de $50.000 que usa el camino (b).</p>
-
-</section>
-
-<section class="sec" id="vender-el-plan">
-<h2>El ángulo que cambia el negocio: vender el plan, no el producto</h2>
-
-<p>Esto fue lo que más entusiasmó en la reunión: no se vende un puzzle. Se vende <strong>el domingo en familia</strong> <span class="pill pill--success">🟢 dicho en la reunión — "está buenísimo"</span>. El puzzle es una excusa para sentarse juntos; el paquete completo es la experiencia.</p>
-
-<div class="card">
-<div class="card__pill-row">
-  <span class="pill pill--info">Paquete propuesto</span>
-</div>
-<h3>El Domingo Pedraza</h3>
-<p><span class="pill pill--warn">🟡 nombre y precio propuestos</span> Arma el puzzle en familia, descubre cada especie con la guía que ya trae adentro, y después sigue pintando con el libro digital y la clase grabada de Cote.</p>
-
-<ul class="includes-list">
-  <li>Puzzle Aves y Flores de Chile, 1000 piezas — incluye guía con nombre común y científico de cada especie</li>
-  <li>Libro digital para pintar en acuarela</li>
-  <li>Clase grabada de 15 minutos, Cote enseñando cómo pinta cada ilustración</li>
-</ul>
-
-<div class="chart-bar-row">
-  <span class="chart-bar-row__label">Por separado</span>
-  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%"></div></div>
-  <span class="chart-bar-row__value">$39.980</span>
-</div>
-<div class="chart-bar-row">
-  <span class="chart-bar-row__label">El Domingo Pedraza</span>
-  <div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:87%"></div></div>
-  <span class="chart-bar-row__value">$34.990</span>
-</div>
-<p style="margin-top:var(--space-2);"><span class="pill pill--warn">🟡 propuesta</span> $24.990 del puzzle más $14.990 del libro con clase suman $39.980 comprados por separado. El paquete a $34.990 deja un ahorro visible de $4.990, sin necesitar un descuento grande para sentirse conveniente.</p>
-</div>
-
-<div class="copyblock">
-  <button type="button" class="copyblock__btn" data-copy-target="copy-domingo-pedraza">Copiar</button>
-  <div class="copyblock__text" id="copy-domingo-pedraza">🧩🎨 El Domingo Pedraza
-
-Arma la tarde perfecta en familia: el puzzle de 1000 piezas mientras descubres cada especie con la guía incluida, y después sigue pintando con el libro digital para pintar en acuarela y la clase grabada de Cote.
-
-Todo en un solo paquete, con precio especial.
-
-📥 Disponible en el link de la bio.</div>
-</div>
-
-<p><strong>Por qué esto sube la percepción de valor:</strong> un puzzle solo se compara por precio contra cualquier otro puzzle del mercado. Un plan completo para la tarde de domingo no se compara con nada — no es un objeto, es una experiencia armada. Eso también hace la marca más difícil de copiar: cualquiera puede imprimir una ilustración parecida de aves o flores de Chile, pero nadie puede copiar el libro que Cote recuperó, la clase que graba ella misma, ni la guía de especies que acompaña cada pieza. Copiar el dibujo es fácil; copiar la experiencia completa, no.</p>
-
-</section>
-
-<section class="sec" id="antes-de-publicar">
-<h2>Lo que hay que resolver antes de publicar</h2>
-
-<p>Antes de subir el primer producto digital a la tienda, hay cuatro puntos que conviene dejar resueltos.</p>
-
-<ul class="checklist">
-  <li>
-    <label>
-      <input type="checkbox">
-      <span><strong>Cómo se entrega el archivo:</strong> Shopify tiene entrega digital nativa (el comprador recibe el archivo para descargar apenas paga) <span class="pill pill--warn">🟡 confirmar qué app usan hoy o si hay que instalar una</span>.</span>
-    </label>
-  </li>
-  <li>
-    <label>
-      <input type="checkbox">
-      <span><strong>Qué pasa con las devoluciones:</strong> un archivo ya descargado no se puede "devolver". Hay que escribir una política clara en la ficha del producto antes de publicar, para que quede claro desde el principio.</span>
-    </label>
-  </li>
-  <li>
-    <label>
-      <input type="checkbox">
-      <span><strong>Protección básica del archivo:</strong> agregar una marca de agua discreta con el correo de quien compró, para desincentivar que el archivo se comparta libremente.</span>
-    </label>
-  </li>
-  <li>
-    <label>
-      <input type="checkbox">
-      <span><strong>Si el IVA se cobra distinto:</strong> <span class="pill pill--warn">🟡 a confirmar con el contador de la empresa</span> — un producto digital puede tener un tratamiento tributario distinto al de un producto físico. No corresponde adivinar la respuesta acá; se resuelve con quien lleva la contabilidad.</span>
-    </label>
-  </li>
-</ul>
-
-</section>
-
-<section class="sec" id="plan-de-lanzamiento">
-<h2>Plan de lanzamiento en 3 pasos</h2>
-
-<p>El orden sigue la misma lógica de la sección 2: primero lo que ya existe y es rápido, después lo que suma más valor, y al final lo más ambicioso, cuando haya tiempo después de la temporada alta.</p>
 
 <div class="timeline">
-
 <div class="timeline-item">
-<div class="timeline-item__date">Semana 1 tras los accesos</div>
-<div class="timeline-item__title">Preparar y publicar el libro que ya existe</div>
-<p><strong>Quién:</strong> Cote prepara y aprueba el archivo final; el operador lo sube a la tienda como producto digital.</p>
-<p><strong>Cómo se mide si funcionó:</strong> unidades vendidas en las primeras dos semanas después de publicarlo.</p>
+<div class="timeline-item__date">5 de agosto</div>
+<div class="timeline-item__title">Llamada con Tina: se acuerda el rango de 2.000–2.500 puzzles</div>
+<p style="margin-bottom:0">Quedan pendientes el precio FOB del mini-puzzle y el plazo exacto de este pedido (sección 5).</p>
 </div>
-
 <div class="timeline-item">
-<div class="timeline-item__date">Semanas 2-3 tras los accesos</div>
-<div class="timeline-item__title">Sumar la clase grabada</div>
-<p><strong>Quién:</strong> Cote graba el video de 15 minutos con el celular; el operador o la diseñadora de apoyo corta silencios y lo sube junto al libro como paquete.</p>
-<p><strong>Cómo se mide si funcionó:</strong> qué porcentaje de los pedidos que incluyen un digital eligen el paquete libro + clase en vez del libro solo.</p>
+<div class="timeline-item__date">7 de agosto</div>
+<div class="timeline-item__title">Reunión con Felipe: se cierra el número final</div>
+<p style="margin-bottom:0">Con esta página como base, se decide el punto exacto entre 2.000 y 2.500, y se confirma el pedido con Tina.</p>
 </div>
-
 <div class="timeline-item">
-<div class="timeline-item__date">Después de Navidad</div>
-<div class="timeline-item__title">Evaluar el audiolibro de aves</div>
-<p><strong>Quién:</strong> Cote y el operador revisan juntos los resultados de los dos pasos anteriores antes de decidir si vale la pena el trabajo extra que pide este producto.</p>
-<p><strong>Cómo se mide si funcionó:</strong> el efecto acumulado en el ticket promedio (¿subió desde los $37.450 de hoy?) y qué porcentaje del total de pedidos ya incluye algún producto digital.</p>
+<div class="timeline-item__date">27 de agosto</div>
+<div class="timeline-item__title">Fecha límite para llegar a Black Friday</div>
+<p style="margin-bottom:0">Con holgura amplia desde hoy: hay margen para esperar la confirmación de Tina sin apurar la decisión.</p>
+</div>
+<div class="timeline-item">
+<div class="timeline-item__date">19 de septiembre</div>
+<div class="timeline-item__title">Fecha límite para llegar a Navidad</div>
+<p style="margin-bottom:0">La última ventana real del año — perderla significa no tener stock nuevo para el mes que concentra el 44% de toda la demanda del período.</p>
+</div>
 </div>
 
+<h3>El impacto en caja</h3>
+<p>Hoy hay <strong>$1.167.128 mensuales ya comprometidos</strong> en las cuotas de los dos créditos vigentes. El anticipo de este pedido se paga aparte de esa carga, en un solo pago:</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Pedido</th><th>Anticipo (30% del FOB)</th><th>Equivale a</th></tr>
+</thead>
+<tbody>
+<tr><td>2.000 unidades</td><td>$3.100.116</td><td>2,7 veces la cuota mensual de los créditos</td></tr>
+<tr><td>2.500 unidades</td><td>$3.875.145</td><td>3,3 veces la cuota mensual de los créditos</td></tr>
+</tbody>
+</table>
 </div>
 
+<div class="callout callout--success">
+<p>✅ <strong>Ahora hay facilidad de pago con el proveedor</strong> — es parte de lo decidido en la llamada del 5 de agosto. Todavía falta confirmar las condiciones exactas (sección 5), pero cambia el punto de partida: el anticipo deja de ser un pago único y rígido, y se puede conversar cómo repartirlo en el tiempo en vez de tenerlo que sacar todo de una vez de la caja.</p>
+</div>
 </section>
+
+<section class="sec" id="lo-que-falta">
+<h2>Lo que falta confirmar</h2>
+
+<p>Corto y honesto: esto es lo que falta antes de que el pedido quede 100% cerrado.</p>
+
+<div class="grid-3">
+<div class="card">
+<h3>🟡 Precio FOB del mini-puzzle</h3>
+<p>La fábrica todavía no cotiza el formato de 100 piezas. Sin este número, los 300 mini-puzzles no tienen costo ni margen calculado.</p>
+</div>
+<div class="card">
+<h3>🟡 Plazo que confirme Tina</h3>
+<p>Este pedido usa los 85 días del último envío como referencia. Falta que Tina confirme si ese plazo se mantiene para este pedido en particular.</p>
+</div>
+<div class="card">
+<h3>🟡 Comisiones de pasarelas</h3>
+<p>Felipe ya confirmó que faltan y las va a buscar (no aparecen en ningún archivo financiero hoy). No cambian el pedido a China, pero sí el margen final de cada venta.</p>
+</div>
+</div>
+
+<h3>Checklist antes del viernes</h3>
+<div class="progress">
+  <div class="progress__track"><div class="progress__fill" data-progress-fill></div></div>
+  <span class="progress__label" data-progress-label>0 de 5 pasos (0%)</span>
+</div>
+<ul class="checklist">
+<li><label><input type="checkbox" data-pedido="fob-mini-puzzle"><span>Conseguir el precio FOB del mini-puzzle con Tina</span></label></li>
+<li><label><input type="checkbox" data-pedido="plazo-tina"><span>Confirmar con Tina el plazo real de este pedido (¿siguen siendo 85 días?)</span></label></li>
+<li><label><input type="checkbox" data-pedido="comisiones-pasarelas"><span>Conseguir las comisiones de las pasarelas de pago</span></label></li>
+<li><label><input type="checkbox" data-pedido="numero-final"><span>Cerrar el número final del pedido grande (entre 2.000 y 2.500)</span></label></li>
+<li><label><input type="checkbox" data-pedido="condiciones-facilidad-pago"><span>Confirmar por escrito las condiciones de la nueva facilidad de pago con el proveedor</span></label></li>
+</ul>
+
+<div class="copyblock">
+<div class="copyblock__text" id="copy-mensaje-tina">Hola Tina,
+
+Confirmamos el pedido de puzzles grandes: entre 2.000 y 2.500 unidades, repartidas 47% aves / 37% cetáceos / 16% hongos (cerramos el número exacto esta semana).
+
+Sumamos 300 mini-puzzles en caja de 20x15 cm, 100 piezas: 150 Martín Pescador + 75 + 75 (los otros dos diseños los confirmamos a la brevedad).
+
+Para cerrar el pedido necesitamos de tu parte:
+- Precio FOB del formato mini-puzzle
+- Confirmación del plazo de tránsito para este pedido
+- Las condiciones exactas de la facilidad de pago que conversamos
+
+Gracias, Tina.</div>
+<button type="button" class="copyblock__btn" data-copy-target="copy-mensaje-tina">Copiar</button>
+</div>
+</section>
+
+<footer class="page-footer"><p>Datos: <code>docs/forecast-pedido-2026-08-02.md</code> (demanda Shopify y fechas límite), <code>docs/correcciones-felipe-2026-08-01.md</code> (composición del pedido que llega el 15 de agosto y datos financieros corregidos), <code>docs/datos-financieros-2025-2026.md</code> (deuda vigente) y lo decidido en la llamada del 5 de agosto de 2026 (rango del pedido, mini-puzzles, precios FOB, piso de margen, facilidad de pago). La demanda de Mercado Libre y B2B por escenario fue aportada directamente por el operador para este entregable. Las cifras marcadas 🟡 son datos pendientes de confirmar, no supuestos inventados. Ver también <a href="escenarios.html">Escenarios</a>, <a href="stock-navidad.html">Stock para Navidad</a> y la <a href="bitacora.html">bitácora</a> del proyecto.</p></footer>
 
 </main>
 
@@ -1185,8 +1245,103 @@ Todo en un solo paquete, con precio especial.
     }, 2000);
   }
 </script>
+
 <script>
-  // Navegación global: barra superior + panel completo (15 páginas, 4 grupos).
+  // Acceso seguro a localStorage (no revienta en navegación privada u otros bloqueos).
+  function pgGet(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+  function pgSet(key, valor) { try { localStorage.setItem(key, valor); } catch (e) { /* sin soporte, se ignora */ } }
+  function pgRemove(key) { try { localStorage.removeItem(key); } catch (e) { /* sin soporte, se ignora */ } }
+</script>
+
+<script>
+  // Checklist de esta página — usa data-pedido (data-task, data-cro, data-plan90, data-bitacora,
+  // data-estado, data-preventa, data-tienda, data-clientes, data-precios, data-ads, data-correo,
+  // data-ofertas, data-tablero, data-inventario y data-pcs ya están tomados por otras páginas) y
+  // localStorage con prefijo pedraza-plan:ped:<id>.
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-pedido]').forEach(function (cb) {
+      cb.checked = pgGet('pedraza-plan:ped:' + cb.getAttribute('data-pedido')) === '1';
+    });
+    actualizarProgresoPedido();
+  });
+
+  document.addEventListener('change', function (e) {
+    var cb = e.target.closest('[data-pedido]');
+    if (!cb) return;
+    var key = 'pedraza-plan:ped:' + cb.getAttribute('data-pedido');
+    if (cb.checked) { pgSet(key, '1'); } else { pgRemove(key); }
+    actualizarProgresoPedido();
+  });
+
+  function actualizarProgresoPedido() {
+    var cajas = document.querySelectorAll('[data-pedido]');
+    var total = cajas.length;
+    var done = 0;
+    cajas.forEach(function (cb) { if (cb.checked) done++; });
+    var pct = total ? Math.round((done / total) * 100) : 0;
+
+    document.querySelectorAll('[data-progress-fill]').forEach(function (fill) {
+      fill.style.width = pct + '%';
+    });
+    document.querySelectorAll('[data-progress-label]').forEach(function (label) {
+      label.textContent = done + ' de ' + total + ' pasos (' + pct + '%)';
+    });
+  }
+</script>
+
+<script>
+  // ===== Cuenta regresiva (sección 4): dos fechas límite =====
+  function diasEntre(desde, hasta) {
+    var d1 = new Date(desde.getFullYear(), desde.getMonth(), desde.getDate());
+    var d2 = new Date(hasta.getFullYear(), hasta.getMonth(), hasta.getDate());
+    return Math.round((d2 - d1) / 86400000);
+  }
+
+  function setCountdown(numId, unidadId, dias) {
+    var numEl = document.getElementById(numId);
+    var unidadEl = document.getElementById(unidadId);
+    if (!numEl || !unidadEl) return;
+    if (dias > 1) {
+      numEl.textContent = dias;
+      unidadEl.textContent = 'días';
+      numEl.classList.remove('is-pasado');
+    } else if (dias === 1) {
+      numEl.textContent = '1';
+      unidadEl.textContent = 'día';
+      numEl.classList.remove('is-pasado');
+    } else if (dias === 0) {
+      numEl.textContent = 'Hoy';
+      unidadEl.textContent = 'es el último día';
+      numEl.classList.add('is-pasado');
+    } else {
+      numEl.textContent = 'Venció';
+      unidadEl.textContent = 'hace ' + Math.abs(dias) + (Math.abs(dias) === 1 ? ' día' : ' días');
+      numEl.classList.add('is-pasado');
+    }
+  }
+
+  function actualizarCuentaRegresiva() {
+    var hoy = new Date();
+    setCountdown('cd-bf-num', 'cd-bf-unidad', diasEntre(hoy, new Date(2026, 7, 27)));
+    setCountdown('cd-nav-num', 'cd-nav-unidad', diasEntre(hoy, new Date(2026, 8, 19)));
+
+    var fechaTexto;
+    try {
+      fechaTexto = hoy.toLocaleDateString('es-CL', { day: 'numeric', month: 'long', year: 'numeric' });
+    } catch (e) {
+      fechaTexto = hoy.toLocaleDateString();
+    }
+    ['cd-hoy-fecha-1', 'cd-hoy-fecha-2'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.textContent = fechaTexto;
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', actualizarCuentaRegresiva);
+</script>
+
+<script>
+  // Navegación global: barra superior + panel completo (25 páginas, 4 grupos).
   // Prefijo "nav" en todo para no chocar con otros scripts de la página.
   var NAV_PAGES = [
     { grupo: 'Seguimiento', id: 'estado', nombre: 'Estado del plan' },
