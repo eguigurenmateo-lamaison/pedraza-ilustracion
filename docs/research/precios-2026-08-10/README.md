@@ -54,6 +54,22 @@ Verificado con `verificacion-escala-nueva.py` y `verificacion-costo-propuesta.py
 
 Cruzar los $50.000 le cuesta $3.500 al negocio, y hay que sumar $4.346 más de venta para recuperarlo. **Todo pedido entre $50.000 y $54.346 deja menos plata que uno de $49.999.** Cualquier promoción que aterrice ahí trabaja en contra.
 
+## Respuestas de Felipe (11-ago, madrugada) y qué quedó
+
+- 🟢 **El dólar a $900 era falsa alarma.** No se usó para convertir nada, quedó puesto en la celda. Alerta retirada.
+- 🟢 **El envío de Mercado Libre: confirmó nuestro hallazgo con dato real.** Fue al reporte de ventas: cuesta **$3.000–3.250 por unidad**, no los $1.000–2.000 que estaban en la planilla. Decidió traspasar el 50% al precio y absorber el resto: puzzle $29.490, botella $29.490, naipes $24.490 (Shopify + $1.500).
+- ⚠️ **Pero el margen que reporta (61%–82%) no descuenta ese envío.** Verificado: el cálculo cuadra como margen de producto, pero es antes del envío recién medido y antes de la comisión del canal. Con envío: naipes 62,0%, puzzle 57,6%, botella **47,9%**. Sumando comisión (~14,5% 🟡): 44,7%, 40,4% y **30,7%**.
+- 🔴 **El piso de 60% no es comparable entre canales.** Se calibró con la economía de Shopify. En Mercado Libre hay $3.250 de envío y ~14,5% de comisión que ese número no ve: más de 20 puntos. Hace falta un piso por canal, o definirlo después de los costos de canal.
+- 🟢 **La botella queda como excepción permanente al piso**, a pedido de Felipe. Es coherente con su propio marco (categoría muy competitiva ⇒ manda el mercado). Pero **su problema es el costo, no el precio**: $9.651 es el más alto de los 13 productos, y aun a $27.990 sigue +51% sobre el comparable de mercado. Para marginar 60% al precio de mercado ($18.500) el costo tendría que bajar a $6.218. Felipe apunta a la causa correcta: se pidió poco volumen y el FOB salió alto.
+- 🟡 **Dos números sin cuadrar:** reporta el puzzle de niños en 58,6% y el cálculo con el costo del archivo ($6.599) da 56,3% — para 58,6% el costo tendría que ser $6.259. Y el totebag (59,7%) no aparece en su lista de excepciones.
+- 🟡 **"Corregí lo de antes a 49.990"**: no está claro qué precio quedó publicado. Pendiente de verificar en la tienda; es el único punto con riesgo de Ley del Consumidor.
+
+### El marco de precios de Felipe, que se adoptó en la página
+
+> **Costos y margen + competencia + características y posicionamiento del producto.** Y mientras más competitiva sea la categoría, más peso debería tener la referencia de mercado.
+
+Es el método correcto y explica por qué el mismo margen es aceptable en un producto e inaceptable en otro. La página le suma un tercer número: **cuántos pesos deja cada pedido**. Costo y competencia dicen dónde puede estar el precio; la plata por pedido dice cuál de esas opciones conviene.
+
 ## Lo que falta
 
 Ordenado por cuánto cambia la conclusión:
