@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Conectar con la hoja — Plan Pedraza Ilustración</title>
+<title>Precio de venta — Plan Pedraza Ilustración</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
 <style>
 /* ==========================================================================
@@ -618,43 +618,12 @@ main { counter-reset: sec; }
   a[href]::after { content: " (" attr(href) ")"; font-size: .8em; }
 }
 
-/* ===== 21. Indicador de sincronización (.sync-status) — píldora fija, discreta =====
-   Parte del bloque canónico del motor de sincronización (docs/design-system.md,
-   sección 9). Se agrega igual en las 5 páginas con checklist — no es propia de
-   bitacora.html. Solo aparece cuando hay una URL de sincronización configurada. */
-.sync-status {
-  position: fixed;
-  right: max(var(--space-4), env(safe-area-inset-right, 0px));
-  bottom: max(var(--space-4), env(safe-area-inset-bottom, 0px));
-  z-index: 60;
-  max-width: calc(100vw - var(--space-4) * 2);
-  padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-full);
-  background: rgba(28, 36, 32, .92);
-  color: #fff;
-  font-size: var(--fs-sm);
-  font-weight: 600;
-  line-height: 1.3;
-  box-shadow: var(--shadow);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  opacity: 0;
-  transform: translateY(8px);
-  pointer-events: none;
-  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
-}
-.sync-status.is-visible { opacity: 1; transform: translateY(0); }
-.sync-status--saving { background: rgba(28, 36, 32, .92); }
-.sync-status--ok { background: var(--success); }
-.sync-status--offline { background: var(--warn); color: #2a1d02; }
-
 /* ==========================================================================
-   Extensiones propias de esta página (sincronizar.html)
-   sincronizar.html no es una de las 15 páginas del menú principal (todavía) —
-   se llega por link directo. El bloque de arriba es el canónico intacto; lo
-   de abajo son componentes propios de esta página, agregados en la misma
-   hoja de estilos única para no crear un segundo archivo CSS.
+   Extensiones propias de esta página (precios.html)
+   El bloque de arriba es el canónico intacto; lo de abajo son componentes
+   propios de esta página (link de vuelta, campos de la calculadora,
+   tarjetas de tramo, tarjetas de canal, tarjetas de lámina), agregados en
+   la misma hoja de estilos única para no crear un segundo archivo CSS.
    ========================================================================== */
 
 .hero__back {
@@ -667,104 +636,65 @@ main { counter-reset: sec; }
   color: rgba(255, 255, 255, .85);
   text-decoration: none;
   font-size: var(--fs-sm);
-  font-weight: 600;
+  font-weight: 700;
 }
 .hero__back:hover { color: #fff; }
 
-.card--step > h3 { display: flex; align-items: center; gap: var(--space-3); margin-top: 0; }
-
-.step-badge {
-  flex: 0 0 auto;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.9em;
-  height: 1.9em;
-  border-radius: 50%;
-  background: var(--brand-green);
-  color: #fff;
-  font-family: var(--font-sans);
-  font-weight: 700;
-  font-size: .85em;
-}
-
-.paso-vista {
-  margin: var(--space-3) 0 0;
-  padding: var(--space-3) var(--space-4);
-  border-radius: var(--radius-sm);
-  background: var(--brand-green-soft);
-  color: var(--brand-green-dark);
-  font-size: var(--fs-sm);
-}
-.paso-vista strong { color: var(--brand-green-dark); }
-
-.syncmap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: var(--space-3) var(--space-4);
-  margin: var(--space-6) 0;
-}
-.syncmap__person, .syncmap__sheet {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-2);
-  font-size: var(--fs-sm);
-  font-weight: 600;
-  color: var(--ink-soft);
-  min-width: 4.5rem;
-}
-.syncmap__sheet { color: var(--ink); font-weight: 700; }
-.syncmap__avatar {
-  flex: 0 0 auto;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--brand-green-soft);
-  color: var(--brand-green-dark);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.4rem;
-  box-shadow: var(--shadow-xs);
-}
-.syncmap__sheet .syncmap__avatar { background: var(--accent-soft); color: var(--accent-dark); }
-.syncmap__arrow { flex: 0 0 auto; font-size: 1.4rem; color: var(--ink-faint); }
-
-.pill-demo { display: inline-block; position: static !important; transform: none !important; }
-
-.conectar-estado-box {
-  padding: var(--space-4) var(--space-5);
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
-  margin: var(--space-4) 0 var(--space-5);
-}
-.conectar-form { display: flex; flex-direction: column; gap: var(--space-3); margin: var(--space-4) 0; }
-.conectar-form label { font-weight: 700; font-size: var(--fs-sm); color: var(--ink-soft); }
-.conectar-form input[type="text"] {
+/* Campos de formulario (calculadora) */
+.field { display: flex; flex-direction: column; gap: var(--space-2); margin-bottom: var(--space-4); }
+.field label { font-size: var(--fs-sm); font-weight: 600; color: var(--ink-soft); }
+.field input {
   min-height: var(--tap);
-  padding: 0 var(--space-4);
-  border-radius: var(--radius-sm);
+  padding: 0 var(--space-3);
   border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
   background: var(--surface);
+  font-size: var(--fs-base);
   color: var(--ink);
-  font-size: var(--fs-sm);
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
+  width: 100%;
 }
-.conectar-form input[type="text"]:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
-.conectar-acciones { display: flex; flex-wrap: wrap; gap: var(--space-3); }
-#conectar-resultado { margin-top: var(--space-4); }
+.field input:focus-visible { outline: 3px solid var(--accent); outline-offset: 1px; }
+.field-help { margin: var(--space-1) 0 0; font-size: var(--fs-sm); color: var(--ink-faint); max-width: 62ch; }
+
+/* Cadena de cálculo: transparencia total, un paso por línea */
+.calc-chain { list-style: none; padding: 0; margin: var(--space-4) 0; display: flex; flex-direction: column; gap: var(--space-2); }
+.calc-chain li {
+  padding: var(--space-3) var(--space-4);
+  background: var(--paper);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+  border: 1px solid var(--line);
+}
+.calc-chain__result { border-color: var(--brand-green) !important; background: var(--brand-green-soft) !important; font-weight: 700; }
+
+/* Tarjeta de tramo de precio */
+.tier-card { border-top-width: 6px; border-top-style: solid; }
+.tier-card--bajo { border-top-color: var(--accent); }
+.tier-card--medio { border-top-color: var(--warn); }
+.tier-card--alto { border-top-color: var(--success); }
+.tier-card__pct { font-size: clamp(2rem, 1.6rem + 1.6vw, 2.6rem); font-weight: 800; letter-spacing: -.02em; margin: var(--space-2) 0; }
+.tier-card--bajo .tier-card__pct { color: var(--accent-dark); }
+.tier-card--medio .tier-card__pct { color: var(--warn); }
+.tier-card--alto .tier-card__pct { color: var(--success); }
+.tier-card__range { font-size: var(--fs-sm); color: var(--ink-soft); font-weight: 600; }
+
+/* Tarjeta de canal (tienda propia vs Mercado Libre) */
+.channel-card__icon { font-size: 1.8rem; line-height: 1; margin-bottom: var(--space-2); }
+
+/* Tarjetas de lámina (se queda / se elimina) */
+.lamina-tag { display: inline-flex; align-items: center; gap: 4px; margin-bottom: var(--space-2); }
+
+.calc-line { margin: 0 0 var(--space-1); font-size: var(--fs-base); }
+.calc-line strong { font-family: var(--font-serif); }
+.calc-line--sub { color: var(--ink-faint); font-size: var(--fs-sm); margin: 0 0 var(--space-3); }
 
 .page-footer { margin-top: var(--space-8); padding-top: var(--space-4); border-top: 1px solid var(--line); color: var(--ink-faint); font-size: var(--fs-sm); }
 .page-footer a { color: var(--accent-dark); font-weight: 700; text-decoration: none; }
 .page-footer a:hover { text-decoration: underline; }
 </style>
 </head>
-<body data-nav-actual="sincronizar">
+<body data-nav-actual="precio-venta">
 <nav class="navbar" aria-label="Barra de navegación">
   <div class="navbar__inner">
     <a href="estado.html" class="navbar__home" aria-label="Ir al inicio: Estado del plan">🦋</a>
@@ -1003,285 +933,606 @@ main { counter-reset: sec; }
 
 <header class="hero">
   <div class="hero__inner">
-    <a href="bitacora.html" class="hero__back">← Volver a la bitácora</a>
-    <h1>Conectar con la hoja</h1>
-    <p>Guía para que Felipe, Cote y Mateo compartan un solo avance del plan, en vez de que cada uno vea el suyo. Se hace una sola vez por persona, con una hoja de cálculo de Google (una tabla como las de Excel, pero que vive en internet). Esta página no está en el menú principal — se comparte por link directo.</p>
+    <a href="precios.html" class="hero__back">← Ver la lista del 1 de agosto</a>
+    <h1>Precio de venta: la decisión</h1>
+    <p>El 1 de agosto subimos los precios. Nueve días después la pregunta es si nos pasamos. Esta página contesta esa pregunta con la única métrica que importa: cuántos pesos deja cada pedido. No cuánto margen queda en porcentaje.</p>
   </div>
 </header>
 
 <main class="wrap">
 
 <section class="sec">
-<h2>Qué resuelve esto</h2>
-<p>Hoy, cuando alguien marca una tarea en cualquiera de las páginas del plan, esa marca se guarda solo en su propio teléfono o computador. Es como si cada persona tuviera su propio cuaderno: Felipe anota en el suyo, Cote en el de ella, Mateo en el de él. Nadie ve lo que marcaron los demás, salvo que pregunten.</p>
-<p>Conectar una hoja de cálculo de Google como almacén compartido soluciona eso: los tres cuadernos pasan a ser uno solo. Cuando Felipe marca "entregué los accesos", Cote y Mateo lo ven al tiro en su propio celular. Y queda registrado quién marcó cada tarea y cuándo.</p>
+<h2>La decisión, en una pantalla</h2>
 
-<div class="grid-2">
-  <div class="card">
-    <h3>📱 Hoy</h3>
-    <span class="pill pill--warn" style="margin-bottom:var(--space-3)">Cada uno ve lo suyo</span>
-    <p>Felipe marca una tarea en su celular. Cote y Mateo no se enteran hasta que alguien pregunta "¿ya hiciste eso?". El avance real del equipo nadie lo ve completo.</p>
-  </div>
-  <div class="card">
-    <h3>🔗 Con la hoja conectada</h3>
-    <span class="pill pill--success" style="margin-bottom:var(--space-3)">Todos ven lo mismo</span>
-    <p>Felipe marca una tarea. Cote y Mateo la ven marcada, con su nombre y la hora, en su propio celular o computador. Un solo avance, compartido por el equipo completo.</p>
-  </div>
-</div>
+<p>Revisamos precio por precio, con el costo real, el margen real y lo que cobra la competencia. La respuesta corta: <strong>no estamos pasados en todo. Estamos pasados en un lugar concreto, y en ese lugar la baja ya empezó sin que nadie hiciera el número.</strong></p>
 
-<div class="syncmap" aria-hidden="true">
-  <div class="syncmap__person"><span class="syncmap__avatar">👨</span>Felipe</div>
-  <div class="syncmap__person"><span class="syncmap__avatar">👩</span>Cote</div>
-  <div class="syncmap__person"><span class="syncmap__avatar">🧑</span>Mateo</div>
-  <span class="syncmap__arrow">→</span>
-  <div class="syncmap__sheet"><span class="syncmap__avatar">📊</span>Una sola hoja</div>
+<div class="kpi-grid">
+  <div class="kpi">
+    <span class="kpi__label">Caída de ventas que aguanta el alza 🟢</span>
+    <span class="kpi__value">13,8%</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Lo que vale el alza al año 🟡</span>
+    <span class="kpi__value">$4,7M</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Productos con costo conocido 🔴</span>
+    <span class="kpi__value">1 de 11</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Errores de cálculo encontrados 🔴</span>
+    <span class="kpi__value">4</span>
+  </div>
 </div>
 
 <div class="callout callout--success">
-<p><strong>Nada se pierde si se corta internet.</strong> Esto no reemplaza el guardado de cada dispositivo, lo complementa. Cada teléfono o computador sigue guardando su propia copia al marcar una tarea. Si no hay conexión, el cambio se guarda igual ahí y se envía a la hoja compartida apenas vuelva la señal.</p>
+<p><strong>Lo que hay que hacer, en cuatro frases.</strong></p>
+<p>1. <strong>El puzzle se queda en $29.990.</strong> Aguanta que las ventas caigan 13,8% y aún así deja más plata que antes del alza. Bajarlo es regalar margen sin necesidad.</p>
+<p>2. <strong>Las láminas sí están caras</strong>, y son el único caso donde el mercado nos da la razón a Felipe. Pero la baja que ya está en la calle se hizo con un precio de referencia que nunca existió.</p>
+<p>3. <strong>Naipes y pins están en el precio correcto.</strong> No se tocan.</p>
+<p>4. <strong>Los otros seis productos no se pueden decidir todavía</strong>, porque no tenemos su costo. Decidir sin eso es adivinar.</p>
+</div>
+
+<div class="callout callout--danger">
+<p><strong>🔴 Antes de cualquier cambio de precio, hay cuatro cosas rotas que arreglar esta semana.</strong> Están en la sección "Los cuatro errores". Una de ellas es la calculadora que usaríamos justamente para decidir la baja: aprueba descuentos de 39,5% cuando el techo real es 28,1%.</p>
 </div>
 </section>
 
 <section class="sec">
-<h2>Los 5 pasos para conectar la hoja</h2>
-<p>Se hacen una sola vez. Los pasos 1 a 3 los hace una sola persona del equipo (da lo mismo quién). Los pasos 4 y 5 son para avisarle a Mateo la dirección web (el link) que resulta, así él la deja fija en las páginas y nadie más tiene que repetir esto.</p>
+<h2>La métrica correcta: pesos por pedido</h2>
 
-<div class="card card--step">
-<h3><span class="step-badge">1</span> Crea la hoja de cálculo</h3>
-<p>Abre <strong>sheets.new</strong> en el navegador del celular o el computador (o entra a Google Sheets y crea una hoja nueva). Ponle un nombre fácil de reconocer, por ejemplo <strong>"Pedraza — Avance del plan"</strong>.</p>
-<div class="paso-vista">✅ Qué deberías ver: una hoja de cálculo vacía, con el nombre que le pusiste arriba a la izquierda.</div>
-</div>
+<p>Toda la discusión de precios se estaba dando en porcentajes. El porcentaje engaña. Lo que paga los sueldos, el crédito y el pedido a China son pesos.</p>
 
-<div class="card card--step">
-<h3><span class="step-badge">2</span> Abre el editor de código y pega el motor</h3>
-<p>En el menú de arriba, ve a <strong>Extensiones → Apps Script</strong>. Se abre una pestaña nueva con un editor de código, con algo ya escrito de ejemplo. Borra todo lo que aparezca ahí y pega completo el código de abajo, tal cual, sin cambiar nada.</p>
-
-<div class="copyblock">
-<button type="button" class="copyblock__btn" data-copy-target="copy-apps-script">Copiar</button>
-<div class="copyblock__text" id="copy-apps-script">/**
- * Motor de sincronización — Plan Pedraza Ilustración
- * Pega este código en el editor de Apps Script de la hoja de cálculo
- * (Extensiones → Apps Script) y publícalo como app web:
- *   Implementar → Nueva implementación → Tipo: Aplicación web
- *   Ejecutar como: Yo · Quién tiene acceso: Cualquier usuario
- * La URL que entrega esa implementación es el valor que va en
- * localStorage["pedraza-plan:sync-url"] (o en la constante SYNC_URL del cliente).
- *
- * La hoja usa 4 columnas: clave | estado | quien | actualizado
- * Si la hoja está vacía, el script crea esa fila de encabezados solo.
- */
-
-var NOMBRE_HOJA = 'Checklist'; // cambia esto si tu pestaña se llama distinto
-var COLUMNAS = ['clave', 'estado', 'quien', 'actualizado'];
-
-// Devuelve la hoja de trabajo, creando el encabezado si hace falta.
-function obtenerHoja_() {
-  var libro = SpreadsheetApp.getActiveSpreadsheet();
-  var hoja = libro.getSheetByName(NOMBRE_HOJA) || libro.getSheets()[0];
-  if (hoja.getLastRow() === 0) {
-    hoja.appendRow(COLUMNAS);
-  }
-  return hoja;
-}
-
-// GET: entrega todos los estados guardados como { ok:true, items:{ "bit:xxx":"1", ... } }.
-function doGet(e) {
-  var hoja = obtenerHoja_();
-  var datos = hoja.getDataRange().getValues(); // incluye la fila de encabezado
-  var items = {};
-  for (var i = 1; i &lt; datos.length; i++) {
-    var clave = datos[i][0];
-    if (!clave) continue; // fila vacía, se ignora
-    items[String(clave)] = String(datos[i][1]);
-  }
-  return respuestaJson_({ ok: true, items: items });
-}
-
-// POST: recibe { clave, estado, quien } como JSON en texto plano (para no gatillar
-// el preflight de CORS) y hace upsert: si la clave ya existe la actualiza, si no
-// agrega una fila nueva. Usa LockService para que dos personas escribiendo al
-// mismo tiempo no se pisen.
-function doPost(e) {
-  var candado = LockService.getScriptLock();
-  try {
-    candado.waitLock(10000); // hasta 10 segundos esperando el turno para escribir
-
-    var cuerpo = JSON.parse(e.postData.contents);
-    var clave = String(cuerpo.clave || '').trim();
-    if (!clave) return respuestaJson_({ ok: false, error: 'falta la clave' });
-    var estado = cuerpo.estado === '1' ? '1' : '0';
-    var quien = String(cuerpo.quien || 'alguien del equipo');
-    var ahora = new Date();
-
-    var hoja = obtenerHoja_();
-    var datos = hoja.getDataRange().getValues();
-    var filaEncontrada = -1;
-    for (var i = 1; i &lt; datos.length; i++) {
-      if (String(datos[i][0]) === clave) { filaEncontrada = i + 1; break; } // +1: getRange es base 1
-    }
-
-    if (filaEncontrada === -1) {
-      hoja.appendRow([clave, estado, quien, ahora]);
-    } else {
-      hoja.getRange(filaEncontrada, 1, 1, 4).setValues([[clave, estado, quien, ahora]]);
-    }
-    return respuestaJson_({ ok: true });
-  } catch (err) {
-    return respuestaJson_({ ok: false, error: String(err) });
-  } finally {
-    candado.releaseLock();
-  }
-}
-
-// Arma la respuesta JSON con el tipo de contenido correcto.
-function respuestaJson_(objeto) {
-  return ContentService
-    .createTextOutput(JSON.stringify(objeto))
-    .setMimeType(ContentService.MimeType.JSON);
-}</div>
-</div>
-
-<div class="paso-vista">✅ Qué deberías ver: el editor con el código pegado, empezando con <code>/**</code> y terminando con la función <code>respuestaJson_</code>.</div>
-</div>
-
-<div class="card card--step">
-<h3><span class="step-badge">3</span> Publica la hoja para que la página pueda leerla</h3>
-<p>Arriba a la derecha del editor, aprieta el botón <strong>Implementar → Nueva implementación</strong>. En el tipo, elige <strong>Aplicación web</strong>. En "Ejecutar como" deja <strong>Yo</strong>. En "Quién tiene acceso" elige <strong>Cualquier usuario</strong>. Aprieta <strong>Implementar</strong>.</p>
-
-<div class="callout callout--warn">
-<p><strong>La primera vez, Google va a pedir autorización.</strong> Aparece una pantalla que dice algo como "esta app no está verificada" — es normal, es tu propio código, nadie más lo ve. Aprieta "Configuración avanzada" y luego "Ir a (nombre del proyecto), sin seguridad" para aceptar. Es seguro: la hoja solo guarda qué tarea se marcó, quién y cuándo — ningún dato sensible ni contraseña.</p>
-</div>
-
-<div class="paso-vista">✅ Qué deberías ver: una ventana con una dirección web larga, que empieza con <code>https://script.google.com/...</code></div>
-</div>
-
-<div class="card card--step">
-<h3><span class="step-badge">4</span> Copia esa dirección web</h3>
-<p>Selecciona y copia la dirección web completa que te muestra Google al terminar el paso anterior. Baja hasta la sección "Conectar ahora" más abajo en esta misma página y pégala en el campo de texto.</p>
-<div class="paso-vista">✅ Qué deberías ver: la dirección pegada en el campo de la sección de abajo, lista para apretar "Conectar".</div>
-</div>
-
-<div class="card card--step">
-<h3><span class="step-badge">5</span> Avísale a Mateo esa dirección</h3>
-<p>Manda esa misma dirección web a Mateo, por el medio que sea más rápido. Él la deja fija en el código de las 5 páginas del plan, así nadie más en el equipo tiene que repetir estos pasos: apenas abran cualquiera de esas páginas, van a quedar conectados solos.</p>
-<div class="paso-vista">✅ Qué deberías ver: nada en pantalla — este paso es avisar, no configurar nada acá.</div>
-</div>
-</section>
-
-<section class="sec">
-<h2>Conectar ahora</h2>
-<p>Pega aquí la dirección web que te entregó Google en el paso 3 y aprieta "Conectar". La página va a guardarla en este dispositivo y va a probar la conexión al tiro, para confirmar que quedó bien.</p>
-
-<div class="conectar-estado-box" id="estado-actual" aria-live="polite"></div>
-
-<form class="conectar-form" id="conectar-form" novalidate>
-  <label for="sync-url-input">Dirección web de la hoja (la que entrega Google en el paso 3)</label>
-  <input type="text" inputmode="url" id="sync-url-input" name="sync-url" placeholder="https://script.google.com/macros/s/AKfycb.../exec" autocomplete="off" autocapitalize="off" spellcheck="false">
-  <div class="conectar-acciones">
-    <button type="submit" class="btn" id="btn-conectar">Conectar</button>
-  </div>
-</form>
-
-<div id="conectar-resultado" style="display:none"></div>
-</section>
-
-<section class="sec">
-<h2>Cómo saber que está funcionando</h2>
-<p>Dos lugares para revisar. El primero, en el celular o computador: abajo a la derecha de cualquier página con checklist aparece una píldora chica que avisa el estado. El segundo, en la hoja de cálculo misma: cada tarea marcada aparece ahí como una fila.</p>
-
-<div class="grid-3">
-  <div class="card" style="text-align:center">
-    <span class="sync-status sync-status--saving is-visible pill-demo">Guardando…</span>
-    <p style="margin:var(--space-3) 0 0;font-size:var(--fs-sm);color:var(--ink-soft)">Se está enviando el cambio a la hoja. Dura solo un instante.</p>
-  </div>
-  <div class="card" style="text-align:center">
-    <span class="sync-status sync-status--ok is-visible pill-demo">Sincronizado con el equipo ✓</span>
-    <p style="margin:var(--space-3) 0 0;font-size:var(--fs-sm);color:var(--ink-soft)">Todo quedó guardado y compartido. Este mensaje se esconde solo a los pocos segundos.</p>
-  </div>
-  <div class="card" style="text-align:center">
-    <span class="sync-status sync-status--offline is-visible pill-demo">Sin conexión — guardado solo aquí</span>
-    <p style="margin:var(--space-3) 0 0;font-size:var(--fs-sm);color:var(--ink-soft)">No hay internet o la hoja no respondió. Lo marcado sigue guardado en el dispositivo y se envía solo, apenas vuelva la señal.</p>
-  </div>
-</div>
-
-<p>En la hoja de cálculo, cada tarea marcada por cualquier persona queda como una fila, con 4 columnas: la clave de la tarea, el estado (1 marcada, 0 sin marcar), quién la marcó y cuándo. Así se ve (fila de ejemplo, no son datos reales):</p>
+<p>Mira lo que pasa con el mismo producto, cambiando solo cómo se vende:</p>
 
 <div class="table-wrap">
 <table>
-<thead><tr><th>clave</th><th>estado</th><th>quien</th><th>actualizado</th></tr></thead>
+<thead>
+<tr><th>Qué compra la persona</th><th>Se cobra</th><th>Margen %</th><th>Deja de plata</th></tr>
+</thead>
 <tbody>
-<tr><td>bit:2026-07-27-felipe-entregar-accesos</td><td>1</td><td>Felipe</td><td>27-07-2026 14:32</td></tr>
-<tr><td>cro:ficha-resenas-visibles</td><td>1</td><td>Mateo</td><td>27-07-2026 09:10</td></tr>
-<tr><td>p90:definir-calendario-lanzamientos</td><td>0</td><td>Cote</td><td>26-07-2026 18:47</td></tr>
+<tr><td>1 puzzle, precio de lista</td><td>$29.990</td><td>67,1%</td><td><strong>$16.899</strong></td></tr>
+<tr><td>1 puzzle, al precio de julio</td><td>$27.290</td><td>64,2%</td><td>$14.725</td></tr>
+<tr><td>1 puzzle, bajando el precio 10%</td><td>$26.991</td><td>63,9%</td><td>$14.484</td></tr>
+<tr><td>2 puzzles, con $10.000 de descuento</td><td>$49.980</td><td>61,3%</td><td><strong>$25.745</strong></td></tr>
+<tr><td>3 puzzles, con $18.000 de descuento</td><td>$71.970</td><td><span class="pill pill--warn">54,1%</span></td><td><strong>$32.701</strong></td></tr>
 </tbody>
 </table>
 </div>
-<p style="font-size:var(--fs-sm);color:var(--ink-soft)">Las letras antes de los dos puntos (<code>bit:</code>, <code>cro:</code>, <code>p90:</code>) identifican de qué página viene cada tarea, para que las 5 páginas puedan compartir la misma hoja sin mezclarse.</p>
+
+<div class="chart-bar-row"><span class="chart-bar-row__label">1 puzzle</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:51.7%;background:var(--ink-faint)"></div></div><span class="chart-bar-row__value">$16.899</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Bajando 10%</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:44.3%;background:var(--danger)"></div></div><span class="chart-bar-row__value">$14.484</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">2 con descuento</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:78.7%;background:var(--success)"></div></div><span class="chart-bar-row__value">$25.745</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">3 con descuento</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%;background:var(--success)"></div></div><span class="chart-bar-row__value">$32.701</span></div>
+
+<div class="callout callout--success">
+<p><strong>Aquí está todo el argumento.</strong> El pedido de 3 puzzles tiene <em>el peor margen porcentual de la tabla</em> —54,1%, casi rozando el piso de 60% que fijó Felipe— y es el que <strong>más plata deja: $32.701, casi el doble que vender un puzzle solo</strong>.</p>
+<p>Si decidiéramos mirando el porcentaje, habríamos rechazado la mejor venta del catálogo.</p>
+</div>
+
+<div class="callout callout--danger">
+<p><strong>Y al revés:</strong> bajar el precio de lista un 10% deja <strong>$14.484 por pedido</strong>. Menos que hoy, y menos incluso que en julio antes del alza. Bajar el precio sin subir la cantidad de unidades por pedido destruye caja. Es el peor de todos los movimientos que evaluamos.</p>
+</div>
+
+<h3>Por qué el margen porcentual miente</h3>
+
+<p>Cuando alguien se lleva 3 puzzles, el costo de los puzzles crece 3 veces, pero el envío se paga <strong>una sola vez</strong> y la atención al cliente es <strong>una sola conversación</strong>. El porcentaje baja porque el descuento se ve sobre un número grande. La plata sube porque los costos fijos del pedido se reparten.</p>
+
+<p>Por eso la métrica de aquí en adelante es <strong>plata por pedido</strong>, y todo lo demás se ordena detrás de ella.</p>
 </section>
 
 <section class="sec">
-<h2>Preguntas frecuentes</h2>
+<h2>El pedido promedio no alcanza el envío gratis</h2>
 
-<div class="card">
-<h3>¿Qué pasa si se corta internet?</h3>
-<p>Nada se pierde. Lo marcado se sigue guardando en el teléfono o computador al tiro, y se envía a la hoja compartida solo cuando vuelve la conexión.</p>
+<p>Este es el dato estructural que no estaba sobre la mesa, y es la palanca más barata que existe: <strong>no obliga a bajar ningún precio</strong>.</p>
+
+<div class="kpi-grid">
+  <div class="kpi">
+    <span class="kpi__label">Lo que gasta una persona por compra 🟢</span>
+    <span class="kpi__value">$37.900</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Envío gratis desde 🟢</span>
+    <span class="kpi__value">$50.000</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Cuánto falta para llegar 🟢</span>
+    <span class="kpi__value">+32%</span>
+  </div>
+  <div class="kpi">
+    <span class="kpi__label">Cosas que compra por pedido 🟢</span>
+    <span class="kpi__value">1,64</span>
+  </div>
 </div>
 
-<div class="card">
-<h3>¿Qué pasa si dos personas marcan algo al mismo tiempo?</h3>
-<p>La hoja usa un turno interno — atiende un cambio a la vez, como una fila de espera. Dos personas escribiendo junto no se pisan ni pierden ningún cambio.</p>
-</div>
+<p>El cliente típico se queda <strong>$12.100 corto</strong> del envío gratis. Le colgamos el premio justo fuera del alcance. Cada pedido que cruza ese umbral sube la plata que deja, incluso pagando nosotros el despacho.</p>
 
-<div class="card">
-<h3>¿Alguien de afuera puede ver la hoja?</h3>
-<p>Solo quien tenga la dirección web exacta. No lleva contraseñas ni datos personales, solo qué tarea se marcó, quién y cuándo. Aun así, mejor no publicarla en ningún lugar abierto.</p>
-</div>
-
-<div class="card">
-<h3>¿Se puede desconectar?</h3>
-<p>Sí, con el botón "Desconectar" de la sección "Conectar ahora", más arriba. Al desconectar, cada página sigue funcionando exactamente igual, solo que guarda el avance nada más en ese dispositivo.</p>
-</div>
-
-<div class="card">
-<h3>¿Hay que hacer esto en cada teléfono?</h3>
-<p>Por ahora sí: cada persona pega la misma dirección web una vez, en su propio dispositivo, en la sección "Conectar ahora". Cuando Mateo la deje fija en el código de las páginas, ya no va a hacer falta — va a quedar conectado solo.</p>
+<div class="callout callout--info">
+<p><strong>Lo que esto significa en la práctica:</strong> en la ficha de cada producto y en el carro tiene que decir cuánto falta para el envío gratis, y qué agregar para llegar. Un puzzle o unos naipes cruzan el umbral. Un set de postales no alcanza.</p>
 </div>
 </section>
 
 <section class="sec">
-<h2>Las 5 páginas que se sincronizan</h2>
-<p>El motor de sincronización funciona igual en estas 5 páginas. Cada una guarda sus propias tareas en la hoja compartida, sin mezclarse con las demás.</p>
+<h2>Cuánto aguanta el precio de hoy</h2>
+
+<p>Felipe dice que se nota en la demanda. Puede tener razón. Pero "se nota" no es un número, y hay un número que zanja la discusión.</p>
+
+<p>El puzzle costaba $27.290 y ahora cuesta $29.990. Con un costo de $7.253, el margen por unidad pasó de $15.680 a $17.949.</p>
+
+<div class="chart-bar-row"><span class="chart-bar-row__label">Margen en julio</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:87.4%;background:var(--ink-faint)"></div></div><span class="chart-bar-row__value">$15.680</span></div>
+<div class="chart-bar-row"><span class="chart-bar-row__label">Margen hoy</span><div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%;background:var(--success)"></div></div><span class="chart-bar-row__value">$17.949</span></div>
+
+<div class="callout callout--success">
+<p><strong>Se pueden vender 13,8% menos puzzles y ganar exactamente la misma plata que antes del alza.</strong></p>
+<p>Es decir: si las ventas cayeron un 8%, el negocio está <em>mejor</em> hoy que en julio. Solo si cayeron más de 13,8% el alza fue mala idea.</p>
+</div>
+
+<h3>Y bajar cuesta caro</h3>
+
+<p>La aritmética es asimétrica, y esa asimetría es lo que hay que entender antes de tocar un precio:</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Si bajo el precio…</th><th>…tengo que vender esto más</th><th>En puzzles al mes</th></tr>
+</thead>
+<tbody>
+<tr><td>5%</td><td><span class="pill pill--success">+8,4%</span></td><td>+5 puzzles</td></tr>
+<tr><td>10%</td><td><span class="pill pill--warn">+18,0%</span></td><td>+11 puzzles</td></tr>
+<tr><td>15%</td><td><span class="pill pill--warn">+29,2%</span></td><td>+18 puzzles</td></tr>
+<tr><td>20%</td><td><span class="pill pill--danger">+44,0%</span></td><td>+27 puzzles</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Bajar 20% obliga a vender <strong>casi la mitad más</strong> solo para quedar igual. Nadie ha explicado de dónde saldría ese volumen. Y hay algo peor: <strong>bajar un precio es fácil, subirlo de vuelta es carísimo</strong>. El cliente que se acostumbró al precio bajo lo toma como el precio normal.</p>
+
+<div class="callout callout--warn">
+<p><strong>🟡 Estos porcentajes incluyen envío y comisión de la pasarela de pago como supuesto</strong>, porque el dato real todavía no lo tenemos. Con el costo completo el margen por unidad es menor y el volumen exigido es mayor. Si el envío resulta más caro de lo supuesto, bajar cuesta todavía más de lo que dice esta tabla.</p>
+</div>
+</section>
+
+<section class="sec">
+<h2>Producto por producto: qué hacer</h2>
+
+<p>Sin postura previa. Cada producto se compara con su competencia real y con su propio margen, y de ahí sale la decisión.</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Producto</th><th>Precio hoy</th><th>Contra el mercado</th><th>Qué hacemos</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Puzzle 1.000 pzs</strong></td><td>$29.990</td><td>Empata el techo del diseño chileno ($24.990–$29.990) 🟡</td><td><span class="pill pill--success">Se queda</span></td></tr>
+<tr><td><strong>Naipes</strong></td><td>$22.990</td><td>−4% bajo la mediana 🟡</td><td><span class="pill pill--success">Se queda</span></td></tr>
+<tr><td><strong>Pins</strong></td><td>$7.990</td><td>+7%, en línea 🟡</td><td><span class="pill pill--success">Se queda</span></td></tr>
+<tr><td><strong>Lámina 42×60</strong></td><td>$52.990</td><td><span class="pill pill--danger">1,8× por cm²</span> vs. un 50×70 de la competencia</td><td><span class="pill pill--warn">Revisar</span></td></tr>
+<tr><td><strong>Lámina 33×50</strong></td><td>$40.990</td><td>+49% por cm² vs. comparable directo</td><td><span class="pill pill--warn">Revisar</span></td></tr>
+<tr><td>Botella</td><td>$32.990</td><td>+78% 🟡 falta confirmar ml y material</td><td><span class="pill pill--info">Falta dato</span></td></tr>
+<tr><td>Libreta</td><td>$18.990</td><td>+216% 🟡 falta confirmar tamaño y hojas</td><td><span class="pill pill--info">Falta dato</span></td></tr>
+<tr><td>Calcetines</td><td>$9.990</td><td>+34% 🟡</td><td><span class="pill pill--info">Falta dato</span></td></tr>
+<tr><td>Totebag</td><td>$17.990</td><td>+20% 🟡</td><td><span class="pill pill--info">Falta dato</span></td></tr>
+<tr><td>Llavero</td><td>$9.990</td><td>+67% 🟡 una sola observación</td><td><span class="pill pill--info">Falta dato</span></td></tr>
+<tr><td>Postales</td><td>$11.990</td><td>+50% 🟡 falta confirmar cuántas trae</td><td><span class="pill pill--info">Falta dato</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>El puzzle: por qué no se baja</h3>
+
+<p>Tres razones, en orden de peso:</p>
+
+<ul>
+  <li><strong>Aguanta una caída de 13,8%</strong> antes de que el alza deje de convenir.</li>
+  <li><strong>Ya hay una tienda que revende nuestro puzzle a $31.990</strong> y le va bien con su propio margen encima. El mercado ya aceptó ese precio.</li>
+  <li><strong>Es el producto que menos margen tiene, no el que más.</strong> Margina 71,2%, bajo el promedio de la tienda. Es el peor candidato para descontar.</li>
+</ul>
+
+<div class="callout callout--warn">
+<p><strong>La comparación que nos estaba confundiendo.</strong> Contra puzzles internacionales masivos (mediana $18.990) estamos +58%. Pero esas marcas venden más barato <em>trayendo licencias de Marvel y de Van Gogh encima</em>: su ventaja es escala de importación, no valor percibido. Contra el diseño chileno, que es nuestra pelea real, estamos empatando el techo. No por encima.</p>
+</div>
+
+<h3>Las láminas: aquí sí hay un problema</h3>
+
+<p>Es el único lugar donde el mercado le da la razón a Felipe, y con claridad. Para comparar bien hay que mirar el precio por centímetro cuadrado, porque una lámina más grande no es el mismo producto:</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Lámina</th><th>Tamaño</th><th>Precio</th><th>Por cm²</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Pedraza 33×50</strong></td><td>1.650 cm²</td><td>$40.990</td><td><strong>$24,84</strong></td></tr>
+<tr><td><strong>Pedraza 42×60</strong></td><td>2.520 cm²</td><td>$52.990</td><td><strong>$21,03</strong></td></tr>
+<tr><td>Competidor directo 30×42 🟡</td><td>1.260 cm²</td><td>$20.990</td><td>$16,66</td></tr>
+<tr><td>Mapa ilustrado 50×70 🟡</td><td>3.500 cm²</td><td>$39.900</td><td>$11,40</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="callout callout--danger">
+<p><strong>Nuestra lámina de 42×60 cuesta 1,8 veces por centímetro cuadrado lo que cobra la competencia por una de 50×70.</strong> Cobramos más por un papel más chico. Ese es un problema real de precio, no una percepción.</p>
+</div>
+
+<p>Pero hay un detalle que ordena la conversación: <strong>no sabemos cuánto cuesta hacer una lámina.</strong> Se imprimen en Chile con impresora propia y no hay ni un dato de papel ni de tinta en ninguna parte. Es el producto de mayor ticket del catálogo y su margen es una incógnita.</p>
+</section>
+
+<section class="sec">
+<h2>Los cuatro errores que hay que arreglar esta semana</h2>
+
+<p>Salieron al revisar los números. Los cuatro están en material que ya está publicado o circulando, y los cuatro afectan decisiones de plata.</p>
+
+<h3>🔴 1. La calculadora aprueba descuentos que rompen el piso</h3>
+
+<p>El archivo de Excel que usaríamos para decidir la baja calcula el margen sobre el precio <strong>con IVA</strong>. El IVA no es plata nuestra: es del Estado, pasa por la caja y se va.</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th></th><th>Lo que dice el archivo</th><th>Lo correcto</th></tr>
+</thead>
+<tbody>
+<tr><td>Margen del puzzle</td><td>75,8%</td><td><strong>71,2%</strong></td></tr>
+<tr><td>Descuento máximo antes de romper el piso de 60%</td><td><span class="pill pill--danger">39,5%</span></td><td><strong>28,1%</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Son <strong>11,4 puntos de diferencia</strong> en la herramienta que existe justamente para decidir cuánto bajar. Si alguien la usa esta semana, autoriza un descuento que rompe el piso que Felipe mismo fijó.</p>
+
+<h3>🔴 2. Un precio de referencia que nunca existió</h3>
+
+<p>La lámina de 33×50 se está anunciando como <strong>"$32.990, antes $49.990, −34%"</strong>. Revisamos toda la documentación de precios: esa lámina <strong>nunca costó $49.990</strong>. Su precio de lista es $40.990, así que el descuento real es <strong>−19,5%</strong>.</p>
+
+<div class="callout callout--danger">
+<p>Esto se corrige hoy, y no solo por prolijidad: en Chile anunciar un precio anterior que no estuvo vigente entra en el terreno de la Ley del Consumidor. No es una opinión legal, pero es un riesgo que no vale la pena correr por 14 puntos de descuento inventado.</p>
+</div>
+
+<h3>🔴 3. La baja ya empezó, y sin números</h3>
+
+<p>Las láminas están hoy <strong>más baratas que antes del alza del 1 de agosto</strong>:</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Lámina</th><th>Antes del alza</th><th>Después del alza</th><th>Hoy en campaña</th><th>Contra julio</th></tr>
+</thead>
+<tbody>
+<tr><td>42×60</td><td>$48.390</td><td>$52.990</td><td><strong>$42.990</strong></td><td><span class="pill pill--danger">−11,2%</span></td></tr>
+<tr><td>33×50</td><td>$36.980</td><td>$40.990</td><td><strong>$32.990</strong></td><td><span class="pill pill--danger">−10,8%</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<p>No es un ajuste: es una reversión completa del alza más un descuento encima, sobre el producto de mayor ticket del catálogo, decidida sin conocer su costo.</p>
+
+<h3>🔴 4. Los descuentos están peleados con el envío gratis</h3>
+
+<p>Este es el más silencioso y el que más se repite. El envío gratis parte en $50.000. Varias promociones dejan el pedido <em>justo por debajo</em>:</p>
+
+<div class="callout callout--danger">
+<p><strong>"2 puzzles con $10.000 de descuento" deja el carro en $49.980.</strong> Faltan <strong>veinte pesos</strong> para el envío gratis. La persona recibe un descuento y pierde el despacho en el mismo movimiento.</p>
+<p>Con <strong>$9.000</strong> de descuento el carro queda en $50.980 y conserva el envío gratis. Se regala menos y el cliente recibe más.</p>
+</div>
+
+<p>El cupón de $10.000 tiene el mismo problema, más grande: se recomendó un mínimo de compra de $50.000 <em>porque coincide con el envío gratis</em>. Pero un carro de $50.000 con el cupón aplicado queda en <strong>$40.000</strong>.</p>
+
+<div class="callout callout--warn">
+<p><strong>🟡 Hay que revisar en Shopify si el envío gratis se calcula antes o después del descuento.</strong> De eso depende que tres promociones distintas funcionen o se saboteen solas. Es una revisión de cinco minutos y bloquea todo lo demás.</p>
+</div>
+</section>
+
+<section class="sec">
+<h2>La escalera por cantidad</h2>
+
+<p>Esta es la forma de defender el margen sin bajar el precio de lista: el precio de entrada se mantiene, y quien se lleva más recibe más.</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Se lleva</th><th>Descuento</th><th>Paga</th><th>¿Envío gratis?</th><th>Deja de plata</th></tr>
+</thead>
+<tbody>
+<tr><td>1 puzzle</td><td>—</td><td>$29.990</td><td>No</td><td>$16.899</td></tr>
+<tr><td><strong>2 puzzles</strong></td><td><strong>$9.000</strong></td><td>$50.980</td><td><span class="pill pill--success">Sí</span></td><td><strong>$23.050</strong></td></tr>
+<tr><td><strong>3 puzzles</strong></td><td><strong>$18.000</strong></td><td>$71.970</td><td><span class="pill pill--success">Sí</span></td><td><strong>$32.701</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="callout callout--info">
+<p><strong>Por qué $9.000 y no $10.000:</strong> con $10.000 el carro cae a $49.980 y la persona pierde el envío gratis por veinte pesos. Con $9.000 lo conserva. Regalamos mil pesos menos y la compra se siente mejor.</p>
+</div>
+
+<h3>Un aviso sobre los packs</h3>
+
+<p>Los packs de 2, 3 y 4 puzzles funcionaban antes y hoy no enganchan. Antes de repetir la fórmula conviene entender por qué dejaron de funcionar. La hipótesis más probable: <strong>el puzzle estuvo agotado meses</strong>, así que no había pack posible. Se sabrá cuando llegue el stock el 15 de agosto.</p>
+
+<p>Mientras tanto, el pack mixto tiene una ventaja que el pack repetido no tiene: quien ya compró un puzzle de aves no quiere otro igual, pero sí puede querer los naipes. Y los naipes llegan 1.000 unidades el 15 de agosto, con demanda proyectada de 344.</p>
+</section>
+
+<section class="sec">
+<h2>Los tres canales</h2>
+
+<h3>Tienda propia</h3>
+<p>Es el canal con más margen y el que hay que proteger. Todo lo de arriba aplica aquí.</p>
+
+<h3>Mercado Libre: la diferencia de precio se quedó corta</h3>
+
+<p>La regla de hoy es que Mercado Libre va entre $1.000 y $4.000 sobre la tienda propia, porque ahí la entrega es más rápida. La intención es correcta; el número no alcanza.</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Puzzle</th><th>Se cobra</th><th>Queda de plata</th></tr>
+</thead>
+<tbody>
+<tr><td>Tienda propia</td><td>$29.990</td><td><strong>$16.899</strong></td></tr>
+<tr><td>Mercado Libre 🟡</td><td>$31.990</td><td><span class="pill pill--danger">$11.271</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Vender en Mercado Libre al precio de hoy deja <strong>un tercio menos de plata</strong> por unidad. La causa es que allá el envío gratis se activa en $19.990, así que <strong>lo paga la marca en casi todo el catálogo</strong>, mientras que en la tienda propia parte en $50.000 y lo paga el cliente.</p>
+
+<div class="callout callout--warn">
+<p><strong>🟡 Para igualar el margen de la tienda propia, la diferencia tendría que ser de $6.700 a $8.600, no de $1.000 a $4.000.</strong> Ese número depende de la comisión exacta de la categoría, que no pudimos confirmar. Antes de activar los puzzles en Mercado Libre —hoy no están— hay que correr el simulador oficial con la categoría y el peso reales.</p>
+</div>
+
+<div class="callout callout--danger">
+<p><strong>🔴 Ojo con el totebag.</strong> Está a $18.990, mil pesos bajo el umbral de $19.990. Subirlo a $19.990 "para redondear" haría <strong>perder $1.865 por unidad</strong>, porque se activa el envío gratis que paga la marca. Para recuperar ese neto tendría que costar $22.171. Es salto grande o nada: el paso intermedio es el peor lugar.</p>
+</div>
+
+<h3>B2B: cinco precios en vez de uno</h3>
+
+<p>Hoy el mayorista paga alrededor de un 39,4% bajo el precio de lista, sin importar quién sea. Ese descuento nos deja en el piso de lo que se usa en la industria, y trata igual a compradores muy distintos.</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Quién compra</th><th>Descuento</th><th>Pedido mínimo</th><th>Por qué</th></tr>
+</thead>
+<tbody>
+<tr><td>Empresa que regala 🟡</td><td>5–20%</td><td>Por unidades</td><td>No revende, no necesita margen</td></tr>
+<tr><td>Hotel o lodge 🟡</td><td>35%</td><td>$150.000</td><td>Revende poco volumen, sin competir con nosotros</td></tr>
+<tr><td>Tienda nueva 🟡</td><td>40%</td><td>$150.000</td><td>Entrada al canal</td></tr>
+<tr><td>Tienda habitual 🟡</td><td>45%</td><td>$300.000</td><td>Compra sostenida</td></tr>
+<tr><td>Socio estratégico 🟡</td><td>50%</td><td>$1.200.000</td><td>Volumen que justifica el margen</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>El costo de mover una venta al mayorista, en unidades:</strong> con 40% de descuento hacen falta <strong>2,3 puzzles vendidos al por mayor</strong> para igualar lo que deja <strong>1 solo</strong> vendido en la tienda propia. Con 50%, hacen falta <strong>3,4</strong>. Por eso el B2B tiene que traer clientes nuevos, no llevarse los que ya compraban directo.</p>
+</div>
+
+<div class="callout callout--info">
+<p><strong>La herramienta para que no se canibalicen:</strong> no se puede obligar a una tienda a respetar un precio mínimo de reventa — en Chile eso es materia de libre competencia. Lo que sí se puede, y funciona mejor, es <strong>tener productos distintos en cada canal</strong>: diseños o formatos que solo existen en la tienda propia.</p>
+</div>
+</section>
+
+<section class="sec">
+<h2>Cómo saber si el precio mató la demanda</h2>
+
+<p>Hoy nadie tiene el dato. "Se nota en la demanda" es una impresión, y hay una razón fuerte para desconfiar de ella: <strong>el puzzle lleva meses agotado</strong>. Si las ventas bajaron, puede ser por precio o porque no había qué vender. Son causas distintas con soluciones opuestas.</p>
+
+<div class="callout callout--info">
+<p><strong>El truco para separarlas:</strong> los naipes son el único producto que <strong>no subió de precio</strong> (0%) y que <strong>sí tenía stock</strong>. Sirven de termómetro. Si los naipes también cayeron, el problema no es el precio: es el tráfico o la temporada.</p>
+</div>
+
+<h3>La tabla para llenar cuando lleguen los datos</h3>
+
+<p>Se compara el 1 al 10 de agosto contra el <strong>1 al 10 de julio</strong>. No contra los diez días previos, porque ahí el puzzle ya estaba agotado y la comparación sale sucia.</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Qué medir</th><th>1–10 julio</th><th>1–10 agosto</th><th>Cambio</th></tr>
+</thead>
+<tbody>
+<tr><td>Unidades de naipes (termómetro)</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>Unidades de láminas</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>Unidades de botellas</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>Pedidos totales</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>Visitas a la tienda</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>Cosas por pedido</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><strong>Plata por pedido</strong></td><td>—</td><td>—</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>🟡 Diez días no alcanzan para concluir.</strong> Con unos 110 pedidos al mes, en diez días hay cerca de 37 pedidos. Con tan pocos, una diferencia de 10% se confunde fácilmente con el azar de la semana. Sirven para ver si hay una caída <em>grande</em> —de 30% o más—, no para afinar. Para detectar una caída de 10% con confianza hacen falta <strong>cerca de seis semanas</strong> de datos.</p>
+<p>Eso no es una razón para no mirar. Es una razón para no revertir el precio de todo el catálogo con la evidencia de una semana y media.</p>
+</div>
+
+<div class="callout callout--success">
+<p><strong>La regla de decisión, de antemano:</strong> si la plata por pedido cayó <strong>menos de 13,8%</strong>, el alza sigue conviniendo y no se toca nada. Si cayó más, se revisa producto por producto, empezando por el que más cayó. Dejarla escrita antes de ver los datos evita que después cada uno lea la tabla a su favor.</p>
+</div>
+</section>
+
+<section class="sec">
+<h2>Lo que falta para cerrar la decisión</h2>
+
+<p>Ordenado por cuánto cambia la conclusión. Sin lo primero, seis de once productos no se pueden decidir.</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Qué falta</th><th>Quién lo tiene</th><th>Qué desbloquea</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Costo de las láminas</strong> (papel + tinta)</td><td>Felipe</td><td>Es el producto de mayor ticket y el que ya se está bajando a ciegas</td></tr>
+<tr><td><strong>Costo de los otros 8 productos</strong></td><td>Felipe</td><td>Hoy solo el puzzle tiene costo real. Es el 64% de las unidades sin margen calculable</td></tr>
+<tr><td><strong>Comisiones de las pasarelas de pago</strong></td><td>Felipe</td><td>Ya estaba pendiente. Cambia todos los márgenes</td></tr>
+<tr><td><strong>Costo real de envío por pedido</strong></td><td>Felipe</td><td>Define si el envío gratis a $50.000 está bien puesto</td></tr>
+<tr><td><strong>Ventas del 1 al 10 de agosto</strong></td><td>Felipe</td><td>Contesta si la demanda cayó y cuánto</td></tr>
+<tr><td><strong>Precios de la competencia</strong></td><td>Cote</td><td>La lista mayorista y de página que consiguió por el amigo del lodge</td></tr>
+<tr><td><strong>Cómo calcula Shopify el envío gratis</strong></td><td>Cualquiera con acceso</td><td>Cinco minutos. Define si las promociones se sabotean solas</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="callout callout--warn">
+<p><strong>🟡 Sobre los precios de competencia de esta página.</strong> Están marcados con 🟡 porque se levantaron sin poder abrir las páginas en vivo. Sirven para saber en qué banda estamos y dónde mirar, no para fijar un precio final. La lista de abajo los deja firmes en unos quince minutos.</p>
+</div>
+
+<h3>Los precios que hay que ir a mirar</h3>
+
+<p>Copia esta lista y anota el precio al lado. Es lo que convierte toda la sección de competencia de 🟡 a 🟢.</p>
+
+<div class="copyblock">
+  <button type="button" class="copyblock__btn" data-copy-target="copy-captura-precios">Copiar</button>
+  <div class="copyblock__text" id="copy-captura-precios">CAPTURA DE PRECIOS DE COMPETENCIA — anotar precio y fecha
+
+PUZZLES 1.000 PIEZAS
+- La Puzzlera, puzzle 1.000 piezas: $______
+- Casa Notho, puzzle: $______
+- Bendito, puzzle (confirmar si es de 1.000 piezas): $______
+- Ravensburger 1.000 piezas en Falabella: $______
+- Nuestro puzzle en Creado en Chile: $______
+
+LAMINAS (anotar SIEMPRE el tamaño)
+- Torca Chile, lamina 30x42: $______
+- Mappin, mapa ilustrado 50x70: $______
+- Creado en Chile, lamina 15 pajaros 50x70: $______
+- Bendito, afiche aves 50x70: $______
+
+BOTELLAS (anotar ml y material)
+- Botella ilustrada mas parecida a la nuestra: $______ / ____ ml
+
+NAIPES
+- Naipes de diseno comparables: $______
+
+MERCADO LIBRE (anotar si tiene envio gratis y si es Full)
+- Puzzle 1.000 piezas de diseno: $______
+- Lamina ilustrada: $______
+- Botella ilustrada: $______
+
+NUESTROS PROPIOS DATOS
+- Comision exacta de Mercado Libre en nuestra categoria: ____%
+- Costo de envio promedio por pedido: $______
+- Comision de la pasarela de pago: ____%</div>
+</div>
+</section>
+
+<section class="sec">
+<h2>Los pasos, en orden</h2>
+
+<p>Los cuatro primeros son de arreglo y van antes que cualquier cambio de precio.</p>
+
+<div class="progress">
+  <div class="progress__track">
+    <div class="progress__fill" data-progress-fill></div>
+  </div>
+  <span class="progress__label" data-progress-label>0 de 0 pasos (0%)</span>
+</div>
+
+<ul class="checklist">
+  <li><label><input type="checkbox" id="chk-pv-1" data-precioventa="ref-falsa"><span>Corregir el "antes $49.990" de la lámina 33×50: el precio de lista es $40.990 y el descuento real es −19,5%</span></label></li>
+  <li><label><input type="checkbox" id="chk-pv-2" data-precioventa="envio-shopify"><span>Revisar en Shopify si el envío gratis se calcula antes o después del descuento</span></label></li>
+  <li><label><input type="checkbox" id="chk-pv-3" data-precioventa="calculadora"><span>Arreglar la calculadora de Excel: el margen se calcula sobre el precio sin IVA</span></label></li>
+  <li><label><input type="checkbox" id="chk-pv-4" data-precioventa="cupon-piso"><span>Subir el mínimo del cupón de $10.000 para que el carro con descuento siga cruzando los $50.000</span></label></li>
+  <li><label><input type="checkbox" id="chk-pv-5" data-precioventa="descuento-9000"><span>Cambiar la oferta de 2 puzzles de $10.000 a $9.000 de descuento</span></label></li>
+  <li><label><input type="checkbox" id="chk-pv-6" data-precioventa="costos"><span>Pedir a Felipe el costo de las láminas y de los otros 8 productos sin costo cargado</span></label></li>
+  <li><label><input type="checkbox" id="chk-pv-7" data-precioventa="ventas-agosto"><span>Pedir a Felipe las ventas del 1 al 10 de agosto, por producto</span></label></li>
+  <li><label><input type="checkbox" id="chk-pv-8" data-precioventa="competencia"><span>Llenar la lista de captura de precios de competencia</span></label></li>
+  <li><label><input type="checkbox" id="chk-pv-9" data-precioventa="ml-simulador"><span>Correr el simulador oficial de Mercado Libre con la categoría y el peso reales</span></label></li>
+  <li><label><input type="checkbox" id="chk-pv-10" data-precioventa="envio-visible"><span>Mostrar en la ficha y en el carro cuánto falta para el envío gratis</span></label></li>
+  <li><label><input type="checkbox" id="chk-pv-11" data-precioventa="laminas"><span>Decidir el precio de las láminas cuando esté su costo</span></label></li>
+  <li><label><input type="checkbox" id="chk-pv-12" data-precioventa="b2b"><span>Armar la lista mayorista con los cinco tramos por tipo de comprador</span></label></li>
+</ul>
+</section>
+
+<section class="sec">
+<h2>Calcula tú la plata de un pedido</h2>
+
+<p>Cambia los números y mira qué pasa con la plata que deja el pedido. Sirve para probar cualquier oferta antes de publicarla.</p>
 
 <div class="grid-2">
-  <div class="card">
-    <h3><a href="index.html">index.html</a></h3>
-    <span class="pill pill--info" style="margin-bottom:var(--space-3)">35 tareas</span>
-    <p>Plan y estrategia — el mapa completo. La checklist más grande: todas las tareas de la estrategia, de principio a fin.</p>
+  <div class="field">
+    <label for="pv-precio">Precio de un producto (con IVA)</label>
+    <input type="number" id="pv-precio" value="29990" min="0" step="10" inputmode="numeric">
   </div>
-  <div class="card">
-    <h3><a href="cro.html">cro.html</a></h3>
-    <span class="pill pill--info" style="margin-bottom:var(--space-3)">60 tareas</span>
-    <p>Conversión — auditoría de la tienda. Los pasos para que más visitas terminen en una compra, con el mismo tráfico de hoy.</p>
+  <div class="field">
+    <label for="pv-costo">Cuánto nos cuesta a nosotros</label>
+    <input type="number" id="pv-costo" value="7253" min="0" step="10" inputmode="numeric">
   </div>
-  <div class="card">
-    <h3><a href="plan-90-dias.html">plan-90-dias.html</a></h3>
-    <span class="pill pill--info" style="margin-bottom:var(--space-3)">45 tareas</span>
-    <p>Plan de 90 días — roles, objetivos y checklist. El plan de trabajo de los próximos 90 días, con quién hace qué.</p>
+  <div class="field">
+    <label for="pv-unidades">Cuántos se lleva</label>
+    <input type="number" id="pv-unidades" value="2" min="1" step="1" inputmode="numeric">
   </div>
-  <div class="card">
-    <h3><a href="bitacora.html">bitacora.html</a></h3>
-    <span class="pill pill--info" style="margin-bottom:var(--space-3)">20 tareas</span>
-    <p>Bitácora — reuniones, pendientes y entregables. El registro de cada reunión del equipo y los pendientes que salen de ahí.</p>
+  <div class="field">
+    <label for="pv-descuento">Descuento total del pedido</label>
+    <input type="number" id="pv-descuento" value="9000" min="0" step="500" inputmode="numeric">
   </div>
-  <div class="card">
-    <h3><a href="estado.html">estado.html</a></h3>
-    <span class="pill pill--info" style="margin-bottom:var(--space-3)">4 tareas</span>
-    <p>Estado del plan — en qué punto vamos hoy. La foto rápida de cómo va el plan esta semana.</p>
+</div>
+
+<p class="field-help">El envío gratis se aplica solo si el pedido, ya con el descuento, llega a $50.000. El costo de envío ($3.500) y la comisión de la pasarela (3,5%) son supuestos 🟡 mientras no tengamos el dato real.</p>
+
+<div class="calc-chain">
+  <div class="calc-line"><span>Se cobra</span><strong id="pv-out-bruto">—</strong></div>
+  <div class="calc-line calc-line--sub"><span>Menos el IVA</span><span id="pv-out-iva">—</span></div>
+  <div class="calc-line calc-line--sub"><span>Menos lo que nos cuestan los productos</span><span id="pv-out-costo">—</span></div>
+  <div class="calc-line calc-line--sub"><span>Menos el envío</span><span id="pv-out-envio">—</span></div>
+  <div class="calc-line calc-line--sub"><span>Menos la comisión de pago</span><span id="pv-out-pasarela">—</span></div>
+  <div class="calc-chain__result"><span>Plata que deja el pedido</span><strong id="pv-out-caja">—</strong></div>
+</div>
+
+<div class="kpi-grid">
+  <div class="kpi">
+    <span class="kpi__label">Margen del pedido</span>
+    <span class="kpi__value" id="pv-out-margen">—</span>
   </div>
+  <div class="kpi">
+    <span class="kpi__label">Plata por unidad</span>
+    <span class="kpi__value" id="pv-out-unidad">—</span>
+  </div>
+</div>
+
+<div class="callout callout--info">
+<p id="pv-out-mensaje">Cambia los números de arriba para ver el resultado.</p>
 </div>
 </section>
 
-<footer class="page-footer"><p>Motor de sincronización descrito en detalle (para quien programe) en <code>docs/design-system.md</code>, sección 9. <a href="bitacora.html">← Volver a la bitácora</a></p></footer>
+<section class="sec">
+<h2>El mensaje para Felipe</h2>
+
+<p>Resume la decisión y lo que necesitamos de él.</p>
+
+<div class="copyblock">
+  <button type="button" class="copyblock__btn" data-copy-target="copy-mensaje-felipe">Copiar</button>
+  <div class="copyblock__text" id="copy-mensaje-felipe">Felipe, revisamos los precios con el costo real y la competencia. Te dejo lo principal.
+
+Primero, la buena noticia: el alza del puzzle aguanta que las ventas caigan 13,8% y aun asi deja mas plata que en julio. O sea, si cayo un 8%, estamos mejor que antes. Solo si cayo mas de 13,8% conviene revisarla. Con los datos del 1 al 10 de agosto lo confirmamos al tiro.
+
+Donde tienes razon es en las laminas. Nuestra 42x60 cuesta 1,8 veces por centimetro cuadrado lo que cobra la competencia por una de 50x70. Ahi si hay que corregir.
+
+Donde no: el puzzle. Empatamos el techo del diseno chileno, y Creado en Chile ya lo revende a $31.990 con su propio margen encima. Ademas es el producto que MENOS margina (71,2%, bajo el promedio de la tienda), asi que es el peor candidato para descontar.
+
+Cuatro cosas que hay que arreglar antes de mover cualquier precio:
+
+1. La calculadora de Excel saca el margen sobre el precio CON IVA. Aprueba descuentos de hasta 39,5% cuando el techo real es 28,1%.
+
+2. La lamina 33x50 se esta anunciando "antes $49.990" y ese precio nunca existio. El de lista es $40.990, asi que el descuento real es 19,5% y no 34%. Esto hay que corregirlo hoy.
+
+3. Las laminas ya estan mas baratas que antes del alza (11% abajo), y todavia no sabemos cuanto cuesta hacerlas.
+
+4. La oferta de 2 puzzles con $10.000 de descuento deja el carro en $49.980 y pierde el envio gratis por veinte pesos. Con $9.000 queda en $50.980 y lo conserva.
+
+Lo que necesitamos de ti:
+- El costo de las laminas (papel + tinta) y de los otros 8 productos.
+- Las comisiones de las pasarelas de pago.
+- El costo real de envio por pedido.
+- Las ventas del 1 al 10 de agosto por producto.
+
+Una cosa mas, sobre el criterio. Lo que nos conviene mirar no es el % de margen sino cuantos pesos deja cada pedido. Un pedido de 3 puzzles con descuento tiene el peor margen porcentual del catalogo (54%) y es el que mas plata deja ($32.701, casi el doble que vender uno solo). Si decidimos por porcentaje, rechazamos la mejor venta.</div>
+</div>
+</section>
+
+<footer class="page-footer">
+  <p>Plan Pedraza Ilustración · Precio de venta · 10 de agosto de 2026</p>
+</footer>
 
 </main>
 
@@ -1293,6 +1544,122 @@ function respuestaJson_(objeto) {
   function pgRemove(key) { try { localStorage.removeItem(key); } catch (e) { /* sin soporte, se ignora */ } }
 </script>
 
+<script>
+  // ===== Checklist de esta página: contrato data-precioventa, prefijo pedraza-plan:pv: =====
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-precioventa]').forEach(function (cb) {
+      cb.checked = pgGet('pedraza-plan:pv:' + cb.getAttribute('data-precioventa')) === '1';
+    });
+    actualizarProgresoPrecioVenta();
+  });
+
+  document.addEventListener('change', function (e) {
+    var cb = e.target.closest('[data-precioventa]');
+    if (!cb) return;
+    var key = 'pedraza-plan:pv:' + cb.getAttribute('data-precioventa');
+    if (cb.checked) { pgSet(key, '1'); } else { pgRemove(key); }
+    actualizarProgresoPrecioVenta();
+  });
+
+  function actualizarProgresoPrecioVenta() {
+    var cajas = document.querySelectorAll('[data-precioventa]');
+    var total = cajas.length;
+    var done = 0;
+    cajas.forEach(function (cb) { if (cb.checked) done++; });
+    var pct = total ? Math.round((done / total) * 100) : 0;
+
+    document.querySelectorAll('[data-progress-fill]').forEach(function (fill) {
+      fill.style.width = pct + '%';
+    });
+    document.querySelectorAll('[data-progress-label]').forEach(function (label) {
+      label.textContent = done + ' de ' + total + ' pasos (' + pct + '%)';
+    });
+  }
+</script>
+
+<script>
+  // ===== Calculadora de plata por pedido =====
+  // Todos los precios de la tienda son con IVA incluido: el neto es dividir por 1,19.
+  var PV_IVA = 1.19;
+  var PV_UMBRAL_ENVIO = 50000;   // envío gratis desde este monto (dato confirmado)
+  var PV_COSTO_ENVIO = 3500;     // 🟡 supuesto mientras no esté el costo real
+  var PV_PASARELA = 0.035;       // 🟡 supuesto: la comisión real está pendiente
+
+  function pvNum(id) {
+    var el = document.getElementById(id);
+    if (!el) return NaN;
+    return parseFloat(el.value);
+  }
+
+  function pvTxt(id, val) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = val;
+  }
+
+  function pvCLP(n) {
+    var signo = n < 0 ? '-' : '';
+    try { return signo + '$' + Math.abs(Math.round(n)).toLocaleString('es-CL'); }
+    catch (e) { return signo + '$' + Math.abs(Math.round(n)); }
+  }
+
+  function calcularPrecioVenta() {
+    var precio = pvNum('pv-precio');
+    var costo = pvNum('pv-costo');
+    var unidades = pvNum('pv-unidades');
+    var descuento = pvNum('pv-descuento');
+
+    var valido = !isNaN(precio) && !isNaN(costo) && !isNaN(unidades) && !isNaN(descuento) &&
+                 precio > 0 && costo >= 0 && unidades >= 1 && descuento >= 0;
+
+    if (!valido) {
+      ['pv-out-bruto','pv-out-iva','pv-out-costo','pv-out-envio','pv-out-pasarela',
+       'pv-out-caja','pv-out-margen','pv-out-unidad'].forEach(function (id) { pvTxt(id, '—'); });
+      pvTxt('pv-out-mensaje', 'Completa los cuatro campos para ver el resultado.');
+      return;
+    }
+
+    var bruto = precio * unidades - descuento;
+    if (bruto < 0) { bruto = 0; }
+    var neto = bruto / PV_IVA;
+    var iva = bruto - neto;
+    var costoTotal = costo * unidades;
+    var envio = bruto >= PV_UMBRAL_ENVIO ? PV_COSTO_ENVIO : 0;
+    var pasarela = bruto * PV_PASARELA;
+    var caja = neto - costoTotal - envio - pasarela;
+    var margen = neto > 0 ? caja / neto : 0;
+
+    pvTxt('pv-out-bruto', pvCLP(bruto));
+    pvTxt('pv-out-iva', '−' + pvCLP(iva));
+    pvTxt('pv-out-costo', '−' + pvCLP(costoTotal));
+    pvTxt('pv-out-envio', envio > 0 ? '−' + pvCLP(envio) + ' (lo pagamos nosotros)' : '$0 (lo paga el cliente)');
+    pvTxt('pv-out-pasarela', '−' + pvCLP(pasarela));
+    pvTxt('pv-out-caja', pvCLP(caja));
+    pvTxt('pv-out-margen', (margen * 100).toFixed(1) + '%');
+    pvTxt('pv-out-unidad', pvCLP(caja / unidades));
+
+    var mensaje;
+    var falta = PV_UMBRAL_ENVIO - bruto;
+    if (falta > 0 && falta <= 6000) {
+      mensaje = 'Cuidado: al pedido le faltan ' + pvCLP(falta) + ' para el envío gratis. ' +
+                'Bajar un poco el descuento puede dejar al cliente mejor y a nosotros también.';
+    } else if (margen < 0.6) {
+      mensaje = 'Este pedido queda en ' + (margen * 100).toFixed(1) + '% de margen, bajo el piso de 60%. ' +
+                'Igual puede convenir si deja más plata que vender menos unidades: mira la cifra de arriba, no el porcentaje.';
+    } else {
+      mensaje = 'Este pedido deja ' + pvCLP(caja) + '. Compáralo con vender una sola unidad a precio de lista, ' +
+                'no con el porcentaje de margen.';
+    }
+    pvTxt('pv-out-mensaje', mensaje);
+  }
+
+  document.addEventListener('input', function (e) {
+    if (e.target && e.target.id && e.target.id.indexOf('pv-') === 0) {
+      calcularPrecioVenta();
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', calcularPrecioVenta);
+</script>
 
 <script>
   // Copiar al portapapeles — delegación de eventos, un solo listener por página.
@@ -1341,206 +1708,8 @@ function respuestaJson_(objeto) {
   }
 </script>
 
-
 <script>
-  // Lógica propia de esta página: guarda y prueba la dirección web de la hoja
-  // compartida (pedraza-plan:sync-url), la misma clave que lee el motor de
-  // sincronización (docs/design-system.md, sección 9) en las 5 páginas con
-  // checklist. Prefijo "conectar" en todo para no chocar con otros scripts.
-  // Requiere que ya esté cargado el bloque pgGet/pgSet/pgRemove, arriba.
-
-  document.addEventListener('DOMContentLoaded', function () {
-    conectarRenderEstado();
-    var form = document.getElementById('conectar-form');
-    if (form) form.addEventListener('submit', conectarManejarSubmit);
-  });
-
-  // Delegación: botones "Probar de nuevo" y "Desconectar" se recrean cada vez
-  // que se redibuja el estado, así que se escuchan por delegación en document.
-  document.addEventListener('click', function (e) {
-    if (e.target.closest('#btn-probar-de-nuevo')) { conectarManejarProbarDeNuevo(); return; }
-    if (e.target.closest('#btn-desconectar')) { conectarManejarDesconectar(); return; }
-  });
-
-  function conectarEsUrlValida(texto) {
-    try {
-      var u = new URL(texto);
-      return u.protocol === 'https:' || u.protocol === 'http:';
-    } catch (e) {
-      return false;
-    }
-  }
-
-  // Prueba de verdad la conexión: pide el estado remoto y valida la forma de
-  // la respuesta, igual que hace pgSyncCargarRemoto en las páginas con checklist.
-  // Nunca deja una excepción sin capturar: cualquier error de red, de formato
-  // o de tiempo de espera termina en { ok:false, motivo:'...' }.
-  function conectarProbarConexion(url) {
-    return new Promise(function (resolve) {
-      var controller = ('AbortController' in window) ? new AbortController() : null;
-      var timeoutId = controller ? setTimeout(function () { controller.abort(); }, 8000) : null;
-
-      fetch(url, { cache: 'no-store', signal: controller ? controller.signal : undefined })
-        .then(function (res) {
-          if (timeoutId) clearTimeout(timeoutId);
-          if (!res.ok) {
-            resolve({ ok: false, motivo: 'la hoja respondió con un error (código ' + res.status + ').' });
-            return;
-          }
-          res.json().then(function (data) {
-            if (data && data.ok === true && data.items && typeof data.items === 'object') {
-              resolve({ ok: true, motivo: '' });
-            } else {
-              resolve({ ok: false, motivo: 'la dirección respondió, pero no con el formato esperado. Revisa que el código del paso 2 esté completo y sin editar.' });
-            }
-          }).catch(function () {
-            resolve({ ok: false, motivo: 'la dirección respondió, pero no con el formato esperado. Revisa que el código del paso 2 esté completo y sin editar.' });
-          });
-        })
-        .catch(function (err) {
-          if (timeoutId) clearTimeout(timeoutId);
-          if (err && err.name === 'AbortError') {
-            resolve({ ok: false, motivo: 'la dirección no respondió a tiempo. Revisa tu conexión a internet e inténtalo de nuevo.' });
-          } else {
-            resolve({ ok: false, motivo: 'la dirección no responde: revisa que la publicación tenga acceso para "Cualquier usuario" (paso 3) y que copiaste el link completo.' });
-          }
-        });
-    });
-  }
-
-  function conectarManejarSubmit(e) {
-    if (e && e.preventDefault) e.preventDefault();
-    try {
-      var input = document.getElementById('sync-url-input');
-      var btn = document.getElementById('btn-conectar');
-      if (!input) return;
-      var valor = (input.value || '').trim();
-
-      if (!valor) {
-        conectarPintarResultado('warn', 'Falta pegar la dirección web. Copia la que te entregó Google en el paso 3 y pégala aquí arriba.');
-        return;
-      }
-
-      if (!conectarEsUrlValida(valor)) {
-        conectarPintarResultado('danger', 'Esa no es una dirección web válida. Tiene que empezar con "https://" — revisa que copiaste el link completo desde Google.');
-        return;
-      }
-
-      pgSet('pedraza-plan:sync-url', valor);
-      conectarRenderEstado();
-      if (btn) btn.disabled = true;
-      conectarPintarResultado('info', 'Probando la conexión…');
-
-      conectarProbarConexion(valor).then(function (r) {
-        if (btn) btn.disabled = false;
-        if (r.ok) {
-          conectarPintarResultado('success', 'Conectado: la hoja respondió bien, ya están sincronizados.');
-        } else {
-          conectarPintarResultado('danger', 'No se pudo conectar: ' + r.motivo);
-        }
-      });
-    } catch (err) {
-      conectarPintarResultado('danger', 'Algo salió mal al intentar conectar. Vuelve a intentarlo en unos segundos.');
-    }
-  }
-
-  function conectarManejarProbarDeNuevo() {
-    try {
-      var url = pgGet('pedraza-plan:sync-url');
-      if (!url) return;
-      conectarPintarResultado('info', 'Probando la conexión…');
-      conectarProbarConexion(url).then(function (r) {
-        if (r.ok) {
-          conectarPintarResultado('success', 'Conectado: la hoja respondió bien, ya están sincronizados.');
-        } else {
-          conectarPintarResultado('danger', 'No se pudo conectar: ' + r.motivo);
-        }
-      });
-    } catch (err) {
-      conectarPintarResultado('danger', 'Algo salió mal al probar la conexión. Vuelve a intentarlo.');
-    }
-  }
-
-  function conectarManejarDesconectar() {
-    try {
-      pgRemove('pedraza-plan:sync-url');
-      var input = document.getElementById('sync-url-input');
-      if (input) input.value = '';
-      conectarRenderEstado();
-      conectarOcultarResultado();
-    } catch (err) { /* sin soporte, se ignora */ }
-  }
-
-  function conectarRenderEstado() {
-    var caja = document.getElementById('estado-actual');
-    if (!caja) return;
-    var url = pgGet('pedraza-plan:sync-url');
-    caja.innerHTML = '';
-
-    if (url) {
-      var p1 = document.createElement('p');
-      var strong = document.createElement('strong');
-      strong.textContent = 'Ya hay una dirección conectada en este dispositivo:';
-      p1.appendChild(strong);
-      caja.appendChild(p1);
-
-      var codigo = document.createElement('div');
-      codigo.className = 'copyblock__text';
-      codigo.style.marginBottom = 'var(--space-3)';
-      codigo.style.wordBreak = 'break-all';
-      codigo.textContent = url;
-      caja.appendChild(codigo);
-
-      var acciones = document.createElement('div');
-      acciones.className = 'conectar-acciones';
-
-      var btnProbar = document.createElement('button');
-      btnProbar.type = 'button';
-      btnProbar.className = 'btn btn--ghost';
-      btnProbar.id = 'btn-probar-de-nuevo';
-      btnProbar.textContent = 'Probar de nuevo';
-      acciones.appendChild(btnProbar);
-
-      var btnDesconectar = document.createElement('button');
-      btnDesconectar.type = 'button';
-      btnDesconectar.className = 'btn btn--ghost';
-      btnDesconectar.id = 'btn-desconectar';
-      btnDesconectar.textContent = 'Desconectar';
-      acciones.appendChild(btnDesconectar);
-
-      caja.appendChild(acciones);
-    } else {
-      var p = document.createElement('p');
-      p.textContent = 'Todavía no hay ninguna dirección conectada en este dispositivo. Completa el formulario de abajo.';
-      caja.appendChild(p);
-    }
-  }
-
-  function conectarPintarResultado(tipo, texto) {
-    var caja = document.getElementById('conectar-resultado');
-    if (!caja) return;
-    caja.innerHTML = '';
-    var callout = document.createElement('div');
-    callout.className = 'callout callout--' + tipo;
-    callout.setAttribute('role', 'status');
-    callout.setAttribute('aria-live', 'polite');
-    var p = document.createElement('p');
-    p.textContent = texto;
-    callout.appendChild(p);
-    caja.appendChild(callout);
-    caja.style.display = 'block';
-  }
-
-  function conectarOcultarResultado() {
-    var caja = document.getElementById('conectar-resultado');
-    if (!caja) return;
-    caja.innerHTML = '';
-    caja.style.display = 'none';
-  }
-</script>
-
-<script>
-  // Navegación global: barra superior + panel completo (15 páginas, 4 grupos).
+  // Navegación global: barra superior + panel completo.
   // Prefijo "nav" en todo para no chocar con otros scripts de la página.
   var NAV_PAGES = [
     { grupo: 'Seguimiento', id: 'estado', nombre: 'Estado del plan' },
@@ -1647,6 +1816,5 @@ function respuestaJson_(objeto) {
 
   document.addEventListener('DOMContentLoaded', navInit);
 </script>
-
 </body>
 </html>

@@ -784,6 +784,13 @@ code { font-family: var(--font-mono); font-size: .92em; background: var(--paper)
           </span>
           <span class="navpanel__check" aria-hidden="true">✓</span>
         </a>
+        <a href="precio-venta.html" class="navpanel__link" data-nav-key="precio-venta">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Precio de venta</span>
+            <span class="navpanel__link-desc">Cuánto cobrar y por qué</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
         <a href="email.html" class="navpanel__link" data-nav-key="email">
           <span class="navpanel__link-text">
             <span class="navpanel__link-name">Correo y campañas</span>
@@ -1033,7 +1040,7 @@ Ver los complementos → https://pedrazailustracion.com/collections/accesorios
 Un abrazo,
 Cote</div>
 </div>
-<p style="font-size:var(--fs-sm);color:var(--ink-faint)"><span class="pill pill--warn">🟡</span> El 15% de descuento es una propuesta, en línea con el descuento de pack ya usado en <a href="ofertas.html#packs">ofertas.html</a> — igual queda por debajo del costo de adquisición calculado en la sección 2 (~23%). Idealmente, con el tiempo, este correo se personaliza según el producto exacto que compró cada persona (Klaviyo puede cruzar eso con el historial de compra); mientras no esté armado ese cruce, sirve esta versión genérica con productos complementarios que funcionan para casi cualquier primera compra.</p>
+<p style="font-size:var(--fs-sm);color:var(--ink-faint)"><span class="pill pill--warn">🟡</span> El 15% de descuento es una propuesta, en línea con el descuento de pack ya usado en <a href="ofertas.html#coleccion-packs">ofertas.html</a> — igual queda por debajo del costo de adquisición calculado en la sección 2 (~23%). Idealmente, con el tiempo, este correo se personaliza según el producto exacto que compró cada persona (Klaviyo puede cruzar eso con el historial de compra); mientras no esté armado ese cruce, sirve esta versión genérica con productos complementarios que funcionan para casi cualquier primera compra.</p>
 </div>
 
 <div class="card">
@@ -1089,11 +1096,11 @@ Cote</div>
 <table>
 <thead><tr><th>Cuándo</th><th>A quién</th><th>Qué recibe</th><th>Dónde está definido</th></tr></thead>
 <tbody>
-<tr><td>Inmediato</td><td>Nunca ha comprado, dejó su correo</td><td>Flujo de bienvenida, con el 10% de primera compra</td><td>Flujo Bienvenida — ver <a href="email.html#flujos-automaticos">email.html</a></td></tr>
-<tr><td>Día 0-1 (justo después de pagar)</td><td>Todos los que acaban de comprar</td><td>Correo de agradecimiento; si compró algo en preventa junto con algo en stock, aviso de que el pedido se despacha junto</td><td>Flujo Post-compra — ver <a href="email.html#flujos-automaticos">email.html</a></td></tr>
-<tr><td>Día 7</td><td>Compró 1 vez</td><td>Sigue en el segmento "Activos" del correo: 1 envío semanal, contenido, no venta</td><td><a href="email.html#tres-correos-por-semana">email.html</a>, segmento Activos</td></tr>
-<tr><td>Día 30</td><td>Compró 1 vez, sin repetir</td><td>Pasa a "Recompra" (2 correos/semana); si vuelve al sitio, ve el pop-up con el producto complementario</td><td><a href="email.html#tres-correos-por-semana">email.html</a> (Recompra) + <a href="ofertas.html#sistema-popups">ofertas.html</a> (pop-up 3)</td></tr>
-<tr><td>Día 60</td><td>Sigue sin repetir</td><td>Pasa a "Reactivación" (3 correos/semana)</td><td><a href="email.html#tres-correos-por-semana">email.html</a>, segmento Reactivación</td></tr>
+<tr><td>Inmediato</td><td>Nunca ha comprado, dejó su correo</td><td>Flujo de bienvenida, con el 10% de primera compra</td><td>Flujo Bienvenida — ver <a href="email.html#flujos-rinden-mas">email.html</a></td></tr>
+<tr><td>Día 0-1 (justo después de pagar)</td><td>Todos los que acaban de comprar</td><td>Correo de agradecimiento; si compró algo en preventa junto con algo en stock, aviso de que el pedido se despacha junto</td><td>Flujo Post-compra — ver <a href="email.html#flujos-rinden-mas">email.html</a></td></tr>
+<tr><td>Día 7</td><td>Compró 1 vez</td><td>Sigue en el segmento "Activos" del correo: 1 envío semanal, contenido, no venta</td><td><a href="email.html#calendario-semanal">email.html</a>, segmento Activos</td></tr>
+<tr><td>Día 30</td><td>Compró 1 vez, sin repetir</td><td>Pasa a "Recompra" (2 correos/semana); si vuelve al sitio, ve el pop-up con el producto complementario</td><td><a href="email.html#calendario-semanal">email.html</a> (Recompra) + <a href="ofertas.html#sistema-popups">ofertas.html</a> (pop-up 3)</td></tr>
+<tr><td>Día 60</td><td>Sigue sin repetir</td><td>Pasa a "Reactivación" (3 correos/semana)</td><td><a href="email.html#calendario-semanal">email.html</a>, segmento Reactivación</td></tr>
 <tr><td>Día 90</td><td>Sigue sin repetir</td><td>Se revisa en la métrica mensual si conviene un incentivo mayor</td><td>Sección 7 de esta página</td></tr>
 <tr><td>Continuo</td><td>Compró 2+ veces (los 205)</td><td>Acceso anticipado a lanzamientos y novedades primero, nunca un descuento genérico</td><td>Sección 4 y 6 de esta página</td></tr>
 </tbody>
@@ -1269,6 +1276,7 @@ Cote</div>
     { grupo: 'Plan de acción', id: 'modelo-datos', nombre: 'Ordenar los datos' },
     { grupo: 'Plan de acción', id: 'ofertas', nombre: 'Ofertas y pop-ups' },
     { grupo: 'Plan de acción', id: 'precios', nombre: 'Nueva estructura de precios' },
+    { grupo: 'Plan de acción', id: 'precio-venta', nombre: 'Precio de venta' },
     { grupo: 'Plan de acción', id: 'email', nombre: 'Correo y campañas' },
     { grupo: 'Plan de acción', id: 'clientes', nombre: 'Clientes que vuelven' },
     { grupo: 'Plan de acción', id: 'cro', nombre: 'Conversión' },
