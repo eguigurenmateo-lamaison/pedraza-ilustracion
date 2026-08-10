@@ -757,6 +757,13 @@ main { counter-reset: sec; }
           </span>
           <span class="navpanel__check" aria-hidden="true">✓</span>
         </a>
+        <a href="correos-reactivacion.html" class="navpanel__link" data-nav-key="correos-reactivacion">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Reactivar la lista</span>
+            <span class="navpanel__link-desc">12 correos en 4 semanas</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
         <a href="inventario.html" class="navpanel__link" data-nav-key="inventario">
           <span class="navpanel__link-text">
             <span class="navpanel__link-name">Control de stock</span>
@@ -1086,25 +1093,25 @@ Todo en un solo paquete, con precio especial.
 <ul class="checklist">
   <li>
     <label>
-      <input type="checkbox">
+      <input type="checkbox" data-digital="entrega-archivo">
       <span><strong>Cómo se entrega el archivo:</strong> Shopify tiene entrega digital nativa (el comprador recibe el archivo para descargar apenas paga) <span class="pill pill--warn">🟡 confirmar qué app usan hoy o si hay que instalar una</span>.</span>
     </label>
   </li>
   <li>
     <label>
-      <input type="checkbox">
+      <input type="checkbox" data-digital="devoluciones">
       <span><strong>Qué pasa con las devoluciones:</strong> un archivo ya descargado no se puede "devolver". Hay que escribir una política clara en la ficha del producto antes de publicar, para que quede claro desde el principio.</span>
     </label>
   </li>
   <li>
     <label>
-      <input type="checkbox">
+      <input type="checkbox" data-digital="proteccion-archivo">
       <span><strong>Protección básica del archivo:</strong> agregar una marca de agua discreta con el correo de quien compró, para desincentivar que el archivo se comparta libremente.</span>
     </label>
   </li>
   <li>
     <label>
-      <input type="checkbox">
+      <input type="checkbox" data-digital="iva-digital">
       <span><strong>Si el IVA se cobra distinto:</strong> <span class="pill pill--warn">🟡 a confirmar con el contador de la empresa</span> — un producto digital puede tener un tratamiento tributario distinto al de un producto físico. No corresponde adivinar la respuesta acá; se resuelve con quien lleva la contabilidad.</span>
     </label>
   </li>
@@ -1145,6 +1152,29 @@ Todo en un solo paquete, con precio especial.
 </section>
 
 </main>
+
+<script>
+  // Acceso seguro a localStorage (no revienta en navegación privada u otros bloqueos).
+  function pgGet(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+  function pgSet(key, valor) { try { localStorage.setItem(key, valor); } catch (e) { /* sin soporte, se ignora */ } }
+  function pgRemove(key) { try { localStorage.removeItem(key); } catch (e) { /* sin soporte, se ignora */ } }
+</script>
+
+<script>
+  // Checklist de esta página — usa data-digital y localStorage con prefijo pedraza-plan:dig:<id>.
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-digital]').forEach(function (cb) {
+      cb.checked = pgGet('pedraza-plan:dig:' + cb.getAttribute('data-digital')) === '1';
+    });
+  });
+
+  document.addEventListener('change', function (e) {
+    var cb = e.target.closest('[data-digital]');
+    if (!cb) return;
+    var key = 'pedraza-plan:dig:' + cb.getAttribute('data-digital');
+    if (cb.checked) { pgSet(key, '1'); } else { pgRemove(key); }
+  });
+</script>
 
 <script>
   // Copiar al portapapeles — delegación de eventos, un solo listener por página.
@@ -1207,6 +1237,7 @@ Todo en un solo paquete, con precio especial.
     { grupo: 'Plan de acción', id: 'pedido', nombre: 'Pedido a China' },
     { grupo: 'Plan de acción', id: 'preventa', nombre: 'Preventa de puzzles' },
     { grupo: 'Plan de acción', id: 'correos-preventa', nombre: 'Correos de la preventa' },
+    { grupo: 'Plan de acción', id: 'correos-reactivacion', nombre: 'Reactivar la lista' },
     { grupo: 'Plan de acción', id: 'inventario', nombre: 'Control de stock' },
     { grupo: 'Plan de acción', id: 'modelo-datos', nombre: 'Ordenar los datos' },
     { grupo: 'Plan de acción', id: 'ofertas', nombre: 'Ofertas y pop-ups' },

@@ -47,6 +47,59 @@ Reglas permanentes para TODOS los entregables de este repo (documentos, páginas
 - **Contenido "conciencia 1" para alcance:** piezas sobre temas universales y cotidianos (dormir, tomar agua, mentalidad) para gente que aún no piensa en comprar y solo admira la naturaleza. Referencia del operador: @mattelsa (carruseles de 30-58 mil me gusta, capturas jul-2026).
 - El checkout nativo de Instagram nunca estuvo disponible fuera de EEUU: en Chile la compra SIEMPRE se cerró fuera de la app. No presentar su eliminación como un cambio que afecta a la marca.
 
+## La voz de Cote (obligatoria en TODO texto firmado por la marca)
+
+Destilado de 15 correos escritos por María José "Cote" Pedraza (jul-ago 2026): los 6 de la
+preventa de puzzles y las 9 historias. Aplica a correos, guiones de Reels, captions,
+plantillas de DM y cualquier texto que salga con su nombre. **Rige por sobre cualquier
+instinto de redacción publicitaria.**
+
+**Estructura de correo:** `Hola,` solo → primera línea que es anzuelo → párrafos de 1 a 3
+líneas con mucho aire → puente al producto en 1 o 2 líneas al final → enlace en su propia
+línea con formato `Ver la preventa →` → cierre `Con cariño,` o `Un abrazo,` + `Cote` →
+P.D. opcional. **Lo comercial (envío gratis, reseñas, plazos) va en la P.D., nunca en el cuerpo.**
+
+**La primera línea es un hecho que ya ocurrió**, con acción y algo que se pueda ver. Nunca
+un estado ni una reflexión genérica. Sirve: "La primera vez que fui a Torres del Paine no
+vi las Torres." No sirve: "Hay encuentros que uno recuerda toda la vida."
+
+**El asunto** sale de esa primera línea, recortado (máx. ~45 caracteres), concreto y en
+primera persona. El **preheader** (máx. ~90 caracteres) continúa el asunto, nunca lo parafrasea.
+
+**Cómo suena:**
+- Frases cortas, una idea por frase. Líneas sueltas como golpe de silencio, una o dos por
+  pieza: "La llama tenía otros planes." / "Ahí estaba el puma."
+- Empieza frases con "Y" o "Pero" para dar ritmo.
+- Casi nunca signos de exclamación. Cero emojis en el cuerpo. Cero preguntas retóricas.
+- Nombres propios y fechas reales siempre: "Hotel Unai", "Bahía Inútil", "Ladera Sur",
+  "el año 2009". Nunca "un viaje al sur". La especificidad es lo que la hace creíble y es
+  lo primero que se pierde al reescribir.
+- Un detalle sensorial corto por pieza: "pequeños pompones cafés".
+- **Se pone en ridículo, nunca por encima.** La escupe una llama, vuelve del cerro sin ver
+  nada, camina cinco días bajo la lluvia sin ver las Torres. Si un pasaje la deja como
+  experta o como heroína, está mal escrito. Nunca elogia su propio trabajo.
+
+**Cómo vende (la regla más importante):** le quita presión al lector en vez de ponérsela.
+Literal de ella: *"Los puzzles no desaparecen… Nadie se queda sin puzzle, simplemente unos
+lo recibirán antes que otros."* La urgencia se explica como hecho logístico, jamás como
+amenaza. **PROHIBIDO:** "última oportunidad", "no te lo pierdas", "quedan pocas unidades",
+"aprovecha", "solo por hoy", cuentas regresivas. Agradece sin adular: trata al lector como
+alguien que acompaña un proyecto, no como un cliente a convertir.
+
+**Prohibiciones:** voseo rioplatense (ver regla 4 de comunicación); jerga de marketing
+("colección cápsula", "drop", "edición limitada", "comunidad", "storytelling"); explicar la
+naturaleza como enciclopedia (cuenta lo que le pasó, no dicta clase); palabras ajenas a su
+registro como "robot"; moralizar o sacar lecciones de vida — cuenta el hecho y deja que el
+lector concluya.
+
+**Vicios propios de ella que hay que corregir al editar:** repite "las ilustraciones empiezan
+mucho antes del pincel" en cuatro correos distintos (rotar el remate); alterna firma
+"María José" y "Cote" (**siempre Cote**, decisión del operador ago-2026); mezcla tres escenas
+en una historia (una historia = una escena); sus borradores de historia terminan sin puente
+al producto (hay que agregarlo).
+
+**Largo:** correo de historia 180-320 palabras; correo de venta 200-320.
+
 ## Reglas duras del entregable
 
 - Nunca inventar datos ni estadísticas: cada dato con fuente (URL) o marcado 🟡 VERIFICAR / 🟡 SUPUESTO.
@@ -73,7 +126,7 @@ Toda ronda de trabajo termina con estos tres pasos, siempre en esta secuencia y 
 - Botones "Copiar" funcionando, con destino existente para cada `data-copy-target`.
 - Cero ids duplicados, HTML balanceado, anclas internas y enlaces entre páginas sin roturas.
 - Cero recursos externos (ni CDNs, ni fuentes, ni imágenes remotas).
-- **Contratos de checklist aislados:** cada página usa su propio atributo `data-*` y su propio prefijo de `localStorage`. Nunca se reutiliza uno existente. Contratos tomados: `task`, `cro`, `plan90`, `bitacora`, `estado`, `preventa`, `tienda`, `clientes`, `precios`.
+- **Contratos de checklist aislados:** cada página usa su propio atributo `data-*` y su propio prefijo de `localStorage`. Nunca se reutiliza uno existente, y **toda casilla debe guardar su estado** — una casilla sin contrato `data-*` es una falla de QC. Contratos tomados: `ads`, `bitacora`, `campanas`, `clientes`, `correo`, `correosp`, `cro`, `digital`, `estado`, `inventario`, `navidad`, `ofertas`, `pedido`, `plan90`, `preventa`, `react`, `tablero`, `task`, `tienda`.
 - Todo cálculo con fechas o plata se verifica con un script independiente antes de publicarlo.
 
 ### Al terminar
