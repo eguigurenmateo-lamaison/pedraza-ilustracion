@@ -1,0 +1,2119 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Reactivar la lista — Plan Pedraza Ilustración</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
+<style>
+/* ==========================================================================
+   Sistema de diseño v2 — Plan Pedraza Ilustración
+   Estética limpia, curada y serena, tipo iOS. Mismo contrato de clases
+   que el sistema v1: solo cambia el aspecto (espacio, tipografía,
+   superficies, radios, sombras), nunca la estructura de marcado.
+   Bloque único y canónico. No editar por página: solo usar estas clases.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* --- tinta y superficies: fondo agrupado gris cálido, tarjetas blanco puro --- */
+  --ink: #1c2420;
+  --ink-soft: #4c5850;
+  --ink-faint: #7c887f;
+  --paper: #f4f2ed;
+  --surface: #ffffff;
+  --line: rgba(28, 36, 32, .08);
+  --line-strong: rgba(28, 36, 32, .16);
+
+  /* --- acento: rojo copihue (color de acción, se mantiene) --- */
+  --accent: #b0223f;
+  --accent-dark: #7c1830;
+  --accent-soft: #f8dfe4;
+
+  /* --- verde naturaleza del sitio web de la marca (identidad y estructura, se mantiene) --- */
+  --brand-green: #3b5751;
+  --brand-green-soft: #e3eae8;
+  --brand-green-dark: #2a403c;
+
+  /* --- apoyo semántico (valores de marca sin cambios) --- */
+  --success: #2f6b4a;
+  --success-soft: #dcece1;
+  --warn: #a8720a;
+  --warn-soft: #f8ecd2;
+  --danger: #ae3d17;
+  --danger-soft: #f7ddd0;
+  --info: var(--brand-green);
+  --info-soft: var(--brand-green-soft);
+
+  /* --- forma: radios generosos y consistentes --- */
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius: 20px;
+  --radius-lg: 28px;
+  --radius-full: 999px;
+
+  /* --- sombras suaves y en capas, nunca marcadas --- */
+  --shadow-xs: 0 1px 2px rgba(24, 32, 28, .04);
+  --shadow-sm: 0 1px 3px rgba(24, 32, 28, .05), 0 4px 10px rgba(24, 32, 28, .05);
+  --shadow: 0 6px 16px rgba(24, 32, 28, .07), 0 16px 32px -12px rgba(24, 32, 28, .14);
+
+  /* --- espaciado: escala amplia; los saltos grandes son fluidos (más aire en desktop, proporcional en móvil) --- */
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .875rem;
+  --space-4: 1.25rem;
+  --space-5: 1.75rem;
+  --space-6: clamp(2rem, 1.6rem + 1.6vw, 2.75rem);
+  --space-7: clamp(2.75rem, 2rem + 3vw, 4.5rem);
+  --space-8: clamp(3.5rem, 2.3rem + 5vw, 6rem);
+
+  /* --- tipografía: una sola voz, pila de sistema (ver sección 1 del documento) --- */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: var(--font-sans); /* alias de compatibilidad: el sistema v2 unifica todo en la pila sans, ver sección 1 */
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --fs-sm: clamp(.85rem, .81rem + .2vw, .92rem);
+  --fs-base: clamp(1rem, .95rem + .25vw, 1.0625rem);
+  --fs-lg: clamp(1.1rem, 1.02rem + .4vw, 1.25rem);
+  --fs-h3: clamp(1.2rem, 1.1rem + .5vw, 1.4rem);
+  --fs-h2: clamp(1.5rem, 1.3rem + 1vw, 1.9rem);
+  --fs-h1: clamp(2rem, 1.6rem + 2.4vw, 3rem);
+
+  /* --- área táctil mínima (regla mobile-first del proyecto) --- */
+  --tap: 44px;
+
+  /* --- movimiento discreto --- */
+  --ease: cubic-bezier(.4, 0, .2, 1);
+  --dur: 200ms;
+}
+
+/* ===== 1. Reset mínimo ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; }
+img, svg { max-width: 100%; display: block; }
+h1, h2, h3, h4, p, ul, ol, dl, figure { margin: 0 0 var(--space-4); }
+ul, ol { padding-left: 1.2em; }
+a { color: inherit; }
+button { font: inherit; }
+table { border-collapse: collapse; width: 100%; }
+
+/* ===== 2. Tipografía base ===== */
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+h1, h2, h3 { font-family: var(--font-sans); font-weight: 700; line-height: 1.15; letter-spacing: -.02em; color: var(--ink); }
+h1 { font-size: var(--fs-h1); font-weight: 800; letter-spacing: -.03em; }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -.01em; }
+p { max-width: 68ch; color: var(--ink); }
+strong { color: var(--ink); font-weight: 700; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+/* ===== 3. Layout ===== */
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 var(--space-4) var(--space-8); }
+
+/* ===== 4. Barra superior (.navbar) — translúcida, con fallback sólido ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--brand-green);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .navbar {
+    background: rgba(59, 87, 81, .72);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+  }
+}
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--space-1) var(--space-3);
+}
+.navbar__home {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap);
+  height: var(--tap);
+  border-radius: var(--radius-full);
+  font-size: 1.3rem;
+  line-height: 1;
+  text-decoration: none;
+  color: #fff;
+  transition: background var(--dur) var(--ease);
+}
+.navbar__home:hover, .navbar__home:active { background: rgba(255, 255, 255, .14); }
+.navbar__title {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+.navbar__menu-btn {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-width: var(--tap);
+  min-height: var(--tap);
+  padding: 0 var(--space-3);
+  border: none;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, .14);
+  color: #fff;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease);
+}
+.navbar__menu-btn:hover { background: rgba(255, 255, 255, .22); }
+.navbar__menu-icon { display: inline-flex; flex-direction: column; justify-content: center; gap: 4px; width: 18px; flex: 0 0 auto; }
+.navbar__menu-icon span { display: block; height: 2px; width: 100%; background: #fff; border-radius: 2px; }
+.navbar__menu-label { font-size: var(--fs-sm); font-weight: 600; white-space: nowrap; }
+@media (max-width: 420px) { .navbar__menu-label { display: none; } }
+
+/* ===== 4b. Panel de navegación completo (.navpanel) — 15 páginas en 4 grupos ===== */
+html.nav-lock, body.nav-lock { overflow: hidden; }
+.navpanel {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.navpanel[hidden] { display: none; }
+.navpanel__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 20, 18, .5);
+  opacity: 0;
+  transition: opacity var(--dur) var(--ease);
+}
+.navpanel__sheet {
+  position: relative;
+  width: 100%;
+  max-height: 92vh;
+  background: var(--paper);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  transform: translateY(100%);
+  transition: transform var(--dur) var(--ease);
+}
+.navpanel.is-open .navpanel__backdrop { opacity: 1; }
+.navpanel.is-open .navpanel__sheet { transform: translateY(0); }
+.navpanel__header {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-4) var(--space-3);
+  border-bottom: 1px solid var(--line);
+}
+.navpanel__headtitle { font-size: var(--fs-h3); font-weight: 800; letter-spacing: -.01em; color: var(--ink); }
+.navpanel__close {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap);
+  height: var(--tap);
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--line-strong);
+  color: var(--ink);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.navpanel__close:hover { background: var(--accent-soft); color: var(--accent-dark); }
+.navpanel__body {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: var(--space-4) var(--space-4) var(--space-7);
+}
+.navpanel__group + .navpanel__group { margin-top: var(--space-5); }
+.navpanel__group-title {
+  margin: 0 0 var(--space-2);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--ink-faint);
+}
+.navpanel__link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: calc(var(--tap) + 12px);
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-xs);
+  text-decoration: none;
+  color: var(--ink);
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+.navpanel__link:hover { border-color: var(--line-strong); box-shadow: var(--shadow-sm); }
+.navpanel__link:last-child { margin-bottom: 0; }
+.navpanel__link-text { flex: 1 1 auto; min-width: 0; }
+.navpanel__link-name { display: block; font-weight: 700; font-size: var(--fs-base); letter-spacing: -.01em; color: var(--ink); }
+.navpanel__link-desc { display: block; margin-top: 2px; font-size: var(--fs-sm); color: var(--ink-soft); }
+.navpanel__check {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .8rem;
+  color: #fff;
+  background: var(--brand-green);
+  opacity: 0;
+  transform: scale(.6);
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.navpanel__link--current { background: var(--brand-green-soft); border-color: transparent; }
+.navpanel__link--current .navpanel__link-name { color: var(--brand-green-dark); }
+.navpanel__link--current .navpanel__check { opacity: 1; transform: scale(1); }
+@media (min-width: 640px) {
+  .navpanel { align-items: center; padding: var(--space-5); }
+  .navpanel__sheet {
+    max-width: 560px;
+    max-height: 84vh;
+    border-radius: var(--radius-lg);
+    transform: translateY(16px) scale(.98);
+    opacity: 0;
+    transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease);
+  }
+  .navpanel.is-open .navpanel__sheet { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* ===== 5. Hero ===== */
+.hero {
+  padding: var(--space-8) var(--space-4);
+  background:
+    radial-gradient(120% 160% at 12% -20%, rgba(255, 255, 255, .14), transparent 55%),
+    linear-gradient(160deg, var(--brand-green) 0%, var(--brand-green-dark) 100%);
+  color: #fff;
+}
+.hero__inner { max-width: 960px; margin: 0 auto; }
+.hero h1 { color: #fff; margin-bottom: var(--space-3); }
+.hero p { color: rgba(255, 255, 255, .86); font-size: var(--fs-lg); font-weight: 400; max-width: 60ch; margin: 0; line-height: 1.55; }
+
+/* ===== 6. Secciones numeradas (.sec) ===== */
+main { counter-reset: sec; }
+.sec { counter-increment: sec; margin-top: var(--space-7); }
+.sec:first-of-type { margin-top: var(--space-6); }
+.sec > h2 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding-bottom: var(--space-3);
+  margin-bottom: var(--space-5);
+  border-bottom: 1px solid var(--line-strong);
+}
+.sec > h2::before {
+  content: counter(sec);
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9em;
+  height: 1.9em;
+  border-radius: var(--radius-full);
+  background: var(--brand-green);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: .5em;
+  font-weight: 700;
+  box-shadow: var(--shadow-xs);
+}
+
+/* ===== 7. Callouts: superficies sobrias con un detalle de color ===== */
+.callout {
+  display: block;
+  position: relative;
+  padding: var(--space-5) var(--space-5) var(--space-5) calc(var(--space-5) + 2.1em + var(--space-4));
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--ink-faint);
+  background: var(--surface);
+  box-shadow: var(--shadow-xs);
+  margin: var(--space-5) 0;
+}
+.callout::before {
+  position: absolute;
+  left: var(--space-5);
+  top: var(--space-5);
+  width: 2.1em;
+  height: 2.1em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--paper);
+  font-size: 1.1em;
+  line-height: 1;
+}
+.callout p:last-child { margin-bottom: 0; }
+.callout--info { border-left-color: var(--info); }
+.callout--info::before { content: "💡"; background: var(--info-soft); }
+.callout--success { border-left-color: var(--success); }
+.callout--success::before { content: "✅"; background: var(--success-soft); }
+.callout--warn { border-left-color: var(--warn); }
+.callout--warn::before { content: "🟡"; background: var(--warn-soft); }
+.callout--danger { border-left-color: var(--danger); }
+.callout--danger::before { content: "🔴"; background: var(--danger-soft); }
+
+/* ===== 8. Bloque copiable (.copyblock) ===== */
+.copyblock {
+  position: relative;
+  margin: var(--space-5) 0;
+  padding: calc(var(--tap) + var(--space-3)) var(--space-5) var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.copyblock__text {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--ink);
+}
+.copyblock__btn {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  min-height: var(--tap);
+  padding: 0 var(--space-4);
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.copyblock__btn:hover { background: var(--accent-dark); }
+.copyblock__btn:active { transform: scale(.96); }
+.copyblock__btn.is-copied { background: var(--success); }
+
+/* ===== 9. KPIs (.kpi) ===== */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+  margin: var(--space-5) 0;
+}
+.kpi {
+  padding: var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.kpi__label { display: block; font-size: var(--fs-sm); font-weight: 600; color: var(--ink-soft); margin-bottom: var(--space-2); overflow-wrap: break-word; }
+.kpi__value { display: block; font-family: var(--font-sans); font-size: clamp(1.35rem, 1.05rem + 1.4vw, 2.25rem); font-weight: 800; letter-spacing: -.02em; color: var(--ink); overflow-wrap: break-word; hyphens: none; }
+.kpi__delta { display: inline-block; margin-top: var(--space-2); font-size: var(--fs-sm); font-weight: 700; padding: 3px var(--space-3); border-radius: var(--radius-full); }
+.kpi__delta--up { color: var(--success); background: var(--success-soft); }
+.kpi__delta--down { color: var(--danger); background: var(--danger-soft); }
+
+/* ===== 10. Tarjeta genérica (.card) ===== */
+.card {
+  padding: var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  margin: var(--space-4) 0;
+}
+.card h3 { margin-top: 0; }
+
+/* ===== 11. Tablas responsive ===== */
+.table-wrap { overflow-x: auto; margin: var(--space-5) 0; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-xs); }
+.table-wrap table { min-width: 480px; }
+.table-wrap th, .table-wrap td { padding: var(--space-4); text-align: left; border-bottom: 1px solid var(--line); font-size: var(--fs-sm); }
+.table-wrap thead th { background: var(--brand-green); color: #fff; position: sticky; top: 0; font-weight: 700; }
+.table-wrap tbody tr:last-child td { border-bottom: none; }
+.table-wrap tbody tr:nth-child(even) { background: transparent; } /* sin cebrado: la separación es por hairline, no por color */
+
+/* ===== 12. Barra de progreso (.progress) — píldora fina ===== */
+.progress { margin: var(--space-4) 0; }
+.progress__track { height: 10px; background: var(--line-strong); border-radius: var(--radius-full); overflow: hidden; }
+.progress__fill { height: 100%; background: var(--brand-green); border-radius: var(--radius-full); transition: width .4s var(--ease); width: 0%; }
+.progress__label { display: block; margin-top: var(--space-3); font-size: var(--fs-sm); color: var(--ink-soft); }
+
+/* ===== 13. Checklist táctil (.checklist) ===== */
+.checklist { list-style: none; padding-left: 0; margin: var(--space-4) 0; }
+.checklist li { margin-bottom: var(--space-3); }
+.checklist label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  min-height: var(--tap);
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-xs);
+  cursor: pointer;
+  transition: box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.checklist label:hover { border-color: var(--line-strong); box-shadow: var(--shadow-sm); }
+.checklist input[type="checkbox"] { width: 26px; height: 26px; flex: 0 0 auto; accent-color: var(--brand-green); margin-top: 2px; }
+.checklist input[type="checkbox"]:checked + span { text-decoration: line-through; color: var(--ink-soft); }
+
+/* ===== 14. Etiquetas (.pill) ===== */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+.pill--success { background: var(--success-soft); color: var(--success); }
+.pill--warn { background: var(--warn-soft); color: var(--warn); }
+.pill--danger { background: var(--danger-soft); color: var(--danger); }
+.pill--info { background: var(--info-soft); color: var(--info); }
+
+/* ===== 15. Grillas responsive ===== */
+.grid-2, .grid-3 { display: grid; gap: var(--space-5); margin: var(--space-5) 0; grid-template-columns: minmax(0, 1fr); }
+
+/* ===== 16. Gráficos SVG/CSS hechos a mano ===== */
+/* Barras horizontales */
+.chart-bar-row { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-3); }
+.chart-bar-row__label { flex: 0 0 9rem; font-size: var(--fs-sm); color: var(--ink-soft); }
+.chart-bar-row__track { flex: 1 1 auto; height: 16px; background: var(--line-strong); border-radius: var(--radius-full); overflow: hidden; }
+.chart-bar-row__fill { height: 100%; background: var(--accent); border-radius: var(--radius-full); transition: width .5s var(--ease); }
+.chart-bar-row__value { flex: 0 0 auto; font-size: var(--fs-sm); font-weight: 700; min-width: 3.5rem; text-align: right; }
+
+/* Embudo: cada .funnel-step define su ancho con --w inline, ej. style="--w:70%" */
+.funnel { display: flex; flex-direction: column; align-items: center; gap: var(--space-1); margin: var(--space-5) 0; }
+.funnel-step {
+  width: var(--w, 100%);
+  max-width: 100%;
+  padding: var(--space-4);
+  text-align: center;
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  background: var(--accent);
+  border-radius: var(--radius-sm);
+  transition: opacity var(--dur) var(--ease);
+}
+.funnel-step:nth-child(2) { opacity: .85; }
+.funnel-step:nth-child(3) { opacity: .7; }
+.funnel-step:nth-child(4) { opacity: .55; }
+.funnel-step:nth-child(5) { opacity: .4; }
+
+/* Línea de tiempo vertical: línea hairline y puntos pequeños */
+.timeline { position: relative; margin: var(--space-6) 0; padding-left: var(--space-6); border-left: 1px solid var(--line-strong); }
+.timeline-item { position: relative; margin-bottom: var(--space-5); }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--space-6) - 6px);
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--brand-green);
+  border: 3px solid var(--paper);
+  box-shadow: var(--shadow-xs);
+}
+.timeline-item__date { font-size: var(--fs-sm); font-weight: 700; color: var(--accent-dark); }
+.timeline-item__title { font-family: var(--font-sans); font-weight: 700; font-size: var(--fs-lg); letter-spacing: -.01em; margin: var(--space-1) 0; }
+
+/* ===== 17. Botones: cápsula, con estados sutiles ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-5);
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--fs-base);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-xs);
+  transition: background var(--dur) var(--ease), transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.btn:hover { background: var(--accent-dark); box-shadow: var(--shadow-sm); }
+.btn:active { transform: scale(.97); }
+.btn--ghost { background: transparent; border: 2px solid var(--line-strong); color: var(--ink); box-shadow: none; }
+.btn--ghost:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+
+/* ===== 18. Media queries (mobile-first: base = ~375px) ===== */
+@media (min-width: 480px) {
+  .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 640px) {
+  .kpi-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero { padding: var(--space-8) var(--space-6); }
+}
+@media (min-width: 960px) {
+  .kpi-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* ===== 19. Movimiento discreto: respeta preferencia de menos movimiento ===== */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===== 20. Impresión ===== */
+@media print {
+  .navbar, .navpanel, .copyblock__btn, .btn { display: none !important; }
+  body { background: #fff; color: #000; }
+  .hero { background: #fff !important; color: #000 !important; }
+  .hero h1, .hero p { color: #000 !important; }
+  .card, .callout, .kpi, .copyblock { box-shadow: none; border: 1px solid #999; }
+  .callout { border-left: 4px solid #999; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: .8em; }
+}
+
+/* ==========================================================================
+   Extensiones propias de esta página (correos-reactivacion.html)
+   El bloque de arriba es el canónico intacto; lo de abajo son componentes
+   propios de esta página (link de vuelta, tarjeta de correo con su etiqueta
+   de tipo, etiqueta pequeña sobre cada copyblock y línea de ayuda), en la
+   misma hoja de estilos única para no crear un segundo archivo CSS.
+   ========================================================================== */
+
+.hero__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-2) 0 0;
+  margin-bottom: var(--space-3);
+  color: rgba(255, 255, 255, .85);
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+.hero__back:hover { color: #fff; }
+
+/* Tarjeta de un correo dentro de la secuencia */
+.mail { margin-bottom: var(--space-6); }
+.mail__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+  margin-bottom: var(--space-3);
+}
+.mail__tag {
+  display: inline-block;
+  padding: 4px var(--space-3);
+  border-radius: var(--radius-full);
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+.mail__tag--h { background: var(--brand-green); }
+.mail__tag--v { background: var(--accent); }
+.mail__when { font-size: var(--fs-sm); font-weight: 700; color: var(--ink-faint); }
+.mail__meta { font-size: var(--fs-sm); color: var(--ink-soft); }
+.mail__hint {
+  margin: calc(var(--space-2) * -1) 0 var(--space-3);
+  font-size: var(--fs-sm);
+  color: var(--ink-faint);
+}
+
+/* Etiqueta pequeña arriba de un copyblock, para identificar qué pieza es */
+.copy-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: var(--space-4) 0 var(--space-2);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--brand-green-dark);
+}
+</style>
+</head>
+<body data-nav-actual="correos-reactivacion">
+<nav class="navbar" aria-label="Barra de navegación">
+  <div class="navbar__inner">
+    <a href="estado.html" class="navbar__home" aria-label="Ir al inicio: Estado del plan">🦋</a>
+    <span class="navbar__title" data-nav-title>Plan Pedraza Ilustración</span>
+    <button type="button" class="navbar__menu-btn" data-nav-open aria-expanded="false" aria-controls="nav-panel">
+      <span class="navbar__menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span class="navbar__menu-label">Menú</span>
+    </button>
+  </div>
+</nav>
+
+<div class="navpanel" id="nav-panel" role="dialog" aria-modal="true" aria-label="Menú de navegación" hidden>
+  <div class="navpanel__backdrop" data-nav-close></div>
+  <div class="navpanel__sheet">
+    <div class="navpanel__header">
+      <span class="navpanel__headtitle">Menú</span>
+      <button type="button" class="navpanel__close" data-nav-close aria-label="Cerrar menú">✕</button>
+    </div>
+    <nav class="navpanel__body" aria-label="Todas las páginas del plan">
+
+      <div class="navpanel__group">
+        <h3 class="navpanel__group-title">Seguimiento</h3>
+        <a href="estado.html" class="navpanel__link" data-nav-key="estado">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Estado del plan</span>
+            <span class="navpanel__link-desc">En qué punto vamos hoy</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="bitacora.html" class="navpanel__link" data-nav-key="bitacora">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Bitácora</span>
+            <span class="navpanel__link-desc">Reuniones, pendientes y entregables</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="finanzas.html" class="navpanel__link" data-nav-key="finanzas">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Los números del negocio</span>
+            <span class="navpanel__link-desc">Qué dicen 18 meses de datos</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="sincronizar.html" class="navpanel__link" data-nav-key="sincronizar">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Conectar con la hoja</span>
+            <span class="navpanel__link-desc">Compartir el avance con el equipo</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+      </div>
+
+      <div class="navpanel__group">
+        <h3 class="navpanel__group-title">La estrategia</h3>
+        <a href="index.html" class="navpanel__link" data-nav-key="index">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Plan y estrategia</span>
+            <span class="navpanel__link-desc">El mapa completo</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+      </div>
+
+      <div class="navpanel__group">
+        <h3 class="navpanel__group-title">Plan de acción</h3>
+        <a href="plan-90-dias.html" class="navpanel__link" data-nav-key="plan-90-dias">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Plan de 90 días</span>
+            <span class="navpanel__link-desc">Roles, objetivos y checklist</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="stock-navidad.html" class="navpanel__link" data-nav-key="stock-navidad">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Stock para Navidad</span>
+            <span class="navpanel__link-desc">Cuánto pedir y cuándo</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="escenarios.html" class="navpanel__link" data-nav-key="escenarios">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Escenarios</span>
+            <span class="navpanel__link-desc">Cuánto podemos crecer y qué pedir</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="pedido.html" class="navpanel__link" data-nav-key="pedido">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Pedido a China</span>
+            <span class="navpanel__link-desc">Cuánto pedir y el reparto por modelo</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="preventa.html" class="navpanel__link" data-nav-key="preventa">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Preventa de puzzles</span>
+            <span class="navpanel__link-desc">Plan día a día del lanzamiento</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="correos-preventa.html" class="navpanel__link" data-nav-key="correos-preventa">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Correos de la preventa</span>
+            <span class="navpanel__link-desc">Los dos correos para la prueba A/B</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="correos-reactivacion.html" class="navpanel__link" data-nav-key="correos-reactivacion">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Reactivar la lista</span>
+            <span class="navpanel__link-desc">12 correos en 4 semanas</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="inventario.html" class="navpanel__link" data-nav-key="inventario">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Control de stock</span>
+            <span class="navpanel__link-desc">Semáforo y alertas de quiebre</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="modelo-datos.html" class="navpanel__link" data-nav-key="modelo-datos">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Ordenar los datos</span>
+            <span class="navpanel__link-desc">Correcciones al modelo financiero</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="ofertas.html" class="navpanel__link" data-nav-key="ofertas">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Ofertas y pop-ups</span>
+            <span class="navpanel__link-desc">Subir el ticket promedio</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="precios.html" class="navpanel__link" data-nav-key="precios">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Nueva estructura de precios</span>
+            <span class="navpanel__link-desc">Lista final por competencia</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="email.html" class="navpanel__link" data-nav-key="email">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Correo y campañas</span>
+            <span class="navpanel__link-desc">Del 11,8% al 20-25%</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="clientes.html" class="navpanel__link" data-nav-key="clientes">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Clientes que vuelven</span>
+            <span class="navpanel__link-desc">Del 7,2% al 20% de recompra</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="cro.html" class="navpanel__link" data-nav-key="cro">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Conversión</span>
+            <span class="navpanel__link-desc">Auditoría de la tienda</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="tienda-cambios.html" class="navpanel__link" data-nav-key="tienda-cambios">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Cambios en la tienda</span>
+            <span class="navpanel__link-desc">Qué tocar y en qué orden</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="ads.html" class="navpanel__link" data-nav-key="ads">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Google y Meta Ads</span>
+            <span class="navpanel__link-desc">Auditoría de las cuentas</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="campanas.html" class="navpanel__link" data-nav-key="campanas">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Campañas: Google y Meta</span>
+            <span class="navpanel__link-desc">Estructura y limpieza, paso a paso</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="digitales.html" class="navpanel__link" data-nav-key="digitales">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Productos digitales</span>
+            <span class="navpanel__link-desc">Margen sin stock</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+      </div>
+
+      <div class="navpanel__group">
+        <h3 class="navpanel__group-title">Herramientas del día a día</h3>
+        <a href="kit-arranque.html" class="navpanel__link" data-nav-key="kit-arranque">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Kit de arranque</span>
+            <span class="navpanel__link-desc">Lo primero que se hace</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="guion-reels.html" class="navpanel__link" data-nav-key="guion-reels">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Guiones de Reels</span>
+            <span class="navpanel__link-desc">Qué grabar y cómo</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="sop-dm.html" class="navpanel__link" data-nav-key="sop-dm">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Mensajes y DM</span>
+            <span class="navpanel__link-desc">Qué responder</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="recursos.html" class="navpanel__link" data-nav-key="recursos">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Recursos</span>
+            <span class="navpanel__link-desc">Herramientas y enlaces</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+        <a href="tablero.html" class="navpanel__link" data-nav-key="tablero">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Tablero</span>
+            <span class="navpanel__link-desc">Métricas semanales</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
+      </div>
+
+    </nav>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="hero__inner">
+    <a href="email.html" class="hero__back">← Volver a Correo y campañas</a>
+    <h1>Reactivar la lista en cuatro semanas</h1>
+    <p>Doce correos entre el 12 de agosto y el 7 de septiembre, con dos destinos distintos: ocho historias de Cote para despertar a quien dejó de abrir, y cuatro correos de venta para quien sí lee y todavía no compra. Al final de las cuatro semanas se limpia la lista: quien no abrió ninguno de los ocho deja de recibir correos. Todos los textos están listos para copiar y pegar.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<div class="callout callout--warn">
+<p>⚠️ <strong>Faltan tres cosas antes de programar el primer correo.</strong> Ninguna se puede inventar desde acá:</p>
+<ul>
+<li><strong>Los enlaces reales de la tienda.</strong> Dentro de los correos aparecen marcados como <code>[PEGAR LINK: preventa]</code>, <code>[PEGAR LINK: láminas de aves]</code> y así. Hay que reemplazarlos por las direcciones verdaderas.</li>
+<li><strong>La fecha en que cierra la preventa.</strong> Aparece como <code>[VERIFICAR: fecha de cierre]</code> en el correo del 31 de agosto, que es justamente el que se apoya en esa fecha.</li>
+<li><strong>Las fotos de Cote.</strong> Cada correo dice qué imagen necesita, marcada como <code>[IMAGEN: …]</code>. Dos son importantes: la foto del Martín Pescador en el Lago Todos los Santos junto a su acuarela, y la foto de 2021 preparando las primeras láminas.</li>
+</ul>
+</div>
+
+<section class="sec" id="que-es">
+<h2>Qué es esta campaña</h2>
+<p>La lista de correos tiene <strong>5.439 personas</strong> 🟢. Una parte de ellas dejó de abrir hace meses y hoy recibe lo mismo que quien abre todas las semanas. Eso hace dos daños al mismo tiempo: los correos no llegan a quien sí quiere leerlos, y la reputación de la cuenta baja para todos.</p>
+<p>Esta campaña separa a esas personas en dos grupos, le escribe a cada uno con un objetivo distinto durante cuatro semanas, y al final se queda solo con quien dio alguna señal de vida.</p>
+
+<div class="kpi-grid">
+  <div class="kpi"><span class="kpi__label">Correos en total</span><span class="kpi__value">12</span></div>
+  <div class="kpi"><span class="kpi__label">Semanas</span><span class="kpi__value">4</span></div>
+  <div class="kpi"><span class="kpi__label">Públicos distintos</span><span class="kpi__value">2</span></div>
+  <div class="kpi"><span class="kpi__label">Historias de Cote</span><span class="kpi__value">8</span></div>
+</div>
+
+<p>El ritmo semanal es siempre el mismo: <strong>miércoles y viernes una historia, lunes un correo de venta</strong>. Las historias y los correos de venta nunca van a la misma persona, así que nadie recibe tres correos en una semana.</p>
+</section>
+
+<section class="sec" id="por-que-con-cuidado">
+<h2>Por qué hay que hacerlo con cuidado</h2>
+<p>Escribirle a gente que hace meses no abre es la forma más rápida de arruinar la entregabilidad. <strong>Entregabilidad</strong> es, en simple, qué tan bien le va a un correo para llegar a la bandeja principal en vez de caer en spam. Mientras más gente ignora los correos de una marca, peor le va a <em>todos</em> sus correos, incluidos los automáticos.</p>
+<p>Y esos automáticos son justamente lo que más plata trae hoy:</p>
+
+<div class="kpi-grid">
+  <div class="kpi"><span class="kpi__label">Conversión del correo 🟢</span><span class="kpi__value">5,21%</span><span class="kpi__delta kpi__delta--up">el mejor canal de la tienda</span></div>
+  <div class="kpi"><span class="kpi__label">Del tráfico total 🟢</span><span class="kpi__value">0,9%</span><span class="kpi__delta kpi__delta--down">el canal menos usado</span></div>
+  <div class="kpi"><span class="kpi__label">Bajas en la campaña del Día del Padre 🟡</span><span class="kpi__value">1,5%</span><span class="kpi__delta kpi__delta--down">señal de fatiga real</span></div>
+</div>
+
+<div class="callout callout--danger">
+<p>🚫 <strong>Lo que no se hace:</strong> mandar los ocho correos de una vez a toda la parte dormida de la lista. Si 4.000 personas que no abren hace un año reciben un correo el mismo día, los servidores de Gmail y Outlook lo leen como correo no deseado y empiezan a mandar a spam todo lo que salga de la cuenta, incluido el correo de carrito abandonado que hoy sí vende.</p>
+</div>
+
+<div class="callout callout--success">
+<p>✅ <strong>Lo que sí se hace:</strong> subir el volumen de a poco, semana a semana, empezando por los menos dormidos. Se llama rampa y está en la sección siguiente. Y al final, cortar de verdad: quien no abrió ninguno de los ocho correos deja de recibir.</p>
+</div>
+</section>
+
+<section class="sec" id="los-dos-publicos">
+<h2>Los dos públicos</h2>
+<p>Cada correo va a uno solo de estos dos grupos. Nunca a los dos, y nunca a la lista completa.</p>
+
+<div class="grid-2">
+  <div class="card">
+    <span class="mail__tag mail__tag--h">Historia · 8 correos</span>
+    <h3>Los dormidos</h3>
+    <p><strong>Quiénes son:</strong> personas que llevan 90 días o más sin abrir ningún correo. Siguen en la lista, pero hace tiempo que no dan señales.</p>
+    <p><strong>Qué se busca:</strong> que abran. Nada más. Ninguno de estos ocho correos empuja una compra.</p>
+    <p><strong>Cómo se arma en Klaviyo:</strong> un segmento con la condición <em>"no ha abierto ningún correo en los últimos 90 días"</em>, cruzada con <em>"está suscrito a la lista Newsletter"</em>. Después se parte en cuatro tramos por antigüedad, para la rampa.</p>
+    <p class="mail__hint">🟡 El tamaño exacto de este grupo no está medido todavía. Es el primer número que hay que sacar de Klaviyo antes de arrancar.</p>
+  </div>
+  <div class="card">
+    <span class="mail__tag mail__tag--v">Venta · 4 correos</span>
+    <h3>Los interesados que no compran</h3>
+    <p><strong>Quiénes son:</strong> personas que <em>sí</em> abrieron o hicieron clic en algún correo en los últimos 60 días, y que <em>no</em> compraron en esos mismos 60 días. Algunas compraron hace mucho; otras nunca.</p>
+    <p><strong>Qué se busca:</strong> la compra. Es el grupo más caliente que existe en la lista: ya están leyendo.</p>
+    <p><strong>Cómo se arma en Klaviyo:</strong> <em>"abrió o hizo clic en un correo en los últimos 60 días"</em> Y <em>"no hizo ningún pedido en los últimos 60 días"</em>.</p>
+    <p class="mail__hint">💡 Estos correos no tienen que convencer a nadie de que la marca vale la pena: eso ya lo creen. Tienen que sacarles la duda concreta que los tiene frenados.</p>
+  </div>
+</div>
+
+<p>Hay dos segmentos ya creados en Klaviyo que se parecen y <strong>no</strong> sirven para esto: "Suscriptores sin Compra" (2.613 personas) y "Comprador 1 vez · Dormido +180 días" (2.175) 🟢. Los dos mezclan gente que abre con gente que no, que es justo la distinción que esta campaña necesita. Hay que crear los dos segmentos nuevos.</p>
+</section>
+
+<section class="sec" id="la-rampa">
+<h2>La rampa: de a poco y por antigüedad</h2>
+<p>Los ocho correos de historia no salen todas las semanas a la misma gente. Cada semana se suma un tramo más dormido, empezando por los que dejaron de abrir hace menos tiempo, que son los más fáciles de recuperar.</p>
+
+<div class="funnel">
+  <div class="funnel-step" style="--w:32%">Semana 1 · Dejaron de abrir hace 90 a 120 días</div>
+  <div class="funnel-step" style="--w:55%">Semana 2 · Se suman los de 120 a 180 días</div>
+  <div class="funnel-step" style="--w:78%">Semana 3 · Se suman los de 180 a 270 días</div>
+  <div class="funnel-step" style="--w:100%">Semana 4 · Se suma todo el resto, 270 días o más</div>
+</div>
+
+<p>Quien entra en la semana 1 sigue recibiendo los correos de las semanas siguientes. Así, para la cuarta semana, los más recuperables ya llevan seis correos y los más dormidos recién dos.</p>
+
+<div class="callout callout--info">
+<p>ℹ️ <strong>Regla de freno.</strong> Si en cualquier semana las bajas superan el <strong>0,5%</strong> del envío, o los reportes de spam pasan de <strong>0,08%</strong>, se detiene la rampa y no se suma el tramo siguiente. Esos dos números son el límite que usan Gmail y Outlook antes de empezar a castigar la cuenta.</p>
+</div>
+</section>
+
+<section class="sec" id="calendario">
+<h2>El calendario completo</h2>
+<p>Doce envíos en cuatro semanas. Las historias van los miércoles y viernes; los correos de venta, los lunes.</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Semana</th><th>Día</th><th>Tipo</th><th>Correo</th><th>A quién</th><th>Producto</th></tr></thead>
+<tbody>
+<tr><td>Semana 1</td><td>Mié 12 ago</td><td><span class="pill pill--info">Historia</span></td><td>1 · La carta que abre la serie</td><td>Dormidos 90-120 días</td><td>—</td></tr>
+<tr><td></td><td>Vie 14 ago</td><td><span class="pill pill--info">Historia</span></td><td>2 · La llama de San Pedro</td><td>Dormidos 90-120 días</td><td>Láminas de aves</td></tr>
+<tr><td></td><td>Lun 17 ago</td><td><span class="pill pill--success">Venta</span></td><td>3 · Los puzzles volvieron</td><td>Interesados sin comprar</td><td>Puzzles en preventa</td></tr>
+<tr><td>Semana 2</td><td>Mié 19 ago</td><td><span class="pill pill--info">Historia</span></td><td>4 · El Martín Pescador</td><td>+ dormidos 120-180 días</td><td>Ilustración Martín Pescador</td></tr>
+<tr><td></td><td>Vie 21 ago</td><td><span class="pill pill--info">Historia</span></td><td>5 · Así empezó todo, en 2021</td><td>+ dormidos 120-180 días</td><td>Láminas de Aves de Chile</td></tr>
+<tr><td></td><td>Lun 24 ago</td><td><span class="pill pill--success">Venta</span></td><td>6 · El puzzle para niños</td><td>Interesados sin comprar</td><td>Puzzle para niños</td></tr>
+<tr><td>Semana 3</td><td>Mié 26 ago</td><td><span class="pill pill--info">Historia</span></td><td>7 · El lugar al que siempre vuelvo</td><td>+ dormidos 180-270 días</td><td>La tienda</td></tr>
+<tr><td></td><td>Vie 28 ago</td><td><span class="pill pill--info">Historia</span></td><td>8 · El puma</td><td>+ dormidos 180-270 días</td><td>La tienda</td></tr>
+<tr><td></td><td>Lun 31 ago</td><td><span class="pill pill--success">Venta</span></td><td>9 · Últimos días para el primer despacho</td><td>Interesados sin comprar</td><td>Puzzles en preventa</td></tr>
+<tr><td>Semana 4</td><td>Mié 2 sep</td><td><span class="pill pill--info">Historia</span></td><td>10 · Los pingüinos de Bahía Inútil</td><td>+ dormidos 270 días o más</td><td>Ilustración pingüino rey</td></tr>
+<tr><td></td><td>Vie 4 sep</td><td><span class="pill pill--info">Historia</span></td><td>11 · Las Torres que nunca aparecieron</td><td>+ dormidos 270 días o más</td><td>Puzzles</td></tr>
+<tr><td></td><td>Lun 7 sep</td><td><span class="pill pill--success">Venta</span></td><td>12 · Empezar por una lámina</td><td>Interesados sin comprar</td><td>Láminas y papelería</td></tr>
+</tbody>
+</table>
+</div>
+<p class="mail__hint">Los correos de venta llevan numeración corrida junto con las historias porque comparten calendario, pero nunca comparten destinatario.</p>
+</section>
+
+<section class="sec" id="los-correos">
+<h2>Los doce correos</h2>
+<p>Cada uno trae sus opciones de asunto, el texto previo y el correo completo, todo con botón para copiar. El orden es el mismo del calendario.</p>
+
+<div class="card mail">
+<div class="mail__head">
+<span class="mail__tag mail__tag--h">Historia</span>
+<span class="mail__when">Miércoles 12 de agosto</span>
+</div>
+<h3 id="h1">1 · La carta que abre la serie</h3>
+<p class="mail__meta"><strong>A quién:</strong> Dormidos — dejaron de abrir hace 90 a 120 días<br><strong>Conecta con:</strong> Nada. Este correo no vende.</p>
+<div class="callout callout--info"><p>🎯 <strong>Su único trabajo es que lo abran y lo lean completo.</strong> Fija la frecuencia semanal, invita a responder y ofrece una salida amable a quien ya no quiere recibir nada. Los tres gestos suben la apertura de todo lo que viene después.</p></div>
+<span class="copy-label">✉️ Asunto — se elige uno y los otros quedan para probar después</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h1-a1">Copiar</button>
+<div class="copyblock__text" id="h1-a1">Guardé una foto años antes de pintarla</div>
+</div>
+<p class="mail__hint">38 caracteres</p>
+<span class="copy-label">👀 Texto previo — la línea gris que se ve al lado del asunto</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h1-p1">Copiar</button>
+<div class="copyblock__text" id="h1-p1">Cada semana te va a llegar una historia distinta, sin ningún orden fijo.</div>
+</div>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h1-a2">Copiar</button>
+<div class="copyblock__text" id="h1-a2">Así empieza casi todo lo que pinto</div>
+</div>
+<p class="mail__hint">34 caracteres</p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h1-a3">Copiar</button>
+<div class="copyblock__text" id="h1-a3">Voy a empezar a contarte esto</div>
+</div>
+<p class="mail__hint">29 caracteres</p>
+<span class="copy-label">📝 El correo completo</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h1-c">Copiar</button>
+<div class="copyblock__text" id="h1-c">Hola,
+
+Esta foto es de un día cualquiera: cámara al hombro, sin saber muy bien qué iba a encontrar.
+
+[IMAGEN: foto de Cote con su cámara, recorriendo un lugar al aire libre]
+
+Así empiezan muchas de mis acuarelas: caminando por un bosque, arriba de un cerro, en medio de un viaje. Ahí trato de entender un poco mejor a las aves, los hongos y el resto de la fauna de Chile, antes de pintarlos.
+
+Otras veces no empiezan en el bosque, sino en una foto. Se queda guardada años en una carpeta, antes de convertirse en acuarela.
+
+Cuando alguien compra una de mis láminas, en realidad está viendo el final de la historia. Lo que casi nunca se ve es todo lo que pasó antes.
+
+Son momentos de distintas etapas de mi vida que, sin darme cuenta, fueron construyendo esta marca.
+
+Quiero empezar a contarlos.
+
+Te voy a escribir una historia distinta cada semana, durante las próximas semanas. No siguen ningún orden, porque tampoco fue así como pasaron.
+
+Si prefieres no recibirlas, puedes darte de baja aquí abajo.
+
+Y si quieres, cuéntame qué especie te gustaría ver algún día. Puedes responder este correo. Lo leo yo.
+
+La primera de estas historias te la mando la próxima semana.
+
+Gracias por seguir ahí.
+
+Un abrazo,
+Cote</div>
+</div>
+</div>
+
+<div class="card mail">
+<div class="mail__head">
+<span class="mail__tag mail__tag--h">Historia</span>
+<span class="mail__when">Viernes 14 de agosto</span>
+</div>
+<h3 id="h2">2 · La llama de San Pedro</h3>
+<p class="mail__meta"><strong>A quién:</strong> Dormidos — dejaron de abrir hace 90 a 120 días<br><strong>Conecta con:</strong> Láminas de aves, mencionadas de pasada</p>
+<div class="callout callout--info"><p>😄 <strong>Es el correo más divertido de la serie.</strong> Sirve para medir si la gente dormida reacciona al humor. Si abre mejor que el resto, ese es el tono a repetir.</p></div>
+<span class="copy-label">✉️ Asunto — se elige uno y los otros quedan para probar después</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h2-a1">Copiar</button>
+<div class="copyblock__text" id="h2-a1">Una llama me escupió en la cara</div>
+</div>
+<p class="mail__hint">31 caracteres</p>
+<span class="copy-label">👀 Texto previo — la línea gris que se ve al lado del asunto</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h2-p1">Copiar</button>
+<div class="copyblock__text" id="h2-p1">Fuimos a fotografiar el altiplano para una colección nueva. Ella tenía otro plan.</div>
+</div>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h2-a2">Copiar</button>
+<div class="copyblock__text" id="h2-a2">No esperaba que una llama me escupiera</div>
+</div>
+<p class="mail__hint">38 caracteres</p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h2-a3">Copiar</button>
+<div class="copyblock__text" id="h2-a3">Mi bienvenida a San Pedro fue una llama</div>
+</div>
+<p class="mail__hint">39 caracteres</p>
+<span class="copy-label">📝 El correo completo</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h2-c">Copiar</button>
+<div class="copyblock__text" id="h2-c">Hola,
+
+La primera foto que intenté sacar en San Pedro de Atacama terminó con una llama escupiéndome directo a la cara.
+
+No estaba en mis planes.
+
+Hace unas semanas viajé con Felipe, mi hermano y cofundador de Pedraza Ilustración, al Hotel Unai. Fuimos a fotografiar flora y fauna del altiplano para una colección nueva que estamos preparando.
+
+Después del desayuno, el hotel tiene una actividad donde puedes alimentar a las llamas que viven ahí. Fui feliz con mi cámara, segura de que iba a sacar una foto preciosa.
+
+La llama tenía otros planes.
+
+[IMAGEN: una foto del viaje al altiplano — la llama, el paisaje o las aves que fotografiamos. Si no existe una foto de la llama en el momento exacto, cualquier otra imagen del viaje funciona igual.]
+
+Entre la sorpresa y la risa, esa fue mi verdadera bienvenida a San Pedro.
+
+Por suerte el resto del viaje fue bastante más tranquilo. Recorrimos distintos rincones del altiplano fotografiando aves, mamíferos y paisajes que hoy están inspirando esa colección. Todavía le falta camino antes de llegar a la tienda, pero ya está en marcha.
+
+De ese viaje me traje miles de fotografías. Pero la que nunca voy a olvidar es esa llama mirándome fijo, como si supiera exactamente lo que iba a hacer.
+
+Si quieres ver algo mientras tanto, ahí siguen las láminas de aves, las primeras que hice para la tienda.
+
+Ver las láminas de aves → [PEGAR LINK: láminas de aves]
+
+Con cariño,
+Cote
+
+P.D. Envío gratis en compras sobre $50.000.</div>
+</div>
+</div>
+
+<div class="card mail">
+<div class="mail__head">
+<span class="mail__tag mail__tag--v">Venta</span>
+<span class="mail__when">Lunes 17 de agosto</span>
+</div>
+<h3 id="v1">3 · Los puzzles volvieron</h3>
+<p class="mail__meta"><strong>A quién:</strong> Interesados sin comprar<br><strong>Conecta con:</strong> Puzzles en preventa y naipes</p>
+<div class="callout callout--info"><p>💬 <strong>La demanda la puso la gente, no la marca.</strong> El correo se apoya en los mensajes reales que llegaron preguntando cuándo volvía el puzzle de aves, y reconoce de frente que esto no es una noticia nueva.</p></div>
+<span class="copy-label">✉️ Asunto — se elige uno y los otros quedan para probar después</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="v1-a1">Copiar</button>
+<div class="copyblock__text" id="v1-a1">El mismo mensaje, semana tras semana</div>
+</div>
+<p class="mail__hint">36 caracteres</p>
+<span class="copy-label">👀 Texto previo — la línea gris que se ve al lado del asunto</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="v1-p1">Copiar</button>
+<div class="copyblock__text" id="v1-p1">Era siempre la misma: ¿cuándo vuelve el puzzle de aves?</div>
+</div>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="v1-a2">Copiar</button>
+<div class="copyblock__text" id="v1-a2">¿Cuándo vuelve el puzzle de aves?</div>
+</div>
+<p class="mail__hint">33 caracteres <span class="pill pill--success">recomendado</span></p>
+<span class="copy-label">👀 Texto previo — la línea gris que se ve al lado del asunto</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="v1-p2">Copiar</button>
+<div class="copyblock__text" id="v1-p2">No fue una vez ni dos: me la repitieron durante semanas.</div>
+</div>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="v1-a3">Copiar</button>
+<div class="copyblock__text" id="v1-a3">Volvieron, y no fue por mí</div>
+</div>
+<p class="mail__hint">26 caracteres</p>
+<span class="copy-label">👀 Texto previo — la línea gris que se ve al lado del asunto</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="v1-p3">Copiar</button>
+<div class="copyblock__text" id="v1-p3">La pregunta se repitió tantas veces que tuve que hacerles caso.</div>
+</div>
+<span class="copy-label">📝 El correo completo</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="v1-c">Copiar</button>
+<div class="copyblock__text" id="v1-c">Hola,
+
+Durante semanas me llegó el mismo mensaje.
+
+"¿Cuándo vuelve el puzzle de aves?"
+
+No fue una persona. Fue una y después otra, y después otra, siempre la misma pregunta, en distintas palabras.
+
+Y volvió. No solo el de Aves y Flores: también Cetáceos y Hongos, y los naipes ilustrados con aves de Chile.
+
+[IMAGEN: los tres puzzles - Aves y Flores, Cetáceos, Hongos - y el mazo de naipes juntos sobre una mesa de madera]
+
+Esto ya lo sabías si abriste el primer correo de la preventa. No es una noticia nueva. Es solo un empujón para que no se te quede pendiente.
+
+La preventa sigue abierta. Quien reserva ahora entra al primer despacho, la primera semana de septiembre. Quien reserva después, entra al despacho siguiente.
+
+Si compras algo que ya está en stock junto con un puzzle en preventa, no te preocupes: todo te llega junto, en la fecha del despacho.
+
+Nadie se queda sin puzzle. Solo hay quienes lo reciben antes que otros.
+
+Gracias por seguir acompañando este proyecto. Es gracias a personas como tú que vale la pena volver a producirlos.
+
+Si estabas esperando el momento para reservar, aquí está, sin apuro.
+
+Ver la preventa →
+[PEGAR LINK: preventa]
+
+Un abrazo,
+Cote
+
+P.D. Envío gratis en compras sobre $50.000. Y ya son más de 80 las reseñas de los puzzles que volvieron.</div>
+</div>
+</div>
+
+<div class="card mail">
+<div class="mail__head">
+<span class="mail__tag mail__tag--h">Historia</span>
+<span class="mail__when">Miércoles 19 de agosto</span>
+</div>
+<h3 id="h3">4 · El Martín Pescador</h3>
+<p class="mail__meta"><strong>A quién:</strong> Dormidos — se suman los de 120 a 180 días<br><strong>Conecta con:</strong> Ilustración del Martín Pescador</p>
+<div class="callout callout--info"><p>🖼️ <strong>Necesita dos imágenes:</strong> la fotografía que Cote tomó ese día en el Lago Todos los Santos y la acuarela que nació años después, una al lado de la otra. Es la recompensa visual más fuerte de la serie.</p></div>
+<span class="copy-label">✉️ Asunto — se elige uno y los otros quedan para probar después</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h3-a1">Copiar</button>
+<div class="copyblock__text" id="h3-a1">Esperé casi media hora sin moverme</div>
+</div>
+<p class="mail__hint">34 caracteres</p>
+<span class="copy-label">👀 Texto previo — la línea gris que se ve al lado del asunto</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h3-p1">Copiar</button>
+<div class="copyblock__text" id="h3-p1">Fue en el Lago Todos los Santos. Y esa tarde terminó pintada años después.</div>
+</div>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h3-a2">Copiar</button>
+<div class="copyblock__text" id="h3-a2">Vi un Martín Pescador y no me moví</div>
+</div>
+<p class="mail__hint">34 caracteres</p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h3-a3">Copiar</button>
+<div class="copyblock__text" id="h3-a3">Un Martín Pescador, quieto, y yo también</div>
+</div>
+<p class="mail__hint">40 caracteres</p>
+<span class="copy-label">📝 El correo completo</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h3-c">Copiar</button>
+<div class="copyblock__text" id="h3-c">Hola,
+
+La primera vez que vi un Martín Pescador iba navegando en kayak por el Lago Todos los Santos.
+
+Estaba posado sobre una rama, completamente inmóvil, esperando el momento justo para lanzarse al agua.
+
+Yo hice exactamente lo mismo.
+
+Los dos ahí, esperando, sin apuro.
+
+Me quedé casi media hora sin moverme, ahí en el kayak, mirándolo. Le saqué varias fotos, pero sobre todo me dediqué a mirarlo. En esa época todavía trabajaba como fotógrafa, y nunca imaginé que, años después, ese mismo pájaro terminaría convertido en una de mis ilustraciones.
+
+Hay encuentros que duran solo unos minutos y uno los recuerda toda la vida. Creo que es porque cuando uno observa un animal durante tanto tiempo, empieza a notar cosas que una fotografía no alcanza a mostrar. Cómo espera. Cómo se mueve. Cómo se relaciona con el lugar donde vive. Eso solo se aprende quedándose quieto.
+
+Cada vez que pinto un Martín Pescador vuelvo, de alguna manera, a ese día en el lago.
+
+[IMAGEN: la fotografía que tomé ese día, con el Martín Pescador posado sobre la rama, junto a la acuarela que nació años después]
+
+Esa es la ilustración que salió de ahí.
+
+Ver la ilustración del Martín Pescador → [PEGAR LINK: ilustración Martín Pescador]
+
+Un abrazo,
+Cote
+
+P.D. Envío gratis en compras sobre $50.000.</div>
+</div>
+</div>
+
+<div class="card mail">
+<div class="mail__head">
+<span class="mail__tag mail__tag--h">Historia</span>
+<span class="mail__when">Viernes 21 de agosto</span>
+</div>
+<h3 id="h4">5 · Así empezó todo, en 2021</h3>
+<p class="mail__meta"><strong>A quién:</strong> Dormidos — se suman los de 120 a 180 días<br><strong>Conecta con:</strong> Láminas de Aves de Chile</p>
+<div class="callout callout--info"><p>❤️ <strong>Es el correo del origen de la marca</strong> y probablemente el que más conexión genera. El puente al producto sale solo: las láminas de esa foto siguen siendo el producto de entrada de la tienda.</p></div>
+<span class="copy-label">✉️ Asunto — se elige uno y los otros quedan para probar después</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h4-a1">Copiar</button>
+<div class="copyblock__text" id="h4-a1">Encontré esta foto hace unos días</div>
+</div>
+<p class="mail__hint">33 caracteres</p>
+<span class="copy-label">👀 Texto previo — la línea gris que se ve al lado del asunto</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h4-p1">Copiar</button>
+<div class="copyblock__text" id="h4-p1">Es de 2021, antes de que existiera la tienda.</div>
+</div>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h4-a2">Copiar</button>
+<div class="copyblock__text" id="h4-a2">Preparando mis primeras láminas</div>
+</div>
+<p class="mail__hint">31 caracteres</p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h4-a3">Copiar</button>
+<div class="copyblock__text" id="h4-a3">Así empezó todo, sin planearlo</div>
+</div>
+<p class="mail__hint">30 caracteres</p>
+<span class="copy-label">📝 El correo completo</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h4-c">Copiar</button>
+<div class="copyblock__text" id="h4-c">Hola,
+
+Encontré esta foto hace unos días.
+
+Es del año 2021. Estoy preparando las primeras láminas de Aves de Chile para enviarlas.
+
+[IMAGEN: la foto de 2021 de Cote preparando las primeras láminas de Aves de Chile para enviarlas]
+
+En ese momento no tenía idea de todo lo que vendría después.
+
+Antes de esa foto pasé casi diez años dedicada principalmente a la fotografía. Volví a pintar casi por casualidad. Al principio era solo una forma de hacer algo que disfrutaba, nada más.
+
+Decidí imprimir esa primera lámina y compartirla en Instagram, sin muchas expectativas.
+
+Y poco tiempo después, Ladera Sur publicó mi trabajo. Empezaron a llegar los primeros pedidos.
+
+Mirando esta foto ahora, me doy cuenta de que, sin saberlo, ese día estaba empezando Pedraza Ilustración.
+
+A veces las cosas más importantes empiezan de una forma muy simple. Una lámina, una foto en Instagram, y nada más planeado que eso.
+
+Esas mismas láminas de Aves de Chile siguen siendo el producto con el que parte la tienda hoy, el mismo con el que empezó todo, aunque ahora las mando con un poco más de práctica.
+
+Gracias por seguir acompañando este proyecto.
+
+Ver las láminas de Aves de Chile → [PEGAR LINK: láminas de aves]
+
+Con cariño,
+Cote
+
+P.D. Envío gratis en compras sobre $50.000.</div>
+</div>
+</div>
+
+<div class="card mail">
+<div class="mail__head">
+<span class="mail__tag mail__tag--v">Venta</span>
+<span class="mail__when">Lunes 24 de agosto</span>
+</div>
+<h3 id="v2">6 · El puzzle para niños</h3>
+<p class="mail__meta"><strong>A quién:</strong> Interesados sin comprar<br><strong>Conecta con:</strong> Puzzle para niños</p>
+<div class="callout callout--info"><p>🆕 <strong>Es la única novedad real de la campaña</strong>, y por eso va al medio, cuando la audiencia ya está caliente. Ojo: faltan tres datos del producto y una intención que Cote tiene que confirmar. Están marcados dentro del correo.</p></div>
+<span class="copy-label">✉️ Asunto — se elige uno y los otros quedan para probar después</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="v2-a1">Copiar</button>
+<div class="copyblock__text" id="v2-a1">El puzzle más pequeño que he hecho</div>
+</div>
+<p class="mail__hint">34 caracteres</p>
+<span class="copy-label">👀 Texto previo — la línea gris que se ve al lado del asunto</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="v2-p1">Copiar</button>
+<div class="copyblock__text" id="v2-p1">Es el primero que pensé para niños, no para adultos.</div>
+</div>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="v2-a2">Copiar</button>
+<div class="copyblock__text" id="v2-a2">Terminé el primer puzzle para niños</div>
+</div>
+<p class="mail__hint">35 caracteres</p>
+<span class="copy-label">👀 Texto previo — la línea gris que se ve al lado del asunto</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="v2-p2">Copiar</button>
+<div class="copyblock__text" id="v2-p2">Más pequeño, más simple, y pensado para manos chicas.</div>
+</div>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="v2-a3">Copiar</button>
+<div class="copyblock__text" id="v2-a3">Este puzzle es distinto a los demás</div>
+</div>
+<p class="mail__hint">35 caracteres</p>
+<span class="copy-label">👀 Texto previo — la línea gris que se ve al lado del asunto</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="v2-p3">Copiar</button>
+<div class="copyblock__text" id="v2-p3">Menos piezas, formas simples, y también sirve para regalar.</div>
+</div>
+<span class="copy-label">📝 El correo completo</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="v2-c">Copiar</button>
+<div class="copyblock__text" id="v2-c">Hola,
+
+Hice el primer puzzle pensado para niños.
+
+Es más pequeño y más simple que los demás.
+
+[VERIFICAR: edad recomendada, número de piezas y medidas]
+
+Quería que armarlo fuera un logro y no una pelea. [VERIFICAR: confirmar esta intención con Cote antes de enviar, o cambiarla por la razón real]
+
+Lo pensé para las manos más chicas de la casa. Pero también sirve para quien busca un regalo y no tiene hijos propios: sobrinos, ahijados, el hijo de una amiga, el cumpleaños de alguien que no sabías qué regalarle.
+
+Un puzzle de naturaleza es de las pocas cosas que un niño arma sin pantalla de por medio. Y no hace falta que sea una fecha especial para regalarlo.
+
+[IMAGEN: el puzzle para niños armado sobre una mesa, mostrando el tamaño de las piezas]
+
+Entra a la misma preventa que Aves y Flores, Cetáceos, Hongos y los naipes ilustrados con aves de Chile: quien reserva ahora entra al primer despacho, la primera semana de septiembre. Quien reserva después, entra al despacho siguiente. Igual que con los demás, no hay que apurarse: los cupos no se acaban, solo cambia la fecha en la que te llega.
+
+Si compras este puzzle junto con algo que ya está en stock, no te preocupes: todo llega en el mismo despacho, en la misma fecha.
+
+Gracias por seguir acompañando este proyecto.
+
+Si tienes niños en casa, o simplemente quieres regalar algo distinto, aquí está.
+
+Ver el puzzle para niños →
+[PEGAR LINK: puzzle para niños]
+
+Con cariño,
+Cote
+
+P.D. Envío gratis en compras sobre $50.000.</div>
+</div>
+</div>
+
+<div class="card mail">
+<div class="mail__head">
+<span class="mail__tag mail__tag--h">Historia</span>
+<span class="mail__when">Miércoles 26 de agosto</span>
+</div>
+<h3 id="h5">7 · El lugar al que siempre vuelvo</h3>
+<p class="mail__meta"><strong>A quién:</strong> Dormidos — se suman los de 180 a 270 días<br><strong>Conecta con:</strong> La tienda en general</p>
+<div class="callout callout--info"><p>🥾 <strong>Fusiona dos borradores de Cote</strong> que decían casi lo mismo por separado. El corazón del correo es que los días en que no ve ningún ave también valen la pena. Es lo contrario de lo que diría cualquier marca, y por eso funciona.</p></div>
+<span class="copy-label">✉️ Asunto — se elige uno y los otros quedan para probar después</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h5-a1">Copiar</button>
+<div class="copyblock__text" id="h5-a1">El lugar al que siempre vuelvo</div>
+</div>
+<p class="mail__hint">30 caracteres</p>
+<span class="copy-label">👀 Texto previo — la línea gris que se ve al lado del asunto</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h5-p1">Copiar</button>
+<div class="copyblock__text" id="h5-p1">No es un viaje grande. Es un cerro cerca de Santiago.</div>
+</div>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h5-a2">Copiar</button>
+<div class="copyblock__text" id="h5-a2">Subo aunque no vea ninguna ave</div>
+</div>
+<p class="mail__hint">30 caracteres</p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h5-a3">Copiar</button>
+<div class="copyblock__text" id="h5-a3">Lo que encuentro cuando no encuentro nada</div>
+</div>
+<p class="mail__hint">41 caracteres</p>
+<span class="copy-label">📝 El correo completo</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h5-c">Copiar</button>
+<div class="copyblock__text" id="h5-c">Hola,
+
+Agarro mi cámara, mi botella de agua, y salgo a subir uno de los cerros que rodean Santiago. Sin mucho apuro.
+
+Ya se transformó en parte de mi rutina.
+
+Mucha gente cree que mis ilustraciones nacen en grandes viajes. Y sí, viajar siempre inspira. Pero el lugar al que más vuelvo está mucho más cerca de casa.
+
+Hay días en que veo varias aves. Otros en que bajo sin haber visto casi nada.
+
+Y esos días también valen la pena.
+
+Caminar hacia la cumbre y detenerme a observar me ayuda a volver con la cabeza despejada. Muchas de las ideas para nuevas ilustraciones aparecen justamente ahí, mientras camino, no cuando ya estoy con los pinceles en la mano.
+
+[IMAGEN: Cote en uno de los cerros que rodean Santiago, con su cámara, observando aves]
+
+Con los años he ido juntando miles de fotos de esos cerros y de otros viajes por Chile. Algunas quedan guardadas meses, incluso años, en una carpeta, hasta que un día vuelvo a encontrarlas y pienso: esta quiero pintarla.
+
+Ilustrar un animal que uno ha visto en libertad es distinto. Después de observarlo un rato y fotografiarlo, siento que lo conozco un poco más.
+
+Por eso siempre ando con la cámara, incluso cuando solo salgo a caminar cerca de casa. Nunca sé cuál de esas fotos va a terminar convirtiéndose en una acuarela.
+
+Una foto como esta puede terminar convertida en distintas cosas: una lámina, un puzzle, un naipe. Nunca se sabe hasta que pasa.
+
+Ver la tienda → [PEGAR LINK: tienda]
+
+Un abrazo,
+Cote
+
+P.D. Y si compras sobre $50.000, el envío va gratis.</div>
+</div>
+</div>
+
+<div class="card mail">
+<div class="mail__head">
+<span class="mail__tag mail__tag--h">Historia</span>
+<span class="mail__when">Viernes 28 de agosto</span>
+</div>
+<h3 id="h6">8 · El puma</h3>
+<p class="mail__meta"><strong>A quién:</strong> Dormidos — se suman los de 180 a 270 días<br><strong>Conecta con:</strong> La tienda en general</p>
+<div class="callout callout--info"><p>🐆 <strong>No hay ningún producto de puma en la tienda</strong>, así que el puente va a la tienda en general. Se recortaron el cóndor y los huemules del borrador original para que la escena del puma respire.</p></div>
+<span class="copy-label">✉️ Asunto — se elige uno y los otros quedan para probar después</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h6-a1">Copiar</button>
+<div class="copyblock__text" id="h6-a1">Nunca pensé ver un puma</div>
+</div>
+<p class="mail__hint">23 caracteres</p>
+<span class="copy-label">👀 Texto previo — la línea gris que se ve al lado del asunto</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h6-p1">Copiar</button>
+<div class="copyblock__text" id="h6-p1">Y lo que hizo el guanaco, no me lo esperaba.</div>
+</div>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h6-a2">Copiar</button>
+<div class="copyblock__text" id="h6-a2">Ahí estaba el puma</div>
+</div>
+<p class="mail__hint">18 caracteres</p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h6-a3">Copiar</button>
+<div class="copyblock__text" id="h6-a3">Vi un puma intentando cazar</div>
+</div>
+<p class="mail__hint">27 caracteres</p>
+<span class="copy-label">📝 El correo completo</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h6-c">Copiar</button>
+<div class="copyblock__text" id="h6-c">Hola,
+
+Nunca pensé que iba a ver un puma. Y mucho menos, presenciar un intento de caza.
+
+Fue en un viaje a Torres del Paine, hace un tiempo. Camino a Base Torres nos cruzamos con dos huemules, y unos turistas los fotografiaban sin saber que tenían enfrente a uno de los animales más difíciles de ver en Chile. Les conté qué animal era.
+
+Más tarde, ya recorriendo otra parte del parque, vimos a varios fotógrafos con sus teleobjetivos apuntando hacia una loma.
+
+Ahí estaba el puma.
+
+Nos quedamos en silencio, sin movernos. Solo se oía el clic de las cámaras. Abajo, un guanaco caminaba tranquilo, y no tenía idea de que iba directo hacia el puma.
+
+No sé cuánto tiempo pasó, pero se sintió largo: el guanaco cada vez más cerca, nosotros sin respirar. Y en algún momento pareció notarlo. Aceleró el paso y logró escapar. Recién ahí soltamos el aire que llevábamos rato aguantando.
+
+[IMAGEN: VERIFICAR si existe una foto real del puma o de la loma esa tarde. Si no existe, el correo funciona igual sin imagen]
+
+Son esos momentos los que hacen que quiera volver, una y otra vez, a la naturaleza. Y son, también, los que después terminan apareciendo en lo que pinto.
+
+Ver la tienda →
+[PEGAR LINK: tienda]
+
+Con cariño,
+Cote</div>
+</div>
+</div>
+
+<div class="card mail">
+<div class="mail__head">
+<span class="mail__tag mail__tag--v">Venta</span>
+<span class="mail__when">Lunes 31 de agosto</span>
+</div>
+<h3 id="v3">9 · Últimos días para el primer despacho</h3>
+<p class="mail__meta"><strong>A quién:</strong> Interesados sin comprar<br><strong>Conecta con:</strong> Puzzles en preventa</p>
+<div class="callout callout--info"><p>📦 <strong>Es la única urgencia verdadera de la campaña, y es de logística.</strong> El correo dice en voz alta que nadie se queda sin puzzle. Suena raro para un correo de cierre, pero quitarle el miedo a la persona le deja solo la decisión.</p></div>
+<span class="copy-label">✉️ Asunto — se elige uno y los otros quedan para probar después</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="v3-a1">Copiar</button>
+<div class="copyblock__text" id="v3-a1">Vuelven después de estar agotados</div>
+</div>
+<p class="mail__hint">33 caracteres</p>
+<span class="copy-label">👀 Texto previo — la línea gris que se ve al lado del asunto</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="v3-p1">Copiar</button>
+<div class="copyblock__text" id="v3-p1">Así funciona el primer despacho de septiembre.</div>
+</div>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="v3-a2">Copiar</button>
+<div class="copyblock__text" id="v3-a2">Dos despachos, un mismo puzzle</div>
+</div>
+<p class="mail__hint">30 caracteres</p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="v3-a3">Copiar</button>
+<div class="copyblock__text" id="v3-a3">Va a haber dos despachos</div>
+</div>
+<p class="mail__hint">24 caracteres</p>
+<span class="copy-label">📝 El correo completo</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="v3-c">Copiar</button>
+<div class="copyblock__text" id="v3-c">Hola,
+
+Los puzzles de Aves y Flores, Cetáceos y Hongos estuvieron agotados mucho tiempo.
+
+Sé que mucha gente los pidió de vuelta.
+
+Ahora que volvieron, va a haber dos despachos.
+
+Quiero contarte cómo funciona esto, sin vueltas.
+
+Quien reserva ahora entra al primero: sale en la primera semana de septiembre. Quien reserva después, entra al despacho siguiente.
+
+Nadie se queda sin puzzle. Eso quiero que te quede claro. Simplemente unos lo van a recibir antes que otros.
+
+Lo escribo así, tal cual, porque no quiero que esto se sienta como una carrera.
+
+[VERIFICAR: fecha de cierre] es el día en que cerramos la lista de este primer grupo. Después de esa fecha, tu pedido entra directo al siguiente despacho, sin ningún problema.
+
+Si en tu pedido mezclas algo que ya está en stock con algo de la preventa, no te compliques: todo te llega junto, en un solo envío, en la misma fecha.
+
+Y ahora también está el puzzle para niños, que es nuevo: más chico y más simple que los demás, pensado para las manos más pequeñas de la casa.
+
+Si un puzzle de estos te ha estado dando vueltas en la cabeza, esta es la fecha que te conviene tener presente.
+
+Ver la preventa → [PEGAR LINK: preventa]
+
+Un abrazo,
+Cote
+
+P.D.: envío gratis en compras sobre $50.000, y ya son más de 80 las reseñas de quienes recibieron sus puzzles la vez pasada.</div>
+</div>
+</div>
+
+<div class="card mail">
+<div class="mail__head">
+<span class="mail__tag mail__tag--h">Historia</span>
+<span class="mail__when">Miércoles 2 de septiembre</span>
+</div>
+<h3 id="h7">10 · Los pingüinos de Bahía Inútil</h3>
+<p class="mail__meta"><strong>A quién:</strong> Dormidos — se suma el resto, 270 días o más<br><strong>Conecta con:</strong> Ilustración del pingüino rey</p>
+<div class="callout callout--info"><p>🐧 <strong>Fue a fotografiar piscinas y terminó frente a una colonia de pingüinos rey.</strong> Ese contraste es el correo entero, y la historia termina justo donde está el producto.</p></div>
+<span class="copy-label">✉️ Asunto — se elige uno y los otros quedan para probar después</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h7-a1">Copiar</button>
+<div class="copyblock__text" id="h7-a1">Un proyecto que terminó en pingüinos</div>
+</div>
+<p class="mail__hint">36 caracteres</p>
+<span class="copy-label">👀 Texto previo — la línea gris que se ve al lado del asunto</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h7-p1">Copiar</button>
+<div class="copyblock__text" id="h7-p1">Lo que vi en Bahía Inútil no estaba en mis planes.</div>
+</div>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h7-a2">Copiar</button>
+<div class="copyblock__text" id="h7-a2">Fui por piscinas, encontré pingüinos</div>
+</div>
+<p class="mail__hint">36 caracteres</p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h7-a3">Copiar</button>
+<div class="copyblock__text" id="h7-a3">Terminé fotografiando pingüinos rey</div>
+</div>
+<p class="mail__hint">35 caracteres</p>
+<span class="copy-label">📝 El correo completo</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h7-c">Copiar</button>
+<div class="copyblock__text" id="h7-c">Hola,
+
+Hace algunos años recorrí Chile, de Arica a Tierra del Fuego, fotografiando piscinas olímpicas.
+
+Me llamaba la atención que fueran parte del patrimonio de sus ciudades y que, aun así, casi no existieran registros fotográficos de ellas. Quise retratarlas desde otra mirada: sus reflejos, su arquitectura, como si fueran catedrales de agua.
+
+Ese proyecto terminó en una exposición. Pero también me regaló algo que no estaba en los planes.
+
+Cuando llegué a Tierra del Fuego para fotografiar la piscina de Cerro Sombrero, la más austral de Chile, aproveché de visitar la colonia de pingüinos rey de Bahía Inútil. Un lugar que soñaba conocer desde hacía años.
+
+Todavía me acuerdo del viento, del silencio y de los pingüinos caminando con sus crías, que parecían pequeños pompones cafés.
+
+Los fotografié durante horas, sin imaginar que esas fotos iban a volver a aparecer mucho tiempo después.
+
+Años más tarde, cuando pinté mi ilustración del pingüino rey, fueron esas mismas fotografías las que me acompañaron de nuevo.
+
+A veces uno sale a buscar una cosa, y termina encontrando otra que se queda para siempre. Esa ilustración todavía tiene algo de ese día en Bahía Inútil.
+
+[IMAGEN: la foto real de los pingüinos rey en Bahía Inútil, junto a la ilustración del pingüino rey, una al lado de la otra]
+
+Ver la ilustración del pingüino rey →
+[PEGAR LINK: ilustración pingüino rey]
+
+Con cariño,
+Cote</div>
+</div>
+</div>
+
+<div class="card mail">
+<div class="mail__head">
+<span class="mail__tag mail__tag--h">Historia</span>
+<span class="mail__when">Viernes 4 de septiembre</span>
+</div>
+<h3 id="h8">11 · Las Torres que nunca aparecieron</h3>
+<p class="mail__meta"><strong>A quién:</strong> Dormidos — se suma el resto, 270 días o más<br><strong>Conecta con:</strong> Puzzles, confirmando antes el estado de la preventa</p>
+<div class="callout callout--info"><p>🏔️ <strong>Cierra la serie.</strong> Agradece, avisa que las historias siguen con menos frecuencia y deja el puente al producto sin apuro. Trae una marca de verificación: para el 4 de septiembre la preventa puede estar cerrada, y hay que ajustar el enlace ese mismo día.</p></div>
+<span class="copy-label">✉️ Asunto — se elige uno y los otros quedan para probar después</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h8-a1">Copiar</button>
+<div class="copyblock__text" id="h8-a1">No vi las Torres del Paine</div>
+</div>
+<p class="mail__hint">26 caracteres</p>
+<span class="copy-label">👀 Texto previo — la línea gris que se ve al lado del asunto</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h8-p1">Copiar</button>
+<div class="copyblock__text" id="h8-p1">Llovió tanto que terminamos cambiando el plan a mitad de camino.</div>
+</div>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h8-a2">Copiar</button>
+<div class="copyblock__text" id="h8-a2">Cambiamos de circuito por la lluvia</div>
+</div>
+<p class="mail__hint">35 caracteres</p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h8-a3">Copiar</button>
+<div class="copyblock__text" id="h8-a3">Caminé horas bajo la lluvia, empapada</div>
+</div>
+<p class="mail__hint">37 caracteres</p>
+<span class="copy-label">📝 El correo completo</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="h8-c">Copiar</button>
+<div class="copyblock__text" id="h8-c">Hola,
+
+La primera vez que fui a Torres del Paine no vi las Torres.
+
+Era 2009. Recién salida de la universidad, me fui al sur con un grupo de amigos. Nos propusimos hacer el circuito O.
+
+Pero el clima tenía otros planes.
+
+Llovió casi todos los días. El viento era tan fuerte que terminamos cambiando el circuito O por el W.
+
+Caminábamos horas, empapados, con las mochilas pesadísimas. Las Torres nunca aparecieron. Siempre estuvieron escondidas entre las nubes.
+
+Uno podría pensar que fue un mal viaje.
+
+Para mí fue todo lo contrario.
+
+Fue la primera vez que terminé un trekking largo. Varios días cargando todo lo necesario en la espalda.
+
+Y ahí entendí que era mucho más fuerte de lo que pensaba.
+
+Llevamos cuatro semanas de correos.
+
+Gracias por seguir leyendo hasta acá, semana tras semana.
+
+Las historias van a seguir llegando, aunque con menos frecuencia. Cuando tenga algo que valga la pena contar, te va a llegar.
+
+Y ahora, cambio de tema: los puzzles. No hay ningún apuro: van a seguir ahí.
+[VERIFICAR: confirmar el día del envío si la preventa sigue abierta o si ya hay despacho directo, y ajustar el link de abajo]
+
+Ver los puzzles →
+[PEGAR LINK: tienda]
+
+Con cariño,
+Cote
+
+P.D.: Los puzzles que volvieron —Aves y Flores, Cetáceos y Hongos— ya suman más de 80 reseñas. Envío gratis en compras sobre $50.000.</div>
+</div>
+</div>
+
+<div class="card mail">
+<div class="mail__head">
+<span class="mail__tag mail__tag--v">Venta</span>
+<span class="mail__when">Lunes 7 de septiembre</span>
+</div>
+<h3 id="v4">12 · Empezar por una lámina</h3>
+<p class="mail__meta"><strong>A quién:</strong> Interesados sin comprar<br><strong>Conecta con:</strong> Láminas de Aves de Chile y papelería</p>
+<div class="callout callout--info"><p>🚪 <strong>La puerta más chica de la tienda.</strong> Cierra la campaña sin ninguna urgencia: para quien no dio el paso con un puzzle, ofrece el producto de entrada más barato.</p></div>
+<span class="copy-label">✉️ Asunto — se elige uno y los otros quedan para probar después</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="v4-a1">Copiar</button>
+<div class="copyblock__text" id="v4-a1">La puerta más chica de la tienda</div>
+</div>
+<p class="mail__hint">32 caracteres</p>
+<span class="copy-label">👀 Texto previo — la línea gris que se ve al lado del asunto</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="v4-p1">Copiar</button>
+<div class="copyblock__text" id="v4-p1">Las láminas de Aves de Chile, sin el compromiso de un puzzle entero.</div>
+</div>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="v4-a2">Copiar</button>
+<div class="copyblock__text" id="v4-a2">No tiene que ser un puzzle</div>
+</div>
+<p class="mail__hint">26 caracteres</p>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="v4-a3">Copiar</button>
+<div class="copyblock__text" id="v4-a3">Empezar por una lámina</div>
+</div>
+<p class="mail__hint">22 caracteres</p>
+<span class="copy-label">📝 El correo completo</span>
+<div class="copyblock">
+<button type="button" class="copyblock__btn" data-copy-target="v4-c">Copiar</button>
+<div class="copyblock__text" id="v4-c">Hola,
+
+Con este cerramos las cuatro semanas de correos sobre la preventa.
+
+Y prefiero cerrarlas con algo simple, no con una despedida grande.
+
+Tal vez un puzzle completo no es lo tuyo. O no todavía.
+
+Por eso te quiero mostrar la puerta más chica de la tienda. Algo que puedas tener en la pared sin pensarlo tanto.
+
+Las láminas de Aves de Chile son lo más simple que tenemos: el mismo trabajo, sin el compromiso de un puzzle entero.
+
+Es también el producto de entrada de la tienda: el más barato de todos. Cada lámina es una especie distinta, así que puedes ir armando tu pared de a poco.
+
+Puedes llevar el pack completo de aves, o elegir una ilustración suelta si ya tienes una especie favorita, como el Martín Pescador o el pingüino rey.
+
+Basta con elegir la que te guste y ver cómo se ve en tu pared.
+
+Y si prefieres algo más chico todavía, está la papelería. Combinar una lámina con algo de papelería es una manera simple de armar un regalo.
+
+Gracias por seguir leyendo estos correos. Se nota, y se agradece.
+
+No hay ninguna fecha límite en este correo. Las láminas están ahí, disponibles, para cuando te haga sentido.
+
+Ver las láminas → [PEGAR LINK: láminas de aves]
+
+Con cariño,
+Cote
+
+P.D.: el envío es gratis en compras sobre $50.000. Con un par de láminas y algo de papelería es fácil llegar a ese monto.</div>
+</div>
+</div>
+</section>
+
+<section class="sec" id="la-limpieza">
+<h2>La limpieza: qué pasa el 8 de septiembre</h2>
+<p>Esta es la parte que hace que la campaña sirva de verdad. Sin ella, esto es solo mandar más correos.</p>
+
+<div class="timeline">
+  <div class="timeline-item">
+    <span class="timeline-item__date">Martes 8 de septiembre</span>
+    <h3 class="timeline-item__title">Se mide quién dio señales</h3>
+    <p>Se revisa, persona por persona del grupo dormido, si abrió o hizo clic en alguno de los ocho correos de historia.</p>
+  </div>
+  <div class="timeline-item">
+    <span class="timeline-item__date">Quien abrió al menos uno</span>
+    <h3 class="timeline-item__title">Vuelve a la lista normal</h3>
+    <p>Se saca del grupo dormido y pasa a recibir las campañas habituales. Esta gente es el resultado de la campaña.</p>
+  </div>
+  <div class="timeline-item">
+    <span class="timeline-item__date">Quien no abrió ninguno</span>
+    <h3 class="timeline-item__title">Se suprime</h3>
+    <p>Deja de recibir correos. No se borra el perfil: en Klaviyo se marca como suprimido, así que el historial de compras queda intacto y la persona puede volver sola si algún día se suscribe de nuevo.</p>
+  </div>
+  <div class="timeline-item">
+    <span class="timeline-item__date">Desde entonces</span>
+    <h3 class="timeline-item__title">Queda encendido el flujo automático</h3>
+    <p>Se activa el flujo de reactivación que hoy está apagado, para que esto no vuelva a acumularse y no haya que repetir la campaña completa el año que viene.</p>
+  </div>
+</div>
+
+<div class="callout callout--warn">
+<p>🟡 <strong>Cuesta apretar el botón, y hay que apretarlo igual.</strong> Suprimir gente se siente como perder algo, sobre todo cuando el número es grande. Pero una lista de 3.000 personas que abren vale mucho más que una de 5.500 donde la mitad ignora todo: llega mejor a la bandeja principal, cuesta menos al mes, y hace que los correos automáticos —que hoy generan el 56% del ingreso por correo 🟢— vendan más.</p>
+</div>
+</section>
+
+<section class="sec" id="que-mirar">
+<h2>Qué mirar cada semana</h2>
+<p>Tres números por envío. Se anotan el día siguiente, cuando ya se estabilizaron.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Qué se mide</th><th>Qué significa</th><th>🟢 Bien</th><th>🟡 Ojo</th><th>🔴 Parar</th></tr></thead>
+<tbody>
+<tr><td><strong>Apertura</strong></td><td>Cuánta gente abrió el correo</td><td>Más de 15% en los dormidos</td><td>Entre 8% y 15%</td><td>Bajo 8% dos semanas seguidas</td></tr>
+<tr><td><strong>Bajas</strong></td><td>Cuánta gente pidió no recibir más</td><td>Bajo 0,3%</td><td>Entre 0,3% y 0,5%</td><td>Sobre 0,5%</td></tr>
+<tr><td><strong>Marcados como spam</strong></td><td>Cuánta gente lo denunció como correo no deseado</td><td>Bajo 0,05%</td><td>Entre 0,05% y 0,08%</td><td>Sobre 0,08%</td></tr>
+<tr><td><strong>Respuestas</strong></td><td>Cuánta gente contestó el correo</td><td colspan="3">No hay meta. Cada respuesta mejora la reputación de la cuenta, así que conviene contestarlas todas.</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>En los correos de venta la apertura debería ser bastante más alta, porque van a gente que ya está leyendo. Ahí el número que importa es cuántos pedidos entraron, no cuántos abrieron.</p>
+
+<div class="callout callout--info">
+<p>ℹ️ <strong>Una baja no es una mala noticia.</strong> Quien se da de baja durante esta campaña estaba igual sin abrir. Es mejor que se vaya por la puerta que quedarse ignorando correos, porque eso último sí hace daño. Lo único que hay que vigilar es la <em>velocidad</em>: pasar de 0,5% es la señal de que el envío es demasiado grande o demasiado seguido.</p>
+</div>
+</section>
+
+<section class="sec" id="checklist">
+<h2>Antes de enviar el primero</h2>
+<p>Se marca sola al hacer clic y queda guardada en este navegador.</p>
+
+<div class="progress">
+  <div class="progress__track"><div class="progress__fill" data-progress-fill-rea></div></div>
+  <span class="progress__label" data-progress-label-rea>0 de 0 tareas (0%)</span>
+</div>
+
+<ul class="checklist">
+<li><label><input type="checkbox" data-react="segmento-dormidos"><span>Crear en Klaviyo el segmento de dormidos: sin abrir hace 90 días o más, suscrito a Newsletter. Anotar cuántas personas son.</span></label></li>
+<li><label><input type="checkbox" data-react="tramos-rampa"><span>Partir ese segmento en los cuatro tramos de la rampa: 90-120, 120-180, 180-270 y 270 días o más</span></label></li>
+<li><label><input type="checkbox" data-react="segmento-interesados"><span>Crear el segmento de interesados sin comprar: abrió o hizo clic en 60 días, sin pedidos en 60 días</span></label></li>
+<li><label><input type="checkbox" data-react="links-reales"><span>Reemplazar todos los <code>[PEGAR LINK: …]</code> por las direcciones reales de la tienda y probar cada una en el celular</span></label></li>
+<li><label><input type="checkbox" data-react="fecha-cierre"><span>Confirmar con Felipe la fecha exacta en que cierra la preventa y ponerla en el correo del 31 de agosto</span></label></li>
+<li><label><input type="checkbox" data-react="imagenes-cote"><span>Pedirle a Cote las fotos que marca cada correo, sobre todo la del Martín Pescador con su acuarela y la de 2021 con las primeras láminas</span></label></li>
+<li><label><input type="checkbox" data-react="datos-puzzle-ninos"><span>Conseguir los datos del puzzle para niños que faltan: edad recomendada, número de piezas y medidas</span></label></li>
+<li><label><input type="checkbox" data-react="revision-cote"><span>Que Cote lea los doce correos completos y cambie lo que no suene a ella. Es su nombre el que va firmando.</span></label></li>
+<li><label><input type="checkbox" data-react="prueba-propia"><span>Enviarse los doce a un correo propio y abrirlos en el celular antes de programar nada</span></label></li>
+<li><label><input type="checkbox" data-react="baja-visible"><span>Revisar que el enlace para darse de baja se vea claro en todos, en especial en los ocho de historia</span></label></li>
+<li><label><input type="checkbox" data-react="responder-dm"><span>Avisarle a Cote que van a llegar respuestas a estos correos, y acordar quién las contesta</span></label></li>
+<li><label><input type="checkbox" data-react="fecha-limpieza"><span>Agendar el 8 de septiembre para hacer la limpieza. Si no queda agendada, no se hace.</span></label></li>
+</ul>
+</section>
+
+<footer class="page-footer"><p>Fuentes: auditoría de Klaviyo del 2 de agosto de 2026 (5.439 personas en la lista, 3.939 perfiles ya suprimidos, conversión de 5,21%, 0,9% del tráfico, 56% del ingreso por correo desde los flujos automáticos, 1,5% de bajas en la campaña del Día del Padre, segmentos de 2.613 y 2.175 personas) — el detalle completo está en <a href="email.html">Correo y campañas</a>. Los textos de los doce correos se escribieron a partir de quince correos redactados por Cote: los seis de la preventa, en <a href="correos-preventa.html">Correos de la preventa</a>, y nueve historias que entregó en agosto de 2026. Las cifras marcadas 🟢 vienen de esas fuentes; las marcadas 🟡 son supuestos o pendientes de confirmar. Ver también <a href="preventa.html">Preventa de puzzles</a> y <a href="clientes.html">Clientes que vuelven</a>.</p></footer>
+
+</main>
+
+<script>
+  // Acceso seguro a localStorage (no revienta en navegación privada u otros bloqueos).
+  function pgGet(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+  function pgSet(key, valor) { try { localStorage.setItem(key, valor); } catch (e) { /* sin soporte, se ignora */ } }
+  function pgRemove(key) { try { localStorage.removeItem(key); } catch (e) { /* sin soporte, se ignora */ } }
+</script>
+
+<script>
+  // Checklist de esta página — usa data-react (data-task, data-cro, data-plan90, data-bitacora, data-correosp,
+  // data-estado, data-preventa, data-tienda, data-clientes, data-precios, data-ads, data-correo,
+  // data-ofertas, data-tablero e data-inventario ya están tomados por otras páginas) y
+  // localStorage con prefijo pedraza-plan:rea:<id>.
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-react]').forEach(function (cb) {
+      cb.checked = pgGet('pedraza-plan:rea:' + cb.getAttribute('data-react')) === '1';
+    });
+    actualizarProgresoReactivacion();
+  });
+
+  document.addEventListener('change', function (e) {
+    var cb = e.target.closest('[data-react]');
+    if (!cb) return;
+    var key = 'pedraza-plan:rea:' + cb.getAttribute('data-react');
+    if (cb.checked) { pgSet(key, '1'); } else { pgRemove(key); }
+    actualizarProgresoReactivacion();
+  });
+
+  function actualizarProgresoReactivacion() {
+    var cajas = document.querySelectorAll('[data-react]');
+    var total = cajas.length;
+    var done = 0;
+    cajas.forEach(function (cb) { if (cb.checked) done++; });
+    var pct = total ? Math.round((done / total) * 100) : 0;
+
+    document.querySelectorAll('[data-progress-fill-rea]').forEach(function (fill) {
+      fill.style.width = pct + '%';
+    });
+    document.querySelectorAll('[data-progress-label-rea]').forEach(function (label) {
+      label.textContent = done + ' de ' + total + ' tareas (' + pct + '%)';
+    });
+  }
+</script>
+
+<script>
+  // Copiar al portapapeles — delegación de eventos, un solo listener por página.
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-copy-target]');
+    if (!btn) return;
+    var el = document.getElementById(btn.getAttribute('data-copy-target'));
+    if (!el) return;
+    copiarTexto(el.innerText || el.textContent || '', btn);
+  });
+
+  function copiarTexto(texto, btn) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(texto).then(
+        function () { mostrarCopiado(btn); },
+        function () { copiarConFallback(texto, btn); }
+      );
+    } else {
+      copiarConFallback(texto, btn);
+    }
+  }
+
+  function copiarConFallback(texto, btn) {
+    var ta = document.createElement('textarea');
+    ta.value = texto;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.top = '-1000px';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (err) { /* sin soporte, se ignora */ }
+    document.body.removeChild(ta);
+    mostrarCopiado(btn);
+  }
+
+  function mostrarCopiado(btn) {
+    var original = btn.getAttribute('data-label') || btn.textContent;
+    btn.setAttribute('data-label', original);
+    btn.textContent = '✓ ¡Copiado!';
+    btn.classList.add('is-copied');
+    clearTimeout(btn._copyTimeout);
+    btn._copyTimeout = setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('is-copied');
+    }, 2000);
+  }
+</script>
+
+<script>
+  // Navegación global: barra superior + panel completo (15 páginas, 4 grupos).
+  // Prefijo "nav" en todo para no chocar con otros scripts de la página.
+  var NAV_PAGES = [
+    { grupo: 'Seguimiento', id: 'estado', nombre: 'Estado del plan' },
+    { grupo: 'Seguimiento', id: 'bitacora', nombre: 'Bitácora' },
+    { grupo: 'Seguimiento', id: 'finanzas', nombre: 'Los números del negocio' },
+    { grupo: 'Seguimiento', id: 'sincronizar', nombre: 'Conectar con la hoja' },
+    { grupo: 'La estrategia', id: 'index', nombre: 'Plan y estrategia' },
+    { grupo: 'Plan de acción', id: 'plan-90-dias', nombre: 'Plan de 90 días' },
+    { grupo: 'Plan de acción', id: 'stock-navidad', nombre: 'Stock para Navidad' },
+    { grupo: 'Plan de acción', id: 'escenarios', nombre: 'Escenarios' },
+    { grupo: 'Plan de acción', id: 'pedido', nombre: 'Pedido a China' },
+    { grupo: 'Plan de acción', id: 'preventa', nombre: 'Preventa de puzzles' },
+    { grupo: 'Plan de acción', id: 'correos-preventa', nombre: 'Correos de la preventa' },
+    { grupo: 'Plan de acción', id: 'correos-reactivacion', nombre: 'Reactivar la lista' },
+    { grupo: 'Plan de acción', id: 'inventario', nombre: 'Control de stock' },
+    { grupo: 'Plan de acción', id: 'modelo-datos', nombre: 'Ordenar los datos' },
+    { grupo: 'Plan de acción', id: 'ofertas', nombre: 'Ofertas y pop-ups' },
+    { grupo: 'Plan de acción', id: 'precios', nombre: 'Nueva estructura de precios' },
+    { grupo: 'Plan de acción', id: 'email', nombre: 'Correo y campañas' },
+    { grupo: 'Plan de acción', id: 'clientes', nombre: 'Clientes que vuelven' },
+    { grupo: 'Plan de acción', id: 'cro', nombre: 'Conversión' },
+    { grupo: 'Plan de acción', id: 'tienda-cambios', nombre: 'Cambios en la tienda' },
+    { grupo: 'Plan de acción', id: 'ads', nombre: 'Google y Meta Ads' },
+    { grupo: 'Plan de acción', id: 'campanas', nombre: 'Campañas: Google y Meta' },
+    { grupo: 'Plan de acción', id: 'digitales', nombre: 'Productos digitales' },
+    { grupo: 'Herramientas del día a día', id: 'kit-arranque', nombre: 'Kit de arranque' },
+    { grupo: 'Herramientas del día a día', id: 'guion-reels', nombre: 'Guiones de Reels' },
+    { grupo: 'Herramientas del día a día', id: 'sop-dm', nombre: 'Mensajes y DM' },
+    { grupo: 'Herramientas del día a día', id: 'recursos', nombre: 'Recursos' },
+    { grupo: 'Herramientas del día a día', id: 'tablero', nombre: 'Tablero' }
+  ];
+
+  var navPanelEl, navMenuBtn;
+
+  function navInit() {
+    navPanelEl = document.getElementById('nav-panel');
+    navMenuBtn = document.querySelector('[data-nav-open]');
+    if (!navPanelEl || !navMenuBtn) return;
+
+    var actual = document.body.getAttribute('data-nav-actual') || '';
+    var titleEl = document.querySelector('[data-nav-title]');
+    var pagina = null;
+    for (var i = 0; i < NAV_PAGES.length; i++) {
+      if (NAV_PAGES[i].id === actual) { pagina = NAV_PAGES[i]; break; }
+    }
+    if (titleEl && pagina) { titleEl.textContent = pagina.nombre; }
+
+    var linkActual = navPanelEl.querySelector('[data-nav-key="' + actual + '"]');
+    if (linkActual) {
+      linkActual.classList.add('navpanel__link--current');
+      linkActual.setAttribute('aria-current', 'page');
+    }
+
+    navMenuBtn.addEventListener('click', navAbrirPanel);
+    navPanelEl.querySelectorAll('[data-nav-close]').forEach(function (el) {
+      el.addEventListener('click', navCerrarPanel);
+    });
+    navPanelEl.querySelectorAll('.navpanel__link').forEach(function (a) {
+      a.addEventListener('click', navCerrarPanel);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (!navPanelEl.classList.contains('is-open')) return;
+      if (e.key === 'Escape') { navCerrarPanel(); }
+      if (e.key === 'Tab') { navAtraparFoco(e); }
+    });
+  }
+
+  function navAbrirPanel() {
+    navPanelEl.hidden = false;
+    document.documentElement.classList.add('nav-lock');
+    document.body.classList.add('nav-lock');
+    navMenuBtn.setAttribute('aria-expanded', 'true');
+    requestAnimationFrame(function () {
+      navPanelEl.classList.add('is-open');
+      var closeBtn = navPanelEl.querySelector('.navpanel__close');
+      if (closeBtn) closeBtn.focus();
+    });
+  }
+
+  function navCerrarPanel() {
+    if (!navPanelEl.classList.contains('is-open')) return;
+    navPanelEl.classList.remove('is-open');
+    document.documentElement.classList.remove('nav-lock');
+    document.body.classList.remove('nav-lock');
+    navMenuBtn.setAttribute('aria-expanded', 'false');
+    navMenuBtn.focus();
+    var ocultarAlTerminar = function () {
+      navPanelEl.hidden = true;
+      navPanelEl.removeEventListener('transitionend', ocultarAlTerminar);
+    };
+    navPanelEl.addEventListener('transitionend', ocultarAlTerminar);
+    setTimeout(ocultarAlTerminar, 300); // respaldo si no hay transición (prefers-reduced-motion)
+  }
+
+  function navAtraparFoco(e) {
+    var focusables = navPanelEl.querySelectorAll('button, a[href]');
+    if (!focusables.length) return;
+    var primero = focusables[0];
+    var ultimo = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === primero) { e.preventDefault(); ultimo.focus(); }
+    else if (!e.shiftKey && document.activeElement === ultimo) { e.preventDefault(); primero.focus(); }
+  }
+
+  document.addEventListener('DOMContentLoaded', navInit);
+</script>
+
+</body>
+</html>

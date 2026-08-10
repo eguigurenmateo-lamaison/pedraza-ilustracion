@@ -810,6 +810,13 @@ main { counter-reset: sec; }
           </span>
           <span class="navpanel__check" aria-hidden="true">✓</span>
         </a>
+        <a href="correos-reactivacion.html" class="navpanel__link" data-nav-key="correos-reactivacion">
+          <span class="navpanel__link-text">
+            <span class="navpanel__link-name">Reactivar la lista</span>
+            <span class="navpanel__link-desc">12 correos en 4 semanas</span>
+          </span>
+          <span class="navpanel__check" aria-hidden="true">✓</span>
+        </a>
         <a href="inventario.html" class="navpanel__link" data-nav-key="inventario">
           <span class="navpanel__link-text">
             <span class="navpanel__link-name">Control de stock</span>
@@ -1049,49 +1056,49 @@ main { counter-reset: sec; }
 <ul class="checklist">
   <li>
     <label>
-      <input type="checkbox" id="dato-1" checked>
+      <input type="checkbox" data-navidad="dato-1" id="dato-1" checked>
       <span>Unidades vendidas por mes, por canal (Shopify, B2B, Creado en Chile y Mercado Libre) — 18 meses</span>
     </label>
     <p class="dato-why">✅ Recibido. 2.361 puzzles vendidos en 18 meses, promedio 131/mes, con noviembre-diciembre 2,3 veces por sobre el resto del año. Detalle completo en la sección "Lo que dicen 18 meses de ventas".</p>
   </li>
   <li>
     <label>
-      <input type="checkbox" id="dato-2" checked>
+      <input type="checkbox" data-navidad="dato-2" id="dato-2" checked>
       <span>Stock actual repartido entre Packner, bodega propia y Mercado Libre</span>
     </label>
     <p class="dato-why">✅ Recibido. Inventario al 13 de julio de 2026, 29 SKU. Los puzzles están en 0 en todos los canales — es el quiebre que motivó este pedido.</p>
   </li>
   <li>
     <label>
-      <input type="checkbox" id="dato-3" checked>
+      <input type="checkbox" data-navidad="dato-3" id="dato-3" checked>
       <span>Unidades por diseño de puzzle, no solo el total</span>
     </label>
     <p class="dato-why">✅ Recibido para Shopify: Aves 624 (57%), Cetáceos 248, Hongos 143, Mariposas 81. Sostiene la estrategia de precios que planteó Felipe — ver la sección siguiente.</p>
   </li>
   <li>
     <label>
-      <input type="checkbox" id="dato-4" checked>
+      <input type="checkbox" data-navidad="dato-4" id="dato-4" checked>
       <span>Costo unitario puesto en Chile (el costo final por unidad, con todo incluido)</span>
     </label>
     <p class="dato-why">✅ Recibido. <strong>$7.253 por puzzle</strong> 🟢 — es el costo puesto en bodega en Santiago (incluye FOB, provisión, seguro de carga, forwarder, desconsolidación y flete), no el precio de fábrica. Ya está cargado en la calculadora de más abajo.</p>
   </li>
   <li>
     <label>
-      <input type="checkbox" id="dato-5" checked>
+      <input type="checkbox" data-navidad="dato-5" id="dato-5" checked>
       <span>Plazo real del último pedido a China, desde que se hizo hasta que llegó a Chile</span>
     </label>
     <p class="dato-why">✅ Recibido. Felipe confirmó el dato exacto: la orden se pagó el 22 de mayo y llegó el 15 de agosto — <strong>85 días exactos</strong>, no los "tres meses" aproximados que se habían usado antes, y bastante más que los 60-75 días con los que se habían calculado las fechas originalmente. <em>"Es la compra que más se nos ha demorado"</em>, dijo Felipe. Ya está incorporado en los dos escenarios de la cuenta regresiva, arriba.</p>
   </li>
   <li>
     <label>
-      <input type="checkbox" id="dato-6">
+      <input type="checkbox" data-navidad="dato-6" id="dato-6">
       <span>Unidades de puzzles ya comprometidas con clientes B2B para Navidad</span>
     </label>
     <p class="dato-why">🟡 Pendiente. Para qué sirve: esas unidades hay que reservarlas aparte — si no se cuentan, el pedido de agosto puede quedar corto sin que se note hasta diciembre.</p>
   </li>
   <li>
     <label>
-      <input type="checkbox" id="dato-7">
+      <input type="checkbox" data-navidad="dato-7" id="dato-7">
       <span>Lo que Tina (la fábrica) confirme en la reunión del domingo 2 de agosto</span>
     </label>
     <p class="dato-why">🟡 Pendiente. Felipe y Cote negocian tres puntos: el plazo real de producción y tránsito, el pago contra la llegada a Chile (en vez de pagar todo por adelantado), y el reclamo por las piezas que faltaron en el pedido anterior. Cualquiera de los tres puede mover las fechas límite de esta página.</p>
@@ -1390,6 +1397,31 @@ Gracias</div>
 </main>
 
 <script>
+  // Acceso seguro a localStorage (no revienta en navegación privada u otros bloqueos).
+  function pgGet(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+  function pgSet(key, valor) { try { localStorage.setItem(key, valor); } catch (e) { /* sin soporte, se ignora */ } }
+</script>
+
+<script>
+  // Checklist de datos pendientes — usa data-navidad y localStorage con prefijo pedraza-plan:nvd:<id>.
+  // Cinco casillas vienen marcadas desde el HTML porque el dato ya llegó: si no hay nada guardado
+  // se respeta ese valor de fábrica, y el estado guardado se escribe siempre como '1' o '0' para
+  // que desmarcar una casilla que venía marcada también quede registrado.
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-navidad]').forEach(function (cb) {
+      var guardado = pgGet('pedraza-plan:nvd:' + cb.getAttribute('data-navidad'));
+      if (guardado !== null) { cb.checked = guardado === '1'; }
+    });
+  });
+
+  document.addEventListener('change', function (e) {
+    var cb = e.target.closest('[data-navidad]');
+    if (!cb) return;
+    pgSet('pedraza-plan:nvd:' + cb.getAttribute('data-navidad'), cb.checked ? '1' : '0');
+  });
+</script>
+
+<script>
   // Copiar al portapapeles — delegación de eventos, un solo listener por página.
   document.addEventListener('click', function (e) {
     var btn = e.target.closest('[data-copy-target]');
@@ -1589,6 +1621,7 @@ Gracias</div>
     { grupo: 'Plan de acción', id: 'pedido', nombre: 'Pedido a China' },
     { grupo: 'Plan de acción', id: 'preventa', nombre: 'Preventa de puzzles' },
     { grupo: 'Plan de acción', id: 'correos-preventa', nombre: 'Correos de la preventa' },
+    { grupo: 'Plan de acción', id: 'correos-reactivacion', nombre: 'Reactivar la lista' },
     { grupo: 'Plan de acción', id: 'inventario', nombre: 'Control de stock' },
     { grupo: 'Plan de acción', id: 'modelo-datos', nombre: 'Ordenar los datos' },
     { grupo: 'Plan de acción', id: 'ofertas', nombre: 'Ofertas y pop-ups' },
