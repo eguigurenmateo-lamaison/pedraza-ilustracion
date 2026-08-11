@@ -1549,78 +1549,46 @@ main { counter-reset: sec; }
 </section>
 
 <section class="sec">
-<h2>El mensaje para Felipe</h2>
+<h2>La lista, para descargar</h2>
 
-<div class="copyblock">
-  <button type="button" class="copyblock__btn" data-copy-target="copy-mensaje-felipe">Copiar</button>
-  <div class="copyblock__text" id="copy-mensaje-felipe">Felipe, revise la tabla completa. Casi todo cerrado, te dejo lo que queda.
+<p>El archivo trae tres pestañas: la lista de la tienda propia producto por producto, los precios de Mercado Libre con su margen real, y lo que falta por cerrar.</p>
 
-VERIFICADO
-Los 11 margenes de Shopify cuadran al decimal con los costos del archivo.
-Nada que corregir ahi.
+<div class="callout callout--success">
+<p>📥 <strong><a href="descargas/lista-precios-pedraza.xlsx" download>Descargar lista-precios-pedraza.xlsx</a></strong></p>
+<p>Los márgenes están calculados sobre el precio sin IVA. Los dos precios que sugerimos mantener aparecen destacados.</p>
+</div>
 
-CERRADO
-- Puzzle de ninos: tenias razon, era desfase de version. Con $18.990 y costo
-  $6.599 da 58,6%, tu numero. El mio salia de la version con $17.990.
-- Totebag: lo subiste a $15.290 y quedo en 60,5%, sobre el piso. Resuelto.
-- Lamina: gracias por revisar la ficha en vivo. Sin "antes", solo $36.990.
-  Ese punto queda cerrado.
-- Botella: de acuerdo, excepcion y a atacar el FOB con el proximo pedido.
-- Piso por canal: totalmente de acuerdo, y tus numeros lo confirman.
+<h3>Lo que queda en cada producto</h3>
 
-UNA PRECISION SOBRE LA BRECHA ENTRE CANALES
-Dices "entre 12 y 20 puntos". Con tu propia tabla el rango va de 12,3
-(totebag) a 23,0 (naipes). El piso esta bien, el techo son 23. Puzzle
-tambien se pasa: 21,9.
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Producto</th><th>Precio hoy</th><th>Propuesta</th><th>Sugerido</th><th>Margen</th><th>Qué se hace</th></tr>
+</thead>
+<tbody>
+<tr><td>Lámina A2</td><td>$52.990</td><td>$36.990</td><td><strong>$36.990</strong></td><td>73,1%</td><td><span class="pill pill--success">Bajar</span></td></tr>
+<tr><td>Lámina A3</td><td>$40.990</td><td>$23.990</td><td><strong>$23.990</strong></td><td>68,9%</td><td><span class="pill pill--success">Bajar</span></td></tr>
+<tr><td><strong>Puzzle 1.000 pzs</strong></td><td>$29.990</td><td>$27.990</td><td><strong>$29.990</strong></td><td>68,3%</td><td><span class="pill pill--danger">Mantener</span></td></tr>
+<tr><td>Puzzle 60 pzs</td><td>—</td><td>$18.990</td><td><strong>$18.990</strong></td><td><span class="pill pill--warn">58,6%</span></td><td><span class="pill pill--info">Nuevo</span></td></tr>
+<tr><td>Botella</td><td>$32.990</td><td>$27.990</td><td><strong>$27.990</strong></td><td><span class="pill pill--warn">59,0%</span></td><td><span class="pill pill--success">Bajar</span></td></tr>
+<tr><td>Naipes</td><td>$22.990</td><td>$22.990</td><td><strong>$22.990</strong></td><td>80,5%</td><td>Sin cambio</td></tr>
+<tr><td><strong>Pin</strong></td><td>$7.990</td><td>$5.990</td><td><strong>$7.990</strong></td><td>77,2%</td><td><span class="pill pill--danger">Mantener</span></td></tr>
+<tr><td>Llavero</td><td>$9.990</td><td>$7.990</td><td><strong>$7.990</strong></td><td>74,5%</td><td><span class="pill pill--success">Bajar</span></td></tr>
+<tr><td>Totebag</td><td>$17.990</td><td>$15.290</td><td><strong>$15.290</strong></td><td>60,5%</td><td><span class="pill pill--success">Bajar</span></td></tr>
+<tr><td>Libretas</td><td>$18.990</td><td>$16.990</td><td><strong>$16.990</strong></td><td>70,6%</td><td><span class="pill pill--success">Bajar</span></td></tr>
+<tr><td>Postales</td><td>$11.990</td><td>$11.990</td><td><strong>$11.990</strong></td><td>83,1%</td><td>Sin cambio</td></tr>
+<tr><td>Calcetines</td><td>$9.990</td><td>$9.990</td><td><strong>$9.990</strong></td><td>86,3%</td><td>Sin cambio</td></tr>
+<tr><td>Bandanas</td><td>—</td><td>$9.990</td><td><strong>$9.990</strong></td><td>87,1%</td><td><span class="pill pill--info">Nuevo</span></td></tr>
+</tbody>
+</table>
+</div>
 
-LO QUE HAY QUE CONFIRMAR DEL CALCULO DE MELI
-Reconstrui tus margenes. Los productos bajo $19.990 cuadran perfecto: ahi
-MeLi no obliga a envio gratis, no cargan envio, y la comision implicita da
-12,7%-16,0%. Todo bien.
+<div class="callout callout--info">
+<p><strong>Aplicando todo:</strong> la baja cuesta <strong>$4.009.412</strong> al año. <strong>Manteniendo puzzle y pin:</strong> <strong>$1.617.255</strong>. Los dos son productos donde el mercado no pide la baja.</p>
+</div>
 
-En los sobre $19.990 el numero solo cuadra si se resta la MITAD del envio.
-Y creo que ahi hay un doble conteo: el puzzle paso de $27.990 a $29.490
-justamente para traspasar la mitad, o sea esos $1.500 ya estan dentro de la
-venta. Pero a MeLi le seguimos pagando los $3.250 completos, no $1.625.
-
-Restando el envio completo queda asi:
-  Naipes     57,5% -> 49,6%
-  Lamina A3  52,3% -> 44,9%
-  Puzzle     46,4% -> 39,8%
-  Botella    39,4% -> 32,8%
-  Lamina A2  56,1% -> 51,3%
-Los cinco bajo $19.990 no cambian.
-
-Me confirmas cual usaste? Lo pregunto porque si fuera envio completo, la
-comision implicita tendria que ser de 3,5% a 8,7%, y eso no existe en MeLi.
-Con la mitad da 9,7%-14,2%, que si es realista. Por eso creo que es lo otro.
-
-EL PUZZLE DE NINOS EN MELI
-Quedo en $18.990, igual que en Shopify. Es el unico producto donde el precio
-de MeLi no traspasa nada del costo del canal. Con una comision normal el
-margen cae a 18%-24%, de lejos el mas bajo. Cuando confirmes la comision de
-ese SKU, casi seguro hay que subirlo.
-
-EL PIN: EL UNICO QUE ME HACE RUIDO
-Era el producto mejor calibrado del catalogo: a $7.990 estaba apenas +7%
-sobre la referencia de mercado. A $5.990 queda como 20% BAJO el mercado y
-cuesta $333.894 al ano. El margen aguanta (77,2%), pero no hay razon de
-competencia para bajarlo tanto.
-Si la idea es usarlo de producto de entrada o de gancho en packs, me parece
-bien y lo dejamos escrito asi. Como movimiento de precio suelto, es plata
-que dejamos sobre la mesa.
-
-EL METODO
-De acuerdo en las tres cosas juntas: costos y margen + competencia y
-caracteristicas + pesos por pedido. Ya quedo escrito asi en la pagina.
-Y de acuerdo tambien en tomar estos precios como punto de partida y
-revisarlos juntos contra competencia antes de cerrarlos.
-
-LO QUE FALTA
-- Confirmar el doble conteo del envio en MeLi.
-- La comision del puzzle de ninos.
-- El costo doble de libretas entre las dos hojas ($4.200 y $7.235).
-- Las unidades de laminas, para poder costear su baja.</div>
+<div class="callout callout--danger">
+<p><strong>🔴 Si el puzzle y el pin se mantienen, sus precios de Mercado Libre tienen que subir también.</strong> Hoy la propuesta los deja en $29.490 y $6.490 — <em>por debajo</em> del precio de la tienda propia, lo que invierte la regla de canal y manda al cliente al lugar donde la marca gana menos. El mínimo para que la regla se sostenga es <strong>$31.490</strong> y <strong>$8.490</strong>.</p>
 </div>
 </section>
 
