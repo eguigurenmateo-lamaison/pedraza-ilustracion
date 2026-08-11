@@ -70,6 +70,54 @@ Cruzar los $50.000 le cuesta $3.500 al negocio, y hay que sumar $4.346 más de v
 
 Es el método correcto y explica por qué el mismo margen es aceptable en un producto e inaceptable en otro. La página le suma un tercer número: **cuántos pesos deja cada pedido**. Costo y competencia dicen dónde puede estar el precio; la plata por pedido dice cuál de esas opciones conviene.
 
+## Tabla final de Felipe (11-ago) y verificación
+
+Felipe entregó la lista completa con precios de Shopify y Mercado Libre y márgenes de los dos canales.
+
+- 🟢 **Los 11 márgenes de Shopify cuadran al decimal** con los costos del archivo. Cero discrepancias.
+- 🟢 **Puzzle de niños resuelto:** era desfase de versión, no de costo. El precio final es $18.990 (no $17.990) y da 58,6%, el número que él reportaba.
+- 🟢 **Totebag resuelto:** lo subió a $15.290 y quedó en 60,5%, sobre el piso.
+- 🟢 **La lámina quedó cerrada:** revisó la ficha en vivo y no muestra ningún "antes", solo $36.990. Riesgo de Ley del Consumidor descartado.
+- 🟢 **Piso por canal aceptado** por ambos, con sus propios números como evidencia.
+
+### Cambios en la lista de Shopify desde la versión evaluada en el PR #28
+
+| Producto | Antes | Ahora | Margen |
+|---|---:|---:|---|
+| Puzzle niños | $17.990 | **$18.990** | 56,3% → 58,6% |
+| Totebag | $14.990 | **$15.290** | 59,7% → 60,5% |
+| Pins | $6.500 | **$5.990** | 79,0% → 77,2% |
+| Libretas | $18.990 | **$16.990** | 73,7% → 70,6% |
+
+**Costo de la propuesta actualizado: $4.009.412/año** (antes $3.779.283), porque pin y libretas bajan más.
+
+### ⚠️ Doble conteo del envío en los márgenes de Mercado Libre
+
+Reconstruidos con `verificacion-meli-final.py`:
+
+- Los productos **bajo $19.990 cuadran perfecto**: Mercado Libre no obliga a envío gratis bajo ese monto, así que no cargan envío, y la comisión implícita da 12,7%–16,0%.
+- Los productos **sobre $19.990** solo cuadran restando **la mitad** del envío ($1.625). Pero el traspaso del 50% ya está dentro del precio: el negocio paga los $3.250 completos. Restar solo la mitad lo cuenta dos veces.
+
+| Producto | Reportado | Con envío completo |
+|---|---:|---:|
+| Naipes | 57,5% | 49,6% |
+| Lámina A3 | 52,3% | 44,9% |
+| Puzzle 1.000 | 46,4% | 39,8% |
+| Botella | 39,4% | **32,8%** |
+| Lámina A2 | 56,1% | 51,3% |
+
+Evidencia de que la lectura es esa: con envío completo, la comisión implícita tendría que ser 3,5%–8,7%, que no existe en Mercado Libre Chile. Con la mitad da 9,7%–14,2%, realista. **Pendiente de confirmar con Felipe.**
+
+### Otros dos hallazgos
+
+- 🔴 **El puzzle de niños queda a $18.990 en los dos canales**: es el único que no traspasa nada del costo de Mercado Libre. Con comisión normal el margen cae a 18%–24% 🟡.
+- 🟡 **El pin es el único movimiento sin respaldo de mercado.** A $7.990 estaba +7% sobre la referencia ($7.490 🟡), o sea bien calibrado. A $5.990 queda ~20% bajo el mercado y cuesta $333.894/año.
+- 🟡 **La brecha entre canales va de 12,3 a 23,0 puntos**, no "12 a 20" como la describe Felipe. Naipes 23,0 y puzzle 21,9 se pasan del techo.
+
+### El método, ya acordado por ambos (11-ago)
+
+> **Costos y margen + competencia y características del producto + pesos por pedido.** Mientras más competitiva la categoría, más peso a la referencia de mercado.
+
 ## Lo que falta
 
 Ordenado por cuánto cambia la conclusión:
