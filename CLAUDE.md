@@ -25,19 +25,137 @@ Reglas permanentes para TODOS los entregables de este repo (documentos, páginas
 
 6. **Todo lo copiable, con copia en un clic.** Cualquier texto pensado para copiar y pegar (bios, guiones, plantillas de DM, captions, mensajes) va SIEMPRE dentro de un bloque `.copyblock` con botón "Copiar": usa `navigator.clipboard` con fallback a `document.execCommand('copy')`, feedback visual "✓ ¡Copiado!" al hacer clic, y delegación de eventos (un solo listener por página). En móvil el botón debe ser cómodo para el dedo.
 
-## Contexto comercial clave (confirmado por el operador, jul-2026)
+## Contexto comercial clave (actualizado ago-2026)
 
 - Facturación actual de la tienda: **~USD 5.000/mes**. Meta: **USD 10.000/mes**. Esta es la métrica norte del plan.
-- **Datos reales de Shopify (captura de Felipe, 1-24 jul-2026, todos los canales):** ventas $4,17M CLP (+32%), 110 pedidos (+34%), 10,8 mil sesiones (+9%), conversión 0,98% (+21%). Derivados: **AOV real ≈ $37.900 CLP** (reemplaza la referencia de memoria de ~$60.000), ~4,6 pedidos/día (~140/mes proyectado), ~450 sesiones/día. La palanca CRO queda cuantificada: con el mismo tráfico, subir conversión de ~1% a ~1,7% casi duplica la venta.
+- **Datos reales de Shopify (captura de Felipe, 1-24 jul-2026, todos los canales):** ventas $4,17M CLP (+32%), 110 pedidos (+34%), 10,8 mil sesiones (+9%), conversión 0,98% (+21%). Derivados: **AOV real ≈ $37.900 CLP** (reemplaza la referencia de memoria de ~$60.000), ~4,6 pedidos/día (~140/mes proyectado), ~450 sesiones/día. La palanca CRO queda cuantificada: con el mismo tráfico, subir conversión de ~1% a ~1,7% casi duplica la venta. **Estos datos quedan como histórico de julio — los vigentes están en la sección "El embudo" más abajo, y el ticket promedio bajó de $37.900 a $31.181.**
 - Seguidores de @pedraza_ilustracion: **62.500** (confirmado por el operador, jul-2026).
 - **"Cote" = María José Pedraza.** Ella es quien responde los mensajes/DMs hoy (confirmado por el operador).
-- **Envío gratis: sobre $50.000 CLP** (confirmado por Felipe, jul-2026; el umbral de $30.000 que apareció en el research era una versión cacheada del sitio).
+- **Envío gratis: sobre $50.000 CLP** ✅ verificado en Shopify el 23-ago-2026: descuento automático "Envío gratis en compras sobre $50.000", activo desde el 10-abr-2026. El umbral de $30.000 del research era una versión cacheada del sitio. **La propuesta de bajarlo a $44.990 existe pero NO está aplicada** — no usarla como si rigiera.
 - **Marca "Pedraza Ilustración" registrada en Chile (INAPI)** ✅. Pendiente: registro en EEUU (USPTO) para la Rampa Amazon (confirmado por Felipe, jul-2026).
 - Objetivo #1: escalar ventas de la tienda online (Shopify). Mercado: Chile ahora, Amazon EEUU pronto (anexo "Rampa EEUU").
 - **Doble motor de audiencia** (feedback de Felipe, jul-2026): activar la base de 62.500 seguidores Y salir a buscar audiencia nueva; los **lanzamientos de producto** ahora son posibles (antes limitados por los tiempos de Cote) y son palanca comercial junto al calendario de fechas.
 - **Frentes fuera del plan orgánico actual**: precios, stock, CRO, Meta Ads, Google Ads (los levantó Felipe) y email marketing (lo sumó el operador) — se definen tras la reunión del lunes 27-jul-2026 (10:00 Chile) y la entrega de accesos, con checklist propio del operador. No inventar esa estrategia antes de tener datos y accesos.
 - **Email marketing — enfoque ya definido por el operador (jul-2026):** 3 campañas por semana, todas con la misma estructura: storytelling al inicio → conectar con un producto. La ejecución (herramienta, listas, calendario) se define igual tras la reunión y los accesos.
 - El detalle del acuerdo comercial operador-cliente (fijo + variable) NO se incluye en ningún entregable.
+
+## El negocio en 30 segundos
+
+Tienda Shopify chilena (`pedrazailustracion.com`, CLP, UTC-04) que vende objetos ilustrados de flora y fauna de Chile: puzzles de 1000 y 60 piezas, naipes, botellas térmicas, láminas, calcetines, pines, libretas, totebags y postales.
+
+- **Cote (María José Pedraza)** — ilustradora y fundadora. Decide precios, producción y stock. Es quien responde los mensajes y DMs.
+- **Mateo Eguiguren** — Fractional COO. Ejecuta Meta Ads, Google Ads y Klaviyo. Es quien pide y aprueba el trabajo de este repo.
+- **Felipe Robinson** — 🟡 POR CONFIRMAR. En las actas de julio y agosto de 2026 decide precios, descuentos y stock junto a Cote, y es contraparte en todas las reuniones. El documento de contexto de ago-2026 no lo menciona. Preguntar antes de asumir que salió del equipo.
+- Fabricación en China, contenedor de **75 a 90 días** de tránsito. El catálogo no puede reaccionar rápido.
+- **5 de los 6 productos más vendidos son preventa.** El modelo comercial es lanzamiento con fecha y cupo, no catálogo permanente. Por eso la fecha de despacho es información crítica en la ficha de producto, no un detalle.
+
+## El embudo: dónde está la fuga
+
+Verificado en Shopify el 23-ago-2026, últimos 30 días 🟢:
+
+| Etapa | Cantidad | % de sesiones |
+|---|---|---|
+| Sesiones | 13.016 | — |
+| Agregan algo al carrito | 497 | **3,8%** |
+| Llegan al pago | 346 | 2,7% |
+| Completan la compra | 129 | **0,99%** |
+
+Pedidos: 135 · Ventas brutas: $4.301.590 · **Ticket promedio: $31.181** (meta: $45.000).
+
+**De cada 100 visitas, 96 no agregan nada al carrito.** Eso no es problema de precio ni de envío: es la ficha de producto. La conversión debería estar entre 1,8% y 3%. Cada punto que se recupera vale del orden de **$4,6M CLP al mes** sin gastar un peso más en publicidad.
+
+**53% del tráfico viene de Instagram orgánico en celular** 🟡 (dato heredado, no verificado en esta sesión). Mobile primero no es una preferencia, es la mayoría del negocio.
+
+## Los productos y los márgenes
+
+### Los 4 que importan (cerca del 60% de la facturación)
+
+| Producto | Precio |
+|---|---|
+| Naipes Aves de Chile | $19.490 ✅ |
+| Puzzle Aves y Flores de Chile | $23.790 (precio de preventa, con el 15%) |
+| Puzzle Hongos de Chile | $23.790 |
+| Botella térmica Aves de Chile | $27.990 ✅ |
+
+La línea **"Aves de Chile"** completa es ~45% del negocio. Todo se construye desde ahí.
+
+### Márgenes por familia
+
+Confirmados por el operador (ago-2026), **calculados sobre el precio con IVA**:
+
+Postales 82% · Pins 82% · Llaveros 78% · Naipes 76% · Láminas A2 69% · Puzzle 1000 69% · Calcetines 69% · Láminas A3 67% · Botellas 59% · Totebag 57% · Libretas 55% · Puzzle 60 pzs 46%
+
+**Postales, pins y llaveros son los que se ofrecen como segunda unidad.** Libretas, totebags y el puzzle de 60 piezas no se promocionan.
+
+## Números que se usan en la interfaz
+
+- **Envío gratis: sobre $50.000** ✅ verificado. Los envíos se cobran **por peso, no por monto**: base $5.990, y sube hasta $16.000-$34.590 en regiones para paquetes pesados. Cualquier barra de progreso hacia el envío gratis tiene que apuntar al descuento automático, no a una tarifa de envío.
+- **Pack 2 puzzles $44.790 · Pack 3 puzzles $65.490** ✅ verificados.
+- **Precios de puzzles:** hoy con el 15% de preventa — adulto **$23.790**, niños **$15.990**. **En septiembre de 2026 vuelven a los de antes: adulto $27.990, niños $18.990** (confirmado por el operador, ago-2026).
+- **Nunca hardcodear precios, fechas de despacho ni textos de campaña.** Van como metafields o settings editables por Cote sin tocar código.
+
+## Inventario
+
+- **El inventario negativo es normal y esperado:** es preventa vendiendo bajo cero. Se regulariza cuando llega el contenedor. Nunca tratar un SKU negativo como quiebre sin antes revisar si es preventa.
+- **La tienda tiene cerca de 40 packs en borrador**, varios duplicados entre sí: el trío de aves (puzzle + botella + naipes) existe tres veces a $62.600, $69.870 y $69.990, y el dúo de hongos dos veces a $39.990 y $47.990. Antes de publicar cualquiera hay que limpiar los duplicados.
+- Tres packs **"Semana Pedraza"** están armados con imagen, descripción y stock, solo apagados: Coleccionista $81.990, Descubrimiento $73.990, Explorador $52.990.
+- Ya existe **"Colección completa Láminas Flora y Fauna" a $200.940** en borrador. Es el pendiente del "lleva 5, paga 4" — revisar y ajustar ese, no crear uno nuevo.
+
+## Accesos conectados
+
+| Plataforma | Estado | Identificador |
+|---|---|---|
+| Meta Ads | ✅ conectado, con escritura | `10150190815478583` |
+| Klaviyo | ✅ conectado, con escritura | `RAYABY` · remitente `cote@pedrazailustracion.com` |
+| Shopify | ✅ conectado, con escritura | `pedrazailustracion.com` |
+| Google Ads | ❌ pendiente de conectar | inversión ~$16.000 CLP/día |
+
+### Regla de ejecución con los accesos
+
+- **Se ejecuta sin preguntar** todo lo reversible que no ve un cliente: borradores, colecciones ocultas, campañas en pausa, plantillas de correo sin enviar, lecturas y análisis.
+- **Se deja listo y se espera el visto bueno de Mateo** para todo lo que ve un cliente o gasta plata: publicar un producto, cambiar un precio, enviar una campaña, encender o modificar un anuncio activo.
+
+## MER — la métrica de verdad del negocio
+
+**MER = ventas brutas de Shopify ÷ inversión total en publicidad (Meta + Google).**
+
+- Equilibrio **2,9** · piso operativo **3,5** · **freno automático bajo 3,2**.
+- **NUNCA calcular el MER con el revenue atribuido por Meta.** Meta se auto-atribuye del orden del 79% de la facturación total y está inflado. Mostrar ambos por separado y etiquetar cuál es cuál.
+- Mientras Google Ads no esté conectado, el MER se arma con la inversión real de Meta más la de Google cargada a mano (~$16.000 CLP/día) y **se marca como parcial**.
+
+## El reporte diario
+
+- **Se entrega como mensaje listo para copiar y pegar en WhatsApp, no en Slack.** La comunicación del equipo pasa por WhatsApp.
+- Contenido: ventas de ayer contra el mismo día de la semana anterior, pedidos, ticket promedio, conversión, inversión en publicidad, MER, ingreso por destinatario de correo, top 5 productos y alertas de stock bajo 30 días de cobertura.
+- Alertas: MER del mes bajo 3,2 · campañas con ROAS bajo 2 y más de $50.000 gastados · SKU en cero o negativo **que no sea preventa**.
+- Credenciales siempre en variables de entorno, nunca en el código. Histórico en CSV o SQLite.
+
+## Voz y diseño de la tienda
+
+La marca es **acuarela naturalista chilena**. Sobria, cercana, primera persona de Cote. Habla de observar aves, caminar cerros, viajar con la cámara. La frase que define el tono: *"El primer paso para proteger algo es conocerlo."* El detalle completo de cómo escribe Cote está en la sección "La voz de Cote" más abajo, y manda por sobre esto.
+
+**Nunca:** contadores regresivos rojos, banners de urgencia agresiva, mayúsculas sostenidas, el descuento como argumento principal, ni nada que parezca dropshipping.
+
+**Siempre:** español de Chile, la ilustración como héroe visual (no el copy), mobile primero.
+
+## Reglas para el repo del tema de Shopify
+
+🟡 Ese repo todavía no existe. Estas reglas quedan guardadas para cuando se cree y **no aplican a este repo**, que es el sitio de páginas HTML del plan.
+
+1. **Nunca publicar al tema en vivo.** Todo trabajo va en una rama. Mateo revisa y publica.
+2. **Nunca hardcodear precios, fechas de despacho ni textos de campaña.** Van como metafields o settings del theme editor.
+3. **Medir el peso y el tiempo de carga antes y después.** El tráfico es móvil chileno; cada kilobyte cuenta.
+4. **No agregar apps de terceros** sin preguntar. Ya hay demasiadas capas.
+5. Entregar siempre: resumen de qué se tocó + capturas móvil y escritorio del antes y el después.
+
+**Cola de trabajo de ese repo, en orden:** fichas de los 4 productos principales (bloque de preventa con fecha de despacho sobre el botón de compra, reseñas sobre el pliegue, especificaciones concretas, barra hacia el envío gratis, sección "va bien con") · bloque de segunda unidad en el carrito y el drawer (máximo 3 sugerencias de alto margen, nunca productos ya en el carrito, misma colección primero, no mostrar sobre $60.000) · plantilla de landing para tráfico de Instagram (un protagonista, fecha de cierre visible, historia corta de Cote, reseñas, un solo CTA repetido 3 veces, sin menú ni sliders) · reporte diario.
+
+## Glosario
+
+- **MER**: ventas brutas totales ÷ inversión total en publicidad. Equilibrio 2,9 · piso operativo 3,5 · freno automático bajo 3,2.
+- **AOV / ticket promedio**: valor promedio del pedido. Hoy $31.181 CLP.
+- **Preventa**: producto vendido antes de tenerlo en bodega, con fecha de despacho comprometida. Es el motor comercial, no una excepción.
+- **Breakage**: valor de gift cards que nunca se redime. Real: 10-19%, no 85%.
 
 ## Reglas de contenido del operador (aplicar en toda la estrategia)
 
