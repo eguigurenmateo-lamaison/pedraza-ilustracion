@@ -1,0 +1,352 @@
+{
+  "extraido": "2026-09-09",
+  "tienda": {
+    "nombre": "Pedraza Ilustración",
+    "dominio_primario": "pedrazailustracion.com",
+    "dominio_myshopify": "pedrazailustracionmj.myshopify.com",
+    "dominio_cl_existe": false,
+    "nota_dominio_cl": "https://pedrazailustracion.cl no resuelve/no carga desde el navegador (navegación denegada o fallida). No hay redirect registrado hacia ni desde ese dominio en urlRedirects. El dominio correcto y verificado para el permalink de carrito es https://pedrazailustracion.com",
+    "moneda": "CLP",
+    "pais": "Chile",
+    "formato_precio_graphql": "${{amount_no_decimals}}",
+    "formato_precio_observado_pagina_producto": "$27,990 (separador de miles: COMA, sin decimales, prefijo $)",
+    "formato_precio_observado_checkout": "$83.970 (separador de miles: PUNTO, sin decimales, prefijo $)",
+    "riesgo_formato_precio": "La página de producto (tema) y la pantalla de checkout de Shopify muestran el separador de miles DE FORMA DISTINTA (coma vs punto) para el mismo valor numérico. Verificado en vivo el 2026-09-09. Hay que decidir a cuál imitar en la página nueva del selector; se recomienda copiar el formato del tema (coma) si la página vive dentro del storefront, ya que el checkout no es personalizable.",
+    "envio_gratis": {
+      "existe": true,
+      "tipo": "descuento automático (sin código)",
+      "titulo": "Envío gratis en compras sobre $50.000",
+      "id": "gid://shopify/DiscountAutomaticNode/1215336087688",
+      "status": "ACTIVE",
+      "umbral_clp": 50000,
+      "pais": "Chile",
+      "inicio": "2026-04-10T12:58:42Z",
+      "fin": null
+    },
+    "paginas_existentes": [
+      { "titulo": "Contacto", "handle": "contact", "publicada": true },
+      { "titulo": "Quienes somos", "handle": "sobre-mi", "publicada": true },
+      { "titulo": "Cambios y devoluciones", "handle": "cambios-y-devoluciones", "publicada": true },
+      { "titulo": "Política de envíos", "handle": "politica-de-envios", "publicada": true },
+      { "titulo": "Despachos", "handle": "despachos", "publicada": true },
+      { "titulo": "SUSCRIPCION", "handle": "suscripcion", "publicada": true },
+      { "titulo": "Pedraza Ilustracion", "handle": "pedraza-ilustracion-us", "publicada": true }
+    ],
+    "nota_paginas": "Ninguno de estos handles choca con nombres típicos para la página del constructor de packs (ej. 'armar-pack-puzzles', 'elige-3-puzzles', 'pack-3-puzzles-builder'). No se revisó si existe una página de tipo 'home' con secciones custom que pudiera duplicar contenido."
+  },
+  "metodo_busqueda_puzzles": {
+    "texto_puzzle": "43 resultados (incluye los 5 puzzles individuales + ~30 productos 'Pack ... puzzle...' + 1 producto mal etiquetado 'Juego Naipes Aves de Chile')",
+    "texto_puzle": "0 resultados",
+    "texto_rompecabezas": "0 resultados",
+    "product_type_Puzzle": "1 resultado (solo 'Puzzle ilustrado – Cetáceos de Chile' tiene productType='puzzle' seteado; los demás puzzles tienen productType vacío)",
+    "coleccion_puzzles": "Colección 'Puzzles' (handle: puzzles, regla automática TAG=puzzle) contiene 26 productos: los 5 puzzles individuales + packs + el producto mal etiquetado de naipes"
+  },
+  "puzzles": [
+    {
+      "titulo": "Puzzle ilustrado – Aves y flores de Chile (1000 piezas)",
+      "handle": "puzzle-1000-piezas-aves-flores-chilenas",
+      "id_numerico": 7021857013896,
+      "gid": "gid://shopify/Product/7021857013896",
+      "status": "ACTIVE",
+      "publicado_online_store": true,
+      "url_producto": "https://pedrazailustracion.com/products/puzzle-1000-piezas-aves-flores-chilenas",
+      "piezas": 1000,
+      "piezas_fuente": "titulo del producto (no existe metafield numérico dedicado a cantidad de piezas)",
+      "tags": ["aves de chile", "BLACKMONDAY", "flores", "puzzle", "puzzles"],
+      "colecciones": ["Puzzles", "Aves de Chile", "Flores de Chile", "CYBER MONDAY", "Día Madre", "cyber", "productos descto", "¡Black!", "EasyGift All Products", "NAVIDAD 2024", "Toda la colección", "All Products", "Colección Primavera", "Cyber", "Aniversario 5 años", "BLACK NATURAL", "NAVIDAD", "Black Sale", "Día de la Madre", "Cyber Pedraza Ilustración"],
+      "imagen_principal": {
+        "url": "https://cdn.shopify.com/s/files/1/0592/9530/1768/files/APW7380-Editar-Editar.jpg?v=1756948503",
+        "alt_text": "NO DISPONIBLE (alt vacío en Shopify)"
+      },
+      "variantes": [
+        {
+          "titulo_variante": "Default Title",
+          "id_numerico_variante": 40651937120392,
+          "gid_variante": "gid://shopify/ProductVariant/40651937120392",
+          "sku": "PUZZ-AVE",
+          "precio_clp": 27990,
+          "compare_at_price_clp": null,
+          "inventario_disponible": 104,
+          "inventario_gestionado": true,
+          "inventory_policy": "CONTINUE (permite venta sin stock)"
+        }
+      ]
+    },
+    {
+      "titulo": "Puzzle ilustrado – Mariposas y Escarabajos de Chile (1000 piezas)",
+      "handle": "puzzle-1000-piezas-escarabajos-mariposas-chilenas",
+      "id_numerico": 7673278955656,
+      "gid": "gid://shopify/Product/7673278955656",
+      "status": "ACTIVE",
+      "publicado_online_store": true,
+      "url_producto": "https://pedrazailustracion.com/products/puzzle-1000-piezas-escarabajos-mariposas-chilenas",
+      "piezas": 1000,
+      "piezas_fuente": "titulo del producto (no existe metafield numérico dedicado a cantidad de piezas)",
+      "tags": ["blackfriday", "escarabajos", "mariposas", "puzzle", "puzzles"],
+      "colecciones": ["Puzzles", "Mariposas de Chile", "Día Madre", "cyber", "productos descto", "¡Black!", "EasyGift All Products", "NAVIDAD 2024", "Toda la colección", "All Products", "Escarabajos", "Primavera", "Colección Primavera", "Cyber", "Aniversario 5 años", "BLACK NATURAL", "NAVIDAD", "Black Sale", "Día de la Madre", "Cyber Pedraza Ilustración"],
+      "imagen_principal": {
+        "url": "https://cdn.shopify.com/s/files/1/0592/9530/1768/files/APW7382-Editar-2.jpg?v=1756948482",
+        "alt_text": "NO DISPONIBLE (alt vacío en Shopify)"
+      },
+      "variantes": [
+        {
+          "titulo_variante": "Default Title",
+          "id_numerico_variante": 41511835009160,
+          "gid_variante": "gid://shopify/ProductVariant/41511835009160",
+          "sku": "PUZZ-MARI",
+          "precio_clp": 27990,
+          "compare_at_price_clp": null,
+          "inventario_disponible": 13,
+          "inventario_gestionado": true,
+          "inventory_policy": "DENY (NO permite venta sin stock — riesgo de quiebre visible al llegar a 0)"
+        }
+      ]
+    },
+    {
+      "titulo": "Puzzle ilustrado – Cetáceos de Chile (1000 piezas)",
+      "handle": "puzzle-1000-piezas-cetaceos-chilenos",
+      "id_numerico": 8423424753800,
+      "gid": "gid://shopify/Product/8423424753800",
+      "status": "ACTIVE",
+      "publicado_online_store": true,
+      "url_producto": "https://pedrazailustracion.com/products/puzzle-1000-piezas-cetaceos-chilenos",
+      "piezas": 1000,
+      "piezas_fuente": "titulo del producto (no existe metafield numérico dedicado a cantidad de piezas)",
+      "tags": ["cetaceos", "puzzle", "puzzles"],
+      "product_type": "puzzle",
+      "colecciones": ["Puzzles", "¡Black!", "EasyGift All Products", "NAVIDAD 2024", "Toda la colección", "All Products", "Cetáceos", "Cyber", "Aniversario 5 años", "BLACK NATURAL", "NAVIDAD", "Destacados Marzo", "Black Sale", "Cyber Pedraza Ilustración", "Feliz día papá", "Los favoritos de Septiembre"],
+      "imagen_principal": {
+        "url": "https://cdn.shopify.com/s/files/1/0592/9530/1768/files/APW7385-Editar-Editar.jpg?v=1756948457",
+        "alt_text": "NO DISPONIBLE (alt vacío en Shopify)"
+      },
+      "variantes": [
+        {
+          "titulo_variante": "Default Title",
+          "id_numerico_variante": 43097085182088,
+          "gid_variante": "gid://shopify/ProductVariant/43097085182088",
+          "sku": "PUZ-CET",
+          "precio_clp": 27990,
+          "compare_at_price_clp": null,
+          "inventario_disponible": 42,
+          "inventario_gestionado": true,
+          "inventory_policy": "CONTINUE (permite venta sin stock)"
+        }
+      ]
+    },
+    {
+      "titulo": "Puzzle ilustrado – Hongos de Chile (1000 piezas)",
+      "handle": "puzzle-ilustrado-hongos-de-chile-1000-piezas",
+      "id_numerico": 8630250569864,
+      "gid": "gid://shopify/Product/8630250569864",
+      "status": "ACTIVE",
+      "publicado_online_store": true,
+      "url_producto": "https://pedrazailustracion.com/products/puzzle-ilustrado-hongos-de-chile-1000-piezas",
+      "piezas": 1000,
+      "piezas_fuente": "titulo del producto (no existe metafield numérico dedicado a cantidad de piezas)",
+      "tags": ["BLACKMONDAY", "hongos", "puzzle", "puzzles"],
+      "colecciones": ["Puzzles", "CYBER MONDAY", "Día Madre", "cyber", "productos descto", "¡Black!", "EasyGift All Products", "NAVIDAD 2024", "Toda la colección", "All Products", "Hongos", "Cyber", "Aniversario 5 años", "BLACK NATURAL", "NAVIDAD", "Destacados Marzo", "Black Sale", "Cyber Pedraza Ilustración", "Feliz día papá", "Semana Pedraza"],
+      "imagen_principal": {
+        "url": "https://cdn.shopify.com/s/files/1/0592/9530/1768/files/Puzzlehongo_9709156f-2410-4766-9b1a-147281aef91b.jpg?v=1775594955",
+        "alt_text": "NO DISPONIBLE (alt vacío en Shopify)"
+      },
+      "variantes": [
+        {
+          "titulo_variante": "Default Title",
+          "id_numerico_variante": 43963478311048,
+          "gid_variante": "gid://shopify/ProductVariant/43963478311048",
+          "sku": "PUZZ-HON",
+          "precio_clp": 27990,
+          "compare_at_price_clp": null,
+          "inventario_disponible": 27,
+          "inventario_gestionado": true,
+          "inventory_policy": "CONTINUE (permite venta sin stock)"
+        }
+      ]
+    },
+    {
+      "titulo": "Puzzle Naturaleza - 60 piezas",
+      "handle": "puzzle-naturaleza-60-piezas",
+      "id_numerico": 8874415423624,
+      "gid": "gid://shopify/Product/8874415423624",
+      "status": "ACTIVE",
+      "publicado_online_store": true,
+      "url_producto": "https://pedrazailustracion.com/products/puzzle-naturaleza-60-piezas",
+      "piezas": 60,
+      "piezas_fuente": "titulo del producto",
+      "tags": ["aves de chile", "cetaceos", "escarabajos", "flores", "hongos", "mariposas", "puzzle", "puzzles"],
+      "colecciones": ["Puzzles", "Aves de Chile", "Flores de Chile", "Mariposas de Chile", "EasyGift All Products", "All Products", "Cetáceos", "Escarabajos", "Hongos", "Los favoritos de Septiembre"],
+      "imagen_principal": {
+        "url": "https://cdn.shopify.com/s/files/1/0592/9530/1768/files/puzzlenaturaleza.jpg?v=1775069138",
+        "alt_text": "NO DISPONIBLE (alt vacío en Shopify)"
+      },
+      "variantes": [
+        {
+          "titulo_variante": "Default Title",
+          "id_numerico_variante": 44958020796552,
+          "gid_variante": "gid://shopify/ProductVariant/44958020796552",
+          "sku": "PUZZ-NAT",
+          "precio_clp": 18990,
+          "compare_at_price_clp": null,
+          "inventario_disponible": 36,
+          "inventario_gestionado": true,
+          "inventory_policy": "CONTINUE (permite venta sin stock)"
+        }
+      ],
+      "nota": "Producto DISTINTO a los 4 puzzles 'grandes' de 1000 piezas: es un puzzle infantil de 60 piezas, precio mucho menor ($18.990 vs $27.990). Está tageado 'puzzle' y aparece en la colección Puzzles, pero probablemente NO debería incluirse en el selector de 'elige 3 puzzles' del pack (mezclaría un producto infantil de otra categoría de precio). Confirmar con el cliente."
+    }
+  ],
+  "productos_mal_etiquetados_o_ruido": [
+    {
+      "titulo": "Juego Naipes Aves de Chile",
+      "handle": "juego-naipes-aves-de-chile",
+      "id_numerico": 8698685325448,
+      "problema": "Tiene tags 'puzzle' y 'puzzles' y aparece dentro de la colección 'Puzzles' (26 productos), pero es un mazo de cartas/naipes, NO un puzzle. Si el selector de la página nueva usa la colección 'Puzzles' como fuente de datos, este producto se filtrará incorrectamente como si fuera un puzzle."
+    }
+  ],
+  "packs_existentes_relacionados": {
+    "nota": "Ya existen ~30 productos tipo 'Pack N puzzles ...' creados manualmente (combinaciones fijas de 2, 3 o 4 puzzles con SKU y precio propio), la mayoría en status DRAFT (no publicados). Estos NO son generados por ningún motor de descuento: son productos normales con un precio fijo puesto a mano. Riesgo: la nueva página de 'armar tu pack de 3 puzzles' puede solaparse o generar confusión de precios con estos packs preexistentes si alguno se publica.",
+    "ejemplos_activos": [
+      {
+        "titulo": "Pack 2 puzzles (Aves y flores de Chile + Cetáceos de Chile)",
+        "handle": "pack-2-puzzles-1",
+        "status": "ACTIVE",
+        "precio_clp": 44790,
+        "id_variante": 43469865582728
+      },
+      {
+        "titulo": "Pack 3 puzzles Aves, hongos y cetáceos de Chile",
+        "handle": "pack-3-puzzles-aves-hongos-y-cetaceos-de-chile",
+        "status": "ACTIVE",
+        "precio_clp": 65490,
+        "id_variante": 44544634126472,
+        "ahorro_vs_3_individuales_clp": 18480,
+        "aritmetica": "3 x 27990 = 83970; 83970 - 65490 = 18480 (NO coincide con 16380)"
+      }
+    ],
+    "otros_draft_relevantes": [
+      { "titulo": "Pack 3 puzzles ave, cetáceos y mariposas de Chile", "handle": "3-puzzles", "precio_clp": 65990, "ahorro_vs_3_individuales_clp": 17980 },
+      { "titulo": "Pack 3 puzzle aves, hongos y mariposas de Chile", "handle": "pack-puzzle-ave-hongo-y-mariposa", "precio_clp": 69500, "ahorro_vs_3_individuales_clp": 14470 },
+      { "titulo": "Pack 3 puzzles - Cetaceos, hongos, mariposas", "handle": "pack-3-puzzles-cetaceos-hongos-mariposas", "precio_clp": 62990, "ahorro_vs_3_individuales_clp": 20980 }
+    ]
+  },
+  "descuentos": {
+    "automaticos": [
+      {
+        "titulo": "3x4 calcetines",
+        "tipo": "automático (BxGy)",
+        "status": "EXPIRED",
+        "inicio": "2024-12-04T15:48:12Z",
+        "fin": "2025-03-12T12:12:34Z",
+        "aplica_a": "Calcetines Aves de Chile Azul",
+        "no_relevante_puzzles": true
+      },
+      {
+        "titulo": "Descuento laminas",
+        "tipo": "automático (BxGy)",
+        "status": "ACTIVE",
+        "inicio": "2025-03-03T14:01:00Z",
+        "fin": null,
+        "condicion": "Compra 1 artículo y obtén 1 con 20% de descuento",
+        "no_relevante_puzzles": true
+      },
+      {
+        "titulo": "dscto15",
+        "tipo": "automático (básico, % en productos)",
+        "status": "EXPIRED",
+        "inicio": "2025-03-04T14:43:19Z",
+        "fin": "2025-03-06T12:34:33Z",
+        "valor": "15%",
+        "aplica_a_incluye": "Puzzle ilustrado – Aves y flores de Chile (entre otros 30 productos)",
+        "no_relevante_puzzles_hoy": true
+      },
+      {
+        "titulo": " Descuento 3 laminas",
+        "tipo": "automático (BxGy)",
+        "status": "ACTIVE",
+        "inicio": "2025-03-03T14:01:00Z",
+        "fin": null,
+        "condicion": "Compra 1 artículo y obtén 2 con 20% de descuento",
+        "no_relevante_puzzles": true
+      },
+      {
+        "titulo": "50% dscto segun par calcetín",
+        "tipo": "automático (BxGy)",
+        "status": "EXPIRED",
+        "no_relevante_puzzles": true
+      },
+      {
+        "titulo": "segunda lamina 20%",
+        "tipo": "automático (BxGy)",
+        "status": "EXPIRED",
+        "no_relevante_puzzles": true
+      },
+      {
+        "titulo": "3x2 en calcetines",
+        "tipo": "automático (BxGy, por colección)",
+        "status": "EXPIRED",
+        "no_relevante_puzzles": true
+      },
+      {
+        "titulo": "Envío gratis en compras sobre $50.000",
+        "tipo": "automático (envío gratis)",
+        "status": "ACTIVE",
+        "inicio": "2026-04-10T12:58:42Z",
+        "fin": null,
+        "umbral_clp": 50000,
+        "pais": "Chile"
+      }
+    ],
+    "con_codigo_relevantes_o_activos": [
+      {
+        "titulo": "dsctopuzzle",
+        "codigo_exacto": "dsctopuzzle",
+        "tipo": "con código, monto fijo",
+        "status": "ACTIVE",
+        "inicio": "2025-06-25T02:14:16Z",
+        "fin": null,
+        "valor": "$3.000 CLP de descuento, se aplica UNA VEZ por pedido (no por artículo)",
+        "requisito_minimo": "ninguno (sin monto ni cantidad mínima)",
+        "aplica_a_productos": [
+          "Puzzle ilustrado – Aves y flores de Chile (1000 piezas)",
+          "Puzzle ilustrado – Mariposas y Escarabajos de Chile (1000 piezas)",
+          "Puzzle ilustrado – Cetáceos de Chile (1000 piezas)"
+        ],
+        "excluye": "Puzzle ilustrado – Hongos de Chile (NO está en la lista de productos elegibles)",
+        "verificado_en_vivo": "Se probó el permalink https://pedrazailustracion.com/cart/40651937120392:1,41511835009160:1,43097085182088:1?discount=dsctopuzzle el 2026-09-09: el checkout mostró 'Precio total $83.970' y 'Precio rebajado $80.970', confirmando que el código SÍ se aplica automáticamente vía parámetro ?discount= en la URL, y que el ahorro real es de exactamente $3.000 CLP (no $16.380)."
+      },
+      {
+        "titulo": "PUZZAVE2",
+        "codigo_exacto": "PUZZAVE2",
+        "tipo": "con código, monto fijo por artículo",
+        "status": "ACTIVE",
+        "inicio": "2026-08-21T14:52:32Z",
+        "fin": null,
+        "valor": "$1.395 CLP de descuento, se aplica a CADA artículo elegible (appliesOnEachItem: true)",
+        "aplica_a": "Colección 'Puzzles' completa (26 productos, incluye el naipe mal etiquetado y los packs)",
+        "ahorro_teorico_3_puzzles": "3 x $1.395 = $4.185 CLP (si se compraran 3 puzzles individuales con este código) — tampoco coincide con $16.380"
+      },
+      {
+        "titulo": "37HOY",
+        "codigo_exacto": "37HOY",
+        "tipo": "con código, BxGy 37%",
+        "status": "ACTIVE",
+        "inicio": "2026-09-05T02:26:28Z",
+        "fin": null,
+        "condicion": "Compra 1 artículo (de una lista que incluye los puzzles individuales, el pack de 2, el pack de 3 Aves-Hongos-Cetáceos y el Naturaleza 60p) y obtén 1 artículo CON 37% de descuento",
+        "aplica_el_descuento_a": "Un set DISTINTO de productos (Libreta Aves, Pins, Llaveros, Bolso, Pack 8 postales, Juego Naipes, Bolso playa) — NO a un segundo puzzle",
+        "conclusion": "No sirve para armar un pack de 3 puzzles con descuento; es una promo cruzada puzzle→accesorio"
+      }
+    ],
+    "con_codigo_generales_no_relevantes": [
+      "EGRATIS (envío gratis)", "BIENVENIDO15 (EXPIRED)", "DESCUENTO65K", "GRACIAS15", "GRACIAS5", "GRACIAS10", "GRACIAS12",
+      "DESCUENTO5 (EXPIRED)", "DSCTO15 (EXPIRED)", "PINGRATIS (BxGy)", "LLAVEROGRATIS (BxGy)", "PLATOS15", "PAPA10",
+      "plato5", "SECRETOAGOSTO", "lamina10 (EXPIRED)", "SECRETO", "BIENVENIDO10", "PEDRAZA10",
+      "10ADICIONAL (EXPIRED)", "múltiples cupones automáticos 'Judge.me Coupons: GRACIAS-...' generados por reseñas (todos EXPIRED salvo verificar vigencia individual)"
+    ],
+    "respuestas_preguntas_obligatorias": {
+      "pregunta_1_existe_descuento_3_puzzles": "Parcialmente. El código 'dsctopuzzle' apunta específicamente a 3 de los 4 puzzles grandes (Aves, Mariposas, Cetáceos — excluye Hongos), pero NO es una lógica de '3 unidades': se activa con solo 1 unidad de cualquiera de esos 3 productos en el carrito y da un descuento FIJO de $3.000 CLP una sola vez por pedido. No es un mecanismo 'compra 3, ahorra X' diseñado para el pack.",
+      "pregunta_2_ahorro_exacto_16380": "No. Aritmética verificada: 3 x $27.990 = $83.970. 'dsctopuzzle' deja el total en $80.970 (ahorro de $3.000, verificado en vivo en el checkout real). 'PUZZAVE2' aplicado a 3 puzzles daría como máximo $4.185 de ahorro ($1.395 x 3). Los packs manuales fijos (productos aparte, no descuentos) ahorran entre $14.470 y $20.980 según la combinación, pero ninguno coincide con $16.380. No existe hoy ningún descuento ni combinación de descuentos que produzca exactamente $16.380 CLP de ahorro en 3 puzzles.",
+      "pregunta_3_automatico_o_codigo": "Los dos descuentos relevantes para puzzles ('dsctopuzzle' y 'PUZZAVE2') son CÓDIGOS, no automáticos. Requieren el parámetro ?discount=CODIGO en el permalink del carrito (o ingreso manual en checkout). Se verificó en vivo que Shopify SÍ aplica el código automáticamente al llegar al checkout cuando se usa ?discount=dsctopuzzle en la URL del permalink. Los únicos descuentos automáticos activos actualmente (envío gratis sobre $50.000 y 2 BxGy de láminas) no tienen relación con los puzzles."
+    }
+  }
+}

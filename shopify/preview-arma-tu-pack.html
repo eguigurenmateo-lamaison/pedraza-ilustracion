@@ -1,0 +1,756 @@
+<!doctype html>
+<!--
+  ARCHIVO SOLO PARA REVISION (QC) — NO SE PUBLICA EN SHOPIFY.
+  Envuelve, sin editarlo, el mismo fragmento de arma-tu-pack.html
+  (que empieza en <style> y termina en </script>) dentro de un documento
+  HTML valido para poder abrirlo directo en el navegador.
+  Lo que se publica en la pagina de Shopify es SOLO arma-tu-pack.html.
+-->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QC — Arma tu pack de 3 puzzles</title>
+<style>html,body{margin:0;padding:0;background:#e9e5db;min-height:100vh;}</style>
+</head>
+<body>
+<style>
+.pdz-pack {
+  --pdzp-ink: #1c2420;
+  --pdzp-ink-soft: #4c5850;
+  --pdzp-ink-faint: #7c887f;
+  --pdzp-paper: #f4f2ed;
+  --pdzp-surface: #ffffff;
+  --pdzp-line: rgba(28, 36, 32, .08);
+  --pdzp-line-strong: rgba(28, 36, 32, .16);
+  --pdzp-green: #3b5751;
+  --pdzp-green-soft: #e3eae8;
+  --pdzp-green-dark: #2a403c;
+  --pdzp-success: #2f6b4a;
+  --pdzp-warn: #a8720a;
+  --pdzp-danger: #ae3d17;
+  --pdzp-danger-soft: #f7ddd0;
+  --pdzp-radius-xs: 8px;
+  --pdzp-radius-sm: 12px;
+  --pdzp-radius: 20px;
+  --pdzp-radius-full: 999px;
+  --pdzp-shadow-xs: 0 1px 2px rgba(24, 32, 28, .04);
+  --pdzp-shadow-sm: 0 1px 3px rgba(24, 32, 28, .05), 0 4px 10px rgba(24, 32, 28, .05);
+  --pdzp-shadow: 0 6px 16px rgba(24, 32, 28, .07), 0 16px 32px -12px rgba(24, 32, 28, .14);
+  --pdzp-space-1: .25rem;
+  --pdzp-space-2: .5rem;
+  --pdzp-space-3: .875rem;
+  --pdzp-space-4: 1.25rem;
+  --pdzp-space-5: 1.75rem;
+  --pdzp-font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --pdzp-fs-sm: clamp(.85rem, .81rem + .2vw, .92rem);
+  --pdzp-fs-base: clamp(1rem, .95rem + .25vw, 1.0625rem);
+  --pdzp-fs-lg: clamp(1.1rem, 1.02rem + .4vw, 1.25rem);
+  --pdzp-fs-h2: clamp(1.5rem, 1.3rem + 1vw, 1.9rem);
+  --pdzp-tap: 44px;
+  --pdzp-ease: cubic-bezier(.4, 0, .2, 1);
+  --pdzp-dur: 200ms;
+  --pdzp-bar-h: 92px;
+
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: var(--pdzp-space-4) var(--pdzp-space-3) calc(var(--pdzp-bar-h) + var(--pdzp-space-5));
+  font-family: var(--pdzp-font-sans);
+  color: var(--pdzp-ink);
+  font-size: var(--pdzp-fs-base);
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+.pdz-pack *,
+.pdz-pack *::before,
+.pdz-pack *::after {
+  box-sizing: border-box;
+}
+.pdz-pack-header {
+  margin-bottom: var(--pdzp-space-4);
+}
+.pdz-pack-title {
+  font-size: var(--pdzp-fs-h2);
+  font-weight: 700;
+  margin: 0 0 .35rem;
+}
+.pdz-pack-subtitle {
+  margin: 0;
+  color: var(--pdzp-ink-soft);
+  font-size: var(--pdzp-fs-base);
+}
+.pdz-pack-status {
+  background: var(--pdzp-paper);
+  border-radius: var(--pdzp-radius);
+  padding: var(--pdzp-space-4);
+  margin-bottom: var(--pdzp-space-3);
+}
+.pdz-pack-counter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--pdzp-space-3);
+  margin-bottom: var(--pdzp-space-2);
+}
+.pdz-pack-counter-text {
+  font-weight: 700;
+  font-size: var(--pdzp-fs-lg);
+}
+.pdz-pack-progress-track {
+  width: 100%;
+  height: 10px;
+  background: var(--pdzp-line-strong);
+  border-radius: var(--pdzp-radius-full);
+  overflow: hidden;
+}
+.pdz-pack-progress-fill {
+  height: 100%;
+  background: var(--pdzp-green);
+  border-radius: var(--pdzp-radius-full);
+  transition: width var(--pdzp-dur) var(--pdzp-ease);
+}
+.pdz-pack-microcopy {
+  margin: var(--pdzp-space-2) 0 0;
+  color: var(--pdzp-ink-soft);
+  font-size: var(--pdzp-fs-sm);
+}
+.pdz-pack-microcopy[data-tone="attention"] {
+  color: var(--pdzp-warn);
+  font-weight: 600;
+}
+.pdz-pack-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.pdz-pack-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--pdzp-space-4);
+  margin: var(--pdzp-space-4) 0;
+}
+.pdz-pack-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: var(--pdzp-surface);
+  border: 2px solid var(--pdzp-line-strong);
+  border-radius: var(--pdzp-radius);
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  color: inherit;
+  min-height: var(--pdzp-tap);
+  box-shadow: var(--pdzp-shadow-xs);
+  transition: border-color var(--pdzp-dur) var(--pdzp-ease), box-shadow var(--pdzp-dur) var(--pdzp-ease);
+  -webkit-tap-highlight-color: transparent;
+}
+.pdz-pack-card:hover {
+  box-shadow: var(--pdzp-shadow-sm);
+}
+.pdz-pack-card:focus-visible {
+  outline: 3px solid var(--pdzp-green);
+  outline-offset: 2px;
+}
+.pdz-pack-card[data-selected="true"] {
+  border-color: var(--pdzp-green);
+  border-width: 3px;
+  box-shadow: var(--pdzp-shadow);
+}
+.pdz-pack-card[data-agotado="true"] {
+  cursor: not-allowed;
+}
+.pdz-pack-card-media {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--pdzp-paper);
+  overflow: hidden;
+}
+.pdz-pack-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.pdz-pack-card[data-agotado="true"] .pdz-pack-card-media img {
+  filter: grayscale(1);
+  opacity: .55;
+}
+.pdz-pack-card-badge-piezas {
+  position: absolute;
+  top: var(--pdzp-space-2);
+  left: var(--pdzp-space-2);
+  background: rgba(255, 255, 255, .92);
+  color: var(--pdzp-ink-soft);
+  font-size: var(--pdzp-fs-sm);
+  font-weight: 600;
+  padding: .25rem .6rem;
+  border-radius: var(--pdzp-radius-full);
+  line-height: 1.3;
+}
+.pdz-pack-card-badge-agotado {
+  position: absolute;
+  top: var(--pdzp-space-2);
+  right: var(--pdzp-space-2);
+  background: var(--pdzp-danger-soft);
+  color: var(--pdzp-danger);
+  font-size: var(--pdzp-fs-sm);
+  font-weight: 700;
+  padding: .25rem .6rem;
+  border-radius: var(--pdzp-radius-full);
+  line-height: 1.3;
+}
+.pdz-pack-card-check {
+  position: absolute;
+  top: var(--pdzp-space-2);
+  right: var(--pdzp-space-2);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--pdzp-green);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--pdzp-shadow-xs);
+}
+.pdz-pack-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  flex: 1;
+  padding: var(--pdzp-space-3) var(--pdzp-space-3) var(--pdzp-space-4);
+}
+.pdz-pack-card-title {
+  font-size: var(--pdzp-fs-base);
+  font-weight: 600;
+  margin: 0;
+}
+.pdz-pack-card-price {
+  font-size: var(--pdzp-fs-lg);
+  font-weight: 700;
+  margin: 0;
+}
+.pdz-pack-card-state {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: var(--pdzp-fs-sm);
+  font-weight: 600;
+  color: var(--pdzp-ink-soft);
+  margin-top: auto;
+  padding-top: .6rem;
+  border-top: 1px solid var(--pdzp-line);
+}
+.pdz-pack-card-state svg {
+  flex-shrink: 0;
+}
+.pdz-pack-card[data-selected="true"] .pdz-pack-card-state {
+  color: var(--pdzp-green-dark);
+}
+.pdz-pack-card[data-agotado="true"] .pdz-pack-card-state {
+  color: var(--pdzp-danger);
+}
+.pdz-pack-callout {
+  background: var(--pdzp-green-soft);
+  color: var(--pdzp-green-dark);
+  border-radius: var(--pdzp-radius-sm);
+  padding: var(--pdzp-space-3);
+  font-size: var(--pdzp-fs-sm);
+  margin: 0 0 var(--pdzp-space-3);
+}
+.pdz-pack-summary-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  background: var(--pdzp-surface);
+  border-top: 1px solid var(--pdzp-line-strong);
+  box-shadow: 0 -8px 24px rgba(24, 32, 28, .1);
+  padding: var(--pdzp-space-3) var(--pdzp-space-3) calc(var(--pdzp-space-3) + env(safe-area-inset-bottom, 0px));
+}
+.pdz-pack-summary-bar-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--pdzp-space-3);
+}
+.pdz-pack-summary-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+.pdz-pack-summary-count {
+  font-size: var(--pdzp-fs-sm);
+  color: var(--pdzp-ink-soft);
+}
+.pdz-pack-summary-price {
+  font-size: var(--pdzp-fs-lg);
+  font-weight: 700;
+}
+.pdz-pack-summary-savings {
+  font-size: var(--pdzp-fs-sm);
+  color: var(--pdzp-success);
+  font-weight: 600;
+}
+.pdz-pack-btn-buy {
+  flex-shrink: 0;
+  min-height: var(--pdzp-tap);
+  padding: 0 var(--pdzp-space-4);
+  border-radius: var(--pdzp-radius-full);
+  border: none;
+  background: var(--pdzp-green);
+  color: #fff;
+  font-weight: 700;
+  font-size: var(--pdzp-fs-base);
+  cursor: pointer;
+  transition: background var(--pdzp-dur) var(--pdzp-ease), opacity var(--pdzp-dur) var(--pdzp-ease);
+  white-space: nowrap;
+}
+.pdz-pack-btn-buy:not([aria-disabled="true"]):hover {
+  background: var(--pdzp-green-dark);
+}
+.pdz-pack-btn-buy[aria-disabled="true"] {
+  background: var(--pdzp-line-strong);
+  color: var(--pdzp-ink-faint);
+  cursor: not-allowed;
+}
+.pdz-pack-btn-buy:focus-visible {
+  outline: 3px solid var(--pdzp-green-dark);
+  outline-offset: 2px;
+}
+@media (min-width: 640px) {
+  .pdz-pack {
+    max-width: 900px;
+  }
+  .pdz-pack-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pdz-pack-summary-bar-inner {
+    max-width: 900px;
+  }
+}
+@media (min-width: 960px) {
+  .pdz-pack {
+    max-width: 1080px;
+  }
+  .pdz-pack-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .pdz-pack-summary-bar-inner {
+    max-width: 1080px;
+  }
+}
+</style>
+
+<div class="pdz-pack" id="pdz-pack-root">
+  <div class="pdz-pack-header">
+        <p class="pdz-pack-subtitle">Elige tus 3 favoritos y paga menos por el conjunto.</p>
+  </div>
+
+  <div class="pdz-pack-status">
+    <div class="pdz-pack-counter">
+      <span class="pdz-pack-counter-text" id="pdz-pack-counter-text">0 de 3 elegidos</span>
+    </div>
+    <div class="pdz-pack-progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="3" aria-valuenow="0" aria-label="Puzzles elegidos para el pack" id="pdz-pack-progress">
+      <div class="pdz-pack-progress-fill" id="pdz-pack-progress-fill" style="width:0%"></div>
+    </div>
+    <p class="pdz-pack-microcopy" id="pdz-pack-microcopy">Elige 3 puzzles para tu pack.</p>
+  </div>
+
+  <div class="pdz-pack-sr-only" aria-live="polite" id="pdz-pack-live"></div>
+
+  <div class="pdz-pack-grid" id="pdz-pack-grid"></div>
+
+  <p class="pdz-pack-callout" id="pdz-pack-callout"></p>
+
+  <div class="pdz-pack-summary-bar" id="pdz-pack-summary-bar">
+    <div class="pdz-pack-summary-bar-inner">
+      <div class="pdz-pack-summary-info">
+        <span class="pdz-pack-summary-count" id="pdz-pack-summary-count">0 de 3</span>
+        <span class="pdz-pack-summary-price" id="pdz-pack-summary-price"></span>
+        <span class="pdz-pack-summary-savings" id="pdz-pack-summary-savings"></span>
+      </div>
+      <button type="button" class="pdz-pack-btn-buy" id="pdz-pack-btn-buy" aria-disabled="true">Elige 3 para comprar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var PACK_CONFIG = {
+    piezasPack: 3,
+    modo: "porcentaje",        // "porcentaje" | "montoFijo" | "precioCerrado"
+    porcentaje: 20,             // se usa si modo === "porcentaje"
+    montoFijo: 16380,           // se usa si modo === "montoFijo"
+    precioCerrado: 67176,       // se usa si modo === "precioCerrado"
+    codigoDescuento: null,      // string o null; si es string se agrega ?discount= al permalink
+    envioGratisDesde: 50000
+  };
+
+  var DOMINIO_TIENDA = "https://pedrazailustracion.com";
+  var STORAGE_KEY = "pedraza-pack:seleccion";
+
+  // Catálogo real (docs/research/shopify-puzzles-2026-09-09.json, extraído 2026-09-09).
+  // Los 4 puzzles de 1000 piezas más el Puzzle Naturaleza de 60 piezas (precio y formato
+  // distintos; el cliente confirmó que entra al selector). El cálculo del pack suma el
+  // precio real de cada elegido — no asume que los 3 cuestan lo mismo.
+  var PUZZLES = [
+    {
+      id: "aves",
+      variantId: 40651937120392,
+      titulo: "Puzzle ilustrado – Aves y flores de Chile",
+      piezas: 1000,
+      precio: 27990,
+      stock: 104,
+      imagen: "https://cdn.shopify.com/s/files/1/0592/9530/1768/files/APW7380-Editar-Editar.jpg?v=1756948503"
+    },
+    {
+      id: "mariposas",
+      variantId: 41511835009160,
+      titulo: "Puzzle ilustrado – Mariposas y Escarabajos de Chile",
+      piezas: 1000,
+      precio: 27990,
+      stock: 13,
+      imagen: "https://cdn.shopify.com/s/files/1/0592/9530/1768/files/APW7382-Editar-2.jpg?v=1756948482"
+    },
+    {
+      id: "cetaceos",
+      variantId: 43097085182088,
+      titulo: "Puzzle ilustrado – Cetáceos de Chile",
+      piezas: 1000,
+      precio: 27990,
+      stock: 42,
+      imagen: "https://cdn.shopify.com/s/files/1/0592/9530/1768/files/APW7385-Editar-Editar.jpg?v=1756948457"
+    },
+    {
+      id: "hongos",
+      variantId: 43963478311048,
+      titulo: "Puzzle ilustrado – Hongos de Chile",
+      piezas: 1000,
+      precio: 27990,
+      stock: 27,
+      imagen: "https://cdn.shopify.com/s/files/1/0592/9530/1768/files/Puzzlehongo_9709156f-2410-4766-9b1a-147281aef91b.jpg?v=1775594955"
+    },
+    {
+      id: "naturaleza",
+      variantId: 44958020796552,
+      titulo: "Puzzle Naturaleza - 60 piezas",
+      piezas: 60,
+      precio: 18990,
+      stock: 36,
+      imagen: "https://cdn.shopify.com/s/files/1/0592/9530/1768/files/puzzlenaturaleza.jpg?v=1775069138"
+    }
+  ];
+
+  function formatoNumero(n) {
+    n = Math.round(Math.abs(n));
+    return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  }
+
+  function formatoCLP(n) {
+    var signo = n < 0 ? "-" : "";
+    return signo + "$" + formatoNumero(n);
+  }
+
+  function altDescriptivo(titulo, piezas) {
+    return titulo + ", puzzle de " + formatoNumero(piezas) + " piezas";
+  }
+
+  function estaAgotado(p) {
+    return p.stock <= 0;
+  }
+
+  function buscarPuzzle(variantId) {
+    for (var i = 0; i < PUZZLES.length; i++) {
+      if (PUZZLES[i].variantId === variantId) return PUZZLES[i];
+    }
+    return null;
+  }
+
+  function cargarSeleccion() {
+    var arr = [];
+    try {
+      var raw = window.localStorage.getItem(STORAGE_KEY);
+      if (raw) arr = JSON.parse(raw) || [];
+    } catch (e) {
+      arr = [];
+    }
+    if (!Array.isArray(arr)) arr = [];
+    arr = arr.filter(function (id) {
+      var p = buscarPuzzle(id);
+      return !!p && !estaAgotado(p);
+    });
+    if (arr.length > PACK_CONFIG.piezasPack) arr = arr.slice(0, PACK_CONFIG.piezasPack);
+    return arr;
+  }
+
+  var seleccion = cargarSeleccion();
+
+  function guardarSeleccion() {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(seleccion));
+    } catch (e) {
+      // localStorage no disponible (modo privado, etc.) — la selección solo vive en memoria.
+    }
+  }
+
+  var elGrid = document.getElementById("pdz-pack-grid");
+  var elCounter = document.getElementById("pdz-pack-counter-text");
+  var elProgressFill = document.getElementById("pdz-pack-progress-fill");
+  var elProgress = document.getElementById("pdz-pack-progress");
+  var elMicrocopy = document.getElementById("pdz-pack-microcopy");
+  var elLive = document.getElementById("pdz-pack-live");
+  var elCallout = document.getElementById("pdz-pack-callout");
+  var elSummaryCount = document.getElementById("pdz-pack-summary-count");
+  var elSummaryPrice = document.getElementById("pdz-pack-summary-price");
+  var elSummarySavings = document.getElementById("pdz-pack-summary-savings");
+  var elBtnBuy = document.getElementById("pdz-pack-btn-buy");
+
+  var iconCheck = '<svg viewBox="0 0 20 20" width="16" height="16" fill="none" aria-hidden="true"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var iconCirculo = '<svg viewBox="0 0 20 20" width="16" height="16" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.6"/></svg>';
+  var iconEquis = '<svg viewBox="0 0 20 20" width="16" height="16" fill="none" aria-hidden="true"><path d="M6 6l8 8M14 6l-8 8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>';
+
+  function estadoTexto(seleccionado, sinStock) {
+    if (sinStock) return iconEquis + "<span>Agotado</span>";
+    if (seleccionado) return iconCheck + "<span>Elegido — toca para quitar</span>";
+    return iconCirculo + "<span>Elegir</span>";
+  }
+
+  function construirGrid() {
+    var html = PUZZLES.map(function (p) {
+      var seleccionado = seleccion.indexOf(p.variantId) !== -1;
+      var sinStock = estaAgotado(p);
+      var alt = altDescriptivo(p.titulo, p.piezas);
+      var badge = sinStock
+        ? '<span class="pdz-pack-card-badge-agotado">Agotado</span>'
+        : (seleccionado ? '<span class="pdz-pack-card-check">' + iconCheck + "</span>" : "");
+      return (
+        '<button type="button" class="pdz-pack-card" data-variant-id="' + p.variantId + '" ' +
+        'data-selected="' + seleccionado + '" data-agotado="' + sinStock + '" ' +
+        'aria-pressed="' + seleccionado + '" aria-disabled="' + sinStock + '">' +
+        '<span class="pdz-pack-card-media">' +
+        '<img src="' + p.imagen + '" alt="' + alt + '" loading="lazy">' +
+        '<span class="pdz-pack-card-badge-piezas">' + formatoNumero(p.piezas) + " piezas</span>" +
+        badge +
+        "</span>" +
+        '<span class="pdz-pack-card-body">' +
+        '<span class="pdz-pack-card-title">' + p.titulo + "</span>" +
+        '<span class="pdz-pack-card-price">' + formatoCLP(p.precio) + "</span>" +
+        '<span class="pdz-pack-card-state" data-role="estado">' + estadoTexto(seleccionado, sinStock) + "</span>" +
+        "</span>" +
+        "</button>"
+      );
+    }).join("");
+    elGrid.innerHTML = html;
+  }
+
+  function actualizarTarjetas() {
+    var botones = elGrid.querySelectorAll(".pdz-pack-card");
+    for (var i = 0; i < botones.length; i++) {
+      var btn = botones[i];
+      var variantId = Number(btn.getAttribute("data-variant-id"));
+      var p = buscarPuzzle(variantId);
+      if (!p) continue;
+      var seleccionado = seleccion.indexOf(variantId) !== -1;
+      var sinStock = estaAgotado(p);
+      btn.setAttribute("data-selected", String(seleccionado));
+      btn.setAttribute("aria-pressed", String(seleccionado));
+
+      var estado = btn.querySelector('[data-role="estado"]');
+      if (estado) estado.innerHTML = estadoTexto(seleccionado, sinStock);
+
+      var media = btn.querySelector(".pdz-pack-card-media");
+      var badgeCheck = media.querySelector(".pdz-pack-card-check");
+      if (!sinStock) {
+        if (seleccionado && !badgeCheck) {
+          var span = document.createElement("span");
+          span.className = "pdz-pack-card-check";
+          span.innerHTML = iconCheck;
+          media.appendChild(span);
+        } else if (!seleccionado && badgeCheck) {
+          badgeCheck.parentNode.removeChild(badgeCheck);
+        }
+      }
+    }
+  }
+
+  function calcularResumen() {
+    var elegidos = PUZZLES.filter(function (p) {
+      return seleccion.indexOf(p.variantId) !== -1;
+    });
+    var subtotal = elegidos.reduce(function (acc, p) {
+      return acc + p.precio;
+    }, 0);
+    var ahorro = 0;
+    var precioFinal = subtotal;
+
+    if (elegidos.length === PACK_CONFIG.piezasPack) {
+      if (PACK_CONFIG.modo === "porcentaje") {
+        ahorro = Math.round(subtotal * (PACK_CONFIG.porcentaje / 100));
+        precioFinal = subtotal - ahorro;
+      } else if (PACK_CONFIG.modo === "montoFijo") {
+        ahorro = Math.min(PACK_CONFIG.montoFijo, subtotal);
+        precioFinal = subtotal - ahorro;
+      } else if (PACK_CONFIG.modo === "precioCerrado") {
+        precioFinal = PACK_CONFIG.precioCerrado;
+        ahorro = subtotal - precioFinal;
+      }
+    }
+
+    var porcentajeEfectivo = subtotal > 0 ? Math.round((ahorro / subtotal) * 100) : 0;
+
+    return {
+      elegidos: elegidos,
+      subtotal: subtotal,
+      ahorro: ahorro,
+      precioFinal: precioFinal,
+      porcentajeEfectivo: porcentajeEfectivo
+    };
+  }
+
+  function armarPermalink(elegidos) {
+    var partes = elegidos.map(function (p) {
+      return p.variantId + ":1";
+    }).join(",");
+    var url = DOMINIO_TIENDA + "/cart/" + partes;
+    if (PACK_CONFIG.codigoDescuento) {
+      url += "?discount=" + encodeURIComponent(PACK_CONFIG.codigoDescuento);
+    }
+    return url;
+  }
+
+  function anunciar(mensaje) {
+    elLive.textContent = "";
+    window.setTimeout(function () {
+      elLive.textContent = mensaje;
+    }, 30);
+  }
+
+  function textoMicrocopy(n) {
+    var total = PACK_CONFIG.piezasPack;
+    var faltan = total - n;
+    if (n === 0) return "Elige " + total + " puzzles para tu pack.";
+    if (n < total) return n + " de " + total + " elegidos. Te falta" + (faltan === 1 ? "" : "n") + " " + faltan + ".";
+    return "Tu pack de " + total + " está listo.";
+  }
+
+  function actualizarResumen(anunciarCambio, mensajeExtra) {
+    var r = calcularResumen();
+    var n = seleccion.length;
+    var total = PACK_CONFIG.piezasPack;
+
+    elCounter.textContent = n + " de " + total + " elegidos";
+    elProgressFill.style.width = (n / total * 100) + "%";
+    elProgress.setAttribute("aria-valuenow", String(n));
+
+    if (mensajeExtra) {
+      elMicrocopy.textContent = mensajeExtra;
+      elMicrocopy.setAttribute("data-tone", "attention");
+    } else {
+      elMicrocopy.textContent = textoMicrocopy(n);
+      elMicrocopy.removeAttribute("data-tone");
+    }
+
+    elSummaryCount.textContent = n + " de " + total;
+
+    if (n === total) {
+      elSummaryPrice.textContent = formatoCLP(r.precioFinal);
+      elSummarySavings.textContent = r.ahorro > 0 ? ("Ahorras " + formatoCLP(r.ahorro) + " (" + r.porcentajeEfectivo + "%)") : "";
+      elBtnBuy.setAttribute("aria-disabled", "false");
+      elBtnBuy.textContent = "Ir a pagar";
+    } else {
+      elSummaryPrice.textContent = "";
+      elSummarySavings.textContent = "";
+      elBtnBuy.setAttribute("aria-disabled", "true");
+      elBtnBuy.textContent = n === 0 ? ("Elige " + total + " para comprar") : ("Elige " + (total - n) + " más");
+    }
+
+    elCallout.textContent = "El envío es gratis en compras sobre " + formatoCLP(PACK_CONFIG.envioGratisDesde) + ".";
+
+    if (anunciarCambio) {
+      anunciar(mensajeExtra || textoMicrocopy(n));
+    }
+  }
+
+  function alternarSeleccion(variantId) {
+    var p = buscarPuzzle(variantId);
+    if (!p) return;
+
+    if (estaAgotado(p)) {
+      anunciar(p.titulo + " está agotado por ahora.");
+      return;
+    }
+
+    var idx = seleccion.indexOf(variantId);
+    if (idx !== -1) {
+      seleccion.splice(idx, 1);
+      guardarSeleccion();
+      actualizarTarjetas();
+      actualizarResumen(true);
+      return;
+    }
+
+    if (seleccion.length >= PACK_CONFIG.piezasPack) {
+      actualizarResumen(true, "El pack es de " + PACK_CONFIG.piezasPack + ". Quita uno de los elegidos para cambiarlo.");
+      return;
+    }
+
+    seleccion.push(variantId);
+    guardarSeleccion();
+    actualizarTarjetas();
+    actualizarResumen(true);
+  }
+
+  elGrid.addEventListener("click", function (e) {
+    var btn = e.target.closest ? e.target.closest(".pdz-pack-card") : null;
+    if (!btn) return;
+    var variantId = Number(btn.getAttribute("data-variant-id"));
+    alternarSeleccion(variantId);
+  });
+
+  elGrid.addEventListener("keydown", function (e) {
+    if (e.key !== "Enter" && e.key !== " " && e.key !== "Spacebar") return;
+    var btn = e.target.closest ? e.target.closest(".pdz-pack-card") : null;
+    if (!btn) return;
+    e.preventDefault();
+    var variantId = Number(btn.getAttribute("data-variant-id"));
+    alternarSeleccion(variantId);
+  });
+
+  elBtnBuy.addEventListener("click", function () {
+    if (elBtnBuy.getAttribute("aria-disabled") === "true") {
+      var faltan = PACK_CONFIG.piezasPack - seleccion.length;
+      anunciar("Elige " + faltan + " más para completar tu pack.");
+      return;
+    }
+    var r = calcularResumen();
+    window.location.href = armarPermalink(r.elegidos);
+  });
+
+  construirGrid();
+  actualizarResumen(false);
+})();
+</script>
+</body>
+</html>
