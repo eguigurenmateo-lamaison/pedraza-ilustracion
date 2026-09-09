@@ -16,23 +16,30 @@
 <body>
 <style>
 .pdz-pack {
-  --pdzp-ink: #1c2420;
-  --pdzp-ink-soft: #4c5850;
-  --pdzp-ink-faint: #7c887f;
-  --pdzp-paper: #f4f2ed;
+  /* Colores: tomados de los tokens reales del tema (rgb(var(--x)) porque el tema
+     expone tripletes RGB sueltos, no valores rgb() completos). El fallback despues
+     de la coma es el valor que ya se usaba antes del restyling. */
+  --pdzp-ink: rgb(var(--heading-color, 34 34 34));
+  --pdzp-ink-soft: rgb(var(--text-color, 96 100 104));
+  --pdzp-ink-faint: rgb(var(--text-color, 96 100 104) / .55);
+  --pdzp-paper: rgb(var(--color-scheme-1-bg, 249 246 227));
   --pdzp-surface: #ffffff;
-  --pdzp-line: rgba(28, 36, 32, .08);
-  --pdzp-line-strong: rgba(28, 36, 32, .16);
-  --pdzp-green: #3b5751;
+  --pdzp-line: rgb(var(--heading-color, 34 34 34) / .08);
+  --pdzp-line-strong: rgb(var(--heading-color, 34 34 34) / .16);
+  --pdzp-green: rgb(var(--color-scheme-1-btn-bg, 59 87 81));
   --pdzp-green-soft: #e3eae8;
   --pdzp-green-dark: #2a403c;
-  --pdzp-success: #2f6b4a;
+  --pdzp-success: rgb(var(--color-scheme-1-text, 59 87 81));
   --pdzp-warn: #a8720a;
-  --pdzp-danger: #ae3d17;
-  --pdzp-danger-soft: #f7ddd0;
-  --pdzp-radius-xs: 8px;
-  --pdzp-radius-sm: 12px;
-  --pdzp-radius: 20px;
+  --pdzp-danger: rgb(var(--sale-price-color, 231 56 56));
+  --pdzp-danger-soft: rgb(var(--sale-price-color, 231 56 56) / .12);
+  /* Radios: alineados a los del tema. --pdzp-radius-btn es el radio real medido
+     en vivo del boton .btn--primary (7px); el tema no expone una variable para
+     eso, asi que va fijo. Tarjetas y contenedores usan las variables del tema. */
+  --pdzp-radius-btn: 7px;
+  --pdzp-radius-card: var(--card-border-radius, 10px);
+  --pdzp-radius-sm: var(--card-border-radius, 10px);
+  --pdzp-radius: var(--content-border-radius, 15px);
   --pdzp-radius-full: 999px;
   --pdzp-shadow-xs: 0 1px 2px rgba(24, 32, 28, .04);
   --pdzp-shadow-sm: 0 1px 3px rgba(24, 32, 28, .05), 0 4px 10px rgba(24, 32, 28, .05);
@@ -42,11 +49,18 @@
   --pdzp-space-3: .875rem;
   --pdzp-space-4: 1.25rem;
   --pdzp-space-5: 1.75rem;
-  --pdzp-font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --pdzp-fs-sm: clamp(.85rem, .81rem + .2vw, .92rem);
-  --pdzp-fs-base: clamp(1rem, .95rem + .25vw, 1.0625rem);
-  --pdzp-fs-lg: clamp(1.1rem, 1.02rem + .4vw, 1.25rem);
-  --pdzp-fs-h2: clamp(1.5rem, 1.3rem + 1vw, 1.9rem);
+  /* Tipografia: la de cuerpo del tema para texto corrido, la de titulos para
+     titulos y cifras destacadas (precios, contador, ahorro). */
+  --pdzp-font-body: var(--body-font-family, Poppins, sans-serif);
+  --pdzp-font-heading: var(--heading-font-family, "Libre Baskerville", serif);
+  /* Escala tipografica en em (no rem): relativa al font-size real de este
+     bloque, que a su vez toma la base del tema (var(--body-font-size)) en vez
+     de heredar un root font-size que puede no ser 16px. Recalculada a mano
+     para verse equilibrada partiendo de una base de 16px real. */
+  --pdzp-fs-sm: clamp(.8em, .77em + .15vw, .875em);
+  --pdzp-fs-base: 1em;
+  --pdzp-fs-lg: clamp(1.05em, 1em + .2vw, 1.125em);
+  --pdzp-fs-h2: clamp(1.3em, 1.15em + .6vw, 1.55em);
   --pdzp-tap: 44px;
   --pdzp-ease: cubic-bezier(.4, 0, .2, 1);
   --pdzp-dur: 200ms;
@@ -54,12 +68,13 @@
 
   display: block;
   width: 100%;
-  max-width: 640px;
+  max-width: var(--page-width, 1320px);
   margin: 0 auto;
   padding: var(--pdzp-space-4) var(--pdzp-space-3) calc(var(--pdzp-bar-h) + var(--pdzp-space-5));
-  font-family: var(--pdzp-font-sans);
+  font-family: var(--pdzp-font-body);
+  font-weight: var(--body-font-weight, 400);
   color: var(--pdzp-ink);
-  font-size: var(--pdzp-fs-base);
+  font-size: calc(var(--body-font-size, 16) * 1px);
   line-height: 1.5;
   box-sizing: border-box;
 }
@@ -72,6 +87,8 @@
   margin-bottom: var(--pdzp-space-4);
 }
 .pdz-pack-title {
+  font-family: var(--pdzp-font-heading);
+  letter-spacing: var(--heading-letter-spacing, 0em);
   font-size: var(--pdzp-fs-h2);
   font-weight: 700;
   margin: 0 0 .35rem;
@@ -95,6 +112,8 @@
   margin-bottom: var(--pdzp-space-2);
 }
 .pdz-pack-counter-text {
+  font-family: var(--pdzp-font-heading);
+  letter-spacing: var(--heading-letter-spacing, 0em);
   font-weight: 700;
   font-size: var(--pdzp-fs-lg);
 }
@@ -144,7 +163,7 @@
   width: 100%;
   background: var(--pdzp-surface);
   border: 2px solid var(--pdzp-line-strong);
-  border-radius: var(--pdzp-radius);
+  border-radius: var(--pdzp-radius-card);
   overflow: hidden;
   padding: 0;
   margin: 0;
@@ -236,11 +255,15 @@
   padding: var(--pdzp-space-3) var(--pdzp-space-3) var(--pdzp-space-4);
 }
 .pdz-pack-card-title {
+  font-family: var(--pdzp-font-heading);
+  letter-spacing: var(--heading-letter-spacing, 0em);
   font-size: var(--pdzp-fs-base);
   font-weight: 600;
   margin: 0;
 }
 .pdz-pack-card-price {
+  font-family: var(--pdzp-font-heading);
+  letter-spacing: var(--heading-letter-spacing, 0em);
   font-size: var(--pdzp-fs-lg);
   font-weight: 700;
   margin: 0;
@@ -285,7 +308,7 @@
   padding: var(--pdzp-space-3) var(--pdzp-space-3) calc(var(--pdzp-space-3) + env(safe-area-inset-bottom, 0px));
 }
 .pdz-pack-summary-bar-inner {
-  max-width: 640px;
+  max-width: var(--page-width, 1320px);
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -303,10 +326,14 @@
   color: var(--pdzp-ink-soft);
 }
 .pdz-pack-summary-price {
+  font-family: var(--pdzp-font-heading);
+  letter-spacing: var(--heading-letter-spacing, 0em);
   font-size: var(--pdzp-fs-lg);
   font-weight: 700;
 }
 .pdz-pack-summary-savings {
+  font-family: var(--pdzp-font-heading);
+  letter-spacing: var(--heading-letter-spacing, 0em);
   font-size: var(--pdzp-fs-sm);
   color: var(--pdzp-success);
   font-weight: 600;
@@ -315,7 +342,7 @@
   flex-shrink: 0;
   min-height: var(--pdzp-tap);
   padding: 0 var(--pdzp-space-4);
-  border-radius: var(--pdzp-radius-full);
+  border-radius: var(--pdzp-radius-btn);
   border: none;
   background: var(--pdzp-green);
   color: #fff;
@@ -338,25 +365,13 @@
   outline-offset: 2px;
 }
 @media (min-width: 640px) {
-  .pdz-pack {
-    max-width: 900px;
-  }
   .pdz-pack-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  .pdz-pack-summary-bar-inner {
-    max-width: 900px;
-  }
 }
 @media (min-width: 960px) {
-  .pdz-pack {
-    max-width: 1080px;
-  }
   .pdz-pack-grid {
     grid-template-columns: repeat(3, 1fr);
-  }
-  .pdz-pack-summary-bar-inner {
-    max-width: 1080px;
   }
 }
 </style>
@@ -752,5 +767,6 @@
   actualizarResumen(false);
 })();
 </script>
+
 </body>
 </html>

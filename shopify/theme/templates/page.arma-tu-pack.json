@@ -1,0 +1,65 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "arma_tu_pack": {
+      "type": "arma-tu-pack",
+      "blocks": {
+        "puzzle_1": {
+          "type": "puzzle",
+          "settings": {
+            "producto": "puzzle-1000-piezas-aves-flores-chilenas"
+          }
+        },
+        "puzzle_2": {
+          "type": "puzzle",
+          "settings": {
+            "producto": "puzzle-1000-piezas-escarabajos-mariposas-chilenas"
+          }
+        },
+        "puzzle_3": {
+          "type": "puzzle",
+          "settings": {
+            "producto": "puzzle-1000-piezas-cetaceos-chilenos"
+          }
+        },
+        "puzzle_4": {
+          "type": "puzzle",
+          "settings": {
+            "producto": "puzzle-ilustrado-hongos-de-chile-1000-piezas"
+          }
+        },
+        "puzzle_5": {
+          "type": "puzzle",
+          "settings": {
+            "producto": "puzzle-naturaleza-60-piezas"
+          }
+        }
+      },
+      "block_order": [
+        "puzzle_1",
+        "puzzle_2",
+        "puzzle_3",
+        "puzzle_4",
+        "puzzle_5"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "arma_tu_pack"
+  ]
+}

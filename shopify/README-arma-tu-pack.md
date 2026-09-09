@@ -14,6 +14,24 @@ La selección se guarda en el navegador del cliente (localStorage, clave `pedraz
 
 Si intenta elegir un 4to puzzle con los 3 ya completos, no pasa nada en silencio: aparece el mensaje "El pack es de 3. Quita uno de los elegidos para cambiarlo." Si un puzzle no tiene stock, se ve en gris con la etiqueta "Agotado" y no se puede elegir.
 
+## Diseño visual (restyling a tema nativo)
+
+El bloque `.pdz-pack` ya no trae su propio tamaño base de letra ni su propia fuente de sistema: toma la tipografía, el color de texto y los radios de borde del tema en vivo, usando las variables CSS que el tema define en `:root` (con un valor de respaldo por si el tema cambia o el módulo se abre fuera de la tienda, como en este preview):
+
+| Variable propia | Toma del tema | Uso |
+|---|---|---|
+| `--pdzp-font-body` | `--body-font-family` | Texto corrido (subtítulo, microcopy, estado de la tarjeta) |
+| `--pdzp-font-heading` | `--heading-font-family` | Títulos y cifras destacadas (precios, contador, ahorro) |
+| tamaño base del bloque | `--body-font-size` (con `calc(... * 1px)`) | Base de toda la escala tipográfica interna, en `em` (no `rem`) |
+| `--pdzp-ink` / `--pdzp-ink-soft` | `--heading-color` / `--text-color` | Texto principal / texto secundario |
+| `--pdzp-green` | `--color-scheme-1-btn-bg` | Verde de marca (botón, check, progreso) |
+| `--pdzp-radius-btn` | radio real medido del `.btn--primary` del tema (7px, sin variable propia en el tema) | Botón "Ir a pagar" — ya no es pastilla |
+| `--pdzp-radius-card` / `--pdzp-radius-sm` | `--card-border-radius` | Tarjetas de puzzle y el recuadro de ahorro |
+| `--pdzp-radius` | `--content-border-radius` | Contenedor de estado/progreso |
+| ancho máximo del bloque | `--page-width` | El módulo ocupa el ancho de contenido del tema, no un ancho propio más angosto |
+
+Si el tema cambia de tipografía, color de marca o radios, el módulo los sigue automáticamente sin tocar el CSS. Si alguna de esas variables no existe (por ejemplo, al abrir `preview-arma-tu-pack.html` fuera de Shopify), se usa el valor de respaldo.
+
 ## Cómo cambiar el descuento (tocando solo `PACK_CONFIG`)
 
 Todo el precio y el copy que menciona plata sale de un solo objeto al inicio del `<script>`, dentro de `arma-tu-pack.html`:

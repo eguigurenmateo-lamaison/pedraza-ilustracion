@@ -1,0 +1,878 @@
+{%- style -%}
+.pdz-pack {
+  /* Colores: tomados de los tokens reales del tema (rgb(var(--x)) porque el tema
+     expone tripletes RGB sueltos, no valores rgb() completos). El fallback despues
+     de la coma es el valor que ya se usaba antes del restyling. */
+  --pdzp-ink: rgb(var(--heading-color, 34 34 34));
+  --pdzp-ink-soft: rgb(var(--text-color, 96 100 104));
+  --pdzp-ink-faint: rgb(var(--text-color, 96 100 104) / .55);
+  --pdzp-paper: rgb(var(--color-scheme-1-bg, 249 246 227));
+  --pdzp-surface: #ffffff;
+  --pdzp-line: rgb(var(--heading-color, 34 34 34) / .08);
+  --pdzp-line-strong: rgb(var(--heading-color, 34 34 34) / .16);
+  --pdzp-green: rgb(var(--color-scheme-1-btn-bg, 59 87 81));
+  --pdzp-green-soft: #e3eae8;
+  --pdzp-green-dark: #2a403c;
+  --pdzp-success: rgb(var(--color-scheme-1-text, 59 87 81));
+  --pdzp-warn: #a8720a;
+  --pdzp-danger: rgb(var(--sale-price-color, 231 56 56));
+  --pdzp-danger-soft: rgb(var(--sale-price-color, 231 56 56) / .12);
+  /* Radios: alineados a los del tema. --pdzp-radius-btn es el radio real medido
+     en vivo del boton .btn--primary (7px); el tema no expone una variable para
+     eso, asi que va fijo. Tarjetas y contenedores usan las variables del tema. */
+  --pdzp-radius-btn: 7px;
+  --pdzp-radius-card: var(--card-border-radius, 10px);
+  --pdzp-radius-sm: var(--card-border-radius, 10px);
+  --pdzp-radius: var(--content-border-radius, 15px);
+  --pdzp-radius-full: 999px;
+  --pdzp-shadow-xs: 0 1px 2px rgba(24, 32, 28, .04);
+  --pdzp-shadow-sm: 0 1px 3px rgba(24, 32, 28, .05), 0 4px 10px rgba(24, 32, 28, .05);
+  --pdzp-shadow: 0 6px 16px rgba(24, 32, 28, .07), 0 16px 32px -12px rgba(24, 32, 28, .14);
+  --pdzp-space-1: .25rem;
+  --pdzp-space-2: .5rem;
+  --pdzp-space-3: .875rem;
+  --pdzp-space-4: 1.25rem;
+  --pdzp-space-5: 1.75rem;
+  /* Tipografia: la de cuerpo del tema para texto corrido, la de titulos para
+     titulos y cifras destacadas (precios, contador, ahorro). */
+  --pdzp-font-body: var(--body-font-family, Poppins, sans-serif);
+  --pdzp-font-heading: var(--heading-font-family, "Libre Baskerville", serif);
+  /* Escala tipografica en em (no rem): relativa al font-size real de este
+     bloque, que a su vez toma la base del tema (var(--body-font-size)) en vez
+     de heredar un root font-size que puede no ser 16px. Recalculada a mano
+     para verse equilibrada partiendo de una base de 16px real. */
+  --pdzp-fs-sm: clamp(.8em, .77em + .15vw, .875em);
+  --pdzp-fs-base: 1em;
+  --pdzp-fs-lg: clamp(1.05em, 1em + .2vw, 1.125em);
+  --pdzp-fs-h2: clamp(1.3em, 1.15em + .6vw, 1.55em);
+  --pdzp-tap: 44px;
+  --pdzp-ease: cubic-bezier(.4, 0, .2, 1);
+  --pdzp-dur: 200ms;
+  --pdzp-bar-h: 92px;
+
+  display: block;
+  width: 100%;
+  max-width: var(--page-width, 1320px);
+  margin: 0 auto;
+  padding: var(--pdzp-space-4) var(--pdzp-space-3) calc(var(--pdzp-bar-h) + var(--pdzp-space-5));
+  font-family: var(--pdzp-font-body);
+  font-weight: var(--body-font-weight, 400);
+  color: var(--pdzp-ink);
+  font-size: calc(var(--body-font-size, 16) * 1px);
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+.pdz-pack *,
+.pdz-pack *::before,
+.pdz-pack *::after {
+  box-sizing: border-box;
+}
+.pdz-pack-header {
+  margin-bottom: var(--pdzp-space-4);
+}
+.pdz-pack-title {
+  font-family: var(--pdzp-font-heading);
+  letter-spacing: var(--heading-letter-spacing, 0em);
+  font-size: var(--pdzp-fs-h2);
+  font-weight: 700;
+  margin: 0 0 .35rem;
+}
+.pdz-pack-subtitle {
+  margin: 0;
+  color: var(--pdzp-ink-soft);
+  font-size: var(--pdzp-fs-base);
+}
+.pdz-pack-status {
+  background: var(--pdzp-paper);
+  border-radius: var(--pdzp-radius);
+  padding: var(--pdzp-space-4);
+  margin-bottom: var(--pdzp-space-3);
+}
+.pdz-pack-counter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--pdzp-space-3);
+  margin-bottom: var(--pdzp-space-2);
+}
+.pdz-pack-counter-text {
+  font-family: var(--pdzp-font-heading);
+  letter-spacing: var(--heading-letter-spacing, 0em);
+  font-weight: 700;
+  font-size: var(--pdzp-fs-lg);
+}
+.pdz-pack-progress-track {
+  width: 100%;
+  height: 10px;
+  background: var(--pdzp-line-strong);
+  border-radius: var(--pdzp-radius-full);
+  overflow: hidden;
+}
+.pdz-pack-progress-fill {
+  height: 100%;
+  background: var(--pdzp-green);
+  border-radius: var(--pdzp-radius-full);
+  transition: width var(--pdzp-dur) var(--pdzp-ease);
+}
+.pdz-pack-microcopy {
+  margin: var(--pdzp-space-2) 0 0;
+  color: var(--pdzp-ink-soft);
+  font-size: var(--pdzp-fs-sm);
+}
+.pdz-pack-microcopy[data-tone="attention"] {
+  color: var(--pdzp-warn);
+  font-weight: 600;
+}
+.pdz-pack-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.pdz-pack-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--pdzp-space-4);
+  margin: var(--pdzp-space-4) 0;
+}
+.pdz-pack-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: var(--pdzp-surface);
+  border: 2px solid var(--pdzp-line-strong);
+  border-radius: var(--pdzp-radius-card);
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  color: inherit;
+  min-height: var(--pdzp-tap);
+  box-shadow: var(--pdzp-shadow-xs);
+  transition: border-color var(--pdzp-dur) var(--pdzp-ease), box-shadow var(--pdzp-dur) var(--pdzp-ease);
+  -webkit-tap-highlight-color: transparent;
+}
+.pdz-pack-card:hover {
+  box-shadow: var(--pdzp-shadow-sm);
+}
+.pdz-pack-card:focus-visible {
+  outline: 3px solid var(--pdzp-green);
+  outline-offset: 2px;
+}
+.pdz-pack-card[data-selected="true"] {
+  border-color: var(--pdzp-green);
+  border-width: 3px;
+  box-shadow: var(--pdzp-shadow);
+}
+.pdz-pack-card[data-agotado="true"] {
+  cursor: not-allowed;
+}
+.pdz-pack-card-media {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--pdzp-paper);
+  overflow: hidden;
+}
+.pdz-pack-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.pdz-pack-card[data-agotado="true"] .pdz-pack-card-media img {
+  filter: grayscale(1);
+  opacity: .55;
+}
+.pdz-pack-card-badge-piezas {
+  position: absolute;
+  top: var(--pdzp-space-2);
+  left: var(--pdzp-space-2);
+  background: rgba(255, 255, 255, .92);
+  color: var(--pdzp-ink-soft);
+  font-size: var(--pdzp-fs-sm);
+  font-weight: 600;
+  padding: .25rem .6rem;
+  border-radius: var(--pdzp-radius-full);
+  line-height: 1.3;
+}
+.pdz-pack-card-badge-agotado {
+  position: absolute;
+  top: var(--pdzp-space-2);
+  right: var(--pdzp-space-2);
+  background: var(--pdzp-danger-soft);
+  color: var(--pdzp-danger);
+  font-size: var(--pdzp-fs-sm);
+  font-weight: 700;
+  padding: .25rem .6rem;
+  border-radius: var(--pdzp-radius-full);
+  line-height: 1.3;
+}
+.pdz-pack-card-check {
+  position: absolute;
+  top: var(--pdzp-space-2);
+  right: var(--pdzp-space-2);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--pdzp-green);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--pdzp-shadow-xs);
+}
+.pdz-pack-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  flex: 1;
+  padding: var(--pdzp-space-3) var(--pdzp-space-3) var(--pdzp-space-4);
+}
+.pdz-pack-card-title {
+  font-family: var(--pdzp-font-heading);
+  letter-spacing: var(--heading-letter-spacing, 0em);
+  font-size: var(--pdzp-fs-base);
+  font-weight: 600;
+  margin: 0;
+}
+.pdz-pack-card-price {
+  font-family: var(--pdzp-font-heading);
+  letter-spacing: var(--heading-letter-spacing, 0em);
+  font-size: var(--pdzp-fs-lg);
+  font-weight: 700;
+  margin: 0;
+}
+.pdz-pack-card-state {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: var(--pdzp-fs-sm);
+  font-weight: 600;
+  color: var(--pdzp-ink-soft);
+  margin-top: auto;
+  padding-top: .6rem;
+  border-top: 1px solid var(--pdzp-line);
+}
+.pdz-pack-card-state svg {
+  flex-shrink: 0;
+}
+.pdz-pack-card[data-selected="true"] .pdz-pack-card-state {
+  color: var(--pdzp-green-dark);
+}
+.pdz-pack-card[data-agotado="true"] .pdz-pack-card-state {
+  color: var(--pdzp-danger);
+}
+.pdz-pack-callout {
+  background: var(--pdzp-green-soft);
+  color: var(--pdzp-green-dark);
+  border-radius: var(--pdzp-radius-sm);
+  padding: var(--pdzp-space-3);
+  font-size: var(--pdzp-fs-sm);
+  margin: 0 0 var(--pdzp-space-3);
+}
+.pdz-pack-summary-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  background: var(--pdzp-surface);
+  border-top: 1px solid var(--pdzp-line-strong);
+  box-shadow: 0 -8px 24px rgba(24, 32, 28, .1);
+  padding: var(--pdzp-space-3) var(--pdzp-space-3) calc(var(--pdzp-space-3) + env(safe-area-inset-bottom, 0px));
+}
+.pdz-pack-summary-bar-inner {
+  max-width: var(--page-width, 1320px);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--pdzp-space-3);
+}
+.pdz-pack-summary-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+.pdz-pack-summary-count {
+  font-size: var(--pdzp-fs-sm);
+  color: var(--pdzp-ink-soft);
+}
+.pdz-pack-summary-price {
+  font-family: var(--pdzp-font-heading);
+  letter-spacing: var(--heading-letter-spacing, 0em);
+  font-size: var(--pdzp-fs-lg);
+  font-weight: 700;
+}
+.pdz-pack-summary-savings {
+  font-family: var(--pdzp-font-heading);
+  letter-spacing: var(--heading-letter-spacing, 0em);
+  font-size: var(--pdzp-fs-sm);
+  color: var(--pdzp-success);
+  font-weight: 600;
+}
+.pdz-pack-btn-buy {
+  flex-shrink: 0;
+  min-height: var(--pdzp-tap);
+  padding: 0 var(--pdzp-space-4);
+  border-radius: var(--pdzp-radius-btn);
+  border: none;
+  background: var(--pdzp-green);
+  color: #fff;
+  font-weight: 700;
+  font-size: var(--pdzp-fs-base);
+  cursor: pointer;
+  transition: background var(--pdzp-dur) var(--pdzp-ease), opacity var(--pdzp-dur) var(--pdzp-ease);
+  white-space: nowrap;
+}
+.pdz-pack-btn-buy:not([aria-disabled="true"]):hover {
+  background: var(--pdzp-green-dark);
+}
+.pdz-pack-btn-buy[aria-disabled="true"] {
+  background: var(--pdzp-line-strong);
+  color: var(--pdzp-ink-faint);
+  cursor: not-allowed;
+}
+.pdz-pack-btn-buy:focus-visible {
+  outline: 3px solid var(--pdzp-green-dark);
+  outline-offset: 2px;
+}
+@media (min-width: 640px) {
+  .pdz-pack-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 960px) {
+  .pdz-pack-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+{%- endstyle -%}
+
+{%- liquid
+  assign pack_total = section.settings.puzzles_por_pack
+  assign envio_monto = section.settings.envio_gratis_desde
+  assign envio_miles = envio_monto | divided_by: 1000
+  assign envio_resto = envio_monto | modulo: 1000 | plus: 1000 | append: '' | slice: 1, 3
+  if envio_miles > 0
+    assign envio_monto_formateado = envio_miles | prepend: '$' | append: '.' | append: envio_resto
+  else
+    assign envio_monto_formateado = envio_monto | prepend: '$'
+  endif
+  assign envio_texto = section.settings.texto_envio_gratis | replace: '{monto}', envio_monto_formateado
+  assign microcopy_inicial = section.settings.texto_mensaje_vacio | replace: '{total}', pack_total
+-%}
+
+<div class="pdz-pack" data-pdz-pack-root="{{ section.id }}" data-puzzles-por-pack="{{ pack_total }}" data-porcentaje-descuento="{{ section.settings.porcentaje_descuento }}" data-texto-vacio="{{ section.settings.texto_mensaje_vacio | escape }}" data-texto-progreso="{{ section.settings.texto_mensaje_progreso | escape }}" data-texto-completo="{{ section.settings.texto_mensaje_completo | escape }}" data-texto-lleno="{{ section.settings.texto_mensaje_lleno | escape }}" id="pdz-pack-root-{{ section.id }}">
+  <div class="pdz-pack-header">
+    <p class="pdz-pack-subtitle">{{ section.settings.subtitulo }}</p>
+  </div>
+
+  <div class="pdz-pack-status">
+    <div class="pdz-pack-counter">
+      <span class="pdz-pack-counter-text" data-role="counter-text">0 de {{ pack_total }} elegidos</span>
+    </div>
+    <div class="pdz-pack-progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="{{ pack_total }}" aria-valuenow="0" aria-label="Puzzles elegidos para el pack" data-role="progress">
+      <div class="pdz-pack-progress-fill" data-role="progress-fill" style="width:0%"></div>
+    </div>
+    <p class="pdz-pack-microcopy" data-role="microcopy">{{ microcopy_inicial }}</p>
+  </div>
+
+  <div class="pdz-pack-sr-only" aria-live="polite" data-role="live"></div>
+
+  <div class="pdz-pack-grid" data-role="grid">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'puzzle' -%}
+        {%- liquid
+          assign producto = block.settings.producto
+        -%}
+        {%- if producto != blank -%}
+          {%- liquid
+            assign variante = producto.selected_or_first_available_variant
+            assign disponible = variante.available
+            assign agotado_bool = false
+            unless disponible
+              assign agotado_bool = true
+            endunless
+            assign titulo_completo = producto.title
+            assign piezas_num = 0
+            assign titulo_limpio = titulo_completo | split: '(' | first | strip
+            assign corte_piezas = titulo_completo | split: ' piezas'
+            if titulo_completo contains ' piezas'
+              assign palabras = corte_piezas.first | split: ' '
+              assign candidato = palabras.last | remove: '(' | strip
+              assign piezas_num = candidato | plus: 0
+            endif
+            assign precio_pesos = variante.price | divided_by: 100
+            assign precio_miles = precio_pesos | divided_by: 1000
+            assign precio_resto = precio_pesos | modulo: 1000 | plus: 1000 | append: '' | slice: 1, 3
+            if precio_miles > 0
+              assign precio_formateado = precio_miles | append: '.' | append: precio_resto
+            else
+              assign precio_formateado = precio_pesos | append: ''
+            endif
+            assign piezas_formateado = piezas_num
+          -%}
+          {%- if piezas_num >= 1000 -%}
+            {%- liquid
+              assign miles = piezas_num | divided_by: 1000
+              assign resto = piezas_num | modulo: 1000
+              assign resto_str = resto | append: ''
+            -%}
+            {%- if resto < 100 -%}{%- assign resto_str = '0' | append: resto_str -%}{%- endif -%}
+            {%- if resto < 10 -%}{%- assign resto_str = '0' | append: resto_str -%}{%- endif -%}
+            {%- assign piezas_formateado = miles | append: '.' | append: resto_str -%}
+          {%- endif -%}
+          {%- if piezas_num > 0 -%}
+            {%- assign alt_texto = titulo_limpio | append: ', puzzle de ' | append: piezas_formateado | append: ' piezas' -%}
+          {%- else -%}
+            {%- assign alt_texto = titulo_limpio -%}
+          {%- endif -%}
+          <button type="button" class="pdz-pack-card" data-variant-id="{{ variante.id }}" data-precio="{{ variante.price | divided_by: 100 }}" data-titulo="{{ titulo_limpio | escape }}" data-disponible="{{ disponible }}" data-selected="false" data-agotado="{{ agotado_bool }}" aria-pressed="false" aria-disabled="{{ agotado_bool }}">
+            <span class="pdz-pack-card-media">
+              <img src="{{ producto.featured_image | image_url: width: 800 }}" alt="{{ alt_texto | escape }}" loading="lazy" width="800" height="800">
+              {%- if piezas_num > 0 -%}
+                <span class="pdz-pack-card-badge-piezas">{{ piezas_formateado }} piezas</span>
+              {%- endif -%}
+              {%- if disponible == false -%}
+                <span class="pdz-pack-card-badge-agotado">Agotado</span>
+              {%- endif -%}
+            </span>
+            <span class="pdz-pack-card-body">
+              <span class="pdz-pack-card-title">{{ titulo_limpio }}</span>
+              <span class="pdz-pack-card-price">${{ precio_formateado }}</span>
+              <span class="pdz-pack-card-state" data-role="estado">
+                {%- if disponible == false -%}
+                  <svg viewBox="0 0 20 20" width="16" height="16" fill="none" aria-hidden="true"><path d="M6 6l8 8M14 6l-8 8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><span>Agotado</span>
+                {%- else -%}
+                  <svg viewBox="0 0 20 20" width="16" height="16" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.6"/></svg><span>Elegir</span>
+                {%- endif -%}
+              </span>
+            </span>
+          </button>
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+
+  <p class="pdz-pack-callout" data-role="callout">{{ envio_texto }}</p>
+
+  <div class="pdz-pack-summary-bar">
+    <div class="pdz-pack-summary-bar-inner">
+      <div class="pdz-pack-summary-info">
+        <span class="pdz-pack-summary-count" data-role="summary-count">0 de {{ pack_total }}</span>
+        <span class="pdz-pack-summary-price" data-role="summary-price"></span>
+        <span class="pdz-pack-summary-savings" data-role="summary-savings"></span>
+      </div>
+      <button type="button" class="pdz-pack-btn-buy" data-role="btn-buy" aria-disabled="true">Elige {{ pack_total }} para comprar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  function formatoNumero(n) {
+    n = Math.round(Math.abs(n));
+    return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  }
+
+  function formatoCLP(n) {
+    var signo = n < 0 ? "-" : "";
+    return signo + "$" + formatoNumero(n);
+  }
+
+  var iconCheck = '<svg viewBox="0 0 20 20" width="16" height="16" fill="none" aria-hidden="true"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var iconCirculo = '<svg viewBox="0 0 20 20" width="16" height="16" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.6"/></svg>';
+  var iconEquis = '<svg viewBox="0 0 20 20" width="16" height="16" fill="none" aria-hidden="true"><path d="M6 6l8 8M14 6l-8 8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>';
+
+  function estadoTexto(seleccionado, sinStock) {
+    if (sinStock) return iconEquis + "<span>Agotado</span>";
+    if (seleccionado) return iconCheck + "<span>Elegido — toca para quitar</span>";
+    return iconCirculo + "<span>Elegir</span>";
+  }
+
+  function pdzPackInit(root) {
+    if (!root || root.getAttribute('data-pdz-pack-ready') === '1') return;
+    root.setAttribute('data-pdz-pack-ready', '1');
+
+    var sectionId = root.getAttribute('data-pdz-pack-root') || 'default';
+    var total = parseInt(root.getAttribute('data-puzzles-por-pack'), 10) || 3;
+    var porcentaje = parseFloat(root.getAttribute('data-porcentaje-descuento')) || 0;
+    var storageKey = 'pedraza-pack:seleccion:' + sectionId;
+    var textos = {
+      vacio: root.getAttribute('data-texto-vacio') || 'Elige {total} puzzles para tu pack.',
+      progreso: root.getAttribute('data-texto-progreso') || '{n} de {total} elegidos. Te falta(n) {faltan}.',
+      completo: root.getAttribute('data-texto-completo') || 'Tu pack de {total} está listo.',
+      lleno: root.getAttribute('data-texto-lleno') || 'El pack es de {total}. Quita uno de los elegidos para cambiarlo.'
+    };
+
+    var elGrid = root.querySelector('[data-role="grid"]');
+    var elCounter = root.querySelector('[data-role="counter-text"]');
+    var elProgressFill = root.querySelector('[data-role="progress-fill"]');
+    var elProgress = root.querySelector('[data-role="progress"]');
+    var elMicrocopy = root.querySelector('[data-role="microcopy"]');
+    var elLive = root.querySelector('[data-role="live"]');
+    var elSummaryCount = root.querySelector('[data-role="summary-count"]');
+    var elSummaryPrice = root.querySelector('[data-role="summary-price"]');
+    var elSummarySavings = root.querySelector('[data-role="summary-savings"]');
+    var elBtnBuy = root.querySelector('[data-role="btn-buy"]');
+
+    if (!elGrid || !elBtnBuy) return;
+
+    var tarjetas = elGrid.querySelectorAll('.pdz-pack-card');
+
+    // Catálogo leído del DOM que imprimió Liquid (no hay array escrito a mano en el JS).
+    var catalogo = [];
+    for (var i = 0; i < tarjetas.length; i++) {
+      var el = tarjetas[i];
+      catalogo.push({
+        variantId: el.getAttribute('data-variant-id'),
+        precio: parseFloat(el.getAttribute('data-precio')) || 0,
+        titulo: el.getAttribute('data-titulo') || '',
+        disponible: el.getAttribute('data-disponible') === 'true'
+      });
+    }
+
+    function buscar(variantId) {
+      for (var j = 0; j < catalogo.length; j++) {
+        if (catalogo[j].variantId === variantId) return catalogo[j];
+      }
+      return null;
+    }
+
+    function cargarSeleccion() {
+      var arr = [];
+      try {
+        var raw = window.localStorage.getItem(storageKey);
+        if (raw) arr = JSON.parse(raw) || [];
+      } catch (e) {
+        arr = [];
+      }
+      if (!Array.isArray(arr)) arr = [];
+      arr = arr.filter(function (id) {
+        var p = buscar(id);
+        return !!p && p.disponible;
+      });
+      if (arr.length > total) arr = arr.slice(0, total);
+      return arr;
+    }
+
+    var seleccion = cargarSeleccion();
+
+    function guardarSeleccion() {
+      try {
+        window.localStorage.setItem(storageKey, JSON.stringify(seleccion));
+      } catch (e) {
+        // localStorage no disponible (modo privado, etc.) — la selección solo vive en memoria.
+      }
+    }
+
+    function sincronizarTarjetas() {
+      for (var i = 0; i < tarjetas.length; i++) {
+        var btn = tarjetas[i];
+        var variantId = btn.getAttribute('data-variant-id');
+        var p = buscar(variantId);
+        if (!p) continue;
+        var seleccionado = seleccion.indexOf(variantId) !== -1;
+        var sinStock = !p.disponible;
+        btn.setAttribute('data-selected', String(seleccionado));
+        btn.setAttribute('aria-pressed', String(seleccionado));
+
+        var estado = btn.querySelector('[data-role="estado"]');
+        if (estado) estado.innerHTML = estadoTexto(seleccionado, sinStock);
+
+        var media = btn.querySelector('.pdz-pack-card-media');
+        var badgeCheck = media.querySelector('.pdz-pack-card-check');
+        if (!sinStock) {
+          if (seleccionado && !badgeCheck) {
+            var span = document.createElement('span');
+            span.className = 'pdz-pack-card-check';
+            span.innerHTML = iconCheck;
+            media.appendChild(span);
+          } else if (!seleccionado && badgeCheck) {
+            badgeCheck.parentNode.removeChild(badgeCheck);
+          }
+        }
+      }
+    }
+
+    function calcularResumen() {
+      var elegidos = catalogo.filter(function (p) {
+        return seleccion.indexOf(p.variantId) !== -1;
+      });
+      var subtotal = elegidos.reduce(function (acc, p) {
+        return acc + p.precio;
+      }, 0);
+      var ahorro = 0;
+      var precioFinal = subtotal;
+
+      if (elegidos.length === total) {
+        ahorro = Math.round(subtotal * (porcentaje / 100));
+        precioFinal = subtotal - ahorro;
+      }
+
+      var porcentajeEfectivo = subtotal > 0 ? Math.round((ahorro / subtotal) * 100) : 0;
+
+      return {
+        elegidos: elegidos,
+        subtotal: subtotal,
+        ahorro: ahorro,
+        precioFinal: precioFinal,
+        porcentajeEfectivo: porcentajeEfectivo
+      };
+    }
+
+    function armarPermalink(elegidos) {
+      var partes = elegidos.map(function (p) {
+        return p.variantId + ':1';
+      }).join(',');
+      return '/cart/' + partes;
+    }
+
+    function anunciar(mensaje) {
+      if (!elLive) return;
+      elLive.textContent = '';
+      window.setTimeout(function () {
+        elLive.textContent = mensaje;
+      }, 30);
+    }
+
+    function textoMicrocopy(n) {
+      var faltan = total - n;
+      if (n === 0) return textos.vacio.split('{total}').join(total);
+      if (n < total) {
+        var sufijo = faltan === 1 ? 'falta' : 'faltan';
+        return textos.progreso
+          .split('{n}').join(n)
+          .split('{total}').join(total)
+          .split('{faltan}').join(faltan)
+          .split('falta(n)').join(sufijo);
+      }
+      return textos.completo.split('{total}').join(total);
+    }
+
+    function actualizarResumen(anunciarCambio, mensajeExtra) {
+      var r = calcularResumen();
+      var n = seleccion.length;
+
+      if (elCounter) elCounter.textContent = n + ' de ' + total + ' elegidos';
+      if (elProgressFill) elProgressFill.style.width = (n / total * 100) + '%';
+      if (elProgress) elProgress.setAttribute('aria-valuenow', String(n));
+
+      if (mensajeExtra) {
+        if (elMicrocopy) {
+          elMicrocopy.textContent = mensajeExtra;
+          elMicrocopy.setAttribute('data-tone', 'attention');
+        }
+      } else {
+        if (elMicrocopy) {
+          elMicrocopy.textContent = textoMicrocopy(n);
+          elMicrocopy.removeAttribute('data-tone');
+        }
+      }
+
+      if (elSummaryCount) elSummaryCount.textContent = n + ' de ' + total;
+
+      if (n === total) {
+        if (elSummaryPrice) elSummaryPrice.textContent = formatoCLP(r.precioFinal);
+        if (elSummarySavings) elSummarySavings.textContent = r.ahorro > 0 ? ('Ahorras ' + formatoCLP(r.ahorro) + ' (' + r.porcentajeEfectivo + '%)') : '';
+        elBtnBuy.setAttribute('aria-disabled', 'false');
+        elBtnBuy.textContent = 'Ir a pagar';
+      } else {
+        if (elSummaryPrice) elSummaryPrice.textContent = '';
+        if (elSummarySavings) elSummarySavings.textContent = '';
+        elBtnBuy.setAttribute('aria-disabled', 'true');
+        elBtnBuy.textContent = n === 0 ? ('Elige ' + total + ' para comprar') : ('Elige ' + (total - n) + ' más');
+      }
+
+      if (anunciarCambio) {
+        anunciar(mensajeExtra || textoMicrocopy(n));
+      }
+    }
+
+    function alternarSeleccion(variantId) {
+      var p = buscar(variantId);
+      if (!p) return;
+
+      if (!p.disponible) {
+        anunciar(p.titulo + ' está agotado por ahora.');
+        return;
+      }
+
+      var idx = seleccion.indexOf(variantId);
+      if (idx !== -1) {
+        seleccion.splice(idx, 1);
+        guardarSeleccion();
+        sincronizarTarjetas();
+        actualizarResumen(true);
+        return;
+      }
+
+      if (seleccion.length >= total) {
+        actualizarResumen(true, textos.lleno.split('{total}').join(total));
+        return;
+      }
+
+      seleccion.push(variantId);
+      guardarSeleccion();
+      sincronizarTarjetas();
+      actualizarResumen(true);
+    }
+
+    elGrid.addEventListener('click', function (e) {
+      var btn = e.target.closest ? e.target.closest('.pdz-pack-card') : null;
+      if (!btn) return;
+      alternarSeleccion(btn.getAttribute('data-variant-id'));
+    });
+
+    elGrid.addEventListener('keydown', function (e) {
+      if (e.key !== 'Enter' && e.key !== ' ' && e.key !== 'Spacebar') return;
+      var btn = e.target.closest ? e.target.closest('.pdz-pack-card') : null;
+      if (!btn) return;
+      e.preventDefault();
+      alternarSeleccion(btn.getAttribute('data-variant-id'));
+    });
+
+    elBtnBuy.addEventListener('click', function () {
+      if (elBtnBuy.getAttribute('aria-disabled') === 'true') {
+        var faltan = total - seleccion.length;
+        anunciar('Elige ' + faltan + ' más para completar tu pack.');
+        return;
+      }
+      var r = calcularResumen();
+      window.location.href = armarPermalink(r.elegidos);
+    });
+
+    sincronizarTarjetas();
+    actualizarResumen(false);
+  }
+
+  function iniciarSecciones(alcance) {
+    var raices = (alcance || document).querySelectorAll('[data-pdz-pack-root]');
+    for (var i = 0; i < raices.length; i++) {
+      pdzPackInit(raices[i]);
+    }
+  }
+
+  iniciarSecciones(document);
+
+  if (!window.__pdzPackListenerAttached) {
+    window.__pdzPackListenerAttached = true;
+    document.addEventListener('shopify:section:load', function (event) {
+      iniciarSecciones(event.target);
+    });
+  }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Arma tu pack",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Contenido"
+    },
+    {
+      "type": "text",
+      "id": "subtitulo",
+      "label": "Subtítulo",
+      "default": "Elige tus 3 favoritos y paga menos por el conjunto."
+    },
+    {
+      "type": "number",
+      "id": "puzzles_por_pack",
+      "label": "Cuántos puzzles entran en el pack",
+      "default": 3
+    },
+    {
+      "type": "header",
+      "content": "Descuento que se muestra"
+    },
+    {
+      "type": "number",
+      "id": "porcentaje_descuento",
+      "label": "Porcentaje de descuento que se muestra en pantalla",
+      "info": "Ojo: este número solo se MUESTRA en la pantalla para que la clienta vea cuánto ahorra. El descuento que se cobra de verdad vive en Descuentos de Shopify (busca uno llamado algo como 'Pack 3 puzzles · 20%'). Si cambias este número, cambia también ese descuento en Shopify para que los dos coincidan.",
+      "default": 20
+    },
+    {
+      "type": "number",
+      "id": "envio_gratis_desde",
+      "label": "Desde cuántos pesos el envío es gratis",
+      "default": 50000
+    },
+    {
+      "type": "header",
+      "content": "Mensajes"
+    },
+    {
+      "type": "text",
+      "id": "texto_mensaje_vacio",
+      "label": "Mensaje cuando no ha elegido ninguno",
+      "info": "Usa {total} donde quieras que aparezca el número de puzzles del pack.",
+      "default": "Elige {total} puzzles para tu pack."
+    },
+    {
+      "type": "text",
+      "id": "texto_mensaje_progreso",
+      "label": "Mensaje mientras va eligiendo",
+      "info": "Usa {n} para lo ya elegido, {total} para el total del pack y {faltan} para lo que falta.",
+      "default": "{n} de {total} elegidos. Te falta(n) {faltan}."
+    },
+    {
+      "type": "text",
+      "id": "texto_mensaje_completo",
+      "label": "Mensaje cuando el pack ya está listo",
+      "info": "Usa {total} donde quieras que aparezca el número de puzzles del pack.",
+      "default": "Tu pack de {total} está listo."
+    },
+    {
+      "type": "text",
+      "id": "texto_mensaje_lleno",
+      "label": "Mensaje si intenta elegir uno de más",
+      "info": "Usa {total} donde quieras que aparezca el número de puzzles del pack.",
+      "default": "El pack es de {total}. Quita uno de los elegidos para cambiarlo."
+    },
+    {
+      "type": "text",
+      "id": "texto_envio_gratis",
+      "label": "Aviso de envío gratis",
+      "info": "Usa {monto} donde quieras que aparezca el monto desde el que el envío es gratis.",
+      "default": "El envío es gratis en compras sobre {monto}."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "puzzle",
+      "name": "Puzzle",
+      "settings": [
+        {
+          "type": "product",
+          "id": "producto",
+          "label": "Producto del puzzle"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Arma tu pack"
+    }
+  ]
+}
+{% endschema %}
