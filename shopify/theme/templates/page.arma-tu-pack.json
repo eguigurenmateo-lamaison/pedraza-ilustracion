@@ -55,11 +55,32 @@
         "puzzle_4",
         "puzzle_5"
       ],
-      "settings": {}
+      "settings": {
+        "subtitulo": "Ahorra un 20% al elegir tus 3 puzzles favoritos!",
+        "puzzles_por_pack": 3,
+        "porcentaje_descuento": 20,
+        "envio_gratis_desde": 50000,
+        "texto_mensaje_vacio": "Elige {total} puzzles para tu pack.",
+        "texto_mensaje_progreso": "{n} de {total} elegidos. Te falta(n) {faltan}.",
+        "texto_mensaje_completo": "Tu pack de {total} está listo.",
+        "texto_mensaje_lleno": "El pack es de {total}. Quita uno de los elegidos para cambiarlo.",
+        "texto_envio_gratis": "El envío es gratis en compras sobre {monto}."
+      }
+    },
+    "ajuste_boton_whatsapp": {
+      "type": "custom-liquid",
+      "name": "Ajuste: subir botón de WhatsApp sobre la barra de compra",
+      "settings": {
+        "custom_liquid": "<style>\n  body:has(.pdz-pack-summary-bar) #ezy-open {\n    bottom: calc(100px + env(safe-area-inset-bottom, 0px)) !important;\n  }\n</style>",
+        "full_width": true,
+        "show_space": false,
+        "boundary_effect": ""
+      }
     }
   },
   "order": [
     "main",
-    "arma_tu_pack"
+    "arma_tu_pack",
+    "ajuste_boton_whatsapp"
   ]
 }
