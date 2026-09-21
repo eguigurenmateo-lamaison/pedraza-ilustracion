@@ -130,7 +130,7 @@ Toda ronda de trabajo termina con estos tres pasos, siempre en esta secuencia y 
 - Botones "Copiar" funcionando, con destino existente para cada `data-copy-target`.
 - Cero ids duplicados, HTML balanceado, anclas internas y enlaces entre páginas sin roturas.
 - Cero recursos externos (ni CDNs, ni fuentes, ni imágenes remotas).
-- **Contratos de checklist aislados:** cada página usa su propio atributo `data-*` y su propio prefijo de `localStorage`. Nunca se reutiliza uno existente, y **toda casilla debe guardar su estado** — una casilla sin contrato `data-*` es una falla de QC. Contratos tomados: `ads`, `bitacora`, `campanas`, `clientes`, `correo`, `correosp`, `cro`, `digital`, `estado`, `inventario`, `navidad`, `ofertas`, `pedido`, `plan90`, `preventa`, `react`, `tablero`, `task`, `tienda`.
+- **Contratos de checklist aislados:** cada página usa su propio atributo `data-*` y su propio prefijo de `localStorage`. Nunca se reutiliza uno existente, y **toda casilla debe guardar su estado** — una casilla sin contrato `data-*` es una falla de QC. Contratos tomados: `ads`, `bitacora`, `campanas`, `clientes`, `correo`, `correosp`, `cro`, `digital`, `estado`, `grabacion`, `inventario`, `navidad`, `ofertas`, `pedido`, `plan90`, `precios`, `precioventa`, `preventa`, `react`, `tablero`, `task`, `tienda`.
 - Todo cálculo con fechas o plata se verifica con un script independiente antes de publicarlo.
 
 ### Al terminar
