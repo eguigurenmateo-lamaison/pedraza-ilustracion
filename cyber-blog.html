@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Lista de tomas — Plan Pedraza Ilustración</title>
+<title>Revisión del blog — Plan Pedraza Ilustración</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
 <style>
 /* ==========================================================================
@@ -617,47 +617,11 @@ main { counter-reset: sec; }
   .callout { border-left: 4px solid #999; }
   a[href]::after { content: " (" attr(href) ")"; font-size: .8em; }
 }
-/* ==========================================================================
-   Extensiones propias de esta página (grabacion.html)
-   grabacion.html no es una de las páginas del menú principal — se comparte
-   por link directo con Cote para grabar hoy. El bloque de arriba es el
-   canónico intacto; lo de abajo son componentes propios de esta página
-   (casillas más grandes para marcar con el pulgar, y la mini-etiqueta de
-   número de toma), agregados en la misma hoja de estilos única para no
-   crear un segundo archivo CSS.
-   ========================================================================== */
+/* ===== Extensiones propias de esta pagina (cyber-blog.html) ===== */
 
-/* Checklist de terreno: casillas más grandes que el estándar del sitio —
-   se marcan con una mano mientras se sostiene el teléfono con la otra. */
-.checklist--campo label { min-height: 60px; padding: var(--space-4); }
-.checklist--campo input[type="checkbox"] { width: 32px; height: 32px; }
-
-/* Etiqueta corta de "toma número X" al inicio de cada ficha */
-.shot-tag {
-  display: inline-block;
-  font-family: var(--font-mono);
-  font-size: var(--fs-sm);
-  font-weight: 700;
-  color: var(--brand-green-dark);
-  background: var(--brand-green-soft);
-  border-radius: var(--radius-xs);
-  padding: 2px var(--space-2);
-  margin-right: var(--space-2);
-}
-
-/* Meta rápida de cada ficha (formato + duración) */
-.shot-meta { font-size: var(--fs-sm); color: var(--ink-soft); margin: 0 0 var(--space-3); }
-
-/* Diagrama de luz (sección "cómo se ve la textura") */
-.light-diagram { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-4); margin: var(--space-5) 0; }
-@media (min-width: 560px) { .light-diagram { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-.light-diagram__panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-xs); padding: var(--space-3); text-align: center; }
-.light-diagram__caption { font-size: var(--fs-sm); font-weight: 700; margin-top: var(--space-2); }
-.light-diagram__caption--bad { color: var(--danger); }
-.light-diagram__caption--good { color: var(--success); }
 </style>
 </head>
-<body data-nav-actual="grabacion">
+<body data-nav-actual="cyber-blog">
 <nav class="navbar" aria-label="Barra de navegación">
   <div class="navbar__inner">
     <a href="estado.html" class="navbar__home" aria-label="Ir al inicio: Estado del plan">🦋</a>
@@ -935,399 +899,353 @@ main { counter-reset: sec; }
 
 <header class="hero">
   <div class="hero__inner">
-    <h1>Lo que hay que grabar</h1>
-    <p>Viernes 14 grabas sola. Lunes 17 grabas con Felipe. Esta página es la lista de tomas para las dos sesiones: qué se ve, cuántos segundos, y cómo sostener el teléfono. Marca cada toma apenas la grabes — queda guardado en este teléfono.</p>
+<h1>Revisión del blog: los 10 artículos</h1>
+<p>Los 10 artículos que responden "dónde comprar puzzles en Chile" ya están escritos y publicados. Esta página es para que Cote los revise desde el celular (aprueba o pide corrección) y para que Mateo tenga a la mano los textos exactos que hay que pegar en la tienda antes y después del Cyber.</p>
   </div>
 </header>
 
 <main class="wrap">
 
-<section class="sec" id="prioridad">
-<h2>Lo primero que hay que grabar</h2>
+<section class="sec" id="accion">
+<h2>Lo que necesita acción ya</h2>
+<p>Estos tres puntos no son de redacción: uno es un link roto en vivo, uno es una decisión sobre un artículo viejo, y uno es una decisión de negocio. Todo lo demás de esta página puede esperar a que se revisen estos tres.</p>
 
-<p>Si el tiempo no alcanza para todo, esto no puede faltar. En orden.</p>
-
-<div class="grid-3">
-
-<div class="card">
-<h3>1. Puzzle de niños</h3>
-<p><span class="pill pill--danger">Lunes, con Felipe</span></p>
-<p style="margin-bottom:0">Es el único lanzamiento real que hay hoy, y no existe ni una toma. Llega el fin de semana, por eso se graba el lunes.</p>
-</div>
-
-<div class="card">
-<h3>2. Textura de las láminas</h3>
-<p><span class="pill pill--warn">Viernes, sola</span></p>
-<p style="margin-bottom:0">Sin estas tomas no se puede armar ni la infografía del papel ni los anuncios de láminas. Ver la sección 3 para la técnica de luz.</p>
-</div>
-
-<div class="card">
-<h3>3. El empaque como regalo</h3>
-<p><span class="pill pill--warn">Viernes, sola</span></p>
-<p style="margin-bottom:0">El hallazgo que dijiste tú misma — que no hace falta envolver porque ya es un regalo — todavía no está grabado.</p>
-</div>
-
-</div>
-</section>
 <div class="callout callout--danger">
-<p>⛔ <strong>No grabes nada del puzzle de mariposas.</strong> Ese modelo no llega hasta noviembre, así que cualquier toma que hagas ahora no se puede usar en publicidad ni en la tienda. Los que sí llegan son <strong>aves, cetáceos y hongos</strong>.</p>
+<p>🔴 <strong>1. Link roto en vivo, en el artículo de cetáceos.</strong> El artículo "Puzzle Cetáceos de Chile de 1000 piezas" enlaza a <code>/products/lamina-cetaceos-de-chile-copia</code>, que no existe (error 404). La dirección correcta es <code>/products/lamina-cetaceos-de-chile</code>. Se arregla en el admin de Shopify, en el artículo <code>puzzle-cetaceos-de-chile-donde-comprar</code>. Un minuto de trabajo.</p>
+<ul class="checklist">
+<li><label><input type="checkbox" data-cyberblog="accion-link-cetaceos-arreglado"><span>Ya se cambió el link en Shopify</span></label></li>
+</ul>
 </div>
 
-
-<section class="sec" id="viernes">
-<h2>Viernes 14: sola</h2>
-
-<p>Marca cada toma a medida que la grabas.</p>
-<div class="progress">
-  <div class="progress__track">
-    <div class="progress__fill" data-progress-fill></div>
-  </div>
-  <span class="progress__label" data-progress-label>0 de 17 tomas (0%)</span>
+<div class="callout callout--danger">
+<p>🔴 <strong>2. El artículo "Por qué los puzzles ilustrados son el regalo perfecto" suena a inteligencia artificial.</strong> Es el más antiguo de los 10 (marzo 2025) y probablemente el que Cote tuvo en mente en la llamada: parte con una frase genérica, va en lista numerada, no enlaza a ningún producto y no tiene precios. Además se solapa casi por completo con el artículo "Regalar un puzzle o una lámina", que trata el mismo tema mejor y con links reales. Hay que decidir entre despublicarlo (y dejar que el otro artículo lo reemplace) o reescribirlo enfocado en una pregunta distinta, para que no compitan por la misma búsqueda.</p>
+<ul class="checklist">
+<li><label><input type="checkbox" data-cyberblog="accion-articulo1-decidido"><span>Ya se decidió qué hacer con este artículo</span></label></li>
+</ul>
 </div>
 
-<h3 id="viernes-laminas">Láminas</h3>
-
-<div class="card">
-<h3><span class="shot-tag">V1</span>Textura del papel, de cerca</h3>
-<p class="shot-meta">📱 Vertical · ⏱ 8 a 10 segundos</p>
-<p><strong>Qué se ve:</strong> la lámina de aves (la de más reseñas) llenando toda la pantalla, muy de cerca, con la luz entrando de lado — no de frente.</p>
-<p style="margin-bottom:0"><strong>Truco:</strong> revisa la sección 3 antes de esta toma. Es la más importante del día.</p>
+<div class="callout callout--warn">
+<p>🟡 <strong>3. Dos artículos recomiendan marcas y tiendas de la competencia, por nombre.</strong> Esto no es un error de redacción: es una apuesta de SEO que Cote y Felipe tienen que aprobar a sabiendas.</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Artículo</th><th>Qué gana la marca dejándolo así</th><th>Qué arriesga</th></tr></thead>
+<tbody>
+<tr><td>"¿Qué marcas de puzzles son de buena calidad?" — nombra 5 marcas internacionales (Ravensburger, Clementoni, Heye, Trefl, Educa) antes que la propia</td><td>Responde la pregunta completa sin sesgo aparente, lo que a Google y a ChatGPT les gusta citar como fuente confiable. Al final posiciona a Pedraza como "la opción con identidad chilena", no como una marca más de la lista.</td><td>Alguien busca "marcas de puzzles buenas" sin pensar todavía en Pedraza, y el primer nombre que lee es Ravensburger.</td></tr>
+<tr><td>"Dónde comprar puzzles de 1000 piezas en Chile" — lista con nombre y sitio web a 14 competidores (Puzzled, Puzzle Smile, Toyng, Kolken, La Puzzlera, Creado en Chile, La Pipa Flor, Falabella, Paris, Ripley, Jumbo, Lider, Mercado Libre, Mirax Hobbies)</td><td>Es exactamente el tipo de página que capta la búsqueda "dónde comprar puzzles en Chile" — el objetivo número uno de este trabajo. Pedraza aparece en su propia lista, con link directo a la tienda.</td><td>Es una guía de compra que también manda tráfico real a Falabella, Mercado Libre y tiendas especializadas. Quien llega puede terminar comprando en cualquiera de las 14, no en Pedraza.</td></tr>
+</tbody>
+</table>
 </div>
-
-<div class="card">
-<h3><span class="shot-tag">V2</span>El borde de la lámina, de canto</h3>
-<p class="shot-meta">📱 Vertical · ⏱ 5 segundos</p>
-<p><strong>Qué se ve:</strong> el borde o esquina de la lámina desde el lado, para que se note el grosor del papel.</p>
-<p style="margin-bottom:0"><strong>Truco:</strong> acerca el teléfono al borde en vez de hacer zoom — el zoom pixela la imagen y se pierde el detalle.</p>
+<p>Opciones: dejar ambos como están, recortarlos (por ejemplo sacar Falabella y Mercado Libre pero mantener las marcas de diseño chileno, que compiten menos directo), o reescribirlos para que Pedraza aparezca primero y con más espacio.</p>
+<ul class="checklist">
+<li><label><input type="checkbox" data-cyberblog="accion-marcas-competencia-decidido"><span>Ya se decidió qué hacer con estos dos artículos</span></label></li>
+</ul>
 </div>
-
-<div class="card">
-<h3><span class="shot-tag">V3</span>Una mano pasando por el papel</h3>
-<p class="shot-meta">📱 Vertical · ⏱ 5 a 8 segundos</p>
-<p><strong>Qué se ve:</strong> tu mano deslizándose despacio sobre la superficie de la lámina, como si la estuvieras tocando de verdad.</p>
-<p style="margin-bottom:0"><strong>Truco:</strong> ve lento. El movimiento rápido no deja ver nada.</p>
-</div>
-
-<div class="card">
-<h3><span class="shot-tag">V4</span>La lámina moviéndose bajo la luz</h3>
-<p class="shot-meta">📱 Vertical · ⏱ 8 a 10 segundos</p>
-<p><strong>Qué se ve:</strong> la lámina inclinándose despacio de un lado a otro, mientras la luz de la ventana recorre el papel.</p>
-<p style="margin-bottom:0"><strong>Truco:</strong> esta es la toma que de verdad resuelve el problema — el relieve del papel aparece y desaparece con el movimiento. Grábala varias veces.</p>
-</div>
-
-<h3 id="viernes-empaque">Empaque</h3>
-
-<div class="card">
-<h3><span class="shot-tag">V5</span>Inserto de 2 segundos para el video del empaque</h3>
-<p class="shot-meta">📱 Vertical · ⏱ 2 segundos exactos</p>
-<p><strong>Qué se ve:</strong> la lámina de cerca (parecido a la toma V1), muy corta. Se pega al inicio del video del empaque que ya está editado.</p>
-<p style="margin-bottom:0"><strong>Truco:</strong> graba 3 o 4 segundos igual — siempre es más fácil cortar de más que pedir la toma otra vez.</p>
-</div>
-
-<div class="card">
-<h3><span class="shot-tag">V6</span>El paquete cerrado, tal cual llega</h3>
-<p class="shot-meta">📱 Vertical u horizontal · ⏱ 5 a 8 segundos</p>
-<p><strong>Qué se ve:</strong> el paquete tal como lo recibe alguien que compró — sin agregarle ningún papel de regalo ni moño.</p>
-<p style="margin-bottom:0">Detalle completo del ángulo en la sección 6.</p>
-</div>
-
-<div class="card">
-<h3><span class="shot-tag">V7</span>Abriendo el paquete</h3>
-<p class="shot-meta">📱 Vertical · ⏱ 8 a 10 segundos</p>
-<p><strong>Qué se ve:</strong> el paquete abriéndose y mostrando lo bien presentado que queda por dentro, sin necesitar nada más encima.</p>
-<p style="margin-bottom:0">Detalle completo del ángulo en la sección 6.</p>
-</div>
-
-<h3 id="viernes-cetaceos">Puzzle de cetáceos (terminar lo que falta)</h3>
-
-<div class="card">
-<h3><span class="shot-tag">V8</span>Terminar de armar el puzzle</h3>
-<p class="shot-meta">📱 Horizontal · ⏱ 10 a 15 segundos</p>
-<p><strong>Qué se ve:</strong> las últimas piezas del puzzle de cetáceos encajando, hasta dejarlo completo. Este video ya está empezado, solo falta terminarlo.</p>
-<p style="margin-bottom:0"><strong>Truco:</strong> deja las piezas que faltan separadas, a un costado, para que se note el avance mientras las vas poniendo.</p>
-</div>
-
-<div class="card">
-<h3><span class="shot-tag">V9</span>El puzzle completo, desde arriba</h3>
-<p class="shot-meta">📱 Vertical · ⏱ 5 a 8 segundos</p>
-<p><strong>Qué se ve:</strong> el puzzle terminado, con el teléfono justo encima, mirando derecho hacia abajo.</p>
-<p style="margin-bottom:0"><strong>Truco:</strong> apoya el puzzle en el suelo o una mesa grande y ponte de pie arriba para que salga derecho, sin ángulo torcido.</p>
-</div>
-
 </section>
 
-<section class="sec" id="textura">
-<h2>Cómo hacer que se vea la textura</h2>
+<section class="sec" id="articulos">
+<h2>Los 10 artículos, uno por uno</h2>
+<p>Cote: revisa cada tarjeta y marca si lo apruebas tal cual o si necesita corrección. Los problemas 🔴 y 🟡 ya están descritos arriba o abajo, en la sección del Cyber — aquí es solo para dejar constancia de la revisión.</p>
 
-<p>Tienes razón: en cámara cuesta que se note que el papel es especial. No es problema de la cámara — es problema de la luz. Con luz de ventana normal se soluciona.</p>
-
-<div class="light-diagram">
-  <div class="light-diagram__panel">
-    <svg viewBox="0 0 150 150" role="img" aria-hidden="true">
-      <circle cx="75" cy="34" r="10" fill="var(--ink-faint)"></circle>
-      <line x1="75" y1="46" x2="75" y2="80" stroke="var(--ink-faint)" stroke-width="2"></line>
-      <polygon points="68,74 82,74 75,86" fill="var(--ink-faint)"></polygon>
-      <rect x="25" y="90" width="100" height="16" rx="3" fill="var(--surface)" stroke="var(--line-strong)" stroke-width="1.5"></rect>
-      <circle cx="42" cy="90" r="5" fill="var(--paper)" stroke="var(--line-strong)" stroke-width="1"></circle>
-      <circle cx="62" cy="90" r="5" fill="var(--paper)" stroke="var(--line-strong)" stroke-width="1"></circle>
-      <circle cx="82" cy="90" r="5" fill="var(--paper)" stroke="var(--line-strong)" stroke-width="1"></circle>
-      <circle cx="102" cy="90" r="5" fill="var(--paper)" stroke="var(--line-strong)" stroke-width="1"></circle>
-    </svg>
-    <p class="light-diagram__caption light-diagram__caption--bad">✕ Luz de frente: el papel se ve liso</p>
-  </div>
-  <div class="light-diagram__panel">
-    <svg viewBox="0 0 150 150" role="img" aria-hidden="true">
-      <rect x="18" y="76" width="22" height="34" fill="none" stroke="var(--ink-faint)" stroke-width="2"></rect>
-      <line x1="29" y1="76" x2="29" y2="110" stroke="var(--ink-faint)" stroke-width="1"></line>
-      <line x1="18" y1="93" x2="40" y2="93" stroke="var(--ink-faint)" stroke-width="1"></line>
-      <line x1="44" y1="90" x2="112" y2="90" stroke="var(--warn)" stroke-width="2"></line>
-      <polygon points="112,85 112,95 122,90" fill="var(--warn)"></polygon>
-      <rect x="25" y="94" width="100" height="16" rx="3" fill="var(--surface)" stroke="var(--line-strong)" stroke-width="1.5"></rect>
-      <circle cx="42" cy="94" r="5" fill="var(--paper)" stroke="var(--line-strong)" stroke-width="1"></circle>
-      <ellipse cx="46" cy="97" rx="3" ry="2" fill="var(--ink-faint)" opacity="0.55"></ellipse>
-      <circle cx="62" cy="94" r="5" fill="var(--paper)" stroke="var(--line-strong)" stroke-width="1"></circle>
-      <ellipse cx="66" cy="97" rx="3" ry="2" fill="var(--ink-faint)" opacity="0.55"></ellipse>
-      <circle cx="82" cy="94" r="5" fill="var(--paper)" stroke="var(--line-strong)" stroke-width="1"></circle>
-      <ellipse cx="86" cy="97" rx="3" ry="2" fill="var(--ink-faint)" opacity="0.55"></ellipse>
-      <circle cx="102" cy="94" r="5" fill="var(--paper)" stroke="var(--line-strong)" stroke-width="1"></circle>
-      <ellipse cx="106" cy="97" rx="3" ry="2" fill="var(--ink-faint)" opacity="0.55"></ellipse>
-    </svg>
-    <p class="light-diagram__caption light-diagram__caption--good">✓ Luz de lado: se ven sombras y relieve</p>
-  </div>
+<div class="card">
+<h3>1. Por qué los puzzles ilustrados son el regalo perfecto</h3>
+<p><span class="pill pill--danger">🔴 Necesita acción</span></p>
+<p><strong>Responde:</strong> ¿por qué regalar un puzzle ilustrado?</p>
+<p style="margin-bottom:0">Suena a IA y se solapa con el artículo 5. Ver el punto 2 de arriba antes de aprobar.</p>
+<ul class="checklist">
+<li><label><input type="checkbox" data-cyberblog="art-1-aprobado"><span>Aprobado tal cual</span></label></li>
+<li><label><input type="checkbox" data-cyberblog="art-1-corrijo"><span>Corrijo (ver punto 2 de arriba)</span></label></li>
+</ul>
 </div>
+
+<div class="card">
+<h3>2. Puzzles de Pedraza Ilustración: todos los diseños</h3>
+<p><span class="pill pill--danger">🔴 Necesita acción</span></p>
+<p><strong>Responde:</strong> ¿qué puzzles vende Pedraza Ilustración?</p>
+<p style="margin-bottom:0">Tiene precios y el umbral de envío gratis escritos fijos en el texto. Cambian durante el Cyber (ver sección de abajo).</p>
+<ul class="checklist">
+<li><label><input type="checkbox" data-cyberblog="art-2-aprobado"><span>Aprobado tal cual</span></label></li>
+<li><label><input type="checkbox" data-cyberblog="art-2-corrijo"><span>Corrijo</span></label></li>
+</ul>
+</div>
+
+<div class="card">
+<h3>3. Despachos de Pedraza Ilustración: plazos, costos y envíos</h3>
+<p><span class="pill pill--danger">🔴 Necesita acción</span></p>
+<p><strong>Responde:</strong> ¿cuánto cuesta y cuánto demora el despacho?</p>
+<p style="margin-bottom:0">Tiene el umbral de envío gratis ($50.000) escrito fijo, en tres lugares del texto. Cambia durante el Cyber (ver sección de abajo).</p>
+<ul class="checklist">
+<li><label><input type="checkbox" data-cyberblog="art-3-aprobado"><span>Aprobado tal cual</span></label></li>
+<li><label><input type="checkbox" data-cyberblog="art-3-corrijo"><span>Corrijo</span></label></li>
+</ul>
+</div>
+
+<div class="card">
+<h3>4. Puzzle Cetáceos de Chile de 1000 piezas: dónde comprarlo</h3>
+<p><span class="pill pill--danger">🔴 Necesita acción</span></p>
+<p><strong>Responde:</strong> ¿dónde comprar el puzzle de cetáceos?</p>
+<p style="margin-bottom:0">Tiene el link roto (punto 1 de arriba) y precios fijos que cambian en el Cyber.</p>
+<ul class="checklist">
+<li><label><input type="checkbox" data-cyberblog="art-4-aprobado"><span>Aprobado tal cual</span></label></li>
+<li><label><input type="checkbox" data-cyberblog="art-4-corrijo"><span>Corrijo</span></label></li>
+</ul>
+</div>
+
+<div class="card">
+<h3>5. Regalar un puzzle o una lámina de naturaleza chilena</h3>
+<p><span class="pill pill--danger">🔴 Necesita acción</span></p>
+<p><strong>Responde:</strong> ¿qué puzzle o lámina regalar según presupuesto?</p>
+<p style="margin-bottom:0">Es el artículo con más precios fijos (12 productos) y con tres rangos de presupuesto que cambian de orden durante el Cyber. El más delicado de ajustar (ver sección de abajo).</p>
+<ul class="checklist">
+<li><label><input type="checkbox" data-cyberblog="art-5-aprobado"><span>Aprobado tal cual</span></label></li>
+<li><label><input type="checkbox" data-cyberblog="art-5-corrijo"><span>Corrijo</span></label></li>
+</ul>
+</div>
+
+<div class="card">
+<h3>6. ¿Qué marcas de puzzles son de buena calidad?</h3>
+<p><span class="pill pill--warn">🟡 Decisión pendiente</span></p>
+<p><strong>Responde:</strong> ¿qué marca de puzzle es buena?</p>
+<p style="margin-bottom:0">Bien escrito, pero nombra 5 marcas competidoras antes que la propia. Ver el punto 3 de arriba.</p>
+<ul class="checklist">
+<li><label><input type="checkbox" data-cyberblog="art-6-aprobado"><span>Aprobado tal cual</span></label></li>
+<li><label><input type="checkbox" data-cyberblog="art-6-corrijo"><span>Corrijo</span></label></li>
+</ul>
+</div>
+
+<div class="card">
+<h3>7. ¿Cuánto vale un puzzle de 1000 piezas en Chile?</h3>
+<p><span class="pill pill--danger">🔴 Necesita acción</span></p>
+<p><strong>Responde:</strong> ¿cuánto cuesta un puzzle de 1000 piezas?</p>
+<p style="margin-bottom:0">Tiene precios propios y el umbral de envío gratis fijos en el texto. Los rangos de precio de mercado ($5.000-$35.000) no se tocan: son precios generales del sector, no de Pedraza.</p>
+<ul class="checklist">
+<li><label><input type="checkbox" data-cyberblog="art-7-aprobado"><span>Aprobado tal cual</span></label></li>
+<li><label><input type="checkbox" data-cyberblog="art-7-corrijo"><span>Corrijo</span></label></li>
+</ul>
+</div>
+
+<div class="card">
+<h3>8. Dónde comprar puzzles de 1000 piezas en Chile</h3>
+<p><span class="pill pill--warn">🟡 Decisión pendiente</span></p>
+<p><strong>Responde:</strong> ¿dónde comprar puzzles de 1000 piezas?</p>
+<p style="margin-bottom:0">Bien escrito, pero nombra 14 tiendas y marketplaces de la competencia. Ver el punto 3 de arriba.</p>
+<ul class="checklist">
+<li><label><input type="checkbox" data-cyberblog="art-8-aprobado"><span>Aprobado tal cual</span></label></li>
+<li><label><input type="checkbox" data-cyberblog="art-8-corrijo"><span>Corrijo</span></label></li>
+</ul>
+</div>
+
+<div class="card">
+<h3>9. ¿Cuánto se demora armar un puzzle de 1000 piezas?</h3>
+<p><span class="pill pill--warn">🟡 Ajuste menor</span></p>
+<p><strong>Responde:</strong> ¿cuánto tiempo toma armar un puzzle de 1000 piezas?</p>
+<p style="margin-bottom:0">Dos errores de tipeo: "grandes zonass" → "grandes zonas", y "Lo importantes no es" → "Lo importante no es". No tiene precios ni umbral de envío, así que no cambia con el Cyber.</p>
+<ul class="checklist">
+<li><label><input type="checkbox" data-cyberblog="art-9-aprobado"><span>Aprobado tal cual</span></label></li>
+<li><label><input type="checkbox" data-cyberblog="art-9-corrijo"><span>Corrijo</span></label></li>
+</ul>
+</div>
+
+<div class="card">
+<h3>10. Rompecabezas de muchas piezas: 1000, 1500, 2000 y más</h3>
+<p><span class="pill pill--success">🟢 Sin cambios</span></p>
+<p><strong>Responde:</strong> ¿dónde comprar rompecabezas de más de 1000 piezas?</p>
+<p style="margin-bottom:0">No tiene precios propios ni umbral de envío escritos. Listo para quedarse tal cual.</p>
+<ul class="checklist">
+<li><label><input type="checkbox" data-cyberblog="art-10-aprobado"><span>Aprobado tal cual</span></label></li>
+<li><label><input type="checkbox" data-cyberblog="art-10-corrijo"><span>Corrijo</span></label></li>
+</ul>
+</div>
+</section>
+
+<section class="sec" id="cyber">
+<h2>Los cambios para el Cyber (2 al 9 de octubre)</h2>
+<p>5 de los 10 artículos (2, 3, 4, 5 y 7) tienen precios o el umbral de envío gratis escritos fijos en el texto. Con el 25% de descuento y el envío gratis bajando a $40.000, esos textos van a decir un número distinto al que se ve en la tienda. Copia el texto que corresponde y pégalo en Shopify.</p>
+
+<div class="callout callout--danger">
+<p>🔴 <strong>Los precios "Cyber" de esta página no son los oficiales.</strong> Los calculé aplicando el 25% de descuento exacto, pero el precio final sale de la planilla del Cyber y puede tener un redondeo distinto (por ejemplo, terminar en ".990"). Confirma cada precio contra la planilla antes de pegarlo.</p>
+</div>
+
+<h3>Precios de producto (se repiten en varios artículos)</h3>
 
 <div class="grid-3">
+
 <div class="card">
-<h3>💡 La ventana al lado</h3>
-<p style="margin-bottom:0">Párate para que la luz te entre por el lado, no de frente. Si la luz te pega de frente a ti, le pega de frente al papel — y ahí no se ve nada.</p>
+<p style="margin-bottom:4px"><strong>$27.990</strong> — los 4 puzzles de 1000 piezas</p>
+<p class="shot-meta">Aparece en los artículos 2, 4, 5 y 7</p>
+<div class="copyblock"><div class="copyblock__text" id="cp-precio-27990-cyber">$20.990</div><button type="button" class="copyblock__btn" data-copy-target="cp-precio-27990-cyber">Copiar precio Cyber</button></div>
+<div class="copyblock"><div class="copyblock__text" id="cp-precio-27990-normal">$27.990</div><button type="button" class="copyblock__btn" data-copy-target="cp-precio-27990-normal">Copiar precio normal (9 oct)</button></div>
 </div>
+
 <div class="card">
-<h3>📐 Ángulo bajo</h3>
-<p style="margin-bottom:0">Inclina la lámina (o el teléfono) para que la luz roce el papel casi paralela a la superficie, no caiga desde arriba en picada.</p>
+<p style="margin-bottom:4px"><strong>$18.990</strong> — Puzzle Naturaleza 60 piezas</p>
+<p class="shot-meta">Aparece en los artículos 2 y 5</p>
+<div class="copyblock"><div class="copyblock__text" id="cp-precio-18990-cyber">$14.240</div><button type="button" class="copyblock__btn" data-copy-target="cp-precio-18990-cyber">Copiar precio Cyber</button></div>
+<div class="copyblock"><div class="copyblock__text" id="cp-precio-18990-normal">$18.990</div><button type="button" class="copyblock__btn" data-copy-target="cp-precio-18990-normal">Copiar precio normal (9 oct)</button></div>
 </div>
+
 <div class="card">
-<h3>🔄 Mueve la lámina</h3>
-<p style="margin-bottom:0">Gírala despacio mientras grabas. El relieve del papel va a aparecer y desaparecer con el movimiento — eso es lo que se busca.</p>
+<p style="margin-bottom:4px"><strong>$23.990</strong> — lámina 33×50 cm</p>
+<p class="shot-meta">Aparece en los artículos 2, 4 y 5</p>
+<div class="copyblock"><div class="copyblock__text" id="cp-precio-23990-cyber">$17.990</div><button type="button" class="copyblock__btn" data-copy-target="cp-precio-23990-cyber">Copiar precio Cyber</button></div>
+<div class="copyblock"><div class="copyblock__text" id="cp-precio-23990-normal">$23.990</div><button type="button" class="copyblock__btn" data-copy-target="cp-precio-23990-normal">Copiar precio normal (9 oct)</button></div>
 </div>
+
+<div class="card">
+<p style="margin-bottom:4px"><strong>$36.990</strong> — lámina 42×60 cm</p>
+<p class="shot-meta">Aparece en los artículos 2, 4 y 5</p>
+<div class="copyblock"><div class="copyblock__text" id="cp-precio-36990-cyber">$27.740</div><button type="button" class="copyblock__btn" data-copy-target="cp-precio-36990-cyber">Copiar precio Cyber</button></div>
+<div class="copyblock"><div class="copyblock__text" id="cp-precio-36990-normal">$36.990</div><button type="button" class="copyblock__btn" data-copy-target="cp-precio-36990-normal">Copiar precio normal (9 oct)</button></div>
+</div>
+
+<div class="card">
+<p style="margin-bottom:4px"><strong>$22.990</strong> — Juego de naipes Aves de Chile</p>
+<p class="shot-meta">Aparece en el artículo 5</p>
+<div class="copyblock"><div class="copyblock__text" id="cp-precio-22990-cyber">$17.240</div><button type="button" class="copyblock__btn" data-copy-target="cp-precio-22990-cyber">Copiar precio Cyber</button></div>
+<div class="copyblock"><div class="copyblock__text" id="cp-precio-22990-normal">$22.990</div><button type="button" class="copyblock__btn" data-copy-target="cp-precio-22990-normal">Copiar precio normal (9 oct)</button></div>
+</div>
+
+<div class="card">
+<p style="margin-bottom:4px"><strong>$16.990</strong> — Libreta Aves</p>
+<p class="shot-meta">Aparece en el artículo 5</p>
+<div class="copyblock"><div class="copyblock__text" id="cp-precio-16990-cyber">$12.740</div><button type="button" class="copyblock__btn" data-copy-target="cp-precio-16990-cyber">Copiar precio Cyber</button></div>
+<div class="copyblock"><div class="copyblock__text" id="cp-precio-16990-normal">$16.990</div><button type="button" class="copyblock__btn" data-copy-target="cp-precio-16990-normal">Copiar precio normal (9 oct)</button></div>
+</div>
+
+<div class="card">
+<p style="margin-bottom:4px"><strong>$11.990</strong> — Pack 8 postales</p>
+<p class="shot-meta">Aparece en el artículo 5</p>
+<div class="copyblock"><div class="copyblock__text" id="cp-precio-11990-cyber">$8.990</div><button type="button" class="copyblock__btn" data-copy-target="cp-precio-11990-cyber">Copiar precio Cyber</button></div>
+<div class="copyblock"><div class="copyblock__text" id="cp-precio-11990-normal">$11.990</div><button type="button" class="copyblock__btn" data-copy-target="cp-precio-11990-normal">Copiar precio normal (9 oct)</button></div>
+</div>
+
+<div class="card">
+<p style="margin-bottom:4px"><strong>$5.990</strong> — Pins</p>
+<p class="shot-meta">Aparece en el artículo 5</p>
+<div class="copyblock"><div class="copyblock__text" id="cp-precio-5990-cyber">$4.490</div><button type="button" class="copyblock__btn" data-copy-target="cp-precio-5990-cyber">Copiar precio Cyber</button></div>
+<div class="copyblock"><div class="copyblock__text" id="cp-precio-5990-normal">$5.990</div><button type="button" class="copyblock__btn" data-copy-target="cp-precio-5990-normal">Copiar precio normal (9 oct)</button></div>
+</div>
+
+<div class="card">
+<p style="margin-bottom:4px"><strong>$7.990</strong> — Llaveros</p>
+<p class="shot-meta">Aparece en el artículo 5</p>
+<div class="copyblock"><div class="copyblock__text" id="cp-precio-7990-cyber">$5.990</div><button type="button" class="copyblock__btn" data-copy-target="cp-precio-7990-cyber">Copiar precio Cyber</button></div>
+<div class="copyblock"><div class="copyblock__text" id="cp-precio-7990-normal">$7.990</div><button type="button" class="copyblock__btn" data-copy-target="cp-precio-7990-normal">Copiar precio normal (9 oct)</button></div>
+</div>
+
+<div class="card">
+<p style="margin-bottom:4px"><strong>$9.990</strong> — Calcetines</p>
+<p class="shot-meta">Aparece en el artículo 5</p>
+<div class="copyblock"><div class="copyblock__text" id="cp-precio-9990-cyber">$7.490</div><button type="button" class="copyblock__btn" data-copy-target="cp-precio-9990-cyber">Copiar precio Cyber</button></div>
+<div class="copyblock"><div class="copyblock__text" id="cp-precio-9990-normal">$9.990</div><button type="button" class="copyblock__btn" data-copy-target="cp-precio-9990-normal">Copiar precio normal (9 oct)</button></div>
+</div>
+
+<div class="card">
+<p style="margin-bottom:4px"><strong>$15.290</strong> — Bolso Aves</p>
+<p class="shot-meta">Aparece en el artículo 5</p>
+<div class="copyblock"><div class="copyblock__text" id="cp-precio-15290-cyber">$11.470</div><button type="button" class="copyblock__btn" data-copy-target="cp-precio-15290-cyber">Copiar precio Cyber</button></div>
+<div class="copyblock"><div class="copyblock__text" id="cp-precio-15290-normal">$15.290</div><button type="button" class="copyblock__btn" data-copy-target="cp-precio-15290-normal">Copiar precio normal (9 oct)</button></div>
+</div>
+
+<div class="card">
+<p style="margin-bottom:4px"><strong>$17.990</strong> — Bolso de playa</p>
+<p class="shot-meta">Aparece en el artículo 5</p>
+<div class="copyblock"><div class="copyblock__text" id="cp-precio-17990b-cyber">$13.490</div><button type="button" class="copyblock__btn" data-copy-target="cp-precio-17990b-cyber">Copiar precio Cyber</button></div>
+<div class="copyblock"><div class="copyblock__text" id="cp-precio-17990b-normal">$17.990</div><button type="button" class="copyblock__btn" data-copy-target="cp-precio-17990b-normal">Copiar precio normal (9 oct)</button></div>
+</div>
+
+</div>
+
+<div class="callout callout--warn">
+<p>🟡 <strong>Los packs (Pack 2: $44.790, Pack 3: $65.490) no están en esta lista a propósito.</strong> Durante el Cyber el descuento automático del pack se apaga y en su lugar recibe el mismo 25% plano que los productos sueltos — así que el precio Cyber del pack no es simplemente el precio actual menos 25%. Alguien (Felipe o Mateo) debe sacar el precio Cyber real de cada pack desde la planilla o desde la tienda ya configurada antes del 2 de octubre.</p>
+<ul class="checklist">
+<li><label><input type="checkbox" data-cyberblog="cyber-precios-packs-confirmados"><span>Precios de los packs confirmados en la planilla</span></label></li>
+</ul>
+</div>
+
+<div class="callout callout--warn">
+<p>🟡 <strong>El artículo 5 agrupa productos en tres rangos de presupuesto</strong> ("menos de $15.000", "entre $15.000 y $25.000", "más de $25.000"). Con el 25% de descuento, varios productos cambian de rango — por ejemplo, el puzzle de 1000 piezas pasa de "más de $25.000" a "menos de $25.000". No es solo cambiar un número: hay que revisar a mano qué producto va en cada categoría, una vez que la planilla tenga los precios finales.</p>
+<ul class="checklist">
+<li><label><input type="checkbox" data-cyberblog="cyber-rangos-articulo-5-revisados"><span>Rangos de presupuesto del artículo 5 revisados</span></label></li>
+</ul>
+</div>
+
+<h3>Envío gratis: $50.000 → $40.000</h3>
+
+<div class="card">
+<p><strong>Artículo 3 (Despachos) — frase principal</strong></p>
+<p class="shot-meta">Actual: "el envío es gratis en compras sobre $50.000"</p>
+<div class="copyblock"><div class="copyblock__text" id="cp-envio-art3-frase-cyber">el envío es gratis en compras sobre $40.000 durante el Cyber (2 al 9 de octubre); el resto del año, desde $50.000</div><button type="button" class="copyblock__btn" data-copy-target="cp-envio-art3-frase-cyber">Copiar para el Cyber</button></div>
+<div class="copyblock"><div class="copyblock__text" id="cp-envio-art3-frase-normal">el envío es gratis en compras sobre $50.000</div><button type="button" class="copyblock__btn" data-copy-target="cp-envio-art3-frase-normal">Copiar para el 9 de octubre</button></div>
+</div>
+
+<div class="card">
+<p><strong>Artículo 3 (Despachos) — tabla de costos</strong></p>
+<p class="shot-meta">Actual: fila "Sobre $50.000 → Gratis, a todo Chile"</p>
+<div class="copyblock"><div class="copyblock__text" id="cp-envio-art3-tabla-cyber">Sobre $40.000 (2 al 9 de octubre) → Gratis, a todo Chile</div><button type="button" class="copyblock__btn" data-copy-target="cp-envio-art3-tabla-cyber">Copiar fila para agregar</button></div>
+<div class="copyblock"><div class="copyblock__text" id="cp-envio-art3-tabla-normal">Sobre $50.000 → Gratis, a todo Chile</div><button type="button" class="copyblock__btn" data-copy-target="cp-envio-art3-tabla-normal">Copiar fila normal (quitar la temporal el 9 oct)</button></div>
+</div>
+
+<div class="card">
+<p><strong>Artículo 3 (Despachos) — pregunta frecuente</strong></p>
+<p class="shot-meta">Actual: "¿Desde qué monto el despacho es gratis? Desde $50.000, a todo Chile."</p>
+<div class="copyblock"><div class="copyblock__text" id="cp-envio-art3-faq-cyber">Desde $40.000 durante el Cyber (2 al 9 de octubre). El resto del año, desde $50.000.</div><button type="button" class="copyblock__btn" data-copy-target="cp-envio-art3-faq-cyber">Copiar para el Cyber</button></div>
+<div class="copyblock"><div class="copyblock__text" id="cp-envio-art3-faq-normal">Desde $50.000, a todo Chile.</div><button type="button" class="copyblock__btn" data-copy-target="cp-envio-art3-faq-normal">Copiar para el 9 de octubre</button></div>
+</div>
+
+<div class="card">
+<p><strong>Artículo 4 (Puzzle Cetáceos)</strong></p>
+<p class="shot-meta">Actual: "Si compras sobre $50.000, el despacho es gratis a todo Chile"</p>
+<div class="copyblock"><div class="copyblock__text" id="cp-envio-art4-cyber">Si compras sobre $40.000 durante el Cyber (2 al 9 de octubre), o sobre $50.000 el resto del año, el despacho es gratis a todo Chile</div><button type="button" class="copyblock__btn" data-copy-target="cp-envio-art4-cyber">Copiar para el Cyber</button></div>
+<div class="copyblock"><div class="copyblock__text" id="cp-envio-art4-normal">Si compras sobre $50.000, el despacho es gratis a todo Chile</div><button type="button" class="copyblock__btn" data-copy-target="cp-envio-art4-normal">Copiar para el 9 de octubre</button></div>
+</div>
+
+<div class="card">
+<p><strong>Artículo 7 (Cuánto vale un puzzle)</strong></p>
+<p class="shot-meta">Actual: "El despacho es gratis a todo Chile en compras sobre $50.000."</p>
+<div class="copyblock"><div class="copyblock__text" id="cp-envio-art7-cyber">El despacho es gratis a todo Chile en compras sobre $40.000 durante el Cyber (2 al 9 de octubre); el resto del año, sobre $50.000.</div><button type="button" class="copyblock__btn" data-copy-target="cp-envio-art7-cyber">Copiar para el Cyber</button></div>
+<div class="copyblock"><div class="copyblock__text" id="cp-envio-art7-normal">El despacho es gratis a todo Chile en compras sobre $50.000.</div><button type="button" class="copyblock__btn" data-copy-target="cp-envio-art7-normal">Copiar para el 9 de octubre</button></div>
 </div>
 
 <div class="callout callout--success">
-<p>✅ No necesitas ningún equipo especial. Con la luz de una ventana normal, en la mañana o media tarde, alcanza.</p>
+<p>🟢 Los artículos 2 y 5 no necesitan cambio en la frase de envío gratis: aunque mencionan el umbral de $50.000, con el 25% de descuento el pack que describen sigue superando igual los $40.000 del Cyber. Solo revisa que siga siendo cierto una vez que los precios de los packs estén confirmados.</p>
+</div>
+
+<h3>Seguimiento: pegar antes del 2 de octubre, revertir el 9</h3>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Artículo</th><th>Pegado para el Cyber</th><th>Revertido el 9 de octubre</th></tr></thead>
+<tbody>
+<tr><td>2. Todos los diseños</td><td><label><input type="checkbox" data-cyberblog="cyber-pegado-art-2"><span>Hecho</span></label></td><td><label><input type="checkbox" data-cyberblog="cyber-revertido-art-2"><span>Hecho</span></label></td></tr>
+<tr><td>3. Despachos</td><td><label><input type="checkbox" data-cyberblog="cyber-pegado-art-3"><span>Hecho</span></label></td><td><label><input type="checkbox" data-cyberblog="cyber-revertido-art-3"><span>Hecho</span></label></td></tr>
+<tr><td>4. Puzzle Cetáceos</td><td><label><input type="checkbox" data-cyberblog="cyber-pegado-art-4"><span>Hecho</span></label></td><td><label><input type="checkbox" data-cyberblog="cyber-revertido-art-4"><span>Hecho</span></label></td></tr>
+<tr><td>5. Regalar un puzzle</td><td><label><input type="checkbox" data-cyberblog="cyber-pegado-art-5"><span>Hecho</span></label></td><td><label><input type="checkbox" data-cyberblog="cyber-revertido-art-5"><span>Hecho</span></label></td></tr>
+<tr><td>7. Cuánto vale un puzzle</td><td><label><input type="checkbox" data-cyberblog="cyber-pegado-art-7"><span>Hecho</span></label></td><td><label><input type="checkbox" data-cyberblog="cyber-revertido-art-7"><span>Hecho</span></label></td></tr>
+</tbody>
+</table>
 </div>
 </section>
 
-<section class="sec" id="lunes">
-<h2>Lunes 17: con Felipe</h2>
-
-<p>Estas tomas necesitan una segunda persona: manos sosteniendo, alguien armando el puzzle, o tú apareciendo en cámara.</p>
-
-<h3 id="lunes-ninos">Puzzle de niños</h3>
-
-<div class="card">
-<h3><span class="shot-tag">L1</span>Abriendo la caja por primera vez</h3>
-<p class="shot-meta">📱 Vertical · ⏱ 8 segundos</p>
-<p><strong>Qué se ve:</strong> tus manos abriendo la caja del puzzle de niños, como si fuera la primera vez que alguien lo ve.</p>
-<p style="margin-bottom:0"><strong>Truco:</strong> Felipe filma mientras tú abres — así las dos manos quedan libres para mostrar el contenido.</p>
-</div>
-
-<div class="card">
-<h3><span class="shot-tag">L2</span>Comparación de tamaño</h3>
-<p class="shot-meta">📱 Vertical · ⏱ 5 a 8 segundos</p>
-<p><strong>Qué se ve:</strong> el puzzle de niños al lado de un puzzle de adulto (el de aves, por ejemplo), para que se note que es más chico.</p>
-<p style="margin-bottom:0"><strong>Truco:</strong> ponlos uno junto al otro sobre la misma mesa, misma distancia de la cámara, para que la diferencia se vea real y no forzada.</p>
-</div>
-
-<div class="card">
-<h3><span class="shot-tag">L3</span>Armándolo entre los dos</h3>
-<p class="shot-meta">📱 Vertical · ⏱ 15 a 20 segundos</p>
-<p><strong>Qué se ve:</strong> tus manos y las de Felipe armando el puzzle juntos, en una mesa chica o en el sillón — no en un escritorio de trabajo.</p>
-<p style="margin-bottom:0"><strong>Truco:</strong> elige un lugar que no parezca "de estudio": la cocina, el sillón, el suelo. Ese es justo el punto — que se arma en cualquier parte.</p>
-</div>
-
-<div class="card">
-<h3><span class="shot-tag">L4</span>Las piezas de cerca</h3>
-<p class="shot-meta">📱 Vertical · ⏱ 5 segundos</p>
-<p><strong>Qué se ve:</strong> dos o tres piezas en la mano, mostrando que son más grandes y simples que las de un puzzle normal.</p>
-<p style="margin-bottom:0"><strong>Truco:</strong> que se note el tamaño de la pieza contra los dedos de la mano.</p>
-</div>
-
-<div class="card">
-<h3><span class="shot-tag">L5</span>Terminado, en cualquier parte</h3>
-<p class="shot-meta">📱 Vertical · ⏱ 5 a 8 segundos</p>
-<p><strong>Qué se ve:</strong> el puzzle ya armado, apoyado sobre la falda, una mesita chica, o el suelo — un lugar que no sea un escritorio.</p>
-<p style="margin-bottom:0">Detalle completo de por qué esta toma importa en la sección 5.</p>
-</div>
-
-<h3 id="lunes-generales">Tomas generales</h3>
-
-<div class="card">
-<h3><span class="shot-tag">L6</span>Manos de Felipe sosteniendo un producto</h3>
-<p class="shot-meta">📱 Vertical · ⏱ 8 a 10 segundos</p>
-<p><strong>Qué se ve:</strong> las manos de Felipe sosteniendo una lámina o una botella, mientras tú hablas a cámara de fondo (o al revés).</p>
-<p style="margin-bottom:0"><strong>Truco:</strong> que las manos se vean naturales, no posando — como si estuviera mostrándoselo a alguien de verdad.</p>
-</div>
-
-<div class="card">
-<h3><span class="shot-tag">L7</span>Tú hablando a cámara</h3>
-<p class="shot-meta">📱 Vertical · ⏱ 15 a 20 segundos</p>
-<p><strong>Qué se ve:</strong> tú, hablando de tu trabajo o de cómo observas la naturaleza, con Felipe sosteniendo el teléfono.</p>
-<p style="margin-bottom:0"><strong>Truco:</strong> habla como si le contaras algo a una persona, no como si estuvieras vendiendo. Grábalo dos o tres veces distintas.</p>
-</div>
-
-<div class="card">
-<h3><span class="shot-tag">L8</span>Dos manos recibiendo el paquete</h3>
-<p class="shot-meta">📱 Vertical · ⏱ 5 a 8 segundos</p>
-<p><strong>Qué se ve:</strong> las manos de Felipe recibiendo el paquete como si fuera un regalo real, para reforzar la idea de la sección 6.</p>
-<p style="margin-bottom:0"><strong>Truco:</strong> que la reacción sea simple, no actuada — solo tomar el paquete con cuidado, como se recibe un regalo.</p>
-</div>
-
-</section>
-
-<section class="sec" id="puzzle-ninos">
-<h2>El puzzle de niños</h2>
-
-<p>Es el único lanzamiento real que hay hoy y no existe ni una toma. Llega con el resto del pedido este fin de semana, por eso se graba el lunes (tomas L1 a L5, arriba). Estas son las tres ideas que tienen que quedar claras:</p>
-
-<div class="grid-3">
-<div class="card">
-<h3>Es más chico</h3>
-<p style="margin-bottom:0">La toma L2 (comparación de tamaño) es la que más rápido lo comunica: se entiende con solo mirarla, sin explicar nada.</p>
-</div>
-<div class="card">
-<h3>Es más simple</h3>
-<p style="margin-bottom:0">La toma L4 (piezas de cerca) muestra piezas grandes y fáciles de tomar — pensadas para manos más chicas.</p>
-</div>
-<div class="card">
-<h3>Se arma en cualquier parte</h3>
-<p style="margin-bottom:0">Las tomas L3 y L5 lo muestran armándose fuera de un escritorio: en el sillón, en la falda, en la mesa de la cocina.</p>
-</div>
-</div>
-
-<h3>Idea de guion para el Reel</h3>
-<p>Para usar como voz en off o como texto del video, con las tomas L1 a L5:</p>
-
-<div class="copyblock">
-<div class="copyblock__text" id="copy-guion-puzzle-ninos">Nunca había hecho un puzzle para niños.
-
-Achiqué las piezas. Simplifiqué el dibujo.
-
-No necesita una mesa grande: se arma en la cama, en el auto, en cualquier rincón de la casa.
-
-Es la primera vez que pienso un puzzle para las manos más chicas.
-
-Y verlo armarse así, tan simple, me recordó por qué me gusta tanto este trabajo.</div>
-<button type="button" class="copyblock__btn" data-copy-target="copy-guion-puzzle-ninos">Copiar</button>
-</div>
-</section>
-
-<section class="sec" id="empaque-regalo">
-<h2>El ángulo del empaque como regalo</h2>
-
-<p>Dijiste algo que vale oro: que los productos no necesitan envoltorio porque ya son un regalo, ya vienen como el empaque. Mucha gente te lo comenta. Nunca se ha grabado. Estas son las tomas (V6 y V7, del viernes):</p>
-
-<ul>
-<li><strong>El paquete cerrado, tal cual llega</strong> — sin agregarle nada encima. Esa es toda la idea: se ve completo así, sin necesitar más.</li>
-<li><strong>Abriéndolo</strong> — mostrando que por dentro también está bien presentado, no solo por fuera.</li>
-</ul>
-
-<p>Para el video del empaque que ya está editado: agrégale al inicio 2 segundos de la lámina de cerca (toma V5) antes de entrar al empaque como está armado hoy.</p>
-
-<h3>Idea de guion</h3>
-<p>Para usar como voz en off o como texto del video, con las tomas V6 y V7:</p>
-
-<div class="copyblock">
-<div class="copyblock__text" id="copy-guion-empaque-regalo">Me lo han dicho varias veces: que no hace falta envolver esto.
-
-Que ya llega como un regalo.
-
-Nunca lo pensé de esa manera, hasta que la gente empezó a contármelo.
-
-Ahora, cuando armo un pedido, pienso en eso: que a alguien le va a llegar así, tal cual, y ya es suficiente.</div>
-<button type="button" class="copyblock__btn" data-copy-target="copy-guion-empaque-regalo">Copiar</button>
-</div>
-</section>
-
-<section class="sec" id="ya-grabado">
-<h2>Lo que ya está grabado</h2>
-
-<p>Esto ya existe y sirve. No hay que repetirlo:</p>
-
-<ul>
-<li>El video del empaque (se le agrega el inserto de 2 segundos de la lámina, toma V5 — el resto queda igual).</li>
-<li>El video de la botella — muy orgánico, va directo a pauta tal como está.</li>
-<li>El video de la lámina colgando el cuadro.</li>
-<li>El video de Felipe con los puzzles.</li>
+<section class="sec" id="otros-pendientes">
+<h2>Otros pendientes, menores</h2>
+<ul class="checklist">
+<li><label><input type="checkbox" data-cyberblog="pendiente-menu-footer-verificado"><span>Confirmar en el editor de temas que el menú "Footer Submenú (Astucia - En desarrollo)" es el que realmente se ve al pie de la tienda publicada</span></label></li>
+<li><label><input type="checkbox" data-cyberblog="pendiente-autor-articulo1-confirmado"><span>Confirmar con Cote/Felipe qué nombre de autor mostrar en el artículo 1 (hoy dice "Felipe Robinson", el resto dice "María José Pedraza")</span></label></li>
+<li><label><input type="checkbox" data-cyberblog="pendiente-sostenible-verificado"><span>Confirmar con Felipe si "materiales ecológicos y sostenibles" (artículo 1) es un dato real, o hay que sacarlo del texto</span></label></li>
+<li><label><input type="checkbox" data-cyberblog="pendiente-sitemap-verificado"><span>Verificar si el sitemap.xml ya está subido en Search Console (cubre todo el sitio de una vez, sin pedir cada artículo a mano)</span></label></li>
 </ul>
 </section>
 
-<section class="sec" id="basico">
-<h2>Lo básico para todas las tomas</h2>
-
-<div class="grid-2">
-<div class="card">
-<h3>Dónde ponerte</h3>
-<p style="margin-bottom:0">La ventana queda al lado tuyo, nunca detrás. Si te queda detrás, todo se ve oscuro. Si te queda de frente, se pierde la textura.</p>
-</div>
-<div class="card">
-<h3>Sin zoom digital</h3>
-<p style="margin-bottom:0">Si necesitas acercarte más, acércate tú con el cuerpo. El zoom del teléfono pixela la imagen.</p>
-</div>
-<div class="card">
-<h3>Graba de más</h3>
-<p style="margin-bottom:0">Cada toma, grábala dos o tres veces. Es más fácil elegir la mejor después que volver a armar todo para repetirla.</p>
-</div>
-<div class="card">
-<h3>Si grabas la voz aparte</h3>
-<p style="margin-bottom:0">No hables mientras filmas el video. Deja la toma en silencio y graba la voz por separado, para que no se mezclen.</p>
-</div>
-<div class="card">
-<h3>La mano temblorosa está bien</h3>
-<p style="margin-bottom:0">No busques que quede perfecto ni de trípode. Lo que hoy funciona es que se note real, no producido.</p>
-</div>
-<div class="card">
-<h3>Vertical para Reels e historias</h3>
-<p style="margin-bottom:0">Para el carrusel también sirven fotos fijas que parezcan una publicación normal — no un aviso.</p>
-</div>
-</div>
-</section>
-
-<section class="sec" id="checklist-terreno">
-<h2>Checklist de terreno</h2>
-
-<p>La lista completa. Márcala apenas termines cada toma.</p>
-
-<div class="progress">
-  <div class="progress__track">
-    <div class="progress__fill" data-progress-fill></div>
-  </div>
-  <span class="progress__label" data-progress-label>0 de 17 tomas (0%)</span>
-</div>
-
-<h3>Viernes 14 — sola</h3>
-<ul class="checklist checklist--campo">
-<li><label><input type="checkbox" data-grabacion="viernes-laminas-textura-cerca"><span>V1 · Textura del papel, de cerca (vertical, 8-10 seg)</span></label></li>
-<li><label><input type="checkbox" data-grabacion="viernes-laminas-borde-grosor"><span>V2 · El borde de la lámina, de canto (vertical, 5 seg)</span></label></li>
-<li><label><input type="checkbox" data-grabacion="viernes-laminas-mano-textura"><span>V3 · Una mano pasando por el papel (vertical, 5-8 seg)</span></label></li>
-<li><label><input type="checkbox" data-grabacion="viernes-laminas-mover-luz"><span>V4 · La lámina moviéndose bajo la luz (vertical, 8-10 seg)</span></label></li>
-<li><label><input type="checkbox" data-grabacion="viernes-empaque-insert-2s"><span>V5 · Inserto de 2 seg para el video del empaque (vertical)</span></label></li>
-<li><label><input type="checkbox" data-grabacion="viernes-empaque-sin-envoltorio"><span>V6 · El paquete cerrado, tal cual llega (5-8 seg)</span></label></li>
-<li><label><input type="checkbox" data-grabacion="viernes-empaque-abriendo-contenido"><span>V7 · Abriendo el paquete (vertical, 8-10 seg)</span></label></li>
-<li><label><input type="checkbox" data-grabacion="viernes-cetaceos-terminar-armado"><span>V8 · Terminar de armar el puzzle de cetáceos (horizontal, 10-15 seg)</span></label></li>
-<li><label><input type="checkbox" data-grabacion="viernes-cetaceos-cenital"><span>V9 · El puzzle completo, desde arriba (vertical, 5-8 seg)</span></label></li>
-</ul>
-
-<h3>Lunes 17 — con Felipe</h3>
-<ul class="checklist checklist--campo">
-<li><label><input type="checkbox" data-grabacion="lunes-ninos-abriendo-caja"><span>L1 · Abriendo la caja del puzzle de niños (vertical, 8 seg)</span></label></li>
-<li><label><input type="checkbox" data-grabacion="lunes-ninos-comparacion-tamano"><span>L2 · Comparación de tamaño con un puzzle de adulto (vertical, 5-8 seg)</span></label></li>
-<li><label><input type="checkbox" data-grabacion="lunes-ninos-armando-entre-dos"><span>L3 · Armándolo entre los dos (vertical, 15-20 seg)</span></label></li>
-<li><label><input type="checkbox" data-grabacion="lunes-ninos-piezas-grandes"><span>L4 · Las piezas de cerca (vertical, 5 seg)</span></label></li>
-<li><label><input type="checkbox" data-grabacion="lunes-ninos-terminado-cualquier-parte"><span>L5 · Terminado, en cualquier parte (vertical, 5-8 seg)</span></label></li>
-<li><label><input type="checkbox" data-grabacion="lunes-generales-manos-sosteniendo"><span>L6 · Manos de Felipe sosteniendo un producto (vertical, 8-10 seg)</span></label></li>
-<li><label><input type="checkbox" data-grabacion="lunes-generales-cote-hablando"><span>L7 · Tú hablando a cámara (vertical, 15-20 seg)</span></label></li>
-<li><label><input type="checkbox" data-grabacion="lunes-generales-manos-regalo"><span>L8 · Dos manos recibiendo el paquete como regalo (vertical, 5-8 seg)</span></label></li>
-</ul>
-
+<section class="sec" id="search-console">
+<h2>Pedirle a Google que revise los artículos</h2>
+<p>Se hace una vez por cada artículo nuevo o cada vez que se le hace un cambio importante, como el del link roto. Toma menos de un minuto por artículo. Google deja hacer esto unas 10 veces al día — con los 10 artículos alcanza en una sola sesión.</p>
+<ol>
+<li>Entra a <strong>search.google.com/search-console</strong> con la cuenta de Google que tiene acceso.</li>
+<li>Arriba a la izquierda, elige la propiedad <strong>pedrazailustracion.com</strong> (no la de Instagram).</li>
+<li>En la barra de arriba ("Inspeccionar cualquier URL"), pega la dirección completa del artículo.</li>
+<li>Google muestra si la página ya está en su índice. Da lo mismo el resultado, el siguiente paso es igual.</li>
+<li>Haz clic en <strong>"Solicitar indexación"</strong> (o "Solicitar rastreo").</li>
+<li>Repite del paso 3 al 5 para cada uno de los 10 artículos, y de nuevo para el artículo 4 después de arreglar el link roto.</li>
+</ol>
 </section>
 
 </main>
@@ -1387,26 +1305,24 @@ Ahora, cuando armo un pedido, pienso en eso: que a alguien le va a llegar así, 
 </script>
 
 <script>
-  // Checklist de esta página — usa data-grabacion (task, cro, plan90, bitacora, estado, preventa,
-  // tienda, clientes, precios, ads, correo, ofertas, tablero, inventario, correosp, campanas y
-  // pedido ya están tomados por otras páginas) y localStorage con prefijo pedraza-plan:gra:.
+  // Checklist de esta pagina — usa data-cyberblog y localStorage con prefijo pedraza-plan:cb:
   document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('[data-grabacion]').forEach(function (cb) {
-      cb.checked = pgGet('pedraza-plan:gra:' + cb.getAttribute('data-grabacion')) === '1';
+    document.querySelectorAll('[data-cyberblog]').forEach(function (cb) {
+      cb.checked = pgGet('pedraza-plan:cb:' + cb.getAttribute('data-cyberblog')) === '1';
     });
-    actualizarProgresoGrabacion();
+    actualizarProgresoBlog();
   });
 
   document.addEventListener('change', function (e) {
-    var cb = e.target.closest('[data-grabacion]');
+    var cb = e.target.closest('[data-cyberblog]');
     if (!cb) return;
-    var key = 'pedraza-plan:gra:' + cb.getAttribute('data-grabacion');
+    var key = 'pedraza-plan:cb:' + cb.getAttribute('data-cyberblog');
     if (cb.checked) { pgSet(key, '1'); } else { pgRemove(key); }
-    actualizarProgresoGrabacion();
+    actualizarProgresoBlog();
   });
 
-  function actualizarProgresoGrabacion() {
-    var cajas = document.querySelectorAll('[data-grabacion]');
+  function actualizarProgresoBlog() {
+    var cajas = document.querySelectorAll('[data-cyberblog]');
     var total = cajas.length;
     var done = 0;
     cajas.forEach(function (cb) { if (cb.checked) done++; });
@@ -1416,7 +1332,7 @@ Ahora, cuando armo un pedido, pienso en eso: que a alguien le va a llegar así, 
       fill.style.width = pct + '%';
     });
     document.querySelectorAll('[data-progress-label]').forEach(function (label) {
-      label.textContent = done + ' de ' + total + ' tomas (' + pct + '%)';
+      label.textContent = done + ' de ' + total + ' (' + pct + '%)';
     });
   }
 </script>
