@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Lista de tomas — Plan Pedraza Ilustración</title>
+<title>Stock del Cyber — Plan Pedraza Ilustración</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦋</text></svg>">
 <style>
 /* ==========================================================================
@@ -617,47 +617,19 @@ main { counter-reset: sec; }
   .callout { border-left: 4px solid #999; }
   a[href]::after { content: " (" attr(href) ")"; font-size: .8em; }
 }
-/* ==========================================================================
-   Extensiones propias de esta página (grabacion.html)
-   grabacion.html no es una de las páginas del menú principal — se comparte
-   por link directo con Cote para grabar hoy. El bloque de arriba es el
-   canónico intacto; lo de abajo son componentes propios de esta página
-   (casillas más grandes para marcar con el pulgar, y la mini-etiqueta de
-   número de toma), agregados en la misma hoja de estilos única para no
-   crear un segundo archivo CSS.
-   ========================================================================== */
-
-/* Checklist de terreno: casillas más grandes que el estándar del sitio —
-   se marcan con una mano mientras se sostiene el teléfono con la otra. */
-.checklist--campo label { min-height: 60px; padding: var(--space-4); }
-.checklist--campo input[type="checkbox"] { width: 32px; height: 32px; }
-
-/* Etiqueta corta de "toma número X" al inicio de cada ficha */
-.shot-tag {
-  display: inline-block;
-  font-family: var(--font-mono);
-  font-size: var(--fs-sm);
-  font-weight: 700;
-  color: var(--brand-green-dark);
-  background: var(--brand-green-soft);
-  border-radius: var(--radius-xs);
-  padding: 2px var(--space-2);
-  margin-right: var(--space-2);
+/* ===== Extensiones propias de esta pagina (cyber-stock.html) ===== */
+/* Página propia: el valor de las barras de stock puede ser largo (ej. "20 de 134 · faltan 114").
+   El sistema de diseño fija .chart-bar-row__value en una sola línea sin encoger, lo que en 375px
+   puede desbordar. Se acota solo dentro de esta página, sin tocar la clase del sistema. */
+#cyberstock-decision .chart-bar-row__value {
+  flex: 0 1 auto;
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.25;
 }
-
-/* Meta rápida de cada ficha (formato + duración) */
-.shot-meta { font-size: var(--fs-sm); color: var(--ink-soft); margin: 0 0 var(--space-3); }
-
-/* Diagrama de luz (sección "cómo se ve la textura") */
-.light-diagram { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-4); margin: var(--space-5) 0; }
-@media (min-width: 560px) { .light-diagram { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-.light-diagram__panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-xs); padding: var(--space-3); text-align: center; }
-.light-diagram__caption { font-size: var(--fs-sm); font-weight: 700; margin-top: var(--space-2); }
-.light-diagram__caption--bad { color: var(--danger); }
-.light-diagram__caption--good { color: var(--success); }
 </style>
 </head>
-<body data-nav-actual="grabacion">
+<body data-nav-actual="cyber-stock">
 <nav class="navbar" aria-label="Barra de navegación">
   <div class="navbar__inner">
     <a href="estado.html" class="navbar__home" aria-label="Ir al inicio: Estado del plan">🦋</a>
@@ -935,398 +907,325 @@ main { counter-reset: sec; }
 
 <header class="hero">
   <div class="hero__inner">
-    <h1>Lo que hay que grabar</h1>
-    <p>Viernes 14 grabas sola. Lunes 17 grabas con Felipe. Esta página es la lista de tomas para las dos sesiones: qué se ve, cuántos segundos, y cómo sostener el teléfono. Marca cada toma apenas la grabes — queda guardado en este teléfono.</p>
+<h1>¿Se repone stock o se ajusta la meta del Cyber?</h1>
+<p>Quedan 9 días para el 2 de octubre. Esta semana Felipe tiene que decidir si se pide más stock a los proveedores o se ajusta la meta de venta. Todo lo que sigue en esta página existe para esa decisión.</p>
   </div>
 </header>
 
 <main class="wrap">
 
-<section class="sec" id="prioridad">
-<h2>Lo primero que hay que grabar</h2>
+<section class="sec" id="cyberstock-decision">
+<h2>La decisión de stock</h2>
+<p>El Cyber de octubre 2025 duró 4 días y vendió 109 unidades entre todos los productos. La meta de este Cyber es vender 9,6 veces eso. Si se compran los mismos productos, en la misma proporción, esto es lo que haría falta tener en bodega hoy.</p>
 
-<p>Si el tiempo no alcanza para todo, esto no puede faltar. En orden.</p>
-
-<div class="grid-3">
-
-<div class="card">
-<h3>1. Puzzle de niños</h3>
-<p><span class="pill pill--danger">Lunes, con Felipe</span></p>
-<p style="margin-bottom:0">Es el único lanzamiento real que hay hoy, y no existe ni una toma. Llega el fin de semana, por eso se graba el lunes.</p>
+<div class="kpi-grid">
+<div class="kpi">
+<span class="kpi__label">Se vendió en el Cyber de oct-2025</span>
+<span class="kpi__value">109 unidades en 4 días</span>
+</div>
+<div class="kpi">
+<span class="kpi__label">Meta de este Cyber</span>
+<span class="kpi__value">$20.000.000 en 8 días</span>
+</div>
+<div class="kpi">
+<span class="kpi__label">Eso es, en unidades</span>
+<span class="kpi__value">9,6× lo vendido el año pasado</span>
+</div>
 </div>
 
-<div class="card">
-<h3>2. Textura de las láminas</h3>
-<p><span class="pill pill--warn">Viernes, sola</span></p>
-<p style="margin-bottom:0">Sin estas tomas no se puede armar ni la infografía del papel ni los anuncios de láminas. Ver la sección 3 para la técnica de luz.</p>
+<div class="callout callout--warn">
+<p>🟡 <strong>El supuesto detrás de estos números (discútelo con Felipe si no calza):</strong> se asume que este Cyber la gente compra los mismos productos, en la misma proporción, que el Cyber pasado. No es una proyección exacta — es una forma de ver rápido dónde está el problema real de bodega. Ojo: algunos productos que vendieron bien el año pasado (calcetines, algunas libretas y bolsos, una lámina) hoy están fuera de la tienda, así que esta vez la demanda se va a concentrar más en los puzzles y las láminas que en octubre 2025.</p>
 </div>
 
-<div class="card">
-<h3>3. El empaque como regalo</h3>
-<p><span class="pill pill--warn">Viernes, sola</span></p>
-<p style="margin-bottom:0">El hallazgo que dijiste tú misma — que no hace falta envolver porque ya es un regalo — todavía no está grabado.</p>
+<h3>Los 4 puzzles sueltos</h3>
+
+<div class="chart-bar-row">
+<span class="chart-bar-row__label">Puzzle Hongos</span>
+<div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:15%;background:var(--danger)"></div></div>
+<span class="chart-bar-row__value">20 de 134 · faltan 114</span>
+</div>
+<div class="chart-bar-row">
+<span class="chart-bar-row__label">Puzzle Cetáceos</span>
+<div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:23%;background:var(--danger)"></div></div>
+<span class="chart-bar-row__value">18 de 77 · faltan 59</span>
+</div>
+<div class="chart-bar-row">
+<span class="chart-bar-row__label">Puzzle Mariposas</span>
+<div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:21%;background:var(--danger)"></div></div>
+<span class="chart-bar-row__value">10 de 48 · faltan 38</span>
+</div>
+<div class="chart-bar-row">
+<span class="chart-bar-row__label">Puzzle Aves y flores</span>
+<div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:92%;background:var(--success)"></div></div>
+<span class="chart-bar-row__value">80 de 87 · faltan 7</span>
 </div>
 
+<h3>Láminas, postales y accesorios</h3>
+
+<div class="chart-bar-row">
+<span class="chart-bar-row__label">Lámina Flores</span>
+<div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:7%;background:var(--danger)"></div></div>
+<span class="chart-bar-row__value">5 de 67 · faltan 62</span>
 </div>
-</section>
+<div class="chart-bar-row">
+<span class="chart-bar-row__label">Pack 8 postales Aves</span>
+<div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:19%;background:var(--danger)"></div></div>
+<span class="chart-bar-row__value">13 de 67 · faltan 54</span>
+</div>
+<div class="chart-bar-row">
+<span class="chart-bar-row__label">Lámina Aves</span>
+<div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:42%;background:var(--warn)"></div></div>
+<span class="chart-bar-row__value">28 de 67 · faltan 39</span>
+</div>
+<div class="chart-bar-row">
+<span class="chart-bar-row__label">Lámina Hongos</span>
+<div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:16%;background:var(--danger)"></div></div>
+<span class="chart-bar-row__value">6 de 38 · faltan 32</span>
+</div>
+<div class="chart-bar-row">
+<span class="chart-bar-row__label">Lámina Cetáceos</span>
+<div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:24%;background:var(--danger)"></div></div>
+<span class="chart-bar-row__value">7 de 29 · faltan 22</span>
+</div>
+<div class="chart-bar-row">
+<span class="chart-bar-row__label">Lámina Escarabajos</span>
+<div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:5%;background:var(--danger)"></div></div>
+<span class="chart-bar-row__value">1 de 20 · faltan 19</span>
+</div>
+<div class="chart-bar-row">
+<span class="chart-bar-row__label">Libreta Aves</span>
+<div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:30%;background:var(--danger)"></div></div>
+<span class="chart-bar-row__value">6 de 20 · faltan 14</span>
+</div>
+<div class="chart-bar-row">
+<span class="chart-bar-row__label">Pin Loica</span>
+<div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:50%;background:var(--warn)"></div></div>
+<span class="chart-bar-row__value">5 de 10 · faltan 5</span>
+</div>
+<div class="chart-bar-row">
+<span class="chart-bar-row__label">Juego Naipes Aves</span>
+<div class="chart-bar-row__track"><div class="chart-bar-row__fill" style="width:100%;background:var(--success)"></div></div>
+<span class="chart-bar-row__value">77 de 29 · sobra stock</span>
+</div>
+
 <div class="callout callout--danger">
-<p>⛔ <strong>No grabes nada del puzzle de mariposas.</strong> Ese modelo no llega hasta noviembre, así que cualquier toma que hagas ahora no se puede usar en publicidad ni en la tienda. Los que sí llegan son <strong>aves, cetáceos y hongos</strong>.</p>
+<p>⛔ <strong>El cuello de botella, en una frase:</strong> los puzzles sueltos y las láminas son el corazón del Cyber (el pack de 3, el quiz y "Arma tu pack" están armados alrededor de ellos) y son justo donde menos stock hay. Si no se repone antes del 2 de octubre, el techo real de venta lo pone la bodega, no la campaña.</p>
 </div>
 
-
-<section class="sec" id="viernes">
-<h2>Viernes 14: sola</h2>
-
-<p>Marca cada toma a medida que la grabas.</p>
-<div class="progress">
-  <div class="progress__track">
-    <div class="progress__fill" data-progress-fill></div>
-  </div>
-  <span class="progress__label" data-progress-label>0 de 17 tomas (0%)</span>
-</div>
-
-<h3 id="viernes-laminas">Láminas</h3>
-
-<div class="card">
-<h3><span class="shot-tag">V1</span>Textura del papel, de cerca</h3>
-<p class="shot-meta">📱 Vertical · ⏱ 8 a 10 segundos</p>
-<p><strong>Qué se ve:</strong> la lámina de aves (la de más reseñas) llenando toda la pantalla, muy de cerca, con la luz entrando de lado — no de frente.</p>
-<p style="margin-bottom:0"><strong>Truco:</strong> revisa la sección 3 antes de esta toma. Es la más importante del día.</p>
-</div>
-
-<div class="card">
-<h3><span class="shot-tag">V2</span>El borde de la lámina, de canto</h3>
-<p class="shot-meta">📱 Vertical · ⏱ 5 segundos</p>
-<p><strong>Qué se ve:</strong> el borde o esquina de la lámina desde el lado, para que se note el grosor del papel.</p>
-<p style="margin-bottom:0"><strong>Truco:</strong> acerca el teléfono al borde en vez de hacer zoom — el zoom pixela la imagen y se pierde el detalle.</p>
-</div>
-
-<div class="card">
-<h3><span class="shot-tag">V3</span>Una mano pasando por el papel</h3>
-<p class="shot-meta">📱 Vertical · ⏱ 5 a 8 segundos</p>
-<p><strong>Qué se ve:</strong> tu mano deslizándose despacio sobre la superficie de la lámina, como si la estuvieras tocando de verdad.</p>
-<p style="margin-bottom:0"><strong>Truco:</strong> ve lento. El movimiento rápido no deja ver nada.</p>
-</div>
-
-<div class="card">
-<h3><span class="shot-tag">V4</span>La lámina moviéndose bajo la luz</h3>
-<p class="shot-meta">📱 Vertical · ⏱ 8 a 10 segundos</p>
-<p><strong>Qué se ve:</strong> la lámina inclinándose despacio de un lado a otro, mientras la luz de la ventana recorre el papel.</p>
-<p style="margin-bottom:0"><strong>Truco:</strong> esta es la toma que de verdad resuelve el problema — el relieve del papel aparece y desaparece con el movimiento. Grábala varias veces.</p>
-</div>
-
-<h3 id="viernes-empaque">Empaque</h3>
-
-<div class="card">
-<h3><span class="shot-tag">V5</span>Inserto de 2 segundos para el video del empaque</h3>
-<p class="shot-meta">📱 Vertical · ⏱ 2 segundos exactos</p>
-<p><strong>Qué se ve:</strong> la lámina de cerca (parecido a la toma V1), muy corta. Se pega al inicio del video del empaque que ya está editado.</p>
-<p style="margin-bottom:0"><strong>Truco:</strong> graba 3 o 4 segundos igual — siempre es más fácil cortar de más que pedir la toma otra vez.</p>
-</div>
-
-<div class="card">
-<h3><span class="shot-tag">V6</span>El paquete cerrado, tal cual llega</h3>
-<p class="shot-meta">📱 Vertical u horizontal · ⏱ 5 a 8 segundos</p>
-<p><strong>Qué se ve:</strong> el paquete tal como lo recibe alguien que compró — sin agregarle ningún papel de regalo ni moño.</p>
-<p style="margin-bottom:0">Detalle completo del ángulo en la sección 6.</p>
-</div>
-
-<div class="card">
-<h3><span class="shot-tag">V7</span>Abriendo el paquete</h3>
-<p class="shot-meta">📱 Vertical · ⏱ 8 a 10 segundos</p>
-<p><strong>Qué se ve:</strong> el paquete abriéndose y mostrando lo bien presentado que queda por dentro, sin necesitar nada más encima.</p>
-<p style="margin-bottom:0">Detalle completo del ángulo en la sección 6.</p>
-</div>
-
-<h3 id="viernes-cetaceos">Puzzle de cetáceos (terminar lo que falta)</h3>
-
-<div class="card">
-<h3><span class="shot-tag">V8</span>Terminar de armar el puzzle</h3>
-<p class="shot-meta">📱 Horizontal · ⏱ 10 a 15 segundos</p>
-<p><strong>Qué se ve:</strong> las últimas piezas del puzzle de cetáceos encajando, hasta dejarlo completo. Este video ya está empezado, solo falta terminarlo.</p>
-<p style="margin-bottom:0"><strong>Truco:</strong> deja las piezas que faltan separadas, a un costado, para que se note el avance mientras las vas poniendo.</p>
-</div>
-
-<div class="card">
-<h3><span class="shot-tag">V9</span>El puzzle completo, desde arriba</h3>
-<p class="shot-meta">📱 Vertical · ⏱ 5 a 8 segundos</p>
-<p><strong>Qué se ve:</strong> el puzzle terminado, con el teléfono justo encima, mirando derecho hacia abajo.</p>
-<p style="margin-bottom:0"><strong>Truco:</strong> apoya el puzzle en el suelo o una mesa grande y ponte de pie arriba para que salga derecho, sin ángulo torcido.</p>
-</div>
-
-</section>
-
-<section class="sec" id="textura">
-<h2>Cómo hacer que se vea la textura</h2>
-
-<p>Tienes razón: en cámara cuesta que se note que el papel es especial. No es problema de la cámara — es problema de la luz. Con luz de ventana normal se soluciona.</p>
-
-<div class="light-diagram">
-  <div class="light-diagram__panel">
-    <svg viewBox="0 0 150 150" role="img" aria-hidden="true">
-      <circle cx="75" cy="34" r="10" fill="var(--ink-faint)"></circle>
-      <line x1="75" y1="46" x2="75" y2="80" stroke="var(--ink-faint)" stroke-width="2"></line>
-      <polygon points="68,74 82,74 75,86" fill="var(--ink-faint)"></polygon>
-      <rect x="25" y="90" width="100" height="16" rx="3" fill="var(--surface)" stroke="var(--line-strong)" stroke-width="1.5"></rect>
-      <circle cx="42" cy="90" r="5" fill="var(--paper)" stroke="var(--line-strong)" stroke-width="1"></circle>
-      <circle cx="62" cy="90" r="5" fill="var(--paper)" stroke="var(--line-strong)" stroke-width="1"></circle>
-      <circle cx="82" cy="90" r="5" fill="var(--paper)" stroke="var(--line-strong)" stroke-width="1"></circle>
-      <circle cx="102" cy="90" r="5" fill="var(--paper)" stroke="var(--line-strong)" stroke-width="1"></circle>
-    </svg>
-    <p class="light-diagram__caption light-diagram__caption--bad">✕ Luz de frente: el papel se ve liso</p>
-  </div>
-  <div class="light-diagram__panel">
-    <svg viewBox="0 0 150 150" role="img" aria-hidden="true">
-      <rect x="18" y="76" width="22" height="34" fill="none" stroke="var(--ink-faint)" stroke-width="2"></rect>
-      <line x1="29" y1="76" x2="29" y2="110" stroke="var(--ink-faint)" stroke-width="1"></line>
-      <line x1="18" y1="93" x2="40" y2="93" stroke="var(--ink-faint)" stroke-width="1"></line>
-      <line x1="44" y1="90" x2="112" y2="90" stroke="var(--warn)" stroke-width="2"></line>
-      <polygon points="112,85 112,95 122,90" fill="var(--warn)"></polygon>
-      <rect x="25" y="94" width="100" height="16" rx="3" fill="var(--surface)" stroke="var(--line-strong)" stroke-width="1.5"></rect>
-      <circle cx="42" cy="94" r="5" fill="var(--paper)" stroke="var(--line-strong)" stroke-width="1"></circle>
-      <ellipse cx="46" cy="97" rx="3" ry="2" fill="var(--ink-faint)" opacity="0.55"></ellipse>
-      <circle cx="62" cy="94" r="5" fill="var(--paper)" stroke="var(--line-strong)" stroke-width="1"></circle>
-      <ellipse cx="66" cy="97" rx="3" ry="2" fill="var(--ink-faint)" opacity="0.55"></ellipse>
-      <circle cx="82" cy="94" r="5" fill="var(--paper)" stroke="var(--line-strong)" stroke-width="1"></circle>
-      <ellipse cx="86" cy="97" rx="3" ry="2" fill="var(--ink-faint)" opacity="0.55"></ellipse>
-      <circle cx="102" cy="94" r="5" fill="var(--paper)" stroke="var(--line-strong)" stroke-width="1"></circle>
-      <ellipse cx="106" cy="97" rx="3" ry="2" fill="var(--ink-faint)" opacity="0.55"></ellipse>
-    </svg>
-    <p class="light-diagram__caption light-diagram__caption--good">✓ Luz de lado: se ven sombras y relieve</p>
-  </div>
-</div>
-
-<div class="grid-3">
-<div class="card">
-<h3>💡 La ventana al lado</h3>
-<p style="margin-bottom:0">Párate para que la luz te entre por el lado, no de frente. Si la luz te pega de frente a ti, le pega de frente al papel — y ahí no se ve nada.</p>
-</div>
-<div class="card">
-<h3>📐 Ángulo bajo</h3>
-<p style="margin-bottom:0">Inclina la lámina (o el teléfono) para que la luz roce el papel casi paralela a la superficie, no caiga desde arriba en picada.</p>
-</div>
-<div class="card">
-<h3>🔄 Mueve la lámina</h3>
-<p style="margin-bottom:0">Gírala despacio mientras grabas. El relieve del papel va a aparecer y desaparecer con el movimiento — eso es lo que se busca.</p>
-</div>
-</div>
-
-<div class="callout callout--success">
-<p>✅ No necesitas ningún equipo especial. Con la luz de una ventana normal, en la mañana o media tarde, alcanza.</p>
-</div>
-</section>
-
-<section class="sec" id="lunes">
-<h2>Lunes 17: con Felipe</h2>
-
-<p>Estas tomas necesitan una segunda persona: manos sosteniendo, alguien armando el puzzle, o tú apareciendo en cámara.</p>
-
-<h3 id="lunes-ninos">Puzzle de niños</h3>
-
-<div class="card">
-<h3><span class="shot-tag">L1</span>Abriendo la caja por primera vez</h3>
-<p class="shot-meta">📱 Vertical · ⏱ 8 segundos</p>
-<p><strong>Qué se ve:</strong> tus manos abriendo la caja del puzzle de niños, como si fuera la primera vez que alguien lo ve.</p>
-<p style="margin-bottom:0"><strong>Truco:</strong> Felipe filma mientras tú abres — así las dos manos quedan libres para mostrar el contenido.</p>
-</div>
-
-<div class="card">
-<h3><span class="shot-tag">L2</span>Comparación de tamaño</h3>
-<p class="shot-meta">📱 Vertical · ⏱ 5 a 8 segundos</p>
-<p><strong>Qué se ve:</strong> el puzzle de niños al lado de un puzzle de adulto (el de aves, por ejemplo), para que se note que es más chico.</p>
-<p style="margin-bottom:0"><strong>Truco:</strong> ponlos uno junto al otro sobre la misma mesa, misma distancia de la cámara, para que la diferencia se vea real y no forzada.</p>
-</div>
-
-<div class="card">
-<h3><span class="shot-tag">L3</span>Armándolo entre los dos</h3>
-<p class="shot-meta">📱 Vertical · ⏱ 15 a 20 segundos</p>
-<p><strong>Qué se ve:</strong> tus manos y las de Felipe armando el puzzle juntos, en una mesa chica o en el sillón — no en un escritorio de trabajo.</p>
-<p style="margin-bottom:0"><strong>Truco:</strong> elige un lugar que no parezca "de estudio": la cocina, el sillón, el suelo. Ese es justo el punto — que se arma en cualquier parte.</p>
-</div>
-
-<div class="card">
-<h3><span class="shot-tag">L4</span>Las piezas de cerca</h3>
-<p class="shot-meta">📱 Vertical · ⏱ 5 segundos</p>
-<p><strong>Qué se ve:</strong> dos o tres piezas en la mano, mostrando que son más grandes y simples que las de un puzzle normal.</p>
-<p style="margin-bottom:0"><strong>Truco:</strong> que se note el tamaño de la pieza contra los dedos de la mano.</p>
-</div>
-
-<div class="card">
-<h3><span class="shot-tag">L5</span>Terminado, en cualquier parte</h3>
-<p class="shot-meta">📱 Vertical · ⏱ 5 a 8 segundos</p>
-<p><strong>Qué se ve:</strong> el puzzle ya armado, apoyado sobre la falda, una mesita chica, o el suelo — un lugar que no sea un escritorio.</p>
-<p style="margin-bottom:0">Detalle completo de por qué esta toma importa en la sección 5.</p>
-</div>
-
-<h3 id="lunes-generales">Tomas generales</h3>
-
-<div class="card">
-<h3><span class="shot-tag">L6</span>Manos de Felipe sosteniendo un producto</h3>
-<p class="shot-meta">📱 Vertical · ⏱ 8 a 10 segundos</p>
-<p><strong>Qué se ve:</strong> las manos de Felipe sosteniendo una lámina o una botella, mientras tú hablas a cámara de fondo (o al revés).</p>
-<p style="margin-bottom:0"><strong>Truco:</strong> que las manos se vean naturales, no posando — como si estuviera mostrándoselo a alguien de verdad.</p>
-</div>
-
-<div class="card">
-<h3><span class="shot-tag">L7</span>Tú hablando a cámara</h3>
-<p class="shot-meta">📱 Vertical · ⏱ 15 a 20 segundos</p>
-<p><strong>Qué se ve:</strong> tú, hablando de tu trabajo o de cómo observas la naturaleza, con Felipe sosteniendo el teléfono.</p>
-<p style="margin-bottom:0"><strong>Truco:</strong> habla como si le contaras algo a una persona, no como si estuvieras vendiendo. Grábalo dos o tres veces distintas.</p>
-</div>
-
-<div class="card">
-<h3><span class="shot-tag">L8</span>Dos manos recibiendo el paquete</h3>
-<p class="shot-meta">📱 Vertical · ⏱ 5 a 8 segundos</p>
-<p><strong>Qué se ve:</strong> las manos de Felipe recibiendo el paquete como si fuera un regalo real, para reforzar la idea de la sección 6.</p>
-<p style="margin-bottom:0"><strong>Truco:</strong> que la reacción sea simple, no actuada — solo tomar el paquete con cuidado, como se recibe un regalo.</p>
-</div>
-
-</section>
-
-<section class="sec" id="puzzle-ninos">
-<h2>El puzzle de niños</h2>
-
-<p>Es el único lanzamiento real que hay hoy y no existe ni una toma. Llega con el resto del pedido este fin de semana, por eso se graba el lunes (tomas L1 a L5, arriba). Estas son las tres ideas que tienen que quedar claras:</p>
-
-<div class="grid-3">
-<div class="card">
-<h3>Es más chico</h3>
-<p style="margin-bottom:0">La toma L2 (comparación de tamaño) es la que más rápido lo comunica: se entiende con solo mirarla, sin explicar nada.</p>
-</div>
-<div class="card">
-<h3>Es más simple</h3>
-<p style="margin-bottom:0">La toma L4 (piezas de cerca) muestra piezas grandes y fáciles de tomar — pensadas para manos más chicas.</p>
-</div>
-<div class="card">
-<h3>Se arma en cualquier parte</h3>
-<p style="margin-bottom:0">Las tomas L3 y L5 lo muestran armándose fuera de un escritorio: en el sillón, en la falda, en la mesa de la cocina.</p>
-</div>
-</div>
-
-<h3>Idea de guion para el Reel</h3>
-<p>Para usar como voz en off o como texto del video, con las tomas L1 a L5:</p>
-
-<div class="copyblock">
-<div class="copyblock__text" id="copy-guion-puzzle-ninos">Nunca había hecho un puzzle para niños.
-
-Achiqué las piezas. Simplifiqué el dibujo.
-
-No necesita una mesa grande: se arma en la cama, en el auto, en cualquier rincón de la casa.
-
-Es la primera vez que pienso un puzzle para las manos más chicas.
-
-Y verlo armarse así, tan simple, me recordó por qué me gusta tanto este trabajo.</div>
-<button type="button" class="copyblock__btn" data-copy-target="copy-guion-puzzle-ninos">Copiar</button>
-</div>
-</section>
-
-<section class="sec" id="empaque-regalo">
-<h2>El ángulo del empaque como regalo</h2>
-
-<p>Dijiste algo que vale oro: que los productos no necesitan envoltorio porque ya son un regalo, ya vienen como el empaque. Mucha gente te lo comenta. Nunca se ha grabado. Estas son las tomas (V6 y V7, del viernes):</p>
-
-<ul>
-<li><strong>El paquete cerrado, tal cual llega</strong> — sin agregarle nada encima. Esa es toda la idea: se ve completo así, sin necesitar más.</li>
-<li><strong>Abriéndolo</strong> — mostrando que por dentro también está bien presentado, no solo por fuera.</li>
+<p>Marca cada producto cuando la decisión de reponerlo o no esté tomada.</p>
+<ul class="checklist">
+<li><label><input type="checkbox" data-cyberstock="stock-puzzle-hongos"><span>Puzzle Hongos — ¿se repone antes del 2-oct?</span></label></li>
+<li><label><input type="checkbox" data-cyberstock="stock-puzzle-cetaceos"><span>Puzzle Cetáceos — ¿se repone antes del 2-oct?</span></label></li>
+<li><label><input type="checkbox" data-cyberstock="stock-puzzle-mariposas"><span>Puzzle Mariposas — ¿se repone antes del 2-oct?</span></label></li>
+<li><label><input type="checkbox" data-cyberstock="stock-puzzle-aves"><span>Puzzle Aves y flores — ajustado, revisar igual</span></label></li>
+<li><label><input type="checkbox" data-cyberstock="stock-lamina-flores"><span>Lámina Flores — ¿se repone antes del 2-oct?</span></label></li>
+<li><label><input type="checkbox" data-cyberstock="stock-postales-aves"><span>Pack 8 postales Aves — ¿se repone antes del 2-oct?</span></label></li>
+<li><label><input type="checkbox" data-cyberstock="stock-lamina-aves"><span>Lámina Aves — ¿se repone antes del 2-oct?</span></label></li>
+<li><label><input type="checkbox" data-cyberstock="stock-lamina-hongos"><span>Lámina Hongos — ¿se repone antes del 2-oct?</span></label></li>
+<li><label><input type="checkbox" data-cyberstock="stock-lamina-cetaceos"><span>Lámina Cetáceos — ¿se repone antes del 2-oct?</span></label></li>
+<li><label><input type="checkbox" data-cyberstock="stock-lamina-escarabajos"><span>Lámina Escarabajos — ¿se repone antes del 2-oct?</span></label></li>
+<li><label><input type="checkbox" data-cyberstock="stock-libreta-aves"><span>Libreta Aves — ¿se repone antes del 2-oct?</span></label></li>
+<li><label><input type="checkbox" data-cyberstock="stock-pin-loica"><span>Pin Loica — ¿se repone antes del 2-oct?</span></label></li>
+<li><label><input type="checkbox" data-cyberstock="stock-naipes-aves"><span>Juego Naipes Aves — sobra stock, no necesita reposición</span></label></li>
 </ul>
 
-<p>Para el video del empaque que ya está editado: agrégale al inicio 2 segundos de la lámina de cerca (toma V5) antes de entrar al empaque como está armado hoy.</p>
-
-<h3>Idea de guion</h3>
-<p>Para usar como voz en off o como texto del video, con las tomas V6 y V7:</p>
-
 <div class="copyblock">
-<div class="copyblock__text" id="copy-guion-empaque-regalo">Me lo han dicho varias veces: que no hace falta envolver esto.
+<div class="copyblock__text" id="cyberstock-copy-resumen">Cyber 2-9 oct: quedan 9 días.
 
-Que ya llega como un regalo.
+Con el stock de hoy no alcanza para llegar a la meta vendiendo la misma mezcla de productos que el Cyber pasado. Lo que más falta: Puzzle Hongos, Puzzle Cetáceos, Puzzle Mariposas y casi todas las láminas.
 
-Nunca lo pensé de esa manera, hasta que la gente empezó a contármelo.
+Necesito que definas esta semana:
+1) ¿Reponemos stock antes del 2 de octubre, o ajustamos la meta?
+2) ¿Pausamos los descuentos de láminas y los códigos del pop-up?
+3) ¿Entra el puzzle de niños al Cyber?
 
-Ahora, cuando armo un pedido, pienso en eso: que a alguien le va a llegar así, tal cual, y ya es suficiente.</div>
-<button type="button" class="copyblock__btn" data-copy-target="copy-guion-empaque-regalo">Copiar</button>
+El detalle completo está en esta página.</div>
+<button type="button" class="copyblock__btn" data-copy-target="cyberstock-copy-resumen">Copiar</button>
 </div>
+
 </section>
 
-<section class="sec" id="ya-grabado">
-<h2>Lo que ya está grabado</h2>
+<section class="sec" id="cyberstock-descuentos">
+<h2>Descuentos que rompen el 25%</h2>
+<p>El 25% del Cyber se aplica bajando directamente el precio de cada producto. Para Shopify eso no es "otro descuento", es un precio nuevo — así que cualquier código o descuento automático que siga activo se puede sumar arriba del 25%, por encima del tope acordado con Felipe.</p>
 
-<p>Esto ya existe y sirve. No hay que repetirlo:</p>
+<div class="callout callout--danger">
+<p>⛔ Los dos descuentos automáticos de láminas se suman al 25% aunque nadie escriba ningún código: están configurados para combinar con el precio nuevo del producto. Alguien que compre 2 o 3 láminas en el Cyber pagaría la 2ª y 3ª con un descuento extra, arriba del 25%. Ninguno de los dos estaba en el plan de pausa que salió de la llamada del 21-sep.</p>
+</div>
 
-<ul>
-<li>El video del empaque (se le agrega el inserto de 2 segundos de la lámina, toma V5 — el resto queda igual).</li>
-<li>El video de la botella — muy orgánico, va directo a pauta tal como está.</li>
-<li>El video de la lámina colgando el cuadro.</li>
-<li>El video de Felipe con los puzzles.</li>
+<h3>Los 2 descuentos automáticos de láminas</h3>
+<ul class="checklist">
+<li><label><input type="checkbox" data-cyberstock="pausa-descuento-laminas-2"><span>Descuento láminas (20% en la 2ª lámina) — ¿se pausa el 2-oct?</span></label></li>
+<li><label><input type="checkbox" data-cyberstock="pausa-descuento-laminas-3"><span>Descuento 3 láminas (20% en la 2ª y 3ª) — ¿se pausa el 2-oct?</span></label></li>
 </ul>
+
+<h3>Riesgo alto: los muestra el pop-up a cualquier visitante nuevo</h3>
+<p><span class="pill pill--danger">Mayor riesgo de uso</span></p>
+<ul class="checklist">
+<li><label><input type="checkbox" data-cyberstock="pausa-codigo-egratis"><span>EGRATIS — envío gratis desde $35.000 — ¿se pausa?</span></label></li>
+<li><label><input type="checkbox" data-cyberstock="pausa-codigo-secreto"><span>SECRETO — $2.777 de descuento desde $10.000 — ¿se pausa?</span></label></li>
+<li><label><input type="checkbox" data-cyberstock="pausa-codigo-bienvenido10"><span>BIENVENIDO10 — 10% en 49 colecciones — ¿se pausa?</span></label></li>
+<li><label><input type="checkbox" data-cyberstock="pausa-codigo-37hoy"><span>37HOY — compra X, obtén Y gratis — ¿se pausa?</span></label></li>
+</ul>
+
+<h3>Los otros 12 códigos activos hoy</h3>
+<ul class="checklist">
+<li><label><input type="checkbox" data-cyberstock="pausa-codigo-pingratis"><span>PINGRATIS — compra X, obtén un pin gratis — ¿se pausa?</span></label></li>
+<li><label><input type="checkbox" data-cyberstock="pausa-codigo-llaverogratis"><span>LLAVEROGRATIS — compra X, obtén un llavero gratis — ¿se pausa?</span></label></li>
+<li><label><input type="checkbox" data-cyberstock="pausa-codigo-pedraza10"><span>PEDRAZA10 — 10% desde $30.000 — ¿se pausa?</span></label></li>
+<li><label><input type="checkbox" data-cyberstock="pausa-codigo-gracias5"><span>GRACIAS5 — $5.000 desde $30.000 — ¿se pausa?</span></label></li>
+<li><label><input type="checkbox" data-cyberstock="pausa-codigo-gracias10"><span>GRACIAS10 — $10.000 desde $30.000 — ¿se pausa?</span></label></li>
+<li><label><input type="checkbox" data-cyberstock="pausa-codigo-gracias12"><span>GRACIAS12 — $12.000 desde $30.000 — ¿se pausa?</span></label></li>
+<li><label><input type="checkbox" data-cyberstock="pausa-codigo-gracias15"><span>GRACIAS15 — $15.000 desde $35.000 — ¿se pausa?</span></label></li>
+<li><label><input type="checkbox" data-cyberstock="pausa-codigo-descuento65k"><span>DESCUENTO65K — $6.500 desde $40.000 — ¿se pausa?</span></label></li>
+<li><label><input type="checkbox" data-cyberstock="pausa-codigo-secretoagosto"><span>SECRETOAGOSTO — $2.000 en 21 productos — ¿se pausa?</span></label></li>
+<li><label><input type="checkbox" data-cyberstock="pausa-codigo-papa10"><span>PAPA10 — 10% en 16 productos — ¿se pausa?</span></label></li>
+<li><label><input type="checkbox" data-cyberstock="pausa-codigo-puzzave2"><span>PUZZAVE2 — $1.395 en puzzles — ¿se pausa?</span></label></li>
+<li><label><input type="checkbox" data-cyberstock="pausa-codigo-dsctopuzzle"><span>dsctopuzzle — $3.000 en 3 productos — ¿se pausa?</span></label></li>
+</ul>
+
+<h3>Sin riesgo real: el producto ya no se vende</h3>
+<p><span class="pill pill--success">Bajo riesgo</span></p>
+<ul class="checklist">
+<li><label><input type="checkbox" data-cyberstock="pausa-codigo-platos15"><span>PLATOS15 — $14.000 en el set de platos (ya no se vende) — ¿se pausa igual?</span></label></li>
+<li><label><input type="checkbox" data-cyberstock="pausa-codigo-plato5"><span>plato5 — $5.000 en el set de platos (ya no se vende) — ¿se pausa igual?</span></label></li>
+</ul>
+
 </section>
 
-<section class="sec" id="basico">
-<h2>Lo básico para todas las tomas</h2>
+<section class="sec" id="cyberstock-procedimiento">
+<h2>Encendido y apagado, paso a paso</h2>
+<p>Todas las horas son de Chile. El encendido queda listo antes del primer correo del Cyber, el viernes 2 a las 09:00.</p>
+
+<h3>Encendido — viernes 2 de octubre</h3>
+<div class="timeline">
+<div class="timeline-item">
+<div class="timeline-item__date">07:00</div>
+<div class="timeline-item__title">Cambiar precio y precio de comparación de los 24 productos del Cyber, con el editor masivo de Shopify</div>
+<label><input type="checkbox" data-cyberstock="paso-precio-24-productos"><span> Hecho</span></label>
+</div>
+<div class="timeline-item">
+<div class="timeline-item__date">07:30</div>
+<div class="timeline-item__title">Bajar el envío gratis de $50.000 a $40.000</div>
+<label><input type="checkbox" data-cyberstock="paso-envio-gratis-40000"><span> Hecho</span></label>
+</div>
+<div class="timeline-item">
+<div class="timeline-item__date">07:33</div>
+<div class="timeline-item__title">Pausar el descuento automático "Pack 3 puzzles · 20%"</div>
+<label><input type="checkbox" data-cyberstock="paso-pausar-pack3"><span> Hecho</span></label>
+</div>
+<div class="timeline-item">
+<div class="timeline-item__date">07:36</div>
+<div class="timeline-item__title">Pausar los códigos del quiz: PACKNATURA10 y SETNATURA20</div>
+<label><input type="checkbox" data-cyberstock="paso-pausar-quiz"><span> Hecho</span></label>
+</div>
+<div class="timeline-item">
+<div class="timeline-item__date">07:39</div>
+<div class="timeline-item__title">Pendiente de decisión — pausar Descuento láminas y Descuento 3 láminas</div>
+<label><input type="checkbox" data-cyberstock="paso-pausar-laminas"><span> Hecho</span></label>
+</div>
+<div class="timeline-item">
+<div class="timeline-item__date">07:42</div>
+<div class="timeline-item__title">Pendiente de decisión — pausar EGRATIS, SECRETO, BIENVENIDO10 y 37HOY del pop-up</div>
+<label><input type="checkbox" data-cyberstock="paso-pausar-popup"><span> Hecho</span></label>
+</div>
+<div class="timeline-item">
+<div class="timeline-item__date">08:00</div>
+<div class="timeline-item__title">Verificar la tienda en una ventana de incógnito: precio tachado, precio nuevo y envío gratis desde $40.000</div>
+<label><input type="checkbox" data-cyberstock="paso-verificar-incognito"><span> Hecho</span></label>
+</div>
+<div class="timeline-item">
+<div class="timeline-item__date">08:20</div>
+<div class="timeline-item__title">Margen de reserva por si la verificación encontró un error</div>
+<label><input type="checkbox" data-cyberstock="paso-margen-reserva"><span> Hecho</span></label>
+</div>
+<div class="timeline-item">
+<div class="timeline-item__date">09:00</div>
+<div class="timeline-item__title">Sale el primer correo del Cyber (ya coordinado, no es un cambio en la tienda)</div>
+<label><input type="checkbox" data-cyberstock="paso-primer-correo"><span> Hecho</span></label>
+</div>
+</div>
+
+<h3>Apagado — viernes 9 de octubre, en la noche</h3>
+<div class="timeline">
+<div class="timeline-item">
+<div class="timeline-item__date">22:00</div>
+<div class="timeline-item__title">Devolver cada producto a su precio normal y borrar el precio de comparación (menos los 2 packs)</div>
+<label><input type="checkbox" data-cyberstock="paso-revertir-precios"><span> Hecho</span></label>
+</div>
+<div class="timeline-item">
+<div class="timeline-item__date">22:00</div>
+<div class="timeline-item__title">Pendiente de decisión — qué precio de comparación dejan los 2 packs</div>
+<label><input type="checkbox" data-cyberstock="paso-precio-comparacion-packs"><span> Hecho</span></label>
+</div>
+<div class="timeline-item">
+<div class="timeline-item__date">22:15</div>
+<div class="timeline-item__title">Volver el envío gratis de $40.000 a $50.000</div>
+<label><input type="checkbox" data-cyberstock="paso-envio-gratis-50000"><span> Hecho</span></label>
+</div>
+<div class="timeline-item">
+<div class="timeline-item__date">22:15</div>
+<div class="timeline-item__title">Reactivar el descuento automático del pack</div>
+<label><input type="checkbox" data-cyberstock="paso-reactivar-pack3"><span> Hecho</span></label>
+</div>
+<div class="timeline-item">
+<div class="timeline-item__date">22:15</div>
+<div class="timeline-item__title">Reactivar los códigos del quiz, si el test sigue corriendo</div>
+<label><input type="checkbox" data-cyberstock="paso-reactivar-quiz"><span> Hecho</span></label>
+</div>
+<div class="timeline-item">
+<div class="timeline-item__date">22:15</div>
+<div class="timeline-item__title">Reactivar todo lo que se haya pausado en la sección "pendiente de decisión"</div>
+<label><input type="checkbox" data-cyberstock="paso-reactivar-pendientes"><span> Hecho</span></label>
+</div>
+<div class="timeline-item">
+<div class="timeline-item__date">23:59</div>
+<div class="timeline-item__title">Verificación final en incógnito: precios normales, sin tachado, envío gratis solo desde $50.000</div>
+<label><input type="checkbox" data-cyberstock="paso-verificacion-final"><span> Hecho</span></label>
+</div>
+<div class="timeline-item">
+<div class="timeline-item__date">10-oct 00:00</div>
+<div class="timeline-item__title">Se enciende solo el código de carritos abandonados (VUELVE12) — no requiere ninguna acción</div>
+<label><input type="checkbox" data-cyberstock="paso-carritos-abandonados"><span> Hecho</span></label>
+</div>
+</div>
+
+</section>
+
+<section class="sec" id="cyberstock-pendientes">
+<h2>Decisiones que faltan</h2>
+<p>Cada una espera a una persona distinta. Sin esto resuelto, el encendido del 2-oct se atrasa.</p>
 
 <div class="grid-2">
 <div class="card">
-<h3>Dónde ponerte</h3>
-<p style="margin-bottom:0">La ventana queda al lado tuyo, nunca detrás. Si te queda detrás, todo se ve oscuro. Si te queda de frente, se pierde la textura.</p>
+<p><span class="pill pill--info">Decide Mateo</span></p>
+<p style="margin-bottom:0">Sobre qué precio se calcula el 25% de los 2 packs — hoy ya tienen un precio tachado más alto cargado de antes.</p>
 </div>
 <div class="card">
-<h3>Sin zoom digital</h3>
-<p style="margin-bottom:0">Si necesitas acercarte más, acércate tú con el cuerpo. El zoom del teléfono pixela la imagen.</p>
+<p><span class="pill pill--info">Decide Mateo</span></p>
+<p style="margin-bottom:0">Si se pausan los 2 descuentos automáticos de láminas y los 4 códigos del pop-up (ver sección anterior).</p>
 </div>
 <div class="card">
-<h3>Graba de más</h3>
-<p style="margin-bottom:0">Cada toma, grábala dos o tres veces. Es más fácil elegir la mejor después que volver a armar todo para repetirla.</p>
+<p><span class="pill pill--info">Decide Mateo</span></p>
+<p style="margin-bottom:0">Si el Puzzle de 60 piezas para niños entra al Cyber o se deja fuera.</p>
 </div>
 <div class="card">
-<h3>Si grabas la voz aparte</h3>
-<p style="margin-bottom:0">No hables mientras filmas el video. Deja la toma en silencio y graba la voz por separado, para que no se mezclen.</p>
+<p><span class="pill pill--info">Decide Mateo</span></p>
+<p style="margin-bottom:0">Qué precio tachado dejan los 2 packs al apagar el Cyber: el que tenían antes, o ninguno hasta resolverlo con Felipe.</p>
 </div>
 <div class="card">
-<h3>La mano temblorosa está bien</h3>
-<p style="margin-bottom:0">No busques que quede perfecto ni de trípode. Lo que hoy funciona es que se note real, no producido.</p>
+<p><span class="pill pill--info">Decide Mateo</span></p>
+<p style="margin-bottom:0">Qué porcentaje lleva el código de carritos abandonados (VUELVE12): 10%, 12% o 15%.</p>
 </div>
 <div class="card">
-<h3>Vertical para Reels e historias</h3>
-<p style="margin-bottom:0">Para el carrusel también sirven fotos fijas que parezcan una publicación normal — no un aviso.</p>
+<p><span class="pill pill--warn">Decide Felipe</span></p>
+<p style="margin-bottom:0">Si hay tiempo y proveedor para traer más Puzzle Cetáceos, Puzzle Mariposas y láminas antes del 2 de octubre — es la pregunta que más pesa de toda esta página.</p>
+</div>
+<div class="card">
+<p><span class="pill pill--warn">Decide Felipe</span></p>
+<p style="margin-bottom:0">Si vender un pack de puzzles descuenta el stock de los puzzles sueltos en Shopify, o si son inventarios separados que alguien arma a mano.</p>
 </div>
 </div>
-</section>
-
-<section class="sec" id="checklist-terreno">
-<h2>Checklist de terreno</h2>
-
-<p>La lista completa. Márcala apenas termines cada toma.</p>
-
-<div class="progress">
-  <div class="progress__track">
-    <div class="progress__fill" data-progress-fill></div>
-  </div>
-  <span class="progress__label" data-progress-label>0 de 17 tomas (0%)</span>
-</div>
-
-<h3>Viernes 14 — sola</h3>
-<ul class="checklist checklist--campo">
-<li><label><input type="checkbox" data-grabacion="viernes-laminas-textura-cerca"><span>V1 · Textura del papel, de cerca (vertical, 8-10 seg)</span></label></li>
-<li><label><input type="checkbox" data-grabacion="viernes-laminas-borde-grosor"><span>V2 · El borde de la lámina, de canto (vertical, 5 seg)</span></label></li>
-<li><label><input type="checkbox" data-grabacion="viernes-laminas-mano-textura"><span>V3 · Una mano pasando por el papel (vertical, 5-8 seg)</span></label></li>
-<li><label><input type="checkbox" data-grabacion="viernes-laminas-mover-luz"><span>V4 · La lámina moviéndose bajo la luz (vertical, 8-10 seg)</span></label></li>
-<li><label><input type="checkbox" data-grabacion="viernes-empaque-insert-2s"><span>V5 · Inserto de 2 seg para el video del empaque (vertical)</span></label></li>
-<li><label><input type="checkbox" data-grabacion="viernes-empaque-sin-envoltorio"><span>V6 · El paquete cerrado, tal cual llega (5-8 seg)</span></label></li>
-<li><label><input type="checkbox" data-grabacion="viernes-empaque-abriendo-contenido"><span>V7 · Abriendo el paquete (vertical, 8-10 seg)</span></label></li>
-<li><label><input type="checkbox" data-grabacion="viernes-cetaceos-terminar-armado"><span>V8 · Terminar de armar el puzzle de cetáceos (horizontal, 10-15 seg)</span></label></li>
-<li><label><input type="checkbox" data-grabacion="viernes-cetaceos-cenital"><span>V9 · El puzzle completo, desde arriba (vertical, 5-8 seg)</span></label></li>
-</ul>
-
-<h3>Lunes 17 — con Felipe</h3>
-<ul class="checklist checklist--campo">
-<li><label><input type="checkbox" data-grabacion="lunes-ninos-abriendo-caja"><span>L1 · Abriendo la caja del puzzle de niños (vertical, 8 seg)</span></label></li>
-<li><label><input type="checkbox" data-grabacion="lunes-ninos-comparacion-tamano"><span>L2 · Comparación de tamaño con un puzzle de adulto (vertical, 5-8 seg)</span></label></li>
-<li><label><input type="checkbox" data-grabacion="lunes-ninos-armando-entre-dos"><span>L3 · Armándolo entre los dos (vertical, 15-20 seg)</span></label></li>
-<li><label><input type="checkbox" data-grabacion="lunes-ninos-piezas-grandes"><span>L4 · Las piezas de cerca (vertical, 5 seg)</span></label></li>
-<li><label><input type="checkbox" data-grabacion="lunes-ninos-terminado-cualquier-parte"><span>L5 · Terminado, en cualquier parte (vertical, 5-8 seg)</span></label></li>
-<li><label><input type="checkbox" data-grabacion="lunes-generales-manos-sosteniendo"><span>L6 · Manos de Felipe sosteniendo un producto (vertical, 8-10 seg)</span></label></li>
-<li><label><input type="checkbox" data-grabacion="lunes-generales-cote-hablando"><span>L7 · Tú hablando a cámara (vertical, 15-20 seg)</span></label></li>
-<li><label><input type="checkbox" data-grabacion="lunes-generales-manos-regalo"><span>L8 · Dos manos recibiendo el paquete como regalo (vertical, 5-8 seg)</span></label></li>
-</ul>
 
 </section>
 
@@ -1387,26 +1286,24 @@ Ahora, cuando armo un pedido, pienso en eso: que a alguien le va a llegar así, 
 </script>
 
 <script>
-  // Checklist de esta página — usa data-grabacion (task, cro, plan90, bitacora, estado, preventa,
-  // tienda, clientes, precios, ads, correo, ofertas, tablero, inventario, correosp, campanas y
-  // pedido ya están tomados por otras páginas) y localStorage con prefijo pedraza-plan:gra:.
+  // Checklist de esta pagina — usa data-cyberstock y localStorage con prefijo pedraza-plan:cs:
   document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('[data-grabacion]').forEach(function (cb) {
-      cb.checked = pgGet('pedraza-plan:gra:' + cb.getAttribute('data-grabacion')) === '1';
+    document.querySelectorAll('[data-cyberstock]').forEach(function (cb) {
+      cb.checked = pgGet('pedraza-plan:cs:' + cb.getAttribute('data-cyberstock')) === '1';
     });
-    actualizarProgresoGrabacion();
+    actualizarProgresoStock();
   });
 
   document.addEventListener('change', function (e) {
-    var cb = e.target.closest('[data-grabacion]');
+    var cb = e.target.closest('[data-cyberstock]');
     if (!cb) return;
-    var key = 'pedraza-plan:gra:' + cb.getAttribute('data-grabacion');
+    var key = 'pedraza-plan:cs:' + cb.getAttribute('data-cyberstock');
     if (cb.checked) { pgSet(key, '1'); } else { pgRemove(key); }
-    actualizarProgresoGrabacion();
+    actualizarProgresoStock();
   });
 
-  function actualizarProgresoGrabacion() {
-    var cajas = document.querySelectorAll('[data-grabacion]');
+  function actualizarProgresoStock() {
+    var cajas = document.querySelectorAll('[data-cyberstock]');
     var total = cajas.length;
     var done = 0;
     cajas.forEach(function (cb) { if (cb.checked) done++; });
@@ -1416,7 +1313,7 @@ Ahora, cuando armo un pedido, pienso en eso: que a alguien le va a llegar así, 
       fill.style.width = pct + '%';
     });
     document.querySelectorAll('[data-progress-label]').forEach(function (label) {
-      label.textContent = done + ' de ' + total + ' tomas (' + pct + '%)';
+      label.textContent = done + ' de ' + total + ' (' + pct + '%)';
     });
   }
 </script>
